@@ -102,6 +102,9 @@ create table tipo_usuario (
 	tipo_usu_nom 	varchar (255) not null
 );
 
+insert into tipo_usuario values (null, 'Admin');
+insert into tipo_usuario values (null, 'Supervisor');
+
 CREATE TABLE IF NOT EXISTS tipo_suelo (
   id_tipo_suelo int primary key auto_increment,
   tipo_suelo 	varchar (255) not null
@@ -165,6 +168,10 @@ create table usuarios (
 	tipo_usu_cod INT (2) NOT NULL,
 	FOREIGN KEY (tipo_usu_cod) REFERENCES tipo_usuario (tipo_usu_id)
 );
+
+insert into usuarios values(null, 'Denzel', 'Sotomayor', 'dsotomayor', '1337','denzelsotomayor@gmail.com', null, 1, 'm', 1);
+
+select * from usuarios where cod_usu = 'dsotomayor' and pass_usu = '1337';
 
 create table clientes(
 	id_client INT auto_increment PRIMARY KEY NOT NULL,
