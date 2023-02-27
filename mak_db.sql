@@ -171,7 +171,7 @@ create table usuarios (
 
 insert into usuarios values(null, 'Denzel', 'Sotomayor', 'dsotomayor', '1337','denzelsotomayor@gmail.com', null, 1, 'm', 1);
 
-select * from usuarios where cod_usu = 'dsotomayor' and pass_usu = '1337';
+-- select * from usuarios where cod_usu = 'dsotomayor' and pass_usu = '1337';
 
 create table clientes(
 	id_client INT auto_increment PRIMARY KEY NOT NULL,

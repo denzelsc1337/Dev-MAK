@@ -34,7 +34,7 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
 			$_SESSION['ape_usu'] = $datos->ape_usu;
 
 		?>
-			<META http-equiv="Refresh" content="0.3 ; URL =../Vista/main.html">
+			<META http-equiv="Refresh" content="0.3 ; URL =../Vista/dashboard.php">
 		<?php
 
 		}
