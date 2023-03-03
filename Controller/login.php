@@ -33,6 +33,8 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
 			$_SESSION['nom_usu'] = $datos->nom_usu;
 			$_SESSION['ape_usu'] = $datos->ape_usu;
 
+			$_SESSION['autenticado'] = 1;
+
 		?>
 			<META http-equiv="Refresh" content="0.3 ; URL =../Vista/dashboard.php">
 		<?php
