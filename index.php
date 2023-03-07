@@ -48,11 +48,13 @@
               </div>
               
               <div class="d-flex mb-5 align-items-center">
-                <label class="control control--checkbox mb-0"><span class="caption">Recordar contraseña</span>
+<!--                 <label class="control control--checkbox mb-0"><span class="caption">Recordar contraseña</span>
                   <input type="checkbox" checked="checked"/>
                   <div class="control__indicator"></div>
-                </label>
-                <span class="ml-auto"><a href="#" class="forgot-pass">Olvidé mi contraseña</a></span> 
+                </label> -->
+                <span class="ml-auto"><a href="#" class="forgot-pass">Olvidé mi contraseña</a></span>
+                <span class="ml-auto">No tienes cuenta?
+                <a href="register.php" class="forgot-pass">Registra una.</a></span>
               </div>
 
               <button type="submit" class="btn btn-block btn-primary">Iniciar</button>
