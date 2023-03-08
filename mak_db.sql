@@ -171,20 +171,6 @@ create table usuarios (
 
 insert into usuarios values(null, 'Denzel', 'Sotomayor', 'dsotomayor', '1337','denzelsotomayor@gmail.com', null, 1, 'm', 1);
 
-create table client_servicios (
-	id_client INT auto_increment PRIMARY KEY NOT NULL,
-	nom_client VARCHAR (30) NOT NULL,
-	ape_client VARCHAR (30) NOT NULL,
-	cod_usu VARCHAR (30) NOT NULL,
-	pass_usu VARCHAR (20) NOT NULL,
-	mail_usu VARCHAR (40),
-	tlf_usu  CHAR (9),
-	estado_usu  BOOLEAN,
-	genero_usu CHAR(2),
-	tipo_usu_cod INT (2) NOT NULL,
-	FOREIGN KEY (tipo_usu_cod) REFERENCES tipo_usuario (tipo_usu_id)
-);
-
 CREATE TABLE suscripciones (
   id_suscr INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
   suscripcion VARCHAR(20) NOT NULL,
@@ -205,6 +191,7 @@ insert into tipo_client_service (nombre_tipo_client) values('Corredor');
 insert into tipo_client_service (nombre_tipo_client) values('Propietario');
 
 select * from tipo_client_service;
+SELECT id_tipo_client_s, nombre_tipo_client from tipo_client_service;
 
 CREATE TABLE clientes_servicios (
   id_client 				INT NOT NULL AUTO_INCREMENT PRIMARY KEY,

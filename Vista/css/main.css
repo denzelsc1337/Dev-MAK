@@ -248,7 +248,7 @@ h6 {
    #BUTTON
    ========================================================================== */
 .btn {
-  display: inline-block;
+  display: block;
   line-height: 50px;
   padding: 0 50px;
   -webkit-transition: all 0.4s ease;
@@ -259,6 +259,7 @@ h6 {
   font-size: 18px;
   color: #fff;
   font-family: "Poppins", "Arial", "Helvetica Neue", sans-serif;
+  margin: 20px auto;
 }
 
 .btn--radius {
@@ -631,10 +632,27 @@ input {
   box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.15);
 }
 
+.card-inside {
+   background: #e5e5e5;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  -webkit-box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.15);
+  -moz-box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.15);
+  box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.15);
+}
+
 .card-4 .card-body {
   padding: 57px 65px;
   padding-bottom: 65px;
 }
+
+.card-4 .card-type {
+  padding: 31px 31px;
+  padding-bottom: 8px;
+}
+
+
 
 @media (max-width: 767px) {
   .card-4 .card-body {

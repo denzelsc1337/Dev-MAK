@@ -24,6 +24,12 @@
 
     <!-- Main CSS-->
     <link href="css/main.css" rel="stylesheet" media="all">
+
+    <style>
+    body {
+      zoom: 0.87;
+    }
+  </style>
 </head>
 
 <body>
@@ -39,13 +45,13 @@
                             <div class="col-2">
                                 <div class="input-group">
                                     <label class="label">Documento</label>
-                                    <input class="input--style-4" type="text" id="dni_u" name="dni_u" placeholder="DNI">
+                                    <input class="input--style-4" type="text" id="dni_u" name="dni_u" placeholder="DNI" required>
                                 </div>
                             </div>
                             <div class="col-2">
                                 <div class="input-group">
                                     <label class="label">Correo</label>
-                                    <input class="input--style-4" type="text" id="email_u" name="email_u" placeholder="Correo">
+                                    <input class="input--style-4" type="email" id="email_u" name="email_u" placeholder="Correo" required>
                                 </div>
                             </div>
                         </div>
@@ -54,13 +60,13 @@
                             <div class="col-2">
                                 <div class="input-group">
                                     <label class="label">Nombre</label>
-                                    <input class="input--style-4" type="text" id="nombre_u" name="nombre_u" placeholder="Nombre">
+                                    <input class="input--style-4" type="text" id="nombre_u" name="nombre_u" placeholder="Nombre" required>
                                 </div>
                             </div>
                             <div class="col-2">
                                 <div class="input-group">
                                     <label class="label">Usuario</label>
-                                    <input class="input--style-4" type="text" id="usu_c" name="usu_c" placeholder="Usuario">
+                                    <input class="input--style-4" type="text" id="usu_c" name="usu_c" placeholder="Usuario" required>
                                 </div>
                             </div>
                         </div>
@@ -69,7 +75,7 @@
                             <div class="col-2">
                                 <div class="input-group">
                                     <label class="label">Apellidos</label>
-                                    <input class="input--style-4" type="text" id="apellidos_u" name="apellidos_u" placeholder="Apellido">
+                                    <input class="input--style-4" type="text" id="apellidos_u" name="apellidos_u" placeholder="Apellido" required>
 <!--                                     <div class="input-group-icon">
                                         <input class="input--style-4 js-datepicker" type="text" name="birthday">
                                         <i class="zmdi zmdi-calendar-note input-icon js-btn-calendar"></i>
@@ -80,9 +86,9 @@
                                 <div class="input-group">
                                     <label class="label">Contraseña</label>
                                     <div class="input-group-icon">
-                                        <input class="input--style-4" type="password" placeholder="Contraseña">
-                                        <i class="zmdi zmdi-calendar-note input-icon js-btn-calendar"></i>
-                                        <!-- <input class="input--style-4 js-datepicker" type="text" name="birthday">
+                                        <input class="input--style-4" type="password" placeholder="Contraseña" required>
+                                         <!--<i class="zmdi zmdi-calendar-note input-icon js-btn-calendar"></i>
+                                        <input class="input--style-4 js-datepicker" type="text" name="birthday">
                                         <i class="zmdi zmdi-calendar-note input-icon js-btn-calendar"></i> -->
                                     </div>
                                 </div>
@@ -107,56 +113,59 @@
                             <div class="col-2">
                                 <div class="input-group">
                                     <label class="label">Telefono</label>
-                                    <input class="input--style-4" id="telef_u" name="telef_u" placeholder="Telefono/celular">
+                                    <input class="input--style-4" id="telef_u" name="telef_u" placeholder="Telefono/celular" required>
                                 </div>
                             </div>
                             <div class="col-2">
                                 <div class="input-group">
                                     <label class="label">Repetir contraseña</label>
-                                    <input class="input--style-4" type="text" id="pass_u" name="pass_u" placeholder="Repetir contraseña">
+                                    <input class="input--style-4" type="password" id="pass_u" name="pass_u" placeholder="Repetir contraseña" required>
                                 </div>
                             </div>
                         </div>
-                        <div class="input-group">
-                            <label class="label">Tipo de Cliente</label>
-                            <div class="rs-select2 js-select-simple select--no-search">
-                                <script type="text/javascript">
-                                    function changeValue(dropdown) {
-                                        var option = dropdown.options[dropdown.selectedIndex].value,
-                                            field = document.getElementById('datos_corredor');
-                                            if (option == '1') {
-                                                field.style.display = "block";
-                                            }else if (option == '2'){
-                                                field.style.display = "none";
-                                            }
-                                        }
-                                </script>
-                                <?php
-                                require_once('../Controller/controladorListar.php');
-                                ?>
-                                <select name="tipo_cli" id="tipo_cli" onchange="changeValue(this);">
-                                    <option disabled="disabled" selected="selected">Seleccione un tipo</option>
-                                    <?php
-                                        foreach ($selector_types as $cboTypes) {
-                                    ?>
-                                    <option value="<?php echo $cboTypes[0]; ?>"><?php echo $cboTypes[1]; ?></option>
-                                    <?php } ?>
-                                    
-                                </select>
-                                <div class="select-dropdown"></div>
-                            </div>
-                            <br>
-                            <div class="col-2">
-                                <div class="input-group" id="datos_corredor" hidden>
-                                    <label class="label">Codigo de Corredor</label>
-                                    <input class="input--style-4" type="text" name="cod_corredor" id="cod_corredor">
+                        <div class="card card-inside">
+                            <div class="card-type">
+                                <div class="input-group">
+                                    <strong>Tipo de cliente</strong>
+                                    <div class="rs-select2 js-select-simple select--no-search">
+                                        <script type="text/javascript">
+                                            function changeValue(dropdown) {
+                                                var option = dropdown.options[dropdown.selectedIndex].value,
+                                                    field = document.getElementById('datos_corredor');
+                                                    if (option == '1') {
+                                                        field.style.display = "block";
+                                                    }else if (option == '2'){
+                                                        field.style.display = "none";
+                                                    }
+                                                }
+                                        </script>
+                                        <?php
+                                        require_once('../Controller/controladorListar.php');
+                                        ?>
+                                        <select name="tipo_cli" id="tipo_cli" onchange="changeValue(this);" required>
+                                            <option disabled="disabled" selected="selected">Seleccione un tipo</option>
+                                            <?php foreach ($selector_types as $cboTypes) { ?>
+                                                <option value="<?php echo $cboTypes[0]; ?>"><?php echo $cboTypes[1]; ?></option>
+                                            <?php } ?>
+                                        </select>
+                                        <div class="select-dropdown"></div>
+                                    </div>
+                                    <br>
+                                    <div class="col-2">
+                                        <div class="input-group" id="datos_corredor" hidden>
+                                            <strong>Codigo de corredor</strong>
+                                            <input class="input--style-4" type="text" name="cod_corredor" id="cod_corredor">
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
 
                     </div>
                 </div>
-                <button type="submit">Send</button>
+                <button class="btn btn--radius-2 btn--blue" type="submit" >Registrar</button>
+                <h4 >Tienes cuenta? <a href="../index.php">Ingresa ahora.</a></h4   >
+
             </form>
         </div>
     </div>
