@@ -32,20 +32,20 @@
         <div class="wrapper wrapper--w680">
             <h1>Bienvenido a Servicios MAK</h1>
             <h2>Registro</h2>
-            <form method="POST">
+            <form  method="POST" action="../Controller/RegisterClient_Service.php">
             <div class="card card-4">
                 <div class="card-body">
                         <div class="row row-space">
                             <div class="col-2">
                                 <div class="input-group">
                                     <label class="label">Documento</label>
-                                    <input class="input--style-4" type="text" name="dni_u" placeholder="DNI">
+                                    <input class="input--style-4" type="text" id="dni_u" name="dni_u" placeholder="DNI">
                                 </div>
                             </div>
                             <div class="col-2">
                                 <div class="input-group">
                                     <label class="label">Correo</label>
-                                    <input class="input--style-4" type="text" name="email_u" placeholder="Correo">
+                                    <input class="input--style-4" type="text" id="email_u" name="email_u" placeholder="Correo">
                                 </div>
                             </div>
                         </div>
@@ -54,13 +54,13 @@
                             <div class="col-2">
                                 <div class="input-group">
                                     <label class="label">Nombre</label>
-                                    <input class="input--style-4" type="text" name="nombre_u" placeholder="Nombre">
+                                    <input class="input--style-4" type="text" id="nombre_u" name="nombre_u" placeholder="Nombre">
                                 </div>
                             </div>
                             <div class="col-2">
                                 <div class="input-group">
                                     <label class="label">Usuario</label>
-                                    <input class="input--style-4" type="text" name="usu_c" placeholder="Usuario">
+                                    <input class="input--style-4" type="text" id="usu_c" name="usu_c" placeholder="Usuario">
                                 </div>
                             </div>
                         </div>
@@ -69,7 +69,7 @@
                             <div class="col-2">
                                 <div class="input-group">
                                     <label class="label">Apellidos</label>
-                                    <input class="input--style-4" type="text" name="apellidos_u" placeholder="Apellido">
+                                    <input class="input--style-4" type="text" id="apellidos_u" name="apellidos_u" placeholder="Apellido">
 <!--                                     <div class="input-group-icon">
                                         <input class="input--style-4 js-datepicker" type="text" name="birthday">
                                         <i class="zmdi zmdi-calendar-note input-icon js-btn-calendar"></i>
@@ -107,13 +107,13 @@
                             <div class="col-2">
                                 <div class="input-group">
                                     <label class="label">Telefono</label>
-                                    <input class="input--style-4" type="email" name="telef_u" placeholder="Telefono/celular">
+                                    <input class="input--style-4" id="telef_u" name="telef_u" placeholder="Telefono/celular">
                                 </div>
                             </div>
                             <div class="col-2">
                                 <div class="input-group">
                                     <label class="label">Repetir contraseña</label>
-                                    <input class="input--style-4" type="text" name="pass_u" placeholder="Repetir contraseña">
+                                    <input class="input--style-4" type="text" id="pass_u" name="pass_u" placeholder="Repetir contraseña">
                                 </div>
                             </div>
                         </div>
@@ -124,17 +124,24 @@
                                     function changeValue(dropdown) {
                                         var option = dropdown.options[dropdown.selectedIndex].value,
                                             field = document.getElementById('datos_corredor');
-                                            if (option == 'Corredor') {
+                                            if (option == '1') {
                                                 field.style.display = "block";
-                                            }else if (option == 'Propietario'){
+                                            }else if (option == '2'){
                                                 field.style.display = "none";
                                             }
                                         }
                                 </script>
-                                <select name="subject"onchange="changeValue(this);">
+                                <?php
+                                require_once('../Controller/controladorListar.php');
+                                ?>
+                                <select name="tipo_cli" id="tipo_cli" onchange="changeValue(this);">
                                     <option disabled="disabled" selected="selected">Seleccione un tipo</option>
-                                    <option value="Corredor">Corredor</option>
-                                    <option value="Propietario">Propietario</option>
+                                    <?php
+                                        foreach ($selector_types as $cboTypes) {
+                                    ?>
+                                    <option value="<?php echo $cboTypes[0]; ?>"><?php echo $cboTypes[1]; ?></option>
+                                    <?php } ?>
+                                    
                                 </select>
                                 <div class="select-dropdown"></div>
                             </div>
@@ -146,8 +153,10 @@
                                 </div>
                             </div>
                         </div>
+
                     </div>
                 </div>
+                <button type="submit">Send</button>
             </form>
         </div>
     </div>

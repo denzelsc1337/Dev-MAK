@@ -54,7 +54,7 @@
                 </label> -->
                 <span class="ml-auto"><a href="#" class="forgot-pass">Olvidé mi contraseña</a></span>
                 <span class="ml-auto">No tienes cuenta?
-                <a href="register.php" class="forgot-pass">Registra una.</a></span>
+                <a href="Vista/register_client.php" class="forgot-pass">Registra una.</a></span>
               </div>
 
               <button type="submit" class="btn btn-block btn-primary">Iniciar</button>

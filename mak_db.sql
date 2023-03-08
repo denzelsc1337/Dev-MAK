@@ -171,6 +171,95 @@ create table usuarios (
 
 insert into usuarios values(null, 'Denzel', 'Sotomayor', 'dsotomayor', '1337','denzelsotomayor@gmail.com', null, 1, 'm', 1);
 
+create table client_servicios (
+	id_client INT auto_increment PRIMARY KEY NOT NULL,
+	nom_client VARCHAR (30) NOT NULL,
+	ape_client VARCHAR (30) NOT NULL,
+	cod_usu VARCHAR (30) NOT NULL,
+	pass_usu VARCHAR (20) NOT NULL,
+	mail_usu VARCHAR (40),
+	tlf_usu  CHAR (9),
+	estado_usu  BOOLEAN,
+	genero_usu CHAR(2),
+	tipo_usu_cod INT (2) NOT NULL,
+	FOREIGN KEY (tipo_usu_cod) REFERENCES tipo_usuario (tipo_usu_id)
+);
+
+CREATE TABLE suscripciones (
+  id_suscr INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  suscripcion VARCHAR(20) NOT NULL,
+  tipo_suscripcion VARCHAR(20) NOT NULL,
+  duracion_meses int NOT NULL,
+  beneficios_totales int default 0,
+  beneficios_restantes int default 0,
+  beneficios_usados int default 0,
+  CONSTRAINT chk_beneficios CHECK (beneficios_restantes >= 0)
+);
+
+create table tipo_client_service (
+	id_tipo_client_s int not null auto_increment primary key, 
+    nombre_tipo_client varchar(255)
+);
+
+insert into tipo_client_service (nombre_tipo_client) values('Corredor');
+insert into tipo_client_service (nombre_tipo_client) values('Propietario');
+
+select * from tipo_client_service;
+
+CREATE TABLE clientes_servicios (
+  id_client 				INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  dni_client 				char(8) not null,
+  nom_client 				varchar(50) NOT NULL,
+  ape_client				varchar(50) NOT NULL,
+  telef_client				char(9) not null,
+  email_client				varchar(150) not null,
+  usu_client				varchar(100) not null,
+  pass_client				varchar(90) not null,
+  tipo_client_service_cod 	int,
+  corredor_cod				char(15) default 'no es corredor',
+  suscripcion_cod 			int,
+  FOREIGN KEY (tipo_client_service_cod) REFERENCES tipo_client_service(id_tipo_client_s),
+  FOREIGN KEY (suscripcion_cod) 		REFERENCES suscripciones(id_suscr)
+);
+
+
+CREATE TABLE beneficios (
+  id_beneficio INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  nombre_beneficio VARCHAR(50) NOT NULL,
+  descripcion VARCHAR(200),
+  cantidad INT NOT NULL,
+  id_suscripcion INT NOT NULL,
+  CONSTRAINT fk_suscripcion_beneficio FOREIGN KEY (id_suscripcion) REFERENCES suscripciones(id_suscr)
+);
+
+CREATE TABLE beneficios_utilizados (
+  id_beneficio_utilizado INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  id_cliente INT NOT NULL,
+  id_beneficio INT NOT NULL,
+  cantidad_utilizada INT NOT NULL,
+  fecha_utilizacion DATE NOT NULL,
+  CONSTRAINT fk_cliente FOREIGN KEY (id_cliente) REFERENCES clientes_servicios(id_client),
+  CONSTRAINT fk_beneficio FOREIGN KEY (id_beneficio) REFERENCES beneficios(id_beneficio)
+);
+
+INSERT INTO suscripciones (suscripcion, tipo_suscripcion, duracion_meses, beneficios_totales,beneficios_restantes) VALUES
+  ('Premium', 'Anual', 12,35,35),
+  ('Básica', 'Mensual',1,20,20);
+  
+select * from suscripciones;
+
+UPDATE suscripciones
+SET beneficios_restantes = beneficios_restantes - 1,
+    beneficios_usados = beneficios_usados + 1
+WHERE id_suscr = 2 ;
+
+UPDATE beneficios SET cantidad = cantidad - cantidad_utilizada WHERE id_beneficio; -- =  <id del beneficio utilizado>;
+
+UPDATE suscripciones SET beneficios_restantes = beneficios_restantes - cantidad_utilizada WHERE id_suscr; -- = <id de la suscripción del cliente>;
+
+
+
+
 -- select * from usuarios where cod_usu = 'dsotomayor' and pass_usu = '1337';
 
 create table clientes(
