@@ -17,12 +17,12 @@ require_once('../Model/Cliente_Servicios.php');
 $oCli_s= new Cliente_Servicio();
 $r = $oCli_s->add_Client_service($data);
 if($r == 1){
-    ?>
-        <script> alert("Cliente registrado con éxito");</script>
-    <?php
-    }else{
-    ?>
-        <script> alert("Error al registrar Cliente");</script>
-    <?php
-    }
+?>
+    <script> alert("Cliente registrado con éxito");</script>
+<?php
+}else{
+?>
+    <script> alert("Error al registrar Cliente");</script>
+<?php
+}
 ?>

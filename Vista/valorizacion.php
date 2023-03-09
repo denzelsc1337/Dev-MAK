@@ -56,233 +56,164 @@
     <!-- Main content -->
     <section class="content">
       <div class="container-fluid">
+        <h2>  test</h2>
+        <form>
           <div class="row">
-            <div class="col-md-6">
-              <div class="card card-warning">
-                  <!-- /.card-header -->
-                <div class="card-body">
-                  <form>
-                    <div class="row">
-                      <div class="col-sm-6">
-                        <!-- text input -->
-                        <div class="form-group">
-                          <label>Text</label>
-                          <input type="text" class="form-control" placeholder="Enter ...">
-                        </div>
-                      </div>
-                      <div class="col-sm-6">
-                        <div class="form-group">
-                          <label>Text Disabled</label>
-                          <input type="text" class="form-control" placeholder="Enter ..." disabled>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-sm-6">
-                        <!-- textarea -->
-                        <div class="form-group">
-                          <label>Textarea</label>
-                          <textarea class="form-control" rows="3" placeholder="Enter ..."></textarea>
-                        </div>
-                      </div>
-                      <div class="col-sm-6">
-                        <div class="form-group">
-                          <label>Textarea Disabled</label>
-                          <textarea class="form-control" rows="3" placeholder="Enter ..." disabled></textarea>
-                        </div>
-                      </div>
-                    </div>
+              <div class="col-md-4">
+                <div class="card card-warning">
+                    <div class="card-body">
+                              <div class="row">
+                                <div class="col-sm-8">
+                                  <!-- text input -->
+                                  <div class="form-group">
+                                    <label>Ingrese Direccion</label>
+                                    <input type="text" class="form-control" placeholder="Ingrese una direccion">
+                                  </div>
+                                </div>
+                              </div>
 
-                    <!-- input states -->
-                    <div class="form-group">
-                      <label class="col-form-label" for="inputSuccess"><i class="fas fa-check"></i> Input with
-                        success</label>
-                      <input type="text" class="form-control is-valid" id="inputSuccess" placeholder="Enter ...">
-                    </div>
-                    <div class="form-group">
-                      <label class="col-form-label" for="inputWarning"><i class="far fa-bell"></i> Input with
-                        warning</label>
-                      <input type="text" class="form-control is-warning" id="inputWarning" placeholder="Enter ...">
-                    </div>
-                    <div class="form-group">
-                      <label class="col-form-label" for="inputError"><i class="far fa-times-circle"></i> Input with
-                        error</label>
-                      <input type="text" class="form-control is-invalid" id="inputError" placeholder="Enter ...">
-                    </div>
+                              <div class="row">
+                                <div class="col-sm-10">
+                                  <!-- textarea -->
+                                  <div class="form-group">
+                                    <label>Tipo Inmueble</label>
+                                    <?php
+                                      require_once('../Controller/controladorListar.php');
+                                    ?>
+                                   <select id="tipo_prop" class="form-control">
+                                      <option disabled selected="selected">Seleccione un tipo</option>
+                                      <option value="1">Casa - Vivienda</option>
+                                      <option value="#">Departamento - Duplex</option>
+                                      <option value="#">Terreno - Residencial</option>
+                                      <option value="#">Oficina</option>
+                                      <option value="#">Local Comercial - Exclusivo</option>
+                                      <option value="#">Local Industrial</option>
+                                      <?php //foreach ($selector_types_props as $cboTypes_p) { ?>
+                                          <!-- <option value="<?php //echo $cboTypes_p[0]; ?>"><?php //echo $cboTypes_p[1]; ?></option> -->
+                                      <?php// } ?>
+                                    </select>
+                                  </div>
+                                </div>
+                              </div>
 
-                    <div class="row">
-                      <div class="col-sm-6">
-                        <!-- checkbox -->
-                        <div class="form-group">
-                          <div class="form-check">
-                            <input class="form-check-input" type="checkbox">
-                            <label class="form-check-label">Checkbox</label>
-                          </div>
-                          <div class="form-check">
-                            <input class="form-check-input" type="checkbox" checked>
-                            <label class="form-check-label">Checkbox checked</label>
-                          </div>
-                          <div class="form-check">
-                            <input class="form-check-input" type="checkbox" disabled>
-                            <label class="form-check-label">Checkbox disabled</label>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-sm-6">
-                        <!-- radio -->
-                        <div class="form-group">
-                          <div class="form-check">
-                            <input class="form-check-input" type="radio" name="radio1">
-                            <label class="form-check-label">Radio</label>
-                          </div>
-                          <div class="form-check">
-                            <input class="form-check-input" type="radio" name="radio1" checked>
-                            <label class="form-check-label">Radio checked</label>
-                          </div>
-                          <div class="form-check">
-                            <input class="form-check-input" type="radio" disabled>
-                            <label class="form-check-label">Radio disabled</label>
-                          </div>
-                        </div>
-                      </div>
+                              <div class="row">
+                                <div class="col-sm-10">
+                                  <!-- textarea -->
+                                  <div class="form-group">
+                                    <label>Subtipo Inmueble</label>
+                                   <select id="sub_tipo_prop" class="form-control">
+                                    </select>
+                                  </div>
+                                </div>
+                              </div>
+
+                              <script type="text/javascript">
+                              function updateSecondSelect() {
+                                const tipo_prop_ = document.getElementById("tipo_prop");
+
+                                const sub_tipo_prop_ = document.getElementById("sub_tipo_prop");
+
+                                // Obtener el valor seleccionado del primer select
+                                const tipo_prop_value_selected = tipo_prop_.value;
+
+                                // Limpiar las opciones del segundo select
+                                sub_tipo_prop_.innerHTML = "";
+
+                                // Agregar nuevas opciones al segundo select
+                                if (tipo_prop_value_selected === "1") {
+                                  // Agregar opciones para la selección 1
+                                  const option1 = document.createElement("option");
+                                  option1.value = "1-1";
+                                  option1.text = "test";
+                                  sub_tipo_prop_.add(option1);
+
+                                  const option2 = document.createElement("option");
+                                  option2.value = "1-2";
+                                  option2.text = "test_2";
+                                  sub_tipo_prop_.add(option2);
+
+                                }
+                              }
+                              const tipo_prop_ = document.getElementById("tipo_prop");
+                              tipo_prop_.addEventListener("change", updateSecondSelect);
+
+                              </script>
+
+                              <div class="row">
+                                <div class="col-sm-10">
+                                  <!-- textarea -->
+                                  <div class="form-group">
+                                    <label>Promocion</label>
+                                   <select class="form-control">
+                                      <option>option 1</option>
+                                      <option>option 2</option>
+                                      <option>option 3</option>
+                                      <option>option 4</option>
+                                      <option>option 5</option>
+                                    </select>
+                                  </div>
+                                </div>
+                              </div>
                     </div>
-
-                    <div class="row">
-                      <div class="col-sm-6">
-                        <!-- select -->
-                        <div class="form-group">
-                          <label>Select</label>
-                          <select class="form-control">
-                            <option>option 1</option>
-                            <option>option 2</option>
-                            <option>option 3</option>
-                            <option>option 4</option>
-                            <option>option 5</option>
-                          </select>
-                        </div>
-                      </div>
-                      <div class="col-sm-6">
-                        <div class="form-group">
-                          <label>Select Disabled</label>
-                          <select class="form-control" disabled>
-                            <option>option 1</option>
-                            <option>option 2</option>
-                            <option>option 3</option>
-                            <option>option 4</option>
-                            <option>option 5</option>
-                          </select>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="row">
-                      <div class="col-sm-6">
-                        <!-- Select multiple-->
-                        <div class="form-group">
-                          <label>Select Multiple</label>
-                          <select multiple class="form-control">
-                            <option>option 1</option>
-                            <option>option 2</option>
-                            <option>option 3</option>
-                            <option>option 4</option>
-                            <option>option 5</option>
-                          </select>
-                        </div>
-                      </div>
-                      <div class="col-sm-6">
-                        <div class="form-group">
-                          <label>Select Multiple Disabled</label>
-                          <select multiple class="form-control" disabled>
-                            <option>option 1</option>
-                            <option>option 2</option>
-                            <option>option 3</option>
-                            <option>option 4</option>
-                            <option>option 5</option>
-                          </select>
-                        </div>
-                      </div>
-                    </div>
-                  </form>
-                </div>
-                  <!-- /.card-body -->
-                </div>
-            </div>
-
-            <div class="col-md-6">
-              <div class="card card-primary">
-                <div class="card-body">
-                    <!-- Date dd/mm/yyyy -->
-                    <div class="form-group">
-                      <label>Date masks:</label>
-                      <div class="input-group">
-                        <div class="input-group-prepend">
-                          <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
-                        </div>
-                        <input type="text" class="form-control" data-inputmask-alias="datetime" data-inputmask-inputformat="dd/mm/yyyy" data-mask>
-                      </div>
-                      <!-- /.input group -->
-                    </div>
-                    <!-- /.form group -->
-
-                    <!-- Date mm/dd/yyyy -->
-                    <div class="form-group">
-                      <label>Date masks:</label>
-                      <div class="input-group">
-                        <div class="input-group-prepend">
-                          <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
-                        </div>
-                        <input type="text" class="form-control" data-inputmask-alias="datetime" data-inputmask-inputformat="mm/dd/yyyy" data-mask>
-                      </div>
-                      <!-- /.input group -->
-                    </div>
-                    <!-- /.form group -->
-
-                    <!-- phone mask -->
-                    <div class="form-group">
-                      <label>US phone mask:</label>
-
-                      <div class="input-group">
-                        <div class="input-group-prepend">
-                          <span class="input-group-text"><i class="fas fa-phone"></i></span>
-                        </div>
-                        <input type="text" class="form-control" data-inputmask='"mask": "(999) 999-9999"' data-mask>
-                      </div>
-                      <!-- /.input group -->
-                    </div>
-                    <!-- /.form group -->
-
-                    <!-- phone mask -->
-                    <div class="form-group">
-                      <label>Intl US phone mask:</label>
-
-                      <div class="input-group">
-                        <div class="input-group-prepend">
-                          <span class="input-group-text"><i class="fas fa-phone"></i></span>
-                        </div>
-                        <input type="text" class="form-control"
-                               data-inputmask="'mask': ['999-999-9999 [x99999]', '+099 99 99 9999[9]-9999']" data-mask>
-                      </div>
-                      <!-- /.input group -->
-                    </div>
-                    <!-- /.form group -->
-
-                    <!-- IP mask -->
-                    <div class="form-group">
-                      <label>IP mask:</label>
-
-                      <div class="input-group">
-                        <div class="input-group-prepend">
-                          <span class="input-group-text"><i class="fas fa-laptop"></i></span>
-                        </div>
-                        <input type="text" class="form-control" data-inputmask="'alias': 'ip'" data-mask>
-                      </div>
-                      <!-- /.input group -->
-                    </div>
-                    <!-- /.form group -->
                 </div>
               </div>
-            </div>
-        </div>
+              <div class="col-md-4">
+                  <div class="card card-primary">
+                    <div class="card-body">
+                      <strong>Mapa</strong>
+                      <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d15607.47206823551!2d-77.04493215!3d-12.0526008!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses-419!2spe!4v1678375977472!5m2!1ses-419!2spe" width="540" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                  </div>
+              </div>
+              <div class="col-md-4">
+                  <div class="card card-primary">
+                    <div class="card-body">
+                        <!-- Date dd/mm/yyyy -->
+                        <div class="row">
+                            <div class="col-sm-8">
+                              <!-- text input -->
+                              <div class="form-group">
+                                <label>Area de Terreno</label>
+                                <input type="text" class="form-control" placeholder="00.00m2">
+                              </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-sm-8">
+                              <!-- text input -->
+                              <div class="form-group">
+                                <label>Area Construida</label>
+                                <input type="text" class="form-control" placeholder="00.00m2">
+                              </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-sm-8">
+                              <!-- text input -->
+                              <div class="form-group">
+                                <label>Area Ocupada</label>
+                                <input type="text" class="form-control" placeholder="00.00m2">
+                              </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-sm-8">
+                              <!-- text input -->
+                              <div class="form-group">
+                                <label>Antiguedad</label>
+                                <input type="text" class="form-control" placeholder="0 años">
+                              </div>
+                            </div>
+                        </div>
+                    </div>
+                  </div>
+              </div>
+          </div>
+          <button class="btn btn-block btn-info btn-lg" style="margin: 15px 46rem; width: 260px;">Continuar</button>
+        </form>
       </div>
     </section>
 

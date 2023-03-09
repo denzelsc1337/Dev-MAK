@@ -9,6 +9,7 @@ class Cliente_Servicio
 	function __construct()
 	{
 		$this->selectorTypes_Cl = array();
+		$this->selectorTypes_prop = array();
 	}
 
 	function add_Client_service($data)
@@ -46,6 +47,25 @@ class Cliente_Servicio
 		$cnx->cerrarConexion($cadena);
 
 		return $this->selectorTypes_Cl;
+	}
+
+
+	public function selectorType_props()
+	{
+		include_once('../config/Conexion.php');
+		$cnx = new conexion();
+		$cadena = $cnx->abrirConexion();
+
+		$query = "SELECT id_tipo_inmb, tipo_inmb from tipo_inmueble";
+
+		$resultado = mysqli_query($cadena, $query);
+
+		while ($fila = mysqli_fetch_row($resultado)) {
+			$this->selectorTypes_prop[] = $fila;
+		}
+		$cnx->cerrarConexion($cadena);
+
+		return $this->selectorTypes_prop;
 	}
 }
 
