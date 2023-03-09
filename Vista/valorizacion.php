@@ -82,8 +82,8 @@
                                     ?>
                                    <select id="tipo_prop" class="form-control">
                                       <option disabled selected="selected">Seleccione un tipo</option>
-                                      <option value="1">Casa - Vivienda</option>
-                                      <option value="#">Departamento - Duplex</option>
+                                      <option value="casa.php">Casa - Vivienda</option>
+                                      <option value="departamento.php">Departamento - Duplex</option>
                                       <option value="#">Terreno - Residencial</option>
                                       <option value="#">Oficina</option>
                                       <option value="#">Local Comercial - Exclusivo</option>
@@ -102,7 +102,8 @@
                                   <div class="form-group">
                                     <label>Subtipo Inmueble</label>
                                    <select id="sub_tipo_prop" class="form-control">
-                                    </select>
+                                    <option disabled selected="selected">Seleccione un tipo de inmueble</option>
+                                   </select>
                                   </div>
                                 </div>
                               </div>
@@ -120,18 +121,29 @@
                                 sub_tipo_prop_.innerHTML = "";
 
                                 // Agregar nuevas opciones al segundo select
-                                if (tipo_prop_value_selected === "1") {
+                                if (tipo_prop_value_selected === "casa.php") {
                                   // Agregar opciones para la selección 1
                                   const option1 = document.createElement("option");
                                   option1.value = "1-1";
-                                  option1.text = "test";
+                                  option1.text = "Vivienda";
                                   sub_tipo_prop_.add(option1);
 
                                   const option2 = document.createElement("option");
                                   option2.value = "1-2";
-                                  option2.text = "test_2";
+                                  option2.text = "De campo";
                                   sub_tipo_prop_.add(option2);
 
+                                }else if (tipo_prop_value_selected === "departamento.php") {
+                                  // Agregar opciones para la selección 1
+                                  const option1 = document.createElement("option");
+                                  option1.value = "1-1";
+                                  option1.text = "Departamento Oficina";
+                                  sub_tipo_prop_.add(option1);
+
+                                  const option2 = document.createElement("option");
+                                  option2.value = "1-2";
+                                  option2.text = "Departamento Vivienda";
+                                  sub_tipo_prop_.add(option2);
                                 }
                               }
                               const tipo_prop_ = document.getElementById("tipo_prop");
