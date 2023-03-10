@@ -82,9 +82,9 @@
                                     ?>
                                    <select id="tipo_prop" class="form-control">
                                       <option disabled selected="selected">Seleccione un tipo</option>
-                                      <option value="casa.php">Casa - Vivienda</option>
-                                      <option value="departamento.php">Departamento - Duplex</option>
-                                      <option value="#">Terreno - Residencial</option>
+                                      <option value="casa.php">Casa</option>
+                                      <option value="departamento.php">Departamento</option>
+                                      <option value="terreno.php">Terreno</option>
                                       <option value="#">Oficina</option>
                                       <option value="#">Local Comercial - Exclusivo</option>
                                       <option value="#">Local Industrial</option>
@@ -144,6 +144,19 @@
                                   option2.value = "1-2";
                                   option2.text = "Departamento Vivienda";
                                   sub_tipo_prop_.add(option2);
+
+                                  const option3 = document.createElement("option");
+                                  option3.value = "1-3";
+                                  option3.text = "Duplex";
+                                  sub_tipo_prop_.add(option3);
+
+                                }else if (tipo_prop_value_selected === "terreno.php") {
+                                  // Agregar opciones para la selección 1
+                                  const option1 = document.createElement("option");
+                                  option1.value = "1-1";
+                                  option1.text = "Residencial";
+                                  sub_tipo_prop_.add(option1);
+
                                 }
                               }
                               const tipo_prop_ = document.getElementById("tipo_prop");
