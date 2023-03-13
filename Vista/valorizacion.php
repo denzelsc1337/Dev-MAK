@@ -161,7 +161,6 @@
                               }
                               const tipo_prop_ = document.getElementById("tipo_prop");
                               tipo_prop_.addEventListener("change", updateSecondSelect);
-
                               </script>
 
                               <div class="row">
@@ -237,7 +236,27 @@
                   </div>
               </div>
           </div>
-          <button class="btn btn-block btn-info btn-lg" style="margin: 15px 46rem; width: 260px;">Continuar</button>
+          <button id="go_to" type="button" class="btn btn-block btn-info btn-lg" style="margin: 15px 46rem; width: 260px;">Continuar</button>
+          <script type="text/javascript">
+            // Obtener el elemento select y el formulario
+            const select = document.getElementById('tipo_prop');
+            const button = document.getElementById('go_to');
+
+            // Agregar un event listener al botón para detectar clics
+            button.addEventListener('click', () => {
+              // Obtener el valor seleccionado
+              const selectedValue = select.value;
+
+              // Si se selecciona la opción por defecto, no hacer nada
+              if (selectedValue === '') {
+                return;
+              }
+
+              // Cambiar la ubicación actual de la ventana del navegador para redirigir a la página seleccionada
+              window.location.href = selectedValue;
+              console.log("La dirección se ha cambiado a: " + selectedValue);
+            });
+          </script>
         </form>
       </div>
     </section>
