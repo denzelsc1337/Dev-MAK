@@ -60,126 +60,126 @@
         <form>
           <div class="row">
               <div class="col-md-4">
-                <div class="card card-warning">
-                    <div class="card-body">
-                              <div class="row">
-                                <div class="col-sm-8">
-                                  <!-- text input -->
-                                  <div class="form-group">
-                                    <label>Ingrese Direccion</label>
-                                    <input type="text" class="form-control" placeholder="Ingrese una direccion">
+                  <div class="card card-warning">
+                      <div class="card-body">
+                                <div class="row">
+                                  <div class="col-sm-8">
+                                    <!-- text input -->
+                                    <div class="form-group">
+                                      <label>Ingrese Direccion</label>
+                                      <input type="text" class="form-control" placeholder="Ingrese una direccion">
+                                    </div>
                                   </div>
                                 </div>
-                              </div>
 
-                              <div class="row">
-                                <div class="col-sm-10">
-                                  <!-- textarea -->
-                                  <div class="form-group">
-                                    <label>Tipo Inmueble</label>
-                                    <?php
-                                      require_once('../Controller/controladorListar.php');
-                                    ?>
-                                   <select id="tipo_prop" class="form-control">
-                                      <option disabled selected="selected">Seleccione un tipo</option>
-                                      <option value="casa.php">Casa</option>
-                                      <option value="departamento.php">Departamento</option>
-                                      <option value="terreno.php">Terreno</option>
-                                      <option value="#">Oficina</option>
-                                      <option value="#">Local Comercial - Exclusivo</option>
-                                      <option value="#">Local Industrial</option>
-                                      <?php //foreach ($selector_types_props as $cboTypes_p) { ?>
-                                          <!-- <option value="<?php //echo $cboTypes_p[0]; ?>"><?php //echo $cboTypes_p[1]; ?></option> -->
-                                      <?php// } ?>
-                                    </select>
+                                <div class="row">
+                                  <div class="col-sm-10">
+                                    <!-- textarea -->
+                                    <div class="form-group">
+                                      <label>Tipo Inmueble</label>
+                                      <?php
+                                        require_once('../Controller/controladorListar.php');
+                                      ?>
+                                     <select id="tipo_prop" class="form-control">
+                                        <option disabled selected="selected">Seleccione un tipo</option>
+                                        <option value="casa.php">Casa</option>
+                                        <option value="departamento.php">Departamento</option>
+                                        <option value="terreno.php">Terreno</option>
+                                        <option value="#">Oficina</option>
+                                        <option value="#">Local Comercial - Exclusivo</option>
+                                        <option value="#">Local Industrial</option>
+                                        <?php //foreach ($selector_types_props as $cboTypes_p) { ?>
+                                            <!-- <option value="<?php //echo $cboTypes_p[0]; ?>"><?php //echo $cboTypes_p[1]; ?></option> -->
+                                        <?php// } ?>
+                                      </select>
+                                    </div>
                                   </div>
                                 </div>
-                              </div>
 
-                              <div class="row">
-                                <div class="col-sm-10">
-                                  <!-- textarea -->
-                                  <div class="form-group">
-                                    <label>Subtipo Inmueble</label>
-                                   <select id="sub_tipo_prop" class="form-control">
-                                    <option disabled selected="selected">Seleccione un tipo de inmueble</option>
-                                   </select>
+                                <div class="row">
+                                  <div class="col-sm-10">
+                                    <!-- textarea -->
+                                    <div class="form-group">
+                                      <label>Subtipo Inmueble</label>
+                                     <select id="sub_tipo_prop" class="form-control">
+                                      <option disabled selected="selected">Seleccione un tipo de inmueble</option>
+                                     </select>
+                                    </div>
                                   </div>
                                 </div>
-                              </div>
 
-                              <script type="text/javascript">
-                              function updateSecondSelect() {
-                                const tipo_prop_ = document.getElementById("tipo_prop");
+                                <script type="text/javascript">
+                                function updateSecondSelect() {
+                                  const tipo_prop_ = document.getElementById("tipo_prop");
 
-                                const sub_tipo_prop_ = document.getElementById("sub_tipo_prop");
+                                  const sub_tipo_prop_ = document.getElementById("sub_tipo_prop");
 
-                                // Obtener el valor seleccionado del primer select
-                                const tipo_prop_value_selected = tipo_prop_.value;
+                                  // Obtener el valor seleccionado del primer select
+                                  const tipo_prop_value_selected = tipo_prop_.value;
 
-                                // Limpiar las opciones del segundo select
-                                sub_tipo_prop_.innerHTML = "";
+                                  // Limpiar las opciones del segundo select
+                                  sub_tipo_prop_.innerHTML = "";
 
-                                // Agregar nuevas opciones al segundo select
-                                if (tipo_prop_value_selected === "casa.php") {
-                                  // Agregar opciones para la selección 1
-                                  const option1 = document.createElement("option");
-                                  option1.value = "1-1";
-                                  option1.text = "Vivienda";
-                                  sub_tipo_prop_.add(option1);
+                                  // Agregar nuevas opciones al segundo select
+                                  if (tipo_prop_value_selected === "casa.php") {
+                                    // Agregar opciones para la selección 1
+                                    const option1 = document.createElement("option");
+                                    option1.value = "1-1";
+                                    option1.text = "Vivienda";
+                                    sub_tipo_prop_.add(option1);
 
-                                  const option2 = document.createElement("option");
-                                  option2.value = "1-2";
-                                  option2.text = "De campo";
-                                  sub_tipo_prop_.add(option2);
+                                    const option2 = document.createElement("option");
+                                    option2.value = "1-2";
+                                    option2.text = "De campo";
+                                    sub_tipo_prop_.add(option2);
 
-                                }else if (tipo_prop_value_selected === "departamento.php") {
-                                  // Agregar opciones para la selección 1
-                                  const option1 = document.createElement("option");
-                                  option1.value = "1-1";
-                                  option1.text = "Departamento Oficina";
-                                  sub_tipo_prop_.add(option1);
+                                  }else if (tipo_prop_value_selected === "departamento.php") {
+                                    // Agregar opciones para la selección 1
+                                    const option1 = document.createElement("option");
+                                    option1.value = "1-1";
+                                    option1.text = "Departamento Oficina";
+                                    sub_tipo_prop_.add(option1);
 
-                                  const option2 = document.createElement("option");
-                                  option2.value = "1-2";
-                                  option2.text = "Departamento Vivienda";
-                                  sub_tipo_prop_.add(option2);
+                                    const option2 = document.createElement("option");
+                                    option2.value = "1-2";
+                                    option2.text = "Departamento Vivienda";
+                                    sub_tipo_prop_.add(option2);
 
-                                  const option3 = document.createElement("option");
-                                  option3.value = "1-3";
-                                  option3.text = "Duplex";
-                                  sub_tipo_prop_.add(option3);
+                                    const option3 = document.createElement("option");
+                                    option3.value = "1-3";
+                                    option3.text = "Duplex";
+                                    sub_tipo_prop_.add(option3);
 
-                                }else if (tipo_prop_value_selected === "terreno.php") {
-                                  // Agregar opciones para la selección 1
-                                  const option1 = document.createElement("option");
-                                  option1.value = "1-1";
-                                  option1.text = "Residencial";
-                                  sub_tipo_prop_.add(option1);
+                                  }else if (tipo_prop_value_selected === "terreno.php") {
+                                    // Agregar opciones para la selección 1
+                                    const option1 = document.createElement("option");
+                                    option1.value = "1-1";
+                                    option1.text = "Residencial";
+                                    sub_tipo_prop_.add(option1);
 
+                                  }
                                 }
-                              }
-                              const tipo_prop_ = document.getElementById("tipo_prop");
-                              tipo_prop_.addEventListener("change", updateSecondSelect);
-                              </script>
+                                const tipo_prop_ = document.getElementById("tipo_prop");
+                                tipo_prop_.addEventListener("change", updateSecondSelect);
+                                </script>
 
-                              <div class="row">
-                                <div class="col-sm-10">
-                                  <!-- textarea -->
-                                  <div class="form-group">
-                                    <label>Promocion</label>
-                                   <select class="form-control">
-                                      <option>option 1</option>
-                                      <option>option 2</option>
-                                      <option>option 3</option>
-                                      <option>option 4</option>
-                                      <option>option 5</option>
-                                    </select>
+                                <div class="row">
+                                  <div class="col-sm-10">
+                                    <!-- textarea -->
+                                    <div class="form-group">
+                                      <label>Promocion</label>
+                                     <select class="form-control">
+                                        <option>option 1</option>
+                                        <option>option 2</option>
+                                        <option>option 3</option>
+                                        <option>option 4</option>
+                                        <option>option 5</option>
+                                      </select>
+                                    </div>
                                   </div>
                                 </div>
-                              </div>
-                    </div>
-                </div>
+                      </div>
+                  </div>
               </div>
               <div class="col-md-4">
                   <div class="card card-primary">
@@ -237,6 +237,7 @@
               </div>
           </div>
           <button id="go_to" type="button" class="btn btn-block btn-info btn-lg" style="margin: 15px 46rem; width: 260px;">Continuar</button>
+
           <script type="text/javascript">
             // Obtener el elemento select y el formulario
             const select = document.getElementById('tipo_prop');
@@ -257,14 +258,304 @@
               console.log("La dirección se ha cambiado a: " + selectedValue);
             });
           </script>
+
         </form>
       </div>
+
+
+      <div class="row">
+          <div class="col-md-12">
+            <div class="card card-default">
+              <div class="card-header">
+                <h3 class="card-title">bs-stepper</h3>
+              </div>
+              <div class="card-body p-0">
+                <div class="bs-stepper">
+                  <div class="bs-stepper-header" role="tablist">
+                    <!-- your steps here -->
+                    <div class="step" data-target="#logins-part">
+                      <button type="button" class="step-trigger" role="tab" aria-controls="logins-part" id="logins-part-trigger">
+                        <span class="bs-stepper-circle">1</span>
+                        <span class="bs-stepper-label">Seleccion de tipo</span>
+                      </button>
+                    </div>
+                    <div class="line"></div>
+
+                    <div class="step" data-target="#information-part">
+                      <button type="button" class="step-trigger" role="tab" aria-controls="information-part" id="information-part-trigger">
+                        <span class="bs-stepper-circle">2</span>
+                        <span class="bs-stepper-label">TIpo de Inmueble</span>
+                      </button>
+                    </div>
+
+                    <div class="step" data-target="#information-part">
+                      <button type="button" class="step-trigger" role="tab" aria-controls="information-part" id="information-part-trigger">
+                        <span class="bs-stepper-circle">3</span>
+                        <span class="bs-stepper-label">TIpo de Inmueble</span>
+                      </button>
+                    </div>
+                  </div>
+                  <!-- your steps here -->
+
+                  <div class="bs-stepper-content">
+                    <!--seleccion de inmueble-->
+
+                    <div id="logins-part" class="content" role="tabpanel" aria-labelledby="logins-part-trigger">
+                      <div class="row">
+                          <div class="col-md-4">
+                            <div class="card card-warning">
+                                <div class="card-body">
+                                    <div class="row">
+                                      <div class="col-sm-8">
+                                        <!-- text input -->
+                                        <div class="form-group">
+                                          <label>Ingrese Direccion</label>
+                                          <input type="text" class="form-control" placeholder="Ingrese una direccion">
+                                        </div>
+                                      </div>
+                                    </div>
+
+                                    <div class="row">
+                                      <div class="col-sm-10">
+                                        <!-- textarea -->
+                                        <div class="form-group">
+                                          <label>Tipo Inmueble</label>
+                                          <?php
+                                            require_once('../Controller/controladorListar.php');
+                                          ?>
+                                         <select id="tipo_prop" class="form-control">
+                                            <option disabled selected="selected">Seleccione un tipo</option>
+                                            <option value="casa.php">Casa</option>
+                                            <option value="departamento.php">Departamento</option>
+                                            <option value="terreno.php">Terreno</option>
+                                            <option value="#">Oficina</option>
+                                            <option value="#">Local Comercial - Exclusivo</option>
+                                            <option value="#">Local Industrial</option>
+                                            <?php //foreach ($selector_types_props as $cboTypes_p) { ?>
+                                                <!-- <option value="<?php //echo $cboTypes_p[0]; ?>"><?php //echo $cboTypes_p[1]; ?></option> -->
+                                            <?php// } ?>
+                                          </select>
+                                        </div>
+                                      </div>
+                                    </div>
+
+                                    <div class="row">
+                                      <div class="col-sm-10">
+                                        <!-- textarea -->
+                                        <div class="form-group">
+                                          <label>Subtipo Inmueble</label>
+                                         <select id="sub_tipo_prop" class="form-control">
+                                          <option disabled selected="selected">Seleccione un tipo de inmueble</option>
+                                         </select>
+                                        </div>
+                                      </div>
+                                    </div>
+
+                                    <script type="text/javascript">
+                                    function updateSecondSelect() {
+                                      const tipo_prop_ = document.getElementById("tipo_prop");
+
+                                      const sub_tipo_prop_ = document.getElementById("sub_tipo_prop");
+
+                                      // Obtener el valor seleccionado del primer select
+                                      const tipo_prop_value_selected = tipo_prop_.value;
+
+                                      // Limpiar las opciones del segundo select
+                                      sub_tipo_prop_.innerHTML = "";
+
+                                      // Agregar nuevas opciones al segundo select
+                                      if (tipo_prop_value_selected === "casa.php") {
+                                        // Agregar opciones para la selección 1
+                                        const option1 = document.createElement("option");
+                                        option1.value = "1-1";
+                                        option1.text = "Vivienda";
+                                        sub_tipo_prop_.add(option1);
+
+                                        const option2 = document.createElement("option");
+                                        option2.value = "1-2";
+                                        option2.text = "De campo";
+                                        sub_tipo_prop_.add(option2);
+
+                                      }else if (tipo_prop_value_selected === "departamento.php") {
+                                        // Agregar opciones para la selección 1
+                                        const option1 = document.createElement("option");
+                                        option1.value = "1-1";
+                                        option1.text = "Departamento Oficina";
+                                        sub_tipo_prop_.add(option1);
+
+                                        const option2 = document.createElement("option");
+                                        option2.value = "1-2";
+                                        option2.text = "Departamento Vivienda";
+                                        sub_tipo_prop_.add(option2);
+
+                                        const option3 = document.createElement("option");
+                                        option3.value = "1-3";
+                                        option3.text = "Duplex";
+                                        sub_tipo_prop_.add(option3);
+
+                                      }else if (tipo_prop_value_selected === "terreno.php") {
+                                        // Agregar opciones para la selección 1
+                                        const option1 = document.createElement("option");
+                                        option1.value = "1-1";
+                                        option1.text = "Residencial";
+                                        sub_tipo_prop_.add(option1);
+
+                                      }
+                                    }
+                                    const tipo_prop_ = document.getElementById("tipo_prop");
+                                    tipo_prop_.addEventListener("change", updateSecondSelect);
+                                    </script>
+
+                                    <div class="row">
+                                      <div class="col-sm-10">
+                                        <!-- textarea -->
+                                        <div class="form-group">
+                                          <label>Promocion</label>
+                                         <select class="form-control">
+                                            <option>option 1</option>
+                                            <option>option 2</option>
+                                            <option>option 3</option>
+                                            <option>option 4</option>
+                                            <option>option 5</option>
+                                          </select>
+                                        </div>
+                                      </div>
+                                    </div>
+                                </div>
+                            </div>
+                          </div>
+
+                          <div class="col-md-4">
+                              <div class="card card-primary">
+                                  <div class="card-body">
+                                    <strong>Mapa</strong>
+                                    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d15607.47206823551!2d-77.04493215!3d-12.0526008!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses-419!2spe!4v1678375977472!5m2!1ses-419!2spe" width="540" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                                  </div>
+                              </div>
+                          </div>
+
+                          <div class="col-md-4">
+                              <div class="card card-primary">
+                                  <div class="card-body">
+                                      <!-- Date dd/mm/yyyy -->
+                                      <div class="row">
+                                          <div class="col-sm-8">
+                                            <!-- text input -->
+                                            <div class="form-group">
+                                              <label>Area de Terreno</label>
+                                              <input type="text" class="form-control" placeholder="00.00m2">
+                                            </div>
+                                          </div>
+                                      </div>
+
+                                      <div class="row">
+                                          <div class="col-sm-8">
+                                            <!-- text input -->
+                                            <div class="form-group">
+                                              <label>Area Construida</label>
+                                              <input type="text" class="form-control" placeholder="00.00m2">
+                                            </div>
+                                          </div>
+                                      </div>
+
+                                      <div class="row">
+                                          <div class="col-sm-8">
+                                            <!-- text input -->
+                                            <div class="form-group">
+                                              <label>Area Ocupada</label>
+                                              <input type="text" class="form-control" placeholder="00.00m2">
+                                            </div>
+                                          </div>
+                                      </div>
+
+                                      <div class="row">
+                                          <div class="col-sm-8">
+                                            <!-- text input -->
+                                            <div class="form-group">
+                                              <label>Antiguedad</label>
+                                              <input type="text" class="form-control" placeholder="0 años">
+                                            </div>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                    </div>
+                   <button id="go_to" class="btn btn-block btn-info btn-lg" style="margin: 15px 46rem; width: 260px;" onclick="stepper.next()">Continuar</button>
+
+                   <script type="text/javascript">
+                    // Obtener el elemento select y el formulario
+                    const select = document.getElementById('tipo_prop');
+                    const button = document.getElementById('go_to');
+
+                    // Agregar un event listener al botón para detectar clics
+                    button.addEventListener('click', () => {
+                      // Obtener el valor seleccionado
+                      const selectedValue = select.value;
+
+                      // Si se selecciona la opción por defecto, no hacer nada
+                      if (selectedValue === '') {
+                        return;
+                      }
+
+                      // Cambiar la ubicación actual de la ventana del navegador para redirigir a la página seleccionada
+                      window.location.href = selectedValue;
+                      console.log("La dirección se ha cambiado a: " + selectedValue);
+                    });
+                  </script>
+
+                    <!--seleccion de inmueble-->
+
+                    <div id="information-part" class="content" role="tabpanel" aria-labelledby="information-part-trigger">
+                      <div class="form-group">
+                        <label for="exampleInputFile">File input</label>
+                        <div class="input-group">
+                          <div class="custom-file">
+                            <input type="file" class="custom-file-input" id="exampleInputFile">
+                            <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                          </div>
+                          <div class="input-group-append">
+                            <span class="input-group-text">Upload</span>
+                          </div>
+                        </div>
+                      </div>
+                      <button class="btn btn-primary" onclick="stepper.previous()">Previous</button>
+                      <button id="go_to" class="btn btn-block btn-info btn-lg" style="margin: 15px 46rem; width: 260px;" onclick="stepper.next()">Continuar</button>
+                    </div>
+
+                    <div id="information-part" class="content" role="tabpanel" aria-labelledby="information-part-trigger">
+                      <div class="form-group">
+                        <label for="exampleInputFile">File input</label>
+                        <div class="input-group">
+                          <div class="custom-file">
+                            <input type="file" class="custom-file-input" id="exampleInputFile">
+                            <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                          </div>
+                          <div class="input-group-append">
+                            <span class="input-group-text">Upload</span>
+                          </div>
+                        </div>
+                      </div>
+                      <button class="btn btn-primary" onclick="stepper.previous()">Previous</button>
+                      <button id="go_to" class="btn btn-block btn-info btn-lg" style="margin: 15px 46rem; width: 260px;" onclick="stepper.next()">Continuar</button>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+              <!-- /.card-body -->
+              <div class="card-footer">
+                Visit <a href="https://github.com/Johann-S/bs-stepper/#how-to-use-it">bs-stepper documentation</a> for more examples and information about the plugin.
+              </div>
+            </div>
+            <!-- /.card -->
+          </div>
+        </div>
     </section>
 
     <!-- /.content -->
 </div>
-
-
 
 
 <!-- REQUIRED SCRIPTS -->
