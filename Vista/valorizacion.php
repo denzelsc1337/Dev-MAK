@@ -298,9 +298,10 @@
                   <!-- your steps here -->
 
                   <div class="bs-stepper-content">
-                    <!--seleccion de inmueble-->
+                    <!--seleccion de inmueble--><!--seleccion de inmueble-->
 
                     <div id="logins-part" class="content" role="tabpanel" aria-labelledby="logins-part-trigger">
+
                       <div class="row">
                           <div class="col-md-4">
                             <div class="card card-warning">
@@ -317,12 +318,8 @@
 
                                     <div class="row">
                                       <div class="col-sm-10">
-                                        <!-- textarea -->
                                         <div class="form-group">
                                           <label>Tipo Inmueble</label>
-                                          <?php
-                                            require_once('../Controller/controladorListar.php');
-                                          ?>
                                          <select id="tipo_prop" class="form-control">
                                             <option disabled selected="selected">Seleccione un tipo</option>
                                             <option value="casa.php">Casa</option>
@@ -331,9 +328,6 @@
                                             <option value="#">Oficina</option>
                                             <option value="#">Local Comercial - Exclusivo</option>
                                             <option value="#">Local Industrial</option>
-                                            <?php //foreach ($selector_types_props as $cboTypes_p) { ?>
-                                                <!-- <option value="<?php //echo $cboTypes_p[0]; ?>"><?php //echo $cboTypes_p[1]; ?></option> -->
-                                            <?php// } ?>
                                           </select>
                                         </div>
                                       </div>
@@ -480,11 +474,41 @@
                                   </div>
                               </div>
                           </div>
+
                       </div>
                     </div>
+                    <!--CASA--><!--CASA--><!--CASA--><!--CASA--><!--CASA--><!--CASA--><!--CASA--><!--CASA--><!--CASA-->
+                    <div id="information-part" class="content" role="tabpanel" aria-labelledby="information-part-trigger">
+
+                      <div class="row">
+                        <div class="col-md-4">
+                          <div class="card card-warning">
+                            <div class="card-body">
+                              <div class="row">
+                                  <div class="col-sm-8">
+                                    <!-- text input -->
+                                    <div class="form-group">
+                                      <label>Ingrese Direccion</label>
+                                      <input type="text" class="form-control" placeholder="Ingrese una direccion">
+                                    </div>
+                                  </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <button class="btn btn-primary" onclick="stepper.previous()">Previous</button>
+
+                    </div>
+
                    <button id="go_to" class="btn btn-block btn-info btn-lg" style="margin: 15px 46rem; width: 260px;" onclick="stepper.next()">Continuar</button>
 
-                   <script type="text/javascript">
+
+
+
+
+                    <script type="text/javascript">
                     // Obtener el elemento select y el formulario
                     const select = document.getElementById('tipo_prop');
                     const button = document.getElementById('go_to');
@@ -505,43 +529,8 @@
                     });
                   </script>
 
-                    <!--seleccion de inmueble-->
-
-                    <div id="information-part" class="content" role="tabpanel" aria-labelledby="information-part-trigger">
-                      <div class="form-group">
-                        <label for="exampleInputFile">File input</label>
-                        <div class="input-group">
-                          <div class="custom-file">
-                            <input type="file" class="custom-file-input" id="exampleInputFile">
-                            <label class="custom-file-label" for="exampleInputFile">Choose file</label>
-                          </div>
-                          <div class="input-group-append">
-                            <span class="input-group-text">Upload</span>
-                          </div>
-                        </div>
-                      </div>
-                      <button class="btn btn-primary" onclick="stepper.previous()">Previous</button>
-                      <button id="go_to" class="btn btn-block btn-info btn-lg" style="margin: 15px 46rem; width: 260px;" onclick="stepper.next()">Continuar</button>
-                    </div>
-
-                    <div id="information-part" class="content" role="tabpanel" aria-labelledby="information-part-trigger">
-                      <div class="form-group">
-                        <label for="exampleInputFile">File input</label>
-                        <div class="input-group">
-                          <div class="custom-file">
-                            <input type="file" class="custom-file-input" id="exampleInputFile">
-                            <label class="custom-file-label" for="exampleInputFile">Choose file</label>
-                          </div>
-                          <div class="input-group-append">
-                            <span class="input-group-text">Upload</span>
-                          </div>
-                        </div>
-                      </div>
-                      <button class="btn btn-primary" onclick="stepper.previous()">Previous</button>
-                      <button id="go_to" class="btn btn-block btn-info btn-lg" style="margin: 15px 46rem; width: 260px;" onclick="stepper.next()">Continuar</button>
-                    </div>
-
                   </div>
+
                 </div>
               </div>
               <!-- /.card-body -->
