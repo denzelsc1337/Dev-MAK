@@ -459,12 +459,13 @@ input[type="number"] {
   background-color: transparent;
 }
 
-.t-head {
+form{
+  overflow: hidden;
+  width: 100%;
+}
+
+form .form-content {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 40px;
-  font-weight: bold;
 }
 
 
