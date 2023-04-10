@@ -891,7 +891,7 @@ require_once('../config/security.php');
                   <div class="card mb-2 bg-gradient-dark">
                     <img class="card-img-top" src="images/money.jpg" alt="Dist Photo 1">
                     <div class="card-img-overlay d-flex flex-column justify-content-end">
-                      <a href="../Vista/valorizacion.php" class="btn btn-block btn-primary">INICIAR</a>
+                      <a href="../Vista/testeo.php" class="btn btn-block btn-primary">INICIAR</a>
 
                     </div>
                   </div>

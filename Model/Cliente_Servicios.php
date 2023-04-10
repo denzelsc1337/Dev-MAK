@@ -56,7 +56,7 @@ class Cliente_Servicio
 		$cnx = new conexion();
 		$cadena = $cnx->abrirConexion();
 
-		$query = "SELECT id_tipo_inmb, tipo_inmb from tipo_inmueble";
+		$query = "SELECT id_tipo_inmb, tipo_inmb from tipo_inmuebles";
 
 		$resultado = mysqli_query($cadena, $query);
 
