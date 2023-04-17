@@ -171,16 +171,16 @@ create table usuarios (
 
 insert into usuarios values(null, 'Denzel', 'Sotomayor', 'dsotomayor', '1337','denzelsotomayor@gmail.com', null, 1, 'm', 1);
 
-CREATE TABLE suscripciones (
-  id_suscr INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  suscripcion VARCHAR(20) NOT NULL,
-  tipo_suscripcion VARCHAR(20) NOT NULL,
-  duracion_meses int NOT NULL,
-  beneficios_totales int default 0,
-  beneficios_restantes int default 0,
-  beneficios_usados int default 0,
-  CONSTRAINT chk_beneficios CHECK (beneficios_restantes >= 0)
-);
+-- CREATE TABLE suscripciones (
+--   id_suscr INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+--   suscripcion VARCHAR(20) NOT NULL,
+--   tipo_suscripcion VARCHAR(20) NOT NULL,
+--   duracion_meses int NOT NULL,
+--   beneficios_totales int default 0,
+--   beneficios_restantes int default 0,
+--   beneficios_usados int default 0,
+--   CONSTRAINT chk_beneficios CHECK (beneficios_restantes >= 0)
+-- );
 
 create table tipo_client_service (
 	id_tipo_client_s int not null auto_increment primary key, 
@@ -205,44 +205,44 @@ CREATE TABLE clientes_servicios (
   tipo_client_service_cod 	int,
   corredor_cod				char(15) default 'no es corredor',
   suscripcion_cod 			int,
-  FOREIGN KEY (tipo_client_service_cod) REFERENCES tipo_client_service(id_tipo_client_s),
-  FOREIGN KEY (suscripcion_cod) 		REFERENCES suscripciones(id_suscr)
+  FOREIGN KEY (tipo_client_service_cod) REFERENCES tipo_client_service(id_tipo_client_s)
+  -- FOREIGN KEY (suscripcion_cod) 		REFERENCES suscripciones(id_suscr)
 );
 
 
-CREATE TABLE beneficios (
-  id_beneficio INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  nombre_beneficio VARCHAR(50) NOT NULL,
-  descripcion VARCHAR(200),
-  cantidad INT NOT NULL,
-  id_suscripcion INT NOT NULL,
-  CONSTRAINT fk_suscripcion_beneficio FOREIGN KEY (id_suscripcion) REFERENCES suscripciones(id_suscr)
-);
+-- CREATE TABLE beneficios (
+--   id_beneficio INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+--   nombre_beneficio VARCHAR(50) NOT NULL,
+--   descripcion VARCHAR(200),
+--   cantidad INT NOT NULL,
+--   id_suscripcion INT NOT NULL,
+--   CONSTRAINT fk_suscripcion_beneficio FOREIGN KEY (id_suscripcion) REFERENCES suscripciones(id_suscr)
+-- );
 
-CREATE TABLE beneficios_utilizados (
-  id_beneficio_utilizado INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  id_cliente INT NOT NULL,
-  id_beneficio INT NOT NULL,
-  cantidad_utilizada INT NOT NULL,
-  fecha_utilizacion DATE NOT NULL,
-  CONSTRAINT fk_cliente FOREIGN KEY (id_cliente) REFERENCES clientes_servicios(id_client),
-  CONSTRAINT fk_beneficio FOREIGN KEY (id_beneficio) REFERENCES beneficios(id_beneficio)
-);
+-- CREATE TABLE beneficios_utilizados (
+--   id_beneficio_utilizado INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+--   id_cliente INT NOT NULL,
+--   id_beneficio INT NOT NULL,
+--   cantidad_utilizada INT NOT NULL,
+--   fecha_utilizacion DATE NOT NULL,
+--   CONSTRAINT fk_cliente FOREIGN KEY (id_cliente) REFERENCES clientes_servicios(id_client),
+--   CONSTRAINT fk_beneficio FOREIGN KEY (id_beneficio) REFERENCES beneficios(id_beneficio)
+-- );
 
-INSERT INTO suscripciones (suscripcion, tipo_suscripcion, duracion_meses, beneficios_totales,beneficios_restantes) VALUES
-  ('Premium', 'Anual', 12,35,35),
-  ('Básica', 'Mensual',1,20,20);
-  
-select * from suscripciones;
+-- INSERT INTO suscripciones (suscripcion, tipo_suscripcion, duracion_meses, beneficios_totales,beneficios_restantes) VALUES
+--   ('Premium', 'Anual', 12,35,35),
+--   ('Básica', 'Mensual',1,20,20);
+--   
+-- select * from suscripciones;
 
-UPDATE suscripciones
-SET beneficios_restantes = beneficios_restantes - 1,
-    beneficios_usados = beneficios_usados + 1
-WHERE id_suscr = 2 ;
+-- UPDATE suscripciones
+-- SET beneficios_restantes = beneficios_restantes - 1,
+--     beneficios_usados = beneficios_usados + 1
+-- WHERE id_suscr = 2 ;
 
-UPDATE beneficios SET cantidad = cantidad - cantidad_utilizada WHERE id_beneficio; -- =  <id del beneficio utilizado>;
+-- UPDATE beneficios SET cantidad = cantidad - cantidad_utilizada WHERE id_beneficio; -- =  <id del beneficio utilizado>;
 
-UPDATE suscripciones SET beneficios_restantes = beneficios_restantes - cantidad_utilizada WHERE id_suscr; -- = <id de la suscripción del cliente>;
+-- UPDATE suscripciones SET beneficios_restantes = beneficios_restantes - cantidad_utilizada WHERE id_suscr; -- = <id de la suscripción del cliente>;
 
 
 

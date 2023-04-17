@@ -36,7 +36,7 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
 			$_SESSION['autenticado'] = 1;
 
 		?>
-			<META http-equiv="Refresh" content="0.3 ; URL =../Vista/dashboard.php">
+			<META http-equiv="Refresh" content="0.3 ; URL =../dashboard.php">
 		<?php
 
 		}
