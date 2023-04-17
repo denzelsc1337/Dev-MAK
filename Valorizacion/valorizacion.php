@@ -1,11 +1,11 @@
-<?php require_once('../config/security.php'); ?>
+<?php require_once('../Config/security.php'); ?>
 <!DOCTYPE html>
 <html>
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>AdminLTE 3 | Dashboard 2</title>
+    <title>MAK SERVICE</title>
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -47,13 +47,13 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>Collapsed Sidebar</h1>
+                        <h1>Seleccion de datos:</h1>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="#">Home</a></li>
-                            <li class="breadcrumb-item"><a href="#">Layout</a></li>
-                            <li class="breadcrumb-item active">Collapsed Sidebar</li>
+                            <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
+                            <li class="breadcrumb-item"><a href="#">Seleccion</a></li>
+                            <li class="breadcrumb-item active">Registro</li>
                         </ol>
                     </div>
                 </div>
@@ -66,7 +66,7 @@
                 <div class="col-md-12">
                     <div class="card card-default">
                         <div class="card-header">
-                            <h3 class="card-title">bs-stepper</h3>
+                            <h3 class="card-title">Ingreso de Datos:</h3>
                         </div>
 
                         <!-- SECTION -->
@@ -1173,10 +1173,13 @@
                             </div>
                         </div>
                         <!-- END SECTION -->
-                        <!-- /.card-body -->
+                        <!-- /.card-body-->
                         <div class="card-footer">
-                            Visit <a href="https://github.com/Johann-S/bs-stepper/#how-to-use-it">bs-stepper documentation</a> for more examples and information about the plugin.
-                        </div>
+                            <strong>Copyright © 1986-2023 <a href="https://mak.com.pe/">MAK S.A.C</a></strong>
+                            All rights reserved.
+                        </div> 
+                        
+                        
                     </div>
                     <!-- /.card -->
                 </div>

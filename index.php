@@ -19,7 +19,11 @@
     <title>MAK</title>
   </head>
   <body>
-  
+  <style>
+    body {
+      zoom: 0.85;
+    }
+  </style>
 
   
   <div class="content">
@@ -52,9 +56,9 @@
                   <input type="checkbox" checked="checked"/>
                   <div class="control__indicator"></div>
                 </label> -->
-                <span class="ml-auto"><a href="#" class="forgot-pass">Olvidé mi contraseña</a></span>
-                <span class="ml-auto">No tienes cuenta?
-                <a href="Vista/register_client.php" class="forgot-pass">Registra una.</a></span>
+                <span class="ml-auto"><a href="#" class="forgot-pass">Olvidé mi contraseña</a></span><br>
+                <span class="ml-auto">No tienes cuenta?<br>
+                <a href="Vista/register_client.php" class="forgot-pass">Registra una.</a><br></span>
               </div>
 
               <button type="submit" class="btn btn-block btn-primary">Iniciar</button>
