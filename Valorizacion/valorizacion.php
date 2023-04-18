@@ -36,6 +36,8 @@
     <!-- Theme style -->
     <link rel="stylesheet" href="../Vista/dist/css/adminlte.min.css">
 
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC51g1uGpVz4Iidg3WDfqC9lavE4IYyIXc"></script>
+
 </head>
 
 <body class="hold-transition sidebar-mini  sidebar-collapse layout-fixed layout-navbar-fixed layout-footer-fixed">
@@ -114,7 +116,8 @@
                                                                         <!-- text input -->
                                                                         <div class="form-group">
                                                                             <label>Ingrese Direccion</label>
-                                                                            <input type="text" class="form-control" placeholder="Ingrese una direccion">
+                                                                            <input type="text" class="form-control" placeholder="Ingrese una direccion" id="direccion_"
+                                                                            onkeydown="buscarDireccion(event)">
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -169,10 +172,7 @@
 
                                                     <div class="col-md-4">
                                                         <div class="card card-primary">
-                                                            <div class="card-body">
-                                                                <strong>Mapa</strong>
-                                                                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d15607.47206823551!2d-77.04493215!3d-12.0526008!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses-419!2spe!4v1678375977472!5m2!1ses-419!2spe" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                                                            </div>
+                                                            <div id="mapa" style="height: 400px;"></div>
                                                         </div>
                                                     </div>
 
@@ -1219,6 +1219,25 @@
     <!-- AdminLTE for demo purposes -->
     <script src="dist/js/demo.js"></script>
     <!-- Page specific script -->
+
+    <script type="text/javascript">
+        function buscarDireccion(event) {
+          if (event.keyCode === 13) { // 13 es el código de la tecla "Enter"
+            event.preventDefault();
+            const direccion = document.getElementById('direccion_').value;
+            const geocoder = new google.maps.Geocoder();
+            geocoder.geocode({address: direccion}, function(results, status) {
+              if (status === 'OK') {
+                const latitud = results[0].geometry.location.lat();
+                const longitud = results[0].geometry.location.lng();
+                mostrarMapa(latitud, longitud);
+              } else {
+                alert('No se encontró la dirección');
+              }
+            });
+          }
+        }
+    </script>
     <script>
         $(function() {
             //Initialize Select2 Elements
