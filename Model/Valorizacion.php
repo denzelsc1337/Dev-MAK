@@ -29,10 +29,12 @@ class Valorizacion
 						 	'".$data[5]."', '".$data[6]."','".$data[7]."','".$data[8]."','".$data[9]."','".$data[10]."',
 						 	'".$data[11]."', '".$data[12]."','".$data[13]."','".$data[14]."');";
 						 	
-		$result = mysqli_query($cadena, $query);
-		$cnx->cerrarConexion($cadena);
-		return $result;
-		
+
+
+		echo mysqli_query($cadena, $query);
+
+
+        $cnx->cerrarConexion($cadena);
 	}
 
 	public function selectorType_props()

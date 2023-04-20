@@ -38,6 +38,8 @@
 
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC51g1uGpVz4Iidg3WDfqC9lavE4IYyIXc"></script>
 
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+
 </head>
 
 <body class="hold-transition sidebar-mini  sidebar-collapse layout-fixed layout-navbar-fixed layout-footer-fixed">
@@ -101,7 +103,7 @@
                                 <!-- your steps here -->
 
                                 <div class="bs-stepper-content">
-                                    <form action="../Controller/Add_Valorizacion.php" method="POST">
+                                    <form  method="POST" id="form_valor">
                                         <div class="form-content">
 
                                             <!-- SELECCION TIPO -->
@@ -139,7 +141,7 @@
                                                                                 <option value="pantalla-LI">Local Industrial</option> -->
 
                                                                         <?php foreach ($selector_types_props as $cod_type): ?>
-                                                                            <option value="pantalla-<?php echo $cod_type[0]; ?>"><?php echo $cod_type[1]; ?></option>
+                                                                            <option value="<?php echo $cod_type[0]; ?>"><?php echo $cod_type[1]; ?></option>
                                                                         <?php endforeach ?>
                                                                             </select>
                                                                         </div>
@@ -166,7 +168,7 @@
                                                                             <label>Promocion</label>
                                                                             <select class="form-control" id="tipo_prom" name="tipo_prom">
                                                                             <?php foreach ($selector_types_prom as $cod_type_): ?>
-                                                                            <option value="pantalla-<?php echo $cod_type_[0]; ?>"><?php echo $cod_type_[1]; ?></option>
+                                                                            <option value="<?php echo $cod_type_[0]; ?>"><?php echo $cod_type_[1]; ?></option>
                                                                             <?php endforeach ?>
                                                                             </select>
                                                                         </div>
@@ -248,7 +250,7 @@
                                             }
                                             </script>
                                             <!-- CASA - VIVIENDA -->
-                                            <div id="pantalla-1" class="section col-md-12" role="tabpanel" aria-labelledby="information-part-trigger">
+                                            <div id="1" class="section col-md-12" role="tabpanel" aria-labelledby="information-part-trigger">
                                                 <h1>Casa - Vivienda</h1>
                                                 <div class="row">
                                                     <div class="col-md-6">
@@ -283,17 +285,15 @@
                                                                             <label class="col-sm-4 col-form-label">Frente:</label>
                                                                             <div class="form-group row" style="gap: 100px;">
                                                                                 <div class="custom-control custom-checkbox">
-                                                                                    <input class="down custom-control-input" type="checkbox" id="c_v_frente" name="c_v_frente" value="Parque">
+                                                                                    <input type="checkbox" id="c_v_frente" name="c_v_frente" value="Parque" checked >
                                                                                     <label for="c_v_frente" class="down custom-control-label">Parque</label>
                                                                                 </div>
+
                                                                                 <div class="custom-control custom-checkbox">
-                                                                                    <input class="down custom-control-input" type="checkbox" id="c_v_frente" name="c_v_frente" value="Mar">
+                                                                                    <input type="checkbox" id="c_v_frente" name="c_v_frente" value="Mar" checked >
                                                                                     <label for="c_v_frente" class="down custom-control-label">Mar</label>
                                                                                 </div>
-                                                                                <div class="custom-control custom-checkbox">
-                                                                                    <input class="down custom-control-input" type="checkbox" id="c_v_frente" name="c_v_frente" value="Ninguno">
-                                                                                    <label for="c_v_frente" class="down custom-control-label">Ninguno</label>
-                                                                                </div>
+
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -446,7 +446,7 @@
 
 
                                             <!-- DEPARTAMENTO - DUPLEX -->
-                                            <div id="pantalla-2" class="section col-md-12" role="tabpanel" aria-labelledby="">
+                                            <div id="2" class="section col-md-12" role="tabpanel" aria-labelledby="">
                                                 <h1>Departamento - Duplex</h1>
                                                 <div class="row">
                                                     <div class="col-md-6">
@@ -644,7 +644,7 @@
 
 
                                             <!-- TERRENO RESIDENCIAL -->
-                                            <div id="pantalla-3" class="section col-md-12" role="tabpanel" aria-labelledby="">
+                                            <div id="3" class="section col-md-12" role="tabpanel" aria-labelledby="">
                                                 <h1>Terreno - Residencial</h1>
                                                 <div class="row">
                                                     <div class="col-md-6 mx-auto">
@@ -768,7 +768,7 @@
 
 
                                             <!-- OFICINA -->
-                                            <div id="pantalla-4" class="section col-md-12" role="tabpanel" aria-labelledby="">
+                                            <div id="4" class="section col-md-12" role="tabpanel" aria-labelledby="">
                                                 <h1>Oficina</h1>
                                                 <div class="row">
                                                     <div class="col-md-6">
@@ -900,7 +900,7 @@
 
 
                                             <!-- LOCAL COMERCIAL - EXCLUSIVO -->
-                                            <div id="pantalla-5" class="section col-md-12" role="tabpanel" aria-labelledby="">
+                                            <div id="5" class="section col-md-12" role="tabpanel" aria-labelledby="">
                                                 <h1>Local comercial - Exclusivo</h1>
                                                 <div class="row">
                                                     <div class="col-md-6">
@@ -1033,7 +1033,7 @@
 
 
                                             <!-- LOCAL INDUSTRIAL -->
-                                            <div id="pantalla-6" class="section col-md-12" role="tabpanel" aria-labelledby="">
+                                            <div id="6" class="section col-md-12" role="tabpanel" aria-labelledby="">
                                                 <h1>Local industrial</h1>
                                                 <div class="row">
                                                     <div class="col-md-6 mx-auto">
@@ -1182,7 +1182,7 @@
 
                                                                 <div class="d-grid gap-2 col-3 mx-auto form-flex">
                                                                     <div type="button" class="btn btn-info btn-lg col-md-12 atrPag">Retroceder</div>
-                                                                    <button type="submit" class="btn btn-info btn-lg col-md-12 ">Finalizar</button>
+                                                                    <button type="submit" class="btn btn-info btn-lg col-md-12" id="btnValo_add" name="btnValo_add">Finalizar</button>
                                                                 </div>
 
                                                             </form>
@@ -1219,6 +1219,7 @@
 
     <!-- REQUIRED SCRIPTS -->
     <script src="../Vista/js/stepper.js"></script>
+    <script src="../Vista/assets/functions.js"></script>
 
     <!-- jQuery -->
     <script src="../Vista/plugins/jquery/jquery.min.js"></script>

@@ -505,10 +505,13 @@ create table valorizacion(
     FOREIGN KEY (cod_tipo_prom) REFERENCES  tipo_promocion  (id_promo) ON DELETE SET NULL
 );
 
-select * from tipo_inmuebles
+select * from tipo_inmuebles;
 
 
+rename table sub_tipo_inmueble
+to sub_tipo_inmuebles;
 
+select * from valorizacion
     
 
 
