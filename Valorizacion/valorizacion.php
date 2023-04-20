@@ -101,7 +101,7 @@
                                 <!-- your steps here -->
 
                                 <div class="bs-stepper-content">
-                                    <form action="" method="">
+                                    <form action="../Controller/Add_Valorizacion.php" method="POST">
                                         <div class="form-content">
 
                                             <!-- SELECCION TIPO -->
@@ -116,7 +116,7 @@
                                                                         <!-- text input -->
                                                                         <div class="form-group">
                                                                             <label>Ingrese Direccion</label>
-                                                                            <input type="text" class="form-control" placeholder="Ingrese una direccion" id="direccion_"
+                                                                            <input type="text" class="form-control" placeholder="Ingrese una direccion" id="direccion_" name="direccion_" 
                                                                             onkeydown="buscarDireccion(event)">
                                                                         </div>
                                                                     </div>
@@ -126,14 +126,21 @@
                                                                     <div class="col-sm-10">
                                                                         <div class="form-group">
                                                                             <label>Tipo Inmueble</label>
-                                                                            <select id="tipo_prop" class="form-control">
+                                                                            <?php
+                                                                            require_once('../Controller/controladorListar.php');
+                                                                            ?>
+                                                                            <select id="tipo_prop" name="tipo_prop" class="form-control">
                                                                                 <option disabled selected="selected">Seleccione un tipo</option>
-                                                                                <option value="pantalla-C_V">Casa</option>
+                                                                               <!--  <option value="pantalla-C_V">Casa</option>
                                                                                 <option value="pantalla-D_D">Departamento</option>
                                                                                 <option value="pantalla-T_R">Terreno</option>
                                                                                 <option value="pantalla-O">Oficina</option>
                                                                                 <option value="pantalla-LC_E">Local Comercial - Exclusivo</option>
-                                                                                <option value="pantalla-LI">Local Industrial</option>
+                                                                                <option value="pantalla-LI">Local Industrial</option> -->
+
+                                                                        <?php foreach ($selector_types_props as $cod_type): ?>
+                                                                            <option value="pantalla-<?php echo $cod_type[0]; ?>"><?php echo $cod_type[1]; ?></option>
+                                                                        <?php endforeach ?>
                                                                             </select>
                                                                         </div>
                                                                     </div>
@@ -144,8 +151,9 @@
                                                                         <!-- textarea -->
                                                                         <div class="form-group">
                                                                             <label>Subtipo Inmueble</label>
-                                                                            <select id="sub_tipo_prop" class="form-control">
+                                                                            <select id="sub_tipo_prop" name="sub_tipo_prop" class="form-control">
                                                                                 <option disabled selected="selected">Seleccione un tipo de inmueble</option>
+                                                                                <option value="1">sub_tipo_test</option>
                                                                             </select>
                                                                         </div>
                                                                     </div>
@@ -156,12 +164,10 @@
                                                                         <!-- textarea -->
                                                                         <div class="form-group">
                                                                             <label>Promocion</label>
-                                                                            <select class="form-control">
-                                                                                <option>option 1</option>
-                                                                                <option>option 2</option>
-                                                                                <option>option 3</option>
-                                                                                <option>option 4</option>
-                                                                                <option>option 5</option>
+                                                                            <select class="form-control" id="tipo_prom" name="tipo_prom">
+                                                                            <?php foreach ($selector_types_prom as $cod_type_): ?>
+                                                                            <option value="pantalla-<?php echo $cod_type_[0]; ?>"><?php echo $cod_type_[1]; ?></option>
+                                                                            <?php endforeach ?>
                                                                             </select>
                                                                         </div>
                                                                     </div>
@@ -226,13 +232,23 @@
                                                 </div>
 
                                                 <div class="d-grid gap-2 col-3 mx-auto form-flex">
-                                                    <div type="button" class="btn btn-info btn-lg col-md-12 nextPag">Continuar</div>
+                                                    <div type="button" class="btn btn-info btn-lg col-md-12 nextPag" 
+                                                    onclick="pasarValores()">Continuar</div>
                                                 </div>
                                             </div>
                                             <!-- SELECCION TIPO -->
-
+                                            <script>
+                                            function pasarValores() {
+                                              // Obtener los elementos del formulario
+                                              var direccion = document.getElementById("direccion_");
+                                              var direccion_casa = document.getElementById("direcc_casa");
+                                              
+                                              // Asignar el valor del primer input al segundo
+                                              direccion_casa.value = direccion.value;
+                                            }
+                                            </script>
                                             <!-- CASA - VIVIENDA -->
-                                            <div id="pantalla-C_V" class="section col-md-12" role="tabpanel" aria-labelledby="information-part-trigger">
+                                            <div id="pantalla-1" class="section col-md-12" role="tabpanel" aria-labelledby="information-part-trigger">
                                                 <h1>Casa - Vivienda</h1>
                                                 <div class="row">
                                                     <div class="col-md-6">
@@ -248,9 +264,8 @@
                                                                                 <label class="col-sm-3 col-form-label">Localización:</label>
                                                                                 <div class="section-input col-sm-8">
                                                                                     <span class="icon-input"><i class="fa-solid fa-location-dot"></i></span>
-                                                                                    <select class="form-control radius-right" id="">
-                                                                                        <option selected disabled>Seleccione</option>
-                                                                                    </select>
+                                                                                    <input type="text" id="direcc_casa" name="direcc_casa"
+                                                                                    value="">
                                                                                 </div>
                                                                                 <div class="input-group-append">
                                                                                     <span class="input-group-text" title="Info..."><i>i</i></span>
@@ -268,16 +283,16 @@
                                                                             <label class="col-sm-4 col-form-label">Frente:</label>
                                                                             <div class="form-group row" style="gap: 100px;">
                                                                                 <div class="custom-control custom-checkbox">
-                                                                                    <input class="down custom-control-input" type="checkbox" id="parque" name="c_v_frente[]">
-                                                                                    <label for="parque" class="down custom-control-label">Parque</label>
+                                                                                    <input class="down custom-control-input" type="checkbox" id="c_v_frente" name="c_v_frente" value="Parque">
+                                                                                    <label for="c_v_frente" class="down custom-control-label">Parque</label>
                                                                                 </div>
                                                                                 <div class="custom-control custom-checkbox">
-                                                                                    <input class="down custom-control-input" type="checkbox" id="mar" name="c_v_frente[]">
-                                                                                    <label for="mar" class="down custom-control-label">Mar</label>
+                                                                                    <input class="down custom-control-input" type="checkbox" id="c_v_frente" name="c_v_frente" value="Mar">
+                                                                                    <label for="c_v_frente" class="down custom-control-label">Mar</label>
                                                                                 </div>
                                                                                 <div class="custom-control custom-checkbox">
-                                                                                    <input class="down custom-control-input" type="checkbox" id="ninguno" name="c_v_frente[]" checked>
-                                                                                    <label for="ninguno" class="down custom-control-label">Ninguno</label>
+                                                                                    <input class="down custom-control-input" type="checkbox" id="c_v_frente" name="c_v_frente" value="Ninguno">
+                                                                                    <label for="c_v_frente" class="down custom-control-label">Ninguno</label>
                                                                                 </div>
                                                                             </div>
                                                                         </div>
@@ -295,7 +310,7 @@
                                                                                     <span class="icon-input">
                                                                                         <img src="https://cdn-icons-png.flaticon.com/512/7118/7118098.png" alt="">
                                                                                     </span>
-                                                                                    <input class="form-control" type="number">
+                                                                                    <input class="form-control" type="number" id="cant_dorm_casa" name="cant_dorm_casa">
                                                                                 </div>
                                                                             </div>
                                                                         </div>
@@ -308,7 +323,8 @@
                                                                                     <span class="icon-input">
                                                                                         <img src="https://cdn-icons-png.flaticon.com/512/456/456365.png" alt="">
                                                                                     </span>
-                                                                                    <input class="form-control" type="number">
+                                                                                    <input class="form-control" type="number"
+                                                                                    id="cant_ban_casa" name="cant_ban_casa">
                                                                                 </div>
                                                                             </div>
                                                                         </div>
@@ -319,7 +335,8 @@
                                                                                 <label class="col-form-label">Cochera(s):</label>
                                                                                 <div class="section-input col-sm-10">
                                                                                     <span class="icon-input"><i class="fa-solid fa-warehouse"></i></span>
-                                                                                    <input class="form-control" type="number">
+                                                                                    <input class="form-control" type="number"
+                                                                                    id="cant_coch_casa" name="cant_coch_casa">
                                                                                 </div>
                                                                             </div>
                                                                         </div>
@@ -341,7 +358,8 @@
                                                                                     <span class="icon-input">
                                                                                         <img src="https://cdn-icons-png.flaticon.com/512/5697/5697404.png" alt="">
                                                                                     </span>
-                                                                                    <input class="form-control" type="number">
+                                                                                    <input class="form-control" type="number"
+                                                                                    id="cant_dorm_b_casa" name="cant_dorm_b_casa">
                                                                                 </div>
                                                                             </div>
                                                                         </div>
@@ -354,7 +372,8 @@
                                                                                     <span class="icon-input">
                                                                                         <img src="https://cdn-icons-png.flaticon.com/512/456/456365.png" alt="">
                                                                                     </span>
-                                                                                    <input class="form-control" type="number">
+                                                                                    <input class="form-control" type="number"
+                                                                                    id="cant_dorm_b_v_casa" name="cant_dorm_b_v_casa">
                                                                                 </div>
                                                                             </div>
                                                                         </div>
@@ -364,7 +383,9 @@
                                                                             <div class="form-group">
                                                                                 <label>Cuarto(s) de servicio:</label>
                                                                                 <div class="section-input col-sm-10">
-                                                                                    <input class="form-control" type="number">
+                                                                                    <input class="form-control" type="number"
+                                                                                    id="cant_cuart_s_casa" 
+                                                                                    name="cant_cuart_s_casa">
                                                                                 </div>
                                                                             </div>
                                                                         </div>
@@ -377,7 +398,9 @@
                                                                                     <span class="icon-input">
                                                                                         <img src="https://cdn-icons-png.flaticon.com/512/456/456365.png" alt="">
                                                                                     </span>
-                                                                                    <input class="form-control" type="number">
+                                                                                    <input class="form-control" type="number"
+                                                                                     id="cant_ban_s_casa" 
+                                                                                     name="cant_ban_s_casa">
                                                                                 </div>
                                                                             </div>
                                                                         </div>
@@ -390,7 +413,9 @@
                                                                                     <span class="icon-input">
                                                                                         <img src="https://cdn-icons-png.flaticon.com/512/456/456365.png" alt="">
                                                                                     </span>
-                                                                                    <input class="form-control" type="number">
+                                                                                    <input class="form-control" type="number"
+                                                                                     id="cant_ban_com_casa" 
+                                                                                     name="cant_ban_com_casa">
                                                                                 </div>
                                                                             </div>
                                                                         </div>
@@ -399,8 +424,8 @@
                                                                         <div class="col-sm-12">
                                                                             <div class="form-group">
                                                                                 <div class="custom-control custom-checkbox">
-                                                                                    <input class="down custom-control-input" type="checkbox" id="piscina" name="radio1">
-                                                                                    <label for="piscina" class="down custom-control-label">Piscina:</label>
+                                                                                    <input class="down custom-control-input" type="checkbox" id="piscina_casa" name="piscina_casa">
+                                                                                    <label for="piscina_casa" class="down custom-control-label">Piscina:</label>
                                                                                 </div>
                                                                             </div>
                                                                         </div>
@@ -421,7 +446,7 @@
 
 
                                             <!-- DEPARTAMENTO - DUPLEX -->
-                                            <div id="pantalla-D_D" class="section col-md-12" role="tabpanel" aria-labelledby="">
+                                            <div id="pantalla-2" class="section col-md-12" role="tabpanel" aria-labelledby="">
                                                 <h1>Departamento - Duplex</h1>
                                                 <div class="row">
                                                     <div class="col-md-6">
@@ -619,7 +644,7 @@
 
 
                                             <!-- TERRENO RESIDENCIAL -->
-                                            <div id="pantalla-T_R" class="section col-md-12" role="tabpanel" aria-labelledby="">
+                                            <div id="pantalla-3" class="section col-md-12" role="tabpanel" aria-labelledby="">
                                                 <h1>Terreno - Residencial</h1>
                                                 <div class="row">
                                                     <div class="col-md-6 mx-auto">
@@ -743,7 +768,7 @@
 
 
                                             <!-- OFICINA -->
-                                            <div id="pantalla-O" class="section col-md-12" role="tabpanel" aria-labelledby="">
+                                            <div id="pantalla-4" class="section col-md-12" role="tabpanel" aria-labelledby="">
                                                 <h1>Oficina</h1>
                                                 <div class="row">
                                                     <div class="col-md-6">
@@ -875,7 +900,7 @@
 
 
                                             <!-- LOCAL COMERCIAL - EXCLUSIVO -->
-                                            <div id="pantalla-LC_E" class="section col-md-12" role="tabpanel" aria-labelledby="">
+                                            <div id="pantalla-5" class="section col-md-12" role="tabpanel" aria-labelledby="">
                                                 <h1>Local comercial - Exclusivo</h1>
                                                 <div class="row">
                                                     <div class="col-md-6">
@@ -1008,7 +1033,7 @@
 
 
                                             <!-- LOCAL INDUSTRIAL -->
-                                            <div id="pantalla-LI" class="section col-md-12" role="tabpanel" aria-labelledby="">
+                                            <div id="pantalla-6" class="section col-md-12" role="tabpanel" aria-labelledby="">
                                                 <h1>Local industrial</h1>
                                                 <div class="row">
                                                     <div class="col-md-6 mx-auto">
@@ -1157,8 +1182,10 @@
 
                                                                 <div class="d-grid gap-2 col-3 mx-auto form-flex">
                                                                     <div type="button" class="btn btn-info btn-lg col-md-12 atrPag">Retroceder</div>
-                                                                    <div type="button" class="btn btn-info btn-lg col-md-12 ">Finalizar</div>
+                                                                    <button type="submit" class="btn btn-info btn-lg col-md-12 ">Finalizar</button>
                                                                 </div>
+
+                                                            </form>
 
                                                             </div>
                                                         </div>
@@ -1167,7 +1194,7 @@
                                             </div>
                                             <!-- RESUMEN DE SOLICITUD -->
                                         </div>
-                                    </form>
+                                    
                                 </div>
 
                             </div>
@@ -1194,30 +1221,30 @@
     <script src="../Vista/js/stepper.js"></script>
 
     <!-- jQuery -->
-    <script src="plugins/jquery/jquery.min.js"></script>
+    <script src="../Vista/plugins/jquery/jquery.min.js"></script>
     <!-- Bootstrap 4 -->
-    <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../Vista/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
     <!-- Select2 -->
-    <script src="plugins/select2/js/select2.full.min.js"></script>
+    <script src="../Vista/plugins/select2/js/select2.full.min.js"></script>
     <!-- Bootstrap4 Duallistbox -->
-    <script src="plugins/bootstrap4-duallistbox/jquery.bootstrap-duallistbox.min.js"></script>
+    <script src="../Vista/plugins/bootstrap4-duallistbox/jquery.bootstrap-duallistbox.min.js"></script>
     <!-- InputMask -->
-    <script src="plugins/moment/moment.min.js"></script>
-    <script src="plugins/inputmask/jquery.inputmask.min.js"></script>
+    <script src="../Vista/plugins/moment/moment.min.js"></script>
+    <script src="../Vista/plugins/inputmask/jquery.inputmask.min.js"></script>
     <!-- date-range-picker -->
-    <script src="plugins/daterangepicker/daterangepicker.js"></script>
+    <script src="../Vista/plugins/daterangepicker/daterangepicker.js"></script>
     <!-- bootstrap color picker -->
-    <script src="plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.min.js"></script>
+    <script src="../Vista/plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.min.js"></script>
     <!-- Tempusdominus Bootstrap 4 -->
-    <script src="plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
+    <script src="../Vista/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
     <!-- BS-Stepper -->
-    <script src="plugins/bs-stepper/js/bs-stepper.min.js"></script>
+    <script src="../Vista/plugins/bs-stepper/js/bs-stepper.min.js"></script>
     <!-- dropzonejs -->
-    <script src="plugins/dropzone/min/dropzone.min.js"></script>
+    <script src="../Vista/plugins/dropzone/min/dropzone.min.js"></script>
     <!-- AdminLTE App -->
-    <script src="dist/js/adminlte.min.js"></script>
+    <script src="../Vista/dist/js/adminlte.min.js"></script>
     <!-- AdminLTE for demo purposes -->
-    <script src="dist/js/demo.js"></script>
+    <script src="../Vista/dist/js/demo.js"></script>
     <!-- Page specific script -->
 
     <script type="text/javascript">

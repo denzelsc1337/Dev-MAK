@@ -102,6 +102,7 @@ const bsSContent = bsStepperContent.querySelectorAll(".content");
     function pantallaActual() {
         const pantallaActual = document.querySelector('[id^="pantalla"]:not([style*="display: none"])');
         pantallaActual.style.display = 'none';
+        console.log(pantallaActual);
     }
 
     nextPag.addEventListener("click", () => {

@@ -6,6 +6,11 @@ $oCli_s= new Cliente_Servicio();
 $selector_types = $oCli_s->selectorType_Client_Service();
 
 //selector tipo propiedad
-$selector_types_props = $oCli_s->selectorType_props();
+require_once('../Model/Valorizacion.php');
+$oValor= new Valorizacion();
+$selector_types_props = $oValor->selectorType_props();
+$selector_types_prom = $oValor->selector_type_promo();
+
+
 
 ?>

@@ -16,20 +16,17 @@ create table tipo_aviso(
 	tipo_aviso varchar(80) not null
 );
 
-CREATE TABLE IF NOT EXISTS tipo_inmueble (
+CREATE TABLE IF NOT EXISTS tipo_inmuebles (
   id_tipo_inmb 		int primary key auto_increment,
   tipo_inmb 		varchar(255) NOT NULL
 );
 
-insert into tipo_inmueble values (null, 'Departamento');
-insert into tipo_inmueble values (null, 'Casa');
-insert into tipo_inmueble values (null, 'Edificio');
-insert into tipo_inmueble values (null, 'Local Comercial');
-insert into tipo_inmueble values (null, 'Terreno');
-insert into tipo_inmueble values (null, 'Oficina');
-insert into tipo_inmueble values (null, 'Local Industrial');
-insert into tipo_inmueble values (null, 'Hotel/Hostal');
-insert into tipo_inmueble values (null, 'Proyecto');
+insert into tipo_inmuebles values (null, 'Casa');
+insert into tipo_inmuebles values (null, 'Departamento');
+insert into tipo_inmuebles values (null, 'Terreno');
+insert into tipo_inmuebles values (null, 'Oficina');
+insert into tipo_inmuebles values (null, 'Local Comercial');
+insert into tipo_inmuebles values (null, 'Local Industrial');
 
 
 CREATE TABLE IF NOT EXISTS sub_tipo_inmueble (
@@ -480,10 +477,35 @@ CREATE TABLE IF NOT EXISTS recorrido(
     FOREIGN KEY (cod_zona)			REFERENCES  tipo_zonificacion  (id_zona) ON DELETE SET NULL,
     FOREIGN KEY (cod_tipo_prop) 	REFERENCES  tipo_inmueble  (id_tipo_inmb) ON DELETE SET NULL,
     FOREIGN KEY (cod_tipo_cli) 		REFERENCES  tipo_cliente (id_tipo_cliente) ON DELETE SET NULL,
-    FOREIGN KEY (cod_tipo_promo)	REFERENCES  tipo_promocion  (id_promo) ON DELETE SET NULL
-    
+    FOREIGN KEY (cod_tipo_promo)	REFERENCES  tipo_promocion  (id_promo) ON DELETE SET NULL    
 );
 
+
+create table valorizacion(
+	id_valor		int auto_increment primary key,
+	direccion		varchar(150),
+    
+    cod_tipo_inmue	int, 
+    cod_sub_tipo_inmue	int,
+    cod_tipo_prom		int,
+    -- form casa
+    tipo_frente		varchar(90),
+    cant_dorm		int,
+    cant_banho		int, 
+    cant_cochera	int,
+    dormitorio_banho	int, 
+    banho_visita	int,
+    cuarto_visita	int,
+    banho_servicio	int,
+    banho_compl		int,
+    piscina			bool,
+    -- form casa fin
+    FOREIGN KEY (cod_tipo_inmue) REFERENCES  tipo_inmuebles  (id_tipo_inmb) ON DELETE SET NULL,
+    FOREIGN KEY (cod_sub_tipo_inmue) REFERENCES  sub_tipo_inmuebles  (id_sub_tipo_inmb) ON DELETE SET NULL,
+    FOREIGN KEY (cod_tipo_prom) REFERENCES  tipo_promocion  (id_promo) ON DELETE SET NULL
+);
+
+select * from tipo_inmuebles
 
 
 
