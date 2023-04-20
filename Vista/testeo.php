@@ -74,25 +74,29 @@
                             <div class="bs-stepper">
                                 <div class="bs-stepper-header" role="tablist">
                                     <!-- your steps here -->
-                                    <div class="step" data-target="#logins-part">
-                                        <button type="button" class="step-trigger" role="tab" aria-controls="logins-part" id="logins-part-trigger">
+                                    <div class="step active" data-target="first_step">
+                                        <button type="button" class="step-trigger" role="tab" aria-controls="" id="">
                                             <span class="bs-stepper-circle">1</span>
                                             <span class="bs-stepper-label">Seleccion de tipo</span>
                                         </button>
                                     </div>
+
                                     <div class="line"></div>
 
-                                    <div class="step" data-target="#information-part">
-                                        <button type="button" class="step-trigger" role="tab" aria-controls="information-part" id="information-part-trigger">
+                                    <div class="step" data-target="second_step">
+                                        <button type="button" class="step-trigger" role="tab" aria-controls="" id="">
                                             <span class="bs-stepper-circle">2</span>
                                             <span class="bs-stepper-label">TIpo de Inmueble</span>
                                         </button>
                                     </div>
 
-                                    <div class="step" data-target="#information-part">
-                                        <button type="button" class="step-trigger" role="tab" aria-controls="information-part" id="information-part-trigger">
+                                    <div class=""></div>
+
+
+                                    <div class="step" data-target="third_step">
+                                        <button type="button" class="step-trigger" role="tab" aria-controls="" id="">
                                             <span class="bs-stepper-circle">3</span>
-                                            <span class="bs-stepper-label">TIpo de Inmueble</span>
+                                            <span class="bs-stepper-label">Resumen de Solicitud</span>
                                         </button>
                                     </div>
                                 </div>
@@ -103,7 +107,7 @@
                                         <div class="form-content">
 
                                             <!-- SELECCION TIPO -->
-                                            <div id="pantalla-S" class="section col-md-12 movPag show" role="tabpanel" aria-labelledby="logins-part-trigger" style="display: block;">
+                                            <div id="0" class="section col-md-12 movPag show" role="tabpanel" aria-labelledby="logins-part-trigger" style="display: block;">
 
                                                 <div class="row">
                                                     <div class="col-md-4">
@@ -125,12 +129,12 @@
                                                                             <label>Tipo Inmueble</label>
                                                                             <select id="tipo_prop" class="form-control">
                                                                                 <option disabled selected="selected">Seleccione un tipo</option>
-                                                                                <option value="pantalla-C_V">Casa</option>
-                                                                                <option value="pantalla-D_D">Departamento</option>
-                                                                                <option value="pantalla-T_R">Terreno</option>
-                                                                                <option value="pantalla-O">Oficina</option>
-                                                                                <option value="pantalla-LC_E">Local Comercial - Exclusivo</option>
-                                                                                <option value="pantalla-LI">Local Industrial</option>
+                                                                                <option value="1">Casa</option>
+                                                                                <option value="2">Departamento</option>
+                                                                                <option value="3">Terreno</option>
+                                                                                <option value="4">Oficina</option>
+                                                                                <option value="5">Local Comercial - Exclusivo</option>
+                                                                                <option value="6">Local Industrial</option>
                                                                             </select>
                                                                         </div>
                                                                     </div>
@@ -232,7 +236,7 @@
                                             <!-- SELECCION TIPO -->
 
                                             <!-- CASA - VIVIENDA -->
-                                            <div id="pantalla-C_V" class="section col-md-12" role="tabpanel" aria-labelledby="information-part-trigger">
+                                            <div id="1" class="section col-md-12" role="tabpanel" aria-labelledby="information-part-trigger">
                                                 <h1>Casa - Vivienda</h1>
                                                 <div class="row">
                                                     <div class="col-md-6">
@@ -421,7 +425,7 @@
 
 
                                             <!-- DEPARTAMENTO - DUPLEX -->
-                                            <div id="pantalla-D_D" class="section col-md-12" role="tabpanel" aria-labelledby="">
+                                            <div id="2" class="section col-md-12" role="tabpanel" aria-labelledby="" data-target="second_step">
                                                 <h1>Departamento - Duplex</h1>
                                                 <div class="row">
                                                     <div class="col-md-6">
@@ -611,7 +615,7 @@
 
                                                 <div class="d-grid gap-2 col-8 mx-auto form-flex">
                                                     <div type="button" class="btn btn-info btn-lg col-md-4 backPag">Retroceder</div>
-                                                    <div type="button" class="btn btn-info btn-lg col-md-4 sigPag">Continuar asd</div>
+                                                    <div type="button" class="btn btn-info btn-lg col-md-4 sigPag">Continuar</div>
                                                 </div>
 
                                             </div>
@@ -619,7 +623,7 @@
 
 
                                             <!-- TERRENO RESIDENCIAL -->
-                                            <div id="pantalla-T_R" class="section col-md-12" role="tabpanel" aria-labelledby="">
+                                            <div id="3" class="section col-md-12" role="tabpanel" aria-labelledby="">
                                                 <h1>Terreno - Residencial</h1>
                                                 <div class="row">
                                                     <div class="col-md-6 mx-auto">
@@ -743,7 +747,7 @@
 
 
                                             <!-- OFICINA -->
-                                            <div id="pantalla-O" class="section col-md-12" role="tabpanel" aria-labelledby="">
+                                            <div id="4" class="section col-md-12" role="tabpanel" aria-labelledby="">
                                                 <h1>Oficina</h1>
                                                 <div class="row">
                                                     <div class="col-md-6">
@@ -875,7 +879,7 @@
 
 
                                             <!-- LOCAL COMERCIAL - EXCLUSIVO -->
-                                            <div id="pantalla-LC_E" class="section col-md-12" role="tabpanel" aria-labelledby="">
+                                            <div id="5" class="section col-md-12" role="tabpanel" aria-labelledby="">
                                                 <h1>Local comercial - Exclusivo</h1>
                                                 <div class="row">
                                                     <div class="col-md-6">
@@ -1008,7 +1012,7 @@
 
 
                                             <!-- LOCAL INDUSTRIAL -->
-                                            <div id="pantalla-LI" class="section col-md-12" role="tabpanel" aria-labelledby="">
+                                            <div id="6" class="section col-md-12" role="tabpanel" aria-labelledby="">
                                                 <h1>Local industrial</h1>
                                                 <div class="row">
                                                     <div class="col-md-6 mx-auto">
@@ -1116,7 +1120,7 @@
 
 
                                             <!-- RESUMEN DE SOLICITUD -->
-                                            <div id="pantalla-RS" class="section col-md-12" role="tabpanel" aria-labelledby="logins-part-trigger">
+                                            <div id="7" class="section col-md-12" role="tabpanel" aria-labelledby="logins-part-trigger">
                                                 <h1>Resumen de solicitud</h1>
                                                 <div class="row">
                                                     <div class="col-md-12">
@@ -1155,11 +1159,12 @@
                                                                     <!-- </div> -->
                                                                 </div>
 
-                                                                <div class="d-grid gap-2 col-3 mx-auto form-flex">
-                                                                    <div type="button" class="btn btn-info btn-lg col-md-12 atrPag">Retroceder</div>
-                                                                    <div type="button" class="btn btn-info btn-lg col-md-12 ">Finalizar</div>
-                                                                </div>
 
+
+                                                            </div>
+                                                            <div class="d-grid gap-2 col-3 mx-auto form-flex">
+                                                                <div type="button" class="btn btn-info btn-lg col-md-12 atrPag">Retroceder</div>
+                                                                <div type="button" class="btn btn-info btn-lg col-md-12 ">Finalizar</div>
                                                             </div>
                                                         </div>
                                                     </div>
