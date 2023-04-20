@@ -26,9 +26,9 @@ const bsSContent = bsStepperContent.querySelectorAll(".content");
 
     }
 
-    function Pasos() {
-        const pasoActual = document.querySelectorAll('.step');
-        const currentScreen = document.querySelector('[id^="pantalla"]:not([style*="display: none"])');
+    // function Pasos() {
+    //     const pasoActual = document.querySelectorAll('.step');
+    //     const currentScreen = document.querySelector('[id^="pantalla"]:not([style*="display: none"])');
         // const idScreen = currentScreen.getAttribute('data-target');
 
 
@@ -41,7 +41,7 @@ const bsSContent = bsStepperContent.querySelectorAll(".content");
         //     }
         // });
 
-    }
+    // }
 
 
 
@@ -52,7 +52,7 @@ const bsSContent = bsStepperContent.querySelectorAll(".content");
 
         if (pantallaSeleccionada !== 'Seleccione un tipo') {
             // Ocultar todas las pantallas
-            const pantallas = document.querySelectorAll('[id^="pantalla"]');
+            const pantallas = document.querySelectorAll('.section');
             pantallas.forEach(function (pantalla) {
                 pantalla.style.display = 'none';
             });
@@ -78,7 +78,7 @@ const bsSContent = bsStepperContent.querySelectorAll(".content");
             pantallaActual();
 
             // Mostrar la primera pantalla
-            const primeraPantalla = document.getElementById('pantalla-S');
+            const primeraPantalla = document.getElementById('0');
             primeraPantalla.style.display = 'block';
         })
     });
