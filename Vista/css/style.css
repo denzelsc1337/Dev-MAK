@@ -28,13 +28,17 @@ h6,
 }
 
 a {
-  -webkit-transition: .3s all ease;
-  -o-transition: .3s all ease;
-  transition: .3s all ease;
+  -webkit-transition: 0.3s all ease;
+  -o-transition: 0.3s all ease;
+  transition: 0.3s all ease;
 }
 
 a:hover {
   text-decoration: none !important;
+}
+
+.flex {
+  display: flex;
 }
 
 .content {
@@ -57,7 +61,6 @@ h2 {
 }
 
 @media (max-width: 1199.98px) {
-
   .content .contents,
   .content .bg {
     width: 100%;
@@ -82,9 +85,9 @@ h2 {
   -webkit-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
-  -webkit-transition: .3s all ease;
-  -o-transition: .3s all ease;
-  transition: .3s all ease;
+  -webkit-transition: 0.3s all ease;
+  -o-transition: 0.3s all ease;
+  transition: 0.3s all ease;
 }
 
 .content .contents .form-group input,
@@ -221,7 +224,7 @@ h2 {
 
 .control .caption {
   position: relative;
-  top: .2rem;
+  top: 0.2rem;
   color: #888;
 }
 
@@ -245,38 +248,38 @@ h2 {
   border-radius: 50%;
 }
 
-.control:hover input~.control__indicator,
-.control input:focus~.control__indicator {
+.control:hover input ~ .control__indicator,
+.control input:focus ~ .control__indicator {
   background: #ccc;
 }
 
-.control input:checked~.control__indicator {
+.control input:checked ~ .control__indicator {
   background: #6c63ff;
 }
 
-.control:hover input:not([disabled]):checked~.control__indicator,
-.control input:checked:focus~.control__indicator {
+.control:hover input:not([disabled]):checked ~ .control__indicator,
+.control input:checked:focus ~ .control__indicator {
   background: #847dff;
 }
 
-.control input:disabled~.control__indicator {
+.control input:disabled ~ .control__indicator {
   background: #e6e6e6;
   opacity: 0.9;
   pointer-events: none;
 }
 
 .control__indicator:after {
-  font-family: 'icomoon';
-  content: '\e5ca';
+  font-family: "icomoon";
+  content: "\e5ca";
   position: absolute;
   display: none;
   font-size: 16px;
-  -webkit-transition: .3s all ease;
-  -o-transition: .3s all ease;
-  transition: .3s all ease;
+  -webkit-transition: 0.3s all ease;
+  -o-transition: 0.3s all ease;
+  transition: 0.3s all ease;
 }
 
-.control input:checked~.control__indicator:after {
+.control input:checked ~ .control__indicator:after {
   display: block;
   color: #fff;
 }
@@ -290,30 +293,30 @@ h2 {
   transform: translate(-50%, -50%);
 }
 
-.control--checkbox input:disabled~.control__indicator:after {
+.control--checkbox input:disabled ~ .control__indicator:after {
   border-color: #7b7b7b;
 }
 
-.control--checkbox input:disabled:checked~.control__indicator {
+.control--checkbox input:disabled:checked ~ .control__indicator {
   background-color: #7e0cf5;
-  opacity: .2;
+  opacity: 0.2;
 }
 
 /* CSS */
 .rotate-90 {
-  transform: rotate(90deg)
+  transform: rotate(90deg);
 }
 
 .rotate-180 {
-  transform: rotate(180deg)
+  transform: rotate(180deg);
 }
 
 .rotate-270 {
-  transform: rotate(270deg)
+  transform: rotate(270deg);
 }
 
 .rotate-360 {
-  transform: rotate(360deg)
+  transform: rotate(360deg);
 }
 
 /* CSS */
@@ -328,9 +331,7 @@ input[type="number"] {
   padding-left: 40px !important;
 }
 
-
 /* INPUT PERSONALIZADO */
-
 
 /* CSS PERSONALIZADO */
 /* 
@@ -347,7 +348,14 @@ input[type="number"] {
   align-items: center;
   justify-content: space-between;
   gap: 10px;
+}
 
+.text-center {
+  text-align: center;
+}
+
+.pdd-left {
+  padding-left: 20px !important;
 }
 
 .radius-right {
@@ -372,7 +380,7 @@ input[type="number"] {
   display: grid;
   grid-template-columns: auto auto;
   justify-content: center;
-  column-gap: 100px;
+  column-gap: 10px;
 }
 
 .body-grid .grid-box {
@@ -412,8 +420,7 @@ input[type="number"] {
   width: 20px;
 }
 
-
-.down.custom-control-input:checked~.custom-control-label::before,
+.down.custom-control-input:checked ~ .custom-control-label::before,
 .down.custom-control-label::before,
 .down.custom-control-label::after {
   top: 35px !important;
@@ -422,7 +429,7 @@ input[type="number"] {
   height: 1.5rem !important;
 }
 
-.right.custom-control-input:checked~.custom-control-label::before,
+.right.custom-control-input:checked ~ .custom-control-label::before,
 .right.custom-control-label::before,
 .right.custom-control-label::after {
   top: -2px !important;
@@ -431,11 +438,15 @@ input[type="number"] {
   height: 1.5rem !important;
 }
 
-.custom-radio .down.custom-control-input:checked~.custom-control-label::after {
+.custom-radio
+  .down.custom-control-input:checked
+  ~ .custom-control-label::after {
   background-image: none !important;
 }
 
-.custom-radio .right.custom-control-input:checked~.custom-control-label::after {
+.custom-radio
+  .right.custom-control-input:checked
+  ~ .custom-control-label::after {
   background-image: none !important;
 }
 
@@ -444,12 +455,13 @@ input[type="number"] {
   height: 20px;
   margin: auto;
   cursor: default;
+  margin-left: 10px !important;
 }
 
 .input-group-text {
   padding: 0.075rem 0.35rem !important;
   border-radius: 50% !important;
-  font-size: .7rem !important;
+  font-size: 0.7rem !important;
   font-weight: 900 !important;
 }
 
@@ -464,7 +476,7 @@ input[type="number"] {
   background-color: transparent;
 }
 
-form{
+form {
   overflow: hidden;
   width: 100%;
 }
@@ -472,7 +484,6 @@ form{
 form .form-content {
   display: flex;
 }
-
 
 input[type="number"]:after {
   content: var(--input-suffix);

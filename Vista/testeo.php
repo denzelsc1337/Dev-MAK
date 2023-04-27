@@ -90,7 +90,7 @@
                                         </button>
                                     </div>
 
-                                    <div class=""></div>
+
 
 
                                     <div class="step" data-target="third_step">
@@ -107,7 +107,7 @@
                                         <div class="form-content">
 
                                             <!-- SELECCION TIPO -->
-                                            <div id="0" class="section col-md-12 movPag show" role="tabpanel" aria-labelledby="logins-part-trigger" style="display: block;">
+                                            <div id="0" class="section col-md-12 movPag show" role="tabpanel" aria-labelledby="" data-target="first_step">
 
                                                 <div class="row">
                                                     <div class="col-md-4">
@@ -236,95 +236,130 @@
                                             <!-- SELECCION TIPO -->
 
                                             <!-- CASA - VIVIENDA -->
-                                            <div id="1" class="section col-md-12" role="tabpanel" aria-labelledby="information-part-trigger">
+                                            <div id="1" class="section col-md-12" role="tabpanel" aria-labelledby="" data-target="second_step">
                                                 <h1>Casa - Vivienda</h1>
                                                 <div class="row">
                                                     <div class="col-md-6">
-                                                        <div class="card card-warning">
+                                                        <div class="card">
+                                                            <h2 class="text-center">Datos Generales</h2>
                                                             <div class="card-body">
 
                                                                 <br>
 
                                                                 <div class="row">
-                                                                    <div class="col-sm-11">
+                                                                    <div class="col-sm-12">
                                                                         <div class="form-group row">
                                                                             <div class="input-group mb-3">
-                                                                                <label class="col-sm-3 col-form-label">Localización:</label>
-                                                                                <div class="section-input col-sm-8">
-                                                                                    <span class="icon-input"><i class="fa-solid fa-location-dot"></i></span>
-                                                                                    <select class="form-control radius-right" id="">
-                                                                                        <option selected disabled>Seleccione</option>
-                                                                                    </select>
+                                                                                <div class="col-sm-6">
+                                                                                    <h3>Dormitorios</h3>
+                                                                                    <div class="form-group pdd-left">
+                                                                                        <label class="col-form-label">Dormitorio(s):</label>
+                                                                                        <div class="section-input col-sm-5">
+                                                                                            <span class="icon-input">
+                                                                                                <img src="https://cdn-icons-png.flaticon.com/512/7118/7118098.png" alt="">
+                                                                                            </span>
+                                                                                            <input class="form-control" type="number">
+                                                                                        </div>
+                                                                                    </div>
                                                                                 </div>
-                                                                                <div class="input-group-append">
-                                                                                    <span class="input-group-text" title="Info..."><i>i</i></span>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-
-                                                                <br>
-
-                                                                <div class="row">
-                                                                    <div class="col-sm-10">
-                                                                        <div class="form-group row">
-                                                                            <label class="col-sm-4 col-form-label">Frente:</label>
-                                                                            <div class="form-group row" style="gap: 100px;">
-                                                                                <div class="custom-control custom-checkbox">
-                                                                                    <input class="down custom-control-input" type="checkbox" id="parque" name="c_v_frente[]">
-                                                                                    <label for="parque" class="down custom-control-label">Parque</label>
-                                                                                </div>
-                                                                                <div class="custom-control custom-checkbox">
-                                                                                    <input class="down custom-control-input" type="checkbox" id="mar" name="c_v_frente[]">
-                                                                                    <label for="mar" class="down custom-control-label">Mar</label>
-                                                                                </div>
-                                                                                <div class="custom-control custom-checkbox">
-                                                                                    <input class="down custom-control-input" type="checkbox" id="ninguno" name="c_v_frente[]" checked>
-                                                                                    <label for="ninguno" class="down custom-control-label">Ninguno</label>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-
-                                                                <br>
-
-                                                                <div class="form-flex">
-                                                                    <div class="row">
-                                                                        <div class="col-sm-10">
-                                                                            <div class="form-group">
-                                                                                <label class="col-form-label">Dormitorio(s):</label>
-                                                                                <div class="section-input col-sm-10">
-                                                                                    <span class="icon-input">
-                                                                                        <img src="https://cdn-icons-png.flaticon.com/512/7118/7118098.png" alt="">
-                                                                                    </span>
-                                                                                    <input class="form-control" type="number">
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="row">
-                                                                        <div class="col-sm-10">
-                                                                            <div class="form-group">
-                                                                                <label class="col-form-label">Baño(s):</label>
-                                                                                <div class="section-input col-sm-10">
-                                                                                    <span class="icon-input">
-                                                                                        <img src="https://cdn-icons-png.flaticon.com/512/456/456365.png" alt="">
-                                                                                    </span>
-                                                                                    <input class="form-control" type="number">
+                                                                                <div class="col-sm-6">
+                                                                                    <div class="flex">
+                                                                                        <h3>Baños</h3>
+                                                                                        <div class="input-group-append">
+                                                                                            <span class="input-group-text" title="No considerar baño de servicio"><i>i</i></span>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="body-grid pdd-left">
+                                                                                        <div class="form-group">
+                                                                                            <label>Dormitorio(s) con baño:</label>
+                                                                                            <div class="section-input col-sm-10">
+                                                                                                <span class="icon-input">
+                                                                                                    <img src="https://cdn-icons-png.flaticon.com/512/5697/5697404.png" alt="">
+                                                                                                </span>
+                                                                                                <input class="form-control" type="number">
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div class="form-group">
+                                                                                            <label>Baño(s) visita:</label>
+                                                                                            <div class="section-input col-sm-10">
+                                                                                                <span class="icon-input">
+                                                                                                    <img src="https://cdn-icons-png.flaticon.com/512/456/456365.png" alt="">
+                                                                                                </span>
+                                                                                                <input class="form-control" type="number">
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div class="form-group">
+                                                                                            <label>Baño(s) de servicio:</label>
+                                                                                            <div class="section-input col-sm-10">
+                                                                                                <span class="icon-input">
+                                                                                                    <img src="https://cdn-icons-png.flaticon.com/512/456/456365.png" alt="">
+                                                                                                </span>
+                                                                                                <input class="form-control" type="number">
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div class="form-group">
+                                                                                            <label>Baño(s) completo(s):</label>
+                                                                                            <div class="section-input col-sm-10">
+                                                                                                <span class="icon-input">
+                                                                                                    <img src="https://cdn-icons-png.flaticon.com/512/456/456365.png" alt="">
+                                                                                                </span>
+                                                                                                <input class="form-control" type="number">
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
                                                                                 </div>
                                                                             </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="row">
-                                                                        <div class="col-sm-10">
-                                                                            <div class="form-group">
-                                                                                <label class="col-form-label">Cochera(s):</label>
-                                                                                <div class="section-input col-sm-10">
-                                                                                    <span class="icon-input"><i class="fa-solid fa-warehouse"></i></span>
-                                                                                    <input class="form-control" type="number">
+
+                                                                            <br>
+
+                                                                            <div class="input-group mb-3">
+                                                                                <div class="col-sm-6">
+                                                                                    <h3>Area de Servicio</h3>
+                                                                                    <div class="body-grid pdd-left">
+                                                                                        <div class="form-group">
+                                                                                            <label>Cuarto(s) de servicio:</label>
+                                                                                            <div class="section-input col-sm-10">
+                                                                                                <input class="form-control" type="number">
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div class="form-group">
+                                                                                            <label>Baño(s) de servicio:</label>
+                                                                                            <div class="section-input col-sm-10">
+                                                                                                <span class="icon-input">
+                                                                                                    <img src="https://cdn-icons-png.flaticon.com/512/456/456365.png" alt="">
+                                                                                                </span>
+                                                                                                <input class="form-control" type="number">
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
                                                                                 </div>
+                                                                                <div class="col-sm-6">
+                                                                                    <div class="flex">
+                                                                                        <h3>Estacionamiento</h3>
+                                                                                    </div>
+                                                                                    <div class="form-group pdd-left">
+                                                                                        <label>Cochera(s):</label>
+                                                                                        <div class="section-input col-sm-5">
+                                                                                            <span class="icon-input"><i class="fa-solid fa-warehouse"></i></span>
+                                                                                            <input class="form-control" type="number">
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+
+                                                                            <br>
+
+                                                                            <div class="input-group mb-3">
+                                                                                <div class="col-sm-6">
+                                                                                    <h3>Deposito</h3>
+                                                                                    <div class="form-group pdd-left">
+                                                                                        <div class="custom-control custom-checkbox">
+                                                                                            <input class="down custom-control-input" type="checkbox" id="piscina" name="radio1">
+                                                                                            <label for="piscina" class="down custom-control-label">Piscina:</label>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -334,77 +369,130 @@
                                                     </div>
 
                                                     <div class="col-md-6">
-                                                        <div class="card card-primary">
+                                                        <div class="card">
+                                                            <h2 class="text-center">Datos Específicos</h2>
                                                             <div class="card-body">
-                                                                <div class="body-grid">
-                                                                    <div class="grid-box">
-                                                                        <div class="col-sm-12">
-                                                                            <div class="form-group">
-                                                                                <label class="col-form-label">Dormitorio(s) con baño:</label>
-                                                                                <div class="section-input col-sm-10">
-                                                                                    <span class="icon-input">
-                                                                                        <img src="https://cdn-icons-png.flaticon.com/512/5697/5697404.png" alt="">
-                                                                                    </span>
-                                                                                    <input class="form-control" type="number">
+
+                                                                <br>
+
+                                                                <div class="row">
+                                                                    <div class="col-sm-12">
+                                                                        <div class="form-group row">
+                                                                            <div class="input-group mb-3">
+
+                                                                                <div class="col-sm-12">
+                                                                                    <div class="form-group row">
+                                                                                        <label class="col-sm-3 col-form-label">Localización:</label>
+                                                                                        <div class="section-input col-sm-8">
+                                                                                            <span class="icon-input"><i class="fa-solid fa-location-dot"></i></span>
+                                                                                            <select class="form-control radius-right" id="">
+                                                                                                <option selected disabled>Seleccione</option>
+                                                                                            </select>
+                                                                                        </div>
+                                                                                        <div class="input-group-append">
+                                                                                            <span class="input-group-text" title="Info..."><i>i</i></span>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+
+                                                                                <div class="col-sm-12">
+                                                                                    <div class="form-group row">
+                                                                                        <label class="col-sm-3 col-form-label">Vista:</label>
+                                                                                        <div class="section-input col-sm-8">
+                                                                                            <span class="icon-input">
+                                                                                                <img src="https://cdn-icons-png.flaticon.com/512/3017/3017956.png" alt="">
+                                                                                            </span>
+                                                                                            <select class="form-control radius-right" id="">
+                                                                                                <option selected disabled>Seleccione</option>
+                                                                                            </select>
+                                                                                        </div>
+                                                                                        <div class="input-group-append">
+                                                                                            <span class="input-group-text" title="Info..."><i>i</i></span>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+
+                                                                                <div class="col-sm-12">
+                                                                                    <div class="form-group row">
+                                                                                        <label class="col-sm-3 col-form-label">Acabado:</label>
+                                                                                        <div class="section-input col-sm-8">
+                                                                                            <span class="icon-input">
+                                                                                                <img src="https://cdn-icons-png.flaticon.com/512/1249/1249293.png" alt="">
+                                                                                            </span>
+                                                                                            <select class="form-control radius-right" id="">
+                                                                                                <option selected disabled>Seleccione</option>
+                                                                                            </select>
+                                                                                        </div>
+                                                                                        <div class="input-group-append">
+                                                                                            <span class="input-group-text" title="Info..."><i>i</i></span>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+
+                                                                                <br><br>
+                                                                                <br><br>
+
+                                                                                <div class="col-sm-12">
+                                                                                    <div class="form-group row">
+                                                                                        <label class="col-sm-3 col-form-label">Frente:</label>
+                                                                                        <fieldset class="col-sm-8">
+                                                                                            <div class="form-group row" style="justify-content: space-around;">
+                                                                                                <div class="custom-control custom-checkbox">
+                                                                                                    <input class="down custom-control-input" type="radio" id="parque" name="frente[]">
+                                                                                                    <label for="parque" class="down custom-control-label">Parque</label>
+                                                                                                </div>
+                                                                                                <div class="custom-control custom-checkbox">
+                                                                                                    <input class="down custom-control-input" type="radio" id="mar" name="frente[]">
+                                                                                                    <label for="mar" class="down custom-control-label">Mar</label>
+                                                                                                </div>
+                                                                                                <div class="custom-control custom-checkbox">
+                                                                                                    <input class="down custom-control-input" type="radio" id="ninguno" name="frente[]" checked>
+                                                                                                    <label for="ninguno" class="down custom-control-label">Ninguno</label>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </fieldset>
+                                                                                    </div>
+                                                                                </div>
+
+                                                                                <br><br>
+                                                                                <br><br>
+
+                                                                                <div class="col-sm-6">
+
+                                                                                    <div class="form-group">
+                                                                                        <label class="col-form-label">Dormitorio(s) con baño:</label>
+                                                                                        <div class="section-input col-sm-5">
+                                                                                            <span class="icon-input">
+                                                                                                <img src="https://cdn-icons-png.flaticon.com/512/5697/5697404.png" alt="">
+                                                                                            </span>
+                                                                                            <input class="form-control" type="number">
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="col-sm-6">
+                                                                                    <div class="form-group">
+                                                                                        <label>Baño(s) visita:</label>
+                                                                                        <div class="section-input col-sm-5">
+                                                                                            <span class="icon-input">
+                                                                                                <img src="https://cdn-icons-png.flaticon.com/512/456/456365.png" alt="">
+                                                                                            </span>
+                                                                                            <input class="form-control" type="number">
+                                                                                        </div>
+                                                                                    </div>
                                                                                 </div>
                                                                             </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="grid-box">
-                                                                        <div class="col-sm-12">
-                                                                            <div class="form-group">
-                                                                                <label>Baño(s) visita:</label>
-                                                                                <div class="section-input col-sm-10">
-                                                                                    <span class="icon-input">
-                                                                                        <img src="https://cdn-icons-png.flaticon.com/512/456/456365.png" alt="">
-                                                                                    </span>
-                                                                                    <input class="form-control" type="number">
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="grid-box">
-                                                                        <div class="col-sm-12">
-                                                                            <div class="form-group">
-                                                                                <label>Cuarto(s) de servicio:</label>
-                                                                                <div class="section-input col-sm-10">
-                                                                                    <input class="form-control" type="number">
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="grid-box">
-                                                                        <div class="col-sm-12">
-                                                                            <div class="form-group">
-                                                                                <label>Baño(s) de servicio:</label>
-                                                                                <div class="section-input col-sm-10">
-                                                                                    <span class="icon-input">
-                                                                                        <img src="https://cdn-icons-png.flaticon.com/512/456/456365.png" alt="">
-                                                                                    </span>
-                                                                                    <input class="form-control" type="number">
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="grid-box">
-                                                                        <div class="col-sm-12">
-                                                                            <div class="form-group">
-                                                                                <label>Baño(s) completo(s):</label>
-                                                                                <div class="section-input col-sm-10">
-                                                                                    <span class="icon-input">
-                                                                                        <img src="https://cdn-icons-png.flaticon.com/512/456/456365.png" alt="">
-                                                                                    </span>
-                                                                                    <input class="form-control" type="number">
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="grid-box">
-                                                                        <div class="col-sm-12">
-                                                                            <div class="form-group">
-                                                                                <div class="custom-control custom-checkbox">
-                                                                                    <input class="down custom-control-input" type="checkbox" id="piscina" name="radio1">
-                                                                                    <label for="piscina" class="down custom-control-label">Piscina:</label>
+                                                                            <div class="input-group mb-3">
+                                                                                <div class="col-sm-12">
+                                                                                    <br>
+                                                                                    <div class="custom-control custom-checkbox">
+                                                                                        <input class="right custom-control-input" type="checkbox" id="ascensor" name="">
+                                                                                        <label for="ascensor" class="right custom-control-label">Ascensor:</label>
+                                                                                    </div>
+                                                                                    <br>
+                                                                                    <div class="custom-control custom-checkbox">
+                                                                                        <input class="right custom-control-input" type="checkbox" id="ascensor_directo" name="">
+                                                                                        <label for="ascensor_directo" class="right custom-control-label">Ascensor directo:</label>
+                                                                                    </div>
                                                                                 </div>
                                                                             </div>
                                                                         </div>
@@ -1120,7 +1208,7 @@
 
 
                                             <!-- RESUMEN DE SOLICITUD -->
-                                            <div id="7" class="section col-md-12" role="tabpanel" aria-labelledby="logins-part-trigger">
+                                            <div id="7" class="section col-md-12" role="tabpanel" aria-labelledby="logins-part-trigger" data-target="third_step">
                                                 <h1>Resumen de solicitud</h1>
                                                 <div class="row">
                                                     <div class="col-md-12">
