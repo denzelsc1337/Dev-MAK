@@ -26,10 +26,10 @@
     <link href="css/main.css" rel="stylesheet" media="all">
 
     <style>
-    body {
-      zoom: 0.87;
-    }
-  </style>
+        body {
+            zoom: 0.87;
+        }
+    </style>
 </head>
 
 <body>
@@ -38,13 +38,13 @@
         <div class="wrapper wrapper--w680">
             <h1>Bienvenido a Servicios MAK</h1>
             <h2>Registro</h2>
-            <form  method="POST" action="../Controller/RegisterClient_Service.php">
-            <div class="card card-4">
-                <div class="card-body">
+            <form method="POST" action="../Controller/RegisterClient_Service.php">
+                <div class="card card-4">
+                    <div class="card-body">
                         <div class="row row-space">
                             <div class="col-2">
                                 <div class="input-group">
-                                    <label class="label">Documento</label>
+                                    <label class="label">Documento de identidad</label>
                                     <input class="input--style-4" type="text" id="dni_u" name="dni_u" placeholder="DNI" required>
                                 </div>
                             </div>
@@ -65,35 +65,32 @@
                             </div>
                             <div class="col-2">
                                 <div class="input-group">
-                                    <label class="label">Usuario</label>
-                                    <input class="input--style-4" type="text" id="usu_c" name="usu_c" placeholder="Usuario" required>
+                                    <label class="label">Apellidos</label>
+                                    <input class="input--style-4" type="text" id="apellidos_u" name="apellidos_u" placeholder="Apellido" required>
+                                    <!--                                     <div class="input-group-icon">
+                                        <input class="input--style-4 js-datepicker" type="text" name="birthday">
+                                        <i class="zmdi zmdi-calendar-note input-icon js-btn-calendar"></i>
+                                    </div> -->
                                 </div>
+
                             </div>
                         </div>
 
                         <div class="row row-space">
                             <div class="col-2">
                                 <div class="input-group">
-                                    <label class="label">Apellidos</label>
-                                    <input class="input--style-4" type="text" id="apellidos_u" name="apellidos_u" placeholder="Apellido" required>
-<!--                                     <div class="input-group-icon">
-                                        <input class="input--style-4 js-datepicker" type="text" name="birthday">
-                                        <i class="zmdi zmdi-calendar-note input-icon js-btn-calendar"></i>
-                                    </div> -->
+                                    <label class="label">Telefono</label>
+                                    <input class="input--style-4" id="telef_u" name="telef_u" placeholder="Telefono/celular" required>
                                 </div>
                             </div>
                             <div class="col-2">
                                 <div class="input-group">
-                                    <label class="label">Contraseña</label>
-                                    <div class="input-group-icon">
-                                        <input class="input--style-4" type="password" placeholder="Contraseña" required>
-                                         <!--<i class="zmdi zmdi-calendar-note input-icon js-btn-calendar"></i>
-                                        <input class="input--style-4 js-datepicker" type="text" name="birthday">
-                                        <i class="zmdi zmdi-calendar-note input-icon js-btn-calendar"></i> -->
-                                    </div>
+                                    <label class="label">Usuario</label>
+                                    <input class="input--style-4" type="text" id="usu_c" name="usu_c" placeholder="Usuario" required>
                                 </div>
                             </div>
-<!--                             <div class="col-2">
+
+                            <!--                             <div class="col-2">
                                 <div class="input-group">
                                     <label class="label">Gender</label>
                                     <div class="p-t-10">
@@ -112,8 +109,13 @@
                         <div class="row row-space">
                             <div class="col-2">
                                 <div class="input-group">
-                                    <label class="label">Telefono</label>
-                                    <input class="input--style-4" id="telef_u" name="telef_u" placeholder="Telefono/celular" required>
+                                    <label class="label">Contraseña</label>
+                                    <div class="input-group-icon">
+                                        <input class="input--style-4" type="password" placeholder="Contraseña" required>
+                                        <!--<i class="zmdi zmdi-calendar-note input-icon js-btn-calendar"></i>
+                                        <input class="input--style-4 js-datepicker" type="text" name="birthday">
+                                        <i class="zmdi zmdi-calendar-note input-icon js-btn-calendar"></i> -->
+                                    </div>
                                 </div>
                             </div>
                             <div class="col-2">
@@ -132,12 +134,12 @@
                                             function changeValue(dropdown) {
                                                 var option = dropdown.options[dropdown.selectedIndex].value,
                                                     field = document.getElementById('datos_corredor');
-                                                    if (option == '1') {
-                                                        field.style.display = "block";
-                                                    }else if (option == '2'){
-                                                        field.style.display = "none";
-                                                    }
+                                                if (option == '1') {
+                                                    field.style.display = "block";
+                                                } else if (option == '2') {
+                                                    field.style.display = "none";
                                                 }
+                                            }
                                         </script>
                                         <?php
                                         require_once('../Controller/controladorListar.php');
@@ -163,8 +165,8 @@
 
                     </div>
                 </div>
-                <button class="btn btn--radius-2 btn--blue" type="submit" >Registrar</button>
-                <h4 >Tienes cuenta? <a href="../index.php">Ingresa ahora.</a></h4   >
+                <button class="btn btn--radius-2 btn--blue" type="submit">Registrar</button>
+                <h4>Tienes cuenta? <a href="../index.php">Ingresa ahora.</a></h4>
 
             </form>
         </div>
