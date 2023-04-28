@@ -35,14 +35,12 @@
     <link rel="stylesheet" href="../Vista/plugins/dropzone/min/dropzone.min.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="../Vista/dist/css/adminlte.min.css">
-
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC51g1uGpVz4Iidg3WDfqC9lavE4IYyIXc"></script>
-
     <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
 
 </head>
 
-<body class="hold-transition sidebar-mini  sidebar-collapse layout-fixed layout-navbar-fixed layout-footer-fixed">
+<body class="hold-transition sidebar-mini  sidebar-collapse layout-fixed layout-navbar-fixed layout-footer-fixed" onload="initAutocomplete()">
+
     <?php include '../Vista/nav_bar_moduls.php'?>
     <!-- ./wrapper -->
     <div class="content-wrapper">
@@ -107,7 +105,7 @@
                                         <div class="form-content">
 
                                             <!-- SELECCION TIPO -->
-                                            <div id="pantalla-S" class="section col-md-12 movPag show" role="tabpanel" aria-labelledby="logins-part-trigger" style="display: block;">
+                                            <div id="0" class="section col-md-12 movPag show" role="tabpanel" aria-labelledby="logins-part-trigger" style="display: block;">
 
                                                 <div class="row">
                                                     <div class="col-md-4">
@@ -119,7 +117,7 @@
                                                                         <div class="form-group">
                                                                             <label>Ingrese Direccion</label>
                                                                             <input type="text" class="form-control" placeholder="Ingrese una direccion" id="direccion_" name="direccion_" 
-                                                                            onkeydown="buscarDireccion(event)">
+                                                                            onkeydown="buscarDireccion(event)" autocomplete="off">
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -147,6 +145,8 @@
                                                                         </div>
                                                                     </div>
                                                                 </div>
+
+
 
                                                                 <div class="row">
                                                                     <div class="col-sm-10">
@@ -188,12 +188,12 @@
                                                         <div class="card card-primary">
                                                             <div class="card-body">
                                                                 <!-- Date dd/mm/yyyy -->
-                                                                <div class="row">
+                                                                <div class="row" id="a__t">
                                                                     <div class="col-sm-8">
                                                                         <!-- text input -->
                                                                         <div class="form-group">
                                                                             <label>Area de Terreno</label>
-                                                                            <input type="text" class="form-control" placeholder="00.00m2">
+                                                                            <input type="text" class="form-control" placeholder="00.00m2" id="a_t">
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -1248,6 +1248,29 @@
     <script src="../Vista/dist/js/demo.js"></script>
     <!-- Page specific script -->
 
+    <!--GOOGLE MAPS TESTING-->
+    <script type="text/javascript">
+        function initmap() {
+            const autocomplete = new google.maps.places.Autocomplete(document.getElementById('direccion_'));
+            var map = new google.maps.Map(document.getElementById('mapa'), {
+                center: {lat: -34.397, lng: 150.644},
+                zoom: 8
+            });
+            var marker = new google.maps.Marker({
+                position: {lat: -34.397, lng: 150.644},
+                map: map,
+                title: 'Hello World!'
+            });
+        }
+
+        function onGoogleMapsLoaded() {
+          const autocomplete = new google.maps.places.Autocomplete(document.getElementById('direccion_'));
+        }
+    </script>
+    
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCNO5GraIm8rWrrLbWt-Gv9GxsenRng-8o&callback=initmap&libraries=places" onload="onGoogleMapsLoaded()" async defer></script>
+    
+
     <script type="text/javascript">
         function buscarDireccion(event) {
           if (event.keyCode === 13) { // 13 es el código de la tecla "Enter"
@@ -1265,7 +1288,94 @@
             });
           }
         }
+
+        function mostrarMapa(latitud, longitud) {
+          const mapa = new google.maps.Map(document.getElementById('mapa'), {
+            zoom: 15,
+            center: {lat: latitud, lng: longitud},
+          });
+          const marcador = new google.maps.Marker({
+            position: {lat: latitud, lng: longitud},
+            map: mapa,
+          });
+        }
+
+        function initAutocomplete() {
+          const input = document.getElementById('direccion_');
+          const autocomplete = new google.maps.places.Autocomplete(input);
+          autocomplete.addListener('place_changed', function() {
+            const place = autocomplete.getPlace();
+            if (!place.geometry) {
+              alert("No se encontró la dirección");
+              return;
+            }
+            const latitud = place.geometry.location.lat();
+            const longitud = place.geometry.location.lng();
+            mostrarMapa(latitud, longitud);
+          });
+        }
+
+        
     </script>
+<!--GOOGLE MAPS TESTING-->
+
+    <script type="text/javascript">
+        /*function changeInputs() {
+          const tipo_prop = document.getElementById("tipo_prop");
+
+          const tipo_prop_value_selected = tipo_prop.value;
+
+
+          if (tipo_prop_value_selected === "1") {
+            const area_t = document.getElementById("a_t");
+            area_t.style.display = "none";
+            console.log("testing");
+
+          } else if (tipo_prop_value_selected === "2") {
+
+            console.log("testing2");
+
+          } else if (tipo_prop_value_selected === "3") {
+
+            console.log("testing3");
+
+          }
+        }
+        const tipo_prop = document.getElementById("tipo_prop");
+        tipo_prop.addEventListener("change", changeInputs);*/
+    </script>
+
+    <style type="text/css">
+         #a__t {
+          opacity: 1;
+          height: 100%;
+          margin-bottom: 3px;
+          transition: opacity 0.3s ease-out, height 0.3s ease-out, margin-bottom 0.3s ease-out;
+        }
+        #a__t.hidden {
+          opacity: 0;
+          height: 0;
+          margin-bottom: 0;
+        }
+    </style>
+
+    <script type="text/javascript">
+        
+        const tipo_prop = document.getElementById("tipo_prop");
+        const area_t = document.getElementById("a__t");
+
+        tipo_prop.addEventListener("change", function() {
+          if (tipo_prop.value === "1") {
+            //area_t.style.opacity = 0;
+            area_t.classList.add("hidden");
+          }else{
+            area_t.classList.remove("hidden");
+          }
+
+          
+        });
+    </script>
+
     <script>
         $(function() {
             //Initialize Select2 Elements
@@ -1404,6 +1514,8 @@
         // }
         // // DropzoneJS Demo Code End
     </script>
+
+    
 </body>
 
 </html>
