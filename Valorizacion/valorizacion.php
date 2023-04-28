@@ -1254,13 +1254,29 @@
             const autocomplete = new google.maps.places.Autocomplete(document.getElementById('direccion_'));
             var map = new google.maps.Map(document.getElementById('mapa'), {
                 center: {lat: -34.397, lng: 150.644},
-                zoom: 8
+                zoom: 18
             });
             var marker = new google.maps.Marker({
                 position: {lat: -34.397, lng: 150.644},
-                map: map,
-                title: 'Hello World!'
+                map: map
             });
+
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(function(position) {
+                    var pos = {
+                        lat: position.coords.latitude,
+                        lng: position.coords.longitude
+                    };
+                    map.setCenter(pos);
+                    var marker = new google.maps.Marker({
+                        position: pos,
+                        map: map,
+                        title: 'Ubicación actual'
+                    });
+                }, function() {
+                    // Manejar errores de geolocalización aquí
+                });
+            }
         }
 
         function onGoogleMapsLoaded() {
@@ -1268,7 +1284,8 @@
         }
     </script>
     
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCNO5GraIm8rWrrLbWt-Gv9GxsenRng-8o&callback=initmap&libraries=places" onload="onGoogleMapsLoaded()" async defer></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCNO5GraIm8rWrrLbWt-Gv9GxsenRng-8o&callback=initmap&libraries=places" onload="onGoogleMapsLoaded()" async defer>
+    </script>
     
 
     <script type="text/javascript">
