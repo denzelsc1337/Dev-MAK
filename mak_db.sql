@@ -29,24 +29,24 @@ insert into tipo_inmuebles values (null, 'Local Comercial');
 insert into tipo_inmuebles values (null, 'Local Industrial');
 
 
-CREATE TABLE IF NOT EXISTS sub_tipo_inmueble (
+CREATE TABLE IF NOT EXISTS sub_tipo_inmuebles (
   id_sub_tipo_inmb 	int primary key auto_increment,
   sub_tipo_inmb 	varchar(255) NOT NULL,
   cod_tipo_inmb 	int NOT NULL,
-  FOREIGN KEY (cod_tipo_inmb) REFERENCES tipo_inmueble (id_tipo_inmb)
+  FOREIGN KEY (cod_tipo_inmb) REFERENCES tipo_inmuebles (id_tipo_inmb)
 );
 
-select * from tipo_inmueble;
+-- select * from tipo_inmuebles;
 
 -- inicio sub tipos de departamento
-insert into sub_tipo_inmueble values (null, 'Departamento Oficina', 1);
-insert into sub_tipo_inmueble values (null, 'Departamento Vivienda', 1);
-insert into sub_tipo_inmueble values (null, 'Departamento Vivienda Duplex', 1);
-insert into sub_tipo_inmueble values (null, 'Departamento Vivienda en Condominio', 1);
-insert into sub_tipo_inmueble values (null, 'Departamento Vivienda en Pent House', 1);
-insert into sub_tipo_inmueble values (null, 'Departamento Vivienda en Pent House Duplex', 1);
-insert into sub_tipo_inmueble values (null, 'Departamento Vivienda en Playa', 1);
-insert into sub_tipo_inmueble values (null, 'Departamento Vivienda Triplex', 1);
+insert into sub_tipo_inmuebles values (null, 'Departamento Oficina', 1);
+insert into sub_tipo_inmuebles values (null, 'Departamento Vivienda', 1);
+insert into sub_tipo_inmuebles values (null, 'Departamento Vivienda Duplex', 1);
+insert into sub_tipo_inmuebles values (null, 'Departamento Vivienda en Condominio', 1);
+insert into sub_tipo_inmuebles values (null, 'Departamento Vivienda en Pent House', 1);
+insert into sub_tipo_inmuebles values (null, 'Departamento Vivienda en Pent House Duplex', 1);
+insert into sub_tipo_inmuebles values (null, 'Departamento Vivienda en Playa', 1);
+insert into sub_tipo_inmuebles values (null, 'Departamento Vivienda Triplex', 1);
 -- inicio sub tipos de departamento
 
 CREATE TABLE IF NOT EXISTS tipo_pared_ext (
@@ -444,12 +444,12 @@ create table propiedades(
     
 -- relaciones
 
-FOREIGN KEY (cod_tipo_prop) 	REFERENCES  tipo_inmueble  (id_tipo_inmb) ON DELETE SET NULL,
+FOREIGN KEY (cod_tipo_prop) 	REFERENCES  tipo_inmuebles  (id_tipo_inmb) ON DELETE SET NULL,
 FOREIGN KEY (cod_tipo_pa_ex) 	REFERENCES  tipo_pared_ext  (id_tipo_p) ON DELETE SET NULL,
 FOREIGN KEY (cod_repo_coci)		REFERENCES  tipo_repostero  (id_tipo_repo) ON DELETE SET NULL,
 FOREIGN KEY (cod_energ)		 	REFERENCES  tipo_energia  (id_tipo_energ) ON DELETE SET NULL,
 FOREIGN KEY (cod_ubic) 			REFERENCES  ubicacion  (id_ubicacion) ON DELETE SET NULL,
-FOREIGN KEY (cod_sub_tipo_inmb) REFERENCES 	sub_tipo_inmueble  (id_sub_tipo_inmb),
+FOREIGN KEY (cod_sub_tipo_inmb) REFERENCES 	sub_tipo_inmuebles  (id_sub_tipo_inmb),
 FOREIGN KEY (cod_usu_reg) 		REFERENCES  usuarios  (id_usu),
 FOREIGN KEY (cod_tipo_promo)	REFERENCES  tipo_promocion  (id_promo),
 FOREIGN KEY (cod_zona)			REFERENCES  tipo_zonificacion  (id_zona) ON DELETE SET NULL,
@@ -475,7 +475,7 @@ CREATE TABLE IF NOT EXISTS recorrido(
     observacion		varchar(255) not null,
     
     FOREIGN KEY (cod_zona)			REFERENCES  tipo_zonificacion  (id_zona) ON DELETE SET NULL,
-    FOREIGN KEY (cod_tipo_prop) 	REFERENCES  tipo_inmueble  (id_tipo_inmb) ON DELETE SET NULL,
+    FOREIGN KEY (cod_tipo_prop) 	REFERENCES  tipo_inmuebles  (id_tipo_inmb) ON DELETE SET NULL,
     FOREIGN KEY (cod_tipo_cli) 		REFERENCES  tipo_cliente (id_tipo_cliente) ON DELETE SET NULL,
     FOREIGN KEY (cod_tipo_promo)	REFERENCES  tipo_promocion  (id_promo) ON DELETE SET NULL    
 );

@@ -198,7 +198,7 @@
                                                                     </div>
                                                                 </div>
 
-                                                                <div class="row">
+                                                                <div class="row" id="a__c">
                                                                     <div class="col-sm-8">
                                                                         <!-- text input -->
                                                                         <div class="form-group">
@@ -208,7 +208,7 @@
                                                                     </div>
                                                                 </div>
 
-                                                                <div class="row">
+                                                                <div class="row" id="a__o">
                                                                     <div class="col-sm-8">
                                                                         <!-- text input -->
                                                                         <div class="form-group">
@@ -218,7 +218,7 @@
                                                                     </div>
                                                                 </div>
 
-                                                                <div class="row">
+                                                                <div class="row" id="antig_">
                                                                     <div class="col-sm-8">
                                                                         <!-- text input -->
                                                                         <div class="form-group">
@@ -1291,7 +1291,7 @@
 
         function mostrarMapa(latitud, longitud) {
           const mapa = new google.maps.Map(document.getElementById('mapa'), {
-            zoom: 15,
+            zoom: 17,
             center: {lat: latitud, lng: longitud},
           });
           const marcador = new google.maps.Marker({
@@ -1346,13 +1346,15 @@
     </script>
 
     <style type="text/css">
-         #a__t {
+         #a__t, #a__c, #a__o, #antig_  {
           opacity: 1;
           height: 100%;
           margin-bottom: 3px;
           transition: opacity 0.3s ease-out, height 0.3s ease-out, margin-bottom 0.3s ease-out;
         }
-        #a__t.hidden {
+
+
+        #a__t.hidden, #a__c.hidden, #a__o.hidden, #antig_.hidden  {
           opacity: 0;
           height: 0;
           margin-bottom: 0;
@@ -1363,15 +1365,36 @@
         
         const tipo_prop = document.getElementById("tipo_prop");
         const area_t = document.getElementById("a__t");
+        const area_c = document.getElementById("a__c");
+        const area_o = document.getElementById("a__o");
+        const antig = document.getElementById("antig_");
 
         tipo_prop.addEventListener("change", function() {
-          if (tipo_prop.value === "1") {
-            //area_t.style.opacity = 0;
-            area_t.classList.add("hidden");
-          }else{
-            area_t.classList.remove("hidden");
-          }
+            switch(tipo_prop.value){
+            case "1":
+                area_o.classList.add("hidden");
+                area_t.classList.remove("hidden");
+                area_c.classList.remove("hidden");
+                antig.classList.remove("hidden");
+            break;
 
+            case "2":
+              area_t.classList.add("hidden");
+              area_c.classList.remove("hidden");
+              area_o.classList.remove("hidden");
+              antig.classList.remove("hidden");
+              break;
+
+            case "3":
+              area_c.classList.add("hidden");
+              area_o.classList.add("hidden");
+              antig.classList.add("hidden");
+              area_t.classList.remove("hidden");
+              break;
+
+            default:
+              break;
+            }
           
         });
     </script>
