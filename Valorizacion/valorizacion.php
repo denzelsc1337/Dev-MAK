@@ -196,7 +196,7 @@
                                                                         <!-- text input -->
                                                                         <div class="form-group">
                                                                             <label>Area de Terreno</label>
-                                                                            <input type="text" class="form-control" placeholder="00.00m2" id="a_t">
+                                                                            <input type="text" class="form-control" placeholder="00.00m2" id="a_t" name="a_t">
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -206,7 +206,7 @@
                                                                         <!-- text input -->
                                                                         <div class="form-group">
                                                                             <label>Area Construida</label>
-                                                                            <input type="text" class="form-control" placeholder="00.00m2">
+                                                                            <input type="text" class="form-control" placeholder="00.00m2" id="a_c" name="a_c">
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -216,7 +216,7 @@
                                                                         <!-- text input -->
                                                                         <div class="form-group">
                                                                             <label>Area Ocupada</label>
-                                                                            <input type="text" class="form-control" placeholder="00.00m2">
+                                                                            <input type="text" class="form-control" placeholder="00.00m2" id="a_o" name="a_o">
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -226,7 +226,7 @@
                                                                         <!-- text input -->
                                                                         <div class="form-group">
                                                                             <label>Antiguedad</label>
-                                                                            <input type="text" class="form-control" placeholder="0 años">
+                                                                            <input type="text" class="form-control" placeholder="0 años" id="antig" name="antig">
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -267,29 +267,29 @@
                                                                             <div class="form-group pdd-left" style="display: flex;gap: 300px;">
                                                                                 <div>
                                                                                     <div class="custom-control custom-checkbox">
-                                                                                        <input class="right custom-control-input" type="checkbox" id="" name="">
-                                                                                        <label for="" class="right custom-control-label">Sala Comedor:</label>
+                                                                                        <input class="right custom-control-input" type="checkbox" id="sala_com" name="sala_com" value="true">
+                                                                                        <label for="sala_com" class="right custom-control-label">Sala Comedor:</label>
                                                                                     </div>
                                                                                     <br>
                                                                                     <div class="custom-control custom-checkbox">
-                                                                                        <input class="right custom-control-input" type="checkbox" id="" name="">
-                                                                                        <label for="" class="right custom-control-label">Sala:</label>
+                                                                                        <input class="right custom-control-input" type="checkbox" id="sala_" name="sala_" value="true">
+                                                                                        <label for="sala_" class="right custom-control-label">Sala:</label>
                                                                                     </div>
                                                                                     <br>
                                                                                     <div class="custom-control custom-checkbox">
-                                                                                        <input class="right custom-control-input" type="checkbox" id="" name="">
-                                                                                        <label for="" class="right custom-control-label">Comedor:</label>
+                                                                                        <input class="right custom-control-input" type="checkbox" id="comedor_" name="comedor_" value="true">
+                                                                                        <label for="comedor_" class="right custom-control-label">Comedor:</label>
                                                                                     </div>
                                                                                 </div>
                                                                                 <div>
                                                                                     <div class="custom-control custom-checkbox">
-                                                                                        <input class="right custom-control-input" type="checkbox" id="" name="">
-                                                                                        <label for="" class="right custom-control-label">Cocina:</label>
+                                                                                        <input class="right custom-control-input" type="checkbox" id="cocina_" name="cocina_" value="true">
+                                                                                        <label for="cocina_" class="right custom-control-label">Cocina:</label>
                                                                                     </div>
                                                                                     <br>
                                                                                     <div class="custom-control custom-checkbox">
-                                                                                        <input class="right custom-control-input" type="checkbox" id="" name="">
-                                                                                        <label for="" class="right custom-control-label">Jardín Trasero:</label>
+                                                                                        <input class="right custom-control-input" type="checkbox" id="jardin_t" name="jardin_t" value="true">
+                                                                                        <label for="jardin_t" class="right custom-control-label">Jardín Trasero:</label>
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
@@ -312,7 +312,7 @@
                                                                                             <span class="icon-input">
                                                                                                 <img src="https://cdn-icons-png.flaticon.com/512/7118/7118098.png" alt="">
                                                                                             </span>
-                                                                                            <input class="form-control" type="number">
+                                                                                            <input class="form-control" type="number" id="cant_dorm" name="cant_dorm">
                                                                                         </div>
                                                                                     </div>
                                                                                     <!-- <div class="form-group pdd-left">
@@ -358,7 +358,7 @@
                                                                                                 <span class="icon-input">
                                                                                                     <img src="https://cdn-icons-png.flaticon.com/512/456/456365.png" alt="">
                                                                                                 </span>
-                                                                                                <input class="form-control" type="number">
+                                                                                                <input class="form-control" type="number" id="cant_banho" name="cant_banho">
                                                                                             </div>
                                                                                         </div>
                                                                                     </div>
@@ -399,14 +399,14 @@
                                                                                         <div class="form-group pdd-left" style="display: flex;gap: 300px;">
                                                                                             <div>
                                                                                                 <div class="custom-control custom-checkbox">
-                                                                                                    <input class="down custom-control-input" type="checkbox" id="" name="">
-                                                                                                    <label for="" class="down custom-control-label">Cuarto de servicio</label>
+                                                                                                    <input class="down custom-control-input" type="checkbox" id="cuarto_serv" name="cuarto_serv" value="true">
+                                                                                                    <label for="cuarto_serv" class="down custom-control-label">Cuarto de servicio</label>
                                                                                                 </div>
                                                                                             </div>
                                                                                             <div>
                                                                                                 <div class="custom-control custom-checkbox">
-                                                                                                    <input class="down custom-control-input" type="checkbox" id="" name="">
-                                                                                                    <label for="" class="down custom-control-label">Baño de servicio</label>
+                                                                                                    <input class="down custom-control-input" type="checkbox" id="banho_serv" name="banho_serv" value="true">
+                                                                                                    <label for="banho_serv" class="down custom-control-label">Baño de servicio</label>
                                                                                                 </div>
                                                                                             </div>
                                                                                         </div>
@@ -426,7 +426,7 @@
                                                                                                 <label>Estacionamiento(s):</label>
                                                                                                 <div class="section-input col-sm-5">
                                                                                                     <span class="icon-input"><i class="fa-solid fa-warehouse"></i></span>
-                                                                                                    <input class="form-control" type="number">
+                                                                                                    <input class="form-control" type="number" id="cant_estac" name="cant_estac">
                                                                                                 </div>
                                                                                             </div>
                                                                                         </div>
@@ -434,8 +434,8 @@
                                                                                         <div>
                                                                                             <div class="form-group pdd-left">
                                                                                                 <div class="custom-control custom-checkbox">
-                                                                                                    <input class="right custom-control-input" type="checkbox" id="" name="">
-                                                                                                    <label for="" class="right custom-control-label">Depósito:</label>
+                                                                                                    <input class="right custom-control-input" type="checkbox" id="deposito_" name="deposito_" value="true">
+                                                                                                    <label for="deposito_" class="right custom-control-label">Depósito:</label>
                                                                                                 </div>
                                                                                             </div>
                                                                                         </div>
@@ -476,194 +476,192 @@
 
                                                                 <br>
 
-                                                                <div class="row">
+                                                    <div class="row">
+                                                        <div class="col-sm-12">
+                                                            <div class="form-group row">
+                                                                <div class="input-group mb-3">
+
+                                                                <div class="col-sm-12">
+                                                                    <div class="form-group row">
+                                                                        <label class="col-sm-3 col-form-label">Ubicación:</label>
+                                                                            <div class="section-input col-sm-8">
+                                                                                <span class="icon-input"><i class="fa-solid fa-location-dot"></i></span>
+                                        <select class="form-control radius-right" id="ubic" name="ubic">
+                                            <option value="">Seleccione</option>
+                                            <?php foreach ($selector_types_ubi as $cod_type_u) : ?>
+                                            <option value="<?php echo $cod_type_u[0]; ?>"><?php echo $cod_type_u[1]; ?></option>
+                                            <?php endforeach ?>
+                                        </select>
+                                                                            </div>
+                                                                            <div class="input-group-append">
+                                                                                <span class="input-group-text" title="Info..."><i>i</i></span>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+
                                                                     <div class="col-sm-12">
                                                                         <div class="form-group row">
+                                                                            <label class="col-sm-3 col-form-label">Vista:</label>
+                                                                            <div class="section-input col-sm-8">
+                                                                                <span class="icon-input">
+                                                                                    <img src="https://cdn-icons-png.flaticon.com/512/3017/3017956.png" alt="">
+                                                                                </span>
+                                        <select class="form-control radius-right" id="vista_" name="vista_">
+                                            <option value="">Seleccione</option>
+                                            <?php foreach ($selector_types_vis as $cod_type_v) : ?>
+                                            <option value="<?php echo $cod_type_v[0]; ?>"><?php echo $cod_type_v[1]; ?></option>
+                                            <?php endforeach ?>
+                                        </select>
+                                                                            </div>
+                                                                            <div class="input-group-append">
+                                                                                <span class="input-group-text" title="Info..."><i>i</i></span>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="col-sm-12">
+                                                                        <div class="form-group row">
+                                                                            <label class="col-sm-3 col-form-label">Acabado:</label>
+                                                                            <div class="section-input col-sm-8">
+                                                                                <span class="icon-input">
+                                                                                    <img src="https://cdn-icons-png.flaticon.com/512/1249/1249293.png" alt="">
+                                                                                </span>
+                                        <select class="form-control radius-right" id="acabado_" name="acabado_">
+                                            <option  value>Seleccione</option>
+                                            <?php foreach ($selector_types_acab as $cod_type_a) : ?>
+                                            <option value="<?php echo $cod_type_a[0]; ?>"><?php echo $cod_type_a[1]; ?></option>
+                                            <?php endforeach ?>
+                                        </select>
+                                                                            </div>
+                                                                            <div class="input-group-append">
+                                                                                <span class="input-group-text" title="Info..."><i>i</i></span>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <!-- <br><br>
+                                                                    <br><br> -->
+
+                                                                    <!-- <div class="col-sm-12">
+                                                                        <div class="form-group row">
+                                                                            <label class="col-sm-3 col-form-label">Frente:</label>
+                                                                            <fieldset class="col-sm-8">
+                                                                                <div class="form-group row" style="justify-content: space-around;">
+                                                                                    <div class="custom-control custom-checkbox">
+                                                                                        <input class="down custom-control-input" type="radio" id="parque" name="frente[]">
+                                                                                        <label for="parque" class="down custom-control-label">Parque</label>
+                                                                                    </div>
+                                                                                    <div class="custom-control custom-checkbox">
+                                                                                        <input class="down custom-control-input" type="radio" id="mar" name="frente[]">
+                                                                                        <label for="mar" class="down custom-control-label">Mar</label>
+                                                                                    </div>
+                                                                                    <div class="custom-control custom-checkbox">
+                                                                                        <input class="down custom-control-input" type="radio" id="ninguno" name="frente[]" checked>
+                                                                                        <label for="ninguno" class="down custom-control-label">Ninguno</label>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </fieldset>
+                                                                        </div>
+                                                                    </div> -->
+
+                                                                    <br><br>
+                                                                    <br><br>
+
+                                                                    <!-- <div class="col-sm-6">
+
+                                                                        <div class="form-group">
+                                                                            <label class="col-form-label">Dormitorio(s) con baño:</label>
+                                                                            <div class="section-input col-sm-5">
+                                                                                <span class="icon-input">
+                                                                                    <img src="https://cdn-icons-png.flaticon.com/512/5697/5697404.png" alt="">
+                                                                                </span>
+                                                                                <input class="form-control" type="number">
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-sm-6">
+                                                                        <div class="form-group">
+                                                                            <label>Baño(s) visita:</label>
+                                                                            <div class="section-input col-sm-5">
+                                                                                <span class="icon-input">
+                                                                                    <img src="https://cdn-icons-png.flaticon.com/512/456/456365.png" alt="">
+                                                                                </span>
+                                                                                <input class="form-control" type="number">
+                                                                            </div>
+                                                                        </div>
+                                                                    </div> -->
+
+                                                                    <div class="row">
+                                                                        <div class="col-sm-12">
                                                                             <div class="input-group mb-3">
-
-                                                                                <div class="col-sm-12">
-                                                                                    <div class="form-group row">
-                                                                                        <label class="col-sm-3 col-form-label">Ubicación:</label>
-                                                                                        <div class="section-input col-sm-8">
-                                                                                            <span class="icon-input"><i class="fa-solid fa-location-dot"></i></span>
-                                                                                            <select class="form-control radius-right" id="">
-                                                                                                <option selected disabled>Seleccione</option>
-                                                                                                <option>Medianero</option>
-                                                                                                <option>Esquina</option>
-                                                                                                <option>3 Frentes</option>
-                                                                                                <option>En quinta</option>
-                                                                                                <option>En condominio</option>
-                                                                                            </select>
-                                                                                        </div>
-                                                                                        <div class="input-group-append">
-                                                                                            <span class="input-group-text" title="Info..."><i>i</i></span>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-
-                                                                                <div class="col-sm-12">
-                                                                                    <div class="form-group row">
-                                                                                        <label class="col-sm-3 col-form-label">Vista:</label>
-                                                                                        <div class="section-input col-sm-8">
-                                                                                            <span class="icon-input">
-                                                                                                <img src="https://cdn-icons-png.flaticon.com/512/3017/3017956.png" alt="">
-                                                                                            </span>
-                                                                                            <select class="form-control radius-right" id="">
-                                                                                                <option selected disabled>Seleccione</option>
-                                                                                                <option>Vista parque</option>
-                                                                                                <option>Vista a mar</option>
-                                                                                                <option>Vista a ciudad panorámica</option>
-                                                                                            </select>
-                                                                                        </div>
-                                                                                        <div class="input-group-append">
-                                                                                            <span class="input-group-text" title="Info..."><i>i</i></span>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-
-                                                                                <div class="col-sm-12">
-                                                                                    <div class="form-group row">
-                                                                                        <label class="col-sm-3 col-form-label">Acabado:</label>
-                                                                                        <div class="section-input col-sm-8">
-                                                                                            <span class="icon-input">
-                                                                                                <img src="https://cdn-icons-png.flaticon.com/512/1249/1249293.png" alt="">
-                                                                                            </span>
-                                                                                            <select class="form-control radius-right" id="">
-                                                                                                <option selected disabled>Seleccione</option>
-                                                                                                <option>En blanco</option>
-                                                                                                <option>En gris</option>
-                                                                                                <option>En casco</option>
-                                                                                            </select>
-                                                                                        </div>
-                                                                                        <div class="input-group-append">
-                                                                                            <span class="input-group-text" title="Info..."><i>i</i></span>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-
-                                                                                <!-- <br><br>
-                                                                                <br><br> -->
-
-                                                                                <!-- <div class="col-sm-12">
-                                                                                    <div class="form-group row">
-                                                                                        <label class="col-sm-3 col-form-label">Frente:</label>
-                                                                                        <fieldset class="col-sm-8">
-                                                                                            <div class="form-group row" style="justify-content: space-around;">
-                                                                                                <div class="custom-control custom-checkbox">
-                                                                                                    <input class="down custom-control-input" type="radio" id="parque" name="frente[]">
-                                                                                                    <label for="parque" class="down custom-control-label">Parque</label>
-                                                                                                </div>
-                                                                                                <div class="custom-control custom-checkbox">
-                                                                                                    <input class="down custom-control-input" type="radio" id="mar" name="frente[]">
-                                                                                                    <label for="mar" class="down custom-control-label">Mar</label>
-                                                                                                </div>
-                                                                                                <div class="custom-control custom-checkbox">
-                                                                                                    <input class="down custom-control-input" type="radio" id="ninguno" name="frente[]" checked>
-                                                                                                    <label for="ninguno" class="down custom-control-label">Ninguno</label>
-                                                                                                </div>
+                                                                                <div class="form-group pdd-left" style="display: flex;gap: 300px;">
+                                                                                    <div>
+                                                                                        <div class="form-group">
+                                                                                            <label class="col-form-label">Dormitorio(s) con baño:</label>
+                                                                                            <div class="section-input col-sm-5">
+                                                                                                <span class="icon-input">
+                                                                                                    <img src="https://cdn-icons-png.flaticon.com/512/5697/5697404.png" alt="">
+                                                                                                </span>
+                                                                                                <input class="form-control" type="number" id="cant_dorm_b_" name="cant_dorm_b_">
                                                                                             </div>
-                                                                                        </fieldset>
+                                                                                        </div>
                                                                                     </div>
-                                                                                </div> -->
+                                                                                    <div>
+                                                                                        <div class="custom-control custom-checkbox">
+                                                                                            <input class="right custom-control-input" type="checkbox" id="banho_vis" name="banho_vis" value="true">
+                                                                                            <label for="banho_vis" class="right custom-control-label">Baño(s) de visita:</label>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
 
-                                                                                <br><br>
-                                                                                <br><br>
-
-                                                                                <!-- <div class="col-sm-6">
-
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row">
+                                                                    <div class="col-sm-12">
+                                                                        <div class="input-group mb-3">
+                                                                            <div class="form-group pdd-left" style="display: flex;gap: 300px;">
+                                                                                <div>
                                                                                     <div class="form-group">
-                                                                                        <label class="col-form-label">Dormitorio(s) con baño:</label>
+                                                                                        <label class="col-form-label">Pisos:</label>
                                                                                         <div class="section-input col-sm-5">
                                                                                             <span class="icon-input">
                                                                                                 <img src="https://cdn-icons-png.flaticon.com/512/5697/5697404.png" alt="">
                                                                                             </span>
-                                                                                            <input class="form-control" type="number">
+                                                                                            <input class="form-control" type="number" id="pisos_" name="pisos_">
                                                                                         </div>
                                                                                     </div>
                                                                                 </div>
-                                                                                <div class="col-sm-6">
-                                                                                    <div class="form-group">
-                                                                                        <label>Baño(s) visita:</label>
-                                                                                        <div class="section-input col-sm-5">
-                                                                                            <span class="icon-input">
-                                                                                                <img src="https://cdn-icons-png.flaticon.com/512/456/456365.png" alt="">
-                                                                                            </span>
-                                                                                            <input class="form-control" type="number">
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div> -->
+                                                                                <div>
 
-                                                                                <div class="row">
-                                                                                    <div class="col-sm-12">
-                                                                                        <div class="input-group mb-3">
-                                                                                            <div class="form-group pdd-left" style="display: flex;gap: 300px;">
-                                                                                                <div>
-                                                                                                    <div class="form-group">
-                                                                                                        <label class="col-form-label">Dormitorio(s) con baño:</label>
-                                                                                                        <div class="section-input col-sm-5">
-                                                                                                            <span class="icon-input">
-                                                                                                                <img src="https://cdn-icons-png.flaticon.com/512/5697/5697404.png" alt="">
-                                                                                                            </span>
-                                                                                                            <input class="form-control" type="number">
-                                                                                                        </div>
-                                                                                                    </div>
-                                                                                                </div>
-                                                                                                <div>
-                                                                                                    <div class="custom-control custom-checkbox">
-                                                                                                        <input class="right custom-control-input" type="checkbox" id="" name="">
-                                                                                                        <label for="" class="right custom-control-label">Baño(s) de visita:</label>
-                                                                                                    </div>
-                                                                                                </div>
-                                                                                            </div>
-                                                                                        </div>
-
+                                                                                    <div class="custom-control custom-checkbox">
+                                                                                        <input class="right custom-control-input" type="checkbox" id="amoblado_" name="amoblado_" value="true">
+                                                                                        <label for="amoblado_" class="right custom-control-label">Amoblado:</label>
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
-                                                                            <div class="row">
-                                                                                <div class="col-sm-12">
-                                                                                    <div class="input-group mb-3">
-                                                                                        <div class="form-group pdd-left" style="display: flex;gap: 300px;">
-                                                                                            <div>
-                                                                                                <div class="form-group">
-                                                                                                    <label class="col-form-label">Pisos:</label>
-                                                                                                    <div class="section-input col-sm-5">
-                                                                                                        <span class="icon-input">
-                                                                                                            <img src="https://cdn-icons-png.flaticon.com/512/5697/5697404.png" alt="">
-                                                                                                        </span>
-                                                                                                        <input class="form-control" type="number">
-                                                                                                    </div>
-                                                                                                </div>
-                                                                                            </div>
-                                                                                            <div>
-
-                                                                                                <div class="custom-control custom-checkbox">
-                                                                                                    <input class="right custom-control-input" type="checkbox" id="" name="">
-                                                                                                    <label for="" class="right custom-control-label">Amoblado:</label>
-                                                                                                </div>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </div>
-
-                                                                                </div>
-                                                                            </div>
-                                                                            <!-- <div class="input-group mb-3">
-                                                                                <div class="col-sm-12">
-                                                                                    <br>
-                                                                                    <div class="custom-control custom-checkbox">
-                                                                                        <input class="right custom-control-input" type="checkbox" id="ascensor" name="">
-                                                                                        <label for="ascensor" class="right custom-control-label">Ascensor:</label>
-                                                                                    </div>
-                                                                                    <br>
-                                                                                    <div class="custom-control custom-checkbox">
-                                                                                        <input class="right custom-control-input" type="checkbox" id="ascensor_directo" name="">
-                                                                                        <label for="ascensor_directo" class="right custom-control-label">Ascensor directo:</label>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div> -->
                                                                         </div>
+
                                                                     </div>
                                                                 </div>
+                                                                <!-- <div class="input-group mb-3">
+                                                                    <div class="col-sm-12">
+                                                                        <br>
+                                                                        <div class="custom-control custom-checkbox">
+                                                                            <input class="right custom-control-input" type="checkbox" id="ascensor" name="">
+                                                                            <label for="ascensor" class="right custom-control-label">Ascensor:</label>
+                                                                        </div>
+                                                                        <br>
+                                                                        <div class="custom-control custom-checkbox">
+                                                                            <input class="right custom-control-input" type="checkbox" id="ascensor_directo" name="">
+                                                                            <label for="ascensor_directo" class="right custom-control-label">Ascensor directo:</label>
+                                                                        </div>
+                                                                    </div>
+                                                                </div> -->
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -694,29 +692,29 @@
                                                                             <div class="form-group pdd-left" style="display: flex;gap: 300px;">
                                                                                 <div>
                                                                                     <div class="custom-control custom-checkbox">
-                                                                                        <input class="right custom-control-input" type="checkbox" id="" name="">
-                                                                                        <label for="" class="right custom-control-label">Sala Comedor:</label>
+                                                                                        <input class="right custom-control-input" type="checkbox" id="sala_com_d" name="sala_com_d">
+                                                                                        <label for="sala_com_d" class="right custom-control-label">Sala Comedor:</label>
                                                                                     </div>
                                                                                     <br>
                                                                                     <div class="custom-control custom-checkbox">
-                                                                                        <input class="right custom-control-input" type="checkbox" id="" name="">
-                                                                                        <label for="" class="right custom-control-label">Sala:</label>
+                                                                                        <input class="right custom-control-input" type="checkbox" id="sala_d" name="sala_d">
+                                                                                        <label for="sala_d" class="right custom-control-label">Sala:</label>
                                                                                     </div>
                                                                                     <br>
                                                                                     <div class="custom-control custom-checkbox">
-                                                                                        <input class="right custom-control-input" type="checkbox" id="" name="">
-                                                                                        <label for="" class="right custom-control-label">Comedor:</label>
+                                                                                        <input class="right custom-control-input" type="checkbox" id="comedor_d" name="comedor_d">
+                                                                                        <label for="comedor_d" class="right custom-control-label">Comedor:</label>
                                                                                     </div>
                                                                                 </div>
                                                                                 <div>
                                                                                     <div class="custom-control custom-checkbox">
-                                                                                        <input class="right custom-control-input" type="checkbox" id="" name="">
-                                                                                        <label for="" class="right custom-control-label">Cocina:</label>
+                                                                                        <input class="right custom-control-input" type="checkbox" id="cocina_d" name="cocina_d">
+                                                                                        <label for="cocina_d" class="right custom-control-label">Cocina:</label>
                                                                                     </div>
                                                                                     <br>
                                                                                     <div class="custom-control custom-checkbox">
-                                                                                        <input class="right custom-control-input" type="checkbox" id="" name="">
-                                                                                        <label for="" class="right custom-control-label">Jardín Trasero:</label>
+                                                                                        <input class="right custom-control-input" type="checkbox" id="jardin_t_d" name="jardin_t_d">
+                                                                                        <label for="jardin_t_d" class="right custom-control-label">Jardín Trasero:</label>
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
@@ -739,7 +737,7 @@
                                                                                             <span class="icon-input">
                                                                                                 <img src="https://cdn-icons-png.flaticon.com/512/7118/7118098.png" alt="">
                                                                                             </span>
-                                                                                            <input class="form-control" type="number">
+                                                                                            <input class="form-control" type="number" id="cant_dorm_d" name="cant_dorm_d">
                                                                                         </div>
                                                                                     </div>
                                                                                     <!-- <div class="form-group pdd-left">
@@ -785,7 +783,7 @@
                                                                                                 <span class="icon-input">
                                                                                                     <img src="https://cdn-icons-png.flaticon.com/512/456/456365.png" alt="">
                                                                                                 </span>
-                                                                                                <input class="form-control" type="number">
+                                                                                                <input class="form-control" type="number" id="cant_banho_d" name="cant_banho_d">
                                                                                             </div>
                                                                                         </div>
                                                                                     </div>
@@ -826,14 +824,14 @@
                                                                                         <div class="form-group pdd-left" style="display: flex;gap: 300px;">
                                                                                             <div>
                                                                                                 <div class="custom-control custom-checkbox">
-                                                                                                    <input class="down custom-control-input" type="checkbox" id="" name="">
-                                                                                                    <label for="" class="down custom-control-label">Cuarto de servicio</label>
+                                                                                                    <input class="down custom-control-input" type="checkbox" id="cuarto_serv_d" name="cuarto_serv_d">
+                                                                                                    <label for="cuarto_serv_d" class="down custom-control-label">Cuarto de servicio</label>
                                                                                                 </div>
                                                                                             </div>
                                                                                             <div>
                                                                                                 <div class="custom-control custom-checkbox">
-                                                                                                    <input class="down custom-control-input" type="checkbox" id="" name="">
-                                                                                                    <label for="" class="down custom-control-label">Baño de servicio</label>
+                                                                                                    <input class="down custom-control-input" type="checkbox" id="banho_serv_d" name="banho_serv_d">
+                                                                                                    <label for="banho_serv_d" class="down custom-control-label">Baño de servicio</label>
                                                                                                 </div>
                                                                                             </div>
                                                                                         </div>
@@ -853,7 +851,7 @@
                                                                                                 <label>Estacionamiento(s):</label>
                                                                                                 <div class="section-input col-sm-5">
                                                                                                     <span class="icon-input"><i class="fa-solid fa-warehouse"></i></span>
-                                                                                                    <input class="form-control" type="number">
+                                                                                                    <input class="form-control" type="number" id="cant_estac_d" name="cant_estac_d">
                                                                                                 </div>
                                                                                             </div>
                                                                                         </div>
@@ -861,8 +859,8 @@
                                                                                         <div>
                                                                                             <div class="form-group pdd-left">
                                                                                                 <div class="custom-control custom-checkbox">
-                                                                                                    <input class="right custom-control-input" type="checkbox" id="" name="">
-                                                                                                    <label for="" class="right custom-control-label">Depósito:</label>
+                                                                                                    <input class="right custom-control-input" type="checkbox" id="deposito__d" name="deposito__d">
+                                                                                                    <label for="deposito__d" class="right custom-control-label">Depósito:</label>
                                                                                                 </div>
                                                                                             </div>
                                                                                         </div>
@@ -913,14 +911,12 @@
                                                                                         <label class="col-sm-3 col-form-label">Ubicación:</label>
                                                                                         <div class="section-input col-sm-8">
                                                                                             <span class="icon-input"><i class="fa-solid fa-location-dot"></i></span>
-                                                                                            <select class="form-control radius-right" id="">
-                                                                                                <option selected disabled>Seleccione</option>
-                                                                                                <option>Medianero</option>
-                                                                                                <option>Esquina</option>
-                                                                                                <option>3 Frentes</option>
-                                                                                                <option>En quinta</option>
-                                                                                                <option>En condominio</option>
-                                                                                            </select>
+                                        <select class="form-control radius-right" id="ubic" name="ubic">
+                                            <option value="">Seleccione</option>
+                                            <?php foreach ($selector_types_ubi as $cod_type_u) : ?>
+                                            <option value="<?php echo $cod_type_u[0]; ?>"><?php echo $cod_type_u[1]; ?></option>
+                                            <?php endforeach ?>
+                                        </select>
                                                                                         </div>
                                                                                         <div class="input-group-append">
                                                                                             <span class="input-group-text" title="Info..."><i>i</i></span>
@@ -935,14 +931,12 @@
                                                                                             <span class="icon-input">
                                                                                                 <img src="https://cdn-icons-png.flaticon.com/512/3017/3017956.png" alt="">
                                                                                             </span>
-                                                                                            <select class="form-control radius-right" id="">
-                                                                                                <option selected disabled>Seleccione</option>
-                                                                                                <option>Vista parque</option>
-                                                                                                <option>Vista a mar</option>
-                                                                                                <option>Vista a ciudad panorámica</option>
-                                                                                                <option>Vista interior</option>
-                                                                                                <option>Vista exterior</option>
-                                                                                            </select>
+                                        <select class="form-control radius-right" id="vista_" name="vista_">
+                                            <option value="">Seleccione</option>
+                                            <?php foreach ($selector_types_vis as $cod_type_v) : ?>
+                                            <option value="<?php echo $cod_type_v[0]; ?>"><?php echo $cod_type_v[1]; ?></option>
+                                            <?php endforeach ?>
+                                        </select>
                                                                                         </div>
                                                                                         <div class="input-group-append">
                                                                                             <span class="input-group-text" title="Info..."><i>i</i></span>
@@ -957,12 +951,12 @@
                                                                                             <span class="icon-input">
                                                                                                 <img src="https://cdn-icons-png.flaticon.com/512/1249/1249293.png" alt="">
                                                                                             </span>
-                                                                                            <select class="form-control radius-right" id="">
-                                                                                                <option selected disabled>Seleccione</option>
-                                                                                                <option>En blanco</option>
-                                                                                                <option>En gris</option>
-                                                                                                <option>En casco</option>
-                                                                                            </select>
+                                        <select class="form-control radius-right" id="acabado_" name="acabado_">
+                                            <option  value>Seleccione</option>
+                                            <?php foreach ($selector_types_acab as $cod_type_a) : ?>
+                                            <option value="<?php echo $cod_type_a[0]; ?>"><?php echo $cod_type_a[1]; ?></option>
+                                            <?php endforeach ?>
+                                        </select>
                                                                                         </div>
                                                                                         <div class="input-group-append">
                                                                                             <span class="input-group-text" title="Info..."><i>i</i></span>
@@ -1035,14 +1029,14 @@
                                                                                                             <span class="icon-input">
                                                                                                                 <img src="https://cdn-icons-png.flaticon.com/512/5697/5697404.png" alt="">
                                                                                                             </span>
-                                                                                                            <input class="form-control" type="number">
+                                                                                                            <input class="form-control" type="number" id="cant_dorm_b_d" name="cant_dorm_b_d">
                                                                                                         </div>
                                                                                                     </div>
                                                                                                 </div>
                                                                                                 <div>
                                                                                                     <div class="custom-control custom-checkbox">
-                                                                                                        <input class="right custom-control-input" type="checkbox" id="" name="">
-                                                                                                        <label for="" class="right custom-control-label">Baño(s) de visita:</label>
+                                                                                                        <input class="right custom-control-input" type="checkbox" id="banho_vis_d" name="banho_vis_d">
+                                                                                                        <label for="banho_vis_d" class="right custom-control-label">Baño(s) de visita:</label>
                                                                                                     </div>
                                                                                                 </div>
                                                                                             </div>
@@ -1057,14 +1051,14 @@
                                                                                     <div class="flex" style="display: flex;gap: 300px;">
                                                                                         <div>
                                                                                             <div class="custom-control custom-checkbox">
-                                                                                                <input class="right custom-control-input" type="checkbox" id="ascensor" name="">
-                                                                                                <label for="ascensor" class="right custom-control-label">Ascensor:</label>
+                                                                                                <input class="right custom-control-input" type="checkbox" id="ascensor_d" name="ascensor_d">
+                                                                                                <label for="ascensor_d" class="right custom-control-label">Ascensor:</label>
                                                                                             </div>
                                                                                         </div>
                                                                                         <div>
                                                                                             <div class="custom-control custom-checkbox">
-                                                                                                <input class="right custom-control-input" type="checkbox" id="ascensor_directo" name="">
-                                                                                                <label for="ascensor_directo" class="right custom-control-label">Ascensor directo:</label>
+                                                                                                <input class="right custom-control-input" type="checkbox" id="ascensor_directo_d" name="ascensor_directo_d">
+                                                                                                <label for="ascensor_directo_d" class="right custom-control-label">Ascensor directo:</label>
                                                                                             </div>
                                                                                         </div>
                                                                                     </div>
@@ -1086,7 +1080,7 @@
                                                                                                         <span class="icon-input">
                                                                                                             <img src="https://cdn-icons-png.flaticon.com/512/5697/5697404.png" alt="">
                                                                                                         </span>
-                                                                                                        <input class="form-control" type="number">
+                                                                                                        <input class="form-control" type="number" id="pisos_edif_d" name="pisos_edif_d">
                                                                                                     </div>
                                                                                                 </div>
                                                                                             </div>
@@ -1097,7 +1091,7 @@
                                                                                                         <span class="icon-input">
                                                                                                             <img src="https://cdn-icons-png.flaticon.com/512/5697/5697404.png" alt="">
                                                                                                         </span>
-                                                                                                        <input class="form-control" type="number">
+                                                                                                        <input class="form-control" type="number" id="piso_dpto_" name="piso_dpto_">
                                                                                                     </div>
                                                                                                 </div>
                                                                                             </div>
@@ -1127,14 +1121,14 @@
                                                                                         <div class="form-group pdd-left" style="display: flex;gap: 300px;">
                                                                                             <div>
                                                                                                 <div class="custom-control custom-checkbox">
-                                                                                                    <input class="right custom-control-input" type="checkbox" id="" name="">
-                                                                                                    <label for="" class="right custom-control-label">Amoblado:</label>
+                                                                                                    <input class="right custom-control-input" type="checkbox" id="amoblado_d" name="amoblado_d">
+                                                                                                    <label for="amoblado_d" class="right custom-control-label">Amoblado:</label>
                                                                                                 </div>
                                                                                             </div>
                                                                                             <div>
                                                                                                 <div class="custom-control custom-checkbox">
-                                                                                                    <input class="right custom-control-input" type="checkbox" id="" name="">
-                                                                                                    <label for="" class="right custom-control-label">Piscina propia:</label>
+                                                                                                    <input class="right custom-control-input" type="checkbox" id="piscina_d" name="piscina_d">
+                                                                                                    <label for="piscina_d" class="right custom-control-label">Piscina propia:</label>
                                                                                                 </div>
 
                                                                                                 <!-- <div class="custom-control custom-checkbox">
@@ -1182,8 +1176,12 @@
                                                                                 <label class="col-sm-3 col-form-label">Zonificación:</label>
                                                                                 <div class="section-input col-sm-8">
                                                                                     <span class="icon-input"><i class="fa-solid fa-location-dot"></i></span>
-                                                                                    <select class="form-control radius-right" id="">
-                                                                                        <option selected disabled>Seleccione</option>
+                                                                                    <select class="form-control radius-right" 
+                                                                                    id="tipo_zoni" name="tipo_zoni">
+                                                                                        <option selected >Seleccione</option value>
+                                                                                    <?php foreach ($selector_types_zon as $cod_type_z) : ?>
+                                                                                    <option value="<?php echo $cod_type_z[0]; ?>"><?php echo $cod_type_z[1]; ?></option>
+                                                                                    <?php endforeach ?>
                                                                                     </select>
                                                                                 </div>
                                                                                 <div class="input-group-append">
@@ -1198,8 +1196,13 @@
                                                                                     <span class="icon-input">
                                                                                         <img src="https://cdn-icons-png.flaticon.com/512/1249/1249293.png" alt="">
                                                                                     </span>
-                                                                                    <select class="form-control radius-right" id="">
-                                                                                        <option selected disabled>Seleccione</option>
+                                                                                    <select class="form-control radius-right" 
+                                                                                    id="tipo_suelo" name="tipo_suelo">
+                                                                                        <option selected >Seleccione</option value>
+
+                                                                                    <?php foreach ($selector_types_suel as $cod_type_suel) : ?>
+                                                                                    <option value="<?php echo $cod_type_suel[0]; ?>"><?php echo $cod_type_suel[1]; ?></option>
+                                                                                    <?php endforeach ?>
                                                                                     </select>
                                                                                 </div>
                                                                                 <div class="input-group-append">
@@ -1214,7 +1217,7 @@
                                                                                     <span class="icon-input">
                                                                                         <img src="https://cdn-icons-png.flaticon.com/512/3017/3017956.png" alt="">
                                                                                     </span>
-                                                                                    <input class="form-control radius-right" type="number">
+                                                                                    <input class="form-control radius-right" type="number" id="params_" name="params_">
                                                                                 </div>
                                                                             </div>
                                                                         </div>
@@ -1230,7 +1233,7 @@
                                                                                     <span class="icon-input">
                                                                                         <img class="rotate-180" src="https://cdn-icons-png.flaticon.com/512/8264/8264013.png" alt="">
                                                                                     </span>
-                                                                                    <input class="form-control" type="number" step="00.01" value="00.00">
+                                                                                    <input class="form-control" type="number" step="00.01" id="frnte_" name="frnte_">
                                                                                 </div>
                                                                             </div>
                                                                         </div>
@@ -1243,7 +1246,7 @@
                                                                                     <span class="icon-input">
                                                                                         <img class="rotate-270" src="https://cdn-icons-png.flaticon.com/512/8264/8264013.png" alt="">
                                                                                     </span>
-                                                                                    <input class="form-control" type="number" step="00.01" value="00.00">
+                                                                                    <input class="form-control" type="number" step="00.01" id="izq_" name="izq_">
                                                                                 </div>
                                                                             </div>
                                                                         </div>
@@ -1256,7 +1259,7 @@
                                                                                     <span class="icon-input">
                                                                                         <img src="https://cdn-icons-png.flaticon.com/512/8264/8264013.png" alt="">
                                                                                     </span>
-                                                                                    <input class="form-control" type="number" step="00.01" value="00.00">
+                                                                                    <input class="form-control" type="number" step="00.01" id="fndo_" name="fndo_">
                                                                                 </div>
                                                                             </div>
                                                                         </div>
@@ -1269,7 +1272,7 @@
                                                                                     <span class="icon-input">
                                                                                         <img class="rotate-90" src="https://cdn-icons-png.flaticon.com/512/8264/8264013.png" alt="">
                                                                                     </span>
-                                                                                    <input class="form-control" type="number" step="00.01" value="00.00">
+                                                                                    <input class="form-control" type="number" step="00.01" id="derc_" name="derc_">
                                                                                 </div>
                                                                             </div>
                                                                         </div>

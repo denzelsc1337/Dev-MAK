@@ -2,9 +2,11 @@ create database mak;
 use mak;
 
 CREATE TABLE IF NOT EXISTS tipo_zonificacion (
-  id_zona 		int primary key auto_increment,
+  id_zona 		int null primary key auto_increment,
   tipo_zona 	varchar(255) NOT NULL
 );
+
+insert into tipo_zonificacion values (null, 'Prueba');
 
 create table tipo_cliente(
 	id_tipo_cliente int auto_increment primary key not null,
@@ -17,7 +19,7 @@ create table tipo_aviso(
 );
 
 CREATE TABLE IF NOT EXISTS tipo_inmuebles (
-  id_tipo_inmb 		int primary key auto_increment,
+  id_tipo_inmb 		int null primary key auto_increment,
   tipo_inmb 		varchar(255) NOT NULL
 );
 
@@ -60,17 +62,24 @@ insert into tipo_pared_ext values (null, 'Cerámico');
 insert into tipo_pared_ext values (null, 'Mampara');
 
 
-
-
 CREATE TABLE IF NOT EXISTS tipo_acabado (
-  id_acabado 		int primary key auto_increment,
+  id_acabado 		int null primary key auto_increment,
   tipo_acabado 		varchar(255) NOT NULL
 );
 
-insert into tipo_acabado values (null, 'Amoblado');
-insert into tipo_acabado values (null, 'Equipado o en blanco');
-insert into tipo_acabado values (null, 'En gris o en casco');
+insert into tipo_acabado values (null, 'En blanco');
+insert into tipo_acabado values (null, 'En gris');
+insert into tipo_acabado values (null, 'En casco');
 
+
+CREATE TABLE IF NOT EXISTS tipo_vista (
+  id_vista 			int null primary key auto_increment,
+  tipo_vista 		varchar(255) NOT NULL
+);
+
+insert into tipo_vista values (null, 'Vista a Parque');
+insert into tipo_vista values (null, 'Vista a Mar');
+insert into tipo_vista values (null, 'Vista a ciudad panorámica');
 
 
 CREATE TABLE IF NOT EXISTS tipo_cochera (
@@ -102,11 +111,11 @@ create table tipo_usuario (
 insert into tipo_usuario values (null, 'Admin');
 insert into tipo_usuario values (null, 'Supervisor');
 
+
 CREATE TABLE IF NOT EXISTS tipo_suelo (
-  id_tipo_suelo int primary key auto_increment,
+  id_tipo_suelo int null primary key auto_increment,
   tipo_suelo 	varchar (255) not null
 );
-
 
 insert into tipo_suelo values (null, 'Losa');
 insert into tipo_suelo values (null, 'Asfaltado');
@@ -118,16 +127,15 @@ insert into tipo_suelo values (null, 'Tierra cultivo');
 
 
 CREATE TABLE IF NOT EXISTS ubicacion (
-	id_ubicacion 	int primary key auto_increment,
+	id_ubicacion 	int null primary key auto_increment null,
 	tipo_ubic 		varchar (255) not null
 );
 
 insert into ubicacion values (null, 'Medianero');
 insert into ubicacion values (null, 'Esquina');
-insert into ubicacion values (null, 'Tres frentes');
+insert into ubicacion values (null, '3 frentes');
 insert into ubicacion values (null, 'En quinta');
 insert into ubicacion values (null, 'En condominio');
-
 
 
 CREATE TABLE IF NOT EXISTS tipo_promocion (
@@ -485,34 +493,135 @@ create table valorizacion(
 	id_valor		int auto_increment primary key,
 	direccion		varchar(150),
     
-    cod_tipo_inmue	int, 
+    cod_tipo_inmue		int, 
     cod_sub_tipo_inmue	int,
     cod_tipo_prom		int,
-    -- form casa
-    tipo_frente		varchar(90),
+    
+    area_terreno	double,
+    area_construida	double,
+    area_ocupada	double,
+    antiguedad		int,
+    
+    -- form casa general
+    sala_comedor	boolean, 
+    sala			boolean,
+    comedor			boolean,
+    cocina			boolean,
+    jardin_trasero	boolean,
+    -- fin form casa general
+    
+    -- form casa dormitorios
     cant_dorm		int,
-    cant_banho		int, 
-    cant_cochera	int,
-    dormitorio_banho	int, 
-    banho_visita	int,
-    cuarto_visita	int,
-    banho_servicio	int,
-    banho_compl		int,
-    piscina			bool,
+	cant_banho		int, 
+    -- fin form casa dormitorios
+    
+    -- form casa area servicio
+    cuarto_serv		boolean,
+    banho_serv		boolean,
+    -- fin form casa area servicio
+    
+    -- form casa estacionamiento deposito
+    estacionamiento	int,
+	deposito		boolean,
+    -- fin form casa estacionamiento deposito
+    
+    -- form casa datos especificos
+    cod_ubi			int,
+    cod_vista		int, 
+    cod_acabado		int,
+    
+    dormitorio_banho int, 
+    banho_visita	 boolean,
+    pisos			 int,
+    amoblado		 boolean,
+    -- fin form casa datos especificos
+    
+    
+    
+    
+    -- form depa general
+    sala_comedor_dep		boolean, 
+    sala_dep				boolean,
+    comedor_dep				boolean,
+    cocina_dep				boolean,
+    jardin_trasero_dep		boolean,
+    -- fin form depa general
+    
+    -- form depa dormitorios
+    cant_dorm_dep		int,
+	cant_banho_dep		int, 
+    -- fin form depa dormitorios
+    
+    -- form depa area servicio
+    cuarto_serv_dep		boolean,
+    banho_serv_dep		boolean,
+    -- fin form depa area servicio
+    
+    -- form depa estacionamiento deposito
+    estac_dep			int,
+	deposito_dep		boolean,
+    -- fin form depa estacionamiento deposito
+    
+    -- form dep datos especificos
+    dormitorio_banho_dep 	int, 
+    banho_visita_dep	 	boolean,
+    ascensor_dep		 	boolean,
+    ascensor_dir_dep		boolean,
+    pisos_edif_dep			int,
+    piso_dep				int,
+    amoblado_dep		 	boolean,
+    piscina_dep				boolean,
+    -- fin form dep datos especificos
+    
+    -- form terreno 
+    cod_zonificacion 		int,
+    cod_tipo_suelo			int, 
+    param_terreno			int,
+    frent_terreno			double,
+    izq_terreno				double,
+    fondo_terreno			double,
+    der_terreno				double
+    -- fin form terreno 
+    
     -- form casa fin
-    FOREIGN KEY (cod_tipo_inmue) REFERENCES  tipo_inmuebles  (id_tipo_inmb) ON DELETE SET NULL,
-    FOREIGN KEY (cod_sub_tipo_inmue) REFERENCES  sub_tipo_inmuebles  (id_sub_tipo_inmb) ON DELETE SET NULL,
-    FOREIGN KEY (cod_tipo_prom) REFERENCES  tipo_promocion  (id_promo) ON DELETE SET NULL
 );
 
-select * from tipo_inmuebles;
+alter table valorizacion
+add foreign key (cod_tipo_inmue)
+references tipo_inmuebles (id_tipo_inmb);
+
+alter table valorizacion
+add foreign key (cod_sub_tipo_inmue)
+references sub_tipo_inmuebles (id_sub_tipo_inmb);
+
+alter table valorizacion
+add foreign key (cod_tipo_prom)
+references tipo_promocion (id_promo);
+
+alter table valorizacion
+add foreign key (cod_ubi)
+references ubicacion (id_ubicacion);
+
+alter table valorizacion
+add foreign key (cod_vista)
+references tipo_vista (id_vista);
+
+alter table valorizacion
+add foreign key (cod_acabado)
+references tipo_acabado (id_acabado);
+
+alter table valorizacion
+add foreign key (cod_zonificacion)
+references tipo_zonificacion (id_zona);
+
+alter table valorizacion
+add foreign key (cod_tipo_suelo)
+references tipo_suelo (id_tipo_suelo);
 
 
-rename table sub_tipo_inmueble
-to sub_tipo_inmuebles;
+select * from valorizacion;
 
-select * from valorizacion
-    
+desc valorizacion
 
 
 
