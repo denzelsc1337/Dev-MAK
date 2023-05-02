@@ -56,7 +56,6 @@ class Valorizacion
 						 	'".$data[11]."', '".$data[12]."','".$data[13]."','".$data[14]."','".$data[15]."','".$data[16]."'
 						 	,'".$data[17]."','".$data[18]."','".$data[19]."','".$data[20]."','".$data[21]."','".$data[22]."'
 						 	,'".$data[23]."','".$data[24]."','".$data[25]."','".$data[26]."'
-
 						 	,'".$data[27]."','".$data[28]."','".$data[29]."','".$data[30]."','".$data[31]."'
 						 	,'".$data[32]."','".$data[33]."','".$data[34]."','".$data[35]."','".$data[36]."'
 						 	,'".$data[37]."','".$data[38]."','".$data[39]."','".$data[40]."','".$data[41]."'
@@ -68,6 +67,8 @@ class Valorizacion
 
 
 		echo mysqli_query($cadena, $query);
+		//var_dump($data);
+
 
 
         $cnx->cerrarConexion($cadena);
@@ -79,7 +80,7 @@ class Valorizacion
 		$cnx = new conexion();
 		$cadena = $cnx->abrirConexion();
 
-		$query = "SELECT id_tipo_inmb, tipo_inmb from tipo_inmuebles";
+		$query = "SELECT id_tipo_inmb, tipo_inmb from tipo_inmuebles where id_tipo_inmb between 1 and 6";
 
 		$resultado = mysqli_query($cadena, $query);
 

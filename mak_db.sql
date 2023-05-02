@@ -23,6 +23,7 @@ CREATE TABLE IF NOT EXISTS tipo_inmuebles (
   tipo_inmb 		varchar(255) NOT NULL
 );
 
+insert into tipo_inmuebles values (null, 'SIN TIPO');
 insert into tipo_inmuebles values (null, 'Casa');
 insert into tipo_inmuebles values (null, 'Departamento');
 insert into tipo_inmuebles values (null, 'Terreno');
@@ -580,49 +581,32 @@ create table valorizacion(
     frent_terreno			double,
     izq_terreno				double,
     fondo_terreno			double,
-    der_terreno				double
+    der_terreno				double,
     -- fin form terreno 
     
     -- form casa fin
+    
+	FOREIGN KEY (cod_tipo_inmue) REFERENCES  tipo_inmuebles  (id_tipo_inmb) ON DELETE SET NULL,
+    FOREIGN KEY (cod_sub_tipo_inmue) REFERENCES  sub_tipo_inmuebles  (id_sub_tipo_inmb) ON DELETE SET NULL,
+    FOREIGN KEY (cod_tipo_prom) REFERENCES  tipo_promocion  (id_promo) ON DELETE SET NULL,
+    FOREIGN KEY (cod_ubi) REFERENCES  ubicacion  (id_ubicacion) ON DELETE SET NULL,
+    FOREIGN KEY (cod_vista) REFERENCES  tipo_vista  (id_vista) ON DELETE SET NULL,
+    FOREIGN KEY (cod_acabado) REFERENCES  tipo_acabado  (id_acabado) ON DELETE SET NULL,
+    FOREIGN KEY (cod_zonificacion) REFERENCES  tipo_zonificacion  (id_zona) ON DELETE SET NULL,
+    FOREIGN KEY (cod_tipo_suelo) REFERENCES  tipo_suelo  (id_tipo_suelo) ON DELETE SET NULL
 );
-
-alter table valorizacion
-add foreign key (cod_tipo_inmue)
-references tipo_inmuebles (id_tipo_inmb);
-
-alter table valorizacion
-add foreign key (cod_sub_tipo_inmue)
-references sub_tipo_inmuebles (id_sub_tipo_inmb);
-
-alter table valorizacion
-add foreign key (cod_tipo_prom)
-references tipo_promocion (id_promo);
-
-alter table valorizacion
-add foreign key (cod_ubi)
-references ubicacion (id_ubicacion);
-
-alter table valorizacion
-add foreign key (cod_vista)
-references tipo_vista (id_vista);
-
-alter table valorizacion
-add foreign key (cod_acabado)
-references tipo_acabado (id_acabado);
-
-alter table valorizacion
-add foreign key (cod_zonificacion)
-references tipo_zonificacion (id_zona);
-
-alter table valorizacion
-add foreign key (cod_tipo_suelo)
-references tipo_suelo (id_tipo_suelo);
 
 
 select * from valorizacion;
 
-desc valorizacion
+desc valorizacion;
 
+create table prueba_(
+	id_test int primary key not null,
+    test varchar(50)
+);
+
+insert into prueba_ values (0, 'Led');
 
 
 

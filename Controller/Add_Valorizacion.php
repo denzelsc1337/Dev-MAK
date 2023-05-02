@@ -33,15 +33,30 @@ $data[19] = isset($_POST['deposito_'])? true : false;
 $data[21] = $_POST["vista_"];
 $data[22] = $_POST["acabado_"];*/
 
-$data[20] = isset($_POST["ubic"]) && $_POST["ubic"] !== "" ? $_POST["ubic"] : 'NULL';
+//$data[20] = isset($_POST["ubic"]) && $_POST["ubic"] !== "" ? $_POST["ubic"] : null;
 
-$data[21] = isset($_POST["vista_"]) && $_POST["vista_"] !== "" ? $_POST["vista_"] : 'NULL';
+//$data[21] = isset($_POST["vista_"]) && $_POST["vista_"] !== "" ? $_POST["vista_"] : null;
 
-$data[22] = isset($_POST["acabado_"]) && $_POST["acabado_"] !== "" ? $_POST["acabado_"] : 'NULL';
+//$data[22] = isset($_POST["acabado_"]) && $_POST["acabado_"] !== "" ? $_POST["acabado_"] : null;
 
-echo "El valor es " . $data[20];
-echo "El valor es " . $data[21];
-echo "El valor es " . $data[22];
+
+if(isset($_POST["ubic"]) && !empty($_POST["ubic"])){
+   $data[20] = $_POST["ubic"];
+} else {
+   $data[20] = 'NULL';
+}
+
+if(isset($_POST["vista_"]) && !empty($_POST["vista_"])){
+    $data[21] = $_POST["vista_"];
+} else {
+   $data[21]  = 'NULL';
+}
+
+if(isset($_POST["acabado_"]) && !empty($_POST["acabado_"])){
+    $data[22] = $_POST["acabado_"];
+} else {
+   $data[22] = 'NULL';
+}
 
 $data[23] = $_POST["cant_dorm_b_"];
 $data[24] = isset($_POST['banho_vis'])? true : false;
@@ -79,8 +94,14 @@ $data[45] = isset($_POST['piscina_d'])? true : false;
 //depa inputs
 
 //terreno inputs
-$data[46] = $_POST["tipo_zoni"];
-$data[47] = $_POST["tipo_suelo"];
+/*$data[46] = $_POST["tipo_zoni"];
+$data[47] = $_POST["tipo_suelo"];*/
+
+
+$data[46] = isset($_POST["tipo_zoni"]) && $_POST["tipo_zoni"] !== "" ? $_POST["tipo_zoni"] : 'null';
+
+$data[47] = isset($_POST["tipo_suelo"]) && $_POST["tipo_suelo"] !== "" ? $_POST["tipo_suelo"] : 'null';
+
 
 
 $data[48] = $_POST["params_"];
@@ -91,13 +112,21 @@ $data[52] = $_POST["derc_"];
 //terreno inputs
 
 
+try {
+	require_once('../Model/Valorizacion.php');
+
+	$oValor= new Valorizacion();
+	$r = $oValor->add_Valorizacion($data);
+	var_dump($data);
 
 
-require_once('../Model/Valorizacion.php');
-
-$oValor= new Valorizacion();
-$r = $oValor->add_Valorizacion($data);
-//var_dump($data);
+} catch (Exception $e) {
+    ?>
+        <script>
+            alert("Ha ocurrido un error al registrar la valorizacion: <?php echo $e->getMessage(); ?>");
+        </script>
+    <?php
+}
 
 
 ?>
