@@ -33,11 +33,11 @@ $data[19] = isset($_POST['deposito_'])? true : false;
 $data[21] = $_POST["vista_"];
 $data[22] = $_POST["acabado_"];*/
 
-$data[20] = isset($_POST["ubic"]) && $_POST["ubic"] !== '' ? $_POST["ubic"] : 'NULL';
+$data[20] = isset($_POST["ubic"]) && $_POST["ubic"] !== "" ? $_POST["ubic"] : 'NULL';
 
-$data[21] = isset($_POST["vista_"]) && $_POST["vista_"] !== '' ? $_POST["vista_"] : 'NULL';
+$data[21] = isset($_POST["vista_"]) && $_POST["vista_"] !== "" ? $_POST["vista_"] : 'NULL';
 
-$data[22] = isset($_POST["acabado_"]) && $_POST["acabado_"] !== '' ? $_POST["acabado_"] : 'NULL';
+$data[22] = isset($_POST["acabado_"]) && $_POST["acabado_"] !== "" ? $_POST["acabado_"] : 'NULL';
 
 echo "El valor es " . $data[20];
 echo "El valor es " . $data[21];
