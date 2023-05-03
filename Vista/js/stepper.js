@@ -3,12 +3,25 @@ const bsStepperContent = bsStepper.querySelector(".bs-stepper-content");
 const bsSContent = bsStepperContent.querySelectorAll(".content");
 
 (() => {
-  const section = document.querySelectorAll(".section");
-  section.forEach((section) => {
-    if (!section.classList.contains("show")) {
-      section.classList.add("hide");
-    }
-  });
+  // const section = document.querySelectorAll(".section");
+  // section.forEach((section) => {
+  //   if (!section.classList.contains("show")) {
+  //     section.classList.add("hide");
+  //   }
+  // });
+
+  function hideScreen() {
+    // Ocultar todas las pantallas
+    const pantallas = document.querySelectorAll(".section");
+    pantallas.forEach(function (pantalla) {
+      // pantalla.style.display = "none";
+      // pantalla.classList.add("hide");
+      if (!pantalla.classList.contains("show")) {
+        pantalla.classList.add("hide");
+      }
+    });
+  }
+  hideScreen();
 
   const nextPag = document.querySelector(".nextPag");
   const backPag = document.querySelectorAll(".backPag");
@@ -22,29 +35,41 @@ const bsSContent = bsStepperContent.querySelectorAll(".content");
   });
 
   function pantallaActual() {
-    const pantallaActual = document.querySelector('[style*="display: block"]');
-    pantallaActual.style.display = "none";
+    const screens = document.querySelector(".section.show");
+    screens.classList.remove("show");
+    // if (screens) {
+
+    // }
+    // const pantallaActual = document.querySelector('[style*="display: block"]');
+    // pantallaActual.style.display = "none";
   }
 
   function Pasos() {
-    var dash = document.querySelector('[style*="display: block"]'),
+    // var dash = document.querySelector('[style*="display: block"]'),k
+    var dash = document.querySelector(".section.show"),
       dashTarget = dash.getAttribute("data-target");
-
     let steps = document.querySelectorAll(".step");
+
+    let lines = document.querySelectorAll(".line");
+    // console.log(line);
+
+    lines.forEach((lns) => {
+      var line = lns.getAttribute("data-target");
+      console.log(lns);
+      console.log(dashTarget);
+      console.log(line);
+      if (dashTarget !== line) {
+        lns.style.display = "none";
+      } else {
+        lns.style.display = "block";
+      }
+    });
 
     steps.forEach((element) => {
       let step = element.getAttribute("data-target");
 
       if (dashTarget === step) {
         element.classList.add("active");
-        if (element.classList.contains("active")) {
-          var newLine = '<div class="line"></div>';
-
-          element.insertAdjacentHTML("afterend", newLine);
-        } else {
-          // var line = document.querySelector(".line");
-          element.removeChild(newLine);
-        }
       } else {
         element.classList.remove("active");
       }
@@ -55,20 +80,23 @@ const bsSContent = bsStepperContent.querySelectorAll(".content");
     // Obtener el valor seleccionado del combobox
     const pantallaSeleccionada = document.getElementById("tipo_prop").value;
 
-    if (pantallaSeleccionada !== "Seleccione un tipo") {
-      // Ocultar todas las pantallas
-      const pantallas = document.querySelectorAll(".section");
-      pantallas.forEach(function (pantalla) {
-        pantalla.style.display = "none";
-      });
+    if (pantallaSeleccionada !== 0) {
+      pantallaActual();
+      hideScreen();
 
-      // Mostrar la siguiente pantalla correspondiente al valor seleccionado
-      if (pantallaSeleccionada !== "") {
-        const siguientePantalla = document.getElementById(pantallaSeleccionada);
-        siguientePantalla.style.display = "block";
-
-        Pasos();
-      }
+      console.log(pantallaActual);
+      //   // Mostrar la siguiente pantalla correspondiente al valor seleccionado
+      //   // if (pantallaSeleccionada !== "") {
+      const siguientePantalla = document.getElementById(pantallaSeleccionada);
+      console.log(siguientePantalla);
+      //   //   // siguientePantalla.style.display = "block";
+      siguientePantalla.classList.remove("hide");
+      siguientePantalla.classList.add("show");
+      //   //   hideScreen();
+      Pasos();
+      //   // }
+      //   const siguientePantalla = document.getElementById(pantallaSeleccionada);
+      //   siguientePantalla.classList.add("show");
     } else {
       alert("Seleccione un tipo de Inmueble.");
     }
@@ -78,10 +106,12 @@ const bsSContent = bsStepperContent.querySelectorAll(".content");
     element.addEventListener("click", () => {
       // Ocultar la pantalla actual
       pantallaActual();
-
+      hideScreen();
       // Mostrar la primera pantalla
       const primeraPantalla = document.getElementById("0");
-      primeraPantalla.style.display = "block";
+      // primeraPantalla.style.display = "block";
+      primeraPantalla.classList.remove("hide");
+      primeraPantalla.classList.add("show");
 
       Pasos();
     });
@@ -91,10 +121,12 @@ const bsSContent = bsStepperContent.querySelectorAll(".content");
     element.addEventListener("click", () => {
       // Ocultar la pantalla actual
       pantallaActual();
-
+      hideScreen();
       // Mostrar la última pantalla
       const ultimaPantalla = document.querySelector(".section:last-of-type");
-      ultimaPantalla.style.display = "block";
+      // ultimaPantalla.style.display = "block";
+      ultimaPantalla.classList.remove("hide");
+      ultimaPantalla.classList.add("show");
 
       Pasos();
     });
@@ -112,7 +144,9 @@ const bsSContent = bsStepperContent.querySelectorAll(".content");
 
     if (pantallaSeleccionada !== "") {
       const siguientePantalla = document.getElementById(pantallaSeleccionada);
-      siguientePantalla.style.display = "block";
+      // siguientePantalla.style.display = "block";
+      siguientePantalla.classList.remove("hide");
+      siguientePantalla.classList.add("show");
 
       Pasos();
     }

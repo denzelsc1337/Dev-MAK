@@ -44,7 +44,7 @@
                         <div class="row row-space">
                             <div class="col-2">
                                 <div class="input-group">
-                                    <label class="label">Documento de identidad</label>
+                                    <label class="label">Documento de identidad o RUC</label>
                                     <input class="input--style-4" type="text" id="dni_u" name="dni_u" placeholder="DNI" required>
                                 </div>
                             </div>

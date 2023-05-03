@@ -346,7 +346,7 @@ input[type="number"] {
 .form-flex {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-evenly;
   gap: 10px;
 }
 
@@ -378,7 +378,9 @@ input[type="number"] {
 
 .body-grid {
   display: grid;
-  grid-template-columns: auto auto;
+  grid-template-columns: 50% auto;
+  grid-template-rows: 80px auto;
+  background-color: red;
   justify-content: center;
   column-gap: 10px;
 }
@@ -487,6 +489,10 @@ form .form-content {
 
 input[type="number"]:after {
   content: var(--input-suffix);
+}
+
+.input-group.mb-3 {
+  margin: 20px 0;
 }
 
 /* CSS PERSONALIZADO */
