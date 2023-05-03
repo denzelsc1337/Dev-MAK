@@ -1388,7 +1388,8 @@
                                                                         <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d15607.47206823551!2d-77.04493215!3d-12.0526008!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses-419!2spe!4v1678375977472!5m2!1ses-419!2spe" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                                                                     <!-- </div> -->
                                                                     </div>
-                                                                    <div class="col-sm-6">
+
+                                                                    <div class="col-sm-6" id="resumen_1" style="display: none;">
                                                                         <div class="card card-primary">
                                                                             <div class="card-body">
                                                                                 <!-- Date dd/mm/yyyy -->
@@ -1414,6 +1415,35 @@
                                                                             </div>
                                                                         </div>
                                                                     </div>
+
+                                                                    <div class="col-sm-6" id="resumen_2" style="display: none;">
+                                                                        <div class="card card-primary">
+                                                                            <div class="card-body">
+                                                                                <!-- Date dd/mm/yyyy -->
+                                                                                <div class="row">
+                                                                                    <div class="col-sm-8">
+                                                                                        <!-- text input -->
+                                                                                        <div class="form-group">
+                                                                                            <label>Nombres y Apellidos_2</label>
+                                                                                            <input type="text" class="form-control" value="<?php echo $_SESSION['nom_usu'].' '.$_SESSION['ape_usu'] ?>" readonly>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+
+                                                                                <div class="row">
+                                                                                    <div class="col-sm-8">
+                                                                                        <!-- text input -->
+                                                                                        <div class="form-group">
+                                                                                            <label>Email_2</label>
+                                                                                            <input type="text" class="form-control" value="<?php echo $_SESSION['email_usu'] ?>" readonly>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+
+
                                                                 </div>
                                                                 <br><br>
 
@@ -1650,6 +1680,10 @@
         const a_o_ = document.getElementById("a_o");
         const a_ant_ = document.getElementById("antig");
 
+        const r1 = document.getElementById("resumen_1");
+        const r2 = document.getElementById("resumen_2");
+
+
         tipo_prop.addEventListener("change", function() {
             switch (tipo_prop.value) {
                 case "1":
@@ -1659,6 +1693,10 @@
                     area_t.classList.remove("hidden");
                     area_c.classList.remove("hidden");
                     antig.classList.remove("hidden");
+
+
+                    r1.style.display = "block";
+
                     break;
 
                 case "2":
@@ -1668,6 +1706,8 @@
                     area_c.classList.remove("hidden");
                     area_o.classList.remove("hidden");
                     antig.classList.remove("hidden");
+
+                    r2.style.display = "block";
                     break;
 
                 case "3":
