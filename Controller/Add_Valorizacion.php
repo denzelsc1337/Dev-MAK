@@ -110,6 +110,28 @@ $data[51] = $_POST["fndo_"];
 $data[52] = $_POST["derc_"];
 //terreno inputs
 
+//oficina inputs
+$data[53] = $_POST["piso_ofi"];
+$data[54] = $_POST["coch_ofi"];
+
+$data[55] = isset($_POST['ascen_ofi'])? true : false;
+$data[56] = isset($_POST['aire_ofio'])? true : false;
+
+
+//local comercial inputs
+$data[57] = $_POST["frnt_lcl_com"];
+$data[58] = $_POST["coch_lcl_com"];
+$data[59] = $_POST["piso_lcl_com"];
+
+$data[60] = isset($_POST['ascen_lcl_com'])? true : false;
+$data[61] = isset($_POST['aire_lcl_com'])? true : false;
+
+
+//Local industrial inputs
+$data[62] = $_POST["frnt_lcl_com"];
+$data[63] = $_POST["coch_lcl_com"];
+
+
 
 try {
 	require_once('../Model/Valorizacion.php');

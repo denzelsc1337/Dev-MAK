@@ -41,8 +41,7 @@
 
 <body class="hold-transition sidebar-mini  sidebar-collapse layout-fixed layout-navbar-fixed layout-footer-fixed" onload="initAutocomplete()">
 
-    <?php // include '../Vista/nav_bar_moduls.php' 
-    ?>
+    <?php include '../Vista/nav_bar_moduls.php' ?>
     <!-- ./wrapper -->
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
@@ -990,8 +989,11 @@
                                                                                     <span class="icon-input">
                                                                                         <img src="https://cdn-icons-png.flaticon.com/512/1249/1249293.png" alt="">
                                                                                     </span>
-                                                                                    <select class="form-control radius-right" id="">
-                                                                                        <option selected disabled>Seleccione</option>
+                                                                                    <select class="form-control radius-right" id="acabado_" name="acabado_">
+                                                                                        <option value="-1" selected>Seleccione</option>
+                                                                                            <?php foreach ($selector_types_acab as $cod_type_a) : ?>
+                                                                                                <option value="<?php echo $cod_type_a[0]; ?>"><?php echo $cod_type_a[1]; ?></option>
+                                                                                            <?php endforeach ?>
                                                                                     </select>
                                                                                 </div>
                                                                                 <div class="input-group-append">
@@ -1006,8 +1008,11 @@
                                                                                     <span class="icon-input">
                                                                                         <img src="https://cdn-icons-png.flaticon.com/512/3017/3017956.png" alt="">
                                                                                     </span>
-                                                                                    <select class="form-control radius-right" id="">
-                                                                                        <option selected disabled>Seleccione</option>
+                                                                                    <select class="form-control radius-right" >
+                                                                                        <option value="-1">Seleccione</option id="tipo_zoni" name="tipo_zoni">
+                                                                                        <?php foreach ($selector_types_zon as $cod_type_z) : ?>
+                                                                                            <option value="<?php echo $cod_type_z[0]; ?>"><?php echo $cod_type_z[1]; ?></option>
+                                                                                        <?php endforeach ?>
                                                                                     </select>
                                                                                 </div>
                                                                             </div>
@@ -1019,8 +1024,11 @@
                                                                                     <span class="icon-input">
                                                                                         <img src="https://cdn-icons-png.flaticon.com/512/3017/3017956.png" alt="">
                                                                                     </span>
-                                                                                    <select class="form-control radius-right" id="">
-                                                                                        <option selected disabled>Seleccione</option>
+                                                                                    <select class="form-control radius-right" id="vista_" name="vista_">
+                                                                                        <option value="-1">Seleccione</option>
+                                                                                            <?php foreach ($selector_types_vis as $cod_type_v) : ?>
+                                                                                                <option value="<?php echo $cod_type_v[0]; ?>"><?php echo $cod_type_v[1]; ?></option>
+                                                                                            <?php endforeach ?>
                                                                                     </select>
                                                                                 </div>
                                                                             </div>
@@ -1043,7 +1051,7 @@
                                                                                     <span class="icon-input">
                                                                                         <img src="https://cdn-icons-png.flaticon.com/512/6080/6080750.png" alt="">
                                                                                     </span>
-                                                                                    <input class="form-control" type="number" min="0">
+                                                                                    <input class="form-control" type="number" min="0" id="piso_ofi" name="piso_ofi">
                                                                                 </div>
                                                                             </div>
                                                                         </div>
@@ -1054,7 +1062,7 @@
                                                                                 <label>Cochera(s):</label>
                                                                                 <div class="section-input col-sm-10">
                                                                                     <span class="icon-input"><i class="fa-solid fa-warehouse"></i></span>
-                                                                                    <input class="form-control" type="number" min="0">
+                                                                                    <input class="form-control" type="number" min="0" id="coch_ofi" name="coch_ofi">
                                                                                 </div>
                                                                             </div>
                                                                         </div>
@@ -1063,13 +1071,15 @@
                                                                         <div class="col-sm-12">
                                                                             <br>
                                                                             <div class="custom-control custom-checkbox">
-                                                                                <input class="right custom-control-input" type="checkbox" id="deposito" name="">
-                                                                                <label for="deposito" class="right custom-control-label">Ascensor:</label>
+                                                                                <input class="right custom-control-input" type="checkbox" id="ascen_ofi" name="ascen_ofi"
+                                                                                value="true">
+                                                                                <label for="ascen_ofi" class="right custom-control-label">Ascensor:</label>
                                                                             </div>
                                                                             <br>
                                                                             <div class="custom-control custom-checkbox">
-                                                                                <input class="right custom-control-input" type="checkbox" id="piscina_propia" name="">
-                                                                                <label for="piscina_propia" class="right custom-control-label">Aire acondicionado:</label>
+                                                                                <input class="right custom-control-input" type="checkbox" id="aire_ofio" name="aire_ofio"
+                                                                                value="true">
+                                                                                <label for="aire_ofio" class="right custom-control-label">Aire acondicionado:</label>
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -1122,8 +1132,11 @@
                                                                                     <span class="icon-input">
                                                                                         <img src="https://cdn-icons-png.flaticon.com/512/1249/1249293.png" alt="">
                                                                                     </span>
-                                                                                    <select class="form-control radius-right" id="">
-                                                                                        <option selected disabled>Seleccione</option>
+                                                                                    <select class="form-control radius-right" id="acabado_" name="acabado_">
+                                                                                        <option value="-1" selected>Seleccione</option>
+                                                                                            <?php foreach ($selector_types_acab as $cod_type_a) : ?>
+                                                                                                <option value="<?php echo $cod_type_a[0]; ?>"><?php echo $cod_type_a[1]; ?></option>
+                                                                                            <?php endforeach ?>
                                                                                     </select>
                                                                                 </div>
                                                                                 <div class="input-group-append">
@@ -1136,8 +1149,11 @@
                                                                                 <label class="col-sm-3 col-form-label">Zonificación:</label>
                                                                                 <div class="section-input col-sm-8">
                                                                                     <span class="icon-input"><i class="fa-solid fa-location-dot"></i></span>
-                                                                                    <select class="form-control radius-right" id="">
-                                                                                        <option selected disabled>Seleccione</option>
+                                                                                    <select class="form-control radius-right" >
+                                                                                        <option value="-1">Seleccione</option id="tipo_zoni" name="tipo_zoni">
+                                                                                        <?php foreach ($selector_types_zon as $cod_type_z) : ?>
+                                                                                            <option value="<?php echo $cod_type_z[0]; ?>"><?php echo $cod_type_z[1]; ?></option>
+                                                                                        <?php endforeach ?>
                                                                                     </select>
                                                                                 </div>
                                                                             </div>
@@ -1154,7 +1170,8 @@
                                                                                     <span class="icon-input">
                                                                                         <img class="rotate-180" src="https://cdn-icons-png.flaticon.com/512/8264/8264013.png" alt="">
                                                                                     </span>
-                                                                                    <input class="form-control" type="number" min="0" step="00.01" value="00.00">
+                                                                                    <input class="form-control" type="number" min="0" step="00.01"
+                                                                                    id="frnt_lcl_com" name="frnt_lcl_com">
                                                                                 </div>
                                                                             </div>
                                                                         </div>
@@ -1165,7 +1182,8 @@
                                                                                 <label>Cochera(s):</label>
                                                                                 <div class="section-input col-sm-10">
                                                                                     <span class="icon-input"><i class="fa-solid fa-warehouse"></i></span>
-                                                                                    <input class="form-control" type="number" min="0">
+                                                                                    <input class="form-control" type="number" min="0"
+                                                                                    id="coch_lcl_com" name="coch_lcl_com">
                                                                                 </div>
                                                                             </div>
                                                                         </div>
@@ -1187,7 +1205,7 @@
                                                                                     <span class="icon-input">
                                                                                         <img src="https://cdn-icons-png.flaticon.com/512/6080/6080750.png" alt="">
                                                                                     </span>
-                                                                                    <input class="form-control" type="number" min="0">
+                                                                                    <input class="form-control" type="number" min="0" id="piso_lcl_com" name="piso_lcl_com">
                                                                                 </div>
                                                                             </div>
                                                                         </div>
@@ -1196,13 +1214,14 @@
                                                                         <div class="col-sm-12">
                                                                             <br>
                                                                             <div class="custom-control custom-checkbox">
-                                                                                <input class="right custom-control-input" type="checkbox" id="ascensor" name="">
-                                                                                <label for="ascensor" class="right custom-control-label">Ascensor:</label>
+                                                                                <input class="right custom-control-input" type="checkbox" id="ascen_lcl_com" name="ascen_lcl_com">
+                                                                                <label for="ascen_lcl_com" class="right custom-control-label">Ascensor:</label>
                                                                             </div>
                                                                             <br>
                                                                             <div class="custom-control custom-checkbox">
-                                                                                <input class="right custom-control-input" type="checkbox" id="ascensor_directo" name="">
-                                                                                <label for="ascensor_directo" class="right custom-control-label">Aire acondicionado:</label>
+                                                                                <input class="right custom-control-input" type="checkbox" id="aire_lcl_com"
+                                                                                name="aire_lcl_com">
+                                                                                <label for="aire_lcl_com" class="right custom-control-label">Aire acondicionado:</label>
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -1255,8 +1274,11 @@
                                                                                     <span class="icon-input">
                                                                                         <img src="https://cdn-icons-png.flaticon.com/512/1249/1249293.png" alt="">
                                                                                     </span>
-                                                                                    <select class="form-control radius-right" id="">
-                                                                                        <option selected disabled>Seleccione</option>
+                                                                                    <select class="form-control radius-right" id="acabado_" name="acabado_">
+                                                                                        <option value="-1" selected>Seleccione</option>
+                                                                                            <?php foreach ($selector_types_acab as $cod_type_a) : ?>
+                                                                                                <option value="<?php echo $cod_type_a[0]; ?>"><?php echo $cod_type_a[1]; ?></option>
+                                                                                            <?php endforeach ?>
                                                                                     </select>
                                                                                 </div>
                                                                             </div>
@@ -1268,8 +1290,12 @@
                                                                                     <span class="icon-input">
                                                                                         <img src="https://cdn-icons-png.flaticon.com/512/1249/1249293.png" alt="">
                                                                                     </span>
-                                                                                    <select class="form-control radius-right" id="">
-                                                                                        <option selected disabled>Seleccione</option>
+                                                                                    <select class="form-control radius-right" id="tipo_suelo" name="tipo_suelo">
+                                                                                        <option value="-1">Seleccione</option>
+
+                                                                                        <?php foreach ($selector_types_suel as $cod_type_suel) : ?>
+                                                                                            <option value="<?php echo $cod_type_suel[0]; ?>"><?php echo $cod_type_suel[1]; ?></option>
+                                                                                        <?php endforeach ?>
                                                                                     </select>
                                                                                 </div>
                                                                             </div>
@@ -1608,7 +1634,7 @@
             switch (tipo_prop.value) {
                 case "1":
                     area_o.classList.add("hidden");
-                    a_o_.removeAttribute("required");
+                    //a_o_.removeAttribute("required");
 
                     area_t.classList.remove("hidden");
                     area_c.classList.remove("hidden");
@@ -1617,7 +1643,7 @@
 
                 case "2":
                     area_t.classList.add("hidden");
-                    a_t_.removeAttribute("required");
+                    //a_t_.removeAttribute("required");
 
                     area_c.classList.remove("hidden");
                     area_o.classList.remove("hidden");
@@ -1626,11 +1652,37 @@
 
                 case "3":
                     area_c.classList.add("hidden");
-                    a_c_.removeAttribute("required");
+                    //a_c_.removeAttribute("required");
 
                     area_o.classList.add("hidden");
                     antig.classList.add("hidden");
                     area_t.classList.remove("hidden");
+                    break;
+
+                case "4":
+                    area_c.classList.remove("hidden");
+                    area_o.classList.remove("hidden");
+                    antig.classList.remove("hidden");
+
+                    area_t.classList.add("hidden");
+                    break;
+
+                case "5":
+                    area_c.classList.remove("hidden");
+                    area_o.classList.remove("hidden");
+                    antig.classList.remove("hidden");
+
+                    area_t.classList.add("hidden");
+                    break;
+
+                case "6":
+                    area_t.classList.remove("hidden");
+                    area_c.classList.remove("hidden");
+                    antig.classList.remove("hidden");
+
+                    area_o.classList.add("hidden");
+
+
                     break;
 
                 default:

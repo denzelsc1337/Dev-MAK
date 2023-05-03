@@ -584,6 +584,26 @@ create table valorizacion(
     der_terreno				double,
     -- fin form terreno 
     
+    -- form oficina
+    piso_ofi				int,
+    cochera_ofi				int,
+    ascensor_ofi			boolean,
+    aire_ofi				boolean,
+    -- fin form oficina
+    
+    -- form local comercial
+    frente_lcl_com			int,
+    cochera_lcl_com			int,
+    piso_lcl_com			int,
+    ascensor_lcl_com		boolean,
+    aire_lcl_com			boolean,
+    -- fin form local comercial
+    
+    -- form local industrial
+    frente_lcl_ind			int,
+    nave_lcl_ind			int,
+    -- fin local industrial
+    
     -- form casa fin
     
 	FOREIGN KEY (cod_tipo_inmue) REFERENCES  tipo_inmuebles  (id_tipo_inmb) ON DELETE SET NULL,
