@@ -135,12 +135,6 @@
                                                                             ?>
                                                                             <select id="tipo_prop" name="tipo_prop" class="form-control">
                                                                                 <option disabled selected="selected">Seleccione un tipo</option>
-                                                                                <!--  <option value="pantalla-C_V">Casa</option>
-                                                                                <option value="pantalla-D_D">Departamento</option>
-                                                                                <option value="pantalla-T_R">Terreno</option>
-                                                                                <option value="pantalla-O">Oficina</option>
-                                                                                <option value="pantalla-LC_E">Local Comercial - Exclusivo</option>
-                                                                                <option value="pantalla-LI">Local Industrial</option> -->
 
                                                                                 <?php foreach ($selector_types_props as $cod_type) : ?>
                                                                                     <option value="<?php echo $cod_type[0]; ?>"><?php echo $cod_type[1]; ?></option>
@@ -171,7 +165,7 @@
                                                                     <div class="col-sm-10">
                                                                         <!-- textarea -->
                                                                         <div class="form-group">
-                                                                            <label>Promocion</label>
+                                                                            <label>Venta o Alquiler</label>
                                                                             <select class="form-control" id="tipo_prom" name="tipo_prom">
                                                                                 <?php foreach ($selector_types_prom as $cod_type_) : ?>
                                                                                     <option value="<?php echo $cod_type_[0]; ?>"><?php echo $cod_type_[1]; ?></option>
@@ -1388,21 +1382,45 @@
                                                                             </tr>
                                                                         </tbody>
                                                                     </table>
+
+                                                                    <div class="col-sm-6">
+                                                                    <!-- <div class="card-body"> -->
+                                                                        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d15607.47206823551!2d-77.04493215!3d-12.0526008!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses-419!2spe!4v1678375977472!5m2!1ses-419!2spe" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                                                                    <!-- </div> -->
+                                                                    </div>
+                                                                    <div class="col-sm-6">
+                                                                        <div class="card card-primary">
+                                                                            <div class="card-body">
+                                                                                <!-- Date dd/mm/yyyy -->
+                                                                                <div class="row">
+                                                                                    <div class="col-sm-8">
+                                                                                        <!-- text input -->
+                                                                                        <div class="form-group">
+                                                                                            <label>Nombres y Apellidos</label>
+                                                                                            <input type="text" class="form-control" value="<?php echo $_SESSION['nom_usu'].' '.$_SESSION['ape_usu'] ?>" readonly>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+
+                                                                                <div class="row">
+                                                                                    <div class="col-sm-8">
+                                                                                        <!-- text input -->
+                                                                                        <div class="form-group">
+                                                                                            <label>Email</label>
+                                                                                            <input type="text" class="form-control" value="<?php echo $_SESSION['email_usu'] ?>" readonly>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
                                                                 </div>
                                                                 <br><br>
-                                                                <div class="col-sm-6">
-                                                                    <!-- <div class="card-body"> -->
-                                                                    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d15607.47206823551!2d-77.04493215!3d-12.0526008!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses-419!2spe!4v1678375977472!5m2!1ses-419!2spe" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                                                                    <!-- </div> -->
-                                                                </div>
-
-                                                                <div class="col-sm-6">
-
-                                                                </div>
 
                                                             </div>
                                                         </div>
                                                     </div>
+
                                                 </div>
                                                 <div class="form-flex">
                                                     <button type="button" class="btn btn-info btn-lg col-md-4 atrPag">Retroceder</button>
@@ -1619,6 +1637,8 @@
 
     <script type="text/javascript">
         const tipo_prop = document.getElementById("tipo_prop");
+        const sub_tipo_prop = document.getElementById("sub_tipo_prop");
+
         const area_t = document.getElementById("a__t");
         const area_c = document.getElementById("a__c");
         const area_o = document.getElementById("a__o");
@@ -1667,14 +1687,6 @@
                     area_t.classList.add("hidden");
                     break;
 
-                case "5":
-                    area_c.classList.remove("hidden");
-                    area_o.classList.remove("hidden");
-                    antig.classList.remove("hidden");
-
-                    area_t.classList.add("hidden");
-                    break;
-
                 case "6":
                     area_t.classList.remove("hidden");
                     area_c.classList.remove("hidden");
@@ -1690,6 +1702,27 @@
             }
 
         });
+
+
+        sub_tipo_prop.addEventListener("change", function() {
+            switch (sub_tipo_prop.value) {
+                    case "5":
+                    area_c.classList.remove("hidden");
+                    area_o.classList.remove("hidden");
+                    antig.classList.remove("hidden");
+
+                    area_t.classList.add("hidden");
+                    break;
+
+                default:
+                    break;
+            }
+
+        });
+
+
+
+
     </script>
 
     <script>
