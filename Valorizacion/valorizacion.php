@@ -53,7 +53,7 @@
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
+                            <li class="breadcrumb-item"><a href="../dashboard.php">Dashboard</a></li>
                             <li class="breadcrumb-item"><a href="#">Seleccion</a></li>
                             <li class="breadcrumb-item active">Registro</li>
                         </ol>
@@ -120,7 +120,7 @@
                                                                         <!-- text input -->
                                                                         <div class="form-group">
                                                                             <label>Dirección</label>
-                                                                            <input type="text" class="form-control" placeholder="Ingrese una dirección" id="direccion_" name="direccion_" onkeydown="buscarDireccion(event)" autocomplete="off">
+                                                                            <input type="text" class="form-control" placeholder="Ingrese una dirección" id="direccion_" name="direccion_" onkeydown="buscarDireccion(event)" autocomplete="off" required>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -156,10 +156,12 @@
                                                                         <!-- textarea -->
                                                                         <div class="form-group">
                                                                             <label>Subtipo Inmueble</label>
-                                                                            <select id="sub_tipo_prop" name="sub_tipo_prop" class="form-control">
-                                                                                <option disabled selected="selected">Seleccione un tipo de inmueble</option>
-                                                                                <option value="1">sub_tipo_test</option>
-                                                                            </select>
+                                <select id="sub_tipo_prop" name="sub_tipo_prop" class="form-control">
+                                    <option disabled selected="selected">Seleccione un tipo de inmueble</option>
+                                        <?php foreach ($selector__sub_types_props as $cod_s_type) : ?>
+                                            <option value="<?php echo $cod_s_type[0]; ?>"><?php echo $cod_s_type[1]; ?></option>
+                                        <?php endforeach ?>
+                                </select>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -196,7 +198,7 @@
                                                                         <!-- text input -->
                                                                         <div class="form-group">
                                                                             <label>Area de Terreno</label>
-                                                                            <input type="text" class="form-control" placeholder="00.00m2" id="a_t" name="a_t">
+                                                                            <input type="text" class="form-control" placeholder="00.00m2" id="a_t" name="a_t" required>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -206,7 +208,7 @@
                                                                         <!-- text input -->
                                                                         <div class="form-group">
                                                                             <label>Area Construida</label>
-                                                                            <input type="text" class="form-control" placeholder="00.00m2" id="a_c" name="a_c">
+                                                                            <input type="text" class="form-control" placeholder="00.00m2" id="a_c" name="a_c" required>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -216,7 +218,7 @@
                                                                         <!-- text input -->
                                                                         <div class="form-group">
                                                                             <label>Area Ocupada</label>
-                                                                            <input type="text" class="form-control" placeholder="00.00m2" id="a_o" name="a_o">
+                                                                            <input type="text" class="form-control" placeholder="00.00m2" id="a_o" name="a_o" required>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -226,7 +228,7 @@
                                                                         <!-- text input -->
                                                                         <div class="form-group">
                                                                             <label>Antiguedad</label>
-                                                                            <input type="text" class="form-control" placeholder="0 años" id="antig" name="antig">
+                                                                            <input type="text" class="form-control" placeholder="0 años" id="antig" name="antig" required>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -487,7 +489,7 @@
                                                                             <div class="section-input col-sm-8">
                                                                                 <span class="icon-input"><i class="fa-solid fa-location-dot"></i></span>
                                         <select class="form-control radius-right" id="ubic" name="ubic">
-                                            <option value="">Seleccione</option>
+                                            <option value="-1">Seleccione</option>
                                             <?php foreach ($selector_types_ubi as $cod_type_u) : ?>
                                             <option value="<?php echo $cod_type_u[0]; ?>"><?php echo $cod_type_u[1]; ?></option>
                                             <?php endforeach ?>
@@ -507,7 +509,7 @@
                                                                                     <img src="https://cdn-icons-png.flaticon.com/512/3017/3017956.png" alt="">
                                                                                 </span>
                                         <select class="form-control radius-right" id="vista_" name="vista_">
-                                            <option value="">Seleccione</option>
+                                            <option value="-1">Seleccione</option>
                                             <?php foreach ($selector_types_vis as $cod_type_v) : ?>
                                             <option value="<?php echo $cod_type_v[0]; ?>"><?php echo $cod_type_v[1]; ?></option>
                                             <?php endforeach ?>
@@ -527,7 +529,7 @@
                                                                                     <img src="https://cdn-icons-png.flaticon.com/512/1249/1249293.png" alt="">
                                                                                 </span>
                                         <select class="form-control radius-right" id="acabado_" name="acabado_">
-                                            <option  value="">Seleccione</option>
+                                            <option  value="-1">Seleccione</option>
                                             <?php foreach ($selector_types_acab as $cod_type_a) : ?>
                                             <option value="<?php echo $cod_type_a[0]; ?>"><?php echo $cod_type_a[1]; ?></option>
                                             <?php endforeach ?>
@@ -912,7 +914,7 @@
                                                                                         <div class="section-input col-sm-8">
                                                                                             <span class="icon-input"><i class="fa-solid fa-location-dot"></i></span>
                                         <select class="form-control radius-right" id="ubic" name="ubic">
-                                            <option value="">Seleccione</option>
+                                            <option value="-1">Seleccione</option>
                                             <?php foreach ($selector_types_ubi as $cod_type_u) : ?>
                                             <option value="<?php echo $cod_type_u[0]; ?>"><?php echo $cod_type_u[1]; ?></option>
                                             <?php endforeach ?>
@@ -932,7 +934,7 @@
                                                                                                 <img src="https://cdn-icons-png.flaticon.com/512/3017/3017956.png" alt="">
                                                                                             </span>
                                         <select class="form-control radius-right" id="vista_" name="vista_">
-                                            <option value="">Seleccione</option>
+                                            <option value="-1">Seleccione</option>
                                             <?php foreach ($selector_types_vis as $cod_type_v) : ?>
                                             <option value="<?php echo $cod_type_v[0]; ?>"><?php echo $cod_type_v[1]; ?></option>
                                             <?php endforeach ?>
@@ -952,7 +954,7 @@
                                                                                                 <img src="https://cdn-icons-png.flaticon.com/512/1249/1249293.png" alt="">
                                                                                             </span>
                                         <select class="form-control radius-right" id="acabado_" name="acabado_">
-                                            <option  value="">Seleccione</option>
+                                            <option  value="-1">Seleccione</option>
                                             <?php foreach ($selector_types_acab as $cod_type_a) : ?>
                                             <option value="<?php echo $cod_type_a[0]; ?>"><?php echo $cod_type_a[1]; ?></option>
                                             <?php endforeach ?>
@@ -1178,7 +1180,7 @@
                                                                                     <span class="icon-input"><i class="fa-solid fa-location-dot"></i></span>
                                                                                     <select class="form-control radius-right" 
                                                                                     id="tipo_zoni" name="tipo_zoni">
-                                                                                        <option value="">Seleccione</option>
+                                                                                        <option value="-1">Seleccione</option>
                                                                                     <?php foreach ($selector_types_zon as $cod_type_z) : ?>
                                                                                     <option value="<?php echo $cod_type_z[0]; ?>"><?php echo $cod_type_z[1]; ?></option>
                                                                                     <?php endforeach ?>
@@ -1198,7 +1200,7 @@
                                                                                     </span>
                                                                                     <select class="form-control radius-right" 
                                                                                     id="tipo_suelo" name="tipo_suelo">
-                                                                                        <option value="">Seleccione</option>
+                                                                                        <option value="-1">Seleccione</option>
 
                                                                                     <?php foreach ($selector_types_suel as $cod_type_suel) : ?>
                                                                                     <option value="<?php echo $cod_type_suel[0]; ?>"><?php echo $cod_type_suel[1]; ?></option>
@@ -1832,8 +1834,6 @@
                         const latitud = results[0].geometry.location.lat();
                         const longitud = results[0].geometry.location.lng();
                         mostrarMapa(latitud, longitud);
-                    } else {
-                        alert('No se encontró la dirección');
                     }
                 });
             }
@@ -1862,7 +1862,7 @@
             autocomplete.addListener('place_changed', function() {
                 const place = autocomplete.getPlace();
                 if (!place.geometry) {
-                    alert("No se encontró la dirección");
+                    //alert("No se encontró la dirección");
                     return;
                 }
                 const latitud = place.geometry.location.lat();
@@ -1928,10 +1928,18 @@
         const area_o = document.getElementById("a__o");
         const antig = document.getElementById("antig_");
 
+
+        const a_t_  = document.getElementById("a_t");
+        const a_c_  = document.getElementById("a_c");
+        const a_o_  = document.getElementById("a_o");
+        const a_ant_  = document.getElementById("antig");
+
         tipo_prop.addEventListener("change", function() {
             switch (tipo_prop.value) {
                 case "1":
                     area_o.classList.add("hidden");
+                    a_o_.removeAttribute("required");
+
                     area_t.classList.remove("hidden");
                     area_c.classList.remove("hidden");
                     antig.classList.remove("hidden");
@@ -1939,6 +1947,8 @@
 
                 case "2":
                     area_t.classList.add("hidden");
+                    a_t_.removeAttribute("required");
+
                     area_c.classList.remove("hidden");
                     area_o.classList.remove("hidden");
                     antig.classList.remove("hidden");
@@ -1946,6 +1956,8 @@
 
                 case "3":
                     area_c.classList.add("hidden");
+                    a_c_.removeAttribute("required");
+
                     area_o.classList.add("hidden");
                     antig.classList.add("hidden");
                     area_t.classList.remove("hidden");

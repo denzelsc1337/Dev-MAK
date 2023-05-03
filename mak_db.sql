@@ -5,7 +5,7 @@ CREATE TABLE IF NOT EXISTS tipo_zonificacion (
   id_zona 		int null primary key auto_increment,
   tipo_zona 	varchar(255) NOT NULL
 );
-
+insert into tipo_zonificacion values (-1, 'sin zonificacion');
 insert into tipo_zonificacion values (null, 'Prueba');
 
 create table tipo_cliente(
@@ -14,16 +14,18 @@ create table tipo_cliente(
 );
  
 create table tipo_aviso(
-	id_tipo_aviso int auto_increment primary key not null,
+	id_tipo_aviso int primary key auto_increment,
 	tipo_aviso varchar(80) not null
 );
+
+insert into tipo_aviso values (-1, 'sin tipo de aviso');
 
 CREATE TABLE IF NOT EXISTS tipo_inmuebles (
   id_tipo_inmb 		int null primary key auto_increment,
   tipo_inmb 		varchar(255) NOT NULL
 );
 
-insert into tipo_inmuebles values (null, 'SIN TIPO');
+insert into tipo_inmuebles values (-1, 'sin tipo de inmueble');
 insert into tipo_inmuebles values (null, 'Casa');
 insert into tipo_inmuebles values (null, 'Departamento');
 insert into tipo_inmuebles values (null, 'Terreno');
@@ -57,7 +59,7 @@ CREATE TABLE IF NOT EXISTS tipo_pared_ext (
   tipo_pared_ext 	varchar(255) NOT NULL
 );
 
-
+insert into tipo_pared_ext values (-1, 'sin tipo de pared exterior');
 insert into tipo_pared_ext values (null, 'Casco');
 insert into tipo_pared_ext values (null, 'Cerámico');
 insert into tipo_pared_ext values (null, 'Mampara');
@@ -67,7 +69,7 @@ CREATE TABLE IF NOT EXISTS tipo_acabado (
   id_acabado 		int null primary key auto_increment,
   tipo_acabado 		varchar(255) NOT NULL
 );
-
+insert into tipo_acabado values (-1, 'Sin tipo de acabado');
 insert into tipo_acabado values (null, 'En blanco');
 insert into tipo_acabado values (null, 'En gris');
 insert into tipo_acabado values (null, 'En casco');
@@ -78,6 +80,7 @@ CREATE TABLE IF NOT EXISTS tipo_vista (
   tipo_vista 		varchar(255) NOT NULL
 );
 
+insert into tipo_vista values (-1, 'Sin tipo de vista');
 insert into tipo_vista values (null, 'Vista a Parque');
 insert into tipo_vista values (null, 'Vista a Mar');
 insert into tipo_vista values (null, 'Vista a ciudad panorámica');
@@ -118,6 +121,7 @@ CREATE TABLE IF NOT EXISTS tipo_suelo (
   tipo_suelo 	varchar (255) not null
 );
 
+insert into tipo_suelo values (-1, 'Sin tipo de suelo');
 insert into tipo_suelo values (null, 'Losa');
 insert into tipo_suelo values (null, 'Asfaltado');
 insert into tipo_suelo values (null, 'Tierra afirmada');
@@ -132,6 +136,7 @@ CREATE TABLE IF NOT EXISTS ubicacion (
 	tipo_ubic 		varchar (255) not null
 );
 
+insert into ubicacion values (-1, 'Sin tipo de ubicacion');
 insert into ubicacion values (null, 'Medianero');
 insert into ubicacion values (null, 'Esquina');
 insert into ubicacion values (null, '3 frentes');
@@ -245,11 +250,6 @@ CREATE TABLE clientes_servicios (
 -- SET beneficios_restantes = beneficios_restantes - 1,
 --     beneficios_usados = beneficios_usados + 1
 -- WHERE id_suscr = 2 ;
-
--- UPDATE beneficios SET cantidad = cantidad - cantidad_utilizada WHERE id_beneficio; -- =  <id del beneficio utilizado>;
-
--- UPDATE suscripciones SET beneficios_restantes = beneficios_restantes - cantidad_utilizada WHERE id_suscr; -- = <id de la suscripción del cliente>;
-
 
 
 
@@ -470,24 +470,24 @@ FOREIGN KEY (cod_tipo_suel)		REFERENCES  tipo_suelo  (id_tipo_suelo)ON DELETE SE
 );
 
 
-CREATE TABLE IF NOT EXISTS recorrido(
-	id_recorr 		int auto_increment primary key,
-    fecha_reg_r 	date,
-    distrito 		varchar(100),
-    direccion		varchar(100),
-    cod_zona 		int,
-    cod_tipo_prop 	int, 
-    cod_tipo_cli	int,
-    cod_tipo_promo	int, 
-    latitud			decimal(18,15),
-    longitud		decimal(18,15),
-    observacion		varchar(255) not null,
-    
-    FOREIGN KEY (cod_zona)			REFERENCES  tipo_zonificacion  (id_zona) ON DELETE SET NULL,
-    FOREIGN KEY (cod_tipo_prop) 	REFERENCES  tipo_inmuebles  (id_tipo_inmb) ON DELETE SET NULL,
-    FOREIGN KEY (cod_tipo_cli) 		REFERENCES  tipo_cliente (id_tipo_cliente) ON DELETE SET NULL,
-    FOREIGN KEY (cod_tipo_promo)	REFERENCES  tipo_promocion  (id_promo) ON DELETE SET NULL    
-);
+-- CREATE TABLE IF NOT EXISTS recorrido(
+-- 	id_recorr 		int auto_increment primary key,
+--     fecha_reg_r 	date,
+--     distrito 		varchar(100),
+--     direccion		varchar(100),
+--     cod_zona 		int,
+--     cod_tipo_prop 	int, 
+--     cod_tipo_cli	int,
+--     cod_tipo_promo	int, 
+--     latitud			decimal(18,15),
+--     longitud		decimal(18,15),
+--     observacion		varchar(255) not null,
+--     
+--     FOREIGN KEY (cod_zona)			REFERENCES  tipo_zonificacion  (id_zona) ON DELETE SET NULL,
+--     FOREIGN KEY (cod_tipo_prop) 	REFERENCES  tipo_inmuebles  (id_tipo_inmb) ON DELETE SET NULL,
+--     FOREIGN KEY (cod_tipo_cli) 		REFERENCES  tipo_cliente (id_tipo_cliente) ON DELETE SET NULL,
+--     FOREIGN KEY (cod_tipo_promo)	REFERENCES  tipo_promocion  (id_promo) ON DELETE SET NULL    
+-- );
 
 
 create table valorizacion(
@@ -601,12 +601,6 @@ select * from valorizacion;
 
 desc valorizacion;
 
-create table prueba_(
-	id_test int primary key not null,
-    test varchar(50)
-);
-
-insert into prueba_ values (0, 'Led');
 
 
 

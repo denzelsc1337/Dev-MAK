@@ -10,6 +10,8 @@ class Valorizacion
 	function __construct()
 	{
 		$this->selectorTypes_prop = array();
+		$this->selector_sub_Types_prop = array();
+		
 		$this->selector_promo = array();
 
 		$this->selector_ubic = array();
@@ -68,9 +70,6 @@ class Valorizacion
 
 		echo mysqli_query($cadena, $query);
 		//var_dump($data);
-
-
-
         $cnx->cerrarConexion($cadena);
 	}
 
@@ -80,7 +79,7 @@ class Valorizacion
 		$cnx = new conexion();
 		$cadena = $cnx->abrirConexion();
 
-		$query = "SELECT id_tipo_inmb, tipo_inmb from tipo_inmuebles where id_tipo_inmb between 1 and 6";
+		$query = "SELECT id_tipo_inmb, tipo_inmb from tipo_inmuebles where id_tipo_inmb <> -1";
 
 		$resultado = mysqli_query($cadena, $query);
 
@@ -90,6 +89,24 @@ class Valorizacion
 		$cnx->cerrarConexion($cadena);
 
 		return $this->selectorTypes_prop;
+	}
+
+	public function selector_sub_Type_props()
+	{
+		include_once('../config/Conexion.php');
+		$cnx = new conexion();
+		$cadena = $cnx->abrirConexion();
+
+		$query = "SELECT id_sub_tipo_inmb, sub_tipo_inmb from sub_tipo_inmuebles";
+
+		$resultado = mysqli_query($cadena, $query);
+
+		while ($fila = mysqli_fetch_row($resultado)) {
+			$this->selector_sub_Types_prop[] = $fila;
+		}
+		$cnx->cerrarConexion($cadena);
+
+		return $this->selector_sub_Types_prop;
 	}
 
 	public function selector_type_promo()
@@ -116,7 +133,7 @@ class Valorizacion
 		$cnx = new conexion();
 		$cadena = $cnx->abrirConexion();
 
-		$query = "SELECT id_ubicacion, tipo_ubic from ubicacion";
+		$query = "SELECT id_ubicacion, tipo_ubic from ubicacion where id_ubicacion <> -1";
 
 		$resultado = mysqli_query($cadena, $query);
 
@@ -134,7 +151,7 @@ class Valorizacion
 		$cnx = new conexion();
 		$cadena = $cnx->abrirConexion();
 
-		$query = "SELECT id_vista, tipo_vista from tipo_vista";
+		$query = "SELECT id_vista, tipo_vista from tipo_vista where id_vista <> -1";
 
 		$resultado = mysqli_query($cadena, $query);
 
@@ -152,7 +169,7 @@ class Valorizacion
 		$cnx = new conexion();
 		$cadena = $cnx->abrirConexion();
 
-		$query = "SELECT id_acabado, tipo_acabado from tipo_acabado";
+		$query = "SELECT id_acabado, tipo_acabado from tipo_acabado where id_acabado <> -1";
 
 		$resultado = mysqli_query($cadena, $query);
 
@@ -170,7 +187,7 @@ class Valorizacion
 		$cnx = new conexion();
 		$cadena = $cnx->abrirConexion();
 
-		$query = "SELECT id_zona, tipo_zona from tipo_zonificacion";
+		$query = "SELECT id_zona, tipo_zona from tipo_zonificacion where id_zona <> -1";
 
 		$resultado = mysqli_query($cadena, $query);
 
@@ -188,7 +205,7 @@ class Valorizacion
 		$cnx = new conexion();
 		$cadena = $cnx->abrirConexion();
 
-		$query = "SELECT id_tipo_suelo, tipo_suelo from tipo_suelo";
+		$query = "SELECT id_tipo_suelo, tipo_suelo from tipo_suelo where id_tipo_suelo <> -1";
 
 		$resultado = mysqli_query($cadena, $query);
 
