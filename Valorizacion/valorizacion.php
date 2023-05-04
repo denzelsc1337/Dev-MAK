@@ -243,7 +243,7 @@
                                                     }
                                                 </script>
                                                 <div class="d-grid gap-2 col-3 mx-auto form-flex">
-                                                    <div type="button" class="btn btn-info btn-lg col-md-12 nextPag" onclick="pasarValores()">Continuar</div>
+                                                    <div type="button" class="btn btn-info btn-lg col-md-12 nextPag" onclick="agregar_tabla()">Continuar</div>
                                                 </div>
                                             </div>
                                             <!-- SELECCION TIPO -->
@@ -1371,9 +1371,9 @@
                                                                                 <td>AV AREQUIPA 4960</td>
                                                                                 <td>CASA</td>
                                                                                 <td>VENTA</td>
-                                                                                <td>200.00</td>
-                                                                                <td>100.00</td>
-                                                                                <td>100.00</td>
+                                                                                <td id="at__"></td>
+                                                                                <td id="ac__"></td>
+                                                                                <td id="ao__"></td>
                                                                             </tr>
                                                                         </tbody>
                                                                     </table>
@@ -2304,6 +2304,20 @@
             }
 
         });
+
+        function agregar_tabla() {
+          var _at = document.getElementById("a_t").value;
+          var _ac = document.getElementById("a_c").value;
+          var _ao = document.getElementById("a_o").value;
+
+          document.getElementById("at__").innerHTML = _at;
+          document.getElementById("ac__").innerHTML = _ac;
+          document.getElementById("ao__").innerHTML = _ao;
+
+          console.log(_at,_ac,_ao);
+
+        }
+
     </script>
 
     <script>
