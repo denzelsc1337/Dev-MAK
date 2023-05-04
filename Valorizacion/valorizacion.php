@@ -896,7 +896,7 @@
                                                                             </div>
                                                                         </div>
                                                                     </div>
-                                                                    <div class="row">
+                                                                    <!-- <div class="row">
                                                                         <div class="col-sm-10">
                                                                             <div class="form-group">
                                                                                 <label class="col-form-label">Izquierdo:</label>
@@ -908,8 +908,8 @@
                                                                                 </div>
                                                                             </div>
                                                                         </div>
-                                                                    </div>
-                                                                    <div class="row">
+                                                                    </div> -->
+                                                                    <!-- <div class="row">
                                                                         <div class="col-sm-10">
                                                                             <div class="form-group">
                                                                                 <label class="col-form-label">Fondo:</label>
@@ -921,8 +921,8 @@
                                                                                 </div>
                                                                             </div>
                                                                         </div>
-                                                                    </div>
-                                                                    <div class="row">
+                                                                    </div> -->
+                                                                    <!-- <div class="row">
                                                                         <div class="col-sm-10">
                                                                             <div class="form-group">
                                                                                 <label class="col-form-label">Derecho:</label>
@@ -934,7 +934,7 @@
                                                                                 </div>
                                                                             </div>
                                                                         </div>
-                                                                    </div>
+                                                                    </div> -->
                                                                 </div>
                                                             </div>
                                                         </div>

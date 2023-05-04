@@ -49,7 +49,6 @@ class Valorizacion
 												`pisos_edif_dep`, `piso_dep`, `amoblado_dep`, `piscina_dep`,
 
 												`cod_zonificacion`, `cod_tipo_suelo`,`param_terreno`,`frent_terreno`,
-												`izq_terreno`, `fondo_terreno`, `der_terreno`,
 
 												`piso_ofi`, `cochera_ofi`, `ascensor_ofi`,`aire_ofi`,
 
@@ -75,9 +74,7 @@ class Valorizacion
 
 						 	,'".$data[53]."','".$data[54]."','".$data[55]."','".$data[56]."'
 
-						 	,'".$data[57]."','".$data[58]."','".$data[59]."','".$data[60]."','".$data[61]."'
-
-						 	,'".$data[62]."','".$data[63]."');";
+						 	,'".$data[57]."','".$data[58]."','".$data[59]."','".$data[60]."');";
 						 	
 
 

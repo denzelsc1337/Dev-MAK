@@ -105,31 +105,32 @@ $data[47] = isset($_POST["tipo_suelo"]) && $_POST["tipo_suelo"] !== "" ? $_POST[
 
 $data[48] = $_POST["params_"];
 $data[49] = $_POST["frnte_"];
-$data[50] = $_POST["izq_"];
-$data[51] = $_POST["fndo_"];
-$data[52] = $_POST["derc_"];
+//$data[50] = $_POST["izq_"];
+//$data[51] = $_POST["fndo_"];
+//$data[52] = $_POST["derc_"];
+
 //terreno inputs
 
 //oficina inputs
-$data[53] = $_POST["piso_ofi"];
-$data[54] = $_POST["coch_ofi"];
+$data[50] = $_POST["piso_ofi"];
+$data[51] = $_POST["coch_ofi"];
 
-$data[55] = isset($_POST['ascen_ofi'])? true : false;
-$data[56] = isset($_POST['aire_ofio'])? true : false;
+$data[52] = isset($_POST['ascen_ofi'])? true : false;
+$data[53] = isset($_POST['aire_ofio'])? true : false;
 
 
 //local comercial inputs
-$data[57] = $_POST["frnt_lcl_com"];
-$data[58] = $_POST["coch_lcl_com"];
-$data[59] = $_POST["piso_lcl_com"];
+$data[54] = $_POST["frnt_lcl_com"];
+$data[55] = $_POST["coch_lcl_com"];
+$data[56] = $_POST["piso_lcl_com"];
 
-$data[60] = isset($_POST['ascen_lcl_com'])? true : false;
-$data[61] = isset($_POST['aire_lcl_com'])? true : false;
+$data[57] = isset($_POST['ascen_lcl_com'])? true : false;
+$data[58] = isset($_POST['aire_lcl_com'])? true : false;
 
 
 //Local industrial inputs
-$data[62] = $_POST["frnt_lcl_com"];
-$data[63] = $_POST["coch_lcl_com"];
+$data[59] = $_POST["frnt_lcl_com"];
+$data[60] = $_POST["coch_lcl_com"];
 
 
 
