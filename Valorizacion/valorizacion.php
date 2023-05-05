@@ -133,13 +133,7 @@
                                                                             <?php
                                                                             require_once('../Controller/controladorListar.php');
                                                                             ?>
-                                                                            <select id="tipo_prop" name="tipo_prop" class="form-control">
-                                                                                <option disabled selected="selected">Seleccione un tipo</option>
-
-                                                                                <?php foreach ($selector_types_props as $cod_type) : ?>
-                                                                                    <option value="<?php echo $cod_type[0]; ?>"><?php echo $cod_type[1]; ?></option>
-                                                                                <?php endforeach ?>
-                                                                            </select>
+                                                                            <select id="tipo_prop" name="tipo_prop" class="form-control" value="-1"></select>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -151,12 +145,7 @@
                                                                         <!-- textarea -->
                                                                         <div class="form-group">
                                                                             <label>Subtipo Inmueble</label>
-                                                                            <select id="sub_tipo_prop" name="sub_tipo_prop" class="form-control">
-                                                                                <option disabled selected="selected">Seleccione un tipo de inmueble</option>
-                                                                                <?php foreach ($selector__sub_types_props as $cod_s_type) : ?>
-                                                                                    <option value="<?php echo $cod_s_type[0]; ?>"><?php echo $cod_s_type[1]; ?></option>
-                                                                                <?php endforeach ?>
-                                                                            </select>
+                                                                            <select id="sub_tipo_prop" name="sub_tipo_prop" class="form-control"></select>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -2037,6 +2026,7 @@
     <script src="../Vista/js/stepper.js"></script>
     <script src="../Vista/assets/functions.js"></script>
 
+
     <!-- jQuery -->
     <script src="../Vista/plugins/jquery/jquery.min.js"></script>
     <!-- Bootstrap 4 -->
@@ -2459,7 +2449,7 @@
         // // DropzoneJS Demo Code End
     </script>
 
-
+    <script src="../Vista/assets/selection_types.js"></script>
 </body>
 
 </html>
