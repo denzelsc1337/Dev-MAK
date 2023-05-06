@@ -2281,7 +2281,14 @@
 
         sub_tipo_prop.addEventListener("change", function() {
             switch (sub_tipo_prop.value) {
-                case "5":
+                case "13":
+                    area_c.classList.remove("hidden");
+                    area_o.classList.remove("hidden");
+                    antig.classList.remove("hidden");
+
+                    area_t.classList.add("hidden");
+                    break;
+                case "14":
                     area_c.classList.remove("hidden");
                     area_o.classList.remove("hidden");
                     antig.classList.remove("hidden");
