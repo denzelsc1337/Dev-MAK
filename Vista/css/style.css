@@ -37,6 +37,10 @@ a:hover {
   text-decoration: none !important;
 }
 
+.card {
+  box-shadow: 0 0 1px rgba(0, 0, 0, 25%), 0 1px 3px rgba(0, 0, 0, 15%) !important;
+}
+
 .flex {
   display: flex;
 }
@@ -322,7 +326,12 @@ h2 {
 /* CSS */
 
 /* INPUT PERSONALIZADO */
-input[type="number"] {
+
+.form-control.input-number {
+  border-radius: 50px;
+}
+
+.form-control.input-number {
   border-radius: 50px;
 }
 
@@ -358,6 +367,11 @@ input[type="number"] {
   padding-left: 20px !important;
 }
 
+.align-center {
+  display: flex;
+  align-items: center;
+}
+
 .radius-right {
   border-radius: 0.25rem 20px 20px 0.25rem !important;
 }
@@ -380,7 +394,6 @@ input[type="number"] {
   display: grid;
   grid-template-columns: 50% auto;
   grid-template-rows: 80px auto;
-  background-color: red;
   justify-content: center;
   column-gap: 10px;
 }
@@ -458,6 +471,11 @@ input[type="number"] {
   margin: auto;
   cursor: default;
   margin-left: 10px !important;
+  align-items: center;
+}
+
+.form-group .flex .input-group-append i {
+  margin-bottom: 0.3rem;
 }
 
 .input-group-text {
@@ -485,10 +503,7 @@ form {
 
 form .form-content {
   display: flex;
-}
-
-input[type="number"]:after {
-  content: var(--input-suffix);
+  padding: 1px;
 }
 
 .input-group.mb-3 {

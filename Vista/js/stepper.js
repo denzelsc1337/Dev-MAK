@@ -30,7 +30,7 @@ const bsSContent = bsStepperContent.querySelectorAll(".content");
 
   document.addEventListener("DOMContentLoaded", function () {
     // código JavaScript que se ejecutará cuando se cargue la página
-    console.log("aol");
+    // console.log("aol");
     Pasos();
   });
 
@@ -55,9 +55,7 @@ const bsSContent = bsStepperContent.querySelectorAll(".content");
 
     lines.forEach((lns) => {
       var line = lns.getAttribute("data-target");
-      console.log(lns);
-      console.log(dashTarget);
-      console.log(line);
+
       if (dashTarget !== line) {
         lns.style.display = "none";
       } else {
@@ -80,15 +78,13 @@ const bsSContent = bsStepperContent.querySelectorAll(".content");
     // Obtener el valor seleccionado del combobox
     const pantallaSeleccionada = document.getElementById("tipo_prop").value;
 
-    if (pantallaSeleccionada !== 0) {
+    if (pantallaSeleccionada > 0) {
       pantallaActual();
       hideScreen();
 
-      console.log(pantallaActual);
       //   // Mostrar la siguiente pantalla correspondiente al valor seleccionado
       //   // if (pantallaSeleccionada !== "") {
       const siguientePantalla = document.getElementById(pantallaSeleccionada);
-      console.log(siguientePantalla);
       //   //   // siguientePantalla.style.display = "block";
       siguientePantalla.classList.remove("hide");
       siguientePantalla.classList.add("show");
