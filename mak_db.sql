@@ -624,7 +624,7 @@ desc valorizacion;
 SELECT id_sub_tipo_inmb,sub_tipo_inmb from sub_tipo_inmuebles subtip
         INNER JOIN tipo_inmuebles tipo_inmue
         on subtip.cod_tipo_inmb = tipo_inmue.id_tipo_inmb
-        where tipo_inmue.id_tipo_inmb = 3
+        where tipo_inmue.id_tipo_inmb = 2
 
 
 
