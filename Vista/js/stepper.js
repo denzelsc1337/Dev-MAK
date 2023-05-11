@@ -99,19 +99,24 @@ const bsSContent = bsStepperContent.querySelectorAll(".content");
       localStorage.setItem('sub_tipo_prop_r', document.getElementById('sub_tipo_prop').selectedOptions[0].textContent);
       localStorage.setItem('tipo_prom_r', document.getElementById('tipo_prom').selectedOptions[0].textContent);
 
+      localStorage.setItem('sala_com_casa_r', document.getElementById('sala_com').checked);
 
+
+      //datos iniciales
       document.getElementById('dire_resumen').innerHTML = localStorage.getItem('dir_r');
       document.getElementById('tipo_prop_resumen').innerHTML = localStorage.getItem('tipo_prop_r');
-      
       document.getElementById('sub_tipo_prop_resumen').innerHTML = localStorage.getItem('sub_tipo_prop_r');
-      document.getElementById('tipo_i').innerHTML = localStorage.getItem('sub_tipo_prop_r');
 
-      document.getElementById('tipo_prom_resumen').innerHTML = localStorage.getItem('tipo_prom_r');
+      //datos generales casa
+      document.getElementById('sala_com_resumen').innerHTML = localStorage.getItem('sala_com_casa_r');
 
 
       //direccion
       if (localStorage.getItem('dir_r')) {
         document.getElementById('dire_resumen').innerHTML = 'Dirección: ' + localStorage.getItem('dir_r');
+        document.getElementById('dire_resumen').style.display = 'list-item';
+      }else{
+        document.getElementById('dire_resumen').style.display = 'none';
       }
 
       //tipo de propiedad
@@ -129,6 +134,33 @@ const bsSContent = bsStepperContent.querySelectorAll(".content");
         document.getElementById('tipo_prom_resumen').innerHTML = 'Tipo de Promocion: '+localStorage.getItem('tipo_prom_r');
       }
 
+      const salaComCheckbox = document.getElementById('sala_com');
+      const salaComResumen = document.getElementById('sala_com_resumen');
+
+      salaComCheckbox.addEventListener('change', function() {
+      localStorage.setItem('sala_com_casa_r', salaComCheckbox.checked);
+
+        if (salaComCheckbox.checked) {
+          salaComResumen.innerHTML = 'Sala Comedor: Si';
+          salaComResumen.style.display = 'list-item';
+        } else {
+          salaComResumen.innerHTML = 'No';
+          salaComResumen.style.display = 'none';
+        }
+
+      });
+
+
+
+      const valorSalaComCasaR = localStorage.getItem('sala_com_casa_r');
+        if (valorSalaComCasaR === 'true') {
+          salaComCheckbox.checked = true;
+          salaComResumen.innerHTML = 'Si';
+        } else {
+          salaComCheckbox.checked = false;
+          salaComResumen.innerHTML = 'Sala Comedor: No';
+          salaComResumen.style.display = 'none';
+        }
 
     } else {
       alert("Seleccione un tipo de Inmueble.");
