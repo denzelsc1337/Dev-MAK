@@ -156,11 +156,11 @@ h2 {
   text-decoration: underline;
 }
 
-.content .btn {
+/* .content .btn {
   height: 54px;
   padding-left: 30px;
   padding-right: 30px;
-}
+} */
 
 .content .forgot-pass {
   position: relative;
@@ -511,3 +511,151 @@ form .form-content {
 }
 
 /* CSS PERSONALIZADO */
+
+/* ATTR TITLE PERSONALIZADO */
+/* .tooltipInfo {
+  display: inline-block;
+} */
+
+/* .tooltipInfo .tooltiptext {
+  display: none;
+  position: absolute;
+  padding: 10px;
+  margin-left: 10px;
+  background-color: #555;
+  color: #fff;
+  border-radius: 6px;
+  z-index: 2;
+  transition: opacity 1s;
+  font-family: "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol" !important;
+}
+
+.tooltipInfo .tooltiptext ul {
+  margin-top: 1rem;
+  padding-right: 15px;
+  font-weight: initial;
+} */
+
+/* .tooltipInfo .tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 15px;
+  right: 100%;
+  margin-top: -8px;
+  border-width: 8px;
+  border-style: solid;
+  border-color: transparent #555 transparent transparent;
+} */
+
+/* .tooltipInfo:hover .tooltiptext {
+  display: inline-block;
+} */
+/* .tooltip-left .tooltiptext {
+  left: auto;
+  right: calc(100% + 10px);
+  transform: translateX(0);
+}
+
+.tooltip-left .tooltiptext::before {
+  left: auto;
+  right: 100%;
+  transform: translateX(0);
+} */
+/* .tooltip-right {
+  top: -5px;
+  left: 40%;
+}
+.tooltip-left {
+  top: -5px;
+  bottom: auto;
+  right: 8%;
+} */
+
+.tooltiptext {
+  font-family: "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol" !important;
+}
+
+.tooltip-left {
+  position: relative;
+}
+
+.tooltip-left .tooltiptext {
+  display: none;
+  position: absolute;
+  top: 0;
+  right: 100%;
+  /* transform: translateY(-50%); */
+  padding: 10px;
+  margin-right: 5px;
+  background-color: #555;
+  color: #fff;
+  border-radius: 5px;
+  font-size: 14px;
+  z-index: 2;
+  /* white-space: nowrap; */
+}
+
+/* .tooltip-left .tooltiptext::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 100%;
+  transform: translateX(-50%) translateY(-50%);
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent transparent #000;
+} */
+
+.tooltip-left:hover .tooltiptext {
+  display: inline-block;
+}
+
+.tooltip-right {
+  position: relative;
+}
+
+.tooltip-right .tooltiptext {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 100%;
+  /* transform: translateY(-50%); */
+  padding: 10px;
+  margin-left: 5px;
+  background-color: #555;
+  color: #fff;
+  border-radius: 5px;
+  font-size: 14px;
+  z-index: 2;
+  /* white-space: nowrap; */
+}
+
+.tooltiptext ul {
+  padding-inline-start: 20px !important;
+  margin-block-start: 0.5em !important;
+  margin-block-end: 0.5em !important;
+}
+
+.tooltiptext ul li {
+  margin-bottom: 10px;
+}
+/* .tooltip-right .tooltiptext::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 100%;
+  transform: translateX(50%) translateY(-50%);
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent #000 transparent transparent;
+} */
+
+.tooltip-right:hover .tooltiptext {
+  display: inline-block;
+}
+
+/* ATTR TITLE PERSONALIZADO */

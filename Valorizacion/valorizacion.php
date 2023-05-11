@@ -186,7 +186,11 @@
                                                                             <div class="flex">
                                                                                 <label>Area de Terreno</label>
                                                                                 <div class="input-group-append">
-                                                                                    <i class="fa-solid fa-circle-info" title="El área de terreno es la medida de la superficie."></i>
+                                                                                    <i class="fa-solid fa-circle-info tooltipInfo tooltip-right">
+                                                                                        <span class="tooltiptext">
+                                                                                            El área del terreno es la medida de la superficie.
+                                                                                        </span>
+                                                                                    </i>
                                                                                 </div>
                                                                             </div>
                                                                             <input type="number" inputmode="numeric" class="form-control" min="0" placeholder="00.00m2" id="a_t" name="a_t" required>
@@ -201,7 +205,11 @@
                                                                             <div class="flex">
                                                                                 <label>Area Construida</label>
                                                                                 <div class="input-group-append">
-                                                                                    <i class="fa-solid fa-circle-info" title="El área construida es la medida de la superficie."></i>
+                                                                                    <i class="fa-solid fa-circle-info tooltipInfo tooltip-right">
+                                                                                        <span class="tooltiptext">
+                                                                                            El área construida es la medida de la superficie.
+                                                                                        </span>
+                                                                                    </i>
                                                                                 </div>
                                                                             </div>
                                                                             <input type="number" inputmode="numeric" class="form-control" min="0" placeholder="00.00m2" id="a_c" name="a_c" required>
@@ -216,7 +224,11 @@
                                                                             <div class="flex">
                                                                                 <label>Area Ocupada</label>
                                                                                 <div class="input-group-append">
-                                                                                    <i class="fa-solid fa-circle-info" title="El área ocupada es la medida de la superficie."></i>
+                                                                                    <i class="fa-solid fa-circle-info tooltipInfo tooltip-right">
+                                                                                        <span class="tooltiptext">
+                                                                                            El área ocupada es la medida de la superficie.
+                                                                                        </span>
+                                                                                    </i>
                                                                                 </div>
                                                                             </div>
                                                                             <input type="number" inputmode="numeric" class="form-control" placeholder="00.00m2" id="a_o" name="a_o" required>
@@ -318,7 +330,16 @@
 
                                                                     <div class="card card-primary">
                                                                         <div class="card-header">
-                                                                            <h3 class="card-title">Dormitorios</h3>
+                                                                            <div class="flex">
+                                                                                <h3 class="card-title">Dormitorios</h3>
+                                                                                <div class="input-group-append">
+                                                                                    <i class="fa-solid fa-circle-info tooltipInfo tooltip-right">
+                                                                                        <span class="tooltiptext">
+                                                                                            No considerar dormitorio de servicio.
+                                                                                        </span>
+                                                                                    </i>
+                                                                                </div>
+                                                                            </div>
                                                                         </div>
                                                                         <div class="card-body">
                                                                             <div class="col-sm-12 flex">
@@ -332,7 +353,7 @@
                                                                                     </div>
                                                                                 </div>
                                                                                 <div class="col-sm-6 pdd-left">
-                                                                                    <label>Dormitorio(s) con baño:</label>
+                                                                                    <label>Dormitorio con baño:</label>
                                                                                     <div class="section-input col-sm-5">
                                                                                         <span class="icon-input">
                                                                                             <img src="https://cdn-icons-png.flaticon.com/512/5697/5697404.png" alt="">
@@ -349,7 +370,11 @@
                                                                             <div class="flex">
                                                                                 <h3 class="card-title">Baños</h3>
                                                                                 <div class="input-group-append">
-                                                                                    <i class="fa-solid fa-circle-info" title="No considerar baño de servicio"></i>
+                                                                                    <i class="fa-solid fa-circle-info tooltipInfo tooltip-right">
+                                                                                        <span class="tooltiptext">
+                                                                                            No considerar baño de servicio.
+                                                                                        </span>
+                                                                                    </i>
                                                                                 </div>
                                                                             </div>
                                                                         </div>
@@ -440,7 +465,7 @@
                                                                         <div class="card-body">
                                                                             <div class="col-sm-12">
                                                                                 <div class="form-group row">
-                                                                                    <label class="col-sm-3 col-form-label">Ubicación:</label>
+                                                                                    <label class="col-sm-3 col-form-label">Localización:</label>
                                                                                     <div class="section-input col-sm-8">
                                                                                         <span class="icon-input"><i class="fa-solid fa-location-dot"></i></span>
                                                                                         <select class="form-control radius-right" id="ubic" name="ubic">
@@ -451,7 +476,11 @@
                                                                                         </select>
                                                                                     </div>
                                                                                     <div class="input-group-append">
-                                                                                        <i class="fa-solid fa-circle-info" title="Info..."></i>
+                                                                                        <i class="fa-solid fa-circle-info tooltipInfo tooltip-left">
+                                                                                            <span class="tooltiptext">
+                                                                                                Info...
+                                                                                            </span>
+                                                                                        </i>
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
@@ -471,7 +500,11 @@
                                                                                         </select>
                                                                                     </div>
                                                                                     <div class="input-group-append">
-                                                                                        <i class="fa-solid fa-circle-info" title="Info..."></i>
+                                                                                        <i class="fa-solid fa-circle-info tooltipInfo tooltip-left">
+                                                                                            <span class="tooltiptext">
+                                                                                                Info...
+                                                                                            </span>
+                                                                                        </i>
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
@@ -491,7 +524,18 @@
                                                                                         </select>
                                                                                     </div>
                                                                                     <div class="input-group-append">
-                                                                                        <i class="fa-solid fa-circle-info" title="Info..."></i>
+                                                                                        <i class="fa-solid fa-circle-info tooltipInfo tooltip-left">
+                                                                                            <span class="tooltiptext">
+                                                                                                <ul>
+                                                                                                    <li>
+                                                                                                        <b>Edificación en casco</b> - Construcción sin terminar: Estructura básica de la construcción, sin acabados interiores ni instalaciones.
+                                                                                                    </li>
+                                                                                                    <li>
+                                                                                                        <b>Edificación terminada</b> - Construcción completa y lista para su uso: Estructura completa de la construcción, con acabados interiores y exteriores, instalaciones y servicios.
+                                                                                                    </li>
+                                                                                                </ul>
+                                                                                            </span>
+                                                                                        </i>
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
@@ -645,7 +689,16 @@
                                                                     </div>
                                                                     <div class="card card-primary">
                                                                         <div class="card-header">
-                                                                            <h3 class="card-title">Dormitorios</h3>
+                                                                            <div class="flex">
+                                                                                <h3 class="card-title">Dormitorios</h3>
+                                                                                <div class="input-group-append">
+                                                                                    <i class="fa-solid fa-circle-info tooltipInfo tooltip-right">
+                                                                                        <span class="tooltiptext">
+                                                                                            No considerar dormitorio de servicio.
+                                                                                        </span>
+                                                                                    </i>
+                                                                                </div>
+                                                                            </div>
                                                                         </div>
                                                                         <div class="card-body">
                                                                             <div class="col-sm-12 flex">
@@ -675,7 +728,11 @@
                                                                             <div class="flex">
                                                                                 <h3 class="card-title">Baños</h3>
                                                                                 <div class="input-group-append">
-                                                                                    <i class="fa-solid fa-circle-info" title="No considerar baño de servicio"></i>
+                                                                                    <i class="fa-solid fa-circle-info tooltipInfo tooltip-right">
+                                                                                        <span class="tooltiptext">
+                                                                                            No considerar baño de servicio.
+                                                                                        </span>
+                                                                                    </i>
                                                                                 </div>
                                                                             </div>
                                                                         </div>
@@ -757,7 +814,7 @@
                                                                         <div class="card-body">
                                                                             <div class="col-sm-12">
                                                                                 <div class="form-group row">
-                                                                                    <label class="col-sm-3 col-form-label">Ubicación:</label>
+                                                                                    <label class="col-sm-3 col-form-label">Localización:</label>
                                                                                     <div class="section-input col-sm-8">
                                                                                         <span class="icon-input"><i class="fa-solid fa-location-dot"></i></span>
                                                                                         <select class="form-control radius-right" id="ubic" name="ubic">
@@ -768,7 +825,11 @@
                                                                                         </select>
                                                                                     </div>
                                                                                     <div class="input-group-append">
-                                                                                        <span class="input-group-text" title="Info..."><i>i</i></span>
+                                                                                        <i class="fa-solid fa-circle-info tooltipInfo tooltip-left">
+                                                                                            <span class="tooltiptext">
+                                                                                                Info...
+                                                                                            </span>
+                                                                                        </i>
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
@@ -788,7 +849,11 @@
                                                                                         </select>
                                                                                     </div>
                                                                                     <div class="input-group-append">
-                                                                                        <span class="input-group-text" title="Info..."><i>i</i></span>
+                                                                                        <i class="fa-solid fa-circle-info tooltipInfo tooltip-left">
+                                                                                            <span class="tooltiptext">
+                                                                                                Info...
+                                                                                            </span>
+                                                                                        </i>
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
@@ -808,7 +873,18 @@
                                                                                         </select>
                                                                                     </div>
                                                                                     <div class="input-group-append">
-                                                                                        <span class="input-group-text" title="Info..."><i>i</i></span>
+                                                                                        <i class="fa-solid fa-circle-info tooltipInfo tooltip-left">
+                                                                                            <span class="tooltiptext" style="width: 450px;">
+                                                                                                <ul>
+                                                                                                    <li>
+                                                                                                        <b>Edificación en casco</b> - Construcción sin terminar: Estructura básica de la construcción, sin acabados interiores ni instalaciones.
+                                                                                                    </li>
+                                                                                                    <li>
+                                                                                                        <b>Edificación terminada</b> - Construcción completa y lista para su uso: Estructura completa de la construcción, con acabados interiores y exteriores, instalaciones y servicios.
+                                                                                                    </li>
+                                                                                                </ul>
+                                                                                            </span>
+                                                                                        </i>
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
@@ -970,7 +1046,11 @@
                                                                                 </select>
                                                                             </div>
                                                                             <div class="input-group-append">
-                                                                                <i class="fa-solid fa-circle-info" title="Info..."></i>
+                                                                                <i class="fa-solid fa-circle-info tooltipInfo tooltip-right">
+                                                                                    <span class="tooltiptext">
+                                                                                        Info...
+                                                                                    </span>
+                                                                                </i>
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -990,7 +1070,11 @@
                                                                                 </select>
                                                                             </div>
                                                                             <div class="input-group-append">
-                                                                                <i class="fa-solid fa-circle-info" title="Info..."></i>
+                                                                                <i class="fa-solid fa-circle-info tooltipInfo tooltip-right">
+                                                                                    <span class="tooltiptext">
+                                                                                        Info...
+                                                                                    </span>
+                                                                                </i>
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -1119,9 +1203,11 @@
                                                                                         </select>
                                                                                     </div>
                                                                                     <div class="input-group-append">
-                                                                                        <div class="input-group-append">
-                                                                                            <i class="fa-solid fa-circle-info" title="Info..."></i>
-                                                                                        </div>
+                                                                                        <i class="fa-solid fa-circle-info tooltipInfo tooltip-right">
+                                                                                            <span class="tooltiptext">
+                                                                                                Info...
+                                                                                            </span>
+                                                                                        </i>
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
@@ -1140,9 +1226,18 @@
                                                                                         </select>
                                                                                     </div>
                                                                                     <div class="input-group-append">
-                                                                                        <div class="input-group-append">
-                                                                                            <i class="fa-solid fa-circle-info" title="Info..."></i>
-                                                                                        </div>
+                                                                                        <i class="fa-solid fa-circle-info tooltipInfo tooltip-right">
+                                                                                            <span class="tooltiptext" style="width: 450px;">
+                                                                                                <ul>
+                                                                                                    <li>
+                                                                                                        <b>Edificación en casco</b> - Construcción sin terminar: Estructura básica de la construcción, sin acabados interiores ni instalaciones.
+                                                                                                    </li>
+                                                                                                    <li>
+                                                                                                        <b>Edificación terminada</b> - Construcción completa y lista para su uso: Estructura completa de la construcción, con acabados interiores y exteriores, instalaciones y servicios.
+                                                                                                    </li>
+                                                                                                </ul>
+                                                                                            </span>
+                                                                                        </i>
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
@@ -1416,7 +1511,11 @@
                                                                                 </select>
                                                                             </div>
                                                                             <div class="input-group-append">
-                                                                                <i class="fa-solid fa-circle-info" title="Info..."></i>
+                                                                                <i class="fa-solid fa-circle-info tooltipInfo tooltip-right">
+                                                                                    <span class="tooltiptext">
+                                                                                        Info...
+                                                                                    </span>
+                                                                                </i>
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -1542,31 +1641,31 @@
                                                                             </div>
                                                                         </div>
                                                                     </div>
-                            <div class="col-sm-6">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <h2>Resumen</h2>
+                                                                    <div class="col-sm-6">
+                                                                        <div class="card">
+                                                                            <div class="card-body">
+                                                                                <h2>Resumen</h2>
 
-                                        <p><strong>Datos de contacto:</strong></p>
-                                          <ul>
-                                            <li>Nombre: <?php echo $_SESSION['nom_usu']; ?></li>
-                                            <li>Email: <?php echo $_SESSION['email_usu']; ?></li>
-                                            <li>Teléfono: <?php echo $_SESSION['telef_usu']; ?></li>
-                                          </ul>
-                                        <p><strong>Información de la propiedad:</strong></p>
-                                          <ul>
-                                            <li id="dire_resumen"></li>
-                                            <li id="tipo_prop_resumen"> </li>
-                                            <li id="sub_tipo_prop_resumen"></li>
-                                            <li id="tipo_prom_resumen">Tipo de promoción: </li>
-                                          </ul>
-                                        <p><strong>Información del tipo de propiedad:</strong></p>
-                                    </div>
-                                </div>
-                            </div>
-                                
+                                                                                <p><strong>Datos de contacto:</strong></p>
+                                                                                <ul>
+                                                                                    <li>Nombre: <?php echo $_SESSION['nom_usu']; ?></li>
+                                                                                    <li>Email: <?php echo $_SESSION['email_usu']; ?></li>
+                                                                                    <li>Teléfono: <?php echo $_SESSION['telef_usu']; ?></li>
+                                                                                </ul>
+                                                                                <p><strong>Información de la propiedad:</strong></p>
+                                                                                <ul>
+                                                                                    <li id="dire_resumen"></li>
+                                                                                    <li id="tipo_prop_resumen"> </li>
+                                                                                    <li id="sub_tipo_prop_resumen"></li>
+                                                                                    <li id="tipo_prom_resumen">Tipo de promoción: </li>
+                                                                                </ul>
+                                                                                <p><strong>Información del tipo de propiedad:</strong></p>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
 
-                                </div>
+
+                                                                </div>
                                                             </div>
 
                                                         </div>
@@ -1579,7 +1678,7 @@
                                                 </div>
                                             </div>
                                             <!-- RESUMEN DE SOLICITUD -->
-                                            
+
                                         </div>
                                     </form>
                                 </div>
