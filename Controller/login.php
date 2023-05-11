@@ -33,6 +33,7 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
 			$_SESSION['nom_usu'] = $datos->nom_client;
 			$_SESSION['ape_usu'] = $datos->ape_client;
 			$_SESSION['email_usu'] = $datos->email_client;
+			$_SESSION['telef_usu'] = $datos->telef_client;
 
 
 			$_SESSION['autenticado'] = 1;

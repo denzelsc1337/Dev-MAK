@@ -721,8 +721,10 @@ desc valorizacion;
 SELECT id_sub_tipo_inmb,sub_tipo_inmb from sub_tipo_inmuebles subtip
         INNER JOIN tipo_inmuebles tipo_inmue
         on subtip.cod_tipo_inmb = tipo_inmue.id_tipo_inmb
-        where tipo_inmue.id_tipo_inmb = 3
-
+        where tipo_inmue.id_tipo_inmb = 3;
+        
+INSERT INTO `sub_tipo_inmuebles` (`id_sub_tipo_inmb`, `sub_tipo_inmb`, `cod_tipo_inmb`) VALUES (NULL, 'Comercial', '3'), (NULL, 'Industrial', '3'), (NULL, 'Casa como terreno', '3');
+INSERT INTO `sub_tipo_inmuebles` (`id_sub_tipo_inmb`, `sub_tipo_inmb`, `cod_tipo_inmb`) VALUES (NULL, 'Exclusivo', '5'), (NULL, 'Comun', '5');
 
 
 

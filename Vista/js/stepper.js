@@ -93,6 +93,43 @@ const bsSContent = bsStepperContent.querySelectorAll(".content");
       //   // }
       //   const siguientePantalla = document.getElementById(pantallaSeleccionada);
       //   siguientePantalla.classList.add("show");
+
+      localStorage.setItem('dir_r', document.getElementById('direccion_').value);
+      localStorage.setItem('tipo_prop_r', document.getElementById('tipo_prop').selectedOptions[0].textContent);
+      localStorage.setItem('sub_tipo_prop_r', document.getElementById('sub_tipo_prop').selectedOptions[0].textContent);
+      localStorage.setItem('tipo_prom_r', document.getElementById('tipo_prom').selectedOptions[0].textContent);
+
+
+      document.getElementById('dire_resumen').innerHTML = localStorage.getItem('dir_r');
+      document.getElementById('tipo_prop_resumen').innerHTML = localStorage.getItem('tipo_prop_r');
+      
+      document.getElementById('sub_tipo_prop_resumen').innerHTML = localStorage.getItem('sub_tipo_prop_r');
+      document.getElementById('tipo_i').innerHTML = localStorage.getItem('sub_tipo_prop_r');
+
+      document.getElementById('tipo_prom_resumen').innerHTML = localStorage.getItem('tipo_prom_r');
+
+
+      //direccion
+      if (localStorage.getItem('dir_r')) {
+        document.getElementById('dire_resumen').innerHTML = 'Dirección: ' + localStorage.getItem('dir_r');
+      }
+
+      //tipo de propiedad
+      if(localStorage.getItem('tipo_prop_r')){
+        document.getElementById('tipo_prop_resumen').innerHTML = 'Tipo de propiedad: '+localStorage.getItem('tipo_prop_r');
+      }
+
+      //subtipo de propiedad
+      if(localStorage.getItem('sub_tipo_prop_r')){
+        document.getElementById('sub_tipo_prop_resumen').innerHTML = 'SubTipo de propiedad: '+localStorage.getItem('sub_tipo_prop_r');
+      }
+
+      //tipo promo
+      if(localStorage.getItem('tipo_prom_r')){
+        document.getElementById('tipo_prom_resumen').innerHTML = 'Tipo de Promocion: '+localStorage.getItem('tipo_prom_r');
+      }
+
+
     } else {
       alert("Seleccione un tipo de Inmueble.");
     }
