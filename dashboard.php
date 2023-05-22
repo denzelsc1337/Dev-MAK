@@ -871,7 +871,7 @@ require_once('config/security.php');
                   <div class="card mb-2 bg-gradient-dark">
                     <img class="card-img-top" src="Vista/images/search.jpg" alt="Dist Photo 1">
                     <div class="card-img-overlay d-flex flex-column justify-content-end">
-                      <a href="../Vista/busqueda.php" class="btn btn-block btn-primary">INICIAR</a>
+                      <a href="Search/busqueda.php" class="btn btn-block btn-primary">INICIAR</a>
                     </div>
                   </div>
                 <!-- /.card-body -->

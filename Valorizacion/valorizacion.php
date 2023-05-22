@@ -269,7 +269,7 @@
                                             <!-- CASA - VIVIENDA -->
                                             <div id="1" class="section card card-default col-md-12" role="tabpanel" aria-labelledby="" data-target="second_step">
                                                 <div class="card-header">
-                                                    <h1>Casa - <strong id="tipo_i">Test</strong></h1>
+                                                    <h1>Casa -</h1>
                                                 </div>
                                                 <div class="card-body">
                                                     <div class="row">
@@ -557,7 +557,7 @@
                                             <!-- DEPARTAMENTO - DUPLEX -->
                                             <div id="2" class="section card card-default col-md-12" role="tabpanel" aria-labelledby="" data-target="second_step">
                                                 <div class="card-header">
-                                                    <h1>Departamento</h1>
+                                                    <h1>Departamento </h1>
                                                 </div>
 
                                                 <div class="card-body">
@@ -966,10 +966,7 @@
                                                                             <div class="section-input col-sm-8">
                                                                                 <span class="icon-input"><i class="fa-solid fa-location-dot"></i></span>
                                                                                 <select class="form-control radius-right" id="tipo_zoni" name="tipo_zoni">
-                                                                                    <option value="-1">Seleccione</option>
-                                                                                    <?php foreach ($selector_types_zon as $cod_type_z) : ?>
-                                                                                        <option value="<?php echo $cod_type_z[0]; ?>"><?php echo $cod_type_z[1]; ?></option>
-                                                                                    <?php endforeach ?>
+
                                                                                 </select>
                                                                             </div>
                                                                             <div class="input-group-append">
@@ -1778,6 +1775,8 @@
                                                                                     <li id="tipo_prop_resumen"> </li>
                                                                                     <li id="sub_tipo_prop_resumen"></li>
                                                                                     <li id="tipo_prom_resumen">Tipo de promoción: </li>
+                                                                                    <li id="sala_com_resumen"></li>
+
                                                                                 </ul>
                                                                                 <p><strong>Información del tipo de propiedad:</strong></p>
                                                                             </div>
