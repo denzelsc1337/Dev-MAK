@@ -965,7 +965,7 @@
                                                                             <label class="col-sm-3 col-form-label">Zonificación:</label>
                                                                             <div class="section-input col-sm-8">
                                                                                 <span class="icon-input"><i class="fa-solid fa-location-dot"></i></span>
-                                                                                <select class="form-control radius-right" id="tipo_zoni" name="tipo_zoni">
+                                                                                <select class="form-control radius-right tipo_zoni_" id="tipo_zoni" name="tipo_zoni">
 
                                                                                 </select>
                                                                             </div>
@@ -1172,11 +1172,8 @@
                                                                                         <span class="icon-input">
                                                                                             <img src="https://cdn-icons-png.flaticon.com/512/3017/3017956.png" alt="">
                                                                                         </span>
-                                                                                        <select class="form-control radius-right">
-                                                                                            <option value="-1">Seleccione</option id="tipo_zoni" name="tipo_zoni">
-                                                                                            <?php foreach ($selector_types_zon as $cod_type_z) : ?>
-                                                                                                <option value="<?php echo $cod_type_z[0]; ?>"><?php echo $cod_type_z[1]; ?></option>
-                                                                                            <?php endforeach ?>
+                                                                                        <select class="form-control radius-right" id="tipo_zoni" name="tipo_zoni">
+
                                                                                         </select>
                                                                                     </div>
                                                                                 </div>
@@ -1337,11 +1334,7 @@
                                                                                     <label class="col-sm-3 col-form-label">Zonificación:</label>
                                                                                     <div class="section-input col-sm-8">
                                                                                         <span class="icon-input"><i class="fa-solid fa-location-dot"></i></span>
-                                                                                        <select class="form-control radius-right">
-                                                                                            <option value="-1">Seleccione</option id="tipo_zoni" name="tipo_zoni">
-                                                                                            <?php foreach ($selector_types_zon as $cod_type_z) : ?>
-                                                                                                <option value="<?php echo $cod_type_z[0]; ?>"><?php echo $cod_type_z[1]; ?></option>
-                                                                                            <?php endforeach ?>
+                                                                                        <select class="form-control radius-right" id="tipo_zoni" name="tipo_zoni">
                                                                                         </select>
                                                                                     </div>
                                                                                 </div>
@@ -1503,11 +1496,7 @@
                                                                                     <label class="col-sm-3 col-form-label">Zonificación:</label>
                                                                                     <div class="section-input col-sm-8">
                                                                                         <span class="icon-input"><i class="fa-solid fa-location-dot"></i></span>
-                                                                                        <select class="form-control radius-right">
-                                                                                            <option value="-1">Seleccione</option id="" name="">
-                                                                                            <?php foreach ($selector_types_zon as $cod_type_z) : ?>
-                                                                                                <option value="<?php echo $cod_type_z[0]; ?>"><?php echo $cod_type_z[1]; ?></option>
-                                                                                            <?php endforeach ?>
+                                                                                        <select class="form-control radius-right" id="tipo_zoni" name="tipo_zoni">
                                                                                         </select>
                                                                                     </div>
                                                                                 </div>

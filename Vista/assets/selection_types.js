@@ -53,42 +53,47 @@ $(document).ready(function(){
     }
 
     function cargarTiposZona(sendDatos_){
-        $.ajax({
-            type:"POST",
-            url:"../Controller/Select.php",
-            data: sendDatos_,
-            charset: "utf-8",
-            success:function(response_){
-                const zonifi = JSON.parse(response_);
-                let template = '<option selected value="-1"> Selecciona </option>';
 
-                zonifi.forEach(_zoni =>{
-                    template += `<option value="${_zoni.id_zn}">${_zoni.nom_zn}</option>`;
-                });
-                console.log(" - "+response_);
-                $('#tipo_zoni').html(template);
+        $('select#tipo_zoni').each(function(){
+            $.ajax({
+                type:"POST",
+                url:"../Controller/Select.php",
+                data: sendDatos_,
+                charset: "utf-8",
+                success:function(response_){
+                    const zonifi = JSON.parse(response_);
+                    let template_ = '<option selected value="-1"> Selecciona </option>';
 
-            }
+                    zonifi.forEach(_zoni =>{
+                        template_ += `<option value="${_zoni.id_zn}">${_zoni.nom_zn}</option>`;
+                    });
+                    console.log(" - "+response_);
+                    $('#tipo_zoni').html(template_);
+
+                }
+            })
         })
     }
 
     $tipo_inmue_.addEventListener('change',function () {
         const codigoTipo = $tipo_inmue_.value
-        const codigoTipo_ = $tipo_inmue_.value
+        //const codigoTipo_ = $tipo_inmue_.value
 
-        console.log(codigoTipo)
-        console.log(codigoTipo_)
+        //console.log(codigoTipo)
+        //console.log(codigoTipo_)
 
         const sendDatos = {
             'cod_tipo' : codigoTipo
         }
 
         const sendDatos_ = {
-            'codTipo_i' : codigoTipo_
+            'codTipo_i' : codigoTipo
         }
         cargarSubTipos(sendDatos)
         cargarTiposZona(sendDatos_)
     })
+
+
 
 
 
