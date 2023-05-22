@@ -111,7 +111,6 @@
 
                                             <!-- SELECCION TIPO -->
                                             <div id="0" class="section col-md-12 movPag show" role="tabpanel" aria-labelledby="logins-part-trigger" data-target="first_step">
-
                                                 <div class="row">
                                                     <div class="col-md-4">
                                                         <div class="card card-default">
@@ -186,7 +185,11 @@
                                                                             <div class="flex">
                                                                                 <label>Area de Terreno</label>
                                                                                 <div class="input-group-append">
-                                                                                    <i class="fa-solid fa-circle-info" title="El área de terreno es la medida de la superficie."></i>
+                                                                                    <i class="fa-solid fa-circle-info tooltipInfo tooltip-right">
+                                                                                        <span class="tooltiptext">
+                                                                                            El área del terreno es la medida de la superficie.
+                                                                                        </span>
+                                                                                    </i>
                                                                                 </div>
                                                                             </div>
                                                                             <input type="number" inputmode="numeric" class="form-control" min="0" placeholder="00.00m2" id="a_t" name="a_t" required>
@@ -201,7 +204,11 @@
                                                                             <div class="flex">
                                                                                 <label>Area Construida</label>
                                                                                 <div class="input-group-append">
-                                                                                    <i class="fa-solid fa-circle-info" title="El área construida es la medida de la superficie."></i>
+                                                                                    <i class="fa-solid fa-circle-info tooltipInfo tooltip-right">
+                                                                                        <span class="tooltiptext">
+                                                                                            El área construida es la medida de la superficie.
+                                                                                        </span>
+                                                                                    </i>
                                                                                 </div>
                                                                             </div>
                                                                             <input type="number" inputmode="numeric" class="form-control" min="0" placeholder="00.00m2" id="a_c" name="a_c" required>
@@ -216,7 +223,11 @@
                                                                             <div class="flex">
                                                                                 <label>Area Ocupada</label>
                                                                                 <div class="input-group-append">
-                                                                                    <i class="fa-solid fa-circle-info" title="El área ocupada es la medida de la superficie."></i>
+                                                                                    <i class="fa-solid fa-circle-info tooltipInfo tooltip-right">
+                                                                                        <span class="tooltiptext">
+                                                                                            El área ocupada es la medida de la superficie.
+                                                                                        </span>
+                                                                                    </i>
                                                                                 </div>
                                                                             </div>
                                                                             <input type="number" inputmode="numeric" class="form-control" placeholder="00.00m2" id="a_o" name="a_o" required>
@@ -255,10 +266,8 @@
                                             <!-- SELECCION TIPO -->
 
 
-
                                             <!-- CASA - VIVIENDA -->
                                             <div id="1" class="section card card-default col-md-12" role="tabpanel" aria-labelledby="" data-target="second_step">
-
                                                 <div class="card-header">
                                                     <h1>Casa - <strong id="tipo_i">Test</strong></h1>
                                                 </div>
@@ -318,7 +327,16 @@
 
                                                                     <div class="card card-primary">
                                                                         <div class="card-header">
-                                                                            <h3 class="card-title">Dormitorios</h3>
+                                                                            <div class="flex">
+                                                                                <h3 class="card-title">Dormitorios</h3>
+                                                                                <div class="input-group-append">
+                                                                                    <i class="fa-solid fa-circle-info tooltipInfo tooltip-right">
+                                                                                        <span class="tooltiptext">
+                                                                                            No considerar dormitorio de servicio.
+                                                                                        </span>
+                                                                                    </i>
+                                                                                </div>
+                                                                            </div>
                                                                         </div>
                                                                         <div class="card-body">
                                                                             <div class="col-sm-12 flex">
@@ -332,7 +350,7 @@
                                                                                     </div>
                                                                                 </div>
                                                                                 <div class="col-sm-6 pdd-left">
-                                                                                    <label>Dormitorio(s) con baño:</label>
+                                                                                    <label>Dormitorio con baño:</label>
                                                                                     <div class="section-input col-sm-5">
                                                                                         <span class="icon-input">
                                                                                             <img src="https://cdn-icons-png.flaticon.com/512/5697/5697404.png" alt="">
@@ -349,7 +367,11 @@
                                                                             <div class="flex">
                                                                                 <h3 class="card-title">Baños</h3>
                                                                                 <div class="input-group-append">
-                                                                                    <i class="fa-solid fa-circle-info" title="No considerar baño de servicio"></i>
+                                                                                    <i class="fa-solid fa-circle-info tooltipInfo tooltip-right">
+                                                                                        <span class="tooltiptext">
+                                                                                            No considerar baño de servicio.
+                                                                                        </span>
+                                                                                    </i>
                                                                                 </div>
                                                                             </div>
                                                                         </div>
@@ -440,7 +462,7 @@
                                                                         <div class="card-body">
                                                                             <div class="col-sm-12">
                                                                                 <div class="form-group row">
-                                                                                    <label class="col-sm-3 col-form-label">Ubicación:</label>
+                                                                                    <label class="col-sm-3 col-form-label">Localización:</label>
                                                                                     <div class="section-input col-sm-8">
                                                                                         <span class="icon-input"><i class="fa-solid fa-location-dot"></i></span>
                                                                                         <select class="form-control radius-right" id="ubic" name="ubic">
@@ -451,7 +473,11 @@
                                                                                         </select>
                                                                                     </div>
                                                                                     <div class="input-group-append">
-                                                                                        <i class="fa-solid fa-circle-info" title="Info..."></i>
+                                                                                        <i class="fa-solid fa-circle-info tooltipInfo tooltip-left">
+                                                                                            <span class="tooltiptext">
+                                                                                                Info...
+                                                                                            </span>
+                                                                                        </i>
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
@@ -471,7 +497,11 @@
                                                                                         </select>
                                                                                     </div>
                                                                                     <div class="input-group-append">
-                                                                                        <i class="fa-solid fa-circle-info" title="Info..."></i>
+                                                                                        <i class="fa-solid fa-circle-info tooltipInfo tooltip-left">
+                                                                                            <span class="tooltiptext">
+                                                                                                Info...
+                                                                                            </span>
+                                                                                        </i>
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
@@ -491,80 +521,23 @@
                                                                                         </select>
                                                                                     </div>
                                                                                     <div class="input-group-append">
-                                                                                        <i class="fa-solid fa-circle-info" title="Info..."></i>
+                                                                                        <i class="fa-solid fa-circle-info tooltipInfo tooltip-left">
+                                                                                            <span class="tooltiptext">
+                                                                                                <ul>
+                                                                                                    <li>
+                                                                                                        <b>Edificación en casco</b> - Construcción sin terminar: Estructura básica de la construcción, sin acabados interiores ni instalaciones.
+                                                                                                    </li>
+                                                                                                    <li>
+                                                                                                        <b>Edificación terminada</b> - Construcción completa y lista para su uso: Estructura completa de la construcción, con acabados interiores y exteriores, instalaciones y servicios.
+                                                                                                    </li>
+                                                                                                </ul>
+                                                                                            </span>
+                                                                                        </i>
                                                                                     </div>
-                                                                                </div>
-                                                                            </div>
-
-                                                                            <div class="col-sm-12">
-                                                                                <div class="row">
-                                                                                    <div class="col-sm-4"></div>
-                                                                                    <div class="pdd-left">
-                                                                                        <div class="pdd-left">
-                                                                                            <label>Piso del dpto:</label>
-                                                                                            <div class="section-input col-sm-7">
-                                                                                                <span class="icon-input">
-                                                                                                    <img src="https://cdn-icons-png.flaticon.com/512/6080/6080750.png" alt="">
-                                                                                                </span>
-                                                                                                <input class="form-control input-number" type="number" min="0" id="pisos_" name="pisos_">
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                    <div class="col-sm-4"></div>
                                                                                 </div>
                                                                             </div>
                                                                         </div>
                                                                     </div>
-
-                                                                    <!-- <div class="input-group mb-3">
-                                                                                <div class="col-sm-12">
-                                                                                    <div class="form-group flex pdd-left">
-                                                                                        <div class="col-sm-6 pdd-left">
-                                                                                        <div class="form-group">
-                                                                                            <label>Dormitorio(s) con baño:</label>
-                                                                                            <div class="section-input col-sm-5">
-                                                                                                <span class="icon-input">
-                                                                                                    <img src="https://cdn-icons-png.flaticon.com/512/5697/5697404.png" alt="">
-                                                                                                </span>
-                                                                                                <input class="form-control input-number" type="number" min="0" id="cant_dorm_b_" name="cant_dorm_b_">
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                        <div class="col-sm-6 pdd-left">
-                                                                                        <div class="custom-control custom-checkbox">
-                                                                                            <input class="down custom-control-input" type="checkbox" id="banho_vis" name="banho_vis" value="true">
-                                                                                            <label for="banho_vis" class="down custom-control-label">Baño(s) de visita:</label>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div> -->
-
-
-
-                                                                    <!-- <div class="input-group mb-3">
-                                                                                <div class="col-sm-12">
-                                                                                    <div class="form-group flex pdd-left">
-                                                                                        <div class="col-sm-6 pdd-left">
-                                                                                            <div class="form-group">
-                                                                                                <label>Piso del dpto:</label>
-                                                                                                <div class="section-input col-sm-5">
-                                                                                                    <span class="icon-input">
-                                                                                                        <img src="https://cdn-icons-png.flaticon.com/512/5697/5697404.png" alt="">
-                                                                                                    </span>
-                                                                                                    <input class="form-control input-number" type="number" min="0" id="pisos_" name="pisos_">
-                                                                                                </div>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                        <div class="col-sm-6 pdd-left">
-                                                                                            <div class="custom-control custom-checkbox">
-                                                                                                <input class="down custom-control-input" type="checkbox" id="amoblado_" name="amoblado_" value="true">
-                                                                                                <label for="amoblado_" class="down custom-control-label">Amoblado:</label>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div> -->
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -583,7 +556,6 @@
 
                                             <!-- DEPARTAMENTO - DUPLEX -->
                                             <div id="2" class="section card card-default col-md-12" role="tabpanel" aria-labelledby="" data-target="second_step">
-
                                                 <div class="card-header">
                                                     <h1>Departamento</h1>
                                                 </div>
@@ -645,7 +617,16 @@
                                                                     </div>
                                                                     <div class="card card-primary">
                                                                         <div class="card-header">
-                                                                            <h3 class="card-title">Dormitorios</h3>
+                                                                            <div class="flex">
+                                                                                <h3 class="card-title">Dormitorios</h3>
+                                                                                <div class="input-group-append">
+                                                                                    <i class="fa-solid fa-circle-info tooltipInfo tooltip-right">
+                                                                                        <span class="tooltiptext">
+                                                                                            No considerar dormitorio de servicio.
+                                                                                        </span>
+                                                                                    </i>
+                                                                                </div>
+                                                                            </div>
                                                                         </div>
                                                                         <div class="card-body">
                                                                             <div class="col-sm-12 flex">
@@ -675,7 +656,11 @@
                                                                             <div class="flex">
                                                                                 <h3 class="card-title">Baños</h3>
                                                                                 <div class="input-group-append">
-                                                                                    <i class="fa-solid fa-circle-info" title="No considerar baño de servicio"></i>
+                                                                                    <i class="fa-solid fa-circle-info tooltipInfo tooltip-right">
+                                                                                        <span class="tooltiptext">
+                                                                                            No considerar baño de servicio.
+                                                                                        </span>
+                                                                                    </i>
                                                                                 </div>
                                                                             </div>
                                                                         </div>
@@ -757,7 +742,7 @@
                                                                         <div class="card-body">
                                                                             <div class="col-sm-12">
                                                                                 <div class="form-group row">
-                                                                                    <label class="col-sm-3 col-form-label">Ubicación:</label>
+                                                                                    <label class="col-sm-3 col-form-label">Localización:</label>
                                                                                     <div class="section-input col-sm-8">
                                                                                         <span class="icon-input"><i class="fa-solid fa-location-dot"></i></span>
                                                                                         <select class="form-control radius-right" id="ubic" name="ubic">
@@ -768,7 +753,11 @@
                                                                                         </select>
                                                                                     </div>
                                                                                     <div class="input-group-append">
-                                                                                        <span class="input-group-text" title="Info..."><i>i</i></span>
+                                                                                        <i class="fa-solid fa-circle-info tooltipInfo tooltip-left">
+                                                                                            <span class="tooltiptext">
+                                                                                                Info...
+                                                                                            </span>
+                                                                                        </i>
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
@@ -788,7 +777,11 @@
                                                                                         </select>
                                                                                     </div>
                                                                                     <div class="input-group-append">
-                                                                                        <span class="input-group-text" title="Info..."><i>i</i></span>
+                                                                                        <i class="fa-solid fa-circle-info tooltipInfo tooltip-left">
+                                                                                            <span class="tooltiptext">
+                                                                                                Info...
+                                                                                            </span>
+                                                                                        </i>
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
@@ -808,7 +801,18 @@
                                                                                         </select>
                                                                                     </div>
                                                                                     <div class="input-group-append">
-                                                                                        <span class="input-group-text" title="Info..."><i>i</i></span>
+                                                                                        <i class="fa-solid fa-circle-info tooltipInfo tooltip-left">
+                                                                                            <span class="tooltiptext" style="width: 450px;">
+                                                                                                <ul>
+                                                                                                    <li>
+                                                                                                        <b>Edificación en casco</b> - Construcción sin terminar: Estructura básica de la construcción, sin acabados interiores ni instalaciones.
+                                                                                                    </li>
+                                                                                                    <li>
+                                                                                                        <b>Edificación terminada</b> - Construcción completa y lista para su uso: Estructura completa de la construcción, con acabados interiores y exteriores, instalaciones y servicios.
+                                                                                                    </li>
+                                                                                                </ul>
+                                                                                            </span>
+                                                                                        </i>
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
@@ -944,7 +948,6 @@
 
                                             <!-- TERRENO RESIDENCIAL -->
                                             <div id="3" class="section card card-default col-md-12" role="tabpanel" aria-labelledby="" data-target="second_step">
-
                                                 <div class="card-header">
                                                     <h1>Terreno</h1>
                                                 </div>
@@ -970,7 +973,11 @@
                                                                                 </select>
                                                                             </div>
                                                                             <div class="input-group-append">
-                                                                                <i class="fa-solid fa-circle-info" title="Info..."></i>
+                                                                                <i class="fa-solid fa-circle-info tooltipInfo tooltip-right">
+                                                                                    <span class="tooltiptext">
+                                                                                        Info...
+                                                                                    </span>
+                                                                                </i>
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -990,7 +997,11 @@
                                                                                 </select>
                                                                             </div>
                                                                             <div class="input-group-append">
-                                                                                <i class="fa-solid fa-circle-info" title="Info..."></i>
+                                                                                <i class="fa-solid fa-circle-info tooltipInfo tooltip-right">
+                                                                                    <span class="tooltiptext">
+                                                                                        Info...
+                                                                                    </span>
+                                                                                </i>
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -1119,9 +1130,11 @@
                                                                                         </select>
                                                                                     </div>
                                                                                     <div class="input-group-append">
-                                                                                        <div class="input-group-append">
-                                                                                            <i class="fa-solid fa-circle-info" title="Info..."></i>
-                                                                                        </div>
+                                                                                        <i class="fa-solid fa-circle-info tooltipInfo tooltip-right">
+                                                                                            <span class="tooltiptext">
+                                                                                                Info...
+                                                                                            </span>
+                                                                                        </i>
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
@@ -1140,9 +1153,18 @@
                                                                                         </select>
                                                                                     </div>
                                                                                     <div class="input-group-append">
-                                                                                        <div class="input-group-append">
-                                                                                            <i class="fa-solid fa-circle-info" title="Info..."></i>
-                                                                                        </div>
+                                                                                        <i class="fa-solid fa-circle-info tooltipInfo tooltip-right">
+                                                                                            <span class="tooltiptext" style="width: 450px;">
+                                                                                                <ul>
+                                                                                                    <li>
+                                                                                                        <b>Edificación en casco</b> - Construcción sin terminar: Estructura básica de la construcción, sin acabados interiores ni instalaciones.
+                                                                                                    </li>
+                                                                                                    <li>
+                                                                                                        <b>Edificación terminada</b> - Construcción completa y lista para su uso: Estructura completa de la construcción, con acabados interiores y exteriores, instalaciones y servicios.
+                                                                                                    </li>
+                                                                                                </ul>
+                                                                                            </span>
+                                                                                        </i>
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
@@ -1253,146 +1275,339 @@
 
 
                                             <!-- LOCAL COMERCIAL - EXCLUSIVO -->
-                                            <div id="5" class="section col-md-12" role="tabpanel" aria-labelledby="" data-target="second_step">
-                                                <h1>Local comercial - Exclusivo</h1>
-                                                <div class="row">
-                                                    <div class="col-md-6">
-                                                        <div class="card card-warning">
-                                                            <div class="card-body">
-
-                                                                <br>
-
-                                                                <div class="row">
-                                                                    <div class="col-sm-11">
-                                                                        <div class="form-group row">
-                                                                            <div class="input-group mb-3">
-                                                                                <label class="col-sm-3 col-form-label">Localización:</label>
-                                                                                <div class="section-input col-sm-8">
-                                                                                    <span class="icon-input"><i class="fa-solid fa-location-dot"></i></span>
-                                                                                    <select class="form-control radius-right" id="">
-                                                                                        <option selected disabled>Seleccione</option>
-                                                                                    </select>
-                                                                                </div>
-                                                                                <div class="input-group-append">
-                                                                                    <span class="input-group-text" title="Info..."><i>i</i></span>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="form-group row">
-                                                                            <div class="input-group mb-3">
-                                                                                <label class="col-sm-3 col-form-label">Acabado:</label>
-                                                                                <div class="section-input col-sm-8">
-                                                                                    <span class="icon-input">
-                                                                                        <img src="https://cdn-icons-png.flaticon.com/512/1249/1249293.png" alt="">
-                                                                                    </span>
-                                                                                    <select class="form-control radius-right" id="acabado_" name="acabado_">
-                                                                                        <option value="-1" selected>Seleccione</option>
-                                                                                        <?php foreach ($selector_types_acab as $cod_type_a) : ?>
-                                                                                            <option value="<?php echo $cod_type_a[0]; ?>"><?php echo $cod_type_a[1]; ?></option>
-                                                                                        <?php endforeach ?>
-                                                                                    </select>
-                                                                                </div>
-                                                                                <div class="input-group-append">
-                                                                                    <span class="input-group-text" title="Info..."><i>i</i></span>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="form-group row">
-                                                                            <div class="input-group mb-3">
-                                                                                <label class="col-sm-3 col-form-label">Zonificación:</label>
-                                                                                <div class="section-input col-sm-8">
-                                                                                    <span class="icon-input"><i class="fa-solid fa-location-dot"></i></span>
-                                                                                    <select class="form-control radius-right">
-                                                                                        <option value="-1">Seleccione</option id="tipo_zoni" name="tipo_zoni">
-                                                                                        <?php foreach ($selector_types_zon as $cod_type_z) : ?>
-                                                                                            <option value="<?php echo $cod_type_z[0]; ?>"><?php echo $cod_type_z[1]; ?></option>
-                                                                                        <?php endforeach ?>
-                                                                                    </select>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-
-                                                                <div class="body-grid">
-                                                                    <div class="grid-box">
-                                                                        <div class="col-sm-12">
-                                                                            <div class="form-group">
-                                                                                <label>Frente:</label>
-                                                                                <div class="section-input col-sm-10">
-                                                                                    <span class="icon-input">
-                                                                                        <img class="rotate-180" src="https://cdn-icons-png.flaticon.com/512/8264/8264013.png" alt="">
-                                                                                    </span>
-                                                                                    <input class="form-control input-number" type="number" min="0" step="00.01" id="frnt_lcl_com" name="frnt_lcl_com">
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="grid-box">
-                                                                        <div class="col-sm-12">
-                                                                            <div class="form-group">
-                                                                                <label>Cochera(s):</label>
-                                                                                <div class="section-input col-sm-10">
-                                                                                    <span class="icon-input"><i class="fa-solid fa-warehouse"></i></span>
-                                                                                    <input class="form-control input-number" type="number" min="0" id="coch_lcl_com" name="coch_lcl_com">
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="col-md-3">
-                                                        <div class="card card-primary">
-                                                            <div class="card-body">
-                                                                <div class="body-grid">
-                                                                    <div class="grid-box w-all">
-                                                                        <div class="col-sm-12">
-                                                                            <div class="form-group">
-                                                                                <label>Piso del local:</label>
-                                                                                <div class="section-input col-sm-10">
-                                                                                    <span class="icon-input">
-                                                                                        <img src="https://cdn-icons-png.flaticon.com/512/6080/6080750.png" alt="">
-                                                                                    </span>
-                                                                                    <input class="form-control input-number" type="number" min="0" id="piso_lcl_com" name="piso_lcl_com">
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="grid-box">
-                                                                        <div class="col-sm-12">
-                                                                            <br>
-                                                                            <div class="custom-control custom-checkbox">
-                                                                                <input class="right custom-control-input" type="checkbox" id="ascen_lcl_com" name="ascen_lcl_com">
-                                                                                <label for="ascen_lcl_com" class="right custom-control-label">Ascensor:</label>
-                                                                            </div>
-                                                                            <br>
-                                                                            <div class="custom-control custom-checkbox">
-                                                                                <input class="right custom-control-input" type="checkbox" id="aire_lcl_com" name="aire_lcl_com">
-                                                                                <label for="aire_lcl_com" class="right custom-control-label">Aire acondicionado:</label>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
+                                            <div id="5" class="section card card-default col-md-12" role="tabpanel" aria-labelledby="" data-target="second_step">
+                                                <div class="card-header">
+                                                    <h1>Local comercial - Exclusivo</h1>
                                                 </div>
 
-                                                <div class="d-grid gap-2 col-8 mx-auto form-flex">
-                                                    <div type="button" class="btn btn-info btn-lg col-md-4 backPag">Retroceder</div>
-                                                    <div type="button" class="btn btn-info btn-lg col-md-4 sigPag">Continuar</div>
+                                                <div class="card-body">
+                                                    <div class="row">
+
+                                                        <div class="col-md-6">
+                                                            <div class="row">
+                                                                <div class="col-sm-12">
+
+                                                                    <div class="card card-primary">
+                                                                        <div class="card-header">
+                                                                            <h3 class="card-title">
+                                                                                Otros
+                                                                            </h3>
+                                                                        </div>
+                                                                        <div class="card-body">
+                                                                            <div class="col-sm-12">
+                                                                                <div class="form-group row">
+                                                                                    <label class="col-sm-3 col-form-label">Localización:</label>
+                                                                                    <div class="section-input col-sm-8">
+                                                                                        <span class="icon-input"><i class="fa-solid fa-location-dot"></i></span>
+                                                                                        <select class="form-control radius-right" id="">
+                                                                                            <option selected disabled>Seleccione</option>
+                                                                                        </select>
+                                                                                    </div>
+                                                                                    <div class="input-group-append">
+                                                                                        <i class="fa-solid fa-circle-info tooltipInfo tooltip-right">
+                                                                                            <span class="tooltiptext">
+                                                                                                Info...
+                                                                                            </span>
+                                                                                        </i>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="col-sm-12">
+                                                                                <div class="form-group row">
+                                                                                    <label class="col-sm-3 col-form-label">Acabado:</label>
+                                                                                    <div class="section-input col-sm-8">
+                                                                                        <span class="icon-input">
+                                                                                            <img src="https://cdn-icons-png.flaticon.com/512/1249/1249293.png" alt="">
+                                                                                        </span>
+                                                                                        <select class="form-control radius-right" id="acabado_" name="acabado_">
+                                                                                            <option value="-1" selected>Seleccione</option>
+                                                                                            <?php foreach ($selector_types_acab as $cod_type_a) : ?>
+                                                                                                <option value="<?php echo $cod_type_a[0]; ?>"><?php echo $cod_type_a[1]; ?></option>
+                                                                                            <?php endforeach ?>
+                                                                                        </select>
+                                                                                    </div>
+                                                                                    <div class="input-group-append">
+                                                                                        <i class="fa-solid fa-circle-info tooltipInfo tooltip-right">
+                                                                                            <span class="tooltiptext">
+                                                                                                Info...
+                                                                                            </span>
+                                                                                        </i>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="col-sm-12">
+                                                                                <div class="form-group row">
+                                                                                    <label class="col-sm-3 col-form-label">Zonificación:</label>
+                                                                                    <div class="section-input col-sm-8">
+                                                                                        <span class="icon-input"><i class="fa-solid fa-location-dot"></i></span>
+                                                                                        <select class="form-control radius-right">
+                                                                                            <option value="-1">Seleccione</option id="tipo_zoni" name="tipo_zoni">
+                                                                                            <?php foreach ($selector_types_zon as $cod_type_z) : ?>
+                                                                                                <option value="<?php echo $cod_type_z[0]; ?>"><?php echo $cod_type_z[1]; ?></option>
+                                                                                            <?php endforeach ?>
+                                                                                        </select>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="card card-primary">
+                                                                        <div class="card-header">
+                                                                            <h3 class="card-title">Otros</h3>
+                                                                        </div>
+                                                                        <div class="card-body">
+                                                                            <div class="col-sm-12 flex">
+                                                                                <div class="col-sm-6">
+                                                                                    <div class="form-group">
+                                                                                        <label>Frente:</label>
+                                                                                        <div class="section-input col-sm-5">
+                                                                                            <span class="icon-input">
+                                                                                                <img class="rotate-180" src="https://cdn-icons-png.flaticon.com/512/8264/8264013.png" alt="">
+                                                                                            </span>
+                                                                                            <input class="form-control input-number" type="number" min="0" step="00.01" id="frnt_lcl_com" name="frnt_lcl_com">
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+
+                                                                                <div class="col-sm-6">
+                                                                                    <div class="form-group">
+                                                                                        <label>Cochera(s):</label>
+                                                                                        <div class="section-input col-sm-5">
+                                                                                            <span class="icon-input"><i class="fa-solid fa-warehouse"></i></span>
+                                                                                            <input class="form-control input-number" type="number" min="0" id="coch_lcl_com" name="coch_lcl_com">
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="col-md-6">
+                                                            <div class="row">
+                                                                <div class="col-sm-12">
+                                                                    <div class="card card-primary">
+                                                                        <div class="card-header">
+                                                                            <h3 class="card-title">Otros</h3>
+                                                                        </div>
+                                                                        <div class="card-body">
+                                                                            <div class="col-sm-12">
+                                                                                <div class="form-group">
+                                                                                    <label>Piso del local:</label>
+                                                                                    <div class="section-input col-sm-5">
+                                                                                        <span class="icon-input">
+                                                                                            <img src="https://cdn-icons-png.flaticon.com/512/6080/6080750.png" alt="">
+                                                                                        </span>
+                                                                                        <input class="form-control input-number" type="number" min="0" id="piso_lcl_com" name="piso_lcl_com">
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                            <br>
+                                                                            <div class="col-sm-12 flex">
+
+                                                                                <div class="col-sm-6 pdd-left align-center">
+                                                                                    <div class="custom-control custom-checkbox">
+                                                                                        <input class="right custom-control-input" type="checkbox" id="ascen_lcl_com" name="ascen_lcl_com">
+                                                                                        <label for="ascen_lcl_com" class="right custom-control-label">Ascensor:</label>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="col-sm-6 pdd-left align-center">
+                                                                                    <div class="custom-control custom-checkbox">
+                                                                                        <input class="right custom-control-input" type="checkbox" id="aire_lcl_com" name="aire_lcl_com">
+                                                                                        <label for="aire_lcl_com" class="right custom-control-label">Aire acondicionado:</label>
+                                                                                    </div>
+                                                                                </div>
+
+
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="card-footer">
+                                                    <div class="d-grid gap-2 col-8 mx-auto form-flex">
+                                                        <div type="button" class="btn btn-info btn-lg col-md-4 backPag">Retroceder</div>
+                                                        <div type="button" class="btn btn-info btn-lg col-md-4 sigPag">Continuar</div>
+                                                    </div>
                                                 </div>
 
                                             </div>
                                             <!-- LOCAL COMERCIAL - EXCLUSIVO -->
 
 
-                                            <!-- LOCAL INDUSTRIAL -->
+                                            <!-- LOCAL COMERCIAL - COMUN -->
                                             <div id="6" class="section card card-default col-md-12" role="tabpanel" aria-labelledby="" data-target="second_step">
+                                                <div class="card-header">
+                                                    <h1>Local comercial - Común</h1>
+                                                </div>
+
+                                                <div class="card-body">
+                                                    <div class="row">
+
+                                                        <div class="col-md-6">
+                                                            <div class="row">
+                                                                <div class="col-sm-12">
+
+                                                                    <div class="card card-primary">
+                                                                        <div class="card-header">
+                                                                            <h3 class="card-title">
+                                                                                Otros
+                                                                            </h3>
+                                                                        </div>
+                                                                        <div class="card-body">
+                                                                            <div class="col-sm-12">
+                                                                                <div class="form-group row">
+                                                                                    <label class="col-sm-3 col-form-label">Localización:</label>
+                                                                                    <div class="section-input col-sm-8">
+                                                                                        <span class="icon-input"><i class="fa-solid fa-location-dot"></i></span>
+                                                                                        <select class="form-control radius-right" id="">
+                                                                                            <option selected disabled>Seleccione</option>
+                                                                                        </select>
+                                                                                    </div>
+                                                                                    <div class="input-group-append">
+                                                                                        <i class="fa-solid fa-circle-info tooltipInfo tooltip-right">
+                                                                                            <span class="tooltiptext">
+                                                                                                Info...
+                                                                                            </span>
+                                                                                        </i>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="col-sm-12">
+                                                                                <div class="form-group row">
+                                                                                    <label class="col-sm-3 col-form-label">Acabado:</label>
+                                                                                    <div class="section-input col-sm-8">
+                                                                                        <span class="icon-input">
+                                                                                            <img src="https://cdn-icons-png.flaticon.com/512/1249/1249293.png" alt="">
+                                                                                        </span>
+                                                                                        <select class="form-control radius-right" id="" name="">
+                                                                                            <option value="-1" selected>Seleccione</option>
+                                                                                            <?php foreach ($selector_types_acab as $cod_type_a) : ?>
+                                                                                                <option value="<?php echo $cod_type_a[0]; ?>"><?php echo $cod_type_a[1]; ?></option>
+                                                                                            <?php endforeach ?>
+                                                                                        </select>
+                                                                                    </div>
+                                                                                    <div class="input-group-append">
+                                                                                        <i class="fa-solid fa-circle-info tooltipInfo tooltip-right">
+                                                                                            <span class="tooltiptext">
+                                                                                                Info...
+                                                                                            </span>
+                                                                                        </i>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="col-sm-12">
+                                                                                <div class="form-group row">
+                                                                                    <label class="col-sm-3 col-form-label">Zonificación:</label>
+                                                                                    <div class="section-input col-sm-8">
+                                                                                        <span class="icon-input"><i class="fa-solid fa-location-dot"></i></span>
+                                                                                        <select class="form-control radius-right">
+                                                                                            <option value="-1">Seleccione</option id="" name="">
+                                                                                            <?php foreach ($selector_types_zon as $cod_type_z) : ?>
+                                                                                                <option value="<?php echo $cod_type_z[0]; ?>"><?php echo $cod_type_z[1]; ?></option>
+                                                                                            <?php endforeach ?>
+                                                                                        </select>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="card card-primary">
+                                                                        <div class="card-header">
+                                                                            <h3 class="card-title">Otros</h3>
+                                                                        </div>
+                                                                        <div class="card-body">
+                                                                            <div class="col-sm-12 flex">
+                                                                                <div class="col-sm-6">
+                                                                                    <div class="form-group">
+                                                                                        <label>Frente:</label>
+                                                                                        <div class="section-input col-sm-5">
+                                                                                            <span class="icon-input">
+                                                                                                <img class="rotate-180" src="https://cdn-icons-png.flaticon.com/512/8264/8264013.png" alt="">
+                                                                                            </span>
+                                                                                            <input class="form-control input-number" type="number" min="0" step="00.01" id="" name="">
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+
+                                                                                <div class="col-sm-6">
+                                                                                    <div class="form-group">
+                                                                                        <label>Cochera(s):</label>
+                                                                                        <div class="section-input col-sm-5">
+                                                                                            <span class="icon-input"><i class="fa-solid fa-warehouse"></i></span>
+                                                                                            <input class="form-control input-number" type="number" min="0" id="" name="">
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="col-md-6">
+                                                            <div class="row">
+                                                                <div class="col-sm-12">
+                                                                    <div class="card card-primary">
+                                                                        <div class="card-header">
+                                                                            <h3 class="card-title">Otros</h3>
+                                                                        </div>
+                                                                        <div class="card-body">
+                                                                            <div class="col-sm-12">
+                                                                                <div class="form-group">
+                                                                                    <label>Piso del local:</label>
+                                                                                    <div class="section-input col-sm-5">
+                                                                                        <span class="icon-input">
+                                                                                            <img src="https://cdn-icons-png.flaticon.com/512/6080/6080750.png" alt="">
+                                                                                        </span>
+                                                                                        <input class="form-control input-number" type="number" min="0" id="" name="">
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                            <br>
+                                                                            <div class="col-sm-12 flex">
+
+                                                                                <div class="col-sm-6 pdd-left align-center">
+                                                                                    <div class="custom-control custom-checkbox">
+                                                                                        <input class="right custom-control-input" type="checkbox" id="" name="">
+                                                                                        <label for="" class="right custom-control-label">Ascensor:</label>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="col-sm-6 pdd-left align-center">
+                                                                                    <div class="custom-control custom-checkbox">
+                                                                                        <input class="right custom-control-input" type="checkbox" id="" name="">
+                                                                                        <label for="" class="right custom-control-label">Aire acondicionado:</label>
+                                                                                    </div>
+                                                                                </div>
+
+
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="card-footer">
+                                                    <div class="d-grid gap-2 col-8 mx-auto form-flex">
+                                                        <div type="button" class="btn btn-info btn-lg col-md-4 backPag">Retroceder</div>
+                                                        <div type="button" class="btn btn-info btn-lg col-md-4 sigPag">Continuar</div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <!-- LOCAL COMERCIAL - COMUN -->
+
+
+                                            <!-- LOCAL INDUSTRIAL -->
+                                            <div id="7" class="section card card-default col-md-12" role="tabpanel" aria-labelledby="" data-target="second_step">
                                                 <div class="card-header">
                                                     <h1>Local industrial</h1>
                                                 </div>
@@ -1416,7 +1631,11 @@
                                                                                 </select>
                                                                             </div>
                                                                             <div class="input-group-append">
-                                                                                <i class="fa-solid fa-circle-info" title="Info..."></i>
+                                                                                <i class="fa-solid fa-circle-info tooltipInfo tooltip-right">
+                                                                                    <span class="tooltiptext">
+                                                                                        Info...
+                                                                                    </span>
+                                                                                </i>
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -1542,31 +1761,31 @@
                                                                             </div>
                                                                         </div>
                                                                     </div>
-                            <div class="col-sm-6">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <h2>Resumen</h2>
+                                                                    <div class="col-sm-6">
+                                                                        <div class="card">
+                                                                            <div class="card-body">
+                                                                                <h2>Resumen</h2>
 
-                                        <p><strong>Datos de contacto:</strong></p>
-                                          <ul>
-                                            <li>Nombre: <?php echo $_SESSION['nom_usu']; ?></li>
-                                            <li>Email: <?php echo $_SESSION['email_usu']; ?></li>
-                                            <li>Teléfono: <?php echo $_SESSION['telef_usu']; ?></li>
-                                          </ul>
-                                        <p><strong>Información de la propiedad:</strong></p>
-                                          <ul>
-                                            <li id="dire_resumen"></li>
-                                            <li id="tipo_prop_resumen"> </li>
-                                            <li id="sub_tipo_prop_resumen"></li>
-                                            <li id="tipo_prom_resumen">Tipo de promoción: </li>
-                                          </ul>
-                                        <p><strong>Información del tipo de propiedad:</strong></p>
-                                    </div>
-                                </div>
-                            </div>
-                                
+                                                                                <p><strong>Datos de contacto:</strong></p>
+                                                                                <ul>
+                                                                                    <li>Nombre: <?php echo $_SESSION['nom_usu']; ?></li>
+                                                                                    <li>Email: <?php echo $_SESSION['email_usu']; ?></li>
+                                                                                    <li>Teléfono: <?php echo $_SESSION['telef_usu']; ?></li>
+                                                                                </ul>
+                                                                                <p><strong>Información de la propiedad:</strong></p>
+                                                                                <ul>
+                                                                                    <li id="dire_resumen"></li>
+                                                                                    <li id="tipo_prop_resumen"> </li>
+                                                                                    <li id="sub_tipo_prop_resumen"></li>
+                                                                                    <li id="tipo_prom_resumen">Tipo de promoción: </li>
+                                                                                </ul>
+                                                                                <p><strong>Información del tipo de propiedad:</strong></p>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
 
-                                </div>
+
+                                                                </div>
                                                             </div>
 
                                                         </div>
@@ -1579,7 +1798,7 @@
                                                 </div>
                                             </div>
                                             <!-- RESUMEN DE SOLICITUD -->
-                                            
+
                                         </div>
                                     </form>
                                 </div>
