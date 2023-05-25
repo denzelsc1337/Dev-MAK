@@ -965,9 +965,7 @@
                                                                             <label class="col-sm-3 col-form-label">Zonificación:</label>
                                                                             <div class="section-input col-sm-8">
                                                                                 <span class="icon-input"><i class="fa-solid fa-location-dot"></i></span>
-                                                                                <select class="form-control radius-right tipo_zoni_" id="tipo_zoni" name="tipo_zoni">
-
-                                                                                </select>
+                                                                                <input type="tipo_zoni" name="tipo_zoni">
                                                                             </div>
                                                                             <div class="input-group-append">
                                                                                 <i class="fa-solid fa-circle-info tooltipInfo tooltip-right">

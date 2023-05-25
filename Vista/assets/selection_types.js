@@ -3,7 +3,7 @@ $(document).ready(function(){
 	let $tipo_inmue_ = document.querySelector('#tipo_prop');
 	let $sub_tipo_inmue_ = document.querySelector('#sub_tipo_prop');
 
-	let $tipo_z = document.querySelector('#tipo_zoni');
+	//let $tipo_z = document.querySelector('#tipo_zoni');
 
 	function load_tipo_inmue(){
 		$.ajax({
@@ -52,7 +52,7 @@ $(document).ready(function(){
         })
     }
 
-    function cargarTiposZona(sendDatos_){
+    /*function cargarTiposZona(sendDatos_){
 
         $('select#tipo_zoni').each(function(){
             $.ajax({
@@ -73,7 +73,7 @@ $(document).ready(function(){
                 }
             })
         })
-    }
+    }*/
 
     $tipo_inmue_.addEventListener('change',function () {
         const codigoTipo = $tipo_inmue_.value
@@ -86,11 +86,11 @@ $(document).ready(function(){
             'cod_tipo' : codigoTipo
         }
 
-        const sendDatos_ = {
+        /*const sendDatos_ = {
             'codTipo_i' : codigoTipo
-        }
+        }*/
         cargarSubTipos(sendDatos)
-        cargarTiposZona(sendDatos_)
+        //cargarTiposZona(sendDatos_)
     })
 
 
