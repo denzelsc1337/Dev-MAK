@@ -67,65 +67,125 @@
             <div class="container-fluid">
                 <h2 class="text-center display-4">La llave al espacio que buscas</h2>
                 <br><br>
-                <form action="enhanced-results.html">
-                    <div class="row">
-                        <div class="col-12 col-sm-6 mx-auto">
-                            <div class="card card-primary card-outline card-outline-tabs">
-                                <div class="card-header p-0 border-bottom-0">
-                                    <ul class="nav nav-tabs" id="custom-tabs-four-tab" role="tablist">
-                                        <li class="nav-item">
-                                            <a class="nav-link active" id="custom-tabs-four-home-tab" data-toggle="pill" href="#custom-tabs-four-home" role="tab" aria-controls="custom-tabs-four-home" aria-selected="true">Home</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" id="custom-tabs-four-profile-tab" data-toggle="pill" href="#custom-tabs-four-profile" role="tab" aria-controls="custom-tabs-four-profile" aria-selected="false">Profile</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" id="custom-tabs-four-messages-tab" data-toggle="pill" href="#custom-tabs-four-messages" role="tab" aria-controls="custom-tabs-four-messages" aria-selected="false">Messages</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="card-body">
-                                    <div class="tab-content" id="custom-tabs-four-tabContent">
-                                        <div class="tab-pane fade show active" id="custom-tabs-four-home" role="tabpanel" aria-labelledby="custom-tabs-four-home-tab">
-                                            <div class="col-sm-12">
-                                                <div class="row">
-                                                    <div class="col-sm-3 align-center">
-                                                        <div class="input-group">
-                                                            <?php
-                                                            require_once('../Controller/controladorListar.php');
-                                                            ?>
-                                                            <select id="tipo_prop" name="tipo_prop" class="form-control" value="-1"></select>
-                                                        </div>
+                <!-- <form action="enhanced-results.html"> -->
+                <div class="row">
+                    <div class="col-12 col-sm-10 mx-auto">
+                        <div class="">
+                            <!-- <div class="card-header p-0 border-bottom-0">
+                                <ul class="nav nav-tabs" id="custom-tabs-four-tab" role="tablist">
+                                    <li class="nav-item">
+                                        <a class="nav-link active" id="custom-tabs-four-home-tab" data-toggle="pill" href="#custom-tabs-four-home" role="tab" aria-controls="custom-tabs-four-home" aria-selected="true">Home</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" id="custom-tabs-four-profile-tab" data-toggle="pill" href="#custom-tabs-four-profile" role="tab" aria-controls="custom-tabs-four-profile" aria-selected="false">Profile</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" id="custom-tabs-four-messages-tab" data-toggle="pill" href="#custom-tabs-four-messages" role="tab" aria-controls="custom-tabs-four-messages" aria-selected="false">Messages</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="card-body">
+                                <div class="tab-content" id="custom-tabs-four-tabContent">
+                                    <div class="tab-pane fade show active" id="custom-tabs-four-home" role="tabpanel" aria-labelledby="custom-tabs-four-home-tab">
+                                        <div class="col-sm-12">
+                                            <div class="row">
+                                                <div class="col-sm-3 align-center">
+                                                    <div class="input-group">
+                                                        <?php
+                                                        require_once('../Controller/controladorListar.php');
+                                                        ?>
+                                                        <select id="tipo_prop" name="tipo_prop" class="form-control" value="-1"></select>
                                                     </div>
-                                                    <div class="col-sm-9 align-center">
-                                                        <div class="input-group input-group-lg mb-3">
-                                                            <input type="text" class="form-control">
-                                                            <div class="input-group-prepend">
-                                                                <button type="button" class="" data-toggle="">
-                                                                    Action
-                                                                </button>
-                                                            </div>
+                                                </div>
+                                                <div class="col-sm-9 align-center">
+                                                    <div class="input-group input-group-lg mb-3">
+                                                        <input type="text" class="form-control">
+                                                        <div class="input-group-prepend">
+                                                            <button type="button" class="" data-toggle="">
+                                                                Action
+                                                            </button>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="tab-pane fade" id="custom-tabs-four-profile" role="tabpanel" aria-labelledby="custom-tabs-four-profile-tab">
+                                    </div>
+                                    <div class="tab-pane fade" id="custom-tabs-four-profile" role="tabpanel" aria-labelledby="custom-tabs-four-profile-tab">
 
+                                    </div>
+                                    <div class="tab-pane fade" id="custom-tabs-four-messages" role="tabpanel" aria-labelledby="custom-tabs-four-messages-tab">
+
+                                    </div>
+                                    <div class="tab-pane fade" id="custom-tabs-four-settings" role="tabpanel" aria-labelledby="custom-tabs-four-settings-tab">
+
+                                    </div>
+                                </div>
+                            </div> -->
+                            <div class="flex">
+                                <nav class="col-md-4">
+                                    <div class="info-box mb-3 bg-warning" style="cursor: pointer;">
+                                        <span class="info-box-icon">
+                                            <i class="fas fa-search"></i>
+                                        </span>
+                                        <div class="info-box-content">
+                                            <span class="info-box-number">Buscar</span>
+                                            <span class="info-box-text">Qué quieres buscar?</span>
                                         </div>
-                                        <div class="tab-pane fade" id="custom-tabs-four-messages" role="tabpanel" aria-labelledby="custom-tabs-four-messages-tab">
-
+                                    </div>
+                                    <div class="info-box mb-3 bg-danger">
+                                        <span class="info-box-icon">
+                                            <i class="fas fa-cloud-download-alt"></i>
+                                        </span>
+                                        <div class="info-box-content">
+                                            <span class="info-box-number">Buscar</span>
+                                            <span class="info-box-text">Qué quieres buscar?</span>
                                         </div>
-                                        <div class="tab-pane fade" id="custom-tabs-four-settings" role="tabpanel" aria-labelledby="custom-tabs-four-settings-tab">
-
+                                    </div>
+                                    <div class="info-box mb-3 bg-info">
+                                        <span class="info-box-icon">
+                                            <i class="far fa-comment"></i>
+                                        </span>
+                                        <div class="info-box-content">
+                                            <span class="info-box-number">Buscar</span>
+                                            <span class="info-box-text">Qué quieres buscar?</span>
+                                        </div>
+                                    </div>
+                                </nav>
+                                <div class="info-box " style="display: block; padding: 20px;">
+                                    <div>
+                                        <div>
+                                            <span style="font-size: 40px; font-weight: 700;">Buscar</span>
+                                        </div>
+                                        <div>
+                                            <span style="font-size: 20px; font-weight: 500;">En está sección podrás buscar lo que quieras.</span>
+                                        </div>
+                                    </div>
+                                    <style>
+                                        .search {
+                                            width: 100%;
+                                            max-height: 100%;
+                                            outline: none;
+                                            border: 0;
+                                            font-size: 30px;
+                                            padding-left: 15px;
+                                            margin: 0;
+                                        }
+                                    </style>
+                                    <br>
+                                    <div>
+                                        <div class="flex" style="padding: 20px 0;">
+                                            <input type="search" class="callout callout-warning search" placeholder="Buscar...">
+                                            <button class="btn btn-dark info-box-icon">
+                                                <i class="fas fa-search"></i>
+                                            </button>
                                         </div>
                                     </div>
                                 </div>
-                                <!-- /.card -->
                             </div>
                         </div>
                     </div>
-                </form>
+                </div>
+                <!-- </form> -->
                 <br><br>
             </div>
         </section>
