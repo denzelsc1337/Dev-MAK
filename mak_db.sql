@@ -183,7 +183,7 @@ insert into tipo_vista values (null, 'Vista a ninguno');
 insert into tipo_vista values (null, 'Vista a parque');
 insert into tipo_vista values (null, 'Vista a mar');
 insert into tipo_vista values (null, 'Vista a ciudad panorámica');
---TERRENO
+-- TERRENO
 insert into tipo_vista values (null, 'Vista interior');
 insert into tipo_vista values (null, 'Vista exterior');
 
@@ -736,5 +736,7 @@ INSERT INTO `sub_tipo_inmuebles` (`id_sub_tipo_inmb`, `sub_tipo_inmb`, `cod_tipo
 SELECT id_zona,tipo_zona from tipo_zonificacion zn
         INNER JOIN tipo_inmuebles tipo_inmue
         on zn.cod_tipo_inmb = tipo_inmue.id_tipo_inmb
-        where tipo_inmue.id_tipo_inmb = '3' and id_zona <> -1
+        where tipo_inmue.id_tipo_inmb = '3' and id_zona <> -1;
+        
+SELECT * FROM tipo_zonificacion WHERE tipo_zona LIKE 'P%' and id_zona <> -1
 

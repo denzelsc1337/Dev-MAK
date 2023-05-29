@@ -965,7 +965,8 @@
                                                                             <label class="col-sm-3 col-form-label">Zonificación:</label>
                                                                             <div class="section-input col-sm-8">
                                                                                 <span class="icon-input"><i class="fa-solid fa-location-dot"></i></span>
-                                                                                <input type="tipo_zoni" name="tipo_zoni">
+                                                                                <input type="text" id="tipo_zoni_l" name="tipo_zoni_l">
+                                                                                <select id="opciones_zoni"></select>
                                                                             </div>
                                                                             <div class="input-group-append">
                                                                                 <i class="fa-solid fa-circle-info tooltipInfo tooltip-right">
@@ -2099,6 +2100,27 @@
             console.log(_at, _ac, _ao);
 
         }
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#tipo_zoni_l').on('keyup', function() {
+                var letra = $(this).val();            
+                if (letra.length > 0) {
+                    $.ajax({
+                        url: '../Controller/getZonas.php',
+                        method: 'POST',
+                        data: { tipo_zoni_l: letra },
+                        success: function(response) {
+                            console.log(response);
+                            $('#opciones_zoni').html(response);
+                        }
+                    });
+                } else {
+                    
+                    $('#opciones_zoni').empty();
+                }
+            });
+        });
     </script>
 
     <script>
