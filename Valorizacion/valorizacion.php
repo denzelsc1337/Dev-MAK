@@ -1810,6 +1810,7 @@
 
     <!-- REQUIRED SCRIPTS -->
     <script src="../Vista/js/stepper.js"></script>
+    <script src="../Vista/js/resume.js"></script>
     <script src="../Vista/assets/functions.js"></script>
 
 
@@ -2104,19 +2105,21 @@
     <script type="text/javascript">
         $(document).ready(function() {
             $('#tipo_zoni_l').on('keyup', function() {
-                var letra = $(this).val();            
+                var letra = $(this).val();
                 if (letra.length > 0) {
                     $.ajax({
                         url: '../Controller/getZonas.php',
                         method: 'POST',
-                        data: { tipo_zoni_l: letra },
+                        data: {
+                            tipo_zoni_l: letra
+                        },
                         success: function(response) {
                             console.log(response);
                             $('#opciones_zoni').html(response);
                         }
                     });
                 } else {
-                    
+
                     $('#opciones_zoni').empty();
                 }
             });
