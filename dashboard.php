@@ -4,6 +4,7 @@ require_once('config/security.php');
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -18,6 +19,7 @@ require_once('config/security.php');
   <!-- Theme style -->
   <link rel="stylesheet" href="Vista/dist/css/adminlte.min.css">
 </head>
+
 <body class="hold-transition sidebar-mini  sidebar-collapse layout-fixed layout-navbar-fixed layout-footer-fixed">
   <div class="wrapper">
 
@@ -27,8 +29,8 @@ require_once('config/security.php');
     </div>
 
     <!-- Navbar -->
-    <nav class="main-header navbar navbar-expand navbar-dark">
-      <!-- Left navbar links -->
+    <!-- <nav class="main-header navbar navbar-expand navbar-dark">
+      <!-- Left navbar links --
       <ul class="navbar-nav">
         <li class="nav-item">
           <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
@@ -41,9 +43,9 @@ require_once('config/security.php');
         </li>
       </ul>
 
-      <!-- Right navbar links -->
+      <!-- Right navbar links --
       <ul class="navbar-nav ml-auto">
-        <!-- Navbar Search -->
+        <!-- Navbar Search --
         <li class="nav-item">
           <a class="nav-link" data-widget="navbar-search" href="#" role="button">
             <i class="fas fa-search"></i>
@@ -65,7 +67,7 @@ require_once('config/security.php');
           </div>
         </li>
 
-        <!-- Messages Dropdown Menu -->
+        <!-- Messages Dropdown Menu --
         <li class="nav-item dropdown">
           <a class="nav-link" data-toggle="dropdown" href="#">
             <i class="far fa-comments"></i>
@@ -73,7 +75,7 @@ require_once('config/security.php');
           </a>
           <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
             <a href="#" class="dropdown-item">
-              <!-- Message Start -->
+              <!-- Message Start --
               <div class="media">
                 <img src="dist/img/user1-128x128.jpg" alt="User Avatar" class="img-size-50 mr-3 img-circle">
                 <div class="media-body">
@@ -85,11 +87,11 @@ require_once('config/security.php');
                   <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
                 </div>
               </div>
-              <!-- Message End -->
+              <!-- Message End --
             </a>
             <div class="dropdown-divider"></div>
             <a href="#" class="dropdown-item">
-              <!-- Message Start -->
+              <!-- Message Start --
               <div class="media">
                 <img src="dist/img/user8-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
                 <div class="media-body">
@@ -101,11 +103,11 @@ require_once('config/security.php');
                   <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
                 </div>
               </div>
-              <!-- Message End -->
+              <!-- Message End --
             </a>
             <div class="dropdown-divider"></div>
             <a href="#" class="dropdown-item">
-              <!-- Message Start -->
+              <!-- Message Start --
               <div class="media">
                 <img src="dist/img/user3-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
                 <div class="media-body">
@@ -117,13 +119,13 @@ require_once('config/security.php');
                   <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
                 </div>
               </div>
-              <!-- Message End -->
+              <!-- Message End --
             </a>
             <div class="dropdown-divider"></div>
             <a href="#" class="dropdown-item dropdown-footer">See All Messages</a>
           </div>
         </li>
-        <!-- Notifications Dropdown Menu -->
+        <!-- Notifications Dropdown Menu --
         <li class="nav-item dropdown">
           <a class="nav-link" data-toggle="dropdown" href="#">
             <i class="far fa-bell"></i>
@@ -161,7 +163,7 @@ require_once('config/security.php');
           </a>
         </li>
       </ul>
-    </nav>
+    </nav> -->
     <!-- /.navbar -->
 
     <!-- Main Sidebar Container -->
@@ -185,7 +187,7 @@ require_once('config/security.php');
         </div>
 
         <!-- SidebarSearch Form -->
-        <div class="form-inline">
+        <!-- <div class="form-inline">
           <div class="input-group" data-widget="sidebar-search">
             <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
             <div class="input-group-append">
@@ -194,14 +196,36 @@ require_once('config/security.php');
               </button>
             </div>
           </div>
-        </div>
+        </div> -->
 
         <!-- Sidebar Menu -->
         <nav class="mt-2">
           <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
             <!-- Add icons to the links using the .nav-icon class
                  with font-awesome or any other icon font library -->
-            <li class="nav-item menu-open">
+            <!--MAK MODULOS-->
+            <li class="nav-header">SERVICIOS</li>
+            <li class="nav-item">
+              <a href="Search/Busqueda.php" class="nav-link">
+                <i class="nav-icon fas fa-search"></i>
+                <p>Busqueda</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="Valorizacion/valorizacion.php" class="nav-link">
+                <i class="nav-icon fas fa-edit"></i>
+                <p>Valorización</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="Legal/info-legal.php" class="nav-link">
+                <i class="nav-icon fas fa-copy"></i>
+                <p>Informe Legal</p>
+              </a>
+            </li>
+            <!--FIN MAK MODULOS-->
+            <!-- /.menu -->
+            <!-- <li class="nav-item menu-open">
               <a href="#" class="nav-link active">
                 <i class="nav-icon fas fa-tachometer-alt"></i>
                 <p>
@@ -444,22 +468,9 @@ require_once('config/security.php');
                   </a>
                 </li>
               </ul>
-            </li>
-
-            <!--MAK MODULOS-->
-            <li class="nav-header">SERVICIOS</li>
-            <li class="nav-item">
-              <a href="seleccion_servicio.php" class="nav-link">
-                <i class="nav-icon fas fa-calendar-alt"></i>
-                <p>
-                  Seleccion de Servicio
-                  <!--<span class="badge badge-info right">2</span>-->
-                </p>
-              </a>
-            </li>
-            <!--FIN MAK MODULOS-->
-
-            <li class="nav-header">EXAMPLES</li>
+            </li> -->
+            <!-- /.examples -->
+            <!-- <li class="nav-header">EXAMPLES</li>
             <li class="nav-item">
               <a href="pages/calendar.html" class="nav-link">
                 <i class="nav-icon fas fa-calendar-alt"></i>
@@ -736,8 +747,9 @@ require_once('config/security.php');
                   </a>
                 </li>
               </ul>
-            </li>
-            <li class="nav-header">MISCELLANEOUS</li>
+            </li> -->
+            <!-- /.miscellaneous -->
+            <!-- <li class="nav-header">MISCELLANEOUS</li>
             <li class="nav-item">
               <a href="iframe.html" class="nav-link">
                 <i class="nav-icon fas fa-ellipsis-h"></i>
@@ -749,8 +761,9 @@ require_once('config/security.php');
                 <i class="nav-icon fas fa-file"></i>
                 <p>Documentation</p>
               </a>
-            </li>
-            <li class="nav-header">MULTI LEVEL EXAMPLE</li>
+            </li> -->
+            <!-- /.multi-level-example -->
+            <!-- <li class="nav-header">MULTI LEVEL EXAMPLE</li>
             <li class="nav-item">
               <a href="#" class="nav-link">
                 <i class="fas fa-circle nav-icon"></i>
@@ -814,8 +827,9 @@ require_once('config/security.php');
                 <i class="fas fa-circle nav-icon"></i>
                 <p>Level 1</p>
               </a>
-            </li>
-            <li class="nav-header">LABELS</li>
+            </li> -->
+            <!-- /.labels -->
+            <!-- <li class="nav-header">LABELS</li>
             <li class="nav-item">
               <a href="#" class="nav-link">
                 <i class="nav-icon far fa-circle text-danger"></i>
@@ -833,7 +847,7 @@ require_once('config/security.php');
                 <i class="nav-icon far fa-circle text-info"></i>
                 <p>Informational</p>
               </a>
-            </li>
+            </li> -->
           </ul>
         </nav>
         <!-- /.sidebar-menu -->
@@ -849,7 +863,7 @@ require_once('config/security.php');
           <div class="row mb-2">
             <div class="col-sm-7">
               <ol class="breadcrumb float-sm-right">
-                  <h3 class="mt-4 mb-4">Selecciona un Servicio MAK</h3>
+                <h3 class="mt-4 mb-4">Selecciona un Servicio MAK</h3>
               </ol>
             </div>
           </div>
@@ -858,69 +872,69 @@ require_once('config/security.php');
 
       <!-- Main content -->
       <section class="content">
-          <div class="row">
-            <div class="col-md-4">
-              <div class="card">
-                <div class="card-header">
-                  <h3 class="card-title">
-                    <i class="fas fa-text-width"></i>
-                    BUSQUEDA
-                  </h3>
-                </div>
-                <!-- /.card-header -->
-                  <div class="card mb-2 bg-gradient-dark">
-                    <img class="card-img-top" src="Vista/images/search.jpg" alt="Dist Photo 1">
-                    <div class="card-img-overlay d-flex flex-column justify-content-end">
-                      <a href="Search/busqueda.php" class="btn btn-block btn-primary">INICIAR</a>
-                    </div>
-                  </div>
-                <!-- /.card-body -->
+        <div class="row">
+          <div class="col-md-4">
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">
+                  <i class="fas fa-text-width"></i>
+                  BUSQUEDA
+                </h3>
               </div>
-              <!-- /.card -->
-            </div>
-
-            <div class="col-md-4">
-              <div class="card">
-                <div class="card-header">
-                  <h3 class="card-title">
-                    <i class="fas fa-text-width"></i>
-                    VALORIZACION
-                  </h3>
+              <!-- /.card-header -->
+              <div class="card mb-2 bg-gradient-dark">
+                <img class="card-img-top" src="Vista/images/search.jpg" alt="Dist Photo 1">
+                <div class="card-img-overlay d-flex flex-column justify-content-end">
+                  <a href="Search/Busqueda.php" class="btn btn-block btn-primary">INICIAR</a>
                 </div>
-                <!-- /.card-header -->
-                  <div class="card mb-2 bg-gradient-dark">
-                    <img class="card-img-top" src="Vista/images/money.jpg" alt="Dist Photo 1">
-                    <div class="card-img-overlay d-flex flex-column justify-content-end">
-                      <a href="Valorizacion/valorizacion.php" class="btn btn-block btn-primary">INICIAR</a>
-
-                    </div>
-                  </div>
-                <!-- /.card-body -->
               </div>
-              <!-- /.card -->
+              <!-- /.card-body -->
             </div>
-            <!-- ./col -->
-            <div class="col-md-4">
-              <div class="card">
-                <div class="card-header">
-                  <h3 class="card-title">
-                    <i class="fas fa-text-width"></i>
-                    INFORME LEGAL
-                  </h3>
-                </div>
-                <!-- /.card-header -->
-                  <div class="card mb-2 bg-gradient-dark">
-                    <img class="card-img-top" src="Vista/images/finance.jpg" alt="Dist Photo 1">
-                    <div class="card-img-overlay d-flex flex-column justify-content-end">
-                      <a href="#" class="btn btn-block btn-primary">INICIAR</a>
-                    </div>
-                  </div>
-                <!-- /.card-body -->
-              </div>
-              <!-- /.card -->
-            </div>
-            <!-- ./col -->
+            <!-- /.card -->
           </div>
+
+          <div class="col-md-4">
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">
+                  <i class="fas fa-text-width"></i>
+                  VALORIZACION
+                </h3>
+              </div>
+              <!-- /.card-header -->
+              <div class="card mb-2 bg-gradient-dark">
+                <img class="card-img-top" src="Vista/images/money.jpg" alt="Dist Photo 1">
+                <div class="card-img-overlay d-flex flex-column justify-content-end">
+                  <a href="Valorizacion/valorizacion.php" class="btn btn-block btn-primary">INICIAR</a>
+
+                </div>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          </div>
+          <!-- ./col -->
+          <div class="col-md-4">
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">
+                  <i class="fas fa-text-width"></i>
+                  INFORME LEGAL
+                </h3>
+              </div>
+              <!-- /.card-header -->
+              <div class="card mb-2 bg-gradient-dark">
+                <img class="card-img-top" src="Vista/images/finance.jpg" alt="Dist Photo 1">
+                <div class="card-img-overlay d-flex flex-column justify-content-end">
+                  <a href="#" class="btn btn-block btn-primary">INICIAR</a>
+                </div>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          </div>
+          <!-- ./col -->
+        </div>
       </section>
       <!-- /.content -->
     </div>
@@ -941,30 +955,31 @@ require_once('config/security.php');
       </div>
     </footer>
   </div>
-<!-- ./wrapper -->
+  <!-- ./wrapper -->
 
-<!-- REQUIRED SCRIPTS -->
-<!-- jQuery -->
-<script src="Vista/plugins/jquery/jquery.min.js"></script>
-<!-- Bootstrap -->
-<script src="Vista/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-<!-- overlayScrollbars -->
-<script src="Vista/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
-<!-- AdminLTE App -->
-<script src="Vista/dist/js/adminlte.js"></script>
+  <!-- REQUIRED SCRIPTS -->
+  <!-- jQuery -->
+  <script src="Vista/plugins/jquery/jquery.min.js"></script>
+  <!-- Bootstrap -->
+  <script src="Vista/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <!-- overlayScrollbars -->
+  <script src="Vista/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+  <!-- AdminLTE App -->
+  <script src="Vista/dist/js/adminlte.js"></script>
 
-<!-- PAGE PLUGINS -->
-<!-- jQuery Mapael -->
-<script src="Vista/plugins/jquery-mousewheel/jquery.mousewheel.js"></script>
-<script src="Vista/plugins/raphael/raphael.min.js"></script>
-<script src="Vista/plugins/jquery-mapael/jquery.mapael.min.js"></script>
-<script src="Vista/plugins/jquery-mapael/maps/usa_states.min.js"></script>
-<!-- ChartJS -->
-<script src="Vista/plugins/chart.js/Chart.min.js"></script>
+  <!-- PAGE PLUGINS -->
+  <!-- jQuery Mapael -->
+  <script src="Vista/plugins/jquery-mousewheel/jquery.mousewheel.js"></script>
+  <script src="Vista/plugins/raphael/raphael.min.js"></script>
+  <script src="Vista/plugins/jquery-mapael/jquery.mapael.min.js"></script>
+  <script src="Vista/plugins/jquery-mapael/maps/usa_states.min.js"></script>
+  <!-- ChartJS -->
+  <script src="Vista/plugins/chart.js/Chart.min.js"></script>
 
-<!-- AdminLTE for demo purposes -->
-<script src="Vista/dist/js/demo.js"></script>
-<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-<script src="Vista/dist/js/pages/dashboard2.js"></script>
+  <!-- AdminLTE for demo purposes -->
+  <script src="Vista/dist/js/demo.js"></script>
+  <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+  <script src="Vista/dist/js/pages/dashboard2.js"></script>
 </body>
+
 </html>
