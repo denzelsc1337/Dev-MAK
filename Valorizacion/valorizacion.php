@@ -1748,7 +1748,7 @@
                                                                     </div>
                                                                     <div class="col-sm-6">
                                                                         <div class="card">
-                                                                            <div class="card-body">
+                                                                            <div class="card-body data-resume">
                                                                                 <h2>Resumen</h2>
 
                                                                                 <p><strong>Datos de contacto:</strong></p>
@@ -1757,15 +1757,18 @@
                                                                                     <li>Email: <?php echo $_SESSION['email_usu']; ?></li>
                                                                                     <li>Teléfono: <?php echo $_SESSION['telef_usu']; ?></li>
                                                                                 </ul>
-                                                                                <p><strong>Información de la propiedad:</strong></p>
-                                                                                <ul>
-                                                                                    <li id="dire_resumen"></li>
-                                                                                    <li id="tipo_prop_resumen"> </li>
-                                                                                    <li id="sub_tipo_prop_resumen"></li>
-                                                                                    <li id="tipo_prom_resumen">Tipo de promoción: </li>
-                                                                                    <li id="sala_com_resumen"></li>
-
-                                                                                </ul>
+                                                                                <div>
+                                                                                    <p><strong>Información de la propiedad:</strong></p>
+                                                                                    <div data-resume>
+                                                                                        <ul>
+                                                                                            <li id="dire_resumen"></li>
+                                                                                            <li id="tipo_prop_resumen"> </li>
+                                                                                            <li id="sub_tipo_prop_resumen"></li>
+                                                                                            <li id="tipo_prom_resumen">Tipo de promoción: </li>
+                                                                                            <li id="sala_com_resumen"></li>
+                                                                                        </ul>
+                                                                                    </div>
+                                                                                </div>
                                                                                 <p><strong>Información del tipo de propiedad:</strong></p>
                                                                             </div>
                                                                         </div>
@@ -1810,6 +1813,7 @@
 
     <!-- REQUIRED SCRIPTS -->
     <script src="../Vista/js/stepper.js"></script>
+    <script src="../Vista/js/resume.js"></script>
     <script src="../Vista/assets/functions.js"></script>
 
 
@@ -2104,19 +2108,21 @@
     <script type="text/javascript">
         $(document).ready(function() {
             $('#tipo_zoni_l').on('keyup', function() {
-                var letra = $(this).val();            
+                var letra = $(this).val();
                 if (letra.length > 0) {
                     $.ajax({
                         url: '../Controller/getZonas.php',
                         method: 'POST',
-                        data: { tipo_zoni_l: letra },
+                        data: {
+                            tipo_zoni_l: letra
+                        },
                         success: function(response) {
                             console.log(response);
                             $('#opciones_zoni').html(response);
                         }
                     });
                 } else {
-                    
+
                     $('#opciones_zoni').empty();
                 }
             });
