@@ -1746,6 +1746,8 @@
                                                                             </div>
                                                                         </div>
                                                                     </div>
+
+                                                                    <!-- resumen de los inputs-->
                                                                     <div class="col-sm-6">
                                                                         <div class="card">
                                                                             <div class="card-body data-resume">
@@ -1761,11 +1763,17 @@
                                                                                     <p><strong>Información de la propiedad:</strong></p>
                                                                                     <div data-resume>
                                                                                         <ul>
+                                                                                            <!--Datos del paso 1-->
                                                                                             <li id="dire_resumen"></li>
                                                                                             <li id="tipo_prop_resumen"> </li>
                                                                                             <li id="sub_tipo_prop_resumen"></li>
                                                                                             <li id="tipo_prom_resumen">Tipo de promoción: </li>
+                                                                                            <!--Datos del paso 1-->
+
+
+                                                                                            <!--Datos del paso 2 casa-->
                                                                                             <li id="sala_com_resumen"></li>
+                                                                                            <!--Datos del paso 2 casa-->
                                                                                         </ul>
                                                                                     </div>
                                                                                 </div>
@@ -1773,7 +1781,7 @@
                                                                             </div>
                                                                         </div>
                                                                     </div>
-
+                                                                    <!-- resumen de los inputs-->
 
                                                                 </div>
                                                             </div>
@@ -1813,7 +1821,7 @@
 
     <!-- REQUIRED SCRIPTS -->
     <script src="../Vista/js/stepper.js"></script>
-    <script src="../Vista/js/resume.js"></script>
+    <!--<script src="../Vista/js/resume.js"></script>-->
     <script src="../Vista/assets/functions.js"></script>
 
 
