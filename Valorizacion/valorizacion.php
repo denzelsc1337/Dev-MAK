@@ -1784,6 +1784,12 @@
 
                                                                                             <!--Datos del paso 2 casa-->
                                                                                             <li id="sala_com_resumen"></li>
+                                                                                            <li id="cocin_cas_resumen"></li>
+                                                                                            <li id="sala_cas_resumen"></li>
+                                                                                            <li id="amob_cas_resumen"></li>
+                                                                                            <li id="comed_cas_resumen"></li>
+                                                                                            <li id="pisc_cas_resumen"></li>
+                                                                                            <li id="cant_dorm_cas_resumen"></li>
                                                                                             <!--Datos del paso 2 casa-->
                                                                                         </ul>
                                                                                     </div>
