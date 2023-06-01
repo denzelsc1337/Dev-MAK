@@ -630,7 +630,7 @@ create table valorizacion(
     cod_ubi			int,
     cod_vista		int, 
     cod_acabado		int,
-    -- fin form casa general
+    -- fin form casa genera
 
     -- form depa general
     sala_comedor_dep		boolean, 
