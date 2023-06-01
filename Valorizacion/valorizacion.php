@@ -2133,16 +2133,22 @@
             document.getElementById("at__").innerHTML = _at;
             document.getElementById("ac__").innerHTML = _ac;
             document.getElementById("ao__").innerHTML = _ao;
-            document.getElementById("dir__dist").innerHTML = _dir_dist[1] + ", " + _dir_dist[2];
+            var bla;
+            if (_dir_dist[2] === undefined) {
+                bla = "";
+            } else {
+                bla = ", " + _dir_dist[2];
+            }
+            document.getElementById("dir__dist").innerHTML = _dir_dist[1] + bla;
             document.getElementById("dir__").innerHTML = _dir_dist[0];
             document.getElementById("tip__").innerHTML = texto_tip;
             document.getElementById("pro__").innerHTML = texto_pro;
 
             // console.log(_at, _ac, _ao);
-            // console.log(_dir);
-            // console.log(_dir_dist[0]);
-            // console.log(_dir_dist[1]);
-            // console.log(_dir_dist[2]);
+            console.log(_dir_dist);
+            console.log(_dir_dist[0]);
+            console.log(_dir_dist[1]);
+            console.log(_dir_dist[2]);
         }
     </script>
     <script type="text/javascript">
