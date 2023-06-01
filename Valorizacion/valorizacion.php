@@ -1783,13 +1783,17 @@
 
 
                                                                                             <!--Datos del paso 2 casa-->
-                                                                                            <li id="sala_com_resumen"></li>
-                                                                                            <li id="cocin_cas_resumen"></li>
-                                                                                            <li id="sala_cas_resumen"></li>
-                                                                                            <li id="amob_cas_resumen"></li>
-                                                                                            <li id="comed_cas_resumen"></li>
-                                                                                            <li id="pisc_cas_resumen"></li>
-                                                                                            <li id="cant_dorm_cas_resumen"></li>
+                                                                                            <li id="sala_com_resumen" style="display: none;"></li>
+                                                                                            <li id="cocin_cas_resumen" style="display: none;"></li>
+                                                                                            <li id="sala_cas_resumen" style="display: none;"></li>
+                                                                                            <li id="amob_cas_resumen" style="display: none;"></li>
+                                                                                            <li id="comed_cas_resumen" style="display: none;"></li>
+                                                                                            <li id="pisc_cas_resumen" style="display: none;"></li>
+                                                                                            <li id="cant_dorm_cas_resumen" style="display: none;"></li>
+                                                                                            <li id="banho_vis_resumen" style="display: none;"></li>
+                                                                                            <li id="cuarto_serv_resumen" style="display: none;"></li>
+                                                                                            <li id="banho_serv_resumen" style="display: none;"></li>
+                                                                                            <li id="deposito_resumen" style="display: none;"></li>
                                                                                             <!--Datos del paso 2 casa-->
                                                                                         </ul>
                                                                                     </div>

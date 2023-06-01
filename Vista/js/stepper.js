@@ -94,158 +94,233 @@ const bsSContent = bsStepperContent.querySelectorAll(".content");
       //   const siguientePantalla = document.getElementById(pantallaSeleccionada);
       //   siguientePantalla.classList.add("show");
 
-      localStorage.setItem('dir_r', document.getElementById('direccion_').value);
-      localStorage.setItem('tipo_prop_r', document.getElementById('tipo_prop').selectedOptions[0].textContent);
-      localStorage.setItem('sub_tipo_prop_r', document.getElementById('sub_tipo_prop').selectedOptions[0].textContent);
-      localStorage.setItem('tipo_prom_r', document.getElementById('tipo_prom').selectedOptions[0].textContent);
+      localStorage.setItem(
+        "dir_r",
+        document.getElementById("direccion_").value
+      );
+      localStorage.setItem(
+        "tipo_prop_r",
+        document.getElementById("tipo_prop").selectedOptions[0].textContent
+      );
+      localStorage.setItem(
+        "sub_tipo_prop_r",
+        document.getElementById("sub_tipo_prop").selectedOptions[0].textContent
+      );
+      localStorage.setItem(
+        "tipo_prom_r",
+        document.getElementById("tipo_prom").selectedOptions[0].textContent
+      );
 
       //datos generales casa
-      localStorage.setItem('cocin_casa_r', document.getElementById('cocina_').checked);
-      localStorage.setItem('dorms_casa_r', document.getElementById('cant_dorm').value);
+      localStorage.setItem(
+        "cocin_casa_r",
+        document.getElementById("cocina_").checked
+      );
+      localStorage.setItem(
+        "dorms_casa_r",
+        document.getElementById("cant_dorm").value
+      );
       //datos generales casa
 
       //datos iniciales
-      document.getElementById('dire_resumen').innerHTML = localStorage.getItem('dir_r');
-      document.getElementById('tipo_prop_resumen').innerHTML = localStorage.getItem('tipo_prop_r');
-      document.getElementById('sub_tipo_prop_resumen').innerHTML = localStorage.getItem('sub_tipo_prop_r');
+      document.getElementById("dire_resumen").innerHTML =
+        localStorage.getItem("dir_r");
+      document.getElementById("tipo_prop_resumen").innerHTML =
+        localStorage.getItem("tipo_prop_r");
+      document.getElementById("sub_tipo_prop_resumen").innerHTML =
+        localStorage.getItem("sub_tipo_prop_r");
 
       //datos generales casa
-      document.getElementById('cant_dorm_cas_resumen').innerHTML = localStorage.getItem('dorms_casa_r');
+      document.getElementById("cant_dorm_cas_resumen").innerHTML =
+        localStorage.getItem("dorms_casa_r");
       //datos generales casa
-
 
       //direccion
-      if (localStorage.getItem('dir_r')) {
-        document.getElementById('dire_resumen').innerHTML = 'Dirección: ' + localStorage.getItem('dir_r');
-        document.getElementById('dire_resumen').style.display = 'list-item';
-      }else{
-        document.getElementById('dire_resumen').style.display = 'none';
+      if (localStorage.getItem("dir_r")) {
+        document.getElementById("dire_resumen").innerHTML =
+          "Dirección: " + localStorage.getItem("dir_r");
+        document.getElementById("dire_resumen").style.display = "list-item";
+      } else {
+        document.getElementById("dire_resumen").style.display = "none";
       }
 
       //tipo de propiedad
-      if(localStorage.getItem('tipo_prop_r')){
-        document.getElementById('tipo_prop_resumen').innerHTML = 'Tipo de propiedad: '+localStorage.getItem('tipo_prop_r');
+      if (localStorage.getItem("tipo_prop_r")) {
+        document.getElementById("tipo_prop_resumen").innerHTML =
+          "Tipo de propiedad: " + localStorage.getItem("tipo_prop_r");
       }
 
       //subtipo de propiedad
-      if(localStorage.getItem('sub_tipo_prop_r')){
-        document.getElementById('sub_tipo_prop_resumen').innerHTML = 'SubTipo de propiedad: '+localStorage.getItem('sub_tipo_prop_r');
+      if (localStorage.getItem("sub_tipo_prop_r")) {
+        document.getElementById("sub_tipo_prop_resumen").innerHTML =
+          "SubTipo de propiedad: " + localStorage.getItem("sub_tipo_prop_r");
       }
 
       //tipo promo
-      if(localStorage.getItem('tipo_prom_r')){
-        document.getElementById('tipo_prom_resumen').innerHTML = 'Tipo de Promocion: '+localStorage.getItem('tipo_prom_r');
+      if (localStorage.getItem("tipo_prom_r")) {
+        document.getElementById("tipo_prom_resumen").innerHTML =
+          "Tipo de Promocion: " + localStorage.getItem("tipo_prom_r");
       }
 
-
-      if (localStorage.getItem('dorms_casa_r')) {
-        document.getElementById('cant_dorm_cas_resumen').innerHTML = 'Dorms.: ' + localStorage.getItem('dorms_casa_r');
-        document.getElementById('cant_dorm_cas_resumen').style.display = 'list-item';
-      }else{
+      if (localStorage.getItem("dorms_casa_r")) {
+        document.getElementById("cant_dorm_cas_resumen").innerHTML =
+          "Dorms.: " + localStorage.getItem("dorms_casa_r");
+        document.getElementById("cant_dorm_cas_resumen").style.display =
+          "list-item";
+      } else {
         //document.getElementById('cant_dorm_cas_resumen').style.display = 'none';
       }
 
+      const salaComCheckbox = document.getElementById("sala_com");
+      const salaComResumen = document.getElementById("sala_com_resumen");
 
-      const salaComCheckbox = document.getElementById('sala_com');
-      const salaComResumen = document.getElementById('sala_com_resumen');
-      
-
-      salaComCheckbox.addEventListener('change', function() {
-      localStorage.setItem('sala_com_casa_r', salaComCheckbox.checked);
+      salaComCheckbox.addEventListener("change", function () {
+        localStorage.setItem("sala_com_casa_r", salaComCheckbox.checked);
 
         if (salaComCheckbox.checked) {
-          salaComResumen.innerHTML = 'Sala Comedor: Si';
-          salaComResumen.style.display = 'list-item';
+          salaComResumen.innerHTML = "Sala Comedor: Si";
+          salaComResumen.style.display = "list-item";
         } else {
-          salaComResumen.innerHTML = 'No';
-          salaComResumen.style.display = 'none';
+          salaComResumen.innerHTML = "No";
+          salaComResumen.style.display = "none";
         }
-
       });
 
-      const cocinaCasaCheckbox = document.getElementById('cocina_');
-      const cocinaCasaResumen = document.getElementById('cocin_cas_resumen');
+      const cocinaCasaCheckbox = document.getElementById("cocina_");
+      const cocinaCasaResumen = document.getElementById("cocin_cas_resumen");
 
-
-      cocinaCasaCheckbox.addEventListener('change', function() {
-      localStorage.setItem('cocin_casa_r', cocinaCasaCheckbox.checked);
+      cocinaCasaCheckbox.addEventListener("change", function () {
+        localStorage.setItem("cocin_casa_r", cocinaCasaCheckbox.checked);
 
         if (cocinaCasaCheckbox.checked) {
-          cocinaCasaResumen.innerHTML = 'Cocina: Si';
-          cocinaCasaResumen.style.display = 'list-item';
+          cocinaCasaResumen.innerHTML = "Cocina: Si";
+          cocinaCasaResumen.style.display = "list-item";
         } else {
-          cocinaCasaResumen.innerHTML = 'No';
-          cocinaCasaResumen.style.display = 'none';
+          cocinaCasaResumen.innerHTML = "No";
+          cocinaCasaResumen.style.display = "none";
         }
-
       });
 
-      const salaCasaChk = document.getElementById('sala_');
-      const salaCasaResum = document.getElementById('sala_cas_resumen');
+      const salaCasaChk = document.getElementById("sala_");
+      const salaCasaResum = document.getElementById("sala_cas_resumen");
 
-
-      salaCasaChk.addEventListener('change', function() {
-      localStorage.setItem('sala_casa_r', salaCasaChk.checked);
+      salaCasaChk.addEventListener("change", function () {
+        localStorage.setItem("sala_casa_r", salaCasaChk.checked);
 
         if (salaCasaChk.checked) {
-          salaCasaResum.innerHTML = 'Sala: Si';
-          salaCasaResum.style.display = 'list-item';
+          salaCasaResum.innerHTML = "Sala: Si";
+          salaCasaResum.style.display = "list-item";
         } else {
-          salaCasaResum.innerHTML = 'No';
-          salaCasaResum.style.display = 'none';
+          salaCasaResum.innerHTML = "No";
+          salaCasaResum.style.display = "none";
         }
-
       });
 
-      const amobCasaChk = document.getElementById('amoblado_');
-      const amobCasaResum = document.getElementById('amob_cas_resumen');
+      const amobCasaChk = document.getElementById("amoblado_");
+      const amobCasaResum = document.getElementById("amob_cas_resumen");
 
-
-      amobCasaChk.addEventListener('change', function() {
-      localStorage.setItem('amob_casa_r', amobCasaChk.checked);
+      amobCasaChk.addEventListener("change", function () {
+        localStorage.setItem("amob_casa_r", amobCasaChk.checked);
 
         if (amobCasaChk.checked) {
-          amobCasaResum.innerHTML = 'Amoblado: Si';
-          amobCasaResum.style.display = 'list-item';
+          amobCasaResum.innerHTML = "Amoblado: Si";
+          amobCasaResum.style.display = "list-item";
         } else {
-          amobCasaResum.innerHTML = 'No';
-          amobCasaResum.style.display = 'none';
+          amobCasaResum.innerHTML = "No";
+          amobCasaResum.style.display = "none";
         }
-
       });
 
-      const comedCasaChk = document.getElementById('comedor_');
-      const comedCasaResum = document.getElementById('comed_cas_resumen');
+      const comedCasaChk = document.getElementById("comedor_");
+      const comedCasaResum = document.getElementById("comed_cas_resumen");
 
-
-      comedCasaChk.addEventListener('change', function() {
-      localStorage.setItem('comd_casa_r', comedCasaChk.checked);
+      comedCasaChk.addEventListener("change", function () {
+        localStorage.setItem("comd_casa_r", comedCasaChk.checked);
 
         if (comedCasaChk.checked) {
-          comedCasaResum.innerHTML = 'Comedor: Si';
-          comedCasaResum.style.display = 'list-item';
+          comedCasaResum.innerHTML = "Comedor: Si";
+          comedCasaResum.style.display = "list-item";
         } else {
-          comedCasaResum.innerHTML = 'No';
-          comedCasaResum.style.display = 'none';
+          comedCasaResum.innerHTML = "No";
+          comedCasaResum.style.display = "none";
         }
-
       });
 
-      const piscCasaChk = document.getElementById('piscina_d');
-      const piscCasaResum = document.getElementById('pisc_cas_resumen');
+      const piscCasaChk = document.getElementById("piscina_d");
+      const piscCasaResum = document.getElementById("pisc_cas_resumen");
 
-
-      piscCasaChk.addEventListener('change', function() {
-      localStorage.setItem('pisc_casa_r', piscCasaChk.checked);
+      piscCasaChk.addEventListener("change", function () {
+        localStorage.setItem("pisc_casa_r", piscCasaChk.checked);
 
         if (piscCasaChk.checked) {
-          piscCasaResum.innerHTML = 'Piscina: Si';
-          piscCasaResum.style.display = 'list-item';
+          piscCasaResum.innerHTML = "Piscina: Si";
+          piscCasaResum.style.display = "list-item";
         } else {
-          piscCasaResum.innerHTML = 'No';
-          piscCasaResum.style.display = 'none';
+          piscCasaResum.innerHTML = "No";
+          piscCasaResum.style.display = "none";
         }
+      });
 
+      const banhoCasaChk = document.getElementById("banho_vis");
+      const banhoCasaResum = document.getElementById("banho_vis_resumen");
+
+      banhoCasaChk.addEventListener("change", function () {
+        localStorage.setItem("pisc_casa_r", banhoCasaChk.checked);
+
+        if (banhoCasaChk.checked) {
+          banhoCasaResum.innerHTML = "Baño visita: Si";
+          banhoCasaResum.style.display = "list-item";
+        } else {
+          banhoCasaResum.innerHTML = "No";
+          banhoCasaResum.style.display = "none";
+        }
+      });
+
+      const cartoServCasaChk = document.getElementById("cuarto_serv");
+      const cuartoServCasaResum = document.getElementById(
+        "cuarto_serv_resumen"
+      );
+
+      cartoServCasaChk.addEventListener("change", function () {
+        localStorage.setItem("pisc_casa_r", cartoServCasaChk.checked);
+
+        if (cartoServCasaChk.checked) {
+          cuartoServCasaResum.innerHTML = "Cuarto Servicio: Si";
+          cuartoServCasaResum.style.display = "list-item";
+        } else {
+          cuartoServCasaResum.innerHTML = "No";
+          cuartoServCasaResum.style.display = "none";
+        }
+      });
+
+      const banhoServCasaChk = document.getElementById("banho_serv");
+      const banhoServCasaResum = document.getElementById("banho_serv_resumen");
+
+      banhoServCasaChk.addEventListener("change", function () {
+        localStorage.setItem("pisc_casa_r", banhoServCasaChk.checked);
+
+        if (banhoServCasaChk.checked) {
+          banhoServCasaResum.innerHTML = "Baño servicio: Si";
+          banhoServCasaResum.style.display = "list-item";
+        } else {
+          banhoServCasaResum.innerHTML = "No";
+          banhoServCasaResum.style.display = "none";
+        }
+      });
+
+      const depoCasaChk = document.getElementById("deposito_");
+      const depoCasaResum = document.getElementById("deposito_resumen");
+
+      depoCasaChk.addEventListener("change", function () {
+        localStorage.setItem("pisc_casa_r", depoCasaChk.checked);
+
+        if (depoCasaChk.checked) {
+          depoCasaResum.innerHTML = "Depóstio: Si";
+          depoCasaResum.style.display = "list-item";
+        } else {
+          depoCasaResum.innerHTML = "No";
+          depoCasaResum.style.display = "none";
+        }
       });
 
       /*const valorSalaComCasaR = localStorage.getItem('sala_com_casa_r');
@@ -257,7 +332,6 @@ const bsSContent = bsStepperContent.querySelectorAll(".content");
           salaComResumen.innerHTML = 'Sala Comedor: No';
           salaComResumen.style.display = 'none';
         }*/
-
     } else {
       alert("Seleccione un tipo de Inmueble.");
     }
