@@ -966,7 +966,7 @@
                                                                             <div class="section-input col-sm-8">
                                                                                 <span class="icon-input"><i class="fa-solid fa-location-dot"></i></span>
                                                                                 <input type="text" id="tipo_zoni_l" name="tipo_zoni_l">
-                                                                                <select id="opciones_zoni"></select>
+                                                                                <select id="opciones_zoni" name="opciones_zoni" class="opciones_zoni"></select>
                                                                             </div>
                                                                             <div class="input-group-append">
                                                                                 <i class="fa-solid fa-circle-info tooltipInfo tooltip-right">
@@ -1164,17 +1164,19 @@
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
-                                                                            <div class="col-sm-12">
-                                                                                <div class="form-group row">
-                                                                                    <label class="col-sm-3 col-form-label">Zonificación:</label>
-                                                                                    <div class="section-input col-sm-8">
-                                                                                        <span class="icon-input">
-                                                                                            <img src="https://cdn-icons-png.flaticon.com/512/3017/3017956.png" alt="">
+                                                                            <div class="form-group row">
+                                                                                <label class="col-sm-3 col-form-label">Zonificación:</label>
+                                                                                <div class="section-input col-sm-8">
+                                                                                    <span class="icon-input"><i class="fa-solid fa-location-dot"></i></span>
+                                                                                    <input type="text" id="tipo_zoni_ofi" name="tipo_zoni_ofi">
+                                                                                    <select id="opciones_zoni" name="opciones_zoni" class="opciones_zoni"></select>
+                                                                                </div>
+                                                                                <div class="input-group-append">
+                                                                                    <i class="fa-solid fa-circle-info tooltipInfo tooltip-right">
+                                                                                        <span class="tooltiptext">
+                                                                                            Info...
                                                                                         </span>
-                                                                                        <select class="form-control radius-right" id="tipo_zoni" name="tipo_zoni">
-
-                                                                                        </select>
-                                                                                    </div>
+                                                                                    </i>
                                                                                 </div>
                                                                             </div>
                                                                             <div class="col-sm-12">
@@ -1794,6 +1796,10 @@
                                                                                             <li id="cuarto_serv_resumen" style="display: none;"></li>
                                                                                             <li id="banho_serv_resumen" style="display: none;"></li>
                                                                                             <li id="deposito_resumen" style="display: none;"></li>
+                                                                                            <li id="bano_resumen" style="display: none;"></li>
+                                                                                            <li id="ascensor_resumen" style="display: none;"></li>
+                                                                                            <li id="ascensor_Dir_resumen" style="display: none;"></li>
+                                                                                            <li id="aire_acon_resumen" style="display: none;"></li>
                                                                                             <!--Datos del paso 2 casa-->
                                                                                         </ul>
                                                                                     </div>
@@ -2161,10 +2167,14 @@
             console.log(_dir_dist[2]);
         }
     </script>
+
     <script type="text/javascript">
+
         $(document).ready(function() {
             $('#tipo_zoni_l').on('keyup', function() {
                 var letra = $(this).val();
+                var opcionesZoni = $('.opciones_zoni');
+
                 if (letra.length > 0) {
                     $.ajax({
                         url: '../Controller/getZonas.php',
@@ -2174,15 +2184,39 @@
                         },
                         success: function(response) {
                             console.log(response);
-                            $('#opciones_zoni').html(response);
+                            opcionesZoni.html(response);
                         }
                     });
                 } else {
-
-                    $('#opciones_zoni').empty();
+                    opcionesZoni.empty();
                 }
             });
         });
+
+        $(document).ready(function() {
+            $('#tipo_zoni_ofi').on('keyup', function() {
+                var letra = $(this).val();
+                var opcionesZoni = $('.opciones_zoni');
+
+                if (letra.length > 0) {
+                    $.ajax({
+                        url: '../Controller/getZonas.php',
+                        method: 'POST',
+                        data: {
+                            tipo_zoni_l: letra
+                        },
+                        success: function(response) {
+                            console.log(response);
+                            opcionesZoni.html(response);
+                        }
+                    });
+                } else {
+                    opcionesZoni.empty();
+                }
+            });
+        });
+
+
     </script>
 
     <script>

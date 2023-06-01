@@ -612,71 +612,48 @@ create table valorizacion(
     sala			boolean,
     comedor			boolean,
     cocina			boolean,
-    jardin_trasero	boolean,
-    -- fin form casa general
+    amoblado		boolean,
+    piscina_prop	boolean,
     
-    -- form casa dormitorios
     cant_dorm		int,
-	cant_banho		int, 
-    -- fin form casa dormitorios
+    dormitorio_banho int, 
     
-    -- form casa area servicio
+	cant_banho		int,
+    banho_visita	 boolean,
+    
     cuarto_serv		boolean,
     banho_serv		boolean,
-    -- fin form casa area servicio
     
-    -- form casa estacionamiento deposito
     estacionamiento	int,
 	deposito		boolean,
-    -- fin form casa estacionamiento deposito
     
-    -- form casa datos especificos
     cod_ubi			int,
     cod_vista		int, 
     cod_acabado		int,
-    
-    dormitorio_banho int, 
-    banho_visita	 boolean,
-    pisos			 int,
-    amoblado		 boolean,
-    -- fin form casa datos especificos
-    
-    
-    
-    
+    -- fin form casa general
+
     -- form depa general
     sala_comedor_dep		boolean, 
     sala_dep				boolean,
     comedor_dep				boolean,
     cocina_dep				boolean,
-    jardin_trasero_dep		boolean,
     -- fin form depa general
     
     -- form depa dormitorios
-    cant_dorm_dep		int,
-	cant_banho_dep		int, 
-    -- fin form depa dormitorios
-    
-    -- form depa area servicio
-    cuarto_serv_dep		boolean,
-    banho_serv_dep		boolean,
-    -- fin form depa area servicio
-    
-    -- form depa estacionamiento deposito
-    estac_dep			int,
-	deposito_dep		boolean,
-    -- fin form depa estacionamiento deposito
-    
-    -- form dep datos especificos
+    cant_dorm_dep			int,
     dormitorio_banho_dep 	int, 
+	cant_banho_dep		    int, 
     banho_visita_dep	 	boolean,
+    
+    cuarto_serv_dep		    boolean,
+    banho_serv_dep		    boolean,
+    estac_dep			    int,
+    deposito_dep		    boolean,
     ascensor_dep		 	boolean,
     ascensor_dir_dep		boolean,
     pisos_edif_dep			int,
     piso_dep				int,
-    amoblado_dep		 	boolean,
-    piscina_dep				boolean,
-    -- fin form dep datos especificos
+    -- fin form depa dormitorios
     
     -- form terreno 
     cod_zonificacion 		int,
