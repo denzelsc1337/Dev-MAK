@@ -1728,10 +1728,14 @@
                                                                         </thead>
                                                                         <tbody>
                                                                             <tr>
-                                                                                <td>MIRAFLORES</td>
-                                                                                <td>AV AREQUIPA 4960</td>
-                                                                                <td>CASA</td>
-                                                                                <td>VENTA</td>
+                                                                                <!-- <td>MIRAFLORES</td> -->
+                                                                                <td id="dir__dist"></td>
+                                                                                <!-- <td>AV AREQUIPA 4960</td> -->
+                                                                                <td id="dir__"></td>
+                                                                                <!-- <td>CASA</td> -->
+                                                                                <td id="tip__"></td>
+                                                                                <!-- <td>VENTA</td> -->
+                                                                                <td id="pro__"></td>
                                                                                 <td id="at__"></td>
                                                                                 <td id="ac__"></td>
                                                                                 <td id="ao__"></td>
@@ -1739,10 +1743,17 @@
                                                                         </tbody>
                                                                     </table>
 
-                                                                    <div class="col-sm-6">
+                                                                    <!-- <div class="col-sm-6">
                                                                         <div class="card">
                                                                             <div class="card-body">
                                                                                 <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d15607.47206823551!2d-77.04493215!3d-12.0526008!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses-419!2spe!4v1678375977472!5m2!1ses-419!2spe" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div> -->
+                                                                    <div class="col-md-6">
+                                                                        <div class="card card-default">
+                                                                            <div class="card-body">
+                                                                                <div id="mapa__" style="height: 400px;"></div>
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -2101,16 +2112,37 @@
         });
 
         function agregar_tabla() {
+            // DISTRITO - DIRECCION
+            var _dir = document.getElementById("direccion_").value;
+            var _dir_dist = _dir.split(", ");
+            // TIPO
+            var _tip = document.getElementById("tipo_prop");
+            var select_tip = _tip.selectedOptions[0];
+            var texto_tip = select_tip.textContent
+            // PROMOCIÓN
+            var _pro = document.getElementById("tipo_prom");
+            var select_pro = _pro.selectedOptions[0];
+            var texto_pro = select_pro.textContent
+            // AT
             var _at = document.getElementById("a_t").value;
+            // AC
             var _ac = document.getElementById("a_c").value;
+            // AO
             var _ao = document.getElementById("a_o").value;
 
             document.getElementById("at__").innerHTML = _at;
             document.getElementById("ac__").innerHTML = _ac;
             document.getElementById("ao__").innerHTML = _ao;
+            document.getElementById("dir__dist").innerHTML = _dir_dist[1] + ", " + _dir_dist[2];
+            document.getElementById("dir__").innerHTML = _dir_dist[0];
+            document.getElementById("tip__").innerHTML = texto_tip;
+            document.getElementById("pro__").innerHTML = texto_pro;
 
-            console.log(_at, _ac, _ao);
-
+            // console.log(_at, _ac, _ao);
+            // console.log(_dir);
+            // console.log(_dir_dist[0]);
+            // console.log(_dir_dist[1]);
+            // console.log(_dir_dist[2]);
         }
     </script>
     <script type="text/javascript">
