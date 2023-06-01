@@ -230,7 +230,7 @@
                                                                                     </i>
                                                                                 </div>
                                                                             </div>
-                                                                            <input type="number" inputmode="numeric" class="form-control" placeholder="00.00m2" id="a_o" name="a_o" required>
+                                                                            <input type="number" inputmode="numeric" class="form-control" min="0" placeholder="00.00m2" id="a_o" name="a_o" required>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -240,7 +240,7 @@
                                                                         <!-- text input -->
                                                                         <div class="form-group">
                                                                             <label>Antigüedad</label>
-                                                                            <input type="number" inputmode="numeric" class="form-control" placeholder="0 años" id="antig" name="antig" required>
+                                                                            <input type="number" inputmode="numeric" class="form-control" min="0" placeholder="0 años" id="antig" name="antig" required>
                                                                         </div>
                                                                     </div>
                                                                 </div>
