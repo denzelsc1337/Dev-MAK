@@ -2,6 +2,15 @@ const bsStepper = document.querySelector(".bs-stepper");
 const bsStepperContent = bsStepper.querySelector(".bs-stepper-content");
 const bsSContent = bsStepperContent.querySelectorAll(".content");
 
+//buttons
+var btn_casa = document.getElementById("btnValo_add");
+var btn_depa = document.getElementById("btnValo_add_depa");
+var btn_terr = document.getElementById("btnValo_add_terr");
+var btn_ofi = document.getElementById("btnValo_add_ofi");
+var btn_lc = document.getElementById("btnValo_add_lc");
+var btn_li = document.getElementById("btnValo_add_li");
+
+
 (() => {
   // const section = document.querySelectorAll(".section");
   // section.forEach((section) => {
@@ -80,13 +89,44 @@ const bsSContent = bsStepperContent.querySelectorAll(".content");
 
     if (pantallaSeleccionada > 0) {
 
+      switch(pantallaSeleccionada){
 
+          case '1':
+            btn_casa.style.display = 'block'; // Muestra el botón
+            console.log('boton casa');
+          break;
 
+          case '2':
+            btn_depa.style.display = 'block';
+            console.log('boton depa');
+          break;
 
+          case '3':
+            btn_terr.style.display = 'block';
+            console.log('boton terreno');
+          break;
+
+          case '4':
+            btn_ofi.style.display = 'block';
+            console.log('boton oficina');
+          break;
+
+          case '5':
+            btn_lc.style.display = 'block';
+            console.log('boton local comercial');
+          break;
+
+          case '6':
+            btn_li.style.display = 'block';
+            console.log('boton local industrial');
+          break;
+      }
       /*if (pantallaSeleccionada_ == 13) {
 
         console.log(pantallaSeleccionada_);
       }*/
+
+
       pantallaActual();
       hideScreen();
 
@@ -118,7 +158,6 @@ const bsSContent = bsStepperContent.querySelectorAll(".content");
             siguientePantalla.classList.add("show");
             console.log('id 14');
           break;
-
         }*/
         siguientePantalla.classList.remove("hide");
 

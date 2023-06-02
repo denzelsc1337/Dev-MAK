@@ -1817,10 +1817,17 @@
                                                     </div>
                                                 </div>
 
-                                                <div class="form-flex">
-                                                    <button type="button" class="btn btn-info btn-lg col-md-4 atrPag">Retroceder</button>
-                                                    <button type="submit" class="btn btn-info btn-lg col-md-4" id="btnValo_add" name="btnValo_add">Finalizar</button>
-                                                </div>
+                                            <div class="form-flex">
+                                                <button type="button" class="btn btn-info btn-lg col-md-4 atrPag">Retroceder</button>
+
+                                <button type="submit" class="btn btn-info btn-lg col-md-4" id="btnValo_add" name="btnValo_add" style="display: none;">Finalizar 1</button>
+                                <button type="submit" class="btn btn-info btn-lg col-md-4" id="btnValo_add" name="btnValo_add_depa" style="display: none;">Finalizar 2</button>
+                                <button type="submit" class="btn btn-info btn-lg col-md-4" id="btnValo_add" name="btnValo_add_terr" style="display: none;">Finalizar 3</button>
+                                <button type="submit" class="btn btn-info btn-lg col-md-4" id="btnValo_add" name="btnValo_add_ofi" style="display: none;">Finalizar 4</button>
+                                <button type="submit" class="btn btn-info btn-lg col-md-4" id="btnValo_add" name="btnValo_add_lc" style="display: none;">Finalizar 5</button>
+                                <button type="submit" class="btn btn-info btn-lg col-md-4" id="btnValo_add" name="btnValo_add_li" style="display: none;">Finalizar 6</button>
+
+                                            </div>
                                             </div>
                                             <!-- RESUMEN DE SOLICITUD -->
 
@@ -2356,6 +2363,8 @@
         //     myDropzone.removeAllFiles(true)
         // }
         // // DropzoneJS Demo Code End
+
+
     </script>
 
     <script src="../Vista/assets/selection_types.js"></script>
