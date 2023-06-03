@@ -13,7 +13,7 @@ $data[6] = $_POST["a_c"];
 $data[7] = $_POST["a_o"];
 $data[8] = $_POST["antig"];
 
-//casa inputs
+//form casa
 $data[9] =  isset($_POST['sala_com'])? true : false;
 $data[10] = isset($_POST['sala_'])? true : false;
 $data[11] = isset($_POST['comedor_'])? true : false;
@@ -35,6 +35,8 @@ $data[22] = isset($_POST['deposito_'])? true : false;
 $data[23] = $_POST["ubic"];
 $data[24] = $_POST["vista_"];
 $data[25] = $_POST["acabado_"];
+//form casa
+
 
 $data[26] = isset($_POST['sala_com_d'])? true : false;
 $data[27] = isset($_POST['sala_d'])? true : false;

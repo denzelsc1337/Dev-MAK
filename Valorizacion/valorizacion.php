@@ -1821,11 +1821,11 @@
                                                 <button type="button" class="btn btn-info btn-lg col-md-4 atrPag">Retroceder</button>
 
                                 <button type="submit" class="btn btn-info btn-lg col-md-4" id="btnValo_add" name="btnValo_add" style="display: none;">Finalizar 1</button>
-                                <button type="submit" class="btn btn-info btn-lg col-md-4" id="btnValo_add" name="btnValo_add_depa" style="display: none;">Finalizar 2</button>
-                                <button type="submit" class="btn btn-info btn-lg col-md-4" id="btnValo_add" name="btnValo_add_terr" style="display: none;">Finalizar 3</button>
-                                <button type="submit" class="btn btn-info btn-lg col-md-4" id="btnValo_add" name="btnValo_add_ofi" style="display: none;">Finalizar 4</button>
-                                <button type="submit" class="btn btn-info btn-lg col-md-4" id="btnValo_add" name="btnValo_add_lc" style="display: none;">Finalizar 5</button>
-                                <button type="submit" class="btn btn-info btn-lg col-md-4" id="btnValo_add" name="btnValo_add_li" style="display: none;">Finalizar 6</button>
+                                <button type="submit" class="btn btn-info btn-lg col-md-4" id="btnValo_add_depa" name="btnValo_add_depa" style="display: none;">Finalizar 2</button>
+                                <button type="submit" class="btn btn-info btn-lg col-md-4" id="btnValo_add_terr" name="btnValo_add_terr" style="display: none;">Finalizar 3</button>
+                                <button type="submit" class="btn btn-info btn-lg col-md-4" id="btnValo_add_ofi" name="btnValo_add_ofi" style="display: none;">Finalizar 4</button>
+                                <button type="submit" class="btn btn-info btn-lg col-md-4" id="btnValo_add_lc" name="btnValo_add_lc" style="display: none;">Finalizar 5</button>
+                                <button type="submit" class="btn btn-info btn-lg col-md-4" id="btnValo_add_li" name="btnValo_add_li" style="display: none;">Finalizar 6</button>
 
                                             </div>
                                             </div>
