@@ -10,7 +10,6 @@ var btn_ofi = document.getElementById("btnValo_add_ofi");
 var btn_lc = document.getElementById("btnValo_add_lc");
 var btn_li = document.getElementById("btnValo_add_li");
 
-
 (() => {
   // const section = document.querySelectorAll(".section");
   // section.forEach((section) => {
@@ -87,105 +86,56 @@ var btn_li = document.getElementById("btnValo_add_li");
     // Obtener el valor seleccionado del combobox
     const pantallaSeleccionada = document.getElementById("tipo_prop").value;
 
-    if (pantallaSeleccionada > 0) {
-
-      switch(pantallaSeleccionada){
-
-          case '1':
-            btn_casa.style.display = 'block'; // Muestra el botón
-            console.log('boton casa');
+    if (pantallaSeleccionada > 0 && pantallaSeleccionada !== "5") {
+      const botonAddID = document.querySelector(".btn_submit");
+      console.log(botonAddID);
+      switch (pantallaSeleccionada) {
+        case "1":
+          // btn_casa.style.display = "block"; // Muestra el botón
+          botonAddID.id = "btnValo_add";
+          console.log("boton casa");
           break;
 
-          case '2':
-            btn_depa.style.display = 'block';
-            console.log('boton depa');
+        case "2":
+          // btn_depa.style.display = "block";
+          botonAddID.id = "btnValo_add_depa";
+          console.log("boton depa");
           break;
 
-          case '3':
-            btn_terr.style.display = 'block';
-            console.log('boton terreno');
+        case "3":
+          // btn_terr.style.display = "block";
+          botonAddID.id = "btnValo_add_terr";
+          console.log("boton terreno");
           break;
 
-          case '4':
-            btn_ofi.style.display = 'block';
-            console.log('boton oficina');
+        case "4":
+          // btn_ofi.style.display = "block";
+          botonAddID.id = "btnValo_add_ofi";
+          console.log("boton oficina");
           break;
 
-          case '5':
-            btn_lc.style.display = 'block';
-            console.log('boton local comercial');
+        case "5":
+          // btn_lc.style.display = "block";
+          botonAddID.id = "btnValo_add_lc";
+          console.log("boton local comercial");
           break;
 
-          case '6':
-            btn_li.style.display = 'block';
-            console.log('boton local industrial');
+        case "6":
+          // btn_li.style.display = "block";
+          botonAddID.id = "btnValo_add_li";
+          console.log("boton local industrial");
           break;
       }
-      /*if (pantallaSeleccionada_ == 13) {
-
-        console.log(pantallaSeleccionada_);
-      }*/
-
 
       pantallaActual();
       hideScreen();
 
-      //   // Mostrar la siguiente pantalla correspondiente al valor seleccionado
-      //   // if (pantallaSeleccionada !== "") {
       const siguientePantalla = document.getElementById(pantallaSeleccionada);
-      //   //   // siguientePantalla.style.display = "block";
+
       siguientePantalla.classList.remove("hide");
       siguientePantalla.classList.add("show");
 
-
-      if (pantallaSeleccionada == 5) {
-        //siguientePantalla.classList.add("hide");
-        //siguientePantalla.classList.remove("show");
-
-        const pantallaSeleccionada_ = document.getElementById("sub_tipo_prop").value;
-        const siguientePantalla_ = document.getElementById(pantallaSeleccionada_);
-
-        /*switch(pantallaSeleccionada_){
-
-          case '13':
-            siguientePantalla.classList.remove("hide");
-            siguientePantalla.classList.add("show");
-            console.log('id 13');
-          break;
-
-          case '14':
-            siguientePantalla.classList.remove("hide");
-            siguientePantalla.classList.add("show");
-            console.log('id 14');
-          break;
-        }*/
-        siguientePantalla.classList.remove("hide");
-
-          if (pantallaSeleccionada_ == 14){
-
-
-              if (pantallaSeleccionada == 5) {
-                siguientePantalla.classList.remove("show");
-                siguientePantalla.classList.add("hide");
-
-              }
-
-
-          }
-
-          if (pantallaSeleccionada == 6) {
-                siguientePantalla.classList.add("show");
-                siguientePantalla.classList.remove("hide");
-              }
-
-
-      console.log(pantallaSeleccionada_);
-      }
-      //   //   hideScreen();
       Pasos();
-      //   // }
-      //   const siguientePantalla = document.getElementById(pantallaSeleccionada);
-      //   siguientePantalla.classList.add("show");
 
       localStorage.setItem(
         "dir_r",
@@ -452,7 +402,7 @@ var btn_li = document.getElementById("btnValo_add_li");
       const salaDepaChk = document.getElementById("sala_d");
       const salaDepaResum = document.getElementById("sala_cas_resumen");
 
-        salaDepaChk.addEventListener("change", function () {
+      salaDepaChk.addEventListener("change", function () {
         localStorage.setItem("pisc_casa_r", salaDepaChk.checked);
 
         if (salaDepaChk.checked) {
@@ -467,7 +417,7 @@ var btn_li = document.getElementById("btnValo_add_li");
       const amobDepaChk = document.getElementById("amoblado_d");
       const amobDepaResum = document.getElementById("amob_cas_resumen");
 
-        amobDepaChk.addEventListener("change", function () {
+      amobDepaChk.addEventListener("change", function () {
         localStorage.setItem("pisc_casa_r", amobDepaChk.checked);
 
         if (amobDepaChk.checked) {
@@ -482,7 +432,7 @@ var btn_li = document.getElementById("btnValo_add_li");
       const comedorDepaChk = document.getElementById("comedor_d");
       const comedorDepaResum = document.getElementById("comed_cas_resumen");
 
-        comedorDepaChk.addEventListener("change", function () {
+      comedorDepaChk.addEventListener("change", function () {
         localStorage.setItem("pisc_casa_r", comedorDepaChk.checked);
 
         if (comedorDepaChk.checked) {
@@ -497,7 +447,7 @@ var btn_li = document.getElementById("btnValo_add_li");
       const banoVisDepa = document.getElementById("banho_vis_d");
       const banoVisDepaResum = document.getElementById("bano_resumen");
 
-        banoVisDepa.addEventListener("change", function () {
+      banoVisDepa.addEventListener("change", function () {
         localStorage.setItem("pisc_casa_r", banoVisDepa.checked);
 
         if (banoVisDepa.checked) {
@@ -510,9 +460,11 @@ var btn_li = document.getElementById("btnValo_add_li");
       });
 
       const cuartoServDepa = document.getElementById("cuarto_serv_d");
-      const cuartoServDepaResum = document.getElementById("cuarto_serv_resumen");
+      const cuartoServDepaResum = document.getElementById(
+        "cuarto_serv_resumen"
+      );
 
-        cuartoServDepa.addEventListener("change", function () {
+      cuartoServDepa.addEventListener("change", function () {
         localStorage.setItem("pisc_casa_r", cuartoServDepa.checked);
 
         if (cuartoServDepa.checked) {
@@ -527,7 +479,7 @@ var btn_li = document.getElementById("btnValo_add_li");
       const banoServDepa = document.getElementById("banho_serv_d");
       const banoServDepaResum = document.getElementById("banho_serv_resumen");
 
-        banoServDepa.addEventListener("change", function () {
+      banoServDepa.addEventListener("change", function () {
         localStorage.setItem("pisc_casa_r", banoServDepa.checked);
 
         if (banoServDepa.checked) {
@@ -538,7 +490,6 @@ var btn_li = document.getElementById("btnValo_add_li");
           banoServDepaResum.style.display = "none";
         }
       });
-
 
       const depoDepaChk = document.getElementById("deposito__d");
       const depoDepaResum = document.getElementById("deposito_resumen");
@@ -571,7 +522,9 @@ var btn_li = document.getElementById("btnValo_add_li");
       });
 
       const ascensDirDepaChk = document.getElementById("ascensor_directo_d");
-      const ascensDirDepaResum = document.getElementById("ascensor_Dir_resumen");
+      const ascensDirDepaResum = document.getElementById(
+        "ascensor_Dir_resumen"
+      );
 
       ascensDirDepaChk.addEventListener("change", function () {
         localStorage.setItem("pisc_Depa_r", ascensDirDepaChk.checked);
@@ -660,6 +613,57 @@ var btn_li = document.getElementById("btnValo_add_li");
           salaComResumen.innerHTML = 'Sala Comedor: No';
           salaComResumen.style.display = 'none';
         }*/
+    } else if (pantallaSeleccionada === "5") {
+      pantallaActual();
+      hideScreen();
+
+      const siguientePantalla_ = document.getElementById(pantallaSeleccionada);
+
+      siguientePantalla_.classList.remove("hide");
+      siguientePantalla_.classList.add("show");
+
+      const sub_tipo_prop = document.querySelector("#sub_tipo_prop").value;
+
+      if (sub_tipo_prop !== "-1") {
+        const siguientePantalla_lcl_c =
+          document.getElementById(pantallaSeleccionada);
+        const exclusivo = siguientePantalla_lcl_c.querySelector(".exclusivo");
+        const comun = siguientePantalla_lcl_c.querySelector(".comun");
+        if (sub_tipo_prop === "12") {
+          exclusivo.classList.remove("hide");
+          exclusivo.classList.add("show");
+        } else {
+          exclusivo.classList.add("hide");
+          exclusivo.classList.remove("show");
+        }
+        if (sub_tipo_prop === "13") {
+          comun.classList.remove("hide");
+          comun.classList.add("show");
+        } else {
+          comun.classList.add("hide");
+          comun.classList.remove("show");
+        }
+      } else {
+        alert("Seleccione un Subtipo de Inmueble.");
+      }
+
+      // if (sub_tipo_prop === "12") {
+      //   const lcl_exc = document.getElementById("5");
+      //   lcl_exc.classList.add("show");
+      //   lcl_exc.classList.remove("hide");
+      //   const siguientePantalla_lcl_exc = document.getElementById("0");
+      //   siguientePantalla_lcl_exc.classList.remove("show");
+      //   siguientePantalla_lcl_exc.classList.add("hide");
+      // } else if (sub_tipo_prop === "13") {
+      //   const lcl_com = document.getElementById("6");
+      //   lcl_com.classList.add("show");
+      //   lcl_com.classList.remove("hide");
+      //   const siguientePantalla_lcl_com = document.getElementById("0");
+      //   siguientePantalla_lcl_com.classList.remove("show");
+      //   siguientePantalla_lcl_com.classList.add("hide");
+      // } else {
+      //   alert("Seleccione un Subtipo de Inmueble.");
+      // }
     } else {
       alert("Seleccione un tipo de Inmueble.");
     }
