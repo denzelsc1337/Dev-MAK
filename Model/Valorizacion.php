@@ -22,7 +22,7 @@ class Valorizacion
 		$this->selector_suelo = array();
 	}
 
-	public function add_Valorizacion($data)
+	public function add_ValorizacionCasa($data)
 	{
 		include_once('../config/Conexion.php');
 		$cnx = new Conexion();
@@ -40,39 +40,14 @@ class Valorizacion
 
 												`cuarto_serv`,`banho_serv`,
 												`estacionamiento`, `deposito`,
-												`cod_ubi`, `cod_vista`, `cod_acabado`,
+												`cod_ubi`, `cod_vista`, `cod_acabado`)
 
-												`sala_comedor_dep`,`sala_dep`,`comedor_dep`,`cocina_dep`,`cant_dorm_dep`, `dormitorio_banho_dep`,
-												`cant_banho_dep`,`banho_visita_dep`,
-												`cuarto_serv_dep`,`banho_serv_dep`,
-												`estac_dep`, `deposito_dep`,
-												`ascensor_dep`,`ascensor_dir_dep`,
-												`pisos_edif_dep`,`piso_dep`,
-												`cod_zonificacion`,`cod_tipo_suelo`,
-												`param_terreno`, `frent_terreno`,
-												`piso_ofi`,`cochera_ofi`,
-												`ascensor_ofi`,`aire_ofi`
-
-												) 
-
-						 VALUES(null, '".$data[1]."', '".$data[2]."', '".$data[3]."','".$data[4]."', 
+						 VALUES(null, '".$data[1]."', '".$data[2]."', '".$data[3]."','".$data[4]."',
 						 	'".$data[5]."', '".$data[6]."','".$data[7]."','".$data[8]."','".$data[9]."','".$data[10]."',
 						 	'".$data[11]."', '".$data[12]."','".$data[13]."','".$data[14]."','".$data[15]."','".$data[16]."',
 						 	'".$data[17]."','".$data[18]."','".$data[19]."','".$data[20]."','".$data[21]."','".$data[22]."',
-						 	'".$data[23]."','".$data[24]."','".$data[25]."',
+						 	'".$data[23]."','".$data[24]."','".$data[25]."');";
 
-						 	'".$data[26]."','".$data[27]."','".$data[28]."','".$data[29]."','".$data[30]."','".$data[31]."',
-						 	'".$data[32]."','".$data[33]."',
-						 	'".$data[34]."','".$data[35]."',
-						 	'".$data[36]."','".$data[37]."',
-						 	'".$data[38]."','".$data[39]."',
-						 	'".$data[40]."','".$data[41]."',
-
-						 	'".$data[42]."','".$data[43]."',
-						 	'".$data[44]."','".$data[45]."',
-						 	'".$data[46]."','".$data[47]."',
-						 	'".$data[48]."','".$data[49]."'
-						 	);";
 		/*
 		// Ejecutar la consulta
 		$resultado = mysqli_query($cadena, $query);
@@ -84,11 +59,11 @@ class Valorizacion
 		} else {
 		    // La consulta se ejecutó correctamente
 		    echo mysqli_query($cadena, $query);
-			//var_dump($data);
+			var_dump($data);
         	$cnx->cerrarConexion($cadena);
 		    echo "La consulta se ejecutó correctamente.";
-		}*/
-						 	
+		}
+		*/
 		echo mysqli_query($cadena, $query);
 		$cnx->cerrarConexion($cadena);
 

@@ -55,7 +55,7 @@ var btn_li = document.getElementById("btnValo_add_li");
   function Pasos() {
     // var dash = document.querySelector('[style*="display: block"]'),k
     var dash = document.querySelector(".section.show"),
-      dashTarget = dash.getAttribute("data-target");
+    dashTarget = dash.getAttribute("data-target");
     let steps = document.querySelectorAll(".step");
 
     let lines = document.querySelectorAll(".line");
@@ -89,10 +89,12 @@ var btn_li = document.getElementById("btnValo_add_li");
     if (pantallaSeleccionada > 0 && pantallaSeleccionada !== "5") {
       const botonAddID = document.querySelector(".btn_submit");
       console.log(botonAddID);
+      /*
       switch (pantallaSeleccionada) {
         case "1":
           // btn_casa.style.display = "block"; // Muestra el botón
-          botonAddID.id = "btnValo_add";
+          //botonAddID.id = "btnValo_add";
+          //botonAddID.name = "btnValo_add";
           console.log("boton casa");
           break;
 
@@ -126,7 +128,7 @@ var btn_li = document.getElementById("btnValo_add_li");
           console.log("boton local industrial");
           break;
       }
-
+      */
       pantallaActual();
       hideScreen();
 

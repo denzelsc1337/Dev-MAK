@@ -230,7 +230,8 @@
                                                                                     </i>
                                                                                 </div>
                                                                             </div>
-                                                                            <input type="number" inputmode="numeric" class="form-control" min="0" placeholder="00.00m2" id="a_o" name="a_o" required>
+                                                                            <input type="number" class="form-control" min="0" placeholder="00.00m2"
+                                                                            id="a_o" name="a_o" value="0" required>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -1823,7 +1824,9 @@
 
                                                 <div class="form-flex">
                                                     <button type="button" class="btn btn-info btn-lg col-md-4 atrPag">Retroceder</button>
-                                                    <button type="submit" class="btn btn-info btn-lg col-md-4 btn_submit" id="" data-bs-toggle="modal" data-bs-target="#exampleModal">Finalizar</button>
+                                                    <!-- <button type="submit" class="btn btn-info btn-lg col-md-4 btn_submit" id="" data-bs-toggle="modal" data-bs-target="#exampleModal">Finalizar</button> -->
+
+                                                <button type="submit" class="btn btn-info btn-lg col-md-4" id="btnValo_add_1" name="btnValo_add_1">Finalizar 1</button>
                                                     <!-- <button type="submit" class="btn btn-info btn-lg col-md-4" id="btnValo_add" name="btnValo_add" style="display: none;">Finalizar 1</button>
                                                     <button type="submit" class="btn btn-info btn-lg col-md-4" id="btnValo_add_depa" name="btnValo_add_depa" style="display: none;">Finalizar 2</button>
                                                     <button type="submit" class="btn btn-info btn-lg col-md-4" id="btnValo_add_terr" name="btnValo_add_terr" style="display: none;">Finalizar 3</button>
@@ -1863,7 +1866,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
-                        <button type="button" class="btn btn-primary">Sí</button>
+                        <button type="button" class="btn btn-primary" id="btnConfirmar">Sí</button>
                     </div>
                 </div>
             </div>

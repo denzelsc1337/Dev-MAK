@@ -22,7 +22,8 @@ $(document).ready(function() {
   });
 
 
-  $('#btnValo_add').click(function(){
+  $('#btnValo_add_1').click(function(){
+      //console.log("clickado");
         var _data_prd=$('#form_valor').serialize();
         $.ajax({
             type:"POST",
@@ -32,25 +33,7 @@ $(document).ready(function() {
                 if (r==1) {
                     alert("Agregado correctamente");
                     event.returnValue=false;
-                    /*document.getElementById("tipo_c_id").value = "";
-                    document.getElementById("tipo_g_id").value = "";
-                    document.getElementById("area_").value = "";
-                    document.getElementById("fecha_reg").value = "";
-                    document.getElementById("respons_").value = "";
-                    document.getElementById("autoriz_").value = "";
-                    document.getElementById("monto_").value = "";
-                    document.getElementById("obs_").value = "";
-
-                    // Reiniciar los campos de selección
-                    $("#tipo_c_id").prop('selectedIndex',0);
-                    $("#tipo_g_id").prop('selectedIndex',0);
-                    $("#respons_").prop('selectedIndex',0);
-                    $("#area_").prop('selectedIndex',0);
-                    $("#autoriz_").prop('selectedIndex',0);
-                    $('#area_').empty();*/
-
                     window.location.href = "valorizacion.php";
-                    
                 }else{
                     alert("Error al registrar, Verifique que los campos esten correctamente completos.");
                 }
@@ -58,8 +41,4 @@ $(document).ready(function() {
         });
         return false;
   });
-
-
-  
-
 });
