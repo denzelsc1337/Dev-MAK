@@ -22,7 +22,7 @@ class Valorizacion
 		$this->selector_suelo = array();
 	}
 
-	public function add_Valorizacion($data)
+	public function add_valor($data)
 	{
 		include_once('../config/Conexion.php');
 		$cnx = new Conexion();
@@ -48,22 +48,15 @@ class Valorizacion
 						 	'".$data[23]."','".$data[24]."');";
 
 		/*
-		// Ejecutar la consulta
-		$resultado = mysqli_query($cadena, $query);
+		$result = mysqli_query($cadena, $query);
 
-		// Verificar si hay errores
-		if (!$resultado) {
-		    // Mostrar el error de MySQL
-		    echo "Error de consulta: " . mysqli_error($cadena);
-		} else {
-		    // La consulta se ejecutó correctamente
-		    echo mysqli_query($cadena, $query);
-			//var_dump($data);
-        	$cnx->cerrarConexion($cadena);
-		    echo "La consulta se ejecutó correctamente.";
-		}
+        if ($result) {
+            $num_rows = mysqli_affected_rows($cadena);
+        } else {
+            echo "Error al ejecutar la consulta: " . mysqli_error($cadena);
+        }
+
 		*/
-		
 		echo mysqli_query($cadena, $query);
 		$cnx->cerrarConexion($cadena);
 
@@ -217,4 +210,4 @@ class Valorizacion
 
 
 
- ?>
+?>

@@ -22,13 +22,13 @@ $(document).ready(function() {
   });
 
 
-  $('#btnValo_add').click(function(){
+  $('#add').click(function(){
       //console.log("clickado");
-        var _data_prd=$('#form_valor').serialize();
+        var data = $('#form_1').serialize();
         $.ajax({
             type:"POST",
             url:"../Controller/Add_Valorizacion.php",
-            data: _data_prd,
+            data: data,
             success:function(r){
                 if (r==1) {
                     alert("Agregado correctamente");
@@ -37,8 +37,8 @@ $(document).ready(function() {
                 }else{
                     alert("Error al registrar, Verifique que los campos esten correctamente completos.");
                     console.log(r);
+                    console.log(data);
                 }
-                 console.log(r);
             },
             error: function(xhr, status, error) {
                 console.error(error); // Log the error message from the server
@@ -46,4 +46,5 @@ $(document).ready(function() {
         });
         return false;
   });
+
 });
