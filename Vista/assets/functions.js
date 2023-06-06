@@ -22,7 +22,7 @@ $(document).ready(function() {
   });
 
 
-  $('#btnValo_add_1').click(function(){
+  $('#btnValo_add').click(function(){
       //console.log("clickado");
         var _data_prd=$('#form_valor').serialize();
         $.ajax({
@@ -36,7 +36,12 @@ $(document).ready(function() {
                     window.location.href = "valorizacion.php";
                 }else{
                     alert("Error al registrar, Verifique que los campos esten correctamente completos.");
+                    console.log(r);
                 }
+                 console.log(r);
+            },
+            error: function(xhr, status, error) {
+                console.error(error); // Log the error message from the server
             }
         });
         return false;

@@ -22,15 +22,14 @@ class Valorizacion
 		$this->selector_suelo = array();
 	}
 
-	public function add_ValorizacionCasa($data)
+	public function add_Valorizacion($data)
 	{
 		include_once('../config/Conexion.php');
 		$cnx = new Conexion();
 		$cadena = $cnx->abrirConexion();
 
-
 		$query = "INSERT INTO `valorizacion`(`id_valor`,`direccion`, `cod_tipo_inmue`, `cod_sub_tipo_inmue`,`cod_tipo_prom`,
-													`area_terreno`, `area_construida`, `area_ocupada`,`antiguedad`,
+													`area_terreno`, `area_construida`,`antiguedad`,
 
 												`sala_comedor`,`sala`,`comedor`,`cocina`, `amoblado`, `piscina_prop`,
 
@@ -46,7 +45,7 @@ class Valorizacion
 						 	'".$data[5]."', '".$data[6]."','".$data[7]."','".$data[8]."','".$data[9]."','".$data[10]."',
 						 	'".$data[11]."', '".$data[12]."','".$data[13]."','".$data[14]."','".$data[15]."','".$data[16]."',
 						 	'".$data[17]."','".$data[18]."','".$data[19]."','".$data[20]."','".$data[21]."','".$data[22]."',
-						 	'".$data[23]."','".$data[24]."','".$data[25]."');";
+						 	'".$data[23]."','".$data[24]."');";
 
 		/*
 		// Ejecutar la consulta
@@ -59,11 +58,12 @@ class Valorizacion
 		} else {
 		    // La consulta se ejecutó correctamente
 		    echo mysqli_query($cadena, $query);
-			var_dump($data);
+			//var_dump($data);
         	$cnx->cerrarConexion($cadena);
 		    echo "La consulta se ejecutó correctamente.";
 		}
 		*/
+		
 		echo mysqli_query($cadena, $query);
 		$cnx->cerrarConexion($cadena);
 

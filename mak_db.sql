@@ -1,32 +1,65 @@
 create database mak;
 use mak;
 
-CREATE TABLE IF NOT EXISTS tipo_zonificacion (
-  id_zona 		int null primary key auto_increment,
-  tipo_zona 	varchar(255) NOT NULL, 
-  cod_tipo_inmb int NOT NULL,
+CREATE TABLE IF NOT EXISTS tipo_inmuebles (
+  id_tipo_inmb 		int null primary key auto_increment,
+  tipo_inmb 		varchar(255) NOT NULL
+);
+
+insert into tipo_inmuebles values (-1, 'sin tipo de inmueble');
+insert into tipo_inmuebles values (null, 'Casa');
+insert into tipo_inmuebles values (null, 'Departamento');
+insert into tipo_inmuebles values (null, 'Terreno');
+insert into tipo_inmuebles values (null, 'Oficina');
+insert into tipo_inmuebles values (null, 'Local Comercial');
+insert into tipo_inmuebles values (null, 'Local Industrial');
+
+
+CREATE TABLE IF NOT EXISTS sub_tipo_inmuebles (
+  id_sub_tipo_inmb 	int primary key auto_increment,
+  sub_tipo_inmb 	varchar(255) NOT NULL,
+  cod_tipo_inmb 	int NOT NULL,
   FOREIGN KEY (cod_tipo_inmb) REFERENCES tipo_inmuebles (id_tipo_inmb)
 );
-insert into tipo_zonificacion values (-1, 'sin zonificacion',-1 );
+
+-- select * from tipo_inmuebles;
+
+-- inicio sub tipos de departamento
+insert into sub_tipo_inmuebles values (-1, 'Sin tipo', -1);
+insert into sub_tipo_inmuebles values (null, 'Departamento Oficina', 1);
+insert into sub_tipo_inmuebles values (null, 'Departamento Vivienda', 1);
+insert into sub_tipo_inmuebles values (null, 'Departamento Vivienda Duplex', 1);
+insert into sub_tipo_inmuebles values (null, 'Departamento Vivienda en Condominio', 1);
+insert into sub_tipo_inmuebles values (null, 'Departamento Vivienda en Pent House', 1);
+insert into sub_tipo_inmuebles values (null, 'Departamento Vivienda en Pent House Duplex', 1);
+insert into sub_tipo_inmuebles values (null, 'Departamento Vivienda en Playa', 1);
+insert into sub_tipo_inmuebles values (null, 'Departamento Vivienda Triplex', 1);
+-- inicio sub tipos de departamento
+
+CREATE TABLE IF NOT EXISTS tipo_zonificacion (
+  id_zona 		int null primary key auto_increment,
+  tipo_zona 	varchar(255) NOT NULL
+);
+insert into tipo_zonificacion values (-1, 'sin zonificacion');
 -- insert into tipo_zonificacion values (null, 'Prueba');
 -- CASA
-insert into tipo_zonificacion values (null, 'RDMB (RESIDENCIAL DE DENSIDAD MUY BAJA)',1);
-insert into tipo_zonificacion values (null, 'RDB (RESIDENCIAL DE DENSIDAD BAJA)',1);
-insert into tipo_zonificacion values (null, 'RDM (RESIDENCIAL DE DENSIDAD MEDIA)',1);
-insert into tipo_zonificacion values (null, 'RDA (RESIDENCIAL DE DENSIDAD ALTA)',1);
-insert into tipo_zonificacion values (null, 'RDMA (RESIDENCIAL DE DENSIDAD MUY ALTA)',1);
-insert into tipo_zonificacion values (null, '(VT (VIVIENDA TALLER)',1);
-insert into tipo_zonificacion values (null, 'OU (OTROS USOS)',1);
-insert into tipo_zonificacion values (null, 'ZRE (ZONA DE REGLAMENTO ESPECIAL)',1);
-insert into tipo_zonificacion values (null, 'ZRE-1 (ZONA DE REGLAMENTO ESPECIAL 1)',1);
-insert into tipo_zonificacion values (null, 'ZRE-2 (ZONA DE REGLAMENTO ESPECIAL 2)',1);
-insert into tipo_zonificacion values (null, 'ZTE-1 ZONA DE TRATAMIENTO ESPECIAL 1)',1);
-insert into tipo_zonificacion values (null, 'ZTE-2 (ZONA DE TRATAMIENTO ESPECIAL 2)',1);
-insert into tipo_zonificacion values (null, 'ZTE-3 (ZONA DE TRATAMIENTO ESPECIAL 3)',1);
-insert into tipo_zonificacion values (null, 'MDM (ZONA MIXTA DE DENSIDAD MEDIA)',1);
-insert into tipo_zonificacion values (null, 'CH-1 (CASA HUERTA 1)',1);
-insert into tipo_zonificacion values (null, 'CH-2 (CASA HUERTA 2)',1);
-insert into tipo_zonificacion values (null, 'PR (PREDIO RÚSTICO)',1);
+insert into tipo_zonificacion values (null, 'RDMB (RESIDENCIAL DE DENSIDAD MUY BAJA)');
+insert into tipo_zonificacion values (null, 'RDB (RESIDENCIAL DE DENSIDAD BAJA)');
+insert into tipo_zonificacion values (null, 'RDM (RESIDENCIAL DE DENSIDAD MEDIA)');
+insert into tipo_zonificacion values (null, 'RDA (RESIDENCIAL DE DENSIDAD ALTA)');
+insert into tipo_zonificacion values (null, 'RDMA (RESIDENCIAL DE DENSIDAD MUY ALTA)');
+insert into tipo_zonificacion values (null, '(VT (VIVIENDA TALLER)');
+insert into tipo_zonificacion values (null, 'OU (OTROS USOS)');
+insert into tipo_zonificacion values (null, 'ZRE (ZONA DE REGLAMENTO ESPECIAL)');
+insert into tipo_zonificacion values (null, 'ZRE-1 (ZONA DE REGLAMENTO ESPECIAL 1)');
+insert into tipo_zonificacion values (null, 'ZRE-2 (ZONA DE REGLAMENTO ESPECIAL 2)');
+insert into tipo_zonificacion values (null, 'ZTE-1 ZONA DE TRATAMIENTO ESPECIAL 1)');
+insert into tipo_zonificacion values (null, 'ZTE-2 (ZONA DE TRATAMIENTO ESPECIAL 2)');
+insert into tipo_zonificacion values (null, 'ZTE-3 (ZONA DE TRATAMIENTO ESPECIAL 3)');
+insert into tipo_zonificacion values (null, 'MDM (ZONA MIXTA DE DENSIDAD MEDIA)');
+insert into tipo_zonificacion values (null, 'CH-1 (CASA HUERTA 1)');
+insert into tipo_zonificacion values (null, 'CH-2 (CASA HUERTA 2)');
+insert into tipo_zonificacion values (null, 'PR (PREDIO RÚSTICO)');
 
 select * from tipo_zonificacion;
 
@@ -110,40 +143,6 @@ create table tipo_aviso(
 );
 
 insert into tipo_aviso values (-1, 'sin tipo de aviso');
-
-CREATE TABLE IF NOT EXISTS tipo_inmuebles (
-  id_tipo_inmb 		int null primary key auto_increment,
-  tipo_inmb 		varchar(255) NOT NULL
-);
-
-insert into tipo_inmuebles values (-1, 'sin tipo de inmueble');
-insert into tipo_inmuebles values (null, 'Casa');
-insert into tipo_inmuebles values (null, 'Departamento');
-insert into tipo_inmuebles values (null, 'Terreno');
-insert into tipo_inmuebles values (null, 'Oficina');
-insert into tipo_inmuebles values (null, 'Local Comercial');
-insert into tipo_inmuebles values (null, 'Local Industrial');
-
-
-CREATE TABLE IF NOT EXISTS sub_tipo_inmuebles (
-  id_sub_tipo_inmb 	int primary key auto_increment,
-  sub_tipo_inmb 	varchar(255) NOT NULL,
-  cod_tipo_inmb 	int NOT NULL,
-  FOREIGN KEY (cod_tipo_inmb) REFERENCES tipo_inmuebles (id_tipo_inmb)
-);
-
--- select * from tipo_inmuebles;
-
--- inicio sub tipos de departamento
-insert into sub_tipo_inmuebles values (null, 'Departamento Oficina', 1);
-insert into sub_tipo_inmuebles values (null, 'Departamento Vivienda', 1);
-insert into sub_tipo_inmuebles values (null, 'Departamento Vivienda Duplex', 1);
-insert into sub_tipo_inmuebles values (null, 'Departamento Vivienda en Condominio', 1);
-insert into sub_tipo_inmuebles values (null, 'Departamento Vivienda en Pent House', 1);
-insert into sub_tipo_inmuebles values (null, 'Departamento Vivienda en Pent House Duplex', 1);
-insert into sub_tipo_inmuebles values (null, 'Departamento Vivienda en Playa', 1);
-insert into sub_tipo_inmuebles values (null, 'Departamento Vivienda Triplex', 1);
--- inicio sub tipos de departamento
 
 CREATE TABLE IF NOT EXISTS tipo_pared_ext (
   id_tipo_p 		int primary key auto_increment,
@@ -255,7 +254,7 @@ CREATE TABLE IF NOT EXISTS tipo_promocion (
 
 insert into tipo_promocion values(null, 'Venta');
 insert into tipo_promocion values(null, 'Alquiler');
-insert into tipo_promocion values(null, 'Venta/alquiler');
+
 
 
 CREATE TABLE IF NOT EXISTS tipo_repostero (
@@ -717,3 +716,4 @@ SELECT id_zona,tipo_zona from tipo_zonificacion zn
         
 SELECT * FROM tipo_zonificacion WHERE tipo_zona LIKE 'P%' and id_zona <> -1
 
+INSERT INTO `valorizacion` (`id_valor`, `direccion`, `cod_tipo_inmue`, `cod_sub_tipo_inmue`, `cod_tipo_prom`, `area_terreno`, `area_construida`, `area_ocupada`, `antiguedad`, `sala_comedor`, `sala`, `comedor`, `cocina`, `amoblado`, `piscina_prop`, `cant_dorm`, `dormitorio_banho`, `cant_banho`, `banho_visita`, `cuarto_serv`, `banho_serv`, `estacionamiento`, `deposito`, `cod_ubi`, `cod_vista`, `cod_acabado`, `sala_comedor_dep`, `sala_dep`, `comedor_dep`, `cocina_dep`, `cant_dorm_dep`, `dormitorio_banho_dep`, `cant_banho_dep`, `banho_visita_dep`, `cuarto_serv_dep`, `banho_serv_dep`, `estac_dep`, `deposito_dep`, `ascensor_dep`, `ascensor_dir_dep`, `pisos_edif_dep`, `piso_dep`, `cod_zonificacion`, `cod_tipo_suelo`, `param_terreno`, `frent_terreno`, `izq_terreno`, `fondo_terreno`, `der_terreno`, `piso_ofi`, `cochera_ofi`, `ascensor_ofi`, `aire_ofi`, `frente_lcl_com`, `cochera_lcl_com`, `piso_lcl_com`, `ascensor_lcl_com`, `aire_lcl_com`, `frente_lcl_ind`, `nave_lcl_ind`) VALUES (NULL, 'test', '1', '1', '1', '4', '2', NULL, '2', '1', '1', '1', '1', '1', '1', '2', '3', '2', '1', '1', '1', '2', '1', '1', '1', '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
