@@ -2,7 +2,7 @@
 require_once('../Model/Valorizacion.php');
 //try {
 
-    if (isset($_POST["add"])) {
+    //if (isset($_POST["add"])) {
         $data[1] = $_POST["direccion_"];
         $data[2] = $_POST["tipo_prop"];
         $data[3] = $_POST["sub_tipo_prop"];
@@ -43,7 +43,7 @@ require_once('../Model/Valorizacion.php');
 
         //var_dump($data);
 
-    }/*else{
+    /*}else{
         var_dump($data);
         var_dump($_POST);
     }*/
