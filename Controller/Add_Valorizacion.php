@@ -44,7 +44,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         $oValor = new Valorizacion();
         $r = $oValor->add_valor($data);
-    } elseif ($botonPresionado === 'eliminar') {
+    } /*elseif ($botonPresionado === 'eliminar') {
         echo "nel";
-    }
+    }*/
 }

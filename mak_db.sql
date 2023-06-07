@@ -6,15 +6,6 @@ CREATE TABLE IF NOT EXISTS tipo_inmuebles (
   tipo_inmb 		varchar(255) NOT NULL
 );
 
-insert into tipo_inmuebles values (-1, 'sin tipo de inmueble');
-insert into tipo_inmuebles values (null, 'Casa');
-insert into tipo_inmuebles values (null, 'Departamento');
-insert into tipo_inmuebles values (null, 'Terreno');
-insert into tipo_inmuebles values (null, 'Oficina');
-insert into tipo_inmuebles values (null, 'Local Comercial');
-insert into tipo_inmuebles values (null, 'Local Industrial');
-
-
 CREATE TABLE IF NOT EXISTS sub_tipo_inmuebles (
   id_sub_tipo_inmb 	int primary key auto_increment,
   sub_tipo_inmb 	varchar(255) NOT NULL,
@@ -22,115 +13,10 @@ CREATE TABLE IF NOT EXISTS sub_tipo_inmuebles (
   FOREIGN KEY (cod_tipo_inmb) REFERENCES tipo_inmuebles (id_tipo_inmb)
 );
 
--- select * from tipo_inmuebles;
-
--- inicio sub tipos de departamento
-insert into sub_tipo_inmuebles values (-1, 'Sin tipo', -1);
-insert into sub_tipo_inmuebles values (null, 'Departamento Oficina', 1);
-insert into sub_tipo_inmuebles values (null, 'Departamento Vivienda', 1);
-insert into sub_tipo_inmuebles values (null, 'Departamento Vivienda Duplex', 1);
-insert into sub_tipo_inmuebles values (null, 'Departamento Vivienda en Condominio', 1);
-insert into sub_tipo_inmuebles values (null, 'Departamento Vivienda en Pent House', 1);
-insert into sub_tipo_inmuebles values (null, 'Departamento Vivienda en Pent House Duplex', 1);
-insert into sub_tipo_inmuebles values (null, 'Departamento Vivienda en Playa', 1);
-insert into sub_tipo_inmuebles values (null, 'Departamento Vivienda Triplex', 1);
--- inicio sub tipos de departamento
-
 CREATE TABLE IF NOT EXISTS tipo_zonificacion (
   id_zona 		int null primary key auto_increment,
   tipo_zona 	varchar(255) NOT NULL
 );
-insert into tipo_zonificacion values (-1, 'sin zonificacion');
--- insert into tipo_zonificacion values (null, 'Prueba');
--- CASA
-insert into tipo_zonificacion values (null, 'RDMB (RESIDENCIAL DE DENSIDAD MUY BAJA)');
-insert into tipo_zonificacion values (null, 'RDB (RESIDENCIAL DE DENSIDAD BAJA)');
-insert into tipo_zonificacion values (null, 'RDM (RESIDENCIAL DE DENSIDAD MEDIA)');
-insert into tipo_zonificacion values (null, 'RDA (RESIDENCIAL DE DENSIDAD ALTA)');
-insert into tipo_zonificacion values (null, 'RDMA (RESIDENCIAL DE DENSIDAD MUY ALTA)');
-insert into tipo_zonificacion values (null, '(VT (VIVIENDA TALLER)');
-insert into tipo_zonificacion values (null, 'OU (OTROS USOS)');
-insert into tipo_zonificacion values (null, 'ZRE (ZONA DE REGLAMENTO ESPECIAL)');
-insert into tipo_zonificacion values (null, 'ZRE-1 (ZONA DE REGLAMENTO ESPECIAL 1)');
-insert into tipo_zonificacion values (null, 'ZRE-2 (ZONA DE REGLAMENTO ESPECIAL 2)');
-insert into tipo_zonificacion values (null, 'ZTE-1 ZONA DE TRATAMIENTO ESPECIAL 1)');
-insert into tipo_zonificacion values (null, 'ZTE-2 (ZONA DE TRATAMIENTO ESPECIAL 2)');
-insert into tipo_zonificacion values (null, 'ZTE-3 (ZONA DE TRATAMIENTO ESPECIAL 3)');
-insert into tipo_zonificacion values (null, 'MDM (ZONA MIXTA DE DENSIDAD MEDIA)');
-insert into tipo_zonificacion values (null, 'CH-1 (CASA HUERTA 1)');
-insert into tipo_zonificacion values (null, 'CH-2 (CASA HUERTA 2)');
-insert into tipo_zonificacion values (null, 'PR (PREDIO RÚSTICO)');
-
-select * from tipo_zonificacion;
-
--- TERRENO
-insert into tipo_zonificacion values (null, 'RDMB (RESIDENCIAL DE DENSIDAD MUY BAJA)',3);
-insert into tipo_zonificacion values (null, 'RDB (RESIDENCIAL DE DENSIDAD BAJA)',3);
-insert into tipo_zonificacion values (null, 'RDM (RESIDENCIAL DE DENSIDAD MEDIA)',3);
-insert into tipo_zonificacion values (null, 'RDA (RESIDENCIAL DE DENSIDAD ALTA)',3);
-insert into tipo_zonificacion values (null, 'RDMA (RESIDENCIAL DE DENSIDAD MUY ALTA)',3);
-insert into tipo_zonificacion values (null, 'VT (VIVIENDA TALLER)',3);
-insert into tipo_zonificacion values (null, 'OU (OTROS USOS)',3);
-insert into tipo_zonificacion values (null, 'ZRE (ZONA DE REGLAMENTO ESPECIAL)',3);
-insert into tipo_zonificacion values (null, 'ZRE-1 ZONA DE REGLAMENTO ESPECIAL 1)',3);
-insert into tipo_zonificacion values (null, 'ZRE-2 (ZONA DE REGLAMENTO ESPECIAL 2)',3);
-insert into tipo_zonificacion values (null, 'ZTE-1 ZONA DE TRATAMIENTO ESPECIAL 1)',3);
-insert into tipo_zonificacion values (null, 'ZTE-2 (ZONA DE TRATAMIENTO ESPECIAL 2)',3);
-insert into tipo_zonificacion values (null, 'ZTE-3 (ZONA DE TRATAMIENTO ESPECIAL 3)',3);
-insert into tipo_zonificacion values (null, 'IMDM (ZONA MIXTA DE DENSIDAD MEDIA)',3);
-insert into tipo_zonificacion values (null, 'CH-1 (CASA HUERTA 1)',3);
-insert into tipo_zonificacion values (null, 'CH-2 (CASA HUERTA 2)',3);
-insert into tipo_zonificacion values (null, 'PR (PREDIO RÚSTICO)',3);
-insert into tipo_zonificacion values (null, 'CV (COMERCIO VECINAL)',3);
-insert into tipo_zonificacion values (null, 'CZ (COMERCIO ZONAL)',3);
-insert into tipo_zonificacion values (null, 'CL (COMERCIO LOCAL)',3);
-insert into tipo_zonificacion values (null, 'CD (COMERCIO DISTRITAL',3);
-insert into tipo_zonificacion values (null, 'CM (COMERCIO METROPOLITANO)',3);
-insert into tipo_zonificacion values (null, 'CE (COMERCIO ESPECIALIZADO)',3);
-insert into tipo_zonificacion values (null, 'I-1 (INDUSTRIA ELEMENTAL)',3);
-insert into tipo_zonificacion values (null, '1-2 (INDUSTRIA LIVIANA)',3);
-insert into tipo_zonificacion values (null, '(1-3 (GRAN INDUSTRIA)',3);
-insert into tipo_zonificacion values (null, '1-4 (INDUSTRIA PESADA BÁSICA)',3);
-insert into tipo_zonificacion values (null, 'IL (INDUSTRIA LIVIANA)',3);
-insert into tipo_zonificacion values (null, 'IG (GRAN INDUSTRIA)',3);
-
--- OFICINA
-insert into tipo_zonificacion values (null, 'RDMB (RESIDENCIAL DE DENSIDAD MUY BAJA)',4);
-insert into tipo_zonificacion values (null, 'RDB (RESIDENCIAL DE DENSIDAD BAJA)',4);
-insert into tipo_zonificacion values (null, 'RDM (RESIDENCIAL DE DENSIDAD MEDIA)',4);
-insert into tipo_zonificacion values (null, 'RDA (RESIDENCIAL DE DENSIDAD ALTA)',4);
-insert into tipo_zonificacion values (null, 'RDMA (RESIDENCIAL DE DENSIDAD MUY ALTA)',4);
-insert into tipo_zonificacion values (null, 'VT (VIVIENDA TALLER)',4);
-insert into tipo_zonificacion values (null, 'OU (OTROS USOS)',4);
-insert into tipo_zonificacion values (null, 'ZRE (ZONA DE REGLAMENTO ESPECIAL)',4);
-insert into tipo_zonificacion values (null, 'ZRE-1 (ZONA DE REGLAMENTO ESPECIAL 1)',4);
-insert into tipo_zonificacion values (null, 'ZRE-2 (ZONA DE REGLAMENTO ESPECIAL 2)',4);
-insert into tipo_zonificacion values (null, 'ZTE-1 (ZONA DE TRATAMIENTO ESPECIAL 1)',4);
-insert into tipo_zonificacion values (null, 'ZTE-2 [ZONA DE TRATAMIENTO ESPECIAL 2)',4);
-insert into tipo_zonificacion values (null, 'ZTE-3 (ZONA DE TRATAMIENTO ESPECIAL 3)',4);
-insert into tipo_zonificacion values (null, 'MDM (ZONA MIXTA DE DENSIDAD MEDIA)',4);
-insert into tipo_zonificacion values (null, 'CV (COMERCIO VECINAL)',4);
-insert into tipo_zonificacion values (null, 'CZ (COMERCIO ZONAL)',4);
-insert into tipo_zonificacion values (null, 'CL (COMERCIO LOCAL)',4);
-insert into tipo_zonificacion values (null, 'CD (COMERCIO DISTRITAL',4);
-insert into tipo_zonificacion values (null, 'CM (COMERCIO METROPOLITANO)',4);
-insert into tipo_zonificacion values (null, 'CE (COMERCIO ESPECIALIZADO)',4);
-
--- LOCAL COM
-insert into tipo_zonificacion values (null, 'CV (COMERCIO VECINAL)',5);
-insert into tipo_zonificacion values (null, 'CZ (COMERCIO ZONAL)',5);
-insert into tipo_zonificacion values (null, 'CL (COMERCIO LOCAL)',5);
-insert into tipo_zonificacion values (null, 'CD (COMERCIO DISTRITAL',5);
-insert into tipo_zonificacion values (null, 'CM (COMERCIO METROPOLITANO)',5);
-insert into tipo_zonificacion values (null, 'CE (COMERCIO ESPECIALIZADO',5);
--- LOCAL INDUS
-insert into tipo_zonificacion values (null, '1-1 (INDUSTRIA ELEMENTAL)',6);
-insert into tipo_zonificacion values (null, '1-2 (INDUSTRIA LIVIANA)',6);
-insert into tipo_zonificacion values (null, '1-3 (GRAN INDUSTRIA)',6);
-insert into tipo_zonificacion values (null, '1-4 (INDUSTRIA PESADA BÁSICA)',6);
-insert into tipo_zonificacion values (null, 'IL (INDUSTRIA LIVIANA)',6);
-insert into tipo_zonificacion values (null, 'IG (GRAN INDUSTRIA)',6);
-
 
 create table tipo_cliente(
 	id_tipo_cliente int auto_increment primary key not null,
@@ -142,51 +28,21 @@ create table tipo_aviso(
 	tipo_aviso varchar(80) not null
 );
 
-insert into tipo_aviso values (-1, 'sin tipo de aviso');
-
 CREATE TABLE IF NOT EXISTS tipo_pared_ext (
   id_tipo_p 		int primary key auto_increment,
   tipo_pared_ext 	varchar(255) NOT NULL
 );
-
-insert into tipo_pared_ext values (-1, 'sin tipo de pared exterior');
-insert into tipo_pared_ext values (null, 'Casco');
-insert into tipo_pared_ext values (null, 'Cerámico');
-insert into tipo_pared_ext values (null, 'Mampara');
 
 
 CREATE TABLE IF NOT EXISTS tipo_acabado (
   id_acabado 		int null primary key auto_increment,
   tipo_acabado 		varchar(255) NOT NULL
 );
-insert into tipo_acabado values (-1, 'Sin tipo de acabado');
--- OFICINA - LOCAL COMÚN
-insert into tipo_acabado values (null, 'En casco');
-insert into tipo_acabado values (null, 'En gris');
--- insert into tipo_acabado values (null, 'En blanco');
-insert into tipo_acabado values (null, 'Equipado');
-insert into tipo_acabado values (null, 'Implementado');
-insert into tipo_acabado values (null, 'Amoblado');
--- CASA - DEPA
-insert into tipo_acabado values (null, 'Edificación terminada');
-insert into tipo_acabado values (null, 'Edificación sin terminar');
-
 
 CREATE TABLE IF NOT EXISTS tipo_vista (
   id_vista 			int null primary key auto_increment,
   tipo_vista 		varchar(255) NOT NULL
 );
-
-insert into tipo_vista values (-1, 'Sin tipo de vista');
-insert into tipo_vista values (null, 'Vista a ninguno');
-insert into tipo_vista values (null, 'Vista a parque');
-insert into tipo_vista values (null, 'Vista a mar');
-insert into tipo_vista values (null, 'Vista a ciudad panorámica');
--- TERRENO
-insert into tipo_vista values (null, 'Vista interior');
-insert into tipo_vista values (null, 'Vista exterior');
-
-
 
 CREATE TABLE IF NOT EXISTS tipo_cochera (
   id_tipo_cochera 	int primary key auto_increment,
@@ -202,72 +58,31 @@ CREATE TABLE IF NOT EXISTS tipo_iluminacion (
   id_tipo_ilum 		int primary key auto_increment,
   tipo_ilumn	 	varchar(255) NOT NULL
  );
- 
-insert into tipo_iluminacion values (null, 'Led');
-insert into tipo_iluminacion values (null, 'Fluorescente');
-insert into tipo_iluminacion values (null, 'Ditroicos');
-insert into tipo_iluminacion values (null, 'Ninguna');
-
-
-create table tipo_usuario (
-	tipo_usu_id 	int primary key auto_increment,
-	tipo_usu_nom 	varchar (255) not null
-);
-
-insert into tipo_usuario values (null, 'Admin');
-insert into tipo_usuario values (null, 'Supervisor');
-
-
-CREATE TABLE IF NOT EXISTS tipo_suelo (
-  id_tipo_suelo int null primary key auto_increment,
-  tipo_suelo 	varchar (255) not null
-);
-
-insert into tipo_suelo values (-1, 'Sin tipo de suelo');
-insert into tipo_suelo values (null, 'Losa');
-insert into tipo_suelo values (null, 'Asfaltado');
-insert into tipo_suelo values (null, 'Tierra afirmada');
-insert into tipo_suelo values (null, 'Eriazo');
-insert into tipo_suelo values (null, 'Cascajo');
-insert into tipo_suelo values (null, 'Tierra cultivo');
-
-
-
-CREATE TABLE IF NOT EXISTS ubicacion (
-	id_ubicacion 	int null primary key auto_increment null,
-	tipo_ubic 		varchar (255) not null
-);
-
-insert into ubicacion values (-1, 'Sin tipo de ubicacion');
-insert into ubicacion values (null, 'Medianero');
-insert into ubicacion values (null, 'Sin esquinas'); -- LOCAL COMERCIAL
-insert into ubicacion values (null, 'Esquina');
-insert into ubicacion values (null, '3 frentes');
-insert into ubicacion values (null, 'En quinta');
-insert into ubicacion values (null, 'En condominio');
-
-
-CREATE TABLE IF NOT EXISTS tipo_promocion (
-  id_promo 			int primary key auto_increment,
-  tipo_promo 		varchar(255) NOT NULL
-);
-
-insert into tipo_promocion values(null, 'Venta');
-insert into tipo_promocion values(null, 'Alquiler');
-
-
 
 CREATE TABLE IF NOT EXISTS tipo_repostero (
    id_tipo_repo 	int primary key auto_increment,
    tipo_repo		varchar(255) NOT NULL
 );
 
+CREATE TABLE IF NOT EXISTS tipo_suelo (
+  id_tipo_suelo int null primary key auto_increment,
+  tipo_suelo 	varchar (255) not null
+);
 
-insert into tipo_repostero values(null, 'Altos');
-insert into tipo_repostero values(null, 'Bajos');
-insert into tipo_repostero values(null, 'Ambos');
-insert into tipo_repostero values(null, 'Ninguna');
+CREATE TABLE IF NOT EXISTS ubicacion (
+	id_ubicacion 	int null primary key auto_increment null,
+	tipo_ubic 		varchar (255) not null
+);
 
+CREATE TABLE IF NOT EXISTS tipo_promocion (
+  id_promo 			int primary key auto_increment,
+  tipo_promo 		varchar(255) NOT NULL
+);
+
+create table tipo_usuario (
+	tipo_usu_id 	int primary key auto_increment,
+	tipo_usu_nom 	varchar (255) not null
+);
 
 create table usuarios (
 	id_usu INT auto_increment PRIMARY KEY NOT NULL,
@@ -283,29 +98,11 @@ create table usuarios (
 	FOREIGN KEY (tipo_usu_cod) REFERENCES tipo_usuario (tipo_usu_id)
 );
 
-insert into usuarios values(null, 'Denzel', 'Sotomayor', 'dsotomayor', '1337','denzelsotomayor@gmail.com', null, 1, 'm', 1);
-
--- CREATE TABLE suscripciones (
---   id_suscr INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
---   suscripcion VARCHAR(20) NOT NULL,
---   tipo_suscripcion VARCHAR(20) NOT NULL,
---   duracion_meses int NOT NULL,
---   beneficios_totales int default 0,
---   beneficios_restantes int default 0,
---   beneficios_usados int default 0,
---   CONSTRAINT chk_beneficios CHECK (beneficios_restantes >= 0)
--- );
-
 create table tipo_client_service (
 	id_tipo_client_s int not null auto_increment primary key, 
     nombre_tipo_client varchar(255)
 );
 
-insert into tipo_client_service (nombre_tipo_client) values('Corredor');
-insert into tipo_client_service (nombre_tipo_client) values('Propietario');
-
-select * from tipo_client_service;
-SELECT id_tipo_client_s, nombre_tipo_client from tipo_client_service;
 
 CREATE TABLE clientes_servicios (
   id_client 				INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -323,40 +120,6 @@ CREATE TABLE clientes_servicios (
   -- FOREIGN KEY (suscripcion_cod) 		REFERENCES suscripciones(id_suscr)
 );
 
-
--- CREATE TABLE beneficios (
---   id_beneficio INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
---   nombre_beneficio VARCHAR(50) NOT NULL,
---   descripcion VARCHAR(200),
---   cantidad INT NOT NULL,
---   id_suscripcion INT NOT NULL,
---   CONSTRAINT fk_suscripcion_beneficio FOREIGN KEY (id_suscripcion) REFERENCES suscripciones(id_suscr)
--- );
-
--- CREATE TABLE beneficios_utilizados (
---   id_beneficio_utilizado INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
---   id_cliente INT NOT NULL,
---   id_beneficio INT NOT NULL,
---   cantidad_utilizada INT NOT NULL,
---   fecha_utilizacion DATE NOT NULL,
---   CONSTRAINT fk_cliente FOREIGN KEY (id_cliente) REFERENCES clientes_servicios(id_client),
---   CONSTRAINT fk_beneficio FOREIGN KEY (id_beneficio) REFERENCES beneficios(id_beneficio)
--- );
-
--- INSERT INTO suscripciones (suscripcion, tipo_suscripcion, duracion_meses, beneficios_totales,beneficios_restantes) VALUES
---   ('Premium', 'Anual', 12,35,35),
---   ('Básica', 'Mensual',1,20,20);
---   
--- select * from suscripciones;
-
--- UPDATE suscripciones
--- SET beneficios_restantes = beneficios_restantes - 1,
---     beneficios_usados = beneficios_usados + 1
--- WHERE id_suscr = 2 ;
-
-
-
--- select * from usuarios where cod_usu = 'dsotomayor' and pass_usu = '1337';
 
 create table clientes(
 	id_client INT auto_increment PRIMARY KEY NOT NULL,
@@ -409,9 +172,6 @@ create table clientes(
     FOREIGN KEY (cod_tipo_aviso) REFERENCES tipo_aviso(id_tipo_aviso),
 	FOREIGN KEY (cod_tipo_client) REFERENCES tipo_cliente(id_tipo_cliente)
 );
-
-
-
 
 create table propiedades(
 	id_prop int auto_increment primary key, 
@@ -573,26 +333,6 @@ FOREIGN KEY (cod_tipo_suel)		REFERENCES  tipo_suelo  (id_tipo_suelo)ON DELETE SE
 );
 
 
--- CREATE TABLE IF NOT EXISTS recorrido(
--- 	id_recorr 		int auto_increment primary key,
---     fecha_reg_r 	date,
---     distrito 		varchar(100),
---     direccion		varchar(100),
---     cod_zona 		int,
---     cod_tipo_prop 	int, 
---     cod_tipo_cli	int,
---     cod_tipo_promo	int, 
---     latitud			decimal(18,15),
---     longitud		decimal(18,15),
---     observacion		varchar(255) not null,
---     
---     FOREIGN KEY (cod_zona)			REFERENCES  tipo_zonificacion  (id_zona) ON DELETE SET NULL,
---     FOREIGN KEY (cod_tipo_prop) 	REFERENCES  tipo_inmuebles  (id_tipo_inmb) ON DELETE SET NULL,
---     FOREIGN KEY (cod_tipo_cli) 		REFERENCES  tipo_cliente (id_tipo_cliente) ON DELETE SET NULL,
---     FOREIGN KEY (cod_tipo_promo)	REFERENCES  tipo_promocion  (id_promo) ON DELETE SET NULL    
--- );
-
-
 create table valorizacion(
 	id_valor		int auto_increment primary key,
 	direccion		varchar(150),
@@ -636,6 +376,7 @@ create table valorizacion(
     sala_dep				boolean,
     comedor_dep				boolean,
     cocina_dep				boolean,
+    amob_dep				boolean,
     -- fin form depa general
     
     -- form depa dormitorios
@@ -684,7 +425,7 @@ create table valorizacion(
     nave_lcl_ind			int,
     -- fin local industrial
     
-    -- form casa fin
+    estado_solicitud 		int  default '500',
     
 	FOREIGN KEY (cod_tipo_inmue) REFERENCES  tipo_inmuebles  (id_tipo_inmb) ON DELETE SET NULL,
     FOREIGN KEY (cod_sub_tipo_inmue) REFERENCES  sub_tipo_inmuebles  (id_sub_tipo_inmb) ON DELETE SET NULL,
@@ -696,10 +437,201 @@ create table valorizacion(
     FOREIGN KEY (cod_tipo_suelo) REFERENCES  tipo_suelo  (id_tipo_suelo) ON DELETE SET NULL
 );
 
+-- 502 = Pendiente
+-- 402 = En revision
+-- 200 = Finalizado
 
-select * from valorizacion;
 
-desc valorizacion;
+
+insert into tipo_inmuebles values (-1, 'sin tipo de inmueble');
+insert into tipo_inmuebles values (null, 'Casa');
+insert into tipo_inmuebles values (null, 'Departamento');
+insert into tipo_inmuebles values (null, 'Terreno');
+insert into tipo_inmuebles values (null, 'Oficina');
+insert into tipo_inmuebles values (null, 'Local Comercial');
+insert into tipo_inmuebles values (null, 'Local Industrial');
+
+-- inicio sub tipos de departamento
+insert into sub_tipo_inmuebles values (-1, 'Sin tipo', -1);
+insert into sub_tipo_inmuebles values (null, 'Departamento Oficina', 1);
+insert into sub_tipo_inmuebles values (null, 'Departamento Vivienda', 1);
+insert into sub_tipo_inmuebles values (null, 'Departamento Vivienda Duplex', 1);
+insert into sub_tipo_inmuebles values (null, 'Departamento Vivienda en Condominio', 1);
+insert into sub_tipo_inmuebles values (null, 'Departamento Vivienda en Pent House', 1);
+insert into sub_tipo_inmuebles values (null, 'Departamento Vivienda en Pent House Duplex', 1);
+insert into sub_tipo_inmuebles values (null, 'Departamento Vivienda en Playa', 1);
+insert into sub_tipo_inmuebles values (null, 'Departamento Vivienda Triplex', 1);
+-- inicio sub tipos de departamento
+
+
+
+-- CASA
+insert into tipo_zonificacion values (-1, 'sin zonificacion');
+insert into tipo_zonificacion values (null, 'RDMB (RESIDENCIAL DE DENSIDAD MUY BAJA)');
+insert into tipo_zonificacion values (null, 'RDB (RESIDENCIAL DE DENSIDAD BAJA)');
+insert into tipo_zonificacion values (null, 'RDM (RESIDENCIAL DE DENSIDAD MEDIA)');
+insert into tipo_zonificacion values (null, 'RDA (RESIDENCIAL DE DENSIDAD ALTA)');
+insert into tipo_zonificacion values (null, 'RDMA (RESIDENCIAL DE DENSIDAD MUY ALTA)');
+insert into tipo_zonificacion values (null, '(VT (VIVIENDA TALLER)');
+insert into tipo_zonificacion values (null, 'OU (OTROS USOS)');
+insert into tipo_zonificacion values (null, 'ZRE (ZONA DE REGLAMENTO ESPECIAL)');
+insert into tipo_zonificacion values (null, 'ZRE-1 (ZONA DE REGLAMENTO ESPECIAL 1)');
+insert into tipo_zonificacion values (null, 'ZRE-2 (ZONA DE REGLAMENTO ESPECIAL 2)');
+insert into tipo_zonificacion values (null, 'ZTE-1 ZONA DE TRATAMIENTO ESPECIAL 1)');
+insert into tipo_zonificacion values (null, 'ZTE-2 (ZONA DE TRATAMIENTO ESPECIAL 2)');
+insert into tipo_zonificacion values (null, 'ZTE-3 (ZONA DE TRATAMIENTO ESPECIAL 3)');
+insert into tipo_zonificacion values (null, 'MDM (ZONA MIXTA DE DENSIDAD MEDIA)');
+insert into tipo_zonificacion values (null, 'CH-1 (CASA HUERTA 1)');
+insert into tipo_zonificacion values (null, 'CH-2 (CASA HUERTA 2)');
+insert into tipo_zonificacion values (null, 'PR (PREDIO RÚSTICO)');
+
+-- TERRENO
+insert into tipo_zonificacion values (null, 'RDMB (RESIDENCIAL DE DENSIDAD MUY BAJA)',3);
+insert into tipo_zonificacion values (null, 'RDB (RESIDENCIAL DE DENSIDAD BAJA)',3);
+insert into tipo_zonificacion values (null, 'RDM (RESIDENCIAL DE DENSIDAD MEDIA)',3);
+insert into tipo_zonificacion values (null, 'RDA (RESIDENCIAL DE DENSIDAD ALTA)',3);
+insert into tipo_zonificacion values (null, 'RDMA (RESIDENCIAL DE DENSIDAD MUY ALTA)',3);
+insert into tipo_zonificacion values (null, 'VT (VIVIENDA TALLER)',3);
+insert into tipo_zonificacion values (null, 'OU (OTROS USOS)',3);
+insert into tipo_zonificacion values (null, 'ZRE (ZONA DE REGLAMENTO ESPECIAL)',3);
+insert into tipo_zonificacion values (null, 'ZRE-1 ZONA DE REGLAMENTO ESPECIAL 1)',3);
+insert into tipo_zonificacion values (null, 'ZRE-2 (ZONA DE REGLAMENTO ESPECIAL 2)',3);
+insert into tipo_zonificacion values (null, 'ZTE-1 ZONA DE TRATAMIENTO ESPECIAL 1)',3);
+insert into tipo_zonificacion values (null, 'ZTE-2 (ZONA DE TRATAMIENTO ESPECIAL 2)',3);
+insert into tipo_zonificacion values (null, 'ZTE-3 (ZONA DE TRATAMIENTO ESPECIAL 3)',3);
+insert into tipo_zonificacion values (null, 'IMDM (ZONA MIXTA DE DENSIDAD MEDIA)',3);
+insert into tipo_zonificacion values (null, 'CH-1 (CASA HUERTA 1)',3);
+insert into tipo_zonificacion values (null, 'CH-2 (CASA HUERTA 2)',3);
+insert into tipo_zonificacion values (null, 'PR (PREDIO RÚSTICO)',3);
+insert into tipo_zonificacion values (null, 'CV (COMERCIO VECINAL)',3);
+insert into tipo_zonificacion values (null, 'CZ (COMERCIO ZONAL)',3);
+insert into tipo_zonificacion values (null, 'CL (COMERCIO LOCAL)',3);
+insert into tipo_zonificacion values (null, 'CD (COMERCIO DISTRITAL',3);
+insert into tipo_zonificacion values (null, 'CM (COMERCIO METROPOLITANO)',3);
+insert into tipo_zonificacion values (null, 'CE (COMERCIO ESPECIALIZADO)',3);
+insert into tipo_zonificacion values (null, 'I-1 (INDUSTRIA ELEMENTAL)',3);
+insert into tipo_zonificacion values (null, '1-2 (INDUSTRIA LIVIANA)',3);
+insert into tipo_zonificacion values (null, '(1-3 (GRAN INDUSTRIA)',3);
+insert into tipo_zonificacion values (null, '1-4 (INDUSTRIA PESADA BÁSICA)',3);
+insert into tipo_zonificacion values (null, 'IL (INDUSTRIA LIVIANA)',3);
+insert into tipo_zonificacion values (null, 'IG (GRAN INDUSTRIA)',3);
+
+-- OFICINA
+insert into tipo_zonificacion values (null, 'RDMB (RESIDENCIAL DE DENSIDAD MUY BAJA)',4);
+insert into tipo_zonificacion values (null, 'RDB (RESIDENCIAL DE DENSIDAD BAJA)',4);
+insert into tipo_zonificacion values (null, 'RDM (RESIDENCIAL DE DENSIDAD MEDIA)',4);
+insert into tipo_zonificacion values (null, 'RDA (RESIDENCIAL DE DENSIDAD ALTA)',4);
+insert into tipo_zonificacion values (null, 'RDMA (RESIDENCIAL DE DENSIDAD MUY ALTA)',4);
+insert into tipo_zonificacion values (null, 'VT (VIVIENDA TALLER)',4);
+insert into tipo_zonificacion values (null, 'OU (OTROS USOS)',4);
+insert into tipo_zonificacion values (null, 'ZRE (ZONA DE REGLAMENTO ESPECIAL)',4);
+insert into tipo_zonificacion values (null, 'ZRE-1 (ZONA DE REGLAMENTO ESPECIAL 1)',4);
+insert into tipo_zonificacion values (null, 'ZRE-2 (ZONA DE REGLAMENTO ESPECIAL 2)',4);
+insert into tipo_zonificacion values (null, 'ZTE-1 (ZONA DE TRATAMIENTO ESPECIAL 1)',4);
+insert into tipo_zonificacion values (null, 'ZTE-2 [ZONA DE TRATAMIENTO ESPECIAL 2)',4);
+insert into tipo_zonificacion values (null, 'ZTE-3 (ZONA DE TRATAMIENTO ESPECIAL 3)',4);
+insert into tipo_zonificacion values (null, 'MDM (ZONA MIXTA DE DENSIDAD MEDIA)',4);
+insert into tipo_zonificacion values (null, 'CV (COMERCIO VECINAL)',4);
+insert into tipo_zonificacion values (null, 'CZ (COMERCIO ZONAL)',4);
+insert into tipo_zonificacion values (null, 'CL (COMERCIO LOCAL)',4);
+insert into tipo_zonificacion values (null, 'CD (COMERCIO DISTRITAL',4);
+insert into tipo_zonificacion values (null, 'CM (COMERCIO METROPOLITANO)',4);
+insert into tipo_zonificacion values (null, 'CE (COMERCIO ESPECIALIZADO)',4);
+
+-- LOCAL COM
+insert into tipo_zonificacion values (null, 'CV (COMERCIO VECINAL)',5);
+insert into tipo_zonificacion values (null, 'CZ (COMERCIO ZONAL)',5);
+insert into tipo_zonificacion values (null, 'CL (COMERCIO LOCAL)',5);
+insert into tipo_zonificacion values (null, 'CD (COMERCIO DISTRITAL',5);
+insert into tipo_zonificacion values (null, 'CM (COMERCIO METROPOLITANO)',5);
+insert into tipo_zonificacion values (null, 'CE (COMERCIO ESPECIALIZADO',5);
+-- LOCAL INDUS
+insert into tipo_zonificacion values (null, '1-1 (INDUSTRIA ELEMENTAL)',6);
+insert into tipo_zonificacion values (null, '1-2 (INDUSTRIA LIVIANA)',6);
+insert into tipo_zonificacion values (null, '1-3 (GRAN INDUSTRIA)',6);
+insert into tipo_zonificacion values (null, '1-4 (INDUSTRIA PESADA BÁSICA)',6);
+insert into tipo_zonificacion values (null, 'IL (INDUSTRIA LIVIANA)',6);
+insert into tipo_zonificacion values (null, 'IG (GRAN INDUSTRIA)',6);
+
+
+
+
+insert into tipo_pared_ext values (-1, 'sin tipo de pared exterior');
+insert into tipo_pared_ext values (null, 'Casco');
+insert into tipo_pared_ext values (null, 'Cerámico');
+insert into tipo_pared_ext values (null, 'Mampara');
+
+
+insert into tipo_aviso values (-1, 'sin tipo de aviso');
+
+insert into tipo_acabado values (-1, 'Sin tipo de acabado');
+-- OFICINA - LOCAL COMÚN
+insert into tipo_acabado values (null, 'En casco');
+insert into tipo_acabado values (null, 'En gris');
+-- insert into tipo_acabado values (null, 'En blanco');
+insert into tipo_acabado values (null, 'Equipado');
+insert into tipo_acabado values (null, 'Implementado');
+insert into tipo_acabado values (null, 'Amoblado');
+-- CASA - DEPA
+insert into tipo_acabado values (null, 'Edificación terminada');
+insert into tipo_acabado values (null, 'Edificación sin terminar');
+
+
+
+insert into tipo_vista values (-1, 'Sin tipo de vista');
+insert into tipo_vista values (null, 'Vista a ninguno');
+insert into tipo_vista values (null, 'Vista a parque');
+insert into tipo_vista values (null, 'Vista a mar');
+insert into tipo_vista values (null, 'Vista a ciudad panorámica');
+-- TERRENO
+insert into tipo_vista values (null, 'Vista interior');
+insert into tipo_vista values (null, 'Vista exterior');
+
+ 
+insert into tipo_iluminacion values (null, 'Led');
+insert into tipo_iluminacion values (null, 'Fluorescente');
+insert into tipo_iluminacion values (null, 'Ditroicos');
+insert into tipo_iluminacion values (null, 'Ninguna');
+
+
+insert into tipo_suelo values (-1, 'Sin tipo de suelo');
+insert into tipo_suelo values (null, 'Losa');
+insert into tipo_suelo values (null, 'Asfaltado');
+insert into tipo_suelo values (null, 'Tierra afirmada');
+insert into tipo_suelo values (null, 'Eriazo');
+insert into tipo_suelo values (null, 'Cascajo');
+insert into tipo_suelo values (null, 'Tierra cultivo');
+
+
+insert into ubicacion values (-1, 'Sin tipo de ubicacion');
+insert into ubicacion values (null, 'Medianero');
+insert into ubicacion values (null, 'Sin esquinas'); -- LOCAL COMERCIAL
+insert into ubicacion values (null, 'Esquina');
+insert into ubicacion values (null, '3 frentes');
+insert into ubicacion values (null, 'En quinta');
+insert into ubicacion values (null, 'En condominio');
+
+insert into tipo_promocion values(null, 'Venta');
+insert into tipo_promocion values(null, 'Alquiler');
+
+insert into tipo_repostero values(null, 'Altos');
+insert into tipo_repostero values(null, 'Bajos');
+insert into tipo_repostero values(null, 'Ambos');
+insert into tipo_repostero values(null, 'Ninguna');
+
+insert into tipo_usuario values (null, 'Admin');
+insert into tipo_usuario values (null, 'Supervisor');
+
+insert into tipo_client_service (nombre_tipo_client) values('Corredor');
+insert into tipo_client_service (nombre_tipo_client) values('Propietario');
+
+insert into usuarios values(null, 'Denzel', 'Sotomayor', 'dsotomayor', '1337','denzelsotomayor@gmail.com', null, 1, 'm', 1);
+
+
+
+
+select * from tipo_client_service;
+SELECT id_tipo_client_s, nombre_tipo_client from tipo_client_service;
 
 SELECT id_sub_tipo_inmb,sub_tipo_inmb from sub_tipo_inmuebles subtip
         INNER JOIN tipo_inmuebles tipo_inmue
@@ -714,6 +646,4 @@ SELECT id_zona,tipo_zona from tipo_zonificacion zn
         on zn.cod_tipo_inmb = tipo_inmue.id_tipo_inmb
         where tipo_inmue.id_tipo_inmb = '3' and id_zona <> -1;
         
-SELECT * FROM tipo_zonificacion WHERE tipo_zona LIKE 'P%' and id_zona <> -1
-
-INSERT INTO `valorizacion` (`id_valor`, `direccion`, `cod_tipo_inmue`, `cod_sub_tipo_inmue`, `cod_tipo_prom`, `area_terreno`, `area_construida`, `area_ocupada`, `antiguedad`, `sala_comedor`, `sala`, `comedor`, `cocina`, `amoblado`, `piscina_prop`, `cant_dorm`, `dormitorio_banho`, `cant_banho`, `banho_visita`, `cuarto_serv`, `banho_serv`, `estacionamiento`, `deposito`, `cod_ubi`, `cod_vista`, `cod_acabado`, `sala_comedor_dep`, `sala_dep`, `comedor_dep`, `cocina_dep`, `cant_dorm_dep`, `dormitorio_banho_dep`, `cant_banho_dep`, `banho_visita_dep`, `cuarto_serv_dep`, `banho_serv_dep`, `estac_dep`, `deposito_dep`, `ascensor_dep`, `ascensor_dir_dep`, `pisos_edif_dep`, `piso_dep`, `cod_zonificacion`, `cod_tipo_suelo`, `param_terreno`, `frent_terreno`, `izq_terreno`, `fondo_terreno`, `der_terreno`, `piso_ofi`, `cochera_ofi`, `ascensor_ofi`, `aire_ofi`, `frente_lcl_com`, `cochera_lcl_com`, `piso_lcl_com`, `ascensor_lcl_com`, `aire_lcl_com`, `frente_lcl_ind`, `nave_lcl_ind`) VALUES (NULL, 'test', '1', '1', '1', '4', '2', NULL, '2', '1', '1', '1', '1', '1', '1', '2', '3', '2', '1', '1', '1', '2', '1', '1', '1', '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+SELECT * FROM tipo_zonificacion WHERE tipo_zona LIKE 'P%' and id_zona <> -1;

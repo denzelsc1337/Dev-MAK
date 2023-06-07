@@ -22,7 +22,7 @@ class Valorizacion
 		$this->selector_suelo = array();
 	}
 
-	public function add_valor($data)
+	public function add_valorizacion_casa($data)
 	{
 		include_once('../config/Conexion.php');
 		$cnx = new Conexion();
@@ -61,6 +61,157 @@ class Valorizacion
 		$cnx->cerrarConexion($cadena);
 
 
+	}
+
+	public function add_valorizacion_depa($data)
+	{
+		include_once('../config/Conexion.php');
+		$cnx = new Conexion();
+		$cadena = $cnx->abrirConexion();
+
+		$query = "INSERT INTO `valorizacion`(`id_valor`,`direccion`, `cod_tipo_inmue`, `cod_sub_tipo_inmue`,`cod_tipo_prom`,
+													`area_construida`, `area_ocupada`,`antiguedad`,
+
+												`sala_comedor_dep`,`sala_dep`,`comedor_dep`,`cocina_dep`, `amob_dep`, `cant_dorm_dep`,
+
+												`dormitorio_banho_dep`,`cant_banho_dep`,`banho_visita_dep`,
+
+												`cuarto_serv_dep`, `banho_serv_dep`,`estac_dep`,`deposito_dep`,
+
+												`ascensor_dep`,`ascensor_dir_dep`,
+												`pisos_edif_dep`, `piso_dep`,
+
+												`cod_ubi`, `cod_vista`, `cod_acabado`)
+
+						 VALUES(null, '".$data[1]."', '".$data[2]."', '".$data[3]."','".$data[4]."',
+						 	'".$data[5]."', '".$data[6]."','".$data[7]."',
+
+						 	'".$data[8]."','".$data[9]."','".$data[10]."','".$data[11]."', '".$data[12]."','".$data[13]."',
+
+						 	'".$data[14]."','".$data[15]."','".$data[16]."',
+
+						 	'".$data[17]."','".$data[18]."','".$data[19]."','".$data[20]."',
+
+						 	'".$data[21]."','".$data[22]."',
+						 	'".$data[23]."','".$data[24]."',
+
+						 	'".$data[25]."','".$data[26]."','".$data[27]."');";
+
+		/*
+		$result = mysqli_query($cadena, $query);
+
+        if ($result) {
+            $num_rows = mysqli_affected_rows($cadena);
+        } else {
+            echo "Error al ejecutar la consulta: " . mysqli_error($cadena);
+        }
+
+		*/
+		echo mysqli_query($cadena, $query);
+		$cnx->cerrarConexion($cadena);
+
+
+	}
+
+	public function add_valorizacion_terreno($data)
+	{
+		include_once('../config/Conexion.php');
+		$cnx = new Conexion();
+		$cadena = $cnx->abrirConexion();
+
+		$query = "INSERT INTO `valorizacion`(`id_valor`,`direccion`, `cod_tipo_inmue`, `cod_sub_tipo_inmue`,`cod_tipo_prom`,`area_terreno`,
+
+												`cod_zonificacion`,`cod_tipo_suelo`,
+
+												`param_terreno`,`frent_terreno`)
+
+						 VALUES(null, '".$data[1]."', '".$data[2]."', '".$data[3]."','".$data[4]."','".$data[5]."',
+
+						 			  '".$data[6]."','".$data[7]."',
+
+						 			  '".$data[8]."','".$data[9]."')";
+
+		/*
+		$result = mysqli_query($cadena, $query);
+
+        if ($result) {
+            $num_rows = mysqli_affected_rows($cadena);
+        } else {
+            echo "Error al ejecutar la consulta: " . mysqli_error($cadena);
+        }
+
+		*/
+		echo mysqli_query($cadena, $query);
+		$cnx->cerrarConexion($cadena);
+	}
+
+	public function add_valorizacion_oficina($data)
+	{
+		include_once('../config/Conexion.php');
+		$cnx = new Conexion();
+		$cadena = $cnx->abrirConexion();
+
+		$query = "INSERT INTO `valorizacion`(`id_valor`,`direccion`, `cod_tipo_inmue`, `cod_sub_tipo_inmue`,`cod_tipo_prom`,
+												`area_construida`,`area_ocupada`,`antiguedad`,
+
+												`cod_acabado`,`cod_zonificacion`,`cod_vista`,
+
+												`piso_ofi`,`cochera_ofi`,
+												`ascensor_ofi`, `aire_ofi`)
+
+						 VALUES(null, '".$data[1]."', '".$data[2]."', '".$data[3]."','".$data[4]."',
+						 			  '".$data[5]."','".$data[6]."','".$data[7]."',
+
+						 			  '".$data[8]."','".$data[9]."','".$data[10]."',
+
+						 			  '".$data[11]."','".$data[12]."',
+						 			  '".$data[13]."','".$data[14]."')";
+
+		/*
+		$result = mysqli_query($cadena, $query);
+
+        if ($result) {
+            $num_rows = mysqli_affected_rows($cadena);
+        } else {
+            echo "Error al ejecutar la consulta: " . mysqli_error($cadena);
+        }
+		*/
+
+		echo mysqli_query($cadena, $query);
+		$cnx->cerrarConexion($cadena);
+	}
+
+	public function add_valorizacion_local_industrial($data)
+	{
+		include_once('../config/Conexion.php');
+		$cnx = new Conexion();
+		$cadena = $cnx->abrirConexion();
+
+		$query = "INSERT INTO `valorizacion`(`id_valor`,`direccion`, `cod_tipo_inmue`, `cod_sub_tipo_inmue`,`cod_tipo_prom`,
+												`area_terreno`,`area_construida`,`antiguedad`,
+
+												`cod_acabado`,`cod_tipo_suelo`,
+
+												`frente_lcl_ind`,`nave_lcl_ind`)
+
+						 VALUES(null, '".$data[1]."', '".$data[2]."', '".$data[3]."','".$data[4]."',
+						 			  '".$data[5]."','".$data[6]."','".$data[7]."',
+
+						 			  '".$data[8]."','".$data[9]."',
+						 			  '".$data[10]."','".$data[11]."')";
+
+		/*
+		$result = mysqli_query($cadena, $query);
+
+        if ($result) {
+            $num_rows = mysqli_affected_rows($cadena);
+        } else {
+            echo "Error al ejecutar la consulta: " . mysqli_error($cadena);
+        }
+		*/
+
+		echo mysqli_query($cadena, $query);
+		$cnx->cerrarConexion($cadena);
 	}
 
 	public function selectorType_props()

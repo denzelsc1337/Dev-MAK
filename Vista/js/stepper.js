@@ -3,12 +3,13 @@ const bsStepperContent = bsStepper.querySelector(".bs-stepper-content");
 const bsSContent = bsStepperContent.querySelectorAll(".content");
 
 //buttons
-//var btn_casa = document.getElementById("btnValo_add");
-var btn_depa = document.getElementById("btnValo_add_depa");
-var btn_terr = document.getElementById("btnValo_add_terr");
-var btn_ofi = document.getElementById("btnValo_add_ofi");
-var btn_lc = document.getElementById("btnValo_add_lc");
-var btn_li = document.getElementById("btnValo_add_li");
+var btn_casa = document.getElementById("btnValo_casa");
+var btn_depa = document.getElementById("btnValo_depa");
+var btn_terr = document.getElementById("btnValo_terren");
+var btn_ofi = document.getElementById("btnValo_ofi");
+var btn_lc_ex = document.getElementById("btnValo_lc_ex");
+var btn_lc_com = document.getElementById("btnValo_lc_com");
+var btn_li = document.getElementById("btnValo_lc_ind");
 
 
 (() => {
@@ -56,7 +57,7 @@ var btn_li = document.getElementById("btnValo_add_li");
   function Pasos() {
     // var dash = document.querySelector('[style*="display: block"]'),k
     var dash = document.querySelector(".section.show"),
-      dashTarget = dash.getAttribute("data-target");
+    dashTarget = dash.getAttribute("data-target");
     let steps = document.querySelectorAll(".step");
 
     let lines = document.querySelectorAll(".line");
@@ -87,12 +88,12 @@ var btn_li = document.getElementById("btnValo_add_li");
     // Obtener el valor seleccionado del combobox
     const pantallaSeleccionada = document.getElementById("tipo_prop").value;
 
-    if (pantallaSeleccionada > 0) {
+    if (pantallaSeleccionada > 0 && pantallaSeleccionada !== "5") {
 
       switch(pantallaSeleccionada){
 
           case '1':
-            //btn_casa.style.display = 'block'; // Muestra el botón
+            btn_casa.style.display = 'block'; // Muestra el botón
             console.log('boton casa');
           break;
 
@@ -109,11 +110,6 @@ var btn_li = document.getElementById("btnValo_add_li");
           case '4':
             btn_ofi.style.display = 'block';
             console.log('boton oficina');
-          break;
-
-          case '5':
-            btn_lc.style.display = 'block';
-            console.log('boton local comercial');
           break;
 
           case '6':
@@ -177,7 +173,7 @@ var btn_li = document.getElementById("btnValo_add_li");
           if (pantallaSeleccionada == 6) {
                 siguientePantalla.classList.add("show");
                 siguientePantalla.classList.remove("hide");
-              }
+          }
 
 
       console.log(pantallaSeleccionada_);
@@ -661,6 +657,64 @@ var btn_li = document.getElementById("btnValo_add_li");
           salaComResumen.innerHTML = 'Sala Comedor: No';
           salaComResumen.style.display = 'none';
         }*/
+
+
+    }else if (pantallaSeleccionada === "5") {
+      pantallaActual();
+      hideScreen();
+
+      const siguientePantalla_ = document.getElementById(pantallaSeleccionada);
+
+      siguientePantalla_.classList.remove("hide");
+      siguientePantalla_.classList.add("show");
+
+      const sub_tipo_prop = document.querySelector("#sub_tipo_prop").value;
+
+      if (sub_tipo_prop !== "-1") {
+
+        const siguientePantalla_lcl_c = document.getElementById(pantallaSeleccionada);
+        const exclusivo = siguientePantalla_lcl_c.querySelector(".exclusivo");
+        const comun = siguientePantalla_lcl_c.querySelector(".comun");
+
+        if (sub_tipo_prop === "13") {
+          exclusivo.classList.remove("hide");
+          exclusivo.classList.add("show");
+
+          btn_lc_ex.style.display = 'block';
+        } else {
+          exclusivo.classList.add("hide");
+          exclusivo.classList.remove("show");
+        }
+        if (sub_tipo_prop === "14") {
+          comun.classList.remove("hide");
+          comun.classList.add("show");
+
+          btn_lc_com.style.display = 'block';
+        } else {
+          comun.classList.add("hide");
+          comun.classList.remove("show");
+        }
+      } else {
+        alert("Seleccione un Subtipo de Inmueble.");
+      }
+
+      // if (sub_tipo_prop === "12") {
+      //   const lcl_exc = document.getElementById("5");
+      //   lcl_exc.classList.add("show");
+      //   lcl_exc.classList.remove("hide");
+      //   const siguientePantalla_lcl_exc = document.getElementById("0");
+      //   siguientePantalla_lcl_exc.classList.remove("show");
+      //   siguientePantalla_lcl_exc.classList.add("hide");
+      // } else if (sub_tipo_prop === "13") {
+      //   const lcl_com = document.getElementById("6");
+      //   lcl_com.classList.add("show");
+      //   lcl_com.classList.remove("hide");
+      //   const siguientePantalla_lcl_com = document.getElementById("0");
+      //   siguientePantalla_lcl_com.classList.remove("show");
+      //   siguientePantalla_lcl_com.classList.add("hide");
+      // } else {
+      //   alert("Seleccione un Subtipo de Inmueble.");
+      // }
     } else {
       alert("Seleccione un tipo de Inmueble.");
     }
