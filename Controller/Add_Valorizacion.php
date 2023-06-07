@@ -3,7 +3,7 @@ require_once('../Model/Valorizacion.php');
 
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $botonPresionado = $_POST['botonPresionado'];
+    $botonPresionado = $_POST['botonPresionado']; // esto se jala de Valorizacion, el boton tiene un data-accion="agregar"
 
     if ($botonPresionado === 'agregar') {
         print_r($_POST);
