@@ -10,6 +10,7 @@ require_once('../Model/Valorizacion.php');
 $oValor= new Valorizacion();
 $selector_types_props = $oValor->selectorType_props();
 $selector__sub_types_props = $oValor->selector_sub_Type_props();
+$list_valorizacion = $oValor->listadoValorizacion();
 
 $selector_types_prom = $oValor->selector_type_promo();
 

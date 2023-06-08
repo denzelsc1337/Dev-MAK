@@ -31,9 +31,9 @@ $data[19] = isset($_POST['banho_serv']) ? true : false;
 $data[20] = $_POST["cant_estac"];
 $data[21] = isset($_POST['deposito_']) ? true : false;
 
-$data[22] = $_POST["ubic"];
-$data[23] = $_POST["vista_"];
-$data[24] = $_POST["acabado_"];
+$data[22] = $_POST["ubic_casa"];
+$data[23] = $_POST["vista_casa"];
+$data[24] = $_POST["acabado_casa"];
 //form casa
 
 $oValor = new Valorizacion();

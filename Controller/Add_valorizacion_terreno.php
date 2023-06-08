@@ -8,11 +8,11 @@ $data[4] = $_POST["tipo_prom"];
 $data[5] = $_POST["a_t"];
 
 //form terreno
-$data[6] = $_POST["opciones_zoni"];
-$data[7] = $_POST["tipo_suelo"];
+$data[6] = $_POST["opciones_zoni_t"];
+$data[7] = $_POST["tipo_suelo_tern"];
 
-$data[8] = $_POST["params_"];
-$data[9] = $_POST["frnte_"];
+$data[8] = $_POST["params_tern"];
+$data[9] = $_POST["frnte_tern"];
 //form terreno
 
 $oValor = new Valorizacion();

@@ -167,7 +167,6 @@ var btn_li = document.getElementById("btnValo_lc_ind");
 
               }
 
-
           }
 
           if (pantallaSeleccionada == 6) {

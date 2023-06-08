@@ -20,7 +20,7 @@ require_once('config/security.php');
   <link rel="stylesheet" href="Vista/dist/css/adminlte.min.css">
 </head>
 
-<body class="hold-transition sidebar-mini  sidebar-collapse layout-fixed layout-navbar-fixed layout-footer-fixed">
+<body class="hold-transition sidebar-mini sidebar-collapse layout-fixed layout-navbar-fixed layout-footer-fixed">
   <div class="wrapper">
 
     <!-- Preloader -->
@@ -29,23 +29,21 @@ require_once('config/security.php');
     </div>
 
     <!-- Navbar -->
-    <!-- <nav class="main-header navbar navbar-expand navbar-dark">
-      <!-- Left navbar links --
+    <nav class="main-header navbar navbar-expand navbar-dark">
+      <!-- Left navbar links -->
       <ul class="navbar-nav">
         <li class="nav-item">
           <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
         </li>
         <li class="nav-item d-none d-sm-inline-block">
-          <a href="index3.html" class="nav-link">Home</a>
-        </li>
-        <li class="nav-item d-none d-sm-inline-block">
-          <a href="#" class="nav-link">Contact</a>
+          <a href="dashboard.php" class="nav-link">Inicio</a>
         </li>
       </ul>
 
-      <!-- Right navbar links --
+      <!-- Right navbar links -->
       <ul class="navbar-nav ml-auto">
-        <!-- Navbar Search --
+        <!-- Navbar Search -->
+        <!--
         <li class="nav-item">
           <a class="nav-link" data-widget="navbar-search" href="#" role="button">
             <i class="fas fa-search"></i>
@@ -65,67 +63,9 @@ require_once('config/security.php');
               </div>
             </form>
           </div>
-        </li>
+        </li>-->
 
-        <!-- Messages Dropdown Menu --
-        <li class="nav-item dropdown">
-          <a class="nav-link" data-toggle="dropdown" href="#">
-            <i class="far fa-comments"></i>
-            <span class="badge badge-danger navbar-badge">3</span>
-          </a>
-          <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-            <a href="#" class="dropdown-item">
-              <!-- Message Start --
-              <div class="media">
-                <img src="dist/img/user1-128x128.jpg" alt="User Avatar" class="img-size-50 mr-3 img-circle">
-                <div class="media-body">
-                  <h3 class="dropdown-item-title">
-                    Brad Diesel
-                    <span class="float-right text-sm text-danger"><i class="fas fa-star"></i></span>
-                  </h3>
-                  <p class="text-sm">Call me whenever you can...</p>
-                  <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
-                </div>
-              </div>
-              <!-- Message End --
-            </a>
-            <div class="dropdown-divider"></div>
-            <a href="#" class="dropdown-item">
-              <!-- Message Start --
-              <div class="media">
-                <img src="dist/img/user8-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
-                <div class="media-body">
-                  <h3 class="dropdown-item-title">
-                    John Pierce
-                    <span class="float-right text-sm text-muted"><i class="fas fa-star"></i></span>
-                  </h3>
-                  <p class="text-sm">I got your message bro</p>
-                  <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
-                </div>
-              </div>
-              <!-- Message End --
-            </a>
-            <div class="dropdown-divider"></div>
-            <a href="#" class="dropdown-item">
-              <!-- Message Start --
-              <div class="media">
-                <img src="dist/img/user3-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
-                <div class="media-body">
-                  <h3 class="dropdown-item-title">
-                    Nora Silvester
-                    <span class="float-right text-sm text-warning"><i class="fas fa-star"></i></span>
-                  </h3>
-                  <p class="text-sm">The subject goes here</p>
-                  <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
-                </div>
-              </div>
-              <!-- Message End --
-            </a>
-            <div class="dropdown-divider"></div>
-            <a href="#" class="dropdown-item dropdown-footer">See All Messages</a>
-          </div>
-        </li>
-        <!-- Notifications Dropdown Menu --
+        <!--
         <li class="nav-item dropdown">
           <a class="nav-link" data-toggle="dropdown" href="#">
             <i class="far fa-bell"></i>
@@ -151,19 +91,22 @@ require_once('config/security.php');
             <div class="dropdown-divider"></div>
             <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
           </div>
-        </li>
+        </li>-->
+
+        <!--
         <li class="nav-item">
           <a class="nav-link" data-widget="fullscreen" href="#" role="button">
             <i class="fas fa-expand-arrows-alt"></i>
           </a>
-        </li>
+        </li>-->
+
         <li class="nav-item">
           <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button">
             <i class="fas fa-th-large"></i>
           </a>
         </li>
       </ul>
-    </nav> -->
+    </nav> 
     <!-- /.navbar -->
 
     <!-- Main Sidebar Container -->
@@ -218,7 +161,7 @@ require_once('config/security.php');
               </a>
             </li>
             <li class="nav-item">
-              <a href="Legal/info-legal.php" class="nav-link">
+              <a href="Legal/InfoLegal.php" class="nav-link">
                 <i class="nav-icon fas fa-copy"></i>
                 <p>Informe Legal</p>
               </a>
@@ -850,6 +793,21 @@ require_once('config/security.php');
             </li> -->
           </ul>
         </nav>
+
+        <nav class="mt-2">
+          <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+            <!-- Add icons to the links using the .nav-icon class
+                 with font-awesome or any other icon font library -->
+            <!--MAK MODULOS-->
+            <li class="nav-header">Mis Pendientes</li>
+            <li class="nav-item">
+              <a href="Valorizacion/Valorizaciones.php" class="nav-link">
+                <i class="nav-icon fas fa-sharp fa-regular fa-check"></i>
+                <p>Revision de Valorizaciones</p>
+              </a>
+            </li>
+          </ul>
+        </nav>
         <!-- /.sidebar-menu -->
       </div>
       <!-- /.sidebar -->
@@ -926,7 +884,7 @@ require_once('config/security.php');
               <div class="card mb-2 bg-gradient-dark">
                 <img class="card-img-top" src="Vista/images/finance.jpg" alt="Dist Photo 1">
                 <div class="card-img-overlay d-flex flex-column justify-content-end">
-                  <a href="#" class="btn btn-block btn-primary">INICIAR</a>
+                  <a href="Legal/InfoLegal.php" class="btn btn-block btn-primary">INICIAR</a>
                 </div>
               </div>
               <!-- /.card-body -->

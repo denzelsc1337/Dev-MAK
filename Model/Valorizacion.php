@@ -1,9 +1,5 @@
 <?php 
 
-
-/**
- * 
- */
 class Valorizacion
 {
 	
@@ -20,6 +16,8 @@ class Valorizacion
 
 		$this->selector_zonificacion = array();
 		$this->selector_suelo = array();
+
+		$this->lst_valorizacion = array();
 	}
 
 	public function add_valorizacion_casa($data)
@@ -38,16 +36,28 @@ class Valorizacion
 												`cant_banho`, `banho_visita`,
 
 												`cuarto_serv`,`banho_serv`,
+
 												`estacionamiento`, `deposito`,
+
 												`cod_ubi`, `cod_vista`, `cod_acabado`)
 
 						 VALUES(null, '".$data[1]."', '".$data[2]."', '".$data[3]."','".$data[4]."',
-						 	'".$data[5]."', '".$data[6]."','".$data[7]."','".$data[8]."','".$data[9]."','".$data[10]."',
-						 	'".$data[11]."', '".$data[12]."','".$data[13]."','".$data[14]."','".$data[15]."','".$data[16]."',
-						 	'".$data[17]."','".$data[18]."','".$data[19]."','".$data[20]."','".$data[21]."','".$data[22]."',
-						 	'".$data[23]."','".$data[24]."');";
+						 	'".$data[5]."', '".$data[6]."','".$data[7]."',
 
-		/*
+						 	'".$data[8]."','".$data[9]."','".$data[10]."','".$data[11]."', '".$data[12]."','".$data[13]."',
+
+						 	'".$data[14]."','".$data[15]."',
+
+						 	'".$data[16]."','".$data[17]."',
+
+						 	'".$data[18]."','".$data[19]."',
+
+						 	'".$data[20]."','".$data[21]."',
+
+						 	'".$data[22]."','".$data[23]."','".$data[24]."');";
+
+		/*verificacion de error en la consulta
+
 		$result = mysqli_query($cadena, $query);
 
         if ($result) {
@@ -56,7 +66,8 @@ class Valorizacion
             echo "Error al ejecutar la consulta: " . mysqli_error($cadena);
         }
 
-		*/
+		verificacion de error en la consulta */
+
 		echo mysqli_query($cadena, $query);
 		$cnx->cerrarConexion($cadena);
 
@@ -97,7 +108,8 @@ class Valorizacion
 
 						 	'".$data[25]."','".$data[26]."','".$data[27]."');";
 
-		/*
+		/*verificacion de error en la consulta
+
 		$result = mysqli_query($cadena, $query);
 
         if ($result) {
@@ -106,7 +118,8 @@ class Valorizacion
             echo "Error al ejecutar la consulta: " . mysqli_error($cadena);
         }
 
-		*/
+		verificacion de error en la consulta */
+
 		echo mysqli_query($cadena, $query);
 		$cnx->cerrarConexion($cadena);
 
@@ -131,7 +144,8 @@ class Valorizacion
 
 						 			  '".$data[8]."','".$data[9]."')";
 
-		/*
+		/*verificacion de error en la consulta
+
 		$result = mysqli_query($cadena, $query);
 
         if ($result) {
@@ -140,7 +154,8 @@ class Valorizacion
             echo "Error al ejecutar la consulta: " . mysqli_error($cadena);
         }
 
-		*/
+		verificacion de error en la consulta */
+		
 		echo mysqli_query($cadena, $query);
 		$cnx->cerrarConexion($cadena);
 	}
@@ -157,7 +172,7 @@ class Valorizacion
 												`cod_acabado`,`cod_zonificacion`,`cod_vista`,
 
 												`piso_ofi`,`cochera_ofi`,
-												`ascensor_ofi`, `aire_ofi`)
+												`ascensor_ofi`, `aire_ofi`, `cod_ubi`)
 
 						 VALUES(null, '".$data[1]."', '".$data[2]."', '".$data[3]."','".$data[4]."',
 						 			  '".$data[5]."','".$data[6]."','".$data[7]."',
@@ -165,9 +180,10 @@ class Valorizacion
 						 			  '".$data[8]."','".$data[9]."','".$data[10]."',
 
 						 			  '".$data[11]."','".$data[12]."',
-						 			  '".$data[13]."','".$data[14]."')";
+						 			  '".$data[13]."','".$data[14]."','".$data[15]."')";
 
-		/*
+		/*verificacion de error en la consulta
+
 		$result = mysqli_query($cadena, $query);
 
         if ($result) {
@@ -175,7 +191,8 @@ class Valorizacion
         } else {
             echo "Error al ejecutar la consulta: " . mysqli_error($cadena);
         }
-		*/
+
+		verificacion de error en la consulta */
 
 		echo mysqli_query($cadena, $query);
 		$cnx->cerrarConexion($cadena);
@@ -192,15 +209,16 @@ class Valorizacion
 
 												`cod_acabado`,`cod_tipo_suelo`,
 
-												`frente_lcl_ind`,`nave_lcl_ind`)
+												`frente_lcl_ind`,`nave_lcl_ind`, `cod_ubi`)
 
 						 VALUES(null, '".$data[1]."', '".$data[2]."', '".$data[3]."','".$data[4]."',
 						 			  '".$data[5]."','".$data[6]."','".$data[7]."',
 
 						 			  '".$data[8]."','".$data[9]."',
-						 			  '".$data[10]."','".$data[11]."')";
+						 			  '".$data[10]."','".$data[11]."','".$data[12]."')";
 
-		/*
+		/*verificacion de error en la consulta
+
 		$result = mysqli_query($cadena, $query);
 
         if ($result) {
@@ -208,7 +226,8 @@ class Valorizacion
         } else {
             echo "Error al ejecutar la consulta: " . mysqli_error($cadena);
         }
-		*/
+
+		verificacion de error en la consulta */
 
 		echo mysqli_query($cadena, $query);
 		$cnx->cerrarConexion($cadena);
@@ -357,6 +376,34 @@ class Valorizacion
 
 		return $this->selector_suelo;
 	}
+
+	public function listadoValorizacion(){
+		include_once('../config/Conexion.php');
+		$cnx = new conexion();
+		$cadena = $cnx->abrirConexion();
+
+		$query = "SELECT id_valor, direccion, tipo_inmb, sub_tipo_inmb, tipo_promo, area_terreno, area_construida, area_ocupada
+			from valorizacion val
+			INNER JOIN tipo_inmuebles ti
+			on val.cod_tipo_inmue = ti.id_tipo_inmb
+			INNER JOIN sub_tipo_inmuebles sti
+			on val.cod_sub_tipo_inmue = sti.id_sub_tipo_inmb
+			INNER JOIN tipo_promocion tp
+			on val.cod_tipo_prom = tp.id_promo
+			WHERE estado_solicitud = 500";
+
+		$resultado = mysqli_query($cadena, $query);
+
+        while ($fila = mysqli_fetch_row($resultado)) {
+            $this->lst_valorizacion[] = $fila;
+        }
+
+        $cnx->cerrarConexion($cadena);
+
+        return $this->lst_valorizacion;
+
+	}
+
 }
 
 

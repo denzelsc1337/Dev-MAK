@@ -11,11 +11,12 @@ $data[7] = $_POST["antig"];
 
 
 //form terreno
-$data[8] = $_POST["acabado_"];
-$data[9] = $_POST["tipo_suelo"];
+$data[8] = $_POST["acabado_lci"];
+$data[9] = $_POST["acabado_lci"];
 
 $data[10] = $_POST["frente_lci"];
 $data[11] = $_POST["nave_lci"];
+$data[12] = $_POST["ubic_lci"];
 //form terreno
 
 $oValor = new Valorizacion();

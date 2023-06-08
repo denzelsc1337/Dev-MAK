@@ -453,14 +453,24 @@ insert into tipo_inmuebles values (null, 'Local Industrial');
 
 -- inicio sub tipos de departamento
 insert into sub_tipo_inmuebles values (-1, 'Sin tipo', -1);
-insert into sub_tipo_inmuebles values (null, 'Departamento Oficina', 1);
-insert into sub_tipo_inmuebles values (null, 'Departamento Vivienda', 1);
-insert into sub_tipo_inmuebles values (null, 'Departamento Vivienda Duplex', 1);
-insert into sub_tipo_inmuebles values (null, 'Departamento Vivienda en Condominio', 1);
-insert into sub_tipo_inmuebles values (null, 'Departamento Vivienda en Pent House', 1);
-insert into sub_tipo_inmuebles values (null, 'Departamento Vivienda en Pent House Duplex', 1);
-insert into sub_tipo_inmuebles values (null, 'Departamento Vivienda en Playa', 1);
-insert into sub_tipo_inmuebles values (null, 'Departamento Vivienda Triplex', 1);
+
+insert into sub_tipo_inmuebles values (null, 'Vivienda', 1);
+insert into sub_tipo_inmuebles values (null, 'En bajos', 1);
+insert into sub_tipo_inmuebles values (null, 'En altos', 1);
+
+insert into sub_tipo_inmuebles values (null, 'Flat', 2);
+insert into sub_tipo_inmuebles values (null, 'Duplex', 2);
+insert into sub_tipo_inmuebles values (null, 'Triplex', 2);
+insert into sub_tipo_inmuebles values (null, 'Cuadruplex', 2);
+insert into sub_tipo_inmuebles values (null, 'PentHouse', 2);
+
+insert into sub_tipo_inmuebles values (null, 'Residencial', 3);
+insert into sub_tipo_inmuebles values (null, 'Comercial', 3);
+insert into sub_tipo_inmuebles values (null, 'Industrial', 3);
+insert into sub_tipo_inmuebles values (null, 'Casa como Terreno', 3);
+
+insert into sub_tipo_inmuebles values (null, 'Exclusivo', 5);
+insert into sub_tipo_inmuebles values (null, 'Comun', 5);
 -- inicio sub tipos de departamento
 
 
@@ -630,20 +640,3 @@ insert into usuarios values(null, 'Denzel', 'Sotomayor', 'dsotomayor', '1337','d
 
 
 
-select * from tipo_client_service;
-SELECT id_tipo_client_s, nombre_tipo_client from tipo_client_service;
-
-SELECT id_sub_tipo_inmb,sub_tipo_inmb from sub_tipo_inmuebles subtip
-        INNER JOIN tipo_inmuebles tipo_inmue
-        on subtip.cod_tipo_inmb = tipo_inmue.id_tipo_inmb
-        where tipo_inmue.id_tipo_inmb = 3;
-        
-INSERT INTO `sub_tipo_inmuebles` (`id_sub_tipo_inmb`, `sub_tipo_inmb`, `cod_tipo_inmb`) VALUES (NULL, 'Comercial', '3'), (NULL, 'Industrial', '3'), (NULL, 'Casa como terreno', '3');
-INSERT INTO `sub_tipo_inmuebles` (`id_sub_tipo_inmb`, `sub_tipo_inmb`, `cod_tipo_inmb`) VALUES (NULL, 'Exclusivo', '5'), (NULL, 'Comun', '5');
-
-SELECT id_zona,tipo_zona from tipo_zonificacion zn
-        INNER JOIN tipo_inmuebles tipo_inmue
-        on zn.cod_tipo_inmb = tipo_inmue.id_tipo_inmb
-        where tipo_inmue.id_tipo_inmb = '3' and id_zona <> -1;
-        
-SELECT * FROM tipo_zonificacion WHERE tipo_zona LIKE 'P%' and id_zona <> -1;

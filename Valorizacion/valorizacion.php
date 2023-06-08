@@ -464,7 +464,7 @@
                                                                                     <label class="col-sm-3 col-form-label">Localización:</label>
                                                                                     <div class="section-input col-sm-8">
                                                                                         <span class="icon-input"><i class="fa-solid fa-location-dot"></i></span>
-                                                                                        <select class="form-control radius-right" id="ubic" name="ubic">
+                                                                                        <select class="form-control radius-right" id="ubic_casa" name="ubic_casa">
                                                                                             <option value="-1">Seleccione</option>
                                                                                             <?php foreach ($selector_types_ubi as $cod_type_u) : ?>
                                                                                                 <option value="<?php echo $cod_type_u[0]; ?>"><?php echo $cod_type_u[1]; ?></option>
@@ -488,7 +488,7 @@
                                                                                         <span class="icon-input">
                                                                                             <img src="https://cdn-icons-png.flaticon.com/512/3017/3017956.png" alt="">
                                                                                         </span>
-                                                                                        <select class="form-control radius-right" id="vista_" name="vista_">
+                                                                                        <select class="form-control radius-right" id="vista_casa" name="vista_casa">
                                                                                             <option value="-1">Seleccione</option>
                                                                                             <?php foreach ($selector_types_vis as $cod_type_v) : ?>
                                                                                                 <option value="<?php echo $cod_type_v[0]; ?>"><?php echo $cod_type_v[1]; ?></option>
@@ -512,7 +512,7 @@
                                                                                         <span class="icon-input">
                                                                                             <img src="https://cdn-icons-png.flaticon.com/512/1249/1249293.png" alt="">
                                                                                         </span>
-                                                                                        <select class="form-control radius-right" id="acabado_" name="acabado_">
+                                                                                        <select class="form-control radius-right" id="acabado_casa" name="acabado_casa">
                                                                                             <option value="-1">Seleccione</option>
                                                                                             <?php foreach ($selector_types_acab as $cod_type_a) : ?>
                                                                                                 <option value="<?php echo $cod_type_a[0]; ?>"><?php echo $cod_type_a[1]; ?></option>
@@ -743,7 +743,7 @@
                                                                                     <label class="col-sm-3 col-form-label">Localización:</label>
                                                                                     <div class="section-input col-sm-8">
                                                                                         <span class="icon-input"><i class="fa-solid fa-location-dot"></i></span>
-                                                                                        <select class="form-control radius-right" id="ubic" name="ubic">
+                                                                                        <select class="form-control radius-right" id="ubic_depa" name="ubic_depa">
                                                                                             <option value="-1">Seleccione</option>
                                                                                             <?php foreach ($selector_types_ubi as $cod_type_u) : ?>
                                                                                                 <option value="<?php echo $cod_type_u[0]; ?>"><?php echo $cod_type_u[1]; ?></option>
@@ -767,7 +767,7 @@
                                                                                         <span class="icon-input">
                                                                                             <img src="https://cdn-icons-png.flaticon.com/512/3017/3017956.png" alt="">
                                                                                         </span>
-                                                                                        <select class="form-control radius-right" id="vista_" name="vista_">
+                                                                                        <select class="form-control radius-right" id="vista_depa" name="vista_depa">
                                                                                             <option value="-1">Seleccione</option>
                                                                                             <?php foreach ($selector_types_vis as $cod_type_v) : ?>
                                                                                                 <option value="<?php echo $cod_type_v[0]; ?>"><?php echo $cod_type_v[1]; ?></option>
@@ -791,7 +791,7 @@
                                                                                         <span class="icon-input">
                                                                                             <img src="https://cdn-icons-png.flaticon.com/512/1249/1249293.png" alt="">
                                                                                         </span>
-                                                                                        <select class="form-control radius-right" id="acabado_" name="acabado_">
+                                                                                        <select class="form-control radius-right" id="acabado_depa" name="acabado_depa">
                                                                                             <option value="-1">Seleccione</option>
                                                                                             <?php foreach ($selector_types_acab as $cod_type_a) : ?>
                                                                                                 <option value="<?php echo $cod_type_a[0]; ?>"><?php echo $cod_type_a[1]; ?></option>
@@ -897,7 +897,7 @@
                                                                             <div class="section-input col-sm-8">
                                                                                 <span class="icon-input"><i class="fa-solid fa-location-dot"></i></span>
                                                                                 <input type="text" id="tipo_zoni_l" name="tipo_zoni_l">
-                                                                                <select id="opciones_zoni" name="opciones_zoni" class="opciones_zoni"></select>
+                                                                                <select id="opciones_zoni_t" name="opciones_zoni_t" class="opciones_zoni_t"></select>
                                                                             </div>
                                                                             <div class="input-group-append">
                                                                                 <i class="fa-solid fa-circle-info tooltipInfo tooltip-right">
@@ -915,7 +915,7 @@
                                                                                 <span class="icon-input">
                                                                                     <img src="https://cdn-icons-png.flaticon.com/512/1249/1249293.png" alt="">
                                                                                 </span>
-                                                                                <select class="form-control radius-right" id="tipo_suelo" name="tipo_suelo">
+                                                                                <select class="form-control radius-right" id="tipo_suelo_tern" name="tipo_suelo_tern">
                                                                                     <option value="-1">Seleccione</option>
 
                                                                                     <?php foreach ($selector_types_suel as $cod_type_suel) : ?>
@@ -939,7 +939,7 @@
                                                                                 <span class="icon-input">
                                                                                     <img src="https://cdn-icons-png.flaticon.com/512/3017/3017956.png" alt="">
                                                                                 </span>
-                                                                                <input class="form-control radius-right" type="number" min="0" id="params_" name="params_">
+                                                                                <input class="form-control radius-right" type="number" min="0" id="params_tern" name="params_tern">
                                                                             </div>
                                                                         </div>
                                                                         <div class="col-sm-6 flex align-center pdd-left" style="padding-right: 0px;padding-left: 0px;">
@@ -948,7 +948,7 @@
                                                                                 <span class="icon-input">
                                                                                     <img class="rotate-180" src="https://cdn-icons-png.flaticon.com/512/8264/8264013.png" alt="">
                                                                                 </span>
-                                                                                <input class="form-control input-number" type="number" min="0" step="00.01" id="frnte_" name="frnte_">
+                                                                                <input class="form-control input-number" type="number" min="0" step="00.01" id="frnte_tern" name="frnte_tern">
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -994,9 +994,14 @@
                                                                                     <label class="col-sm-3 col-form-label">Localización:</label>
                                                                                     <div class="section-input col-sm-8">
                                                                                         <span class="icon-input"><i class="fa-solid fa-location-dot"></i></span>
-                                                                                        <select class="form-control radius-right" id="">
-                                                                                            <option selected disabled>Seleccione</option>
-                                                                                        </select>
+                                                                                        <select class="form-control radius-right" id="ubic_ofi" name="ubic_ofi">
+                                                                                    <option value="-1">Seleccione</option>
+                                                                                            <?php foreach ($selector_types_ubi as $cod_type_u) : ?>
+                                                                                                <option value="<?php echo $cod_type_u[0]; ?>"><?php echo $cod_type_u[1]; ?>
+                                                                                    </option>
+                                                                                            <?php endforeach ?>
+
+                                                                                </select>
                                                                                     </div>
                                                                                     <div class="input-group-append">
                                                                                         <i class="fa-solid fa-circle-info tooltipInfo tooltip-right">
@@ -1014,7 +1019,7 @@
                                                                                         <span class="icon-input">
                                                                                             <img src="https://cdn-icons-png.flaticon.com/512/1249/1249293.png" alt="">
                                                                                         </span>
-                                                                                        <select class="form-control radius-right" id="acabado_" name="acabado_">
+                                                                                        <select class="form-control radius-right" id="acabado_ofi" name="acabado_ofi">
                                                                                             <option value="-1" selected>Seleccione</option>
                                                                                             <?php foreach ($selector_types_acab as $cod_type_a) : ?>
                                                                                                 <option value="<?php echo $cod_type_a[0]; ?>"><?php echo $cod_type_a[1]; ?></option>
@@ -1042,7 +1047,7 @@
                                                                                 <div class="section-input col-sm-8">
                                                                                     <span class="icon-input"><i class="fa-solid fa-location-dot"></i></span>
                                                                                     <input type="text" id="tipo_zoni_ofi" name="tipo_zoni_ofi">
-                                                                                    <select id="opciones_zoni" name="opciones_zoni" class="opciones_zoni"></select>
+                                                                                    <select id="opciones_zoni_ofi" name="opciones_zoni_ofi" class="opciones_zoni_ofi"></select>
                                                                                 </div>
                                                                                 <div class="input-group-append">
                                                                                     <i class="fa-solid fa-circle-info tooltipInfo tooltip-right">
@@ -1059,7 +1064,7 @@
                                                                                         <span class="icon-input">
                                                                                             <img src="https://cdn-icons-png.flaticon.com/512/3017/3017956.png" alt="">
                                                                                         </span>
-                                                                                        <select class="form-control radius-right" id="vista_" name="vista_">
+                                                                                        <select class="form-control radius-right" id="vista_ofi" name="vista_ofi">
                                                                                             <option value="-1">Seleccione</option>
                                                                                             <?php foreach ($selector_types_vis as $cod_type_v) : ?>
                                                                                                 <option value="<?php echo $cod_type_v[0]; ?>"><?php echo $cod_type_v[1]; ?></option>
@@ -1485,9 +1490,15 @@
                                                                             <label class="col-sm-3 col-form-label">Localización:</label>
                                                                             <div class="section-input col-sm-8">
                                                                                 <span class="icon-input"><i class="fa-solid fa-location-dot"></i></span>
-                                                                                <select class="form-control radius-right" id="">
-                                                                                    <option selected disabled>Seleccione</option>
+                                                                                <select class="form-control radius-right" id="ubic_lci" name="ubic_lci">
+                                                                                    <option value="-1">Seleccione</option>
+                                                                                            <?php foreach ($selector_types_ubi as $cod_type_u) : ?>
+                                                                                                <option value="<?php echo $cod_type_u[0]; ?>"><?php echo $cod_type_u[1]; ?>
+                                                                                    </option>
+                                                                                            <?php endforeach ?>
+
                                                                                 </select>
+
                                                                             </div>
                                                                             <div class="input-group-append">
                                                                                 <i class="fa-solid fa-circle-info tooltipInfo tooltip-right">
@@ -1505,7 +1516,7 @@
                                                                                 <span class="icon-input">
                                                                                     <img src="https://cdn-icons-png.flaticon.com/512/1249/1249293.png" alt="">
                                                                                 </span>
-                                                                                <select class="form-control radius-right" id="acabado_" name="acabado_">
+                                                                                <select class="form-control radius-right" id="acabado_lci" name="acabado_lci">
                                                                                     <option value="-1" selected>Seleccione</option>
                                                                                     <?php foreach ($selector_types_acab as $cod_type_a) : ?>
                                                                                         <option value="<?php echo $cod_type_a[0]; ?>"><?php echo $cod_type_a[1]; ?></option>
@@ -1521,7 +1532,7 @@
                                                                                 <span class="icon-input">
                                                                                     <img src="https://cdn-icons-png.flaticon.com/512/1249/1249293.png" alt="">
                                                                                 </span>
-                                                                                <select class="form-control radius-right" id="tipo_suelo" name="tipo_suelo">
+                                                                                <select class="form-control radius-right" id="tipo_suelo_lci" name="tipo_suelo_lci">
                                                                                     <option value="-1">Seleccione</option>
 
                                                                                     <?php foreach ($selector_types_suel as $cod_type_suel) : ?>
@@ -2072,7 +2083,7 @@
         $(document).ready(function() {
             $('#tipo_zoni_l').on('keyup', function() {
                 var letra = $(this).val();
-                var opcionesZoni = $('.opciones_zoni');
+                var opcionesZoni = $('.opciones_zoni_t');
 
                 if (letra.length > 0) {
                     $.ajax({
@@ -2095,7 +2106,7 @@
         $(document).ready(function() {
             $('#tipo_zoni_ofi').on('keyup', function() {
                 var letra = $(this).val();
-                var opcionesZoni = $('.opciones_zoni');
+                var opcionesZoni = $('.opciones_zoni_ofi');
 
                 if (letra.length > 0) {
                     $.ajax({
