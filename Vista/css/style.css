@@ -352,6 +352,10 @@ h2 {
   display: none;
 }
 
+.lcl.hide {
+  display: none;
+}
+
 .form-flex {
   display: flex;
   align-items: center;
