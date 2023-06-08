@@ -441,6 +441,15 @@ create table valorizacion(
 -- 402 = En revision
 -- 200 = Finalizado
 
+create table tipos_doc_legal(
+	id_doc_legal 	int primary key auto_increment,
+    tipo_doc_leg	varchar(255),
+    tiempo_espera	varchar(255),
+    costo_doc		varchar(255),
+    desc_procd		varchar(255)
+);
+
+
 create table docs_legal(
 	id_legal	int primary key auto_increment, 
     file_name			varchar(255),
