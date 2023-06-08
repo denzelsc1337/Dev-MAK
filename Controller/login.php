@@ -30,6 +30,8 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
 		<?php
 		} elseif ($sentencia->rowCount() == 1) {
 
+			$_SESSION['id_usu'] = $datos->id_client;
+			$_SESSION['dni'] = $datos->dni_client;
 			$_SESSION['nom_usu'] = $datos->nom_client;
 			$_SESSION['ape_usu'] = $datos->ape_client;
 			$_SESSION['email_usu'] = $datos->email_client;

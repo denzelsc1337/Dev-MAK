@@ -1,4 +1,7 @@
-<?php require_once('../Config/security.php'); ?>
+<?php
+require_once('../Config/security.php');
+require_once('../Controller/controladorListar.php');
+?>
 <!DOCTYPE html>
 <html>
 
@@ -39,7 +42,7 @@
 
 </head>
 
-<body class="hold-transition sidebar-mini  sidebar-collapse layout-fixed layout-navbar-fixed layout-footer-fixed" onload="initAutocomplete()">
+<body class="hold-transition sidebar-mini  sidebar-collapse layout-fixed layout-navbar-fixed layout-footer-fixed">
 
 	<?php include '../Vista/nav_bar_moduls.php' ?>
 	<!-- ./wrapper -->
@@ -68,7 +71,7 @@
 				<div class="col-md-12">
 					<div class="card card-default">
 						<div class="card-header">
-							<h3 class="card-title">Informe Legal</h3>
+							<strong class="card-title">Informe Legal</strong>
 						</div>
 
 						<!-- SECTION -->
@@ -79,49 +82,27 @@
 							<table class="table">
 								<thead class="table-dark">
 									<tr>
-										<th>TEXTO 1</th>
-										<th>TEXTO 2</th>
-										<th>TEXTO 3</th>
-										<th>TEXTO 4</th>
-										<th>TEXTO 5</th>
+										<th>SUBIR</th>
+										<th hidden>ID DOC</th>
+										<th>TIPO DOC LEGAL</th>
+										<th>TIEMPO ESPERA</th>
+										<th>COSTO</th>
+										<th>PROCEDIMIENTO</th>
 									</tr>
 								</thead>
 								<tbody>
+									<?php foreach ($list_docs_legal as $lst_legal_d): ?>
 									<tr>
-										<td>SubTexto 1</td>
-										<td>SubTexto 2</td>
-										<td>SubTexto 3</td>
-										<td>SubTexto 4</td>
-										<td>SubTexto 5</td>
+										<td>
+			                            	<button type="button" class="btn btn-rounded btn-success btn_subir_1" data-toggle="modal" data-target="#upload_doc">Subir</button>
+			                          	</td>
+										<td hidden><?php echo $lst_legal_d[0] ?></td>
+										<td><?php echo $lst_legal_d[1] ?></td>
+										<td><?php echo $lst_legal_d[2] ?></td>
+										<td><?php echo $lst_legal_d[3] ?></td>
+										<td><?php echo $lst_legal_d[4] ?></td>
 									</tr>
-									<tr>
-										<td>SubTexto 1</td>
-										<td>SubTexto 2</td>
-										<td>SubTexto 3</td>
-										<td>SubTexto 4</td>
-										<td>SubTexto 5</td>
-									</tr>
-									<tr>
-										<td>SubTexto 1</td>
-										<td>SubTexto 2</td>
-										<td>SubTexto 3</td>
-										<td>SubTexto 4</td>
-										<td>SubTexto 5</td>
-									</tr>
-									<tr>
-										<td>SubTexto 1</td>
-										<td>SubTexto 2</td>
-										<td>SubTexto 3</td>
-										<td>SubTexto 4</td>
-										<td>SubTexto 5</td>
-									</tr>
-									<tr>
-										<td>SubTexto 1</td>
-										<td>SubTexto 2</td>
-										<td>SubTexto 3</td>
-										<td>SubTexto 4</td>
-										<td>SubTexto 5</td>
-									</tr>
+									<?php endforeach ?>
 								</tbody>
 							</table>
 						</div>
@@ -131,6 +112,47 @@
 				</div>
 
 			</div>
+
+			<div class="modal fade" id="upload_doc">
+		        <div class="modal-dialog">
+		          <div class="modal-content">
+
+		            <div class="modal-header">
+		              <h4 class="modal-title">Subir Documento</h4>
+		              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		                <span aria-hidden="true">&times;</span>
+		              </button>
+		            </div>
+		            <form action="../Controller/upload_docs_legal.php" method="POST" enctype="multipart/form-data">
+		            	<div class="modal-body">
+		            		<div class="form-group" hidden>
+                                    <label>usuario</label>
+                                    <input type="text" name="usu_dni" id="usu_dni" value="<?php echo $_SESSION['dni'] ?>">
+                                    <br>
+                                    <label>secuence</label>
+                                    <input type="text" name="id_usu" id="id_usu" value="<?php echo $_SESSION['id_usu'] ?>">
+                                    <br>
+                                    <label>id doc type</label>
+                                    <input type="text" name="id_doc_type" id="id_doc_type">
+                                    <br>
+                                    <label>desc</label>
+                                    <input type="text" name="desc_doc" id="desc_doc">
+                            </div>
+		            		<div class="form-group">
+	                            <input type="file" name="fileToUpload" id="fileToUpload">
+	                        </div>
+	                        <div class="modal-footer justify-content-between">
+				              <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+				              <button id="save_doc_legal" type="save_doc_legal" name="submit" class="btn btn-primary">Subir</button>
+				            </div>
+		            	</div>
+		            </form>
+
+		          </div>
+		          <!-- /.modal-content -->
+		        </div>
+		        <!-- /.modal-dialog -->
+		    </div>
 		</section>
 
 		<!-- /.card-body-->
@@ -175,6 +197,23 @@
 	<script src="../Vista/dist/js/demo.js"></script>
 	<!-- Page specific script -->
 	<script src="../Vista/assets/selection_types.js"></script>
+
+	<script>
+    $(document).ready(function() {
+
+        $('.btn_subir_1').on('click', function() {
+            console.log("test");
+            $('#upload_doc').modal('show');
+            $tr = $(this).closest('tr');
+            var data = $tr.children("td").map(function() {
+                return $(this).text();
+            }).get();
+            console.log(data);
+            $('#id_doc_type').val(data[1]);
+            $('#desc_doc').val(data[2].trim());
+        });
+    });
+    </script>
 </body>
 
 </html>

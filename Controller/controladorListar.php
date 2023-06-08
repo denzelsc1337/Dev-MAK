@@ -21,4 +21,9 @@ $selector_types_acab = $oValor->selector_type_acabado();
 $selector_types_zon = $oValor->selector_zonificacion();
 $selector_types_suel = $oValor->selector_type_suelo();
 
+
+require_once('../Model/Legal.php');
+$oLegal= new cLegal();
+$list_docs_legal= $oLegal->listadoTiposDocsLegal();
+
 ?>

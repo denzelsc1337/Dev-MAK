@@ -441,7 +441,32 @@ create table valorizacion(
 -- 402 = En revision
 -- 200 = Finalizado
 
+create table tipos_doc_legal(
+	id_doc_legal 	int primary key auto_increment,
+    tipo_doc_leg	varchar(255),
+    tiempo_espera	varchar(255),
+    costo_doc		varchar(255),
+    desc_procd		varchar(255)
+);
 
+create table docs_legal(
+	id_legal	int primary key auto_increment, 
+    file_name			varchar(255),
+    file_type			varchar(255),
+    file_destination	varchar(255),
+    file_size			varchar(255),
+    file_desc			varchar(255),
+    file_ext			varchar(255),
+    cod_doc_tipo_legl	int, 
+    user_cod			int,
+    status_doc			varchar(20) default "10",
+    FOREIGN KEY (cod_doc_tipo_legl) REFERENCES  tipos_doc_legal (id_doc_legal) ON DELETE SET NULL,
+    FOREIGN KEY (user_cod) REFERENCES clientes_servicios (id_client) ON DELETE SET NULL
+);
+
+-- 10 = Pendiente
+-- 20 = En revision
+-- 90 = Finalizado
 
 insert into tipo_inmuebles values (-1, 'sin tipo de inmueble');
 insert into tipo_inmuebles values (null, 'Casa');
@@ -462,7 +487,6 @@ insert into sub_tipo_inmuebles values (null, 'Departamento Vivienda en Pent Hous
 insert into sub_tipo_inmuebles values (null, 'Departamento Vivienda en Playa', 1);
 insert into sub_tipo_inmuebles values (null, 'Departamento Vivienda Triplex', 1);
 -- inicio sub tipos de departamento
-
 
 
 -- CASA
@@ -627,7 +651,8 @@ insert into tipo_client_service (nombre_tipo_client) values('Propietario');
 
 insert into usuarios values(null, 'Denzel', 'Sotomayor', 'dsotomayor', '1337','denzelsotomayor@gmail.com', null, 1, 'm', 1);
 
-
+insert into tipos_doc_legal values (null,'Numeracion', '15 dias habiles aprox. / 30 dias habiles si hubiera observacion aprox.', 
+									'Sujeto a TUPA, entre s/50 y s/100 aprox.', 'Se requiere de plano de distribucion aprobado y croquis.');
 
 
 select * from tipo_client_service;
