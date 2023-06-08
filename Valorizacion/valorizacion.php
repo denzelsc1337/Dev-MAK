@@ -119,7 +119,7 @@
                                                                     <!-- text input -->
                                                                     <div class="form-group">
                                                                         <label>Dirección</label>
-                                                                        <input type="text" class="form-control" placeholder="Ingrese una dirección" id="direccion_" name="direccion_" onkeydown="buscarDireccion(event)" autocomplete="off" required>
+                                                                        <input type="text" class="form-control" placeholder="Ingrese una dirección" id="direccion_" name="direccion_" onkeydown="buscarDireccion(event, 'mapa', 'mapa_2')" autocomplete="off" required>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -1638,7 +1638,7 @@
                                                                 <div class="col-md-6">
                                                                     <div class="card card-default">
                                                                         <div class="card-body">
-                                                                            <div id="mapa__" style="height: 400px;"></div>
+                                                                            <div id="mapa_2" style="height: 400px;"></div>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -1836,7 +1836,8 @@
 
 
     <script type="text/javascript">
-        function buscarDireccion(event) {
+        /*
+        function buscarDireccion(event, mapa1Id, mapa2Id) {
             if (event.keyCode === 13) { // 13 es el código de la tecla "Enter"
                 event.preventDefault();
                 const direccion = document.getElementById('direccion_').value;
@@ -1847,14 +1848,71 @@
                     if (status === 'OK') {
                         const latitud = results[0].geometry.location.lat();
                         const longitud = results[0].geometry.location.lng();
-                        mostrarMapa(latitud, longitud);
+                        mostrarMapa(latitud, longitud, mapa1Id);
+                        mostrarMapa(latitud, longitud, mapa2Id);
                     }
                 });
             }
+        }*/
+
+        async function buscarDireccion(event, mapa1Id, mapa2Id) {
+            const isEnterKey = event.keyCode === 13;
+            const isMouseClick = event.type === 'click';
+
+            if (isEnterKey || isMouseClick) {
+                event.preventDefault();
+                const direccion = document.getElementById('direccion_').value;
+                const geocoder = new google.maps.Geocoder();
+
+                try {
+                    const results = await geocodeAddress(geocoder, direccion);
+                    const { lat, lng } = getLatLngFromGeocodeResult(results);
+
+                    await mostrarMapaAsync(lat, lng, mapa1Id);
+                    await mostrarMapaAsync(lat, lng, mapa2Id);
+                } catch (error) {
+                    console.error('Ocurrió un error al buscar la dirección:', error);
+                }
+            }
         }
 
-        function mostrarMapa(latitud, longitud) {
-            const mapa = new google.maps.Map(document.getElementById('mapa'), {
+        function geocodeAddress(geocoder, direccion) {
+            return new Promise((resolve, reject) => {
+                geocoder.geocode({ address: direccion }, (results, status) => {
+                    if (status === 'OK') {
+                        resolve(results);
+                    } else {
+                        reject(status);
+                    }
+                });
+            });
+        }
+
+        function getLatLngFromGeocodeResult(results) {
+            const location = results[0].geometry.location;
+            return { lat: location.lat(), lng: location.lng() };
+        }
+
+        function mostrarMapaAsync(latitud, longitud, divId) {
+            return new Promise((resolve, reject) => {
+                const mapa = new google.maps.Map(document.getElementById(divId), {
+                    zoom: 17,
+                    center: { lat: latitud, lng: longitud },
+                });
+
+                const marcador = new google.maps.Marker({
+                    position: { lat: latitud, lng: longitud },
+                    map: mapa,
+                });
+
+                // Espera un breve período para asegurar que el mapa se haya cargado correctamente
+                setTimeout(() => resolve(), 100);
+            });
+        }
+
+
+        function mostrarMapa(latitud, longitud,divId) {
+            const mapa = new google.maps.Map(document.getElementById(divId), {
                 zoom: 17,
                 center: {
                     lat: latitud,
@@ -1881,7 +1939,7 @@
                 }
                 const latitud = place.geometry.location.lat();
                 const longitud = place.geometry.location.lng();
-                mostrarMapa(latitud, longitud);
+                mostrarMapa(latitud, longitud, 'mapa');
             });
         }
     </script>
