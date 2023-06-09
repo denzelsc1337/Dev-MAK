@@ -68,6 +68,152 @@ require_once('../Controller/controladorListar.php');
 		<!-- Main content -->
 		<section class="content">
 			<div class="row">
+                <div class="col-md-12">
+                    <div class="card card-default">
+                        <div class="card-header">
+                            <h3 class="card-title">Ingreso de Datos:</h3>
+                        </div>
+                        <br>
+                        <div class="card-body p-0">
+                            <div class="bs-stepper">
+                            	<div class="bs-stepper-content">
+                            		 <form method="POST" id="form_valor">
+                            		 	<div id="0" class="section col-md-12 movPag show" role="tabpanel" aria-labelledby="logins-part-trigger" data-target="first_step">
+                                            <div class="row">
+                                                <div class="col-md-4">
+                                                    <div class="card card-default">
+                                                        <div class="card-body">
+                                                            <div class="row">
+                                                                <div class="col-sm-10">
+                                                                    <!-- text input -->
+                                                                    <div class="form-group">
+                                                                        <label>DNI</label>
+                                                                        <input type="file" class="form-control" id="dni_l" name="dni_l"required>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="row">
+                                                                <div class="col-sm-10">
+                                                                    <!-- text input -->
+                                                                    <div class="form-group">
+                                                                        <label>P.U</label>
+                                                                        <input type="file" class="form-control" id="pu_l" name="pu_l"required>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="row">
+                                                                <div class="col-sm-10">
+                                                                    <!-- text input -->
+                                                                    <div class="form-group">
+                                                                        <label>H.R</label>
+                                                                        <input type="file" class="form-control" id="hr_l" name="hr_l"required>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-4">
+                                                    <div class="card card-default">
+                                                        <div class="card-body">
+                                                        	<div class="row">
+                                                        		<div class="col-sm-10">
+                                                        			<label>DNI</label>
+                                                        			<div id="dni_resume"></div>
+                                                        		</div>
+                                                        	</div>
+
+                                                        	<div class="row">
+                                                        		<div class="col-sm-10">
+                                                        			<label>P.U</label>
+                                                        			<div id="pu_resume"></div>
+                                                        		</div>
+                                                        	</div>
+
+                                                        	<div class="row">
+                                                        		<div class="col-sm-10">
+                                                        			<label>P.U</label>
+                                                        			<div id="pu_resume"></div>
+                                                        		</div>
+                                                        	</div>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-4">
+                                                    <div class="card card-default">
+                                                        <div class="card-body">
+                                                            <!-- Date dd/mm/yyyy -->
+                                                            <div class="row" id="a__c">
+                                                                <div class="col-sm-8">
+                                                                    <!-- text input -->
+                                                                    <div class="form-group">
+                                                                        <div class="flex">
+                                                                            <label>Nombre Completo</label>
+                                                                            <div class="input-group-append">
+                                                                                <i class="fa-solid fa-circle-info tooltipInfo tooltip-right">
+                                                                                    <span class="tooltiptext">
+                                                                                        -.
+                                                                                    </span>
+                                                                                </i>
+                                                                            </div>
+                                                                        </div>
+                                                                        <input type="text" class="form-control"  placeholder="Ingrese nombre" id="nom_cli_l" name="nom_cli_l" required>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="row" id="a__o">
+                                                                <div class="col-sm-8">
+                                                                    <!-- text input -->
+                                                                    <div class="form-group">
+                                                                        <div class="flex">
+                                                                            <label>Direccion</label>
+                                                                            <div class="input-group-append">
+                                                                                <i class="fa-solid fa-circle-info tooltipInfo tooltip-right">
+                                                                                    <span class="tooltiptext">
+                                                                                        -.
+                                                                                    </span>
+                                                                                </i>
+                                                                            </div>
+                                                                        </div>
+                                                                        <input type="text" class="form-control" id="" name=""  required>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="row" id="antig_">
+                                                                <div class="col-sm-8">
+                                                                    <!-- text input -->
+                                                                    <div class="form-group">
+                                                                        <label>*</label>
+                                                                        <input type="text" class="form-control"  id="" name="" required>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <div class="d-grid gap-2 col-3 mx-auto form-flex">
+                                                <div type="submit" class="btn btn-info btn-lg col-md-12 nextPag">Registrar</div>
+                                            </div>
+                                        </div>
+                            		 </form>
+                            	</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+			<div class="row">
 				<div class="col-md-12">
 					<div class="card card-default">
 						<div class="card-header">
@@ -169,6 +315,9 @@ require_once('../Controller/controladorListar.php');
 	<!--<script src="../Vista/js/resume.js"></script>-->
 	<script src="../Vista/assets/functions.js"></script>
 
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/viewerjs/dist/viewer.min.css">
+	<script src="https://cdn.jsdelivr.net/npm/viewerjs/dist/viewer.min.js"></script>
+
 
 	<!-- jQuery -->
 	<script src="../Vista/plugins/jquery/jquery.min.js"></script>
@@ -214,6 +363,31 @@ require_once('../Controller/controladorListar.php');
         });
     });
     </script>
+
+   <script src="https://unpkg.com/xlsx/dist/xlsx.full.min.js"></script>
+	<script>
+	    document.getElementById('dni_l').addEventListener('change', function(e) {
+	        var file = e.target.files[0];
+	        var fileReader = new FileReader();
+
+	        fileReader.onload = function(e) {
+	            var arrayBuffer = e.target.result;
+	            var data = new Uint8Array(arrayBuffer);
+	            var workbook = XLSX.read(data, { type: 'array' });
+
+	            // Obtener el contenido de la primera hoja del archivo Excel
+	            var sheetName = workbook.SheetNames[0];
+	            var worksheet = workbook.Sheets[sheetName];
+	            var html = XLSX.utils.sheet_to_html(worksheet);
+
+	            // Insertar el contenido HTML en el div de vista previa
+	            document.getElementById('dni_resume').innerHTML = html;
+	        };
+
+	        fileReader.readAsArrayBuffer(file);
+	    });
+	</script>
+
 </body>
 
 </html>
