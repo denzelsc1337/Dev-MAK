@@ -284,24 +284,24 @@
                                                                             <div class="form-group flex">
                                                                                 <div class="col-sm-6 pdd-left">
                                                                                     <div class="custom-control custom-checkbox">
-                                                                                        <input class="right custom-control-input" type="checkbox" id="sala_com" name="sala_com" value="true">
+                                                                                        <input class="right custom-control-input" type="checkbox" id="sala_com" name="sala_com" value="">
                                                                                         <label for="sala_com" class="right custom-control-label">Sala Comedor:</label>
                                                                                     </div>
                                                                                     <br>
                                                                                     <div class="custom-control custom-checkbox">
-                                                                                        <input class="right custom-control-input" type="checkbox" id="sala_" name="sala_" value="true">
+                                                                                        <input class="right custom-control-input" type="checkbox" id="sala_" name="sala_" value="">
                                                                                         <label for="sala_" class="right custom-control-label">Sala:</label>
                                                                                     </div>
                                                                                     <br>
                                                                                     <div class="custom-control custom-checkbox">
-                                                                                        <input class="right custom-control-input" type="checkbox" id="comedor_" name="comedor_" value="true">
+                                                                                        <input class="right custom-control-input" type="checkbox" id="comedor_" name="comedor_" value="">
                                                                                         <label for="comedor_" class="right custom-control-label">Comedor:</label>
                                                                                     </div>
                                                                                 </div>
                                                                                 <br>
                                                                                 <div class="col-sm-6 pdd-left">
                                                                                     <div class="custom-control custom-checkbox">
-                                                                                        <input class="right custom-control-input" type="checkbox" id="cocina_" name="cocina_" value="true">
+                                                                                        <input class="right custom-control-input" type="checkbox" id="cocina_" name="cocina_" value="">
                                                                                         <label for="cocina_" class="right custom-control-label">Cocina:</label>
                                                                                     </div>
                                                                                     <br>
@@ -310,7 +310,7 @@
                                                                                                     <label for="jardin_t" class="right custom-control-label">Jardín Trasero:</label>
                                                                                                 </div> -->
                                                                                     <div class="custom-control custom-checkbox">
-                                                                                        <input class="right custom-control-input" type="checkbox" id="amoblado_" name="amoblado_" value="true">
+                                                                                        <input class="right custom-control-input" type="checkbox" id="amoblado_" name="amoblado_" value="">
                                                                                         <label for="amoblado_" class="right custom-control-label">Amoblado:</label>
                                                                                     </div>
                                                                                     <br>

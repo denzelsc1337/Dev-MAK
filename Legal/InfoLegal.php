@@ -77,7 +77,8 @@ require_once('../Controller/controladorListar.php');
                         <div class="card-body p-0">
                             <div class="bs-stepper">
                             	<div class="bs-stepper-content">
-                            		 <form method="POST" id="form_valor">
+                            		 <form method="POST" id="form_valor" action="../Controller/upload_docs_legal.php" enctype="multipart/form-data">
+                            		 	<input type="text" class="form-control" id="id_usu" name="id_usu" value="<?php echo $_SESSION['id_usu']; ?>">
                             		 	<div id="0" class="section col-md-12 movPag show" role="tabpanel" aria-labelledby="logins-part-trigger" data-target="first_step">
                                             <div class="row">
                                                 <div class="col-md-4">
@@ -89,6 +90,7 @@ require_once('../Controller/controladorListar.php');
                                                                     <div class="form-group">
                                                                         <label>DNI</label>
                                                                         <input type="file" class="form-control" id="dni_l" name="dni_l"required>
+                                                                        <input type="text" class="form-control" id="id_doc_type" name="id_doc_type" value="1">
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -99,6 +101,7 @@ require_once('../Controller/controladorListar.php');
                                                                     <div class="form-group">
                                                                         <label>P.U</label>
                                                                         <input type="file" class="form-control" id="pu_l" name="pu_l"required>
+                                                                        <input type="text" class="form-control" id="id_doc_type" name="id_doc_type" value="2">
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -108,7 +111,8 @@ require_once('../Controller/controladorListar.php');
                                                                     <!-- text input -->
                                                                     <div class="form-group">
                                                                         <label>H.R</label>
-                                                                        <input type="file" class="form-control" id="hr_l" name="hr_l"required>
+                                                                        <input type="file" class="form-control" id="hr_l" name="hr_l"required>.
+                                                                        <input type="text" class="form-control" id="id_doc_type" name="id_doc_type" value="3">
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -145,7 +149,7 @@ require_once('../Controller/controladorListar.php');
                                                     </div>
                                                 </div>
 
-                                                <div class="col-md-4">
+                                                <div class="col-md-4" hidden>
                                                     <div class="card card-default">
                                                         <div class="card-body">
                                                             <!-- Date dd/mm/yyyy -->
@@ -163,7 +167,7 @@ require_once('../Controller/controladorListar.php');
                                                                                 </i>
                                                                             </div>
                                                                         </div>
-                                                                        <input type="text" class="form-control"  placeholder="Ingrese nombre" id="nom_cli_l" name="nom_cli_l" required>
+                                                                        <input type="text" class="form-control"  placeholder="Ingrese nombre" id="nom_cli_l" name="nom_cli_l" >
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -182,7 +186,7 @@ require_once('../Controller/controladorListar.php');
                                                                                 </i>
                                                                             </div>
                                                                         </div>
-                                                                        <input type="text" class="form-control" id="" name=""  required>
+                                                                        <input type="text" class="form-control" id="" name=""  >
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -192,7 +196,7 @@ require_once('../Controller/controladorListar.php');
                                                                     <!-- text input -->
                                                                     <div class="form-group">
                                                                         <label>*</label>
-                                                                        <input type="text" class="form-control"  id="" name="" required>
+                                                                        <input type="text" class="form-control"  id="" name="" >
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -202,7 +206,7 @@ require_once('../Controller/controladorListar.php');
 
                                             </div>
                                             <div class="d-grid gap-2 col-3 mx-auto form-flex">
-                                                <div type="submit" class="btn btn-info btn-lg col-md-12 nextPag">Registrar</div>
+                                                <button type="submit" class="btn btn-info btn-lg col-md-12" id="btn_save_legal" name="btn_save_legal">Registrar</button>
                                             </div>
                                         </div>
                             		 </form>
@@ -299,6 +303,8 @@ require_once('../Controller/controladorListar.php');
 		        </div>
 		        <!-- /.modal-dialog -->
 		    </div>
+
+
 		</section>
 
 		<!-- /.card-body-->
@@ -311,7 +317,6 @@ require_once('../Controller/controladorListar.php');
 
 
 	<!-- REQUIRED SCRIPTS -->
-	<script src="../Vista/js/stepper.js"></script>
 	<!--<script src="../Vista/js/resume.js"></script>-->
 	<script src="../Vista/assets/functions.js"></script>
 
@@ -345,7 +350,6 @@ require_once('../Controller/controladorListar.php');
 	<!-- AdminLTE for demo purposes -->
 	<script src="../Vista/dist/js/demo.js"></script>
 	<!-- Page specific script -->
-	<script src="../Vista/assets/selection_types.js"></script>
 
 	<script>
     $(document).ready(function() {
@@ -366,6 +370,7 @@ require_once('../Controller/controladorListar.php');
 
    <script src="https://unpkg.com/xlsx/dist/xlsx.full.min.js"></script>
 	<script>
+		/*
 	    document.getElementById('dni_l').addEventListener('change', function(e) {
 	        var file = e.target.files[0];
 	        var fileReader = new FileReader();
@@ -385,7 +390,7 @@ require_once('../Controller/controladorListar.php');
 	        };
 
 	        fileReader.readAsArrayBuffer(file);
-	    });
+	    });*/
 	</script>
 
 </body>

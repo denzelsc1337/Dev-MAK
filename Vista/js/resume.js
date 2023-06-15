@@ -80,8 +80,12 @@
             //
             const select = element.querySelectorAll("select");
             select.forEach((ele) => {
-              // console.log(ele.value);
-              arrayValues.push(ele.value);
+              //console.log(ele);
+              //console.log(ele.textContent);
+              const value_ = ele.value;
+              const textValue_ = ele.options[ele.selectedIndex].innerText;
+              //console.log(textValue_);
+              arrayValues.push(textValue_);
             });
             // console.log("---");
           });
