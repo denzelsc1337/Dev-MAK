@@ -1,4 +1,14 @@
 (() => {
+  // inputs checkbox de los formularios
+  var inputsID_chk = [];
+  // inputs number de los formularios
+  var inputsID_num = [];
+  // selects de los formularios
+  var selectsID = [];
+  // all
+  var arrayNames = [];
+  var arrayValues = [];
+  //
   var sections = document.querySelectorAll(".section");
   var section_Array = [];
 
@@ -18,55 +28,69 @@
   buttonNextPag.addEventListener("click", function () {
     if (section_Array.includes(whatTI)) {
       const section = document.getElementById(whatTI);
-      const inputs = section.querySelectorAll("input");
+      const inputs_chk = section.querySelectorAll("input[type='checkbox']");
+      const inputs_num = section.querySelectorAll("input[type='number']");
       const selects = section.querySelectorAll("select");
+      const titles = section.querySelectorAll("label");
 
+      ///
+      const cardPrimary = section.querySelectorAll(".card.card-primary");
+      //
+      cardPrimary.forEach((element) => {
+        //
+        const cardBodys = element.querySelectorAll(".card-body");
+        //
+        cardBodys.forEach((element) => {
+          const lbl = element.querySelectorAll("label");
+          lbl.forEach((label) => {
+            arrayNames.push(label.textContent);
+          });
+        });
+      });
+      ///
+      // console.log(titles);
+      //
+      inputs_chk.forEach((element) => {
+        // console.log(element);
+        inputsID_chk.push(element.getAttribute("id"));
+      });
+      // ------
+      inputs_num.forEach((element) => {
+        inputsID_num.push(element.getAttribute("id"));
+      });
+      //
+      selects.forEach((element) => {
+        selectsID.push(element.getAttribute("id"));
+      });
+
+      // -----
       const buttonSigPag = section.querySelector(".sigPag");
-
       buttonSigPag.addEventListener("click", function () {
-        // inputs de los formularios
-        var inputsID = [];
-        // selects de los formularios
-        var selectsID = [];
-        // valores de las etiquetas de los formularios
-        var tagsValue = [];
-        // valores string de los cbo de los formularios
-        var tagsText = [];
-        // all
-        var arrayIDs = [];
-        var arrayValues = [];
-
-        inputs.forEach((element) => {
-          // inputsID.push(element.getAttribute("id"));
-          arrayIDs.push(element.getAttribute("id"));
-          // console.log(element.value);
-          if (element.value.trim() === "") {
-            // tagsValue.push("");
-            arrayValues.push("");
-          } else {
-            // tagsValue.push(element.value);
-            arrayValues.push(element.value);
-          }
+        cardPrimary.forEach((card) => {
+          //
+          const cardBodys = card.querySelectorAll(".card-body");
+          //
+          cardBodys.forEach((element) => {
+            const input = element.querySelectorAll("input");
+            input.forEach((ele) => {
+              // console.log(ele.value);
+              arrayValues.push(ele.value);
+            });
+            // console.log("---");
+            //
+            const select = element.querySelectorAll("select");
+            select.forEach((ele) => {
+              // console.log(ele.value);
+              arrayValues.push(ele.value);
+            });
+            // console.log("---");
+          });
         });
 
         //
-        var selectSections;
-        var selectText;
-        selects.forEach(function (select) {
-          // selectsID.push(select.getAttribute("id"));
-          arrayIDs.push(select.getAttribute("id"));
-          var selectOptions = select.options;
-          var selectedOption = selectOptions[select.selectedIndex];
-          if (selectedOption) {
-            // tagsText.push(selectedOption.text);
-            arrayValues.push(selectedOption.text);
-          } else {
-            // tagsText.push("");
-            arrayValues.push("");
-          }
-        });
-        console.log(arrayIDs);
+        console.log(arrayNames);
         console.log(arrayValues);
+
         const cards = document.querySelectorAll(".card-body");
 
         cards.forEach((element) => {
@@ -81,24 +105,52 @@
               if (resume !== null) {
                 var resumeForm = "";
 
-                for (let index = 0; index < arrayIDs.length; index++) {
-                  var valor1 = arrayIDs[index];
+                for (let index = 0; index < arrayNames.length; index++) {
+                  var valor1 = arrayNames[index];
                   var valor2 = arrayValues[index];
 
                   var contenidoExplicit =
-                    "<strong>" + valor1 + ": </strong>" + valor2 + "." + "<br>";
+                    "<li><strong>" + valor1 + " </strong>";
 
-                  resumeForm += contenidoExplicit;
+                  if (valor2 === "true") {
+                    resumeForm += contenidoExplicit + "Sí." + "<br></li>";
+                  } else if (
+                    valor2 !== "false" &&
+                    valor2 !== "" &&
+                    valor2 !== 0 &&
+                    valor2 !== "-1" &&
+                    valor2 !== "on" &&
+                    valor2 !== "Seleccione"
+                  ) {
+                    resumeForm +=
+                      contenidoExplicit + valor2 + "." + "<br></li>";
+                  }
                 }
-
                 element.innerHTML = resumeForm;
-                // element.innerHTML = inputSections + ": " + inputValue;
-                // element.innerHTML += selectSections + ": " + selectText;
               }
             });
           }
         });
       });
+
+      // true or false in chks
+      inputsID_chk.forEach(function (checkboxID) {
+        var checkbox = document.getElementById(checkboxID);
+        checkbox.addEventListener("change", function () {
+          if (this.checked) {
+            this.value = "true";
+          } else {
+            this.value = "false";
+          }
+        });
+      });
+      // true or false in chks
     }
+  });
+
+  const buttonAtrPag = document.querySelector(".atrPag");
+
+  buttonAtrPag.addEventListener("click", function () {
+    arrayValues.splice(0);
   });
 })();

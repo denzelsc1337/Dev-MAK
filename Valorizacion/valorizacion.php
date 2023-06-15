@@ -1758,7 +1758,7 @@
 
     <!-- REQUIRED SCRIPTS -->
     <script src="../Vista/js/stepper.js"></script>
-    <!--<script src="../Vista/js/resume.js"></script>-->
+    <script src="../Vista/js/resume.js"></script>
     <script src="../Vista/assets/functions.js"></script>
 
 
@@ -1866,7 +1866,10 @@
 
                 try {
                     const results = await geocodeAddress(geocoder, direccion);
-                    const { lat, lng } = getLatLngFromGeocodeResult(results);
+                    const {
+                        lat,
+                        lng
+                    } = getLatLngFromGeocodeResult(results);
 
                     await mostrarMapaAsync(lat, lng, mapa1Id);
                     await mostrarMapaAsync(lat, lng, mapa2Id);
@@ -1878,7 +1881,9 @@
 
         function geocodeAddress(geocoder, direccion) {
             return new Promise((resolve, reject) => {
-                geocoder.geocode({ address: direccion }, (results, status) => {
+                geocoder.geocode({
+                    address: direccion
+                }, (results, status) => {
                     if (status === 'OK') {
                         resolve(results);
                     } else {
@@ -1890,18 +1895,27 @@
 
         function getLatLngFromGeocodeResult(results) {
             const location = results[0].geometry.location;
-            return { lat: location.lat(), lng: location.lng() };
+            return {
+                lat: location.lat(),
+                lng: location.lng()
+            };
         }
 
         function mostrarMapaAsync(latitud, longitud, divId) {
             return new Promise((resolve, reject) => {
                 const mapa = new google.maps.Map(document.getElementById(divId), {
                     zoom: 17,
-                    center: { lat: latitud, lng: longitud },
+                    center: {
+                        lat: latitud,
+                        lng: longitud
+                    },
                 });
 
                 const marcador = new google.maps.Marker({
-                    position: { lat: latitud, lng: longitud },
+                    position: {
+                        lat: latitud,
+                        lng: longitud
+                    },
                     map: mapa,
                 });
 
@@ -1911,7 +1925,7 @@
         }
 
 
-        function mostrarMapa(latitud, longitud,divId) {
+        function mostrarMapa(latitud, longitud, divId) {
             const mapa = new google.maps.Map(document.getElementById(divId), {
                 zoom: 17,
                 center: {
