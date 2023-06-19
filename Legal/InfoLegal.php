@@ -77,46 +77,53 @@ require_once('../Controller/controladorListar.php');
                         <div class="card-body p-0">
                             <div class="bs-stepper">
                             	<div class="bs-stepper-content">
-                            		 <form method="POST" id="form_valor" action="../Controller/upload_docs_legal.php" enctype="multipart/form-data">
-                            		 	<input type="text" class="form-control" id="id_usu" name="id_usu" value="<?php echo $_SESSION['id_usu']; ?>">
                             		 	<div id="0" class="section col-md-12 movPag show" role="tabpanel" aria-labelledby="logins-part-trigger" data-target="first_step">
                                             <div class="row">
                                                 <div class="col-md-4">
                                                     <div class="card card-default">
                                                         <div class="card-body">
-                                                            <div class="row">
-                                                                <div class="col-sm-10">
-                                                                    <!-- text input -->
-                                                                    <div class="form-group">
-                                                                        <label>DNI</label>
-                                                                        <input type="file" class="form-control" id="dni_l" name="dni_l"required>
-                                                                        <input type="text" class="form-control" id="id_doc_type" name="id_doc_type" value="1">
-                                                                    </div>
-                                                                </div>
-                                                            </div>
+                                                        	<form method="POST" action="../Controller/Upload_Legal_Docs.php" enctype="multipart/form-data">
+                                                        		<input type="text" class="form-control" id="dni_usu_0" name="dni_usu_0" value="<?php echo $_SESSION['dni']; ?>">
+	                                                            <div class="row">
+	                                                                <div class="col-sm-10">
+	                                                                    <!-- text input -->
+	                                                                    <div class="form-group">
+	                                                                        <label>H.R</label>
+	                                                                        <input type="file" class="form-control" id="hr_s" name="hr_s">
 
-                                                            <div class="row">
-                                                                <div class="col-sm-10">
-                                                                    <!-- text input -->
-                                                                    <div class="form-group">
-                                                                        <label>P.U</label>
-                                                                        <input type="file" class="form-control" id="pu_l" name="pu_l"required>
-                                                                        <input type="text" class="form-control" id="id_doc_type" name="id_doc_type" value="2">
-                                                                    </div>
-                                                                </div>
-                                                            </div>
+	                                                                    </div>
+	                                                                </div>
+	                                                            </div>
+	                                                            <button type="submit" class="btn btn-info btn-lg col-md-12" id="btn_save_hr" name="btn_save_hr">Registrar</button>
+                                                        	</form>
 
-                                                            <div class="row">
-                                                                <div class="col-sm-10">
-                                                                    <!-- text input -->
-                                                                    <div class="form-group">
-                                                                        <label>H.R</label>
-                                                                        <input type="file" class="form-control" id="hr_l" name="hr_l"required>.
-                                                                        <input type="text" class="form-control" id="id_doc_type" name="id_doc_type" value="3">
-                                                                    </div>
-                                                                </div>
-                                                            </div>
+                                                        	<form method="POST" action="../Controller/Upload_Legal_Docs.php" enctype="multipart/form-data">
+                                                        		<input type="text" class="form-control" id="dni_usu_1" name="dni_usu_1" value="<?php echo $_SESSION['dni']; ?>">
+	                                                            <div class="row">
+	                                                                <div class="col-sm-10">
+	                                                                    <!-- text input -->
+	                                                                    <div class="form-group">
+	                                                                        <label>P.U</label>
+	                                                                        <input type="file" class="form-control" id="pu_s" name="pu_s">
+	                                                                    </div>
+	                                                                </div>
+	                                                            </div>
+	                                                            <button type="submit" class="btn btn-info btn-lg col-md-12" id="btn_save_pu" name="btn_save_pu">Registrar</button>
+	                                                        </form>
 
+	                                                        <form method="POST" action="../Controller/Upload_Legal_Docs.php" enctype="multipart/form-data">
+                                                        		<input type="text" class="form-control" id="dni_usu_2" name="dni_usu_2" value="<?php echo $_SESSION['dni']; ?>">
+	                                                            <div class="row">
+	                                                                <div class="col-sm-10">
+	                                                                    <!-- text input -->
+	                                                                    <div class="form-group">
+	                                                                        <label>Copia Literal</label>
+	                                                                        <input type="file" class="form-control" id="cl_s" name="cl_s">
+	                                                                    </div>
+	                                                                </div>
+	                                                            </div>
+	                                                            <button type="submit" class="btn btn-info btn-lg col-md-12" id="btn_save_cl" name="btn_save_cl">Registrar</button>
+	                                                        </form>
                                                         </div>
                                                     </div>
                                                 </div>
