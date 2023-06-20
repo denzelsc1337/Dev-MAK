@@ -90,7 +90,7 @@ require_once('../Controller/controladorListar.php');
 	                                                                    <div class="form-group">
 	                                                                        <label>H.R</label>
 	                                                                        <input type="file" class="form-control" id="hr_s" name="hr_s">
-
+	                                                                        <button type="button" class="btn btn-rounded btn-success btn_lst_hr btn_lst_hr_0" data-toggle="modal" data-target="#lst_hr_0" data-valor="H_R">Subir</button>
 	                                                                    </div>
 	                                                                </div>
 	                                                            </div>
@@ -105,6 +105,7 @@ require_once('../Controller/controladorListar.php');
 	                                                                    <div class="form-group">
 	                                                                        <label>P.U</label>
 	                                                                        <input type="file" class="form-control" id="pu_s" name="pu_s">
+	                                                                        <button type="button" class="btn btn-rounded btn-success btn_lst_hr btn_lst_hr_0" data-toggle="modal" data-target="#lst_hr_0" data-valor="P_U">Subir</button>
 	                                                                    </div>
 	                                                                </div>
 	                                                            </div>
@@ -119,6 +120,7 @@ require_once('../Controller/controladorListar.php');
 	                                                                    <div class="form-group">
 	                                                                        <label>Copia Literal</label>
 	                                                                        <input type="file" class="form-control" id="cl_s" name="cl_s">
+	                                                                        <button type="button" class="btn btn-rounded btn-success btn_lst_hr btn_lst_hr_0" data-toggle="modal" data-target="#lst_hr_0" data-valor="C_L">Subir</button>
 	                                                                    </div>
 	                                                                </div>
 	                                                            </div>
@@ -224,6 +226,28 @@ require_once('../Controller/controladorListar.php');
                 </div>
             </div>
 
+            <div class="modal fade" id="modal-default">
+		        <div class="modal-dialog">
+		          <div class="modal-content">
+		            <div class="modal-header">
+		              <h4 class="modal-title">Default Modal</h4>
+		              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		                <span aria-hidden="true">&times;</span>
+		              </button>
+		            </div>
+		            <div class="modal-body">
+		              <p>One fine body&hellip;</p>
+		            </div>
+		            <div class="modal-footer justify-content-between">
+		              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+		              <button type="button" class="btn btn-primary">Save changes</button>
+		            </div>
+		          </div>
+		          <!-- /.modal-content -->
+		        </div>
+		        <!-- /.modal-dialog -->
+		   </div>
+
 			<div class="row">
 				<div class="col-md-12">
 					<div class="card card-default">
@@ -272,40 +296,72 @@ require_once('../Controller/controladorListar.php');
 
 			<div class="modal fade" id="upload_doc">
 		        <div class="modal-dialog">
-		          <div class="modal-content">
+		        	<div class="modal-content">
+			            <div class="modal-header">
+			              <h4 class="modal-title">Subir Documento</h4>
+			              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			                <span aria-hidden="true">&times;</span>
+			              </button>
+			            </div>
+			            <form action="../Controller/upload_docs_legal.php" method="POST" enctype="multipart/form-data">
+			            	<div class="modal-body">
+			            		<div class="form-group" hidden>
+	                                    <label>usuario</label>
+	                                    <input type="text" name="usu_dni" id="usu_dni" value="<?php echo $_SESSION['dni'] ?>">
+	                                    <br>
+	                                    <label>secuence</label>
+	                                    <input type="text" name="id_usu" id="id_usu" value="<?php echo $_SESSION['id_usu'] ?>">
+	                                    <br>
+	                                    <label>id doc type</label>
+	                                    <input type="text" name="id_doc_type" id="id_doc_type">
+	                                    <br>
+	                                    <label>desc</label>
+	                                    <input type="text" name="desc_doc" id="desc_doc">
+	                            </div>
+			            		<div class="form-group">
+		                            <input type="file" name="fileToUpload" id="fileToUpload">
+		                        </div>
+		                        <div class="modal-footer justify-content-between">
+					              <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+					              <button id="save_doc_legal" type="save_doc_legal" name="submit" class="btn btn-primary">Subir</button>
+					            </div>
+			            	</div>
+			            </form>
+		          	</div>
+		          <!-- /.modal-content -->
+		        </div>
+		        <!-- /.modal-dialog -->
+		    </div>
 
-		            <div class="modal-header">
-		              <h4 class="modal-title">Subir Documento</h4>
-		              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-		                <span aria-hidden="true">&times;</span>
-		              </button>
-		            </div>
-		            <form action="../Controller/upload_docs_legal.php" method="POST" enctype="multipart/form-data">
-		            	<div class="modal-body">
-		            		<div class="form-group" hidden>
-                                    <label>usuario</label>
-                                    <input type="text" name="usu_dni" id="usu_dni" value="<?php echo $_SESSION['dni'] ?>">
-                                    <br>
-                                    <label>secuence</label>
-                                    <input type="text" name="id_usu" id="id_usu" value="<?php echo $_SESSION['id_usu'] ?>">
-                                    <br>
-                                    <label>id doc type</label>
-                                    <input type="text" name="id_doc_type" id="id_doc_type">
-                                    <br>
-                                    <label>desc</label>
-                                    <input type="text" name="desc_doc" id="desc_doc">
-                            </div>
-		            		<div class="form-group">
-	                            <input type="file" name="fileToUpload" id="fileToUpload">
-	                        </div>
-	                        <div class="modal-footer justify-content-between">
-				              <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-				              <button id="save_doc_legal" type="save_doc_legal" name="submit" class="btn btn-primary">Subir</button>
-				            </div>
-		            	</div>
-		            </form>
-
-		          </div>
+		    <div class="modal fade" id="lst_hr_0">
+		        <div class="modal-dialog">
+		        	<div class="modal-content">
+			            <div class="modal-header">
+			              <h4 class="modal-title">Mis Documento</h4>
+			              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			                <span aria-hidden="true">&times;</span>
+			              </button>
+			            </div>
+			            <form action="../Controller/upload_docs_legal.php" method="POST" enctype="multipart/form-data">
+			            	<div class="modal-body">
+			            		<div class="form-group">
+	                                    <label>usuario</label>
+	                                    <input type="text" name="usu_dni" id="usu_dni" value="<?php echo $_SESSION['dni'] ?>">
+	                                    <br>
+	                                    <label>concepto</label>
+	                                    <input type="text" name="_concept" id="_concept" value="H_R">
+	                                    <br>
+	                            </div>
+			            		<div class="form-group">
+		                           <label id="descarga_archivo_m"></label>
+		                        </div>
+		                        <div class="modal-footer justify-content-between">
+					              <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+					              <button id="save_doc_legal" type="save_doc_legal" name="submit" class="btn btn-primary">Subir</button>
+					            </div>
+			            	</div>
+			            </form>
+		          	</div>
 		          <!-- /.modal-content -->
 		        </div>
 		        <!-- /.modal-dialog -->
@@ -372,6 +428,62 @@ require_once('../Controller/controladorListar.php');
             $('#id_doc_type').val(data[1]);
             $('#desc_doc').val(data[2].trim());
         });
+
+        $('.btn_lst_hr').on('click', function() {
+            console.log("test");
+
+
+            $('#lst_hr_0').modal('show');
+
+
+            var valor1 = $(this).data('valor');
+
+            console.log(valor1);
+
+            $('#_concept').val(valor1);
+
+            var concepto = $('#_concept').val();
+
+            var dni =  $('#usu_dni').val();
+
+            console.log(concepto);
+
+            $.ajax({
+                type: 'POST',
+                url: '../Controller/obtener_files.php',
+                data: {
+                    usu_dni: dni,
+                    _concept: concepto
+                },
+                success: function(response) {
+
+                    if (response.trim() === "Aun no se han subido archivos") {
+
+                        console.log(response);
+                        console.log("Sin archivos");
+
+                    } else if (response.trim() === "no se encontraron archivos") {
+                        console.log("No se encontraron archivos");
+                    } else {
+
+
+                        var link_ = $('<a>')
+                            .attr('href','../Documentos Legal/'+dni+'/'+concepto+'/'+response)
+                            .text(response);
+
+                        $('#descarga_archivo_m').html(link_);
+
+                        console.log(response);
+                    }
+                },
+                error: function(xhr, status, error) {
+                    console.log(error);
+                }
+            });
+
+        });
+
+
     });
     </script>
 
