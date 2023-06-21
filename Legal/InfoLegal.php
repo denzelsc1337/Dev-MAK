@@ -449,47 +449,49 @@ require_once('../Controller/controladorListar.php');
             console.log(concepto);
 
             $.ajax({
-    type: 'POST',
-    url: '../Controller/obtener_files.php',
-    data: {
-        usu_dni: dni,
-        _concept: concepto
-    },
-    success: function(response) {
-        var files = JSON.parse(response);
+			    type: 'POST',
+			    url: '../Controller/obtener_files.php',
+			    data: {
+			        usu_dni: dni,
+			        _concept: concepto
+			    },
+			    success: function(response) {
+			        var files = JSON.parse(response);
 
-        if (Array.isArray(files) && files.length === 0) {
-            console.log("No se encontraron archivos");
-        } else {
-            var fileList = $('<ol>');
+			        if (Array.isArray(files) && files.length === 0) {
+			            console.log("No se encontraron archivos");
+			        } else {
+			            var fileList = $('<ol>');
 
-            if (Array.isArray(files)) {
-                files.forEach(function(file) {
-                    var link_ = $('<a>')
-                        .attr('href','../Documentos Legal/'+dni+'/'+concepto+'/'+file)
-                        .text(file);
+			            if (Array.isArray(files)) {
+			                files.forEach(function(file) {
+			                    var link_ = $('<a>')
+			                        .attr('href','../Documentos Legal/'+dni+'/'+concepto+'/'+file)
+			                        .text(file);
 
-                    var listItem = $('<li>').append(link_);
-                    fileList.append(listItem);
-                });
-            } else {
-                var link_ = $('<a>')
-                    .attr('href','../Documentos Legal/'+dni+'/'+concepto+'/'+files)
-                    .text(files);
+			                    var listItem = $('<li>').append(link_);
+			                    fileList.append(listItem);
+			                });
+			            } else {
+			                var link_ = $('<a>')
+			                    .attr('href','../Documentos Legal/'+dni+'/'+concepto+'/'+files)
+			                    .text(files);
 
-                var listItem = $('<li>').append(link_);
-                fileList.append(listItem);
-            }
+			                var listItem = $('<li>').append(link_);
+			                fileList.append(listItem);
+			            }
 
-            $('#descarga_archivo_m').empty().append(fileList);
+			            $('#descarga_archivo_m').empty().append(fileList);
+			            
+			            console.log(fileList);
 
-            console.log(files); // Output the files array
-        }
-    },
-    error: function(xhr, status, error) {
-        console.log(error);
-    }
-});
+			            console.log(files);
+			        }
+			    },
+			    error: function(xhr, status, error) {
+			        console.log(error);
+			    }
+			});
 
         });
 
