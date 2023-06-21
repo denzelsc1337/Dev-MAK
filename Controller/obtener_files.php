@@ -6,6 +6,42 @@ $concepto_ = $_POST['_concept'];
 $dir = '../Documentos Legal/'.$dni_u.'/'.$concepto_;
 
 //echo $dir;
+
+$files = [];
+
+if (!is_dir($dir)) {
+    $files[] = "Aun no se han subido archivos.";
+} else {
+    $files = array_diff(scandir($dir), array('.', '..'));
+
+    if (empty($files)) {
+        $files[] = "No se encontraron archivos.";
+    }
+}
+
+echo json_encode($files);
+
+/*if (!is_dir($dir)) {
+    echo "Aun no se han subido archivos.";
+}else{
+    //se lista los archvos
+    $files = scandir($dir);
+
+    $files = array_diff($files, array('.', '..'));
+
+    if (empty($files)) {
+        echo "No se encontraron archivos.";
+    }else{
+        //imprmir los archivos
+        foreach ($files as $each_file_) {
+             echo $each_file_;
+        }
+    }
+}*/
+
+
+
+/*
 $last_file = '';
 if (!is_dir($dir)) {
     echo "Aun no se han subido archivos";
@@ -28,7 +64,7 @@ if (!is_dir($dir)) {
         $last_file = $files[0];
         echo $last_file;
     }
-}
+}*/
 //echo $last_file;
 
 ?>

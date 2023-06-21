@@ -449,37 +449,47 @@ require_once('../Controller/controladorListar.php');
             console.log(concepto);
 
             $.ajax({
-                type: 'POST',
-                url: '../Controller/obtener_files.php',
-                data: {
-                    usu_dni: dni,
-                    _concept: concepto
-                },
-                success: function(response) {
+    type: 'POST',
+    url: '../Controller/obtener_files.php',
+    data: {
+        usu_dni: dni,
+        _concept: concepto
+    },
+    success: function(response) {
+        var files = JSON.parse(response);
 
-                    if (response.trim() === "Aun no se han subido archivos") {
+        if (Array.isArray(files) && files.length === 0) {
+            console.log("No se encontraron archivos");
+        } else {
+            var fileList = $('<ol>');
 
-                        console.log(response);
-                        console.log("Sin archivos");
+            if (Array.isArray(files)) {
+                files.forEach(function(file) {
+                    var link_ = $('<a>')
+                        .attr('href','../Documentos Legal/'+dni+'/'+concepto+'/'+file)
+                        .text(file);
 
-                    } else if (response.trim() === "no se encontraron archivos") {
-                        console.log("No se encontraron archivos");
-                    } else {
+                    var listItem = $('<li>').append(link_);
+                    fileList.append(listItem);
+                });
+            } else {
+                var link_ = $('<a>')
+                    .attr('href','../Documentos Legal/'+dni+'/'+concepto+'/'+files)
+                    .text(files);
 
+                var listItem = $('<li>').append(link_);
+                fileList.append(listItem);
+            }
 
-                        var link_ = $('<a>')
-                            .attr('href','../Documentos Legal/'+dni+'/'+concepto+'/'+response)
-                            .text(response);
+            $('#descarga_archivo_m').empty().append(fileList);
 
-                        $('#descarga_archivo_m').html(link_);
-
-                        console.log(response);
-                    }
-                },
-                error: function(xhr, status, error) {
-                    console.log(error);
-                }
-            });
+            console.log(files); // Output the files array
+        }
+    },
+    error: function(xhr, status, error) {
+        console.log(error);
+    }
+});
 
         });
 
