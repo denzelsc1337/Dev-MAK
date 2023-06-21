@@ -90,7 +90,7 @@ require_once('../Controller/controladorListar.php');
 	                                                                    <div class="form-group">
 	                                                                        <label>H.R</label>
 	                                                                        <input type="file" class="form-control" id="hr_s" name="hr_s">
-	                                                                        <button type="button" class="btn btn-rounded btn-success btn_lst_hr btn_lst_hr_0" data-toggle="modal" data-target="#lst_hr_0" data-valor="H_R">Subir</button>
+	                                                                        <button type="button" class="btn btn-rounded btn-success btn_lst_hr btn_lst_hr_0" data-toggle="modal" data-target="#lst_hr_0" data-valor="H_R" data-titulo="Hoja de Resumen">ver</button>
 	                                                                    </div>
 	                                                                </div>
 	                                                            </div>
@@ -105,7 +105,7 @@ require_once('../Controller/controladorListar.php');
 	                                                                    <div class="form-group">
 	                                                                        <label>P.U</label>
 	                                                                        <input type="file" class="form-control" id="pu_s" name="pu_s">
-	                                                                        <button type="button" class="btn btn-rounded btn-success btn_lst_hr btn_lst_hr_0" data-toggle="modal" data-target="#lst_hr_0" data-valor="P_U">Subir</button>
+	                                                                        <button type="button" class="btn btn-rounded btn-success btn_lst_hr btn_lst_hr_0" data-toggle="modal" data-target="#lst_hr_0" data-valor="P_U" data-titulo="Predio Urbano">ver</button>
 	                                                                    </div>
 	                                                                </div>
 	                                                            </div>
@@ -120,7 +120,7 @@ require_once('../Controller/controladorListar.php');
 	                                                                    <div class="form-group">
 	                                                                        <label>Copia Literal</label>
 	                                                                        <input type="file" class="form-control" id="cl_s" name="cl_s">
-	                                                                        <button type="button" class="btn btn-rounded btn-success btn_lst_hr btn_lst_hr_0" data-toggle="modal" data-target="#lst_hr_0" data-valor="C_L">Subir</button>
+	                                                                        <button type="button" class="btn btn-rounded btn-success btn_lst_hr btn_lst_hr_0" data-toggle="modal" data-target="#lst_hr_0" data-valor="C_L" data-titulo="Copia Literal">ver</button>
 	                                                                    </div>
 	                                                                </div>
 	                                                            </div>
@@ -337,14 +337,14 @@ require_once('../Controller/controladorListar.php');
 		        <div class="modal-dialog">
 		        	<div class="modal-content">
 			            <div class="modal-header">
-			              <h4 class="modal-title">Mis Documento</h4>
+			              <h4 class="modal-title">Mis Documentos: <strong id="titulo_docs"></strong></h4>
 			              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 			                <span aria-hidden="true">&times;</span>
 			              </button>
 			            </div>
 			            <form action="../Controller/upload_docs_legal.php" method="POST" enctype="multipart/form-data">
 			            	<div class="modal-body">
-			            		<div class="form-group">
+			            		<div class="form-group" hidden>
 	                                    <label>usuario</label>
 	                                    <input type="text" name="usu_dni" id="usu_dni" value="<?php echo $_SESSION['dni'] ?>">
 	                                    <br>
@@ -353,7 +353,7 @@ require_once('../Controller/controladorListar.php');
 	                                    <br>
 	                            </div>
 			            		<div class="form-group">
-		                           <label id="descarga_archivo_m"></label>
+		                           <div id="descarga_archivo_m"></div>
 		                        </div>
 		                        <div class="modal-footer justify-content-between">
 					              <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
@@ -437,15 +437,21 @@ require_once('../Controller/controladorListar.php');
 
 
             var valor1 = $(this).data('valor');
+            var titulo_ = $(this).data('titulo');
 
             console.log(valor1);
 
             $('#_concept').val(valor1);
+            $('#titulo_docs').text(titulo_);
 
             var concepto = $('#_concept').val();
 
+            var titulo_modal = $('#titulo_docs').val();
+
             var dni =  $('#usu_dni').val();
 
+
+            console.log(titulo_modal);
             console.log(concepto);
 
             $.ajax({
@@ -459,33 +465,38 @@ require_once('../Controller/controladorListar.php');
 			        var files = JSON.parse(response);
 
 			        if (Array.isArray(files) && files.length === 0) {
-			            console.log("No se encontraron archivos");
+			             $('#descarga_archivo_m').html('<p>No se han subido archivos.</p>');
 			        } else {
 			            var fileList = $('<ol>');
 
 			            if (Array.isArray(files)) {
 			                files.forEach(function(file) {
-			                    var link_ = $('<a>')
-			                        .attr('href','../Documentos Legal/'+dni+'/'+concepto+'/'+file)
-			                        .text(file);
+			                    if (typeof file === 'string') {
+						            var link_ = $('<a>')
+						                .attr('href', '../Documentos Legal/' + dni + '/' + concepto + '/' + file)
+						                .text(file);
 
-			                    var listItem = $('<li>').append(link_);
-			                    fileList.append(listItem);
+						            var listItem = $('<li>').append(link_);
+						            fileList.append(listItem);
+						        }
 			                });
-			            } else {
+			            } else if (typeof files === 'string'){
 			                var link_ = $('<a>')
 			                    .attr('href','../Documentos Legal/'+dni+'/'+concepto+'/'+files)
 			                    .text(files);
 
 			                var listItem = $('<li>').append(link_);
 			                fileList.append(listItem);
+
+			                console.log("entra aqui");
 			            }
 
-			            $('#descarga_archivo_m').empty().append(fileList);
-			            
-			            console.log(fileList);
+			            $('#descarga_archivo_m').empty();
+			            $('#descarga_archivo_m').html(fileList);
 
 			            console.log(files);
+
+			            console.log(fileList.html());
 			        }
 			    },
 			    error: function(xhr, status, error) {

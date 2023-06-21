@@ -5,18 +5,13 @@ $concepto_ = $_POST['_concept'];
 
 $dir = '../Documentos Legal/'.$dni_u.'/'.$concepto_;
 
-//echo $dir;
-
 $files = [];
 
 if (!is_dir($dir)) {
-    $files[] = "Aun no se han subido archivos.";
-} else {
-    $files = array_diff(scandir($dir), array('.', '..'));
 
-    if (empty($files)) {
-        $files[] = "No se encontraron archivos.";
-    }
+} else {
+    $fileNames = array_diff(scandir($dir), array('.', '..'));
+    $files = array_values($fileNames);
 }
 
 echo json_encode($files);
