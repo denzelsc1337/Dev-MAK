@@ -1,5 +1,7 @@
 :root {
   --radius-20: 20px;
+  --blue-mak: #182f59;
+  --yell-mak: #f39200;
 }
 
 body {
@@ -27,6 +29,15 @@ h6,
   font-family: "Roboto", sans-serif;
 }
 
+.bor-rght-20 {
+  /* border-radius: var(--radius-20); */
+  border-radius: 20px 0 0 20px;
+}
+.bor-lft-20 {
+  /* border-radius: var(--radius-20); */
+  border-radius: 0 20px 20px 0;
+}
+
 a {
   -webkit-transition: 0.3s all ease;
   -o-transition: 0.3s all ease;
@@ -37,16 +48,42 @@ a:hover {
   text-decoration: none !important;
 }
 
-.card {
-    box-shadow: 4px 5px 8px 3px rgb(0 0 0 / 10%), 0 1px 3px rgba(0, 0, 0, 15%) !important;
+.mak-txt {
+  color: var(--blue-mak) !important;
+}
+.mak-bg {
+  background-color: var(--blue-mak) !important;
+}
+
+.mak {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.card,
+.card-login {
+  width: 100%;
+  box-shadow: 0 6px 10px 0 rgb(0 0 0 / 40%), 0 1px 3px rgba(0, 0, 0, 15%) !important;
+}
+
+.content {
+  padding: 0 !important;
+  margin: 0 !important;
+  height: 100vh;
+}
+
+.content.mak {
+  height: calc(100vh - 57.33px);
+}
+
+.display-center {
+  display: flex;
+  align-items: center;
 }
 
 .flex {
   display: flex;
-}
-
-.content {
-  padding: 7rem 0;
 }
 
 h2 {
@@ -70,6 +107,203 @@ h2 {
     width: 100%;
   }
 }
+
+/* LOGIN */
+.card-login,
+.card-login p {
+  color: white !important;
+}
+.card-login.forgot,
+.card-login.forgot p {
+  color: var(--blue-mak) !important;
+}
+.header-login {
+  display: flex;
+  justify-content: space-between;
+  padding: 1.5rem 1rem;
+}
+.body-login {
+  margin: 0 auto;
+  text-align: center;
+}
+.card-login h1 {
+  font-size: 50px;
+}
+
+.card-login p {
+  font-size: 20px;
+  margin-bottom: 2rem;
+}
+
+.card-login.forgot p {
+  margin-bottom: 1rem;
+}
+.card-login.forgot p:nth-child(3) {
+  font-weight: bold;
+}
+
+.footer-login {
+  display: flex;
+  justify-content: space-evenly;
+  padding: 3rem 0;
+}
+
+.footer-login .footer-social {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+.footer-login .footer-social span {
+  /* display: block; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  border-radius: 100%;
+  width: 50px;
+  height: 50px;
+  /* line-height: 55px; */
+  /* padding: 5px 10px; */
+  /* font-size: 40px; */
+}
+.footer-login .footer-social span a {
+  font-size: 30px;
+  position: relative;
+  top: 2px;
+}
+/* LOGIN */
+
+/*  */
+.form-mak {
+  width: 100%;
+  height: 40px;
+  padding-left: 40px;
+  border: none;
+  color: var(--blue-mak);
+  font-weight: bold;
+  border-bottom: 1px solid var(--blue-mak);
+}
+
+.card-login.forgot .form-mak {
+  padding-left: 10px;
+}
+
+.icon-input.rght {
+  right: 0;
+  cursor: pointer;
+}
+
+/* .form-mak.between {
+  padding: 0 40px;
+  background-color: transparent;
+} */
+.form-mak:focus {
+  border: none;
+  outline: 0px;
+  font-weight: bold;
+  color: var(--blue-mak);
+  border-bottom: 1px solid var(--blue-mak);
+}
+.form-mak::placeholder {
+  color: var(--blue-mak);
+  font-weight: bold;
+}
+.btn-mak {
+  color: white;
+  padding: 5px 30px;
+}
+
+.btn-mak:hover {
+  color: white;
+}
+
+.header-mak {
+  background-image: url("https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fdata.1freewallpapers.com%2Fdownload%2Fcity-buildings-architecture-aerial-view-cityscape-3840x2160.jpg&f=1&nofb=1&ipt=b8b7173426e5f321d0b1b565f593166d1234ccfa576e742374d2dade8147db1d&ipo=images");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  height: 20%;
+}
+
+.body-mak {
+  /* height: calc(100vh - 20vh); */
+  height: 80vh;
+}
+
+.body-mak .row {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.header-mak .title {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-weight: bold;
+  text-align: center;
+}
+
+.card-mak {
+  position: relative;
+  padding: 0;
+  color: white;
+}
+
+.card-mak .card-intro {
+  position: absolute;
+  bottom: 0;
+  padding: 20px;
+}
+.card-mak .card-intro h1 {
+  font-weight: bold;
+}
+
+.card-mak .card-intro .btn-mak {
+  color: white;
+  background-color: var(--yell-mak) !important;
+}
+
+.card-mak .card-intro p {
+  display: none;
+  color: white !important;
+}
+
+.image-overlay {
+  position: absolute;
+  border-radius: var(--radius-20);
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.card-mak:hover .image-overlay {
+  opacity: 1;
+}
+
+.card-mak:hover .card-intro {
+  /* height: 100%; */
+  bottom: 0;
+  /* background-color: black; */
+}
+
+.card-mak:hover .card-intro p {
+  display: block;
+}
+
+.card-mak img {
+  border-radius: var(--radius-20);
+}
+
+.card-mak img:hover {
+}
+/*  */
 
 .content .contents .form-group,
 .content .bg .form-group {
@@ -432,7 +666,7 @@ h2 {
   width: 40px;
   height: 40px;
   line-height: 40px;
-  pointer-events: none;
+  /* pointer-events: none; */
 }
 
 .icon-input img {
