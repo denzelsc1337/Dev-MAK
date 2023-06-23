@@ -11,29 +11,21 @@ class cLegal
 		$this->lst_docs_legal = array();
 	}
 
-	/*function upload_files_legal($file_name,$file_type, $file_destination, $file_size,$file_ext,$data )
+	function save_solic_legal($rutas,$data )
 	{
 		include_once('../config/Conexion.php');
 		$cnx = new Conexion();
 		$cadena = $cnx->abrirConexion();
 
-		$Query = "INSERT INTO `docs_legal`(`file_name`, `file_type`,`file_destination`, `file_size`, `file_desc` ,
-											   `file_ext`,`cod_doc_tipo_legl`,`user_cod`)
-		VALUES ('".$file_name."',
-				'".$file_type."',
-				'".$file_destination."',
-				'".$file_size."',
-				'".$data[1]."',
-				'".$file_ext."',
-				'".$data[2]."',
-				'".$data[3]."');";
+		$Query = "INSERT INTO `docs_legal`(`id_legal`,`rutas_docs`, `nom_client`,`ape_client`, `dir_client`, `user_cod`)
+								   VALUES (null,'".$rutas."','".$data[1]."','".$data[2]."','".$data[3]."','".$data[4]."');";
 
 		echo mysqli_query($cadena, $Query);
 		$cnx->cerrarConexion($cadena);
 
-	}*/
+	}
 
-	function upload_files_legal($file_names, $file_types, $file_destinations, $file_sizes, $file_exts, $data)
+	/*function upload_files_legal($file_names, $file_types, $file_destinations, $file_sizes, $file_exts, $data)
 	{
 	    include_once('../config/Conexion.php');
 	    $cnx = new Conexion();
@@ -62,7 +54,7 @@ class cLegal
 	    }
 
 	    $cnx->cerrarConexion($cadena);
-	}
+	}*/
 
 
 	public function listadoTiposDocsLegal(){

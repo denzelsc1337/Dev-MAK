@@ -1,4 +1,8 @@
 <?php
+
+
+
+
 if(isset($_POST["btn_save_hr"])) {
     
   $dni_client = $_POST["dni_usu_0"];
@@ -73,4 +77,5 @@ if(isset($_POST["btn_save_cl"])) {
     echo '<script> alert("Error al cargar Copia L.");</script>';
   }
 }
+
 ?>

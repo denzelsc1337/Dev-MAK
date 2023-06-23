@@ -135,7 +135,8 @@ require_once('../Controller/controladorListar.php');
                             <div class="bs-stepper">
                             	<div class="bs-stepper-content">
                             		 	<div id="0" class="section col-md-12 movPag show" role="tabpanel" aria-labelledby="logins-part-trigger" data-target="first_step">
-                            		 		<form>
+
+
                                             <div class="row">
 
                                                 <div class="col-md-4">
@@ -193,7 +194,7 @@ require_once('../Controller/controladorListar.php');
                                                 <div class="col-md-4">
                                                     <div class="card card-default">
                                                         <div class="card-body">
-                                                        	<form>
+                                                        	<form method="POST" action="../Controller/Add_Solic_Legal.php">
 	                                                            <div class="row" id="a__c">
 	                                                                <div class="col-sm-8">
 	                                                                    <!-- text input -->
@@ -202,13 +203,11 @@ require_once('../Controller/controladorListar.php');
 	                                                                            <label>Nombre Completo</label>
 	                                                                            <div class="input-group-append">
 	                                                                                <i class="fa-solid fa-circle-info tooltipInfo tooltip-right">
-	                                                                                    <span class="tooltiptext">
-	                                                                                        -.
-	                                                                                    </span>
+	                                                                                    <span class="tooltiptext">-.</span>
 	                                                                                </i>
 	                                                                            </div>
 	                                                                        </div>
-	                                                                        <input type="text" class="form-control"  placeholder="Ingrese nombre" id="nom_cli_l" name="nom_cli_l" >
+	                                                                        <input type="text" class="form-control"  placeholder="Ingrese nombre" id="nom_cli_solic" name="nom_cli_solic" >
 	                                                                    </div>
 	                                                                </div>
 	                                                            </div>
@@ -217,14 +216,25 @@ require_once('../Controller/controladorListar.php');
 	                                                                <div class="col-sm-8">
 	                                                                    <!-- text input -->
 	                                                                    <div class="form-group">
-	                                                                        <label>*</label>
-	                                                                        <input type="text" class="form-control"  id="" name="" >
+	                                                                        <label>Apellido Completo</label>
+	                                                                        <input type="text" class="form-control"  placeholder="Ingrese apellido" id="ape_cli_solic" name="ape_cli_solic" >
 	                                                                    </div>
 	                                                                </div>
 	                                                            </div>
 
-	                                                            <textarea rows="5" cols="50"><?php echo $rutas;?></textarea>
-	                                                       </form>
+	                                                            <div class="row" id="antig_">
+	                                                                <div class="col-sm-8">
+	                                                                    <!-- text input -->
+	                                                                    <div class="form-group">
+	                                                                        <label>Direccion Completo</label>
+	                                                                        <input type="text" class="form-control"  placeholder="Ingrese apellido" id="dir_cli_solic" name="dir_cli_solic" >
+	                                                                    </div>
+	                                                                </div>
+	                                                            </div>
+	                                                            <input type="text" class="form-control" id="id_user" name="id_user" value="<?php echo $_SESSION['id_usu']; ?>">
+
+	                                                            <textarea id="rutas_doscs" name="rutas_doscs" rows="5" cols="50"><?php echo $rutas;?></textarea>
+
                                                         </div>
                                                     </div>
                                                 </div>
@@ -232,9 +242,9 @@ require_once('../Controller/controladorListar.php');
 
 
                                             </div>
-                                            <div class="d-grid gap-2 col-3 mx-auto form-flex">
-                                                <button type="submit" class="btn btn-info btn-lg col-md-12" id="btn_save_legal" name="btn_save_legal">Registrar</button>
-                                            </div>
+	                                            <div class="d-grid gap-2 col-3 mx-auto form-flex">
+	                                                <button type="submit" class="btn btn-info btn-lg col-md-12" id="btn_save_solic" name="btn_save_solic">Registrar</button>
+	                                            </div>
                                             </form>
                                         </div>
                             	</div>
