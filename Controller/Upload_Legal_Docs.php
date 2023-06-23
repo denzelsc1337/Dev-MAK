@@ -13,6 +13,7 @@ if(isset($_POST["btn_save_hr"])) {
 
   if (move_uploaded_file($_FILES["hr_s"]["tmp_name"], $target_file)) {
 ?>
+    <META http-equiv='Refresh' content = '0.2; URL =../Legal/InfoLegal.php'>;
     <script>
         alert("Hoja Resumen correctamente cargada.");
     </script>
@@ -37,6 +38,7 @@ if(isset($_POST["btn_save_pu"])) {
 
   if (move_uploaded_file($_FILES["pu_s"]["tmp_name"], $target_file)) {
 ?>
+    <META http-equiv='Refresh' content = '0.2; URL =../Legal/InfoLegal.php'>;
     <script>
         alert("Predio Urbano correctamente cargada.");
     </script>
@@ -61,6 +63,7 @@ if(isset($_POST["btn_save_cl"])) {
 
   if (move_uploaded_file($_FILES["cl_s"]["tmp_name"], $target_file)) {
 ?>
+    <META http-equiv='Refresh' content = '0.2; URL =../Legal/InfoLegal.php'>;
     <script>
         alert("Copia Literal correctamente cargada.");
     </script>

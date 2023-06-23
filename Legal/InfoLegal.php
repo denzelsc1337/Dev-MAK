@@ -1,7 +1,9 @@
 <?php
 require_once('../Config/security.php');
 require_once('../Controller/controladorListar.php');
+
 ?>
+
 <!DOCTYPE html>
 <html>
 
@@ -40,9 +42,27 @@ require_once('../Controller/controladorListar.php');
 	<link rel="stylesheet" href="../Vista/dist/css/adminlte.min.css">
 	<script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
 
+	<script>
+        window.onload = function() {
+            var dniInput = document.getElementById('dni_user').value;
+
+            // Verificar si hay un valor en el input
+            if (dniInput !== '') {
+                // Construir la ruta completa usando el valor del input
+                var rutaBase = '../Documentos Legal/';
+                var rutaCompleta = rutaBase + dniInput + '/';
+
+                // Mostrar la ruta completa
+                console.log("Ruta: " + rutaCompleta);
+            }
+        };
+    </script>
+
 </head>
 
 <body class="hold-transition sidebar-mini  sidebar-collapse layout-fixed layout-navbar-fixed layout-footer-fixed">
+
+
 
 	<?php include '../Vista/nav_bar_moduls.php' ?>
 	<!-- ./wrapper -->
@@ -72,13 +92,52 @@ require_once('../Controller/controladorListar.php');
                     <div class="card card-default">
                         <div class="card-header">
                             <h3 class="card-title">Ingreso de Datos:</h3>
+                            <input type="text" class="form-control" id="dni_user" name="dni_user" value="<?php echo $_SESSION['dni']; ?>">
+                            <?php
+
+								$dni = $_SESSION['dni'];
+
+								$ruta_base ='../Documentos Legal/';
+
+								$rutas = '';
+
+								if (isset($_SESSION['dni'])) {
+								    $dni = $_SESSION['dni'];
+								    $rutaCompleta = $ruta_base . $dni . '/';
+
+
+								    if (is_dir($rutaCompleta)) {
+								    	$elementos = scandir($rutaCompleta);
+
+								    	$elementos = array_diff($elementos, array('.', '..'));
+
+									    foreach ($elementos as $elemento) {
+									        if (is_dir($rutaCompleta . $elemento)) {
+									        	$rutas .= $rutaCompleta . $elemento . "\n";
+									        }
+									    }
+
+							            if (empty($rutas)) {
+							                echo "No hay carpetas disponibles.";
+							            }
+								    }else{
+
+								    	echo "La carpeta $dni no existe en la ruta especificada.";
+								    }
+
+								    //echo $rutaCompleta;
+
+								}
+							 ?>
                         </div>
                         <br>
                         <div class="card-body p-0">
                             <div class="bs-stepper">
                             	<div class="bs-stepper-content">
                             		 	<div id="0" class="section col-md-12 movPag show" role="tabpanel" aria-labelledby="logins-part-trigger" data-target="first_step">
+                            		 		<form>
                                             <div class="row">
+
                                                 <div class="col-md-4">
                                                     <div class="card card-default">
                                                         <div class="card-body">
@@ -130,95 +189,54 @@ require_once('../Controller/controladorListar.php');
                                                     </div>
                                                 </div>
 
+
                                                 <div class="col-md-4">
                                                     <div class="card card-default">
                                                         <div class="card-body">
-                                                        	<div class="row">
-                                                        		<div class="col-sm-10">
-                                                        			<label>DNI</label>
-                                                        			<div id="dni_resume"></div>
-                                                        		</div>
-                                                        	</div>
+                                                        	<form>
+	                                                            <div class="row" id="a__c">
+	                                                                <div class="col-sm-8">
+	                                                                    <!-- text input -->
+	                                                                    <div class="form-group">
+	                                                                        <div class="flex">
+	                                                                            <label>Nombre Completo</label>
+	                                                                            <div class="input-group-append">
+	                                                                                <i class="fa-solid fa-circle-info tooltipInfo tooltip-right">
+	                                                                                    <span class="tooltiptext">
+	                                                                                        -.
+	                                                                                    </span>
+	                                                                                </i>
+	                                                                            </div>
+	                                                                        </div>
+	                                                                        <input type="text" class="form-control"  placeholder="Ingrese nombre" id="nom_cli_l" name="nom_cli_l" >
+	                                                                    </div>
+	                                                                </div>
+	                                                            </div>
 
-                                                        	<div class="row">
-                                                        		<div class="col-sm-10">
-                                                        			<label>P.U</label>
-                                                        			<div id="pu_resume"></div>
-                                                        		</div>
-                                                        	</div>
+	                                                            <div class="row" id="antig_">
+	                                                                <div class="col-sm-8">
+	                                                                    <!-- text input -->
+	                                                                    <div class="form-group">
+	                                                                        <label>*</label>
+	                                                                        <input type="text" class="form-control"  id="" name="" >
+	                                                                    </div>
+	                                                                </div>
+	                                                            </div>
 
-                                                        	<div class="row">
-                                                        		<div class="col-sm-10">
-                                                        			<label>P.U</label>
-                                                        			<div id="pu_resume"></div>
-                                                        		</div>
-                                                        	</div>
-
+	                                                            <textarea rows="5" cols="50"><?php echo $rutas;?></textarea>
+	                                                       </form>
                                                         </div>
                                                     </div>
                                                 </div>
 
-                                                <div class="col-md-4" hidden>
-                                                    <div class="card card-default">
-                                                        <div class="card-body">
-                                                            <!-- Date dd/mm/yyyy -->
-                                                            <div class="row" id="a__c">
-                                                                <div class="col-sm-8">
-                                                                    <!-- text input -->
-                                                                    <div class="form-group">
-                                                                        <div class="flex">
-                                                                            <label>Nombre Completo</label>
-                                                                            <div class="input-group-append">
-                                                                                <i class="fa-solid fa-circle-info tooltipInfo tooltip-right">
-                                                                                    <span class="tooltiptext">
-                                                                                        -.
-                                                                                    </span>
-                                                                                </i>
-                                                                            </div>
-                                                                        </div>
-                                                                        <input type="text" class="form-control"  placeholder="Ingrese nombre" id="nom_cli_l" name="nom_cli_l" >
-                                                                    </div>
-                                                                </div>
-                                                            </div>
 
-                                                            <div class="row" id="a__o">
-                                                                <div class="col-sm-8">
-                                                                    <!-- text input -->
-                                                                    <div class="form-group">
-                                                                        <div class="flex">
-                                                                            <label>Direccion</label>
-                                                                            <div class="input-group-append">
-                                                                                <i class="fa-solid fa-circle-info tooltipInfo tooltip-right">
-                                                                                    <span class="tooltiptext">
-                                                                                        -.
-                                                                                    </span>
-                                                                                </i>
-                                                                            </div>
-                                                                        </div>
-                                                                        <input type="text" class="form-control" id="" name=""  >
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-
-                                                            <div class="row" id="antig_">
-                                                                <div class="col-sm-8">
-                                                                    <!-- text input -->
-                                                                    <div class="form-group">
-                                                                        <label>*</label>
-                                                                        <input type="text" class="form-control"  id="" name="" >
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
 
                                             </div>
                                             <div class="d-grid gap-2 col-3 mx-auto form-flex">
                                                 <button type="submit" class="btn btn-info btn-lg col-md-12" id="btn_save_legal" name="btn_save_legal">Registrar</button>
                                             </div>
+                                            </form>
                                         </div>
-                            		 </form>
                             	</div>
                             </div>
                         </div>
