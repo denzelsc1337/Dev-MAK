@@ -78,4 +78,29 @@ if(isset($_POST["btn_save_cl"])) {
   }
 }
 
+if(isset($_POST["btn_save_dni"])) {
+
+  $dni_client = $_POST["dni_usu_3"];
+
+  $target_dir = "../Documentos Legal/".$dni_client."/DNI/";
+  echo $target_dir;
+  if (!file_exists($target_dir)) {
+    mkdir($target_dir, 0777, true);
+  }
+
+  $target_file = $target_dir . basename($_FILES["dni_s"]["name"]);
+
+  if (move_uploaded_file($_FILES["dni_s"]["tmp_name"], $target_file)) {
+?>
+    <META http-equiv='Refresh' content = '0.2; URL =../Legal/InfoLegal.php'>;
+    <script>
+        alert("Dni correctamente cargado.");
+    </script>
+
+<?php
+  } else {
+    echo '<script> alert("Error al cargar DNI.");</script>';
+  }
+}
+
 ?>

@@ -154,7 +154,7 @@ require_once('../Controller/controladorListar.php');
 	                                                                    </div>
 	                                                                </div>
 	                                                            </div>
-	                                                            <button type="submit" class="btn btn-info btn-lg col-md-12" id="btn_save_hr" name="btn_save_hr">Registrar</button>
+	                                                            <button type="submit" class="btn btn-info btn-lg col-md-12" id="btn_save_hr" name="btn_save_hr" disabled>Registrar</button>
                                                         	</form>
 
                                                         	<form method="POST" action="../Controller/Upload_Legal_Docs.php" enctype="multipart/form-data">
@@ -169,7 +169,7 @@ require_once('../Controller/controladorListar.php');
 	                                                                    </div>
 	                                                                </div>
 	                                                            </div>
-	                                                            <button type="submit" class="btn btn-info btn-lg col-md-12" id="btn_save_pu" name="btn_save_pu">Registrar</button>
+	                                                            <button type="submit" class="btn btn-info btn-lg col-md-12" id="btn_save_pu" name="btn_save_pu" disabled>Registrar</button>
 	                                                        </form>
 
 	                                                        <form method="POST" action="../Controller/Upload_Legal_Docs.php" enctype="multipart/form-data">
@@ -184,7 +184,22 @@ require_once('../Controller/controladorListar.php');
 	                                                                    </div>
 	                                                                </div>
 	                                                            </div>
-	                                                            <button type="submit" class="btn btn-info btn-lg col-md-12" id="btn_save_cl" name="btn_save_cl">Registrar</button>
+	                                                            <button type="submit" class="btn btn-info btn-lg col-md-12" id="btn_save_cl" name="btn_save_cl" disabled>Registrar</button>
+	                                                        </form>
+
+	                                                        <form method="POST" action="../Controller/Upload_Legal_Docs.php" enctype="multipart/form-data">
+                                                        		<input type="text" class="form-control" id="dni_usu_3" name="dni_usu_3" value="<?php echo $_SESSION['dni']; ?>">
+	                                                            <div class="row">
+	                                                                <div class="col-sm-10">
+	                                                                    <!-- text input -->
+	                                                                    <div class="form-group">
+	                                                                        <label>DNI</label>
+	                                                                        <input type="file" class="form-control" id="dni_s" name="dni_s">
+	                                                                        <button type="button" class="btn btn-rounded btn-success btn_lst_hr btn_lst_hr_0" data-toggle="modal" data-target="#lst_hr_0" data-valor="DNI" data-titulo="DNI">ver</button>
+	                                                                    </div>
+	                                                                </div>
+	                                                            </div>
+	                                                            <button type="submit" class="btn btn-info btn-lg col-md-12" id="btn_save_dni" name="btn_save_dni" disabled>Registrar</button>
 	                                                        </form>
                                                         </div>
                                                     </div>
@@ -443,6 +458,68 @@ require_once('../Controller/controladorListar.php');
 	<!-- Page specific script -->
 
 	<script>
+
+	  //inputs
+	  var hr_inpt = document.getElementById('hr_s');
+	  var pu_inpt = document.getElementById('pu_s');
+	  var cl_inpt = document.getElementById('cl_s');
+	  var dni_inpt = document.getElementById('dni_s');
+
+
+
+	  var btn_hr = document.getElementById('btn_save_hr');
+	  var btn_pu = document.getElementById('btn_save_pu');
+	  var btn_cl = document.getElementById('btn_save_cl');
+	  var btn_dni = document.getElementById('btn_save_dni');
+
+
+
+
+	  hr_inpt.addEventListener('change', function() {
+
+	    if (hr_inpt.files.length > 0) {
+
+	      btn_hr.disabled = false;
+	    } else {
+
+	      btn_hr.disabled = true;
+	    }
+	  });
+
+	  pu_inpt.addEventListener('change', function() {
+
+	    if (pu_inpt.files.length > 0) {
+
+	      btn_pu.disabled = false;
+	    } else {
+
+	      btn_pu.disabled = true;
+	    }
+	  });
+
+	  cl_inpt.addEventListener('change', function() {
+
+	    if (cl_inpt.files.length > 0) {
+
+	      btn_cl.disabled = false;
+	    } else {
+
+	      btn_cl.disabled = true;
+	    }
+	  });
+
+	  dni_inpt.addEventListener('change', function() {
+
+	    if (dni_inpt.files.length > 0) {
+
+	      btn_dni.disabled = false;
+	    } else {
+
+	      btn_dni.disabled = true;
+	    }
+	  });
+
+
     $(document).ready(function() {
 
         $('.btn_subir_1').on('click', function() {
