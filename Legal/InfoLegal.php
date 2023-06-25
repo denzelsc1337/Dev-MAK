@@ -304,25 +304,28 @@ require_once('../Controller/controladorListar.php');
 							<table class="table">
 								<thead class="table-dark">
 									<tr>
-										<th>SUBIR</th>
-										<th hidden>ID DOC</th>
-										<th>TIPO DOC LEGAL</th>
-										<th>TIEMPO ESPERA</th>
-										<th>COSTO</th>
-										<th>PROCEDIMIENTO</th>
+										<th>ID DOC</th>
+										<th>nom_cli</th>
+										<th>ape_cli</th>
+										<th>dire_cli</th>
+										<th>usu_reg</th>
+										<th>estado</th>
+										<th>Archivos</th>
 									</tr>
 								</thead>
 								<tbody>
-									<?php foreach ($list_docs_legal as $lst_legal_d): ?>
+									<?php foreach ($list_solic_legal as $lst_legal_d): ?>
 									<tr>
-										<td>
-			                            	<button type="button" class="btn btn-rounded btn-success btn_subir_1" data-toggle="modal" data-target="#upload_doc">Subir</button>
-			                          	</td>
-										<td hidden><?php echo $lst_legal_d[0] ?></td>
-										<td><?php echo $lst_legal_d[1] ?></td>
+										
+										<td><?php echo $lst_legal_d[0] ?></td>
 										<td><?php echo $lst_legal_d[2] ?></td>
 										<td><?php echo $lst_legal_d[3] ?></td>
 										<td><?php echo $lst_legal_d[4] ?></td>
+										<td><?php echo $lst_legal_d[5] ?></td>
+										<td><?php echo $lst_legal_d[6] ?></td>
+										<td>
+			                            	<button type="button" class="btn btn-rounded btn-success btn_subir_1" data-toggle="modal" data-target="#upload_doc">Subir</button>
+			                          	</td>
 									</tr>
 									<?php endforeach ?>
 								</tbody>

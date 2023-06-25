@@ -8,7 +8,7 @@ class cLegal
 
 	function __construct()
 	{
-		$this->lst_docs_legal = array();
+		$this->lst_solics_legal = array();
 	}
 
 	function save_solic_legal($rutas,$data )
@@ -57,22 +57,22 @@ class cLegal
 	}*/
 
 
-	public function listadoTiposDocsLegal(){
+	public function listadoSolicDocsLegal(){
 		include_once('../config/Conexion.php');
 		$cnx = new conexion();
 		$cadena = $cnx->abrirConexion();
 
-		$query = "SELECT * FROM tipos_doc_legal";
+		$query = "SELECT * FROM docs_legal";
 
 		$resultado = mysqli_query($cadena, $query);
 
         while ($fila = mysqli_fetch_row($resultado)) {
-            $this->lst_docs_legal[] = $fila;
+            $this->lst_solics_legal[] = $fila;
         }
 
         $cnx->cerrarConexion($cadena);
 
-        return $this->lst_docs_legal;
+        return $this->lst_solics_legal;
 
 	}
 }

@@ -24,6 +24,6 @@ $selector_types_suel = $oValor->selector_type_suelo();
 
 require_once('../Model/Legal.php');
 $oLegal= new cLegal();
-$list_docs_legal= $oLegal->listadoTiposDocsLegal();
+$list_solic_legal= $oLegal->listadoSolicDocsLegal();
 
 ?>
