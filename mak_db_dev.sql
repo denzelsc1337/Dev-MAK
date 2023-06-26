@@ -455,6 +455,7 @@ create table docs_legal(
     nom_client			varchar(255),
     ape_client			varchar(255),
     dir_client			varchar(255),
+    fecha_reg			date,
     user_cod			int,
     status_doc			varchar(20) default "10",
     FOREIGN KEY (user_cod) REFERENCES clientes_servicios (id_client) ON DELETE SET NULL

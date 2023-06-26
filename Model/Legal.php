@@ -17,8 +17,8 @@ class cLegal
 		$cnx = new Conexion();
 		$cadena = $cnx->abrirConexion();
 
-		$Query = "INSERT INTO `docs_legal`(`id_legal`,`rutas_docs`, `nom_client`,`ape_client`, `dir_client`, `user_cod`)
-								   VALUES (null,'".$rutas."','".$data[1]."','".$data[2]."','".$data[3]."','".$data[4]."');";
+		$Query = "INSERT INTO `docs_legal`(`id_legal`,`rutas_docs`, `nom_client`,`ape_client`, `dir_client`,`fecha_reg`, `user_cod`)
+								   VALUES (null,'".$rutas."','".$data[1]."','".$data[2]."','".$data[3]."',now(),'".$data[4]."');";
 
 		echo mysqli_query($cadena, $Query);
 		$cnx->cerrarConexion($cadena);
@@ -62,7 +62,7 @@ class cLegal
 		$cnx = new conexion();
 		$cadena = $cnx->abrirConexion();
 
-		$query = "SELECT * FROM docs_legal";
+		$query = "SELECT id_legal,dir_client, fecha_reg, status_doc FROM docs_legal";
 
 		$resultado = mysqli_query($cadena, $query);
 

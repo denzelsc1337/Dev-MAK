@@ -305,12 +305,10 @@ require_once('../Controller/controladorListar.php');
 								<thead class="table-dark">
 									<tr>
 										<th>ID DOC</th>
-										<th>nom_cli</th>
-										<th>ape_cli</th>
-										<th>dire_cli</th>
-										<th>usu_reg</th>
+										<th>direccion</th>
+										<th>fecha_reg</th>
 										<th>estado</th>
-										<th>Archivos</th>
+										<th>Editar</th>
 									</tr>
 								</thead>
 								<tbody>
@@ -318,13 +316,29 @@ require_once('../Controller/controladorListar.php');
 									<tr>
 										
 										<td><?php echo $lst_legal_d[0] ?></td>
+										<td><?php echo $lst_legal_d[1] ?></td>
 										<td><?php echo $lst_legal_d[2] ?></td>
-										<td><?php echo $lst_legal_d[3] ?></td>
-										<td><?php echo $lst_legal_d[4] ?></td>
-										<td><?php echo $lst_legal_d[5] ?></td>
-										<td><?php echo $lst_legal_d[6] ?></td>
 										<td>
-			                            	<button type="button" class="btn btn-rounded btn-success btn_subir_1" data-toggle="modal" data-target="#upload_doc">Subir</button>
+										<?php
+											if ($lst_legal_d[3] == 10) {
+										?>
+										<span class="badge rounded-pill bg-secondary">Pendiente</span>
+										<?php
+										}elseif ($lst_legal_d[3] == 20) {
+										?>
+										<span class="badge rounded-pill bg-warning text-dark">En revision</span>
+										<?php
+										}elseif ($lst_legal_d[3] == 90) {
+										?>
+										<span class="badge rounded-pill bg-success">Finalizado</span>
+										<?php
+										}
+										?>
+										</td>
+										<td>
+			                            	<button type="button" class="btn btn-rounded btn-success btn_ver_files" data-toggle="modal" data-target="#ver_docs">
+			                            		<i class="fa-regular fa-eye"></i>
+			                            	</button>
 			                          	</td>
 									</tr>
 									<?php endforeach ?>
