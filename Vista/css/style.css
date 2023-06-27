@@ -2,15 +2,19 @@
   --radius-20: 20px;
   --blue-mak: #182f59;
   --yell-mak: #f39200;
+  --white-mak: #fff;
 }
 
 body {
   font-family: "Roboto", sans-serif;
   background-color: #f8fafb;
 }
-
+select.form-mak option {
+  background-color: transparent;
+  border: none;
+}
 p {
-  color: #b3b3b3;
+  color: var(--white-mak);
   font-weight: 300;
 }
 
@@ -38,6 +42,14 @@ h6,
   border-radius: 0 20px 20px 0;
 }
 
+.cursor {
+  cursor: pointer;
+}
+
+#toForgot:hover {
+  text-decoration: underline;
+}
+
 a {
   -webkit-transition: 0.3s all ease;
   -o-transition: 0.3s all ease;
@@ -51,10 +63,19 @@ a:hover {
 .mak-txt {
   color: var(--blue-mak) !important;
 }
+.mak-wht {
+  color: var(--white-mak) !important;
+}
 .mak-bg {
   background-color: var(--blue-mak) !important;
 }
+.txt-center {
+  text-align: center;
+}
 
+.active .bs-stepper-circle {
+  background-color: var(--blue-mak) !important;
+}
 .mak {
   height: 100%;
   display: flex;
@@ -65,6 +86,12 @@ a:hover {
 .card-login {
   width: 100%;
   box-shadow: 0 6px 10px 0 rgb(0 0 0 / 40%), 0 1px 3px rgba(0, 0, 0, 15%) !important;
+}
+
+.content-wrapper .content {
+  padding: 0 !important;
+  margin: 0 !important;
+  height: calc(100vh - 115px);
 }
 
 .content {
@@ -109,17 +136,23 @@ h2 {
 }
 
 /* LOGIN */
+
+.content.hide {
+  display: none;
+}
+
 .card-login,
 .card-login p {
   color: white !important;
 }
-.card-login.forgot,
-.card-login.forgot p {
+.forgot .card-login,
+.forgot .card-login p {
   color: var(--blue-mak) !important;
 }
 .header-login {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   padding: 1.5rem 1rem;
 }
 .body-login {
@@ -135,10 +168,10 @@ h2 {
   margin-bottom: 2rem;
 }
 
-.card-login.forgot p {
+.forgot .card-login p {
   margin-bottom: 1rem;
 }
-.card-login.forgot p:nth-child(3) {
+.forgot .card-login p:nth-child(3) {
   font-weight: bold;
 }
 
@@ -173,8 +206,22 @@ h2 {
 }
 /* LOGIN */
 
+/* VALORIZACION */
+.mak-forms .container {
+  max-width: 85%;
+  margin: auto;
+}
+/* VALORIZACION */
+
 /*  */
-.form-mak {
+
+.custom-control-input:checked ~ .custom-control-label::before {
+  border-color: var(--blue-mak) !important;
+  background-color: var(--blue-mak) !important;
+}
+
+.form-mak,
+.form-group select {
   width: 100%;
   height: 40px;
   padding-left: 40px;
@@ -184,7 +231,12 @@ h2 {
   border-bottom: 1px solid var(--blue-mak);
 }
 
-.card-login.forgot .form-mak {
+.form-group select option {
+  height: 50px;
+}
+
+.forgot .card-login .form-mak,
+.form-group .form-mak {
   padding-left: 10px;
 }
 
@@ -209,8 +261,9 @@ h2 {
   font-weight: bold;
 }
 .btn-mak {
-  color: white;
-  padding: 5px 30px;
+  color: white !important;
+  padding: 5px 30px !important;
+  text-decoration: none !important;
 }
 
 .btn-mak:hover {
@@ -223,11 +276,25 @@ h2 {
   background-size: cover;
   background-position: center center;
   height: 20%;
+  margin-bottom: 1.5rem;
 }
 
 .body-mak {
-  /* height: calc(100vh - 20vh); */
-  height: 80vh;
+}
+
+.footer-mak {
+  position: fixed;
+  width: 100%;
+  bottom: 100px;
+}
+
+.body-mak .b-title {
+  font-size: 5rem;
+  margin-bottom: 2rem;
+}
+
+.body-mak .b-text {
+  font-size: 2rem;
 }
 
 .body-mak .row {
@@ -250,12 +317,16 @@ h2 {
   position: relative;
   padding: 0;
   color: white;
+  height: 250px;
 }
 
 .card-mak .card-intro {
   position: absolute;
   bottom: 0;
   padding: 20px;
+}
+.card-mak .card-intro a {
+  text-decoration: none;
 }
 .card-mak .card-intro h1 {
   font-weight: bold;
@@ -278,7 +349,7 @@ h2 {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.2);
+  background-color: rgba(0, 0, 0, 0.5);
   opacity: 0;
   transition: opacity 0.3s ease;
 }
@@ -298,6 +369,7 @@ h2 {
 }
 
 .card-mak img {
+  height: 100%;
   border-radius: var(--radius-20);
 }
 
@@ -577,10 +649,10 @@ h2 {
 /* INPUT PERSONALIZADO */
 
 /* CSS PERSONALIZADO */
-/* 
-.section{
-  display: block;
-} */
+
+.section {
+  padding-bottom: 5rem;
+}
 
 .section.hide {
   display: none;
