@@ -34,7 +34,7 @@
       const titles = section.querySelectorAll("label");
 
       ///
-      const cardPrimary = section.querySelectorAll(".card.card-primary");
+      const cardPrimary = section.querySelectorAll(".card");
       //
       cardPrimary.forEach((element) => {
         //
@@ -43,6 +43,7 @@
         cardBodys.forEach((element) => {
           const lbl = element.querySelectorAll("label");
           lbl.forEach((label) => {
+            console.log(label);
             arrayNames.push(label.textContent);
           });
         });
