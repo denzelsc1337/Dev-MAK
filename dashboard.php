@@ -8,7 +8,7 @@ require_once('config/security.php');
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>AdminLTE 3 | Dashboard 2</title>
+  <title>MAK</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -143,9 +143,7 @@ require_once('config/security.php');
 
           <h1 class="title">¿Más de 2,000 propiedades <br> esperan por ti!</h1>
         </header>
-        <!-- </section> -->
-        <br><br>
-        <!-- Main content -->
+
         <section class="body-mak">
           <!-- <div class="row">
             <div class="col-md-4">
@@ -199,8 +197,9 @@ require_once('config/security.php');
             </div>
           </div> -->
 
+
           <div class="row justify-content-center" style="gap:20px;">
-            <div class="card-mak col-md-5">
+            <div class="card-mak col-md-4">
               <img class="card-img-top" src="Vista/images/search.jpg" alt="Dist Photo 1">
               <div class="image-overlay"></div>
               <div class="card-intro">
@@ -209,16 +208,17 @@ require_once('config/security.php');
                 <a href="Search/Busqueda.php" class="btn btn-mak mak-bg">INICIAR</a>
               </div>
             </div>
-            <div class="card-mak col-md-5">
+            <div class="card-mak col-md-4">
               <img class="card-img-top" src="Vista/images/money.jpg" alt="Dist Photo 2">
               <div class="image-overlay"></div>
               <div class="card-intro">
                 <h1>Valorizacion</h1>
                 <p>Texto informativo</p>
-                <a href="Valorizacion/valorizacion.php" class="btn btn-mak mak-bg">INICIAR</a>
+                <a href="Valorizacion/index.php" class="btn btn-mak mak-bg">INICIAR</a>
+                <!-- <a href="Valorizacion/valorizacion.php" class="btn btn-mak mak-bg">INICIAR</a> -->
               </div>
             </div>
-            <div class="card-mak col-md-5">
+            <div class="card-mak col-md-4">
               <img class="card-img-top" src="Vista/images/finance.jpg" alt="Dist Photo 3">
               <div class="image-overlay"></div>
               <div class="card-intro">
@@ -227,7 +227,7 @@ require_once('config/security.php');
                 <a href="Legal/InfoLegal.php" class="btn btn-mak mak-bg">INICIAR</a>
               </div>
             </div>
-            <div class="card-mak col-md-5">
+            <div class="card-mak col-md-4">
               <img class="card-img-top" src="Vista/images/search.jpg" alt="Dist Photo 4">
               <div class="image-overlay"></div>
               <div class="card-intro">
@@ -238,17 +238,13 @@ require_once('config/security.php');
             </div>
           </div>
 
-          <br><br><br><br>
         </section>
 
       </div>
     </div>
-    <!-- /.content-wrapper -->
-    <!-- Control Sidebar -->
+
     <aside class="control-sidebar control-sidebar-dark">
-      <!-- Control sidebar content goes here -->
     </aside>
-    <!-- /.control-sidebar -->
 
     <!-- Main Footer -->
     <footer class="main-footer">
@@ -259,7 +255,7 @@ require_once('config/security.php');
       </div>
     </footer>
   </div>
-  <!-- ./wrapper -->
+
 
   <!-- REQUIRED SCRIPTS -->
   <!-- jQuery -->
