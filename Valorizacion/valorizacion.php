@@ -43,6 +43,7 @@
 <body class="hold-transition sidebar-mini  sidebar-collapse layout-fixed layout-navbar-fixed layout-footer-fixed" onload="initAutocomplete()">
 
     <div class="wrapper">
+
         <?php include '../Vista/nav_bar_moduls.php' ?>
 
         <div class="content-wrapper">
@@ -885,9 +886,6 @@
 
                                     <!-- TERRENO RESIDENCIAL -->
                                     <div id="3" class="section card card-default col-md-12" role="tabpanel" aria-labelledby="" data-target="second_step">
-                                        <div class="card-header mak-bg mak-wht">
-                                            <h1>Terreno</h1>
-                                        </div>
 
                                         <div class="card-body">
                                             <div class="row">
@@ -975,9 +973,6 @@
 
                                     <!-- OFICINA -->
                                     <div id="4" class="section card card-default col-md-12" role="tabpanel" aria-labelledby="" data-target="second_step">
-                                        <div class="card-header mak-bg mak-wht">
-                                            <h1>Oficina</h1>
-                                        </div>
 
                                         <div class="card-body">
                                             <div class="row">
@@ -1158,9 +1153,6 @@
 
                                         <!-- LOCAL COMERCIAL - EXCLUSIVO -->
                                         <div class="lcl exclusivo">
-                                            <div class="card-header mak-bg mak-wht">
-                                                <h1>Local comercial - Exclusivo</h1>
-                                            </div>
 
                                             <div class="card-body">
                                                 <div class="row">
@@ -1313,9 +1305,6 @@
 
                                         <!-- LOCAL COMERCIAL - COMUN -->
                                         <div class="lcl comun">
-                                            <div class="card-header mak-bg mak-wht">
-                                                <h1>Local comercial - Común</h1>
-                                            </div>
 
                                             <div class="card-body">
                                                 <div class="row">
@@ -1478,9 +1467,6 @@
 
                                     <!-- LOCAL INDUSTRIAL -->
                                     <div id="6" class="section card card-default col-md-12" role="tabpanel" aria-labelledby="" data-target="second_step">
-                                        <div class="card-header mak-bg mak-wht">
-                                            <h1>Local industrial</h1>
-                                        </div>
 
                                         <div class="card-body">
                                             <div class="row">
