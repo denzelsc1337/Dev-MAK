@@ -22,161 +22,159 @@ $(document).ready(function () {
     });
   });
 
-//--------------------------------------------EN USO-------------------------------------------------------------------//
-//--------------------------------------------EN USO-------------------------------------------------------------------//
-//--------------------------------------------EN USO-------------------------------------------------------------------//
+  //--------------------------------------------EN USO-------------------------------------------------------------------//
+  //--------------------------------------------EN USO-------------------------------------------------------------------//
+  //--------------------------------------------EN USO-------------------------------------------------------------------//
 
-  $("#btnValo_casa").click(function(e){
+  $("#btnValo_casa").click(function (e) {
     e.preventDefault();
     var data = $("#form_valor").serialize();
-      $.ajax({
-        type: "POST",
-        url: "../Controller/Add_valorizacion_casa.php",
-        data: data,
-        success: function (r) {
-          if (r == 1) {
-            alert("Solicitud enviada correctamente.");
-            console.log(r);
-            event.returnValue = false;
-            window.location.href = "valorizacion.php";
-          } else {
-            alert(
-              "Error al registrar, Verifique que los campos esten correctamente completos."
-            );
-            console.log(r);
-            console.log(data);
-          }
-        },
-        error: function (xhr, status, error) {
-          console.error(error);
+    $.ajax({
+      type: "POST",
+      url: "../Controller/Add_valorizacion_casa.php",
+      data: data,
+      success: function (r) {
+        if (r == 1) {
+          alert("Solicitud enviada correctamente.");
+          console.log(r);
+          event.returnValue = false;
+          window.location.href = "valorizacion.php";
+        } else {
+          alert(
+            "Error al registrar, Verifique que los campos esten correctamente completos."
+          );
+          console.log(r);
+          console.log(data);
         }
-      });
+      },
+      error: function (xhr, status, error) {
+        console.error(error);
+      },
+    });
     return false;
   });
 
-  $("#btnValo_depa").click(function(e){
+  $("#btnValo_depa").click(function (e) {
     e.preventDefault();
     var data = $("#form_valor").serialize();
-      $.ajax({
-        type: "POST",
-        url: "../Controller/Add_valorizacion_depa.php",
-        data: data,
-        success: function (r) {
-          if (r == 1) {
-            alert("Solicitud enviada correctamente.");
-            console.log(r);
-            event.returnValue = false;
-            window.location.href = "valorizacion.php";
-          } else {
-            alert(
-              "Error al registrar, Verifique que los campos esten correctamente completos."
-            );
-            console.log(r);
-            console.log(data);
-          }
-        },
-        error: function (xhr, status, error) {
-          console.error(error);
+    $.ajax({
+      type: "POST",
+      url: "../Controller/Add_valorizacion_depa.php",
+      data: data,
+      success: function (r) {
+        if (r == 1) {
+          alert("Solicitud enviada correctamente.");
+          console.log(r);
+          event.returnValue = false;
+          window.location.href = "valorizacion.php";
+        } else {
+          alert(
+            "Error al registrar, Verifique que los campos esten correctamente completos."
+          );
+          console.log(r);
+          console.log(data);
         }
-      });
+      },
+      error: function (xhr, status, error) {
+        console.error(error);
+      },
+    });
     return false;
   });
 
-  $("#btnValo_terren").click(function(e){
+  $("#btnValo_terren").click(function (e) {
     e.preventDefault();
     var data = $("#form_valor").serialize();
-      $.ajax({
-        type: "POST",
-        url: "../Controller/Add_valorizacion_terreno.php",
-        data: data,
-        success: function (r) {
-          if (r == 1) {
-            alert("Solicitud enviada correctamente.");
-            console.log(r);
-            event.returnValue = false;
-            window.location.href = "valorizacion.php";
-          } else {
-            alert(
-              "Error al registrar, Verifique que los campos esten correctamente completos."
-            );
-            console.log(r);
-            console.log(data);
-          }
-        },
-        error: function (xhr, status, error) {
-          console.error(error);
+    $.ajax({
+      type: "POST",
+      url: "../Controller/Add_valorizacion_terreno.php",
+      data: data,
+      success: function (r) {
+        if (r == 1) {
+          alert("Solicitud enviada correctamente.");
+          console.log(r);
+          event.returnValue = false;
+          window.location.href = "valorizacion.php";
+        } else {
+          alert(
+            "Error al registrar, Verifique que los campos esten correctamente completos."
+          );
+          console.log(r);
+          console.log(data);
         }
-      });
+      },
+      error: function (xhr, status, error) {
+        console.error(error);
+      },
+    });
     return false;
   });
 
-  $("#btnValo_ofi").click(function(e){
+  $("#btnValo_ofi").click(function (e) {
     e.preventDefault();
     var data = $("#form_valor").serialize();
-      $.ajax({
-        type: "POST",
-        url: "../Controller/Add_valorizacion_oficina.php",
-        data: data,
-        success: function (r) {
-          if (r == 1) {
-            alert("Solicitud enviada correctamente.");
-            console.log(r);
-            event.returnValue = false;
-            window.location.href = "valorizacion.php";
-          } else {
-            alert(
-              "Error al registrar, Verifique que los campos esten correctamente completos."
-            );
-            console.log(r);
-            console.log(data);
-          }
-        },
-        error: function (xhr, status, error) {
-          console.error(error);
+    $.ajax({
+      type: "POST",
+      url: "../Controller/Add_valorizacion_oficina.php",
+      data: data,
+      success: function (r) {
+        if (r == 1) {
+          alert("Solicitud enviada correctamente.");
+          console.log(r);
+          event.returnValue = false;
+          window.location.href = "valorizacion.php";
+        } else {
+          alert(
+            "Error al registrar, Verifique que los campos esten correctamente completos."
+          );
+          console.log(r);
+          console.log(data);
         }
-      });
+      },
+      error: function (xhr, status, error) {
+        console.error(error);
+      },
+    });
     return false;
   });
 
-  $("#btnValo_lc_ind").click(function(e){
+  $("#btnValo_lc_ind").click(function (e) {
     e.preventDefault();
     var data = $("#form_valor").serialize();
-      $.ajax({
-        type: "POST",
-        url: "../Controller/Add_valorizacion_localIndustrial.php",
-        data: data,
-        success: function (r) {
-          if (r == 1) {
-            alert("Solicitud enviada correctamente.");
-            console.log(r);
-            event.returnValue = false;
-            window.location.href = "valorizacion.php";
-          } else {
-            alert(
-              "Error al registrar, Verifique que los campos esten correctamente completos."
-            );
-            console.log(r);
-            console.log(data);
-          }
-        },
-        error: function (xhr, status, error) {
-          console.error(error);
+    $.ajax({
+      type: "POST",
+      url: "../Controller/Add_valorizacion_localIndustrial.php",
+      data: data,
+      success: function (r) {
+        if (r == 1) {
+          alert("Solicitud enviada correctamente.");
+          console.log(r);
+          event.returnValue = false;
+          window.location.href = "valorizacion.php";
+        } else {
+          alert(
+            "Error al registrar, Verifique que los campos esten correctamente completos."
+          );
+          console.log(r);
+          console.log(data);
         }
-      });
+      },
+      error: function (xhr, status, error) {
+        console.error(error);
+      },
+    });
     return false;
   });
-//--------------------------------------------EN USO-------------------------------------------------------------------//
-//--------------------------------------------EN USO-------------------------------------------------------------------//
-//--------------------------------------------EN USO-------------------------------------------------------------------//
+  //--------------------------------------------EN USO-------------------------------------------------------------------//
+  //--------------------------------------------EN USO-------------------------------------------------------------------//
+  //--------------------------------------------EN USO-------------------------------------------------------------------//
 
+  //************************************************************************************************************************************//
 
-//************************************************************************************************************************************//
-
-
-//--------------------------------------------FUERA DE USO-------------------------------------------------------------------//
-//--------------------------------------------FUERA DE USO-------------------------------------------------------------------//
-//--------------------------------------------FUERA DE USO-------------------------------------------------------------------//
-/*
+  //--------------------------------------------FUERA DE USO-------------------------------------------------------------------//
+  //--------------------------------------------FUERA DE USO-------------------------------------------------------------------//
+  //--------------------------------------------FUERA DE USO-------------------------------------------------------------------//
+  /*
   $('#btnValo_casa').click(function(){
       var _data_casa=$('#form_valor').serialize();
       $.ajax({
@@ -229,9 +227,9 @@ $(document).ready(function () {
       $("#pass_").val("");
     } );
   });*/
-//--------------------------------------------FUERA DE USO-------------------------------------------------------------------//
-//--------------------------------------------FUERA DE USO-------------------------------------------------------------------//
-//--------------------------------------------FUERA DE USO-------------------------------------------------------------------//
+  //--------------------------------------------FUERA DE USO-------------------------------------------------------------------//
+  //--------------------------------------------FUERA DE USO-------------------------------------------------------------------//
+  //--------------------------------------------FUERA DE USO-------------------------------------------------------------------//
 
-
+  $("#ozo").select2();
 });

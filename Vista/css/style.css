@@ -215,21 +215,73 @@ h2 {
 
 /*  */
 
+.table {
+  text-align: center;
+}
+
+.table thead tr th {
+  color: var(--white-mak);
+  background-color: var(--blue-mak);
+}
+
+.table thead tr th:first-child {
+  border-radius: 20px 0 0 0;
+}
+.table thead tr th:last-child {
+  border-radius: 0 20px 0 0;
+}
+.table tbody {
+  border-radius: 0 0 20px 20px;
+  box-shadow: 0 6px 10px 0 rgb(0 0 0 / 40%), 0 1px 3px rgba(0, 0, 0, 15%) !important;
+}
+
+.table tbody tr td:not(:last-child) {
+  border-right: 3px solid var(--blue-mak);
+}
+
+.brd-rght-blue {
+  border-right: 2px solid var(--blue-mak);
+}
+
+.data-resume,
+.data-resume p {
+  color: var(--blue-mak);
+}
+
+.card-resume {
+  width: 100%;
+  margin-top: 20px;
+  padding: 1rem;
+  border-radius: 0.25rem;
+  box-shadow: 0 6px 10px 0 rgb(0 0 0 / 40%), 0 1px 3px rgba(0, 0, 0, 15%);
+}
+
+.select2-selection.select2-selection--single {
+  display: flex;
+  justify-content: space-between;
+  padding-left: 45px !important;
+  padding-right: 7px !important;
+}
+
 .custom-control-input:checked ~ .custom-control-label::before {
   border-color: var(--blue-mak) !important;
   background-color: var(--blue-mak) !important;
 }
-
+.select2-container--default .select2-selection--single,
 .form-mak,
 .form-group select {
   width: 100%;
-  height: 40px;
+  height: 40px !important;
   padding-left: 40px;
-  border: none;
+  border: none !important;
+  border-radius: 0 !important;
   color: var(--blue-mak);
   font-weight: bold;
-  border-bottom: 1px solid var(--blue-mak);
+  border-bottom: 1px solid var(--blue-mak) !important;
 }
+/* .select2.select2-container.select2-container--default {
+  padding: 0px 5px !important;
+} */
 
 .form-group select option {
   height: 50px;
@@ -738,7 +790,7 @@ h2 {
   width: 40px;
   height: 40px;
   line-height: 40px;
-  /* pointer-events: none; */
+  z-index: 9;
 }
 
 .icon-input img {

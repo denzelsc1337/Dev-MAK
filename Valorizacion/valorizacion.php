@@ -43,6 +43,7 @@
 <body class="hold-transition sidebar-mini  sidebar-collapse layout-fixed layout-navbar-fixed layout-footer-fixed" onload="initAutocomplete()">
 
     <div class="wrapper">
+
         <?php include '../Vista/nav_bar_moduls.php' ?>
 
         <div class="content-wrapper">
@@ -885,9 +886,6 @@
 
                                     <!-- TERRENO RESIDENCIAL -->
                                     <div id="3" class="section card card-default col-md-12" role="tabpanel" aria-labelledby="" data-target="second_step">
-                                        <div class="card-header mak-bg mak-wht">
-                                            <h1>Terreno</h1>
-                                        </div>
 
                                         <div class="card-body">
                                             <div class="row">
@@ -902,8 +900,13 @@
                                                                     <label class="col-sm-3 col-form-label">Zonificación:</label>
                                                                     <div class="section-input col-sm-8">
                                                                         <span class="icon-input"><i class="fa-solid fa-location-dot"></i></span>
-                                                                        <input type="text" id="tipo_zoni_l" name="tipo_zoni_l">
-                                                                        <select id="opciones_zoni_t" name="opciones_zoni_t" class="opciones_zoni_t"></select>
+                                                                        <!-- <input type="text" id="tipo_zoni_ofi" name="tipo_zoni_ofi"> -->
+                                                                        <!-- <select id="opciones_zoni_ofi" name="opciones_zoni_ofi" class="opciones_zoni_ofi"></select> -->
+                                                                        <select id="ozo" name="ozo" class="form-mak select2 select2-hidden-accessible">
+                                                                            <?php foreach ($selector_types_prom as $cod_type_) : ?>
+                                                                                <option value="<?php echo $cod_type_[0]; ?>"><?php echo $cod_type_[1]; ?></option>
+                                                                            <?php endforeach ?>
+                                                                        </select>
                                                                     </div>
                                                                     <div class="input-group-append">
                                                                         <i class="fa-solid fa-circle-info tooltipInfo tooltip-right">
@@ -945,7 +948,7 @@
                                                                         <span class="icon-input">
                                                                             <img src="https://cdn-icons-png.flaticon.com/512/3017/3017956.png" alt="">
                                                                         </span>
-                                                                        <input class="form-mak" type="number" min="0" id="params_tern" name="params_tern">
+                                                                        <input class="form-control" type="number" min="0" id="params_tern" name="params_tern">
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-sm-6 flex align-center pdd-left" style="padding-right: 0px;padding-left: 0px;">
@@ -975,9 +978,6 @@
 
                                     <!-- OFICINA -->
                                     <div id="4" class="section card card-default col-md-12" role="tabpanel" aria-labelledby="" data-target="second_step">
-                                        <div class="card-header mak-bg mak-wht">
-                                            <h1>Oficina</h1>
-                                        </div>
 
                                         <div class="card-body">
                                             <div class="row">
@@ -1048,21 +1048,42 @@
                                                                             </div>
                                                                         </div>
                                                                     </div>
-                                                                    <div class="form-group row">
-                                                                        <label class="col-sm-3 col-form-label">Zonificación:</label>
-                                                                        <div class="section-input col-sm-8">
-                                                                            <span class="icon-input"><i class="fa-solid fa-location-dot"></i></span>
-                                                                            <input type="text" id="tipo_zoni_ofi" name="tipo_zoni_ofi">
-                                                                            <select id="opciones_zoni_ofi" name="opciones_zoni_ofi" class="opciones_zoni_ofi"></select>
-                                                                        </div>
-                                                                        <div class="input-group-append">
-                                                                            <i class="fa-solid fa-circle-info tooltipInfo tooltip-right">
-                                                                                <span class="tooltiptext">
-                                                                                    Info...
-                                                                                </span>
-                                                                            </i>
+                                                                    <div class="col-sm-12">
+                                                                        <div class="form-group row">
+                                                                            <label class="col-sm-3 col-form-label">Zonificación:</label>
+                                                                            <div class="section-input col-sm-8">
+                                                                                <span class="icon-input"><i class="fa-solid fa-location-dot"></i></span>
+                                                                                <!-- <input type="text" id="tipo_zoni_ofi" name="tipo_zoni_ofi"> -->
+                                                                                <!-- <select id="opciones_zoni_ofi" name="opciones_zoni_ofi" class="opciones_zoni_ofi"></select> -->
+                                                                                <select id="ozo" name="ozo" class="form-mak select2 select2-hidden-accessible">
+                                                                                    <?php foreach ($selector_types_prom as $cod_type_) : ?>
+                                                                                        <option value="<?php echo $cod_type_[0]; ?>"><?php echo $cod_type_[1]; ?></option>
+                                                                                    <?php endforeach ?>
+                                                                                </select>
+                                                                            </div>
+                                                                            <div class="input-group-append">
+                                                                                <i class="fa-solid fa-circle-info tooltipInfo tooltip-right">
+                                                                                    <span class="tooltiptext">
+                                                                                        Info...
+                                                                                    </span>
+                                                                                </i>
+                                                                            </div>
                                                                         </div>
                                                                     </div>
+                                                                    <!-- <div class="form-group">
+                                                                        <label>Minimal</label>
+                                                                        <!-- <select>
+                                                                            <input type="text" id="tipo_zoni_ofi" name="tipo_zoni_ofi">
+                                                                            <select id="opciones_zoni_ofi" name="opciones_zoni_ofi" class="opciones_zoni_ofi"></select>
+                                                                        </select> --
+                                                                    <!-- <input type="text" id="tipo_zoni_ofi" name="tipo_zoni_ofi"> --
+                                                                    <select id="ozo" name="ozo" class="form-control select2 select2-hidden-accessible">
+                                                                        <?php foreach ($selector_types_prom as $cod_type_) : ?>
+                                                                            <option value="<?php echo $cod_type_[0]; ?>"><?php echo $cod_type_[1]; ?></option>
+                                                                        <?php endforeach ?>
+                                                                    </select>
+
+                                                                </div> -->
                                                                     <div class="col-sm-12">
                                                                         <div class="form-group row">
                                                                             <label class="col-sm-3 col-form-label">Vista:</label>
@@ -1158,9 +1179,6 @@
 
                                         <!-- LOCAL COMERCIAL - EXCLUSIVO -->
                                         <div class="lcl exclusivo">
-                                            <div class="card-header mak-bg mak-wht">
-                                                <h1>Local comercial - Exclusivo</h1>
-                                            </div>
 
                                             <div class="card-body">
                                                 <div class="row">
@@ -1222,8 +1240,20 @@
                                                                                 <label class="col-sm-3 col-form-label">Zonificación:</label>
                                                                                 <div class="section-input col-sm-8">
                                                                                     <span class="icon-input"><i class="fa-solid fa-location-dot"></i></span>
-                                                                                    <select class="form-mak" id="tipo_zoni" name="tipo_zoni">
+                                                                                    <!-- <input type="text" id="tipo_zoni_ofi" name="tipo_zoni_ofi"> -->
+                                                                                    <!-- <select id="opciones_zoni_ofi" name="opciones_zoni_ofi" class="opciones_zoni_ofi"></select> -->
+                                                                                    <select id="ozo" name="ozo" class="form-mak select2 select2-hidden-accessible">
+                                                                                        <?php foreach ($selector_types_prom as $cod_type_) : ?>
+                                                                                            <option value="<?php echo $cod_type_[0]; ?>"><?php echo $cod_type_[1]; ?></option>
+                                                                                        <?php endforeach ?>
                                                                                     </select>
+                                                                                </div>
+                                                                                <div class="input-group-append">
+                                                                                    <i class="fa-solid fa-circle-info tooltipInfo tooltip-right">
+                                                                                        <span class="tooltiptext">
+                                                                                            Info...
+                                                                                        </span>
+                                                                                    </i>
                                                                                 </div>
                                                                             </div>
                                                                         </div>
@@ -1313,9 +1343,6 @@
 
                                         <!-- LOCAL COMERCIAL - COMUN -->
                                         <div class="lcl comun">
-                                            <div class="card-header mak-bg mak-wht">
-                                                <h1>Local comercial - Común</h1>
-                                            </div>
 
                                             <div class="card-body">
                                                 <div class="row">
@@ -1377,8 +1404,20 @@
                                                                                 <label class="col-sm-3 col-form-label">Zonificación:</label>
                                                                                 <div class="section-input col-sm-8">
                                                                                     <span class="icon-input"><i class="fa-solid fa-location-dot"></i></span>
-                                                                                    <select class="form-mak" id="tipo_zoni" name="tipo_zoni">
+                                                                                    <!-- <input type="text" id="tipo_zoni_ofi" name="tipo_zoni_ofi"> -->
+                                                                                    <!-- <select id="opciones_zoni_ofi" name="opciones_zoni_ofi" class="opciones_zoni_ofi"></select> -->
+                                                                                    <select id="ozo" name="ozo" class="form-mak select2 select2-hidden-accessible">
+                                                                                        <?php foreach ($selector_types_prom as $cod_type_) : ?>
+                                                                                            <option value="<?php echo $cod_type_[0]; ?>"><?php echo $cod_type_[1]; ?></option>
+                                                                                        <?php endforeach ?>
                                                                                     </select>
+                                                                                </div>
+                                                                                <div class="input-group-append">
+                                                                                    <i class="fa-solid fa-circle-info tooltipInfo tooltip-right">
+                                                                                        <span class="tooltiptext">
+                                                                                            Info...
+                                                                                        </span>
+                                                                                    </i>
                                                                                 </div>
                                                                             </div>
                                                                         </div>
@@ -1478,9 +1517,6 @@
 
                                     <!-- LOCAL INDUSTRIAL -->
                                     <div id="6" class="section card card-default col-md-12" role="tabpanel" aria-labelledby="" data-target="second_step">
-                                        <div class="card-header mak-bg mak-wht">
-                                            <h1>Local industrial</h1>
-                                        </div>
 
                                         <div class="card-body">
                                             <div class="row">
@@ -1599,52 +1635,79 @@
 
                                     <!-- RESUMEN DE SOLICITUD -->
                                     <div id="pantalla-RS" class="section col-md-12" role="tabpanel" aria-labelledby="" data-target="third_step">
-                                        <h1>Resumen de solicitud</h1>
+
                                         <div class="row">
                                             <div class="col-md-12">
-                                                <div class="card card-warning">
-                                                    <div class="card-body">
-                                                        <div class="row">
-                                                            <table class="table table-bordered">
-                                                                <thead class="table-dark">
-                                                                    <tr>
-                                                                        <th>DISTRITO</th>
-                                                                        <th>DIRECCIÓN</th>
-                                                                        <th>TIPO</th>
-                                                                        <th>PROMOCIÓN</th>
-                                                                        <th>AT</th>
-                                                                        <th>AC</th>
-                                                                        <th>AO</th>
-                                                                    </tr>
-                                                                </thead>
-                                                                <tbody>
-                                                                    <tr>
-                                                                        <!-- <td>MIRAFLORES</td> -->
-                                                                        <td id="dir__dist"></td>
-                                                                        <!-- <td>AV AREQUIPA 4960</td> -->
-                                                                        <td id="dir__"></td>
-                                                                        <!-- <td>CASA</td> -->
-                                                                        <td id="tip__"></td>
-                                                                        <!-- <td>VENTA</td> -->
-                                                                        <td id="pro__"></td>
-                                                                        <td id="at__"></td>
-                                                                        <td id="ac__"></td>
-                                                                        <td id="ao__"></td>
-                                                                    </tr>
-                                                                </tbody>
-                                                            </table>
+                                                <div class="card-body">
+                                                    <div class="row">
+                                                        <table class="table table-borderless">
+                                                            <thead class="">
+                                                                <tr>
+                                                                    <th>DISTRITO</th>
+                                                                    <th>DIRECCIÓN</th>
+                                                                    <th>TIPO</th>
+                                                                    <th>PROMOCIÓN</th>
+                                                                    <th>AT</th>
+                                                                    <th>AC</th>
+                                                                    <th>AO</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <tr>
+                                                                    <!-- <td>MIRAFLORES</td> -->
+                                                                    <td id="dir__dist"></td>
+                                                                    <!-- <td>AV AREQUIPA 4960</td> -->
+                                                                    <td id="dir__"></td>
+                                                                    <!-- <td>CASA</td> -->
+                                                                    <td id="tip__"></td>
+                                                                    <!-- <td>VENTA</td> -->
+                                                                    <td id="pro__"></td>
+                                                                    <td id="at__"></td>
+                                                                    <td id="ac__"></td>
+                                                                    <td id="ao__"></td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
 
+                                                        <br>
+                                                        <!-- <div class="card-body"> -->
+                                                        <div class="col-sm-12  card-resume flex">
+                                                            <div class="col-sm-6 brd-rght-blue">
+                                                                <div class="card-body">
+                                                                    <div id="mapa_2" style="height: 400px;"></div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-sm-6">
+                                                                <div class="card-body data-resume">
+                                                                    <h2>Resumen</h2>
+                                                                    <p><strong>Datos de contacto:</strong></p>
+                                                                    <ul>
+                                                                        <li>Nombre: <?php echo $_SESSION['nom_usu']; ?></li>
+                                                                        <li>Email: <?php echo $_SESSION['email_usu']; ?></li>
+                                                                        <li>Teléfono: <?php echo $_SESSION['telef_usu']; ?></li>
+                                                                    </ul>
+                                                                    <div>
+                                                                        <p><strong>Información de la propiedad:</strong></p>
+                                                                        <div data-resume>
 
-                                                            <div class="col-md-6">
+                                                                        </div>
+                                                                    </div>
+                                                                    <!-- <p><strong>Información del tipo de propiedad:</strong></p> -->
+                                                                </div>
+                                                            </div>
+                                                            <!-- </div> -->
+                                                        </div>
+
+                                                        <!-- <div class="col-md-6">
                                                                 <div class="card card-default">
                                                                     <div class="card-body">
                                                                         <div id="mapa_2" style="height: 400px;"></div>
                                                                     </div>
                                                                 </div>
-                                                            </div>
+                                                            </div> -->
 
-                                                            <!-- resumen de los inputs-->
-                                                            <div class="col-sm-6">
+                                                        <!-- resumen de los inputs-->
+                                                        <!-- <div class="col-sm-6">
                                                                 <div class="card">
                                                                     <div class="card-body data-resume">
                                                                         <h2>Resumen</h2>
@@ -1659,15 +1722,15 @@
                                                                             <p><strong>Información de la propiedad:</strong></p>
                                                                             <div data-resume>
                                                                                 <ul>
-                                                                                    <!--Datos del paso 1-->
+                                                                                    <!--Datos del paso 1--
                                                                                     <li id="dire_resumen"></li>
                                                                                     <li id="tipo_prop_resumen"> </li>
                                                                                     <li id="sub_tipo_prop_resumen"></li>
                                                                                     <li id="tipo_prom_resumen">Tipo de promoción: </li>
-                                                                                    <!--Datos del paso 1-->
+                                                                                    <!--Datos del paso 1--
 
 
-                                                                                    <!--Datos del paso 2 casa-->
+                                                                                    <!--Datos del paso 2 casa--
                                                                                     <li id="sala_com_resumen" style="display: none;"></li>
                                                                                     <li id="cocin_cas_resumen" style="display: none;"></li>
                                                                                     <li id="sala_cas_resumen" style="display: none;"></li>
@@ -1683,19 +1746,17 @@
                                                                                     <li id="ascensor_resumen" style="display: none;"></li>
                                                                                     <li id="ascensor_Dir_resumen" style="display: none;"></li>
                                                                                     <li id="aire_acon_resumen" style="display: none;"></li>
-                                                                                    <!--Datos del paso 2 casa-->
+                                                                                    <!--Datos del paso 2 casa--
                                                                                 </ul>
                                                                             </div>
                                                                         </div>
                                                                         <p><strong>Información del tipo de propiedad:</strong></p>
                                                                     </div>
                                                                 </div>
-                                                            </div>
-                                                            <!-- resumen de los inputs-->
+                                                            </div> -->
+                                                        <!-- resumen de los inputs-->
 
-                                                        </div>
                                                     </div>
-
                                                 </div>
                                             </div>
                                         </div>
@@ -1764,7 +1825,10 @@
     <!-- Bootstrap 4 -->
     <script src="../Vista/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
     <!-- Select2 -->
+    <script src="../Vista/plugins/select2/js/select2.full.js"></script>
     <script src="../Vista/plugins/select2/js/select2.full.min.js"></script>
+    <script src="../Vista/plugins/select2/js/select2.js"></script>
+    <script src="../Vista/plugins/select2/js/select2.min.js"></script>
     <!-- Bootstrap4 Duallistbox -->
     <script src="../Vista/plugins/bootstrap4-duallistbox/jquery.bootstrap-duallistbox.min.js"></script>
     <!-- InputMask -->
