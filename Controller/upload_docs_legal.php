@@ -37,6 +37,7 @@ if (in_array($file_ext, $allowed)) {
             $target_file = $file_destination . basename($_FILES["fileToUpload"]["name"]);
 
             if (move_uploaded_file($file_tmp, $target_file)) {
+
                 require_once('../Model/Legal.php');
                 $olegal = new cLegal();
 

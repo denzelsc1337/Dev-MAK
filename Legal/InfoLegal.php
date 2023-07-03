@@ -142,6 +142,7 @@ require_once('../Controller/controladorListar.php');
                                                         <div class="card-body">
                                                         	<form method="POST" action="../Controller/Upload_Legal_Docs.php" enctype="multipart/form-data">
                                                         		<input type="text" class="form-control" id="dni_usu_0" name="dni_usu_0" value="<?php echo $_SESSION['dni']; ?>">
+                                                        		<input type="text" class="form-control" id="id_cli_0" name="id_cli_0" value="<?php echo $_SESSION['id_usu']; ?>">
 	                                                            <div class="row">
 	                                                                <div class="col-sm-10">
 	                                                                    <!-- text input -->

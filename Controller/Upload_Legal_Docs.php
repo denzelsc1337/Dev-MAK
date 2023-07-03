@@ -1,14 +1,29 @@
 <?php
 
-
-
-
 if(isset($_POST["btn_save_hr"])) {
     
   $dni_client = $_POST["dni_usu_0"];
+  $id_client = $_POST["id_cli_0"];
+
+  $file = $_FILES["hr_s"];
+
+
+  $file_name = $file["name"];
+  $file_tmp = $file["tmp_name"];
+  $file_size = $file["size"];
+  $file_error = $file["error"];
+  $file_type = $file["type"];
+
+  $file_ext = explode('.', $file_name);
+  $file_ext = strtolower(end($file_ext));
+
+  $file_desc = pathinfo(basename($_FILES["hr_s"]["name"]), PATHINFO_FILENAME);
+  $file_ext = pathinfo(basename($_FILES["hr_s"]["name"]), PATHINFO_EXTENSION);
 
   $target_dir = "../Documentos Legal/".$dni_client."/H_R/";
+
   echo $target_dir;
+
   if (!file_exists($target_dir)) {
     mkdir($target_dir, 0777, true);
   }
@@ -16,8 +31,17 @@ if(isset($_POST["btn_save_hr"])) {
   $target_file = $target_dir . basename($_FILES["hr_s"]["name"]);
 
   if (move_uploaded_file($_FILES["hr_s"]["tmp_name"], $target_file)) {
+
+    //agregar codigo del model aqui
+
+    require_once('../Model/Legal.php');
+    $olegal = new cLegal();
+
+    // Modificar la llamada a la función del modelo con los nuevos parámetros
+    $olegal->upload_documents_clients($file_name, $file_type, $target_dir, $file_size, $file_ext, $id_client,$dni_client);
+    //agregar codigo del model aqui
 ?>
-    <META http-equiv='Refresh' content = '0.2; URL =../Legal/InfoLegal.php'>;
+
     <script>
         alert("Hoja Resumen correctamente cargada.");
     </script>

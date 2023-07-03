@@ -441,14 +441,6 @@ create table valorizacion(
 -- 402 = En revision
 -- 200 = Finalizado
 
-create table tipos_doc_legal(
-	id_doc_legal 	int primary key auto_increment,
-    tipo_doc_leg	varchar(255),
-    tiempo_espera	varchar(255),
-    costo_doc		varchar(255),
-    desc_procd		varchar(255)
-);
-
 create table docs_legal(
 	id_legal	int primary key auto_increment, 
     rutas_docs			varchar(255),
@@ -457,13 +449,33 @@ create table docs_legal(
     dir_client			varchar(255),
     fecha_reg			date,
     user_cod			int,
-    status_doc			varchar(20) default "10",
+    status_solic		varchar(20) default "10",
     FOREIGN KEY (user_cod) REFERENCES clientes_servicios (id_client) ON DELETE SET NULL
 );
 
 -- 10 = Pendiente
 -- 20 = En revision
 -- 90 = Finalizado
+
+
+create table documents_clients(
+	id_document 	int primary key auto_increment,
+	
+    file_destination	varchar(100),
+    file_name           varchar(50),
+    file_ext			varchar(50),
+    file_type			varchar(100),
+    file_size			int,
+    fecha_reg			date,
+    id_client			int,
+    dni_client			int,
+    status_doc          varchar(20) default "500",
+    FOREIGN KEY (id_client) REFERENCES clientes_servicios (id_client) ON DELETE SET NULL
+);
+
+-- 500 = Pendiente
+-- 405 = En revision
+-- 200 = Finalizado
 
 insert into tipo_inmuebles values (-1, 'sin tipo de inmueble');
 insert into tipo_inmuebles values (null, 'Casa');

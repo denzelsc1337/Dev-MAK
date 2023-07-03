@@ -25,36 +25,37 @@ class cLegal
 
 	}
 
-	/*function upload_files_legal($file_names, $file_types, $file_destinations, $file_sizes, $file_exts, $data)
+	function upload_documents_clients($file_name, $file_type, $file_destination, $file_size, $file_ext, $id_client,$dni_client)
 	{
 	    include_once('../config/Conexion.php');
 	    $cnx = new Conexion();
 	    $cadena = $cnx->abrirConexion();
 
-	    $total_files = count($file_names);
+        $query = "INSERT INTO `documents_clients`(`id_document`,`file_name`, `file_type`, `file_destination`, `file_size`, `file_ext`, `fecha_reg`, `id_client`, `dni_client`)
+        VALUES (	 null,
+        		'" . $file_name . "',
+                '" . $file_type . "',
+                '" . $file_destination . "',
+                '" . $file_size . "',
+                '" . $file_ext . "',
+                	 now(),
+                '" . $id_client. "',
+            	'" . $dni_client. "');";
 
-	    for ($i = 0; $i < $total_files; $i++) {
-	        $file_name = $file_names[$i];
-	        $file_type = $file_types[$i];
-	        $file_destination = $file_destinations[$i];
-	        $file_size = $file_sizes[$i];
-	        $file_ext = $file_exts[$i];
+        /*$result = mysqli_query($cadena, $query);
 
-	        $Query = "INSERT INTO `docs_legal`(`file_name`, `file_type`, `file_destination`, `file_size`, `file_desc`, `file_ext`, `cod_doc_tipo_legl`, `user_cod`)
-	        VALUES ('" . $file_name . "',
-	                '" . $file_type . "',
-	                '" . $file_destination . "',
-	                '" . $file_size . "',
-	                '" . $data[1] . "',
-	                '" . $file_ext . "',
-	                '" . $data[2] . "',
-	                '" . $data[3] . "');";
 
-	        mysqli_query($cadena, $Query);
-	    }
+        if ($result) {
+            $num_rows = mysqli_affected_rows($cadena);
+            echo "Se han insertado $num_rows filas correctamente";
+        } else {
+            echo "Error al ejecutar la consulta: " . mysqli_error($cadena);
+        }*/
+       echo mysqli_query($cadena, $query);
 
-	    $cnx->cerrarConexion($cadena);
-	}*/
+
+	   $cnx->cerrarConexion($cadena);
+	}
 
 
 	public function listadoSolicDocsLegal(){
@@ -62,7 +63,7 @@ class cLegal
 		$cnx = new conexion();
 		$cadena = $cnx->abrirConexion();
 
-		$query = "SELECT id_legal,dir_client, fecha_reg, status_doc FROM docs_legal";
+		$query = "SELECT id_legal,dir_client, fecha_reg, status_solic FROM docs_legal";
 
 		$resultado = mysqli_query($cadena, $query);
 
