@@ -41,7 +41,7 @@ if(isset($_POST["btn_save_hr"])) {
     $olegal->upload_documents_clients($file_name, $file_type, $target_dir, $file_size, $file_ext, $id_client,$dni_client);
     //agregar codigo del model aqui
 ?>
-
+    <META http-equiv='Refresh' content = '0.2; URL =../Legal/InfoLegal.php'>;
     <script>
         alert("Hoja Resumen correctamente cargada.");
     </script>
