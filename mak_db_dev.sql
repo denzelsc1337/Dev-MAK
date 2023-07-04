@@ -441,6 +441,11 @@ create table valorizacion(
 -- 402 = En revision
 -- 200 = Finalizado
 
+create table tipos_doc_legal(
+	id_tipo_doc 	int primary key auto_increment,
+    desc_tipo		varchar(90)
+);
+
 create table docs_legal(
 	id_legal	int primary key auto_increment, 
     rutas_docs			varchar(255),
@@ -458,6 +463,7 @@ create table docs_legal(
 -- 90 = Finalizado
 
 
+
 create table documents_clients(
 	id_document 	int primary key auto_increment,
 	
@@ -467,11 +473,14 @@ create table documents_clients(
     file_type			varchar(100),
     file_size			int,
     fecha_reg			date,
+    tipo_doc			int,
     id_client			int,
     dni_client			int,
     status_doc          varchar(20) default "500",
-    FOREIGN KEY (id_client) REFERENCES clientes_servicios (id_client) ON DELETE SET NULL
+    FOREIGN KEY (id_client) REFERENCES clientes_servicios (id_client) ON DELETE SET NULL,
+    FOREIGN KEY (tipo_doc) REFERENCES tipos_doc_legal (id_tipo_doc) ON DELETE SET NULL
 );
+select * from documents_clients where id_client = 1 and dni_client = 75481104 and tipo_doc = 1
 
 -- 500 = Pendiente
 -- 405 = En revision
@@ -660,8 +669,10 @@ insert into tipo_client_service (nombre_tipo_client) values('Propietario');
 
 insert into usuarios values(null, 'Denzel', 'Sotomayor', 'dsotomayor', '1337','denzelsotomayor@gmail.com', null, 1, 'm', 1);
 
-insert into tipos_doc_legal values (null,'Numeracion', '15 dias habiles aprox. / 30 dias habiles si hubiera observacion aprox.', 
-									'Sujeto a TUPA, entre s/50 y s/100 aprox.', 'Se requiere de plano de distribucion aprobado y croquis.');
+insert into tipos_doc_legal values (null,'Hoja de Resumen');
+insert into tipos_doc_legal values (null,'Predio Urbano');
+insert into tipos_doc_legal values (null,'Copia Literal');
+insert into tipos_doc_legal values (null,'DNI');
 
 
 select * from tipo_client_service;

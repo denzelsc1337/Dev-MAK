@@ -25,13 +25,13 @@ class cLegal
 
 	}
 
-	function upload_documents_clients($file_name, $file_type, $file_destination, $file_size, $file_ext, $id_client,$dni_client)
+	function upload_documents_clients($file_name, $file_type, $file_destination, $file_size, $file_ext, $tipo_doc,$id_client,$dni_client)
 	{
 	    include_once('../config/Conexion.php');
 	    $cnx = new Conexion();
 	    $cadena = $cnx->abrirConexion();
 
-        $query = "INSERT INTO `documents_clients`(`id_document`,`file_name`, `file_type`, `file_destination`, `file_size`, `file_ext`, `fecha_reg`, `id_client`, `dni_client`)
+        $query = "INSERT INTO `documents_clients`(`id_document`,`file_name`, `file_type`, `file_destination`, `file_size`, `file_ext`, `fecha_reg`,`tipo_doc`,`id_client`, `dni_client`)
         VALUES (	 null,
         		'" . $file_name . "',
                 '" . $file_type . "',
@@ -39,6 +39,7 @@ class cLegal
                 '" . $file_size . "',
                 '" . $file_ext . "',
                 	 now(),
+                '" . $tipo_doc. "',
                 '" . $id_client. "',
             	'" . $dni_client. "');";
 

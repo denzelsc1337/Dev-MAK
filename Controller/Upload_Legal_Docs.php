@@ -6,6 +6,7 @@ if(isset($_POST["btn_save_hr"])) {
   $id_client = $_POST["id_cli_0"];
 
   $file = $_FILES["hr_s"];
+  $_tipo_doc_0 = $_POST["tipo_doc_0"];
 
 
   $file_name = $file["name"];
@@ -38,7 +39,7 @@ if(isset($_POST["btn_save_hr"])) {
     $olegal = new cLegal();
 
     // Modificar la llamada a la función del modelo con los nuevos parámetros
-    $olegal->upload_documents_clients($file_name, $file_type, $target_dir, $file_size, $file_ext, $id_client,$dni_client);
+    $olegal->upload_documents_clients($file_name, $file_type, $target_dir, $file_size, $file_ext, $_tipo_doc_0,$id_client,$dni_client);
     //agregar codigo del model aqui
 ?>
     <META http-equiv='Refresh' content = '0.2; URL =../Legal/InfoLegal.php'>;

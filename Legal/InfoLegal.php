@@ -149,6 +149,7 @@ require_once('../Controller/controladorListar.php');
 	                                                                    <div class="form-group">
 	                                                                        <label>H.R</label>
 	                                                                        <input type="file" class="form-control" id="hr_s" name="hr_s">
+	                                                                        <input type="text" class="form-control" id="tipo_doc_0" name="tipo_doc_0" value="1">
 	                                                                        <button type="button" class="btn btn-rounded btn-success btn_lst_hr btn_lst_hr_0" data-toggle="modal" data-target="#lst_hr_0" data-valor="H_R" data-titulo="Hoja de Resumen">ver</button>
 	                                                                    </div>
 	                                                                </div>
@@ -408,12 +409,92 @@ require_once('../Controller/controladorListar.php');
 	                                    <input type="text" name="usu_dni" id="usu_dni" value="<?php echo $_SESSION['dni'] ?>">
 	                                    <br>
 	                                    <label>concepto</label>
-	                                    <input type="text" name="_concept" id="_concept" value="H_R">
+	                                    <input type="text" name="_concept" id="_concept">
 	                                    <br>
 	                            </div>
 			            		<div class="form-group">
 		                           <div id="descarga_archivo_m"></div>
 		                        </div>
+		                        <div class="modal-footer justify-content-between">
+					              <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+					              <button id="save_doc_legal" type="save_doc_legal" name="submit" class="btn btn-primary">Subir</button>
+					            </div>
+			            	</div>
+			            </form>
+		          	</div>
+		          <!-- /.modal-content -->
+		        </div>
+		        <!-- /.modal-dialog -->
+		    </div>
+
+		    <div class="modal fade" id="lst_files">
+		        <div class="modal-dialog">
+		        	<div class="modal-content">
+			            <div class="modal-header">
+			              <h4 class="modal-title">Mis Documentos: <strong id="titulo_docs"></strong></h4>
+			              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			                <span aria-hidden="true">&times;</span>
+			              </button>
+			            </div>
+		            		<div class="modal-body">
+			            		<div class="form-group">
+			            			<label>Hoja de Resumen</label>
+			            			<button type="button" class="btn btn-rounded btn-success btn_ver_tipos" data-toggle="modal" data-target="#ver_docs" data-id_doc="1" data-nom_doc="H_R">
+			                            <i class="fa-regular fa-eye"></i>
+			                        </button><br>
+			                        <label>Predio Urbano</label>
+			            			<button type="button" class="btn btn-rounded btn-success btn_ver_tipos" data-toggle="modal" data-target="#ver_docs" data-id_doc="2" data-nom_doc="P_U">
+			                            <i class="fa-regular fa-eye"></i>
+			                        </button><br>
+			                        <label>Copia Literal</label>
+			            			<button type="button" class="btn btn-rounded btn-success btn_ver_tipos" data-toggle="modal" data-target="#ver_docs" data-id_doc="3" data-nom_doc="C_L">
+			                            <i class="fa-regular fa-eye"></i>
+			                        </button><br>
+			                        <label>DNI</label>
+			            			<button type="button" class="btn btn-rounded btn-success btn_ver_tipos" data-toggle="modal" data-target="#ver_docs" data-id_doc="4" data-nom_doc="DNI">
+			                            <i class="fa-regular fa-eye"></i>
+			                        </button>
+		                        </div>
+		                        <div class="modal-footer justify-content-between">
+					              <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+					            </div>
+		            		</div>
+		          	</div>
+		          <!-- /.modal-content -->
+		        </div>
+		        <!-- /.modal-dialog -->
+		    </div>
+
+		    <div class="modal fade" id="lst_docs_0">
+		        <div class="modal-dialog">
+		        	<div class="modal-content">
+			            <div class="modal-header">
+			              <h4 class="modal-title">Mis Documentos: <strong id="titulo_docs"></strong></h4>
+			              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			                <span aria-hidden="true">&times;</span>
+			              </button>
+			            </div>
+			            <form action="../Controller/upload_docs_legal.php" method="POST" enctype="multipart/form-data">
+			            	<div class="modal-body">
+			            		<div class="form-group">
+			            				<label>id</label>
+	                                    <input type="text" name="dni_client" id="dni_client" value="<?php echo $_SESSION['id_usu'] ?>">
+	                                    <br>
+	                                    <label>dni</label>
+	                                    <input type="text" name="dni_client" id="dni_client" value="<?php echo $_SESSION['dni'] ?>">
+	                                    <br>
+	                                    <label>id_tipo_doc_lgl</label>
+	                                    <input type="text" name="id_tipo_doc_lgl" id="id_tipo_doc_lgl">
+	                                    <br>
+	                                    <label>concepto</label>
+	                                    <input type="text" name="_concept_doc" id="_concept_doc">
+	                                    <br>
+	                            </div>
+			            		<div class="form-group">
+		                           <div id="descarga_archivo_s"></div>
+		                           <div id="estado_doc"></div>
+		                        </div>
+
 		                        <div class="modal-footer justify-content-between">
 					              <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
 					              <button id="save_doc_legal" type="save_doc_legal" name="submit" class="btn btn-primary">Subir</button>
@@ -550,6 +631,8 @@ require_once('../Controller/controladorListar.php');
             $('#desc_doc').val(data[2].trim());
         });
 
+
+
         $('.btn_lst_hr').on('click', function() {
             console.log("test");
 
@@ -626,6 +709,90 @@ require_once('../Controller/controladorListar.php');
 			});
 
         });
+
+        $('.btn_ver_files').on('click', function() {
+            console.log("test");
+            $('#lst_files').modal('show');
+
+            $tr = $(this).closest('tr');
+            var data = $tr.children("td").map(function() {
+                return $(this).text();
+            }).get();
+            console.log(data);
+        });
+
+        $('.btn_ver_tipos').on('click', function() {
+
+            $('#lst_docs_0').modal('show');
+
+            var id_doc_lgl = $(this).data('id_doc');
+            var nom_doc_lgl = $(this).data('nom_doc');
+
+            console.log(id_doc_lgl);
+            console.log(nom_doc_lgl);
+
+            $('#id_tipo_doc_lgl').val(id_doc_lgl);
+
+            $('#_concept_doc').val(nom_doc_lgl);
+
+
+
+            var concept =  $('#_concept_doc').val();
+            var id_tipo_doc_ = $('#id_tipo_doc_lgl').val();
+            var dni = '<?php echo $_SESSION['dni'] ?>';
+            var id_cli = '<?php echo $_SESSION['id_usu'] ?>';
+
+            $.ajax({
+			    type: 'POST',
+			    url: '../Controller/obtener_files_client.php',
+			    data: {
+			    	_concept_doc:concept,
+			        id_client: id_cli,
+			        dni_client: dni,
+			        id_tipo_doc: id_tipo_doc_
+			    },
+			    success: function(response) {
+			        var data  = JSON.parse(response);
+
+			        var archivos = data.archivos;
+        			var estado_doc = data.status_doc;
+
+
+				    if (archivos && archivos.length > 0) {
+				        var enlaceHtml = '';
+
+				        archivos.forEach(function(archivo) {
+				            var ruta = archivo.ruta;
+				            var nombreArchivo = archivo.archivo;
+				            var estado = archivo.estado;
+
+
+				            enlaceHtml += '<a href="' + ruta + nombreArchivo+'">' + nombreArchivo + '</a><br>';
+				            if (estado==500) {
+				            	status_r = 'Pendiente'
+				            }
+				            enlaceHtml += '<i>' + status_r + '</i><br>';
+				        });
+
+				        document.getElementById('descarga_archivo_s').innerHTML = enlaceHtml;
+
+				    } else {
+
+				        document.getElementById('descarga_archivo_s').textContent = 'Archivo no encontrado';
+				    }
+
+			    },
+			    error: function(xhr, status, error) {
+			        console.log(error);
+			    }
+			});
+
+
+        });
+
+
+
+
 
 
     });
