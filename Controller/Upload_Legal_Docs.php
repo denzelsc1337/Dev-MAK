@@ -53,6 +53,12 @@ if(isset($_POST["btn_save_hr"])) {
   }
 }
 
+
+
+
+
+
+
 if(isset($_POST["btn_save_pu"])) {
 
   $dni_client = $_POST["dni_usu_1"];
@@ -78,6 +84,10 @@ if(isset($_POST["btn_save_pu"])) {
   }
 }
 
+
+
+
+
 if(isset($_POST["btn_save_cl"])) {
 
   $dni_client = $_POST["dni_usu_2"];
@@ -102,6 +112,10 @@ if(isset($_POST["btn_save_cl"])) {
     echo '<script> alert("Error al cargar Copia L.");</script>';
   }
 }
+
+
+
+
 
 if(isset($_POST["btn_save_dni"])) {
 

@@ -482,6 +482,11 @@ create table documents_clients(
 );
 select * from documents_clients where id_client = 1 and dni_client = 75481104 and tipo_doc = 1;
 
+SELECT id_legal,dir_client, fecha_reg, status_solic,user_cod,dni_client
+FROM docs_legal dl
+inner join clientes_servicios cs
+on dl.user_cod = cs.id_client
+
 -- 500 = Pendiente
 -- 405 = En revision
 -- 200 = Finalizado

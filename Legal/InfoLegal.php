@@ -337,6 +337,8 @@ require_once('../Controller/controladorListar.php');
 										}
 										?>
 										</td>
+										<td><?php echo $lst_legal_d[4] ?></td>
+										<td><?php echo $lst_legal_d[5] ?></td>
 										<td>
 			                            	<button type="button" class="btn btn-rounded btn-success btn_ver_files" data-toggle="modal" data-target="#ver_docs">
 			                            		<i class="fa-regular fa-eye"></i>
@@ -438,22 +440,77 @@ require_once('../Controller/controladorListar.php');
 			            </div>
 		            		<div class="modal-body">
 			            		<div class="form-group">
+			            			<input type="text" name="id_usu_soli" id="id_usu_soli">
+			            			<input type="text" name="dni_usu_soli" id="dni_usu_soli">
+
+
+
 			            			<label>Hoja de Resumen</label>
+
+			            			<!--(modo usuario comun)--> <!--(modo usuario comun)--> <!--(modo usuario comun)--> <!--(modo usuario comun)-->
 			            			<button type="button" class="btn btn-rounded btn-success btn_ver_tipos" data-toggle="modal" data-target="#ver_docs" data-id_doc="1" data-nom_doc="H_R">
-			                            <i class="fa-regular fa-eye"></i>
-			                        </button><br>
-			                        <label>Predio Urbano</label>
-			            			<button type="button" class="btn btn-rounded btn-success btn_ver_tipos" data-toggle="modal" data-target="#ver_docs" data-id_doc="2" data-nom_doc="P_U">
-			                            <i class="fa-regular fa-eye"></i>
-			                        </button><br>
-			                        <label>Copia Literal</label>
-			            			<button type="button" class="btn btn-rounded btn-success btn_ver_tipos" data-toggle="modal" data-target="#ver_docs" data-id_doc="3" data-nom_doc="C_L">
-			                            <i class="fa-regular fa-eye"></i>
-			                        </button><br>
-			                        <label>DNI</label>
-			            			<button type="button" class="btn btn-rounded btn-success btn_ver_tipos" data-toggle="modal" data-target="#ver_docs" data-id_doc="4" data-nom_doc="DNI">
-			                            <i class="fa-regular fa-eye"></i>
+			                            <i class="fa-regular fa-eye">user</i>
 			                        </button>
+			                        <!--(modo usuario comun)--> <!--(modo usuario comun)--> <!--(modo usuario comun)--> <!--(modo usuario comun)-->
+
+
+
+			                        <!--(modo admin)--> <!--(modo admin)--> <!--(modo admin)--> <!--(modo admin)-->
+			                        <button type="button" class="btn btn-rounded btn-success btn_ver_tipos_0" data-toggle="modal" data-target="#ver_docs" data-id_doc="1" data-nom_doc="H_R">
+			                            <i class="fa-regular fa-eye"> admin</i>
+			                        </button><br>
+			                        <!--(modo admin)--> <!--(modo admin)--> <!--(modo admin)--> <!--(modo admin)-->
+
+
+
+			                        <label>Predio Urbano</label>
+
+			                        <!--(modo usuario comun)--> <!--(modo usuario comun)--> <!--(modo usuario comun)--> <!--(modo usuario comun)-->
+			            			<button type="button" class="btn btn-rounded btn-success btn_ver_tipos" data-toggle="modal" data-target="#ver_docs" data-id_doc="2" data-nom_doc="P_U">
+			                            <i class="fa-regular fa-eye">user</i>
+			                        </button>
+			                        <!--(modo usuario comun)--> <!--(modo usuario comun)--> <!--(modo usuario comun)--> <!--(modo usuario comun)-->
+
+
+
+			                        <!--(modo admin)--> <!--(modo admin)--> <!--(modo admin)--> <!--(modo admin)-->
+			                        <button type="button" class="btn btn-rounded btn-success btn_ver_tipos_0" data-toggle="modal" data-target="#ver_docs" data-id_doc="2" data-nom_doc="P_U">
+			                            <i class="fa-regular fa-eye"> admin</i>
+			                        </button><br>
+			                        <!--(modo admin)--> <!--(modo admin)--> <!--(modo admin)--> <!--(modo admin)-->
+
+
+
+
+			                        <label>Copia Literal</label>
+			                        <!--(modo usuario comun)--> <!--(modo usuario comun)--> <!--(modo usuario comun)--> <!--(modo usuario comun)-->
+			            			<button type="button" class="btn btn-rounded btn-success btn_ver_tipos" data-toggle="modal" data-target="#ver_docs" data-id_doc="3" data-nom_doc="C_L">
+			                            <i class="fa-regular fa-eye">user</i>
+			                        </button>
+			                        <!--(modo usuario comun)--> <!--(modo usuario comun)--> <!--(modo usuario comun)--> <!--(modo usuario comun)-->
+
+
+			                        <!--(modo admin)--> <!--(modo admin)--> <!--(modo admin)--> <!--(modo admin)-->
+			                        <button type="button" class="btn btn-rounded btn-success btn_ver_tipos_0" data-toggle="modal" data-target="#ver_docs" data-id_doc="3" data-nom_doc="C_L">
+			                            <i class="fa-regular fa-eye"> admin</i>
+			                        </button><br>
+			                        <!--(modo admin)--> <!--(modo admin)--> <!--(modo admin)--> <!--(modo admin)-->
+
+			                        <label>DNI</label>
+
+			                        <!--(modo usuario comun)--> <!--(modo usuario comun)--> <!--(modo usuario comun)--> <!--(modo usuario comun)-->
+			            			<button type="button" class="btn btn-rounded btn-success btn_ver_tipos" data-toggle="modal" data-target="#ver_docs" data-id_doc="4" data-nom_doc="DNI">
+			                            <i class="fa-regular fa-eye">user</i>
+			                        </button>
+			                        <!--(modo usuario comun)--> <!--(modo usuario comun)--> <!--(modo usuario comun)--> <!--(modo usuario comun)-->
+
+			                        <!--(modo admin)--> <!--(modo admin)--> <!--(modo admin)--> <!--(modo admin)-->
+			                        <button type="button" class="btn btn-rounded btn-success btn_ver_tipos_0" data-toggle="modal" data-target="#ver_docs" data-id_doc="4" data-nom_doc="DNI">
+			                            <i class="fa-regular fa-eye"> admin</i>
+			                        </button><br>
+			                        <!--(modo admin)--> <!--(modo admin)--> <!--(modo admin)--> <!--(modo admin)-->
+
+
 		                        </div>
 		                        <div class="modal-footer justify-content-between">
 					              <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
@@ -465,6 +522,7 @@ require_once('../Controller/controladorListar.php');
 		        <!-- /.modal-dialog -->
 		    </div>
 
+		    <!--(modo usuario comun)--> <!--(modo usuario comun)--> <!--(modo usuario comun)--> <!--(modo usuario comun)-->
 		    <div class="modal fade" id="lst_docs_0">
 		        <div class="modal-dialog">
 		        	<div class="modal-content">
@@ -478,7 +536,7 @@ require_once('../Controller/controladorListar.php');
 			            	<div class="modal-body">
 			            		<div class="form-group">
 			            				<label>id</label>
-	                                    <input type="text" name="dni_client" id="dni_client" value="<?php echo $_SESSION['id_usu'] ?>">
+	                                    <input type="text" name="id_client" id="id_client" value="<?php echo $_SESSION['id_usu'] ?>">
 	                                    <br>
 	                                    <label>dni</label>
 	                                    <input type="text" name="dni_client" id="dni_client" value="<?php echo $_SESSION['dni'] ?>">
@@ -506,6 +564,54 @@ require_once('../Controller/controladorListar.php');
 		        </div>
 		        <!-- /.modal-dialog -->
 		    </div>
+		    <!--(modo usuario comun)--> <!--(modo usuario comun)--> <!--(modo usuario comun)--> <!--(modo usuario comun)-->
+
+
+
+		    <!--(modo admin)--> <!--(modo admin)--> <!--(modo admin)--> <!--(modo admin)-->
+		    <div class="modal fade" id="lst_docs_1">
+		        <div class="modal-dialog">
+		        	<div class="modal-content">
+			            <div class="modal-header">
+			              <h4 class="modal-title">Mis Documentos: <strong id="titulo_docs"></strong></h4>
+			              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			                <span aria-hidden="true">&times;</span>
+			              </button>
+			            </div>
+			            <form action="../Controller/upload_docs_legal.php" method="POST" enctype="multipart/form-data">
+			            	<div class="modal-body">
+			            		<div class="form-group">
+			            				<label>id</label>
+	                                    <input type="text" name="id_client_0" id="id_client_0">
+	                                    <br>
+	                                    <label>dni</label>
+	                                    <input type="text" name="dni_client_0" id="dni_client_0">
+	                                    <br>
+	                                    <label>id_tipo_doc_lgl</label>
+	                                    <input type="text" name="id_tipo_doc_lgl_0" id="id_tipo_doc_lgl_0">
+	                                    <br>
+	                                    <label>concepto</label>
+	                                    <input type="text" name="_concept_doc_0" id="_concept_doc_0">
+	                                    <br>
+	                            </div>
+			            		<div class="form-group">
+		                           <div id="descarga_archivo_s"></div>
+		                           <div id="estado_doc"></div>
+		                        </div>
+
+		                        <div class="modal-footer justify-content-between">
+					              <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+					              <button id="save_doc_legal" type="save_doc_legal" name="submit" class="btn btn-primary">Subir</button>
+					            </div>
+			            	</div>
+			            </form>
+		          	</div>
+		          <!-- /.modal-content -->
+		        </div>
+		        <!-- /.modal-dialog -->
+		    </div>
+		    <!--(modo admin)--> <!--(modo admin)--> <!--(modo admin)--> <!--(modo usuario comun)-->
+
 
 
 		</section>
@@ -719,7 +825,55 @@ require_once('../Controller/controladorListar.php');
                 return $(this).text();
             }).get();
             console.log(data);
+
+            $('#id_usu_soli').val(data[4]);
+            $('#dni_usu_soli').val(data[5]);
         });
+
+
+
+
+
+        //codigo para el admin y ver los documentos de cada usuario
+
+        $('.btn_ver_tipos_0').on('click', function() {
+            console.log("test");
+            $('#lst_docs_1').modal('show');
+
+            //valores de los inputs del modal lst_files
+		    var id_usu_soli = $('#id_usu_soli').val();
+		    var dni_usu_soli = $('#dni_usu_soli').val();
+
+		    //valores a los inputs en el modal lst_docs_1
+		    $('#lst_docs_1').find('#id_client_0').val(id_usu_soli);
+		    $('#lst_docs_1').find('#dni_client_0').val(dni_usu_soli);
+
+		    console.log(id_usu_soli);
+		    console.log(dni_usu_soli);
+
+            $tr = $(this).closest('tr');
+            var data = $tr.children("td").map(function() {
+                return $(this).text();
+            }).get();
+            console.log(data);
+
+
+            var id_doc_lgl_0 = $(this).data('id_doc');
+            var nom_doc_lgl_0 = $(this).data('nom_doc');
+
+            console.log(id_doc_lgl_0);
+            console.log(nom_doc_lgl_0);
+
+            $('#id_tipo_doc_lgl_0').val(id_doc_lgl_0);
+
+            $('#_concept_doc_0').val(nom_doc_lgl_0);
+
+        });
+        //codigo para el admin y ver los documentos de cada usuario
+
+
+
+        //codigo para el usuario comun y ver sus propios documentos
 
         $('.btn_ver_tipos').on('click', function() {
 
@@ -789,6 +943,8 @@ require_once('../Controller/controladorListar.php');
 
 
         });
+
+        //codigo para el usuario comun y ver sus documentos
 
 
 
