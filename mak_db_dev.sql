@@ -480,7 +480,7 @@ create table documents_clients(
     FOREIGN KEY (id_client) REFERENCES clientes_servicios (id_client) ON DELETE SET NULL,
     FOREIGN KEY (tipo_doc) REFERENCES tipos_doc_legal (id_tipo_doc) ON DELETE SET NULL
 );
-select * from documents_clients where id_client = 1 and dni_client = 75481104 and tipo_doc = 1
+select * from documents_clients where id_client = 1 and dni_client = 75481104 and tipo_doc = 1;
 
 -- 500 = Pendiente
 -- 405 = En revision

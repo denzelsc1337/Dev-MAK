@@ -767,7 +767,7 @@ require_once('../Controller/controladorListar.php');
 				            var estado = archivo.estado;
 
 
-				            enlaceHtml += '<a href="' + ruta + nombreArchivo+'">' + nombreArchivo + '</a><br>';
+				            enlaceHtml += '<a href="' + ruta + nombreArchivo+'">' + nombreArchivo + '</a> &nbsp';
 				            if (estado==500) {
 				            	status_r = 'Pendiente'
 				            }
