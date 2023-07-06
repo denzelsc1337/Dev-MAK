@@ -9,6 +9,7 @@ class cLegal
 	function __construct()
 	{
 		$this->lst_solics_legal = array();
+		$this->lst_solics_legal_cli = array();
 	}
 
 	function save_solic_legal($rutas,$data )
@@ -78,6 +79,29 @@ class cLegal
         $cnx->cerrarConexion($cadena);
 
         return $this->lst_solics_legal;
+
+	}
+
+	public function listadoSolicDocsLegal_clients($id_client, $dni_client){
+		include_once('../config/Conexion.php');
+		$cnx = new conexion();
+		$cadena = $cnx->abrirConexion();
+
+		$query = "SELECT id_legal,dir_client, fecha_reg, status_solic,user_cod,dni_client
+				FROM docs_legal dl
+				inner join clientes_servicios cs
+				on dl.user_cod = cs.id_client
+				where dl.user_cod = $id_client and cs.dni_client = $dni_client";
+
+		$resultado = mysqli_query($cadena, $query);
+
+        while ($fila = mysqli_fetch_row($resultado)) {
+            $this->lst_solics_legal_cli[] = $fila;
+        }
+
+        $cnx->cerrarConexion($cadena);
+
+        return $this->lst_solics_legal_cli;
 
 	}
 }

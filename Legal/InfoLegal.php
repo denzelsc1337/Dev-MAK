@@ -159,12 +159,14 @@ require_once('../Controller/controladorListar.php');
 
                                                         	<form method="POST" action="../Controller/Upload_Legal_Docs.php" enctype="multipart/form-data">
                                                         		<input type="text" class="form-control" id="dni_usu_1" name="dni_usu_1" value="<?php echo $_SESSION['dni']; ?>">
+                                                        		<input type="text" class="form-control" id="id_cli_1" name="id_cli_1" value="<?php echo $_SESSION['id_usu']; ?>">
 	                                                            <div class="row">
 	                                                                <div class="col-sm-10">
 	                                                                    <!-- text input -->
 	                                                                    <div class="form-group">
 	                                                                        <label>P.U</label>
 	                                                                        <input type="file" class="form-control" id="pu_s" name="pu_s">
+	                                                                        <input type="text" class="form-control" id="tipo_doc_1" name="tipo_doc_1" value="2">
 	                                                                        <button type="button" class="btn btn-rounded btn-success btn_lst_hr btn_lst_hr_0" data-toggle="modal" data-target="#lst_hr_0" data-valor="P_U" data-titulo="Predio Urbano">ver</button>
 	                                                                    </div>
 	                                                                </div>
@@ -174,12 +176,14 @@ require_once('../Controller/controladorListar.php');
 
 	                                                        <form method="POST" action="../Controller/Upload_Legal_Docs.php" enctype="multipart/form-data">
                                                         		<input type="text" class="form-control" id="dni_usu_2" name="dni_usu_2" value="<?php echo $_SESSION['dni']; ?>">
+                                                        		<input type="text" class="form-control" id="id_cli_2" name="id_cli_2" value="<?php echo $_SESSION['id_usu']; ?>">
 	                                                            <div class="row">
 	                                                                <div class="col-sm-10">
 	                                                                    <!-- text input -->
 	                                                                    <div class="form-group">
 	                                                                        <label>Copia Literal</label>
 	                                                                        <input type="file" class="form-control" id="cl_s" name="cl_s">
+	                                                                        <input type="text" class="form-control" id="tipo_doc_2" name="tipo_doc_2" value="3">
 	                                                                        <button type="button" class="btn btn-rounded btn-success btn_lst_hr btn_lst_hr_0" data-toggle="modal" data-target="#lst_hr_0" data-valor="C_L" data-titulo="Copia Literal">ver</button>
 	                                                                    </div>
 	                                                                </div>
@@ -189,12 +193,14 @@ require_once('../Controller/controladorListar.php');
 
 	                                                        <form method="POST" action="../Controller/Upload_Legal_Docs.php" enctype="multipart/form-data">
                                                         		<input type="text" class="form-control" id="dni_usu_3" name="dni_usu_3" value="<?php echo $_SESSION['dni']; ?>">
+                                                        		<input type="text" class="form-control" id="id_cli_3" name="id_cli_3" value="<?php echo $_SESSION['id_usu']; ?>">
 	                                                            <div class="row">
 	                                                                <div class="col-sm-10">
 	                                                                    <!-- text input -->
 	                                                                    <div class="form-group">
 	                                                                        <label>DNI</label>
 	                                                                        <input type="file" class="form-control" id="dni_s" name="dni_s">
+	                                                                        <input type="text" class="form-control" id="tipo_doc_3" name="tipo_doc_3" value="4">
 	                                                                        <button type="button" class="btn btn-rounded btn-success btn_lst_hr btn_lst_hr_0" data-toggle="modal" data-target="#lst_hr_0" data-valor="DNI" data-titulo="DNI">ver</button>
 	                                                                    </div>
 	                                                                </div>
@@ -341,6 +347,62 @@ require_once('../Controller/controladorListar.php');
 										<td><?php echo $lst_legal_d[5] ?></td>
 										<td>
 			                            	<button type="button" class="btn btn-rounded btn-success btn_ver_files" data-toggle="modal" data-target="#ver_docs">
+			                            		<i class="fa-regular fa-eye"></i>
+			                            	</button>
+			                          	</td>
+									</tr>
+									<?php endforeach ?>
+								</tbody>
+							</table>
+						</div>
+						<!-- END SECTION -->
+
+						<!-- SECTION -->
+						<div class="card-body">
+							<h3 class="card-title">Subir documentos .pdf, .png, .jpg, .jpeg</h3>
+							<br>
+							<br>
+							<table class="table">
+								<thead class="table-dark">
+									<tr>
+										<th>ID DOC</th>
+										<th>direccion</th>
+										<th>fecha_reg</th>
+										<th>estado</th>
+										<th>Editar</th>
+									</tr>
+								</thead>
+								<tbody>
+
+									<?php
+									$list_solic_legal_client= $oLegal->listadoSolicDocsLegal_clients($_SESSION['id_usu'], $_SESSION['dni']);
+									foreach ($list_solic_legal_client as $lst_legal_d): ?>
+									<tr>
+
+										<td><?php echo $lst_legal_d[0] ?></td>
+										<td><?php echo $lst_legal_d[1] ?></td>
+										<td><?php echo $lst_legal_d[2] ?></td>
+										<td>
+										<?php
+											if ($lst_legal_d[3] == 10) {
+										?>
+										<span class="badge rounded-pill bg-secondary">Pendiente</span>
+										<?php
+										}elseif ($lst_legal_d[3] == 20) {
+										?>
+										<span class="badge rounded-pill bg-warning text-dark">En revision</span>
+										<?php
+										}elseif ($lst_legal_d[3] == 90) {
+										?>
+										<span class="badge rounded-pill bg-success">Finalizado</span>
+										<?php
+										}
+										?>
+										</td>
+										<td><?php echo $lst_legal_d[4] ?></td>
+										<td><?php echo $lst_legal_d[5] ?></td>
+										<td>
+			                            	<button type="button" class="btn btn-rounded btn-success btn_ver_files_2" data-toggle="modal" data-target="#ver_docs">
 			                            		<i class="fa-regular fa-eye"></i>
 			                            	</button>
 			                          	</td>
@@ -509,6 +571,62 @@ require_once('../Controller/controladorListar.php');
 			                            <i class="fa-regular fa-eye"> admin</i>
 			                        </button><br>
 			                        <!--(modo admin)--> <!--(modo admin)--> <!--(modo admin)--> <!--(modo admin)-->
+
+
+		                        </div>
+		                        <div class="modal-footer justify-content-between">
+					              <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+					            </div>
+		            		</div>
+		          	</div>
+		          <!-- /.modal-content -->
+		        </div>
+		        <!-- /.modal-dialog -->
+		    </div>
+
+
+		    <div class="modal fade" id="lst_files_2">
+		        <div class="modal-dialog">
+		        	<div class="modal-content">
+			            <div class="modal-header">
+			              <h4 class="modal-title">Mis Documentos: <strong id="titulo_docs"></strong></h4>
+			              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			                <span aria-hidden="true">&times;</span>
+			              </button>
+			            </div>
+		            		<div class="modal-body">
+			            		<div class="form-group">
+			            			<label>Hoja de Resumen</label>
+			            			<!--(modo usuario comun)--> <!--(modo usuario comun)--> <!--(modo usuario comun)--> <!--(modo usuario comun)-->
+			            			<button type="button" class="btn btn-rounded btn-success btn_ver_tipos" data-toggle="modal" data-target="#ver_docs" data-id_doc="1" data-nom_doc="H_R">
+			                            <i class="fa-regular fa-eye">user</i>
+			                        </button>
+			                        <!--(modo usuario comun)--> <!--(modo usuario comun)--> <!--(modo usuario comun)--> <!--(modo usuario comun)-->
+
+
+			                        <label>Predio Urbano</label>
+
+			                        <!--(modo usuario comun)--> <!--(modo usuario comun)--> <!--(modo usuario comun)--> <!--(modo usuario comun)-->
+			            			<button type="button" class="btn btn-rounded btn-success btn_ver_tipos" data-toggle="modal" data-target="#ver_docs" data-id_doc="2" data-nom_doc="P_U">
+			                            <i class="fa-regular fa-eye">user</i>
+			                        </button>
+			                        <!--(modo usuario comun)--> <!--(modo usuario comun)--> <!--(modo usuario comun)--> <!--(modo usuario comun)-->
+
+
+			                        <label>Copia Literal</label>
+			                        <!--(modo usuario comun)--> <!--(modo usuario comun)--> <!--(modo usuario comun)--> <!--(modo usuario comun)-->
+			            			<button type="button" class="btn btn-rounded btn-success btn_ver_tipos" data-toggle="modal" data-target="#ver_docs" data-id_doc="3" data-nom_doc="C_L">
+			                            <i class="fa-regular fa-eye">user</i>
+			                        </button>
+			                        <!--(modo usuario comun)--> <!--(modo usuario comun)--> <!--(modo usuario comun)--> <!--(modo usuario comun)-->
+
+			                        <label>DNI</label>
+
+			                        <!--(modo usuario comun)--> <!--(modo usuario comun)--> <!--(modo usuario comun)--> <!--(modo usuario comun)-->
+			            			<button type="button" class="btn btn-rounded btn-success btn_ver_tipos" data-toggle="modal" data-target="#ver_docs" data-id_doc="4" data-nom_doc="DNI">
+			                            <i class="fa-regular fa-eye">user</i>
+			                        </button>
+			                        <!--(modo usuario comun)--> <!--(modo usuario comun)--> <!--(modo usuario comun)--> <!--(modo usuario comun)-->
 
 
 		                        </div>
@@ -831,6 +949,19 @@ require_once('../Controller/controladorListar.php');
         });
 
 
+        $('.btn_ver_files_2').on('click', function() {
+            console.log("test");
+            $('#lst_files_2').modal('show');
+
+            $tr = $(this).closest('tr');
+            var data = $tr.children("td").map(function() {
+                return $(this).text();
+            }).get();
+            console.log(data);
+
+        });
+
+
 
 
 
@@ -867,6 +998,58 @@ require_once('../Controller/controladorListar.php');
             $('#id_tipo_doc_lgl_0').val(id_doc_lgl_0);
 
             $('#_concept_doc_0').val(nom_doc_lgl_0);
+
+
+            var concept =  $('#_concept_doc_0').val();
+            var id_tipo_doc_ = $('#id_tipo_doc_lgl_0').val();
+
+            var dni = '<?php echo $_SESSION['dni'] ?>';
+            var id_cli = '<?php echo $_SESSION['id_usu'] ?>';
+
+            $.ajax({
+			    type: 'POST',
+			    url: '../Controller/obtener_files_client.php',
+			    data: {
+			    	_concept_doc:concept,
+			        id_client: id_cli,
+			        dni_client: dni,
+			        id_tipo_doc: id_tipo_doc_
+			    },
+			    success: function(response) {
+			        var data  = JSON.parse(response);
+
+			        var archivos = data.archivos;
+        			var estado_doc = data.status_doc;
+
+
+				    if (archivos && archivos.length > 0) {
+				        var enlaceHtml = '';
+
+				        archivos.forEach(function(archivo) {
+				            var ruta = archivo.ruta;
+				            var nombreArchivo = archivo.archivo;
+				            var estado = archivo.estado;
+
+
+				            enlaceHtml += '<a href="' + ruta + nombreArchivo+'">' + nombreArchivo + '</a> &nbsp';
+				            if (estado==500) {
+				            	status_r = 'Pendiente'
+				            }
+				            enlaceHtml += '<i>' + status_r + '</i><br>';
+				        });
+
+				        document.getElementById('descarga_archivo_s').innerHTML = enlaceHtml;
+
+				    } else {
+
+				        document.getElementById('descarga_archivo_s').textContent = 'Archivo no encontrado';
+				    }
+
+			    },
+			    error: function(xhr, status, error) {
+			        console.log(error);
+			    }
+			});
 
         });
         //codigo para el admin y ver los documentos de cada usuario

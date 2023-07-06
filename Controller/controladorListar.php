@@ -26,4 +26,5 @@ require_once('../Model/Legal.php');
 $oLegal= new cLegal();
 $list_solic_legal= $oLegal->listadoSolicDocsLegal();
 
+
 ?>
