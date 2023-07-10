@@ -720,7 +720,9 @@ require_once('../Controller/controladorListar.php');
 		                        </div>
 
 		                        <select name="estado_doc" id="estado_doc">
-								    <option value="volvo">Pendiente</option>
+		                        	<optgroup label="Estado Actual">
+								    	<option value="volvo">Pendiente</option>
+								    </optgroup>
 								  </select>
 
 		                        <div class="modal-footer justify-content-between">
