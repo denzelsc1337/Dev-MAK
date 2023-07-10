@@ -668,8 +668,11 @@ require_once('../Controller/controladorListar.php');
 	                            </div>
 			            		<div class="form-group">
 		                           <div id="descarga_archivo_s"></div>
-		                           <div id="estado_doc"></div>
 		                        </div>
+
+		                        <select name="estado_doc" id="estado_doc">
+								   <option value="volvo">Pendiente</option>
+								</select>
 
 		                        <div class="modal-footer justify-content-between">
 					              <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
@@ -713,9 +716,12 @@ require_once('../Controller/controladorListar.php');
 	                                    <br>
 	                            </div>
 			            		<div class="form-group">
-		                           <div id="descarga_archivo_s"></div>
-		                           <div id="estado_doc"></div>
+		                           <div id="descarga_archivo_ul"></div>
 		                        </div>
+
+		                        <select name="estado_doc" id="estado_doc">
+								    <option value="volvo">Pendiente</option>
+								  </select>
 
 		                        <div class="modal-footer justify-content-between">
 					              <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
@@ -969,6 +975,7 @@ require_once('../Controller/controladorListar.php');
 
         $('.btn_ver_tipos_0').on('click', function() {
             console.log("test");
+
             $('#lst_docs_1').modal('show');
 
             //valores de los inputs del modal lst_files
@@ -979,8 +986,8 @@ require_once('../Controller/controladorListar.php');
 		    $('#lst_docs_1').find('#id_client_0').val(id_usu_soli);
 		    $('#lst_docs_1').find('#dni_client_0').val(dni_usu_soli);
 
-		    console.log(id_usu_soli);
-		    console.log(dni_usu_soli);
+		    console.log('e?'+id_usu_soli);
+		    console.log('pop'+dni_usu_soli);
 
             $tr = $(this).closest('tr');
             var data = $tr.children("td").map(function() {
@@ -1003,16 +1010,13 @@ require_once('../Controller/controladorListar.php');
             var concept =  $('#_concept_doc_0').val();
             var id_tipo_doc_ = $('#id_tipo_doc_lgl_0').val();
 
-            var dni = '<?php echo $_SESSION['dni'] ?>';
-            var id_cli = '<?php echo $_SESSION['id_usu'] ?>';
-
             $.ajax({
 			    type: 'POST',
 			    url: '../Controller/obtener_files_client.php',
 			    data: {
 			    	_concept_doc:concept,
-			        id_client: id_cli,
-			        dni_client: dni,
+			        id_client: id_usu_soli,
+			        dni_client: dni_usu_soli,
 			        id_tipo_doc: id_tipo_doc_
 			    },
 			    success: function(response) {
@@ -1038,11 +1042,11 @@ require_once('../Controller/controladorListar.php');
 				            enlaceHtml += '<i>' + status_r + '</i><br>';
 				        });
 
-				        document.getElementById('descarga_archivo_s').innerHTML = enlaceHtml;
+				        document.getElementById('descarga_archivo_ul').innerHTML = enlaceHtml;
 
 				    } else {
 
-				        document.getElementById('descarga_archivo_s').textContent = 'Archivo no encontrado';
+				        document.getElementById('descarga_archivo_ul').textContent = 'Archivo no encontrado';
 				    }
 
 			    },
@@ -1056,7 +1060,7 @@ require_once('../Controller/controladorListar.php');
 
 
 
-        //codigo para el usuario comun y ver sus propios documentos
+        //codigo para el usuario comun vea sus propios documentos
 
         $('.btn_ver_tipos').on('click', function() {
 
