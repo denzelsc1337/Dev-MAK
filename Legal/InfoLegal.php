@@ -670,10 +670,6 @@ require_once('../Controller/controladorListar.php');
 		                           <div id="descarga_archivo_s"></div>
 		                        </div>
 
-		                        <select name="estado_doc" id="estado_doc">
-								   <option value="volvo">Pendiente</option>
-								</select>
-
 		                        <div class="modal-footer justify-content-between">
 					              <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
 					              <button id="save_doc_legal" type="save_doc_legal" name="submit" class="btn btn-primary">Subir</button>
@@ -719,10 +715,13 @@ require_once('../Controller/controladorListar.php');
 		                           <div id="descarga_archivo_ul"></div>
 		                        </div>
 
-		                        <select name="estado_doc" id="estado_doc">
-		                        	<optgroup label="Estado Actual">
-								    	<option value="volvo">Pendiente</option>
-								    </optgroup>
+		                        <select name="cbo_estados" id="cbo_estados">
+		                        	<optgroup label="Estado Actual:">
+		                        		<option value="">xd</option>
+		                        	</optgroup>
+		                        	<option value="">xd2</option>
+								    <option value="">Pendiente</option>
+
 								  </select>
 
 		                        <div class="modal-footer justify-content-between">
@@ -942,6 +941,8 @@ require_once('../Controller/controladorListar.php');
 
         });
 
+
+
         $('.btn_ver_files').on('click', function() {
             console.log("test");
             $('#lst_files').modal('show');
@@ -1038,9 +1039,19 @@ require_once('../Controller/controladorListar.php');
 
 
 				            enlaceHtml += '<a href="' + ruta + nombreArchivo+'">' + nombreArchivo + '</a> &nbsp';
+
 				            if (estado==500) {
+				            	document.getElementById('cbo_estados').selectedIndex = 0;
+				            	console.log('test');
 				            	status_r = 'Pendiente'
+				            }else if(estado==405){
+				            	document.getElementById('cbo_estados').selectedIndex = 1;
+				            	console.log('123');
+				            	status_r = 'awas'
+				            }else if(estado==200){
+				            	document.getElementById('cbo_estados').selectedIndex = 2;
 				            }
+
 				            enlaceHtml += '<i>' + status_r + '</i><br>';
 				        });
 
@@ -1082,6 +1093,7 @@ require_once('../Controller/controladorListar.php');
 
             var concept =  $('#_concept_doc').val();
             var id_tipo_doc_ = $('#id_tipo_doc_lgl').val();
+
             var dni = '<?php echo $_SESSION['dni'] ?>';
             var id_cli = '<?php echo $_SESSION['id_usu'] ?>';
 
@@ -1108,10 +1120,12 @@ require_once('../Controller/controladorListar.php');
 				            var ruta = archivo.ruta;
 				            var nombreArchivo = archivo.archivo;
 				            var estado = archivo.estado;
+				            var status_r = '';
 
 
 				            enlaceHtml += '<a href="' + ruta + nombreArchivo+'">' + nombreArchivo + '</a> &nbsp';
-				            if (estado==500) {
+
+				             if (estado==500) {
 				            	status_r = 'Pendiente'
 				            }
 				            enlaceHtml += '<i>' + status_r + '</i><br>';
