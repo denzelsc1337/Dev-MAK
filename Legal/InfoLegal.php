@@ -148,7 +148,7 @@ require_once('../Controller/controladorListar.php');
 	                                                                    <!-- text input -->
 	                                                                    <div class="form-group">
 	                                                                        <label>H.R</label>
-	                                                                        <input type="file" class="form-control" id="hr_s" name="hr_s">
+	                                                                        <input type="file" class="form-control" id="hr_s" name="hr_s[]" multiple>
 	                                                                        <input type="text" class="form-control" id="tipo_doc_0" name="tipo_doc_0" value="1">
 	                                                                        <button type="button" class="btn btn-rounded btn-success btn_lst_hr btn_lst_hr_0" data-toggle="modal" data-target="#lst_hr_0" data-valor="H_R" data-titulo="Hoja de Resumen">ver</button>
 	                                                                    </div>
@@ -711,9 +711,9 @@ require_once('../Controller/controladorListar.php');
 	                                    <input type="text" name="_concept_doc_0" id="_concept_doc_0">
 	                                    <br>
 	                            </div>
-
+			            		<div class="form-group">
 		                           <div id="descarga_archivo_ul"></div>
-
+		                        </div>
 
 		                        <select name="cbo_estados" id="cbo_estados">
 
@@ -1038,49 +1038,11 @@ require_once('../Controller/controladorListar.php');
 				            var ruta = archivo.ruta;
 				            var nombreArchivo = archivo.archivo;
 				            var estado = archivo.estado;
-				            var status_r = '';
 
 
 				            enlaceHtml += '<a href="' + ruta + nombreArchivo+'">' + nombreArchivo + '</a> &nbsp';
 
-				            var selectHtml = '<select>';
-
-				            // Recorre las opciones del select y compara con el estado del archivo
-					        var cboOptions = document.getElementById('cbo_estados').options;
-
-					        for (var i = 0; i < cboOptions.length; i++) {
-					            var option = cboOptions[i];
-					            if (option.value == estado) {
-					                option.selected = true;
-					                status_r = option.textContent;
-					                break;
-					            }
-					        }
-
-					        if (estado==500) {
-				                cboOptions.selectedIndex = 0;
-				            }else if (estado==405) {
-				            	cboOptions.selectedIndex = 1;
-				            }
-
-					        //selectHtml += document.getElementById('cbo_estados').innerHTML + '</select>';
-
-					        enlaceHtml += selectHtml + '<i>' + status_r + '</i><br>';
-
-				            /*if (estado==500) {
-				            	document.getElementById('cbo_estados').selectedIndex = 0;
-				            	console.log('test');
-				            	status_r = 'Pendiente'
-				            }else if(estado==405){
-				            	document.getElementById('cbo_estados').selectedIndex = 1;
-				            	console.log('123');
-				            	status_r = 'awas'
-				            }else if(estado==200){
-				            	document.getElementById('cbo_estados').selectedIndex = 2;
-				            }*/
-
-					        //enlaceHtml += '<i>' + status_r + '</i><br>';
-
+				            enlaceHtml += '<i>' + status_r + '</i><br>';
 				        });
 
 				        document.getElementById('descarga_archivo_ul').innerHTML = enlaceHtml;

@@ -43,7 +43,6 @@ class cLegal
                 '" . $tipo_doc. "',
                 '" . $id_client. "',
             	'" . $dni_client. "');";
-
         /*$result = mysqli_query($cadena, $query);
 
 

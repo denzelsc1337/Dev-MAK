@@ -492,7 +492,7 @@ select id_legal,dir_client, fecha_reg, status_solic,user_cod,dni_client
 from docs_legal dl
 inner join clientes_servicios cs
 on dl.user_cod = cs.id_client
-where dl.user_cod = 1 and cs.dni_client = 75481104
+where dl.user_cod = 1 and cs.dni_client = 75481104;
 
 -- 500 = Pendiente
 -- 405 = En revision
