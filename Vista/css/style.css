@@ -8,6 +8,7 @@
 body {
   font-family: "Roboto", sans-serif;
   background-color: #f8fafb;
+  color: var(--blue-mak) !important;
 }
 select.form-mak option {
   background-color: transparent;
@@ -46,6 +47,10 @@ h6,
   cursor: pointer;
 }
 
+.card-footer {
+  background-color: transparent !important;
+}
+
 #toForgot:hover {
   text-decoration: underline;
 }
@@ -68,6 +73,9 @@ a:hover {
 }
 .mak-bg {
   background-color: var(--blue-mak) !important;
+}
+.mak-bg-sec {
+  background-color: var(--yell-mak) !important;
 }
 .txt-center {
   text-align: center;
@@ -276,6 +284,7 @@ h2 {
   border: none !important;
   border-radius: 0 !important;
   color: var(--blue-mak);
+  background-color: transparent !important;
   font-weight: bold;
   border-bottom: 1px solid var(--blue-mak) !important;
 }
@@ -426,6 +435,23 @@ h2 {
 }
 
 .card-mak img:hover {
+}
+
+.upload-file {
+  width: 100%;
+}
+
+.upload-file label {
+  margin: 0;
+  width: 100%;
+  outline: 1px solid;
+  padding: 7px 7.5px;
+  cursor: pointer;
+}
+
+.legal .card-footer .form-flex {
+  gap: 50px;
+  justify-content: flex-end;
 }
 /*  */
 
@@ -693,6 +719,11 @@ h2 {
   border-radius: 50px;
 }
 
+.section-input {
+  display: flex;
+  align-items: center;
+}
+
 .section-input input,
 .section-input select {
   padding-left: 40px !important;
@@ -872,68 +903,21 @@ form .form-content {
   margin: 20px 0;
 }
 
+.lgl-modal-num {
+  background: var(--blue-mak);
+  color: var(--white-mak);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tw-modal-ots div {
+  padding: 5px 10px;
+}
 /* CSS PERSONALIZADO */
-
-/* ATTR TITLE PERSONALIZADO */
-/* .tooltipInfo {
-  display: inline-block;
-} */
-
-/* .tooltipInfo .tooltiptext {
-  display: none;
-  position: absolute;
-  padding: 10px;
-  margin-left: 10px;
-  background-color: #555;
-  color: #fff;
-  border-radius: 6px;
-  z-index: 2;
-  transition: opacity 1s;
-  font-family: "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI",
-    Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji",
-    "Segoe UI Emoji", "Segoe UI Symbol" !important;
-}
-
-.tooltipInfo .tooltiptext ul {
-  margin-top: 1rem;
-  padding-right: 15px;
-  font-weight: initial;
-} */
-
-/* .tooltipInfo .tooltiptext::after {
-  content: "";
-  position: absolute;
-  top: 15px;
-  right: 100%;
-  margin-top: -8px;
-  border-width: 8px;
-  border-style: solid;
-  border-color: transparent #555 transparent transparent;
-} */
-
-/* .tooltipInfo:hover .tooltiptext {
-  display: inline-block;
-} */
-/* .tooltip-left .tooltiptext {
-  left: auto;
-  right: calc(100% + 10px);
-  transform: translateX(0);
-}
-
-.tooltip-left .tooltiptext::before {
-  left: auto;
-  right: 100%;
-  transform: translateX(0);
-} */
-/* .tooltip-right {
-  top: -5px;
-  left: 40%;
-}
-.tooltip-left {
-  top: -5px;
-  bottom: auto;
-  right: 8%;
-} */
 
 .tooltiptext {
   font-family: "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI",
