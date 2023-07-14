@@ -396,7 +396,7 @@
                                                                         </div>
                                                                         <div class="col-sm-6 pdd-left align-center">
                                                                             <div class="custom-control custom-checkbox">
-                                                                                <input class="right custom-control-input" type="checkbox" id="banho_vis" name="banho_vis" value="true">
+                                                                                <input class="right custom-control-input" type="checkbox" id="banho_vis" name="banho_vis">
                                                                                 <label for="banho_vis" class="right custom-control-label">Baño(s) de visita:</label>
                                                                             </div>
                                                                         </div>
@@ -422,13 +422,13 @@
                                                                     <div class="col-sm-12 flex">
                                                                         <div class="col-sm-6 pdd-left align-center">
                                                                             <div class="custom-control custom-checkbox">
-                                                                                <input class="right custom-control-input" type="checkbox" id="cuarto_serv" name="cuarto_serv" value="true">
+                                                                                <input class="right custom-control-input" type="checkbox" id="cuarto_serv" name="cuarto_serv">
                                                                                 <label for="cuarto_serv" class="right custom-control-label">Cuarto de servicio</label>
                                                                             </div>
                                                                         </div>
                                                                         <div class="col-sm-6 pdd-left align-center">
                                                                             <div class="custom-control custom-checkbox">
-                                                                                <input class="right custom-control-input" type="checkbox" id="banho_serv" name="banho_serv" value="true">
+                                                                                <input class="right custom-control-input" type="checkbox" id="banho_serv" name="banho_serv">
                                                                                 <label for="banho_serv" class="right custom-control-label">Baño de servicio</label>
                                                                             </div>
                                                                         </div>
@@ -455,7 +455,7 @@
 
                                                                         <div class="col-sm-6 pdd-left align-center">
                                                                             <div class="custom-control custom-checkbox">
-                                                                                <input class="right custom-control-input" type="checkbox" id="deposito_" name="deposito_" value="true">
+                                                                                <input class="right custom-control-input" type="checkbox" id="deposito_" name="deposito_">
                                                                                 <label for="deposito_" class="right custom-control-label">Depósito:</label>
                                                                             </div>
                                                                         </div>
@@ -1142,14 +1142,14 @@
                                                                         <br>
                                                                         <div class="col-sm-6 pdd-left align-center">
                                                                             <div class="custom-control custom-checkbox">
-                                                                                <input class="right custom-control-input" type="checkbox" id="ascen_ofi" name="ascen_ofi" value="true">
+                                                                                <input class="right custom-control-input" type="checkbox" id="ascen_ofi" name="ascen_ofi">
                                                                                 <label for="ascen_ofi" class="right custom-control-label">Ascensor:</label>
                                                                             </div>
                                                                         </div>
                                                                         <br>
                                                                         <div class="col-sm-6 pdd-left align-center">
                                                                             <div class="custom-control custom-checkbox">
-                                                                                <input class="right custom-control-input" type="checkbox" id="aire_ofio" name="aire_ofio" value="true">
+                                                                                <input class="right custom-control-input" type="checkbox" id="aire_ofio" name="aire_ofio">
                                                                                 <label for="aire_ofio" class="right custom-control-label">Aire acondicionado:</label>
                                                                             </div>
                                                                         </div>

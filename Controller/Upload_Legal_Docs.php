@@ -41,6 +41,8 @@ if(isset($_POST["btn_save_hr"])) {
             $archivos_total++;
         }
     }
+
+
     if ($archivos_total>0) {
     ?>
     <META http-equiv='Refresh' content='0.2; URL =../Legal/InfoLegal.php'>;
@@ -56,58 +58,64 @@ if(isset($_POST["btn_save_hr"])) {
 }
 
 
-
 if(isset($_POST["btn_save_pu"])) {
 
   $dni_client = $_POST["dni_usu_1"];
   $id_client = $_POST["id_cli_1"];
-
-  $file = $_FILES["pu_s"];
   $_tipo_doc_0 = $_POST["tipo_doc_1"];
 
-  $file_name = $file["name"];
-  $file_tmp = $file["tmp_name"];
-  $file_size = $file["size"];
-  $file_error = $file["error"];
-  $file_type = $file["type"];
+  $file_count = count($_FILES["pu_s"]["name"]);
 
-  $file_ext = explode('.', $file_name);
-  $file_ext = strtolower(end($file_ext));
+  $archivos_total = 0;
 
-  $file_desc = pathinfo(basename($_FILES["pu_s"]["name"]), PATHINFO_FILENAME);
-  $file_ext = pathinfo(basename($_FILES["pu_s"]["name"]), PATHINFO_EXTENSION);
+  for ($i=0;  $i < $file_count; $i++) {
+    $file_name = $_FILES["pu_s"]["name"][$i];
+    $file_tmp = $_FILES["pu_s"]["tmp_name"][$i];
+    $file_size = $_FILES["pu_s"]["size"][$i];
+    $file_error = $_FILES["pu_s"]["error"][$i];
+    $file_type = $_FILES["pu_s"]["type"][$i];
+
+    $file_ext = explode('.', $file_name);
+    $file_ext = strtolower(end($file_ext));
+
+    $file_desc = pathinfo(basename($_FILES["pu_s"]["name"][$i]), PATHINFO_FILENAME);
+    $file_ext = pathinfo(basename($_FILES["pu_s"]["name"][$i]), PATHINFO_EXTENSION);
 
 
-  $target_dir = "../Documentos Legal/".$dni_client."/P_U/";
+    $target_dir = "../Documentos Legal/".$dni_client."/P_U/";
 
-  echo $target_dir;
+    if (!file_exists($target_dir)) {
+      mkdir($target_dir, 0777, true);
+    }
 
+    $target_file = $target_dir . basename($_FILES["pu_s"]["name"][$i]);
 
-  if (!file_exists($target_dir)) {
-    mkdir($target_dir, 0777, true);
+    if (move_uploaded_file($_FILES["pu_s"]["tmp_name"][$i], $target_file)) {
+      //agregar codigo del model aqui
+      require_once('../Model/Legal.php');
+      $olegal = new cLegal();
+
+      // Modificar la llamada a la función del modelo con los nuevos parámetros
+      $olegal->upload_documents_clients($file_name, $file_type, $target_dir, $file_size, $file_ext, $_tipo_doc_0,$id_client,$dni_client);
+      //agregar codigo del model aqui
+
+      $archivos_total++;
+    }
+
   }
 
-  $target_file = $target_dir . basename($_FILES["pu_s"]["name"]);
-
-  if (move_uploaded_file($_FILES["pu_s"]["tmp_name"], $target_file)) {
-    //agregar codigo del model aqui
-    require_once('../Model/Legal.php');
-    $olegal = new cLegal();
-
-    // Modificar la llamada a la función del modelo con los nuevos parámetros
-    $olegal->upload_documents_clients($file_name, $file_type, $target_dir, $file_size, $file_ext, $_tipo_doc_0,$id_client,$dni_client);
-    //agregar codigo del model aqui
-
-?>
-    <META http-equiv='Refresh' content = '0.2; URL =../Legal/InfoLegal.php'>;
+    if ($archivos_total>0) {
+    ?>
+    <META http-equiv='Refresh' content='0.2; URL =../Legal/InfoLegal.php'>;
     <script>
-        alert("Predio Urbano correctamente cargada.");
+        alert("Predio Urbano correctamente cargado.");
     </script>
 
-<?php
-  } else {
-    echo '<script> alert("Error al cargar Predio U.");</script>';
-  }
+    <?php
+    }else{
+      echo '<script> alert("Error al cargar H.R");</script>';
+    }
+
 }
 
 

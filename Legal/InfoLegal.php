@@ -165,7 +165,7 @@ require_once('../Controller/controladorListar.php');
 	                                                                    <!-- text input -->
 	                                                                    <div class="form-group">
 	                                                                        <label>P.U</label>
-	                                                                        <input type="file" class="form-control" id="pu_s" name="pu_s">
+	                                                                        <input type="file" class="form-control" id="pu_s" name="pu_s[]" multiple>
 	                                                                        <input type="text" class="form-control" id="tipo_doc_1" name="tipo_doc_1" value="2">
 	                                                                        <button type="button" class="btn btn-rounded btn-success btn_lst_hr btn_lst_hr_0" data-toggle="modal" data-target="#lst_hr_0" data-valor="P_U" data-titulo="Predio Urbano">ver</button>
 	                                                                    </div>
@@ -711,20 +711,9 @@ require_once('../Controller/controladorListar.php');
 	                                    <input type="text" name="_concept_doc_0" id="_concept_doc_0">
 	                                    <br>
 	                            </div>
-			            		<div class="form-group">
+			            		<div>
 		                           <div id="descarga_archivo_ul"></div>
 		                        </div>
-
-		                        <select name="cbo_estados" id="cbo_estados">
-
-		                        	<optgroup label="Estado Actual:">
-		                        		<option value="">xd</option>
-		                        	</optgroup>
-
-		                        	<option value="">xd2</option>
-								    <option value="">Pendiente</option>
-
-								</select>
 
 		                        <div class="modal-footer justify-content-between">
 					              <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
@@ -1038,11 +1027,30 @@ require_once('../Controller/controladorListar.php');
 				            var ruta = archivo.ruta;
 				            var nombreArchivo = archivo.archivo;
 				            var estado = archivo.estado;
+				            var status_r = '';
 
-
+				            enlaceHtml += '<div>';
 				            enlaceHtml += '<a href="' + ruta + nombreArchivo+'">' + nombreArchivo + '</a> &nbsp';
 
 				            enlaceHtml += '<i>' + status_r + '</i><br>';
+
+                			enlaceHtml += '<select name="cbo_estados" id="cbo_estados">';
+
+                			if (estado === '500') {
+			                    enlaceHtml += '<option value=""selected>Pendiente</option>';
+			                    enlaceHtml += '<option value="">En revisión</option>';
+			                    enlaceHtml += '<option value="">Finalizado</option>';
+			                } else if (estado === '405') {
+			                    enlaceHtml += '<option value="">Pendiente</option>';
+			                    enlaceHtml += '<option value="" selected>En revisión</option>';
+			                    enlaceHtml += '<option value="">Finalizado</option>';
+			                } else if (estado === '200') {
+			                    enlaceHtml += '<option value="">Pendiente</option>';
+			                    enlaceHtml += '<option value="">En revisión</option>';
+			                    enlaceHtml += '<option value="" selected>Finalizado</option>';
+			                }
+			                 enlaceHtml += '</select><br>';
+			                 enlaceHtml += '</div>';
 				        });
 
 				        document.getElementById('descarga_archivo_ul').innerHTML = enlaceHtml;
