@@ -203,8 +203,10 @@ require_once('config/security.php');
               <img class="card-img-top" src="Vista/images/search.jpg" alt="Dist Photo 1">
               <div class="image-overlay"></div>
               <div class="card-intro">
-                <h1>Busqueda</h1>
-                <p>Texto informativo</p>
+                <div class="card-intro-txt">
+                  <h1>Busqueda</h1>
+                  <p>Texto informativo</p>
+                </div>
                 <a href="Search/Busqueda.php" class="btn btn-mak mak-bg">INICIAR</a>
               </div>
             </div>
@@ -212,8 +214,10 @@ require_once('config/security.php');
               <img class="card-img-top" src="Vista/images/money.jpg" alt="Dist Photo 2">
               <div class="image-overlay"></div>
               <div class="card-intro">
-                <h1>Valorizacion</h1>
-                <p>Texto informativo</p>
+                <div class="card-intro-txt">
+                  <h1>Valorizacion</h1>
+                  <p>Texto informativo</p>
+                </div>
                 <a href="Valorizacion/index.php" class="btn btn-mak mak-bg">INICIAR</a>
                 <!-- <a href="Valorizacion/valorizacion.php" class="btn btn-mak mak-bg">INICIAR</a> -->
               </div>
@@ -222,8 +226,10 @@ require_once('config/security.php');
               <img class="card-img-top" src="Vista/images/finance.jpg" alt="Dist Photo 3">
               <div class="image-overlay"></div>
               <div class="card-intro">
-                <h1>Informe Legal</h1>
-                <p>Texto informativo</p>
+                <div class="card-intro-txt">
+                  <h1>Informe Legal</h1>
+                  <p>Texto informativo</p>
+                </div>
                 <a href="Legal/InfoLegal.php" class="btn btn-mak mak-bg">INICIAR</a>
               </div>
             </div>
@@ -231,8 +237,10 @@ require_once('config/security.php');
               <img class="card-img-top" src="Vista/images/search.jpg" alt="Dist Photo 4">
               <div class="image-overlay"></div>
               <div class="card-intro">
-                <h1>Beneficios</h1>
-                <p>Texto informativo</p>
+                <div class="card-intro-txt">
+                  <h1>Beneficios</h1>
+                  <p>Texto informativo</p>
+                </div>
                 <a href="" class="btn btn-mak mak-bg">INICIAR</a>
               </div>
             </div>

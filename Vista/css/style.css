@@ -90,10 +90,13 @@ a:hover {
   align-items: center;
 }
 
-.card,
 .card-login {
-  width: 100%;
+  /* width: 100%; */
   box-shadow: 0 6px 10px 0 rgb(0 0 0 / 40%), 0 1px 3px rgba(0, 0, 0, 15%) !important;
+}
+
+.content-wrapper {
+  background-color: white !important;
 }
 
 .content-wrapper .content {
@@ -225,11 +228,8 @@ h2 {
 
 .table {
   text-align: center;
-}
-
-.table thead tr th {
-  color: var(--white-mak);
-  background-color: var(--blue-mak);
+  border-radius: var(--radius-20);
+  box-shadow: 0 6px 10px 0 rgb(0 0 0 / 40%), 0 1px 3px rgba(0, 0, 0, 15%) !important;
 }
 
 .table thead tr th:first-child {
@@ -238,13 +238,28 @@ h2 {
 .table thead tr th:last-child {
   border-radius: 0 20px 0 0;
 }
-.table tbody {
-  border-radius: 0 0 20px 20px;
-  box-shadow: 0 6px 10px 0 rgb(0 0 0 / 40%), 0 1px 3px rgba(0, 0, 0, 15%) !important;
-}
 
 .table tbody tr td:not(:last-child) {
-  border-right: 3px solid var(--blue-mak);
+  /* border-right: 3px solid var(--blue-mak); */
+  border-top: 10px solid transparent;
+  border-right: 2px solid var(--blue-mak);
+  border-bottom: 10px solid transparent;
+}
+
+.table tbody td div .options {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.table tbody td div .options .options {
+  cursor: pointer;
+}
+
+.table tbody td div .options .options:hover {
+  border-radius: 5px;
+  background-color: rgba(0, 0, 0, 0.1);
 }
 
 .brd-rght-blue {
@@ -332,7 +347,7 @@ h2 {
 }
 
 .header-mak {
-  background-image: url("https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fdata.1freewallpapers.com%2Fdownload%2Fcity-buildings-architecture-aerial-view-cityscape-3840x2160.jpg&f=1&nofb=1&ipt=b8b7173426e5f321d0b1b565f593166d1234ccfa576e742374d2dade8147db1d&ipo=images");
+  background-image: url("https://www.xtrafondos.com/wallpapers/nueva-york-3316.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
@@ -344,9 +359,7 @@ h2 {
 }
 
 .footer-mak {
-  position: fixed;
-  width: 100%;
-  bottom: 100px;
+  padding: 5rem 0;
 }
 
 .body-mak .b-title {
@@ -386,20 +399,32 @@ h2 {
   bottom: 0;
   padding: 20px;
 }
+
 .card-mak .card-intro a {
+  position: relative;
+  z-index: 99;
+}
+
+.card-mak .card-intro-txt {
+  position: relative;
+  bottom: -40px;
+  transition: all 1s ease;
+}
+.card-mak .card-intro-txt a {
   text-decoration: none;
 }
-.card-mak .card-intro h1 {
+.card-mak .card-intro-txt h1 {
   font-weight: bold;
 }
 
-.card-mak .card-intro .btn-mak {
+.card-mak .card-intro-txt .btn-mak {
   color: white;
   background-color: var(--yell-mak) !important;
 }
 
-.card-mak .card-intro p {
-  display: none;
+.card-mak .card-intro-txt p {
+  opacity: 0;
+  transition: all 1s ease;
   color: white !important;
 }
 
@@ -419,14 +444,12 @@ h2 {
   opacity: 1;
 }
 
-.card-mak:hover .card-intro {
-  /* height: 100%; */
-  bottom: 0;
-  /* background-color: black; */
+.card-mak:hover .card-intro-txt {
+  transform: translateY(-40px);
 }
-
-.card-mak:hover .card-intro p {
-  display: block;
+.card-mak:hover .card-intro-txt p {
+  opacity: 1;
+  transition: 1.5s;
 }
 
 .card-mak img {
@@ -539,12 +562,6 @@ h2 {
   color: #888;
   text-decoration: underline;
 }
-
-/* .content .btn {
-  height: 54px;
-  padding-left: 30px;
-  padding-right: 30px;
-} */
 
 .content .forgot-pass {
   position: relative;
@@ -917,6 +934,18 @@ form .form-content {
 .tw-modal-ots div {
   padding: 5px 10px;
 }
+
+.filter-drop {
+  height: 40px;
+  border-radius: 20px;
+  padding: 10px 35px;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
 /* CSS PERSONALIZADO */
 
 .tooltiptext {
@@ -989,16 +1018,6 @@ form .form-content {
 .tooltiptext ul li {
   margin-bottom: 10px;
 }
-/* .tooltip-right .tooltiptext::before {
-  content: "";
-  position: absolute;
-  top: 50%;
-  right: 100%;
-  transform: translateX(50%) translateY(-50%);
-  border-width: 5px;
-  border-style: solid;
-  border-color: transparent #000 transparent transparent;
-} */
 
 .tooltip-right:hover .tooltiptext {
   display: inline-block;
