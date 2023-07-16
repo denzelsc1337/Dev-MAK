@@ -182,7 +182,7 @@ require_once('../Controller/controladorListar.php');
 	                                                                    <!-- text input -->
 	                                                                    <div class="form-group">
 	                                                                        <label>Copia Literal</label>
-	                                                                        <input type="file" class="form-control" id="cl_s" name="cl_s">
+	                                                                        <input type="file" class="form-control" id="cl_s" name="cl_s[]" multiple>
 	                                                                        <input type="text" class="form-control" id="tipo_doc_2" name="tipo_doc_2" value="3">
 	                                                                        <button type="button" class="btn btn-rounded btn-success btn_lst_hr btn_lst_hr_0" data-toggle="modal" data-target="#lst_hr_0" data-valor="C_L" data-titulo="Copia Literal">ver</button>
 	                                                                    </div>
@@ -199,7 +199,7 @@ require_once('../Controller/controladorListar.php');
 	                                                                    <!-- text input -->
 	                                                                    <div class="form-group">
 	                                                                        <label>DNI</label>
-	                                                                        <input type="file" class="form-control" id="dni_s" name="dni_s">
+	                                                                        <input type="file" class="form-control" id="dni_s" name="dni_s[]" multiple>
 	                                                                        <input type="text" class="form-control" id="tipo_doc_3" name="tipo_doc_3" value="4">
 	                                                                        <button type="button" class="btn btn-rounded btn-success btn_lst_hr btn_lst_hr_0" data-toggle="modal" data-target="#lst_hr_0" data-valor="DNI" data-titulo="DNI">ver</button>
 	                                                                    </div>
