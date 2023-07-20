@@ -1,13 +1,13 @@
-<?php 
+<?php
 
 require_once('../Model/Cliente_Servicios.php');
-$oCli_s= new Cliente_Servicio();
+$oCli_s = new Cliente_Servicio();
 //selector tipo cliente
 $selector_types = $oCli_s->selectorType_Client_Service();
 
 //selector tipo propiedad
 require_once('../Model/Valorizacion.php');
-$oValor= new Valorizacion();
+$oValor = new Valorizacion();
 $selector_types_props = $oValor->selectorType_props();
 $selector__sub_types_props = $oValor->selector_sub_Type_props();
 $list_valorizacion = $oValor->listadoValorizacion();
@@ -21,10 +21,9 @@ $selector_types_acab = $oValor->selector_type_acabado();
 $selector_types_zon = $oValor->selector_zonificacion();
 $selector_types_suel = $oValor->selector_type_suelo();
 
+$selector_zon = $oValor->listadoZonificacion();
+
 
 require_once('../Model/Legal.php');
-$oLegal= new cLegal();
-$list_solic_legal= $oLegal->listadoSolicDocsLegal();
-
-
-?>
+$oLegal = new cLegal();
+$list_solic_legal = $oLegal->listadoSolicDocsLegal();

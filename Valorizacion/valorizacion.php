@@ -903,7 +903,7 @@
                                                                         <!-- <input type="text" id="tipo_zoni_ofi" name="tipo_zoni_ofi"> -->
                                                                         <!-- <select id="opciones_zoni_ofi" name="opciones_zoni_ofi" class="opciones_zoni_ofi"></select> -->
                                                                         <select id="ozo" name="ozo" class="form-mak select2 select2-hidden-accessible">
-                                                                            <?php foreach ($selector_types_prom as $cod_type_) : ?>
+                                                                            <?php foreach ($selector_zon as $cod_type_) : ?>
                                                                                 <option value="<?php echo $cod_type_[0]; ?>"><?php echo $cod_type_[1]; ?></option>
                                                                             <?php endforeach ?>
                                                                         </select>
