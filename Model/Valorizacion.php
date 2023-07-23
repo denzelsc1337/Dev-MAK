@@ -1,13 +1,13 @@
-<?php 
+<?php
 
 class Valorizacion
 {
-	
+
 	function __construct()
 	{
 		$this->selectorTypes_prop = array();
 		$this->selector_sub_Types_prop = array();
-		
+
 		$this->selector_promo = array();
 
 		$this->selector_ubic = array();
@@ -18,6 +18,8 @@ class Valorizacion
 		$this->selector_suelo = array();
 
 		$this->lst_valorizacion = array();
+
+		$this->lst_zonificacion = array();
 	}
 
 	public function add_valorizacion_casa($data)
@@ -41,20 +43,20 @@ class Valorizacion
 
 												`cod_ubi`, `cod_vista`, `cod_acabado`)
 
-						 VALUES(null, '".$data[1]."', '".$data[2]."', '".$data[3]."','".$data[4]."',
-						 	'".$data[5]."', '".$data[6]."','".$data[7]."',
+						 VALUES(null, '" . $data[1] . "', '" . $data[2] . "', '" . $data[3] . "','" . $data[4] . "',
+						 	'" . $data[5] . "', '" . $data[6] . "','" . $data[7] . "',
 
-						 	'".$data[8]."','".$data[9]."','".$data[10]."','".$data[11]."', '".$data[12]."','".$data[13]."',
+						 	'" . $data[8] . "','" . $data[9] . "','" . $data[10] . "','" . $data[11] . "', '" . $data[12] . "','" . $data[13] . "',
 
-						 	'".$data[14]."','".$data[15]."',
+						 	'" . $data[14] . "','" . $data[15] . "',
 
-						 	'".$data[16]."','".$data[17]."',
+						 	'" . $data[16] . "','" . $data[17] . "',
 
-						 	'".$data[18]."','".$data[19]."',
+						 	'" . $data[18] . "','" . $data[19] . "',
 
-						 	'".$data[20]."','".$data[21]."',
+						 	'" . $data[20] . "','" . $data[21] . "',
 
-						 	'".$data[22]."','".$data[23]."','".$data[24]."');";
+						 	'" . $data[22] . "','" . $data[23] . "','" . $data[24] . "');";
 
 		/*verificacion de error en la consulta
 
@@ -70,8 +72,6 @@ class Valorizacion
 
 		echo mysqli_query($cadena, $query);
 		$cnx->cerrarConexion($cadena);
-
-
 	}
 
 	public function add_valorizacion_depa($data)
@@ -94,19 +94,19 @@ class Valorizacion
 
 												`cod_ubi`, `cod_vista`, `cod_acabado`)
 
-						 VALUES(null, '".$data[1]."', '".$data[2]."', '".$data[3]."','".$data[4]."',
-						 	'".$data[5]."', '".$data[6]."','".$data[7]."',
+						 VALUES(null, '" . $data[1] . "', '" . $data[2] . "', '" . $data[3] . "','" . $data[4] . "',
+						 	'" . $data[5] . "', '" . $data[6] . "','" . $data[7] . "',
 
-						 	'".$data[8]."','".$data[9]."','".$data[10]."','".$data[11]."', '".$data[12]."','".$data[13]."',
+						 	'" . $data[8] . "','" . $data[9] . "','" . $data[10] . "','" . $data[11] . "', '" . $data[12] . "','" . $data[13] . "',
 
-						 	'".$data[14]."','".$data[15]."','".$data[16]."',
+						 	'" . $data[14] . "','" . $data[15] . "','" . $data[16] . "',
 
-						 	'".$data[17]."','".$data[18]."','".$data[19]."','".$data[20]."',
+						 	'" . $data[17] . "','" . $data[18] . "','" . $data[19] . "','" . $data[20] . "',
 
-						 	'".$data[21]."','".$data[22]."',
-						 	'".$data[23]."','".$data[24]."',
+						 	'" . $data[21] . "','" . $data[22] . "',
+						 	'" . $data[23] . "','" . $data[24] . "',
 
-						 	'".$data[25]."','".$data[26]."','".$data[27]."');";
+						 	'" . $data[25] . "','" . $data[26] . "','" . $data[27] . "');";
 
 		/*verificacion de error en la consulta
 
@@ -122,8 +122,6 @@ class Valorizacion
 
 		echo mysqli_query($cadena, $query);
 		$cnx->cerrarConexion($cadena);
-
-
 	}
 
 	public function add_valorizacion_terreno($data)
@@ -138,11 +136,11 @@ class Valorizacion
 
 												`param_terreno`,`frent_terreno`)
 
-						 VALUES(null, '".$data[1]."', '".$data[2]."', '".$data[3]."','".$data[4]."','".$data[5]."',
+						 VALUES(null, '" . $data[1] . "', '" . $data[2] . "', '" . $data[3] . "','" . $data[4] . "','" . $data[5] . "',
 
-						 			  '".$data[6]."','".$data[7]."',
+						 			  '" . $data[6] . "','" . $data[7] . "',
 
-						 			  '".$data[8]."','".$data[9]."')";
+						 			  '" . $data[8] . "','" . $data[9] . "')";
 
 		/*verificacion de error en la consulta
 
@@ -155,7 +153,7 @@ class Valorizacion
         }
 
 		verificacion de error en la consulta */
-		
+
 		echo mysqli_query($cadena, $query);
 		$cnx->cerrarConexion($cadena);
 	}
@@ -174,13 +172,13 @@ class Valorizacion
 												`piso_ofi`,`cochera_ofi`,
 												`ascensor_ofi`, `aire_ofi`, `cod_ubi`)
 
-						 VALUES(null, '".$data[1]."', '".$data[2]."', '".$data[3]."','".$data[4]."',
-						 			  '".$data[5]."','".$data[6]."','".$data[7]."',
+						 VALUES(null, '" . $data[1] . "', '" . $data[2] . "', '" . $data[3] . "','" . $data[4] . "',
+						 			  '" . $data[5] . "','" . $data[6] . "','" . $data[7] . "',
 
-						 			  '".$data[8]."','".$data[9]."','".$data[10]."',
+						 			  '" . $data[8] . "','" . $data[9] . "','" . $data[10] . "',
 
-						 			  '".$data[11]."','".$data[12]."',
-						 			  '".$data[13]."','".$data[14]."','".$data[15]."')";
+						 			  '" . $data[11] . "','" . $data[12] . "',
+						 			  '" . $data[13] . "','" . $data[14] . "','" . $data[15] . "')";
 
 		/*verificacion de error en la consulta
 
@@ -211,11 +209,11 @@ class Valorizacion
 
 												`frente_lcl_ind`,`nave_lcl_ind`, `cod_ubi`)
 
-						 VALUES(null, '".$data[1]."', '".$data[2]."', '".$data[3]."','".$data[4]."',
-						 			  '".$data[5]."','".$data[6]."','".$data[7]."',
+						 VALUES(null, '" . $data[1] . "', '" . $data[2] . "', '" . $data[3] . "','" . $data[4] . "',
+						 			  '" . $data[5] . "','" . $data[6] . "','" . $data[7] . "',
 
-						 			  '".$data[8]."','".$data[9]."',
-						 			  '".$data[10]."','".$data[11]."','".$data[12]."')";
+						 			  '" . $data[8] . "','" . $data[9] . "',
+						 			  '" . $data[10] . "','" . $data[11] . "','" . $data[12] . "')";
 
 		/*verificacion de error en la consulta
 
@@ -377,7 +375,8 @@ class Valorizacion
 		return $this->selector_suelo;
 	}
 
-	public function listadoValorizacion(){
+	public function listadoValorizacion()
+	{
 		include_once('../config/Conexion.php');
 		$cnx = new conexion();
 		$cadena = $cnx->abrirConexion();
@@ -394,18 +393,32 @@ class Valorizacion
 
 		$resultado = mysqli_query($cadena, $query);
 
-        while ($fila = mysqli_fetch_row($resultado)) {
-            $this->lst_valorizacion[] = $fila;
-        }
+		while ($fila = mysqli_fetch_row($resultado)) {
+			$this->lst_valorizacion[] = $fila;
+		}
 
-        $cnx->cerrarConexion($cadena);
+		$cnx->cerrarConexion($cadena);
 
-        return $this->lst_valorizacion;
-
+		return $this->lst_valorizacion;
 	}
 
+
+	public function listadoZonificacion()
+	{
+		include_once('../config/Conexion.php');
+		$cnx = new conexion();
+		$cadena = $cnx->abrirConexion();
+
+		$query = "SELECT * FROM tipo_zonificacion";
+
+		$resultado = mysqli_query($cadena, $query);
+
+		while ($fila = mysqli_fetch_row($resultado)) {
+			$this->lst_zonificacion[] = $fila;
+		}
+
+		$cnx->cerrarConexion($cadena);
+
+		return $this->lst_zonificacion;
+	}
 }
-
-
-
-?>
