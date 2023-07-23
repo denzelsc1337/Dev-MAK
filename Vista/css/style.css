@@ -90,6 +90,43 @@ a:hover {
   align-items: center;
 }
 
+.select2.select2-container {
+  width: 100% !important;
+  overflow: hidden;
+}
+
+.lista {
+  position: absolute;
+  z-index: 10;
+  background: white;
+  width: 100%;
+  list-style: none;
+  padding: 0;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  display: none;
+}
+
+.lista.visible {
+  display: block; /* Mostramos la lista si tiene la clase 'visible' */
+}
+
+.lista li {
+  padding-left: 10px;
+  cursor: pointer;
+}
+
+.lista li:hover {
+  background-color: #1e90ff;
+  color: white;
+}
+
+.lista li.disabled-li {
+  /* Estilos para simular un elemento <li> deshabilitado */
+  color: #ccc;
+  pointer-events: none; /* Evitar interacción con el elemento */
+}
+
 .card-login {
   /* width: 100%; */
   box-shadow: 0 6px 10px 0 rgb(0 0 0 / 40%), 0 1px 3px rgba(0, 0, 0, 15%) !important;
@@ -228,6 +265,7 @@ h2 {
 
 .table {
   text-align: center;
+  transition: all 0.5s ease;
   border-radius: var(--radius-20);
   box-shadow: 0 6px 10px 0 rgb(0 0 0 / 40%), 0 1px 3px rgba(0, 0, 0, 15%) !important;
 }
@@ -935,15 +973,65 @@ form .form-content {
   padding: 5px 10px;
 }
 
+.menu-filter {
+  width: 100%;
+  height: 55px;
+  transition: all 1s ease;
+}
+
 .filter-drop {
+  position: relative;
+  z-index: 9;
   height: 40px;
   border-radius: 20px;
-  padding: 10px 35px;
+  background-color: #fff;
+  width: 150px;
   margin-bottom: 1rem;
+  transition: all 0.5s ease;
+  overflow: hidden;
+}
+
+.filter-drop .dropdown {
   display: flex;
   align-items: center;
   justify-content: center;
+  height: 40px;
   cursor: pointer;
+}
+
+.menu-filter .optn-filter {
+  position: relative;
+  background-color: #fff;
+}
+
+.content-file {
+  border: 1px solid;
+  border-radius: 20px;
+  text-align: center;
+}
+.content-file .file-header {
+  font-size: 20px;
+  font-weight: bold;
+  padding: 8px 16px;
+  text-align: initial;
+}
+
+.content-file .input-file {
+  display: flex;
+  flex-direction: column;
+  border: 1px dashed;
+  border-radius: 10px;
+  max-width: 90%;
+  margin: auto;
+  padding: 10rem;
+  background-color: #555;
+}
+
+.content-file .buton-file {
+  border: 1px solid;
+  padding: 10px 20px;
+  font-size: 17px;
+  border-radius: var(--radius-20);
 }
 
 /* CSS PERSONALIZADO */

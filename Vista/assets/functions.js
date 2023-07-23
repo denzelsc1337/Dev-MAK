@@ -165,6 +165,59 @@ $(document).ready(function () {
     });
     return false;
   });
+
+  // INPUT WITH LIST
+  $(document).ready(function () {
+    $(".auto-input").on("keyup", function () {
+      var letra = $(this).val();
+      var listaZonas = $(".lista");
+
+      if (letra.length > 0) {
+        $.ajax({
+          url: "../Controller/getZon.php",
+          method: "POST",
+          data: {
+            caracter: letra,
+          },
+          success: function (response) {
+            var zonas = JSON.parse(response);
+            console.log(response);
+
+            listaZonas.empty();
+
+            if (zonas.length > 1) {
+              zonas.forEach(function (zona) {
+                listaZonas.append(
+                  '<li id="' + zona.id_zona + '">' + zona.tipo_zona + "</li>"
+                );
+                listaZonas.addClass("visible");
+              });
+            } else {
+              // Si no se encontraron opciones, mostramos el mensaje en un <li> deshabilitado
+              listaZonas.append(
+                '<li class="disabled-li">No se encontraron cosias :3</li>'
+              );
+              listaZonas.addClass("visible");
+            }
+
+            listaZonas.find("li").click(function () {
+              var texto = $(this).text();
+              $(".auto-input").val(texto);
+              listaZonas.empty(); // Vaciamos la lista después de seleccionar
+              listaZonas.removeClass("visible");
+            });
+          },
+        });
+      } else {
+        listaZonas.empty();
+        listaZonas.removeClass("visible");
+      }
+    });
+  });
+  function displayNames(value) {
+    input.value = value;
+  }
+  // INPUT WITH LIST
   //--------------------------------------------EN USO-------------------------------------------------------------------//
   //--------------------------------------------EN USO-------------------------------------------------------------------//
   //--------------------------------------------EN USO-------------------------------------------------------------------//
@@ -231,5 +284,43 @@ $(document).ready(function () {
   //--------------------------------------------FUERA DE USO-------------------------------------------------------------------//
   //--------------------------------------------FUERA DE USO-------------------------------------------------------------------//
 
-  $("#ozo").select2();
+  // DROPDOWN
+  const dropDown = document.querySelector(".dropdown");
+
+  dropDown.addEventListener("click", () => {
+    const filter = document.querySelector(".filter-drop");
+    const table = document.querySelector(".table");
+    const optnFilter = document.querySelector(".optn-filter");
+    const listGroupItem = optnFilter.querySelectorAll(".list-group-item");
+    console.log(optnFilter);
+    console.log(listGroupItem);
+
+    // optnFilter.forEach((element) => {
+    //   let
+    //   console.log(element);
+    // });
+
+    if (table.style.width === "100%") {
+      let items = listGroupItem.length + 1;
+      let dropHeight = items * "49.33" + "40";
+
+      console.log(dropHeight);
+
+      // filter.style.height = "100%";
+      table.style.width = "83%";
+      // filter.style.height = "";
+      // filter.style.minHeight = "100%";
+      filter.style.height = dropHeight + "px";
+
+      // dropDown.style.minHeight = "100%";
+    } else {
+      table.style.width = "100%";
+      filter.style.height = "40px";
+
+      // filter.style.minHeight = "";
+    }
+  });
+
+  dropDown.addEventListener("click", function name(params) {});
+  // DROPDOWN
 });

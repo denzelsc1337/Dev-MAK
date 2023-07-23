@@ -902,11 +902,11 @@
                                                                         <span class="icon-input"><i class="fa-solid fa-location-dot"></i></span>
                                                                         <!-- <input type="text" id="tipo_zoni_ofi" name="tipo_zoni_ofi"> -->
                                                                         <!-- <select id="opciones_zoni_ofi" name="opciones_zoni_ofi" class="opciones_zoni_ofi"></select> -->
-                                                                        <select id="ozo" name="ozo" class="form-mak select2 select2-hidden-accessible">
-                                                                            <?php foreach ($selector_types_prom as $cod_type_) : ?>
-                                                                                <option value="<?php echo $cod_type_[0]; ?>"><?php echo $cod_type_[1]; ?></option>
-                                                                            <?php endforeach ?>
-                                                                        </select>
+                                                                        <div style="width: 100%">
+                                                                            <input type="text" class="form-mak auto-input">
+                                                                            <ul class="lista">
+                                                                            </ul>
+                                                                        </div>
                                                                     </div>
                                                                     <div class="input-group-append">
                                                                         <i class="fa-solid fa-circle-info tooltipInfo tooltip-right">
@@ -1055,11 +1055,11 @@
                                                                                 <span class="icon-input"><i class="fa-solid fa-location-dot"></i></span>
                                                                                 <!-- <input type="text" id="tipo_zoni_ofi" name="tipo_zoni_ofi"> -->
                                                                                 <!-- <select id="opciones_zoni_ofi" name="opciones_zoni_ofi" class="opciones_zoni_ofi"></select> -->
-                                                                                <select id="ozo" name="ozo" class="form-mak select2 select2-hidden-accessible">
-                                                                                    <?php foreach ($selector_types_prom as $cod_type_) : ?>
-                                                                                        <option value="<?php echo $cod_type_[0]; ?>"><?php echo $cod_type_[1]; ?></option>
-                                                                                    <?php endforeach ?>
-                                                                                </select>
+                                                                                <div style="width: 100%">
+                                                                                    <input type="text" class="form-mak auto-input">
+                                                                                    <ul class="lista">
+                                                                                    </ul>
+                                                                                </div>
                                                                             </div>
                                                                             <div class="input-group-append">
                                                                                 <i class="fa-solid fa-circle-info tooltipInfo tooltip-right">
@@ -1070,20 +1070,7 @@
                                                                             </div>
                                                                         </div>
                                                                     </div>
-                                                                    <!-- <div class="form-group">
-                                                                        <label>Minimal</label>
-                                                                        <!-- <select>
-                                                                            <input type="text" id="tipo_zoni_ofi" name="tipo_zoni_ofi">
-                                                                            <select id="opciones_zoni_ofi" name="opciones_zoni_ofi" class="opciones_zoni_ofi"></select>
-                                                                        </select> --
-                                                                    <!-- <input type="text" id="tipo_zoni_ofi" name="tipo_zoni_ofi"> --
-                                                                    <select id="ozo" name="ozo" class="form-control select2 select2-hidden-accessible">
-                                                                        <?php foreach ($selector_types_prom as $cod_type_) : ?>
-                                                                            <option value="<?php echo $cod_type_[0]; ?>"><?php echo $cod_type_[1]; ?></option>
-                                                                        <?php endforeach ?>
-                                                                    </select>
 
-                                                                </div> -->
                                                                     <div class="col-sm-12">
                                                                         <div class="form-group row">
                                                                             <label class="col-sm-3 col-form-label">Vista:</label>
@@ -1242,11 +1229,11 @@
                                                                                     <span class="icon-input"><i class="fa-solid fa-location-dot"></i></span>
                                                                                     <!-- <input type="text" id="tipo_zoni_ofi" name="tipo_zoni_ofi"> -->
                                                                                     <!-- <select id="opciones_zoni_ofi" name="opciones_zoni_ofi" class="opciones_zoni_ofi"></select> -->
-                                                                                    <select id="ozo" name="ozo" class="form-mak select2 select2-hidden-accessible">
-                                                                                        <?php foreach ($selector_types_prom as $cod_type_) : ?>
-                                                                                            <option value="<?php echo $cod_type_[0]; ?>"><?php echo $cod_type_[1]; ?></option>
-                                                                                        <?php endforeach ?>
-                                                                                    </select>
+                                                                                    <div style="width: 100%">
+                                                                                        <input type="text" class="form-mak auto-input">
+                                                                                        <ul class="lista">
+                                                                                        </ul>
+                                                                                    </div>
                                                                                 </div>
                                                                                 <div class="input-group-append">
                                                                                     <i class="fa-solid fa-circle-info tooltipInfo tooltip-right">
@@ -1406,11 +1393,11 @@
                                                                                     <span class="icon-input"><i class="fa-solid fa-location-dot"></i></span>
                                                                                     <!-- <input type="text" id="tipo_zoni_ofi" name="tipo_zoni_ofi"> -->
                                                                                     <!-- <select id="opciones_zoni_ofi" name="opciones_zoni_ofi" class="opciones_zoni_ofi"></select> -->
-                                                                                    <select id="ozo" name="ozo" class="form-mak select2 select2-hidden-accessible">
-                                                                                        <?php foreach ($selector_types_prom as $cod_type_) : ?>
-                                                                                            <option value="<?php echo $cod_type_[0]; ?>"><?php echo $cod_type_[1]; ?></option>
-                                                                                        <?php endforeach ?>
-                                                                                    </select>
+                                                                                    <div style="width: 100%">
+                                                                                        <input type="text" class="form-mak auto-input">
+                                                                                        <ul class="lista">
+                                                                                        </ul>
+                                                                                    </div>
                                                                                 </div>
                                                                                 <div class="input-group-append">
                                                                                     <i class="fa-solid fa-circle-info tooltipInfo tooltip-right">
