@@ -152,7 +152,7 @@ require_once('../Controller/controladorListar.php');
 	                                                                        <label>H.R</label>
 	                                                                        <input type="file" class="form-control" id="hr_s" name="hr_s[]" multiple>
 	                                                                        <input type="text" class="form-control" id="tipo_doc_0" name="tipo_doc_0" value="1">
-	                                                                        <button type="button" class="btn btn-rounded btn-success btn_lst_hr btn_lst_hr_0" data-toggle="modal" data-target="#lst_hr_0" data-valor="H_R" data-titulo="Hoja de Resumen">ver</button>
+	                                                                        <button type="button" class="btn btn-rounded btn-success btn_lst_hr btn_lst_hr_0" data-toggle="modal" data-target="#lst_hr_0" data-valor="H_R" data-titulo="Hoja de Resumen" data-id_doc_="1">ver</button>
 	                                                                    </div>
 	                                                                </div>
 	                                                            </div>
@@ -170,7 +170,7 @@ require_once('../Controller/controladorListar.php');
 	                                                                        <label>P.U</label>
 	                                                                        <input type="file" class="form-control" id="pu_s" name="pu_s[]" multiple>
 	                                                                        <input type="text" class="form-control" id="tipo_doc_1" name="tipo_doc_1" value="2">
-	                                                                        <button type="button" class="btn btn-rounded btn-success btn_lst_hr btn_lst_hr_0" data-toggle="modal" data-target="#lst_hr_0" data-valor="P_U" data-titulo="Predio Urbano">ver</button>
+	                                                                        <button type="button" class="btn btn-rounded btn-success btn_lst_hr btn_lst_hr_0" data-toggle="modal" data-target="#lst_hr_0" data-valor="P_U" data-titulo="Predio Urbano" data-id_doc_="2">ver</button>
 	                                                                    </div>
 	                                                                </div>
 	                                                            </div>
@@ -187,7 +187,7 @@ require_once('../Controller/controladorListar.php');
 	                                                                        <label>Copia Literal</label>
 	                                                                        <input type="file" class="form-control" id="cl_s" name="cl_s[]" multiple>
 	                                                                        <input type="text" class="form-control" id="tipo_doc_2" name="tipo_doc_2" value="3">
-	                                                                        <button type="button" class="btn btn-rounded btn-success btn_lst_hr btn_lst_hr_0" data-toggle="modal" data-target="#lst_hr_0" data-valor="C_L" data-titulo="Copia Literal">ver</button>
+	                                                                        <button type="button" class="btn btn-rounded btn-success btn_lst_hr btn_lst_hr_0" data-toggle="modal" data-target="#lst_hr_0" data-valor="C_L" data-titulo="Copia Literal" data-id_doc_="3">ver</button>
 	                                                                    </div>
 	                                                                </div>
 	                                                            </div>
@@ -204,7 +204,7 @@ require_once('../Controller/controladorListar.php');
 	                                                                        <label>DNI</label>
 	                                                                        <input type="file" class="form-control" id="dni_s" name="dni_s[]" multiple>
 	                                                                        <input type="text" class="form-control" id="tipo_doc_3" name="tipo_doc_3" value="4">
-	                                                                        <button type="button" class="btn btn-rounded btn-success btn_lst_hr btn_lst_hr_0" data-toggle="modal" data-target="#lst_hr_0" data-valor="DNI" data-titulo="DNI">ver</button>
+	                                                                        <button type="button" class="btn btn-rounded btn-success btn_lst_hr btn_lst_hr_0" data-toggle="modal" data-target="#lst_hr_0" data-valor="DNI" data-titulo="DNI" data-id_doc_="4">ver</button>
 	                                                                    </div>
 	                                                                </div>
 	                                                            </div>
@@ -460,6 +460,7 @@ require_once('../Controller/controladorListar.php');
 		        <!-- /.modal-dialog -->
 		    </div>
 
+		    <!--Visualisar documentos subidos en ese instante el usuario-->
 		    <div class="modal fade" id="lst_hr_0">
 		        <div class="modal-dialog">
 		        	<div class="modal-content">
@@ -471,20 +472,23 @@ require_once('../Controller/controladorListar.php');
 			            </div>
 			            <form action="../Controller/upload_docs_legal.php" method="POST" enctype="multipart/form-data">
 			            	<div class="modal-body">
-			            		<div class="form-group" hidden>
+			            		<div class="form-group">
+			            				<label>id usu</label>
+	                                    <input type="text" name="usu_dni" id="usu_dni" value="<?php echo $_SESSION['id_usu'] ?>">
+	                                    <br>
 	                                    <label>usuario</label>
 	                                    <input type="text" name="usu_dni" id="usu_dni" value="<?php echo $_SESSION['dni'] ?>">
 	                                    <br>
-	                                    <label>concepto</label>
-	                                    <input type="text" name="_concept" id="_concept">
+	                                    <label>id_tipo_doc_lgl</label>
+	                                    <input type="text" name="_id_tipo_doc_lgl" id="_id_tipo_doc_lgl">
 	                                    <br>
 	                            </div>
 			            		<div class="form-group">
-		                           <div id="descarga_archivo_m"></div>
+		                           <ol id="descarga_archivo_m"></ol>
 		                        </div>
 		                        <div class="modal-footer justify-content-between">
 					              <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-					              <button id="save_doc_legal" type="save_doc_legal" name="submit" class="btn btn-primary">Subir</button>
+
 					            </div>
 			            	</div>
 			            </form>
@@ -493,6 +497,8 @@ require_once('../Controller/controladorListar.php');
 		        </div>
 		        <!-- /.modal-dialog -->
 		    </div>
+		    <!--Visualisar documentos subidos en ese instante el usuario-->
+
 
 		    <div class="modal fade" id="lst_files">
 		        <div class="modal-dialog">
@@ -857,6 +863,33 @@ require_once('../Controller/controladorListar.php');
         });
 
 
+        $('.btn_ver_files').on('click', function() {
+            console.log("test");
+            $('#lst_files').modal('show');
+
+            $tr = $(this).closest('tr');
+            var data = $tr.children("td").map(function() {
+                return $(this).text();
+            }).get();
+            console.log(data);
+
+            $('#id_usu_soli').val(data[4]);
+            $('#dni_usu_soli').val(data[5]);
+        });
+
+
+        $('.btn_ver_files_2').on('click', function() {
+            console.log("test");
+            $('#lst_files_2').modal('show');
+
+            $tr = $(this).closest('tr');
+            var data = $tr.children("td").map(function() {
+                return $(this).text();
+            }).get();
+            console.log(data);
+
+        });
+
 
         $('.btn_lst_hr').on('click', function() {
             console.log("test");
@@ -865,8 +898,15 @@ require_once('../Controller/controladorListar.php');
             $('#lst_hr_0').modal('show');
 
 
+
             var valor1 = $(this).data('valor');
             var titulo_ = $(this).data('titulo');
+
+            var _id_doc_lgl = $(this).data('id_doc_');
+
+            $('#_id_tipo_doc_lgl').val(_id_doc_lgl);
+
+
 
             console.log(valor1);
 
@@ -878,13 +918,101 @@ require_once('../Controller/controladorListar.php');
 
             var titulo_modal = $('#titulo_docs').val();
 
-            var dni =  $('#usu_dni').val();
 
 
             console.log(titulo_modal);
             console.log(concepto);
 
+            var dni = '<?php echo $_SESSION['dni'] ?>';
+            var id_cli = '<?php echo $_SESSION['id_usu'] ?>';
+            var _id_tipo_doc = $('#_id_tipo_doc_lgl').val();
+
             $.ajax({
+			    type: 'POST',
+			    url: '../Controller/obtener_files.php',
+			    data: {
+			        id_client: id_cli,
+			        dni_client: dni,
+			        id_tipo_doc:_id_tipo_doc
+			    },
+			    success: function(response) {
+			        var data  = JSON.parse(response);
+
+			        var archivos = data.archivos;
+        			var estado_doc = data.status_doc;
+
+        			var cod_doc_, ruta_doc,nom_file;
+
+				    if (archivos && archivos.length > 0) {
+				        var enlaceHtml = '';
+
+				        archivos.forEach(function(archivo) {
+				            var ruta = archivo.ruta;
+				            var nombreArchivo = archivo.archivo;
+				            var estado = archivo.estado;
+				            var id_doc_ = archivo.id_doc;
+				            var status_r = '';
+
+				            var delete_btn = $('<button>').text('Eliminar').attr('class', 'btn btn-block btn-danger');
+
+				            enlaceHtml += '<li><a href="' + ruta + nombreArchivo + '">'
+				            					+ nombreArchivo +
+				            					'</a><input id="ruta_doc" type="text" value="'+ruta+'" readonly><input id="ruta_archivo" type="text" value="'+nombreArchivo+'" readonly><input id="cod_doc_" type="text" value="' + id_doc_ + '" readonly><button id="dlt_file" type="button" class="btn btn-danger dlt_file">Eliminar</button></li>';
+
+					        cod_doc_ = id_doc_;
+					        ruta_doc = ruta;
+					        nom_file = nombreArchivo;
+
+				        });
+
+				        document.getElementById('descarga_archivo_m').innerHTML = enlaceHtml;
+
+
+				        $('.dlt_file').on('click', function() {
+				        	console.log("testing button")
+				        	var confirmar_ = window.confirm('¿Estás seguro de que deseas eliminar este archivo?');
+
+				        	if (confirmar_) {
+
+				        		$.ajax({
+								    type: 'POST',
+								    url: '../Controller/eliminarArchivos.php',
+								    data: {
+								        id_client: id_cli,
+								        dni_client: dni,
+								        cod_doc_:cod_doc_,
+								        ruta_doc: ruta_doc,
+								        ruta_archivo:nom_file,
+								    },
+
+								    success: function(response) {
+								    	console.log("archivo eliminado con ID: " + id_doc_);
+								    }
+								});
+
+					          console.log("archivo eliminado");
+					        } else {
+					          console.log("cancelado");
+					        }
+
+				        });
+
+
+
+				    } else {
+
+				        document.getElementById('descarga_archivo_m').textContent = 'Archivo no encontrado';
+				    }
+
+			    },
+			    error: function(xhr, status, error) {
+			        console.log(error);
+			    }
+			});
+
+
+
+            /*$.ajax({
 			    type: 'POST',
 			    url: '../Controller/obtener_files.php',
 			    data: {
@@ -938,36 +1066,7 @@ require_once('../Controller/controladorListar.php');
 			    error: function(xhr, status, error) {
 			        console.log(error);
 			    }
-			});
-
-        });
-
-
-
-        $('.btn_ver_files').on('click', function() {
-            console.log("test");
-            $('#lst_files').modal('show');
-
-            $tr = $(this).closest('tr');
-            var data = $tr.children("td").map(function() {
-                return $(this).text();
-            }).get();
-            console.log(data);
-
-            $('#id_usu_soli').val(data[4]);
-            $('#dni_usu_soli').val(data[5]);
-        });
-
-
-        $('.btn_ver_files_2').on('click', function() {
-            console.log("test");
-            $('#lst_files_2').modal('show');
-
-            $tr = $(this).closest('tr');
-            var data = $tr.children("td").map(function() {
-                return $(this).text();
-            }).get();
-            console.log(data);
+			});*/
 
         });
 

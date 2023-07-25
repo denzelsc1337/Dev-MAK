@@ -713,7 +713,12 @@ INNER JOIN sub_tipo_inmuebles sti
 on val.cod_sub_tipo_inmue = sti.id_sub_tipo_inmb
 INNER JOIN tipo_promocion tp
 on val.cod_tipo_prom = tp.id_promo
-WHERE estado_solicitud = 500
+WHERE estado_solicitud = 500;
+
+select * from documents_clients where id_client = 1 and dni_client = 75481104 and tipo_doc = 1;
+
+delete from documents_clients where id_document = 82 and id_client = 1 and dni_client = 75481104
+
 
 
 
