@@ -195,7 +195,7 @@ $(document).ready(function () {
             } else {
               // Si no se encontraron opciones, mostramos el mensaje en un <li> deshabilitado
               listaZonas.append(
-                '<li class="disabled-li">No se encontraron cosias :3</li>'
+                '<li class="disabled-li">No se encontraron opciones para la zonificacion ingresada.</li>'
               );
               listaZonas.addClass("visible");
             }
@@ -218,6 +218,100 @@ $(document).ready(function () {
     input.value = value;
   }
   // INPUT WITH LIST
+
+  // DRAG AND DROP FILES
+  var dragArea = document.querySelector(".content-file");
+  var dragText = dragArea.querySelector("span");
+  var buttonFile = dragArea.querySelector("#buttonFile");
+  var inputFile = dragArea.querySelector("#upload");
+  let files;
+
+  inputFile.addEventListener("change", (e) => {
+    files = this.files;
+  });
+
+  dragArea.addEventListener("dragover", (e) => {
+    e.preventDefault();
+    dragText.textContent = "Suelta los archivos rey :3";
+  });
+
+  dragArea.addEventListener("dragleave", (e) => {
+    e.preventDefault();
+    dragText.textContent = "Sube más archivos rey :3";
+  });
+
+  dragArea.addEventListener("drop", (e) => {
+    e.preventDefault();
+    files = e.dataTransfer.files;
+    showFiles(files);
+    dragText.textContent = "Sube más archivos rey :3";
+  });
+
+  function showFiles(files) {
+    if (files.length === undefined) {
+      processFile(files);
+    } else {
+      for (const file of files) {
+        processFile(file);
+      }
+    }
+  }
+
+  function processFile(file) {
+    const docType = file.type;
+    const validExtensions = [
+      "image/jpeg",
+      "image/jpg",
+      "image/png",
+      "image/gif",
+    ];
+
+    if (validExtensions.includes(docType)) {
+      // archivo valido
+      const fileReader = new FileReader();
+      const id = `file-${Math.random().toString(32).substring(7)}`;
+
+      fileReader.addEventListener("load", (e) => {
+        const fileUrl = fileReader.result;
+        const image = `
+          <div id="${id}" class="">
+            <img src="${fileUrl}" alt="${file.name}" width="50">
+            <div>
+              <span>${file.name}</span>
+            </div>
+          </div>
+          `;
+
+        const html = document.querySelector("#preview");
+        html.innerHTML += image;
+      });
+      fileReader.readAsDataURL(file);
+      uploadFile(file, id);
+    } else {
+      // archivo no valido
+      alert("nel");
+    }
+  }
+
+  async function uploadFile(file, id) {
+    const formData = new FormData();
+    formData.append("file", file);
+
+    try {
+      const response = await fetch("http://localhost:3000/upload", {
+        method: "POST",
+        body: formData,
+      });
+
+      const responseText = await response.text();
+
+      document.querySelector(`${id}`).innerHTML = `<span>Uploaded</span>`;
+    } catch (error) {
+      document.querySelector(`${id}`).innerHTML = `<span>NHE</span>`;
+    }
+  }
+  // DRAG AND DROP FILES
+
   //--------------------------------------------EN USO-------------------------------------------------------------------//
   //--------------------------------------------EN USO-------------------------------------------------------------------//
   //--------------------------------------------EN USO-------------------------------------------------------------------//

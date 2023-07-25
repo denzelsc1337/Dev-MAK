@@ -35,10 +35,14 @@
     <link rel="stylesheet" href="../Vista/plugins/dropzone/min/dropzone.min.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="../Vista/dist/css/adminlte.min.css">
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
     <!-- Modal -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer">
     <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+
+
+
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"> -->
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"> -->
 
 
 </head>
@@ -95,8 +99,7 @@
                                             <label class="col-sm-5 col-form-label">HR:</label>
                                             <div class="section-input col-sm-6">
                                                 <div class="upload-file">
-                                                    <label id="file-button" class="mak-txt" for="foto_p">Seleccionar archivo</label>
-                                                    <input type="file" id="foto_p" name="foto_p" style="display:none;">
+                                                    <label id="" class="modal_archive" data-modal="archive_HR" data-bs-toggle="modal" data-bs-target="#modal_archive">Seleccionar archivos.</label>
                                                 </div>
                                             </div>
                                             <div class="input-group-append">
@@ -112,8 +115,8 @@
                                             <label class="col-sm-5 col-form-label">PU:</label>
                                             <div class="section-input col-sm-6">
                                                 <div class="upload-file">
-                                                    <label id="file-button" class="mak-txt" for="foto_p">Seleccionar archivo</label>
-                                                    <input type="file" id="foto_p" name="foto_p" style="display:none;">
+                                                    <!-- <label id="file-button" class="mak-txt" for="">Seleccionar archivo</label> -->
+                                                    <label id="" class="modal_archive" data-modal="archive_PU" data-bs-toggle="modal" data-bs-target="#modal_archive">Seleccionar archivos.</label>
                                                 </div>
                                             </div>
                                             <div class="input-group-append">
@@ -129,8 +132,7 @@
                                             <label class="col-sm-5 col-form-label">COPIA LITERAL:</label>
                                             <div class="section-input col-sm-6">
                                                 <div class="upload-file">
-                                                    <label id="file-button" class="mak-txt" for="foto_p">Seleccionar archivo</label>
-                                                    <input type="file" id="foto_p" name="foto_p" style="display:none;">
+                                                    <label id="" class="modal_archive" data-modal="archive_CL" data-bs-toggle="modal" data-bs-target="#modal_archive">Seleccionar archivos.</label>
                                                 </div>
                                             </div>
                                             <div class="input-group-append">
@@ -146,8 +148,7 @@
                                             <label class="col-sm-5 col-form-label">DNI:</label>
                                             <div class="section-input col-sm-6">
                                                 <div class="upload-file">
-                                                    <label id="file-button" class="mak-txt" for="foto_p">Seleccionar archivo</label>
-                                                    <input type="file" id="foto_p" name="foto_p" style="display:none;">
+                                                    <label id="" class="modal_archive" data-modal="archive_DNI" data-bs-toggle="modal" data-bs-target="#modal_archive">Seleccionar archivos.</label>
                                                 </div>
                                             </div>
                                             <div class="input-group-append">
@@ -175,6 +176,48 @@
 
 
     <!-- MODALES -->
+    <!-- Modal -->
+    <div class="modal fade" id="modal_archive" tabindex="-1" aria-labelledby="modal_archiveLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modal_archiveLabel">Carga archivos máximo de 2MB.</h5>
+                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="container">
+                                <div class="content-file flex flex-column">
+                                    <div class="input-file">
+                                        <i class="fa-solid fa-file"></i>
+                                        <span>Arrastre los archivos aquí para subirlos.</span>
+                                    </div>
+                                    <span>O</span>
+
+                                    <div>
+                                        <label id="buttonFile" for="upload" class="buton-file">Seleccionar archivos</label>
+                                        <input hidden type="file" name="upload" id="upload" multiple>
+                                    </div>
+                                </div>
+                                <div id="preview"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal -->
+
+
+
     <div class="modal fade" id="modal_hr" tabindex="-1" role="dialog" aria-labelledby="modal_hr" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
@@ -221,6 +264,8 @@
             </div>
         </div>
     </div>
+
+
     <!-- MODALES -->
 
     <!-- REQUIRED SCRIPTS -->
@@ -623,9 +668,19 @@
     <script type="text/javascript">
         $(document).ready(function() {
 
+            $('.modal_archive').on('click', function() {
+                $('#modal_archive').modal('show');
+
+                var whatIDis = $(this).data('modal');
+
+                console.log(whatIDis);
+            });
+
             $('.modal_show').on('click', function() {
                 $('#modal_hr').modal('show');
             });
+
+
         });
 
         $(document).ready(function() {
@@ -816,6 +871,12 @@
 
     <script src="../Vista/assets/selection_types.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+
 </body>
 
 </html>

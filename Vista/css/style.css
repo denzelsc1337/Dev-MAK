@@ -1005,8 +1005,8 @@ form .form-content {
 }
 
 .content-file {
-  border: 1px solid;
-  border-radius: 20px;
+  display: flex;
+  align-items: center;
   text-align: center;
 }
 .content-file .file-header {
@@ -1021,10 +1021,8 @@ form .form-content {
   flex-direction: column;
   border: 1px dashed;
   border-radius: 10px;
-  max-width: 90%;
-  margin: auto;
+  width: 100%;
   padding: 10rem;
-  background-color: #555;
 }
 
 .content-file .buton-file {
