@@ -1,9 +1,13 @@
 <?php
 
+
 $dni_u = $_POST['usu_dni'];
 $concepto_ = $_POST['_concept'];
 
 $dir = '../Documentos Legal/'.$dni_u.'/'.$concepto_;
+
+
+//agregar consulta a la bd para obtener su id y usarlo en el delete
 
 $files = [];
 

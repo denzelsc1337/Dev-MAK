@@ -140,6 +140,8 @@ require_once('../Controller/controladorListar.php');
                                                 <div class="col-md-4">
                                                     <div class="card card-default">
                                                         <div class="card-body">
+
+
                                                         	<form method="POST" action="../Controller/Upload_Legal_Docs.php" enctype="multipart/form-data">
                                                         		<input type="text" class="form-control" id="dni_usu_0" name="dni_usu_0" value="<?php echo $_SESSION['dni']; ?>">
                                                         		<input type="text" class="form-control" id="id_cli_0" name="id_cli_0" value="<?php echo $_SESSION['id_usu']; ?>">
@@ -156,6 +158,7 @@ require_once('../Controller/controladorListar.php');
 	                                                            </div>
 	                                                            <button type="submit" class="btn btn-info btn-lg col-md-12" id="btn_save_hr" name="btn_save_hr" disabled>Registrar</button>
                                                         	</form>
+
 
                                                         	<form method="POST" action="../Controller/Upload_Legal_Docs.php" enctype="multipart/form-data">
                                                         		<input type="text" class="form-control" id="dni_usu_1" name="dni_usu_1" value="<?php echo $_SESSION['dni']; ?>">
@@ -868,6 +871,7 @@ require_once('../Controller/controladorListar.php');
             console.log(valor1);
 
             $('#_concept').val(valor1);
+
             $('#titulo_docs').text(titulo_);
 
             var concepto = $('#_concept').val();
@@ -897,15 +901,21 @@ require_once('../Controller/controladorListar.php');
 
 			            if (Array.isArray(files)) {
 			                files.forEach(function(file) {
+
 			                    if (typeof file === 'string') {
 						            var link_ = $('<a>')
 						                .attr('href', '../Documentos Legal/' + dni + '/' + concepto + '/' + file)
 						                .text(file);
 
-						            var listItem = $('<li>').append(link_);
+						            var delete_btn = $('<button>').text('Eliminar').attr('class', 'btn btn-block btn-danger');
+
+
+						            var listItem = $('<li>').append(link_,delete_btn);
 						            fileList.append(listItem);
 						        }
 			                });
+			                console.log("hay archivos");
+
 			            } else if (typeof files === 'string'){
 			                var link_ = $('<a>')
 			                    .attr('href','../Documentos Legal/'+dni+'/'+concepto+'/'+files)
@@ -914,7 +924,7 @@ require_once('../Controller/controladorListar.php');
 			                var listItem = $('<li>').append(link_);
 			                fileList.append(listItem);
 
-			                console.log("entra aqui");
+			                console.log("no hay archivos :c");
 			            }
 
 			            $('#descarga_archivo_m').empty();
