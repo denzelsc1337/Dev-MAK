@@ -226,25 +226,30 @@ $(document).ready(function () {
   var inputFile = dragArea.querySelector("#upload");
   let files;
 
+  buttonFile.addEventListener("click", (e) => {
+    inputFile.click();
+  });
+
   inputFile.addEventListener("change", (e) => {
-    files = this.files;
+    files = inputFile.files;
+    showFiles(files);
   });
 
   dragArea.addEventListener("dragover", (e) => {
     e.preventDefault();
-    dragText.textContent = "Suelta los archivos rey :3";
+    dragText.textContent = "Suelta los archivos aquí para subirlos.";
   });
 
   dragArea.addEventListener("dragleave", (e) => {
     e.preventDefault();
-    dragText.textContent = "Sube más archivos rey :3";
+    dragText.textContent = "Arrastre los archivos aquí para subirlos.";
   });
 
   dragArea.addEventListener("drop", (e) => {
     e.preventDefault();
     files = e.dataTransfer.files;
     showFiles(files);
-    dragText.textContent = "Sube más archivos rey :3";
+    dragText.textContent = "Arrastre los archivos aquí para subirlos.";
   });
 
   function showFiles(files) {

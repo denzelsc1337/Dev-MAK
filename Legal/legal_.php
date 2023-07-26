@@ -103,7 +103,7 @@
                                                 </div>
                                             </div>
                                             <div class="input-group-append">
-                                                <i class="cursor modal_show fa-solid fa-eye" data-bs-toggle="modal" data-bs-target="#modal_hr"></i>
+                                                <i class="cursor fa-solid fa-eye" data-bs-toggle="modal" data-bs-target="#modal_hr"></i>
                                             </div>
                                         </div>
                                     </div>
@@ -120,7 +120,7 @@
                                                 </div>
                                             </div>
                                             <div class="input-group-append">
-                                                <i class="cursor fa-solid fa-eye"></i>
+                                                <i class="cursor fa-solid fa-eye" data-bs-toggle="modal" data-bs-target="#modal_pu"></i>
                                             </div>
                                         </div>
                                     </div>
@@ -136,7 +136,7 @@
                                                 </div>
                                             </div>
                                             <div class="input-group-append">
-                                                <i class="cursor fa-solid fa-eye"></i>
+                                                <i class="cursor fa-solid fa-eye" data-bs-toggle="modal" data-bs-target="#modal_cl"></i>
                                             </div>
                                         </div>
                                     </div>
@@ -152,7 +152,7 @@
                                                 </div>
                                             </div>
                                             <div class="input-group-append">
-                                                <i class="cursor fa-solid fa-eye"></i>
+                                                <i class="cursor fa-solid fa-eye" data-bs-toggle="modal" data-bs-target="#modal_dni"></i>
                                             </div>
                                         </div>
                                     </div>
@@ -178,7 +178,7 @@
     <!-- MODALES -->
     <!-- Modal -->
     <div class="modal fade" id="modal_archive" tabindex="-1" aria-labelledby="modal_archiveLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
+        <div class="modal-dialog modal-xl">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="modal_archiveLabel">Carga archivos máximo de 2MB.</h5>
@@ -198,7 +198,7 @@
                                     <span>O</span>
 
                                     <div>
-                                        <label id="buttonFile" for="upload" class="buton-file">Seleccionar archivos</label>
+                                        <label id="buttonFile" class="btn btn-mak mak-bg buton-file">Seleccionar archivos</label>
                                         <input hidden type="file" name="upload" id="upload" multiple>
                                     </div>
                                 </div>
@@ -207,42 +207,30 @@
                         </div>
                     </div>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
-                </div>
             </div>
         </div>
     </div>
     <!-- Modal -->
 
-
-
+    <!-- Modal_HR -->
     <div class="modal fade" id="modal_hr" tabindex="-1" role="dialog" aria-labelledby="modal_hr" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
             <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">HR</h5>
-                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-
                 <div class="modal-body">
-                    <div class="col-sm-12">
-                        <div class="row">
-                            <div class="col-sm-12">
+                    <h1 class="title-m">HR</h1>
+                    <div class="row margin">
+                        <div class="col-sm-12">
+                            <div class="container">
                                 <div class="form-group row">
                                     <div class="col-sm-2">
                                         <div class="lgl-modal-num">
                                             1
                                         </div>
                                     </div>
-                                    <div class="section-input col-sm-8">
+                                    <div class="col-sm-8">
                                         <input type="text" class="form-mak">
                                     </div>
                                     <div class="tw-modal-ots">
-                                        <!-- <i class="cursor modal_show fa-solid fa-eye" data-bs-toggle="modal" data-bs-target="#modal_hr"></i> -->
                                         <div class="row">
                                             <div class="brd-rght-blue">
                                                 <i class="cursor fa-solid fa-trash"></i>
@@ -257,13 +245,124 @@
                         </div>
                     </div>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn button color-secondary right" data-bs-dismiss="modal">Cerrar</button>
-                    <button type="submit" name="changeUser" id="changeUser" class="button color-primary">Guardar cambios</button>
+            </div>
+        </div>
+    </div>
+    <!-- Modal_HR -->
+
+    <!-- Modal_PU -->
+    <div class="modal fade" id="modal_pu" tabindex="-1" role="dialog" aria-labelledby="modal_pu" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <h1 class="title-m">PU</h1>
+                    <div class="row margin">
+                        <div class="col-sm-12">
+                            <div class="container">
+                                <div class="form-group row">
+                                    <div class="col-sm-2">
+                                        <div class="lgl-modal-num">
+                                            1
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-mak">
+                                    </div>
+                                    <div class="tw-modal-ots">
+                                        <div class="row">
+                                            <div class="brd-rght-blue">
+                                                <i class="cursor fa-solid fa-trash"></i>
+                                            </div>
+                                            <div>
+                                                <i class="cursor fa-solid fa-download"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+    <!-- Modal_PU -->
+
+    <!-- Modal_CL -->
+    <div class="modal fade" id="modal_cl" tabindex="-1" role="dialog" aria-labelledby="modal_cl" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <h1 class="title-m">Copia Literal</h1>
+                    <div class="row margin">
+                        <div class="col-sm-12">
+                            <div class="container">
+                                <div class="form-group row">
+                                    <div class="col-sm-2">
+                                        <div class="lgl-modal-num">
+                                            1
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-mak">
+                                    </div>
+                                    <div class="tw-modal-ots">
+                                        <div class="row">
+                                            <div class="brd-rght-blue">
+                                                <i class="cursor fa-solid fa-trash"></i>
+                                            </div>
+                                            <div>
+                                                <i class="cursor fa-solid fa-download"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal_CL -->
+
+    <!-- Modal_DNI -->
+    <div class="modal fade" id="modal_dni" tabindex="-1" role="dialog" aria-labelledby="modal_dni" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <h1 class="title-m">DNI</h1>
+                    <div class="row margin">
+                        <div class="col-sm-12">
+                            <div class="container">
+                                <div class="form-group row">
+                                    <div class="col-sm-2">
+                                        <div class="lgl-modal-num">
+                                            1
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-mak">
+                                    </div>
+                                    <div class="tw-modal-ots">
+                                        <div class="row">
+                                            <div class="brd-rght-blue">
+                                                <i class="cursor fa-solid fa-trash"></i>
+                                            </div>
+                                            <div>
+                                                <i class="cursor fa-solid fa-download"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal_DNI -->
 
 
     <!-- MODALES -->
@@ -674,10 +773,6 @@
                 var whatIDis = $(this).data('modal');
 
                 console.log(whatIDis);
-            });
-
-            $('.modal_show').on('click', function() {
-                $('#modal_hr').modal('show');
             });
 
 

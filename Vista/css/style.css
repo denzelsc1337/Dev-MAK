@@ -1009,6 +1009,12 @@ form .form-content {
   align-items: center;
   text-align: center;
 }
+
+.content-file span {
+  margin: 1rem 0;
+  font-weight: 900;
+}
+
 .content-file .file-header {
   font-size: 20px;
   font-weight: bold;
@@ -1022,14 +1028,39 @@ form .form-content {
   border: 1px dashed;
   border-radius: 10px;
   width: 100%;
-  padding: 10rem;
+  padding: 8rem 10rem;
+  background-color: #f4f4f5;
+}
+
+.content-file .input-file i {
+  font-size: 10rem;
+  margin-bottom: 2rem;
 }
 
 .content-file .buton-file {
-  border: 1px solid;
   padding: 10px 20px;
   font-size: 17px;
   border-radius: var(--radius-20);
+  cursor: pointer;
+}
+
+.modal-title {
+  font-weight: 900;
+}
+
+.modal-content {
+  border-radius: var(--radius-20) !important;
+}
+
+.title-m {
+  text-align: center;
+  font-size: 4rem;
+  font-weight: 900;
+  margin: 1rem 0 3rem;
+}
+
+.modal-body .margin {
+  margin: 0 5rem 5rem;
 }
 
 /* CSS PERSONALIZADO */
