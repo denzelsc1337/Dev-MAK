@@ -890,44 +890,13 @@ require_once('../Controller/controladorListar.php');
 
         });
 
+		function load_documents(){
 
-        $('.btn_lst_hr').on('click', function() {
-            console.log("test");
+			var dni = '<?php echo $_SESSION['dni'] ?>';
+			var id_cli = '<?php echo $_SESSION['id_usu'] ?>';
+			var _id_tipo_doc = $('#_id_tipo_doc_lgl').val();
 
-
-            $('#lst_hr_0').modal('show');
-
-
-
-            var valor1 = $(this).data('valor');
-            var titulo_ = $(this).data('titulo');
-
-            var _id_doc_lgl = $(this).data('id_doc_');
-
-            $('#_id_tipo_doc_lgl').val(_id_doc_lgl);
-
-
-
-            console.log(valor1);
-
-            $('#_concept').val(valor1);
-
-            $('#titulo_docs').text(titulo_);
-
-            var concepto = $('#_concept').val();
-
-            var titulo_modal = $('#titulo_docs').val();
-
-
-
-            console.log(titulo_modal);
-            console.log(concepto);
-
-            var dni = '<?php echo $_SESSION['dni'] ?>';
-            var id_cli = '<?php echo $_SESSION['id_usu'] ?>';
-            var _id_tipo_doc = $('#_id_tipo_doc_lgl').val();
-
-            $.ajax({
+			$.ajax({
 			    type: 'POST',
 			    url: '../Controller/obtener_files.php',
 			    data: {
@@ -939,9 +908,9 @@ require_once('../Controller/controladorListar.php');
 			        var data  = JSON.parse(response);
 
 			        var archivos = data.archivos;
-        			var estado_doc = data.status_doc;
+					var estado_doc = data.status_doc;
 
-        			var cod_doc_, ruta_doc,nom_file;
+					var cod_doc_, ruta_doc,nom_file;
 
 				    if (archivos && archivos.length > 0) {
 				        var enlaceHtml = '';
@@ -957,46 +926,11 @@ require_once('../Controller/controladorListar.php');
 
 				            enlaceHtml += '<li><a href="' + ruta + nombreArchivo + '">'
 				            					+ nombreArchivo +
-				            					'</a><input id="ruta_doc" type="text" value="'+ruta+'" readonly><input id="ruta_archivo" type="text" value="'+nombreArchivo+'" readonly><input id="cod_doc_" type="text" value="' + id_doc_ + '" readonly><button id="dlt_file" type="button" class="btn btn-danger dlt_file">Eliminar</button></li>';
-
-					        cod_doc_ = id_doc_;
-					        ruta_doc = ruta;
-					        nom_file = nombreArchivo;
+				            					'</a><input id="ruta_doc_i" type="text" value="'+ruta+'" readonly><input id="ruta_archivo_i" type="text" value="'+nombreArchivo+'" readonly><input id="cod_doc_i" type="text" value="' + id_doc_ + '" readonly><button id="dlt_file" type="button" class="btn btn-danger dlt_file">Eliminar</button></li>';
 
 				        });
 
 				        document.getElementById('descarga_archivo_m').innerHTML = enlaceHtml;
-
-
-				        $('.dlt_file').on('click', function() {
-				        	console.log("testing button")
-				        	var confirmar_ = window.confirm('¿Estás seguro de que deseas eliminar este archivo?');
-
-				        	if (confirmar_) {
-
-				        		$.ajax({
-								    type: 'POST',
-								    url: '../Controller/eliminarArchivos.php',
-								    data: {
-								        id_client: id_cli,
-								        dni_client: dni,
-								        cod_doc_:cod_doc_,
-								        ruta_doc: ruta_doc,
-								        ruta_archivo:nom_file,
-								    },
-								    success: function(response) {
-								    	console.log("archivo eliminado con ID: " + id_doc_);
-								    }
-								});
-
-					          console.log("archivo eliminado");
-					        } else {
-					          console.log("cancelado");
-					        }
-
-				        });
-
-
 
 				    } else {
 
@@ -1008,9 +942,81 @@ require_once('../Controller/controladorListar.php');
 			        console.log(error);
 			    }
 			});
+		}
+
+		function eliminarArchivo($deleteBtn, cod_doc_, ruta_doc, ruta_archivo){
+
+	        var dni = '<?php echo $_SESSION['dni'] ?>';
+			var id_cli = '<?php echo $_SESSION['id_usu'] ?>';
+			var _id_tipo_doc = $('#_id_tipo_doc_lgl').val();
+
+	        $.ajax({
+	            type: 'POST',
+	            url: '../Controller/eliminarArchivos.php',
+	            data: {
+	                id_client: id_cli,
+	                dni_client: dni,
+	                cod_doc_: cod_doc_,
+	                ruta_doc: ruta_doc,
+	                ruta_archivo: ruta_archivo,
+	            },
+	            success: function(response) {
+	                console.log("archivo eliminado con ID: " + cod_doc_);
+	                $deleteBtn.closest('.modal').modal('hide');
+	                //load_documents();
+	            },
+		        complete: function() {
+		            load_documents();
+		            $('#lst_hr_0').modal('show');
+		        }
+	        });
+		}
+
+		$(document).on('click', '.dlt_file', function() {
+		    var $this = $(this);
+		    console.log("probando botón");
+
+		    var confirmar_ = window.confirm('¿Estás seguro de que deseas eliminar este archivo?');
+
+		    if (confirmar_) {
+		    	var $parentLi = $(this).closest('li');
+
+		        var cod_doc_ = $parentLi.find('#cod_doc_i').val();
+		        var ruta_doc = $parentLi.find('#ruta_doc_i').val();
+		        var ruta_archivo = $parentLi.find('#ruta_archivo_i').val();
+
+		    	eliminarArchivo($this,cod_doc_, ruta_doc, ruta_archivo);
+
+		        console.log("archivo eliminado");
+		    } else {
+		        console.log("cancelado");
+		    }
+		});
+
+
+		$('.btn_lst_hr').on('click', function() {
+            console.log("test");
+
+            var valor1 = $(this).data('valor');
+            var titulo_ = $(this).data('titulo');
+            var _id_doc_lgl = $(this).data('id_doc_');
+
+            $('#_id_tipo_doc_lgl').val(_id_doc_lgl);
+            $('#_concept').val(valor1);
+            $('#titulo_docs').text(titulo_);
+
+            var concepto = $('#_concept').val();
+
+            var titulo_modal = $('#titulo_docs').val();
 
 
 
+            console.log(titulo_modal);
+            console.log(concepto);
+
+            load_documents();
+
+            $('#lst_hr_0').modal('show');
             /*$.ajax({
 			    type: 'POST',
 			    url: '../Controller/obtener_files.php',
@@ -1068,9 +1074,6 @@ require_once('../Controller/controladorListar.php');
 			});*/
 
         });
-
-
-
 
 
         //codigo para el admin y ver los documentos de cada usuario
