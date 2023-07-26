@@ -472,7 +472,7 @@ require_once('../Controller/controladorListar.php');
 			            </div>
 			            <form action="../Controller/upload_docs_legal.php" method="POST" enctype="multipart/form-data">
 			            	<div class="modal-body">
-			            		<div class="form-group">
+			            		<div class="form-group" hidden>
 			            				<label>id usu</label>
 	                                    <input type="text" name="usu_dni" id="usu_dni" value="<?php echo $_SESSION['id_usu'] ?>">
 	                                    <br>
@@ -984,7 +984,6 @@ require_once('../Controller/controladorListar.php');
 								        ruta_doc: ruta_doc,
 								        ruta_archivo:nom_file,
 								    },
-
 								    success: function(response) {
 								    	console.log("archivo eliminado con ID: " + id_doc_);
 								    }
