@@ -967,7 +967,10 @@ require_once('../Controller/controladorListar.php');
 	            },
 		        complete: function() {
 		            load_documents();
-		            $('#lst_hr_0').modal('show');
+		            setTimeout(function() {
+	                	$('#lst_hr_0').modal('show');
+	            	}, 500); 
+
 		        }
 	        });
 		}
@@ -995,7 +998,7 @@ require_once('../Controller/controladorListar.php');
 
 
 		$('.btn_lst_hr').on('click', function() {
-            console.log("test");
+            console.log("Botón seleccionado");
 
             var valor1 = $(this).data('valor');
             var titulo_ = $(this).data('titulo');
@@ -1011,8 +1014,8 @@ require_once('../Controller/controladorListar.php');
 
 
 
-            console.log(titulo_modal);
-            console.log(concepto);
+            /*console.log(titulo_modal);
+            console.log(concepto);*/
 
             load_documents();
 
