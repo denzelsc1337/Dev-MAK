@@ -926,7 +926,7 @@ require_once('../Controller/controladorListar.php');
 
 				            enlaceHtml += '<li><a href="' + ruta + nombreArchivo + '">'
 				            					+ nombreArchivo +
-				            					'</a><input id="ruta_doc_i" type="text" value="'+ruta+'" readonly><input id="ruta_archivo_i" type="text" value="'+nombreArchivo+'" readonly><input id="cod_doc_i" type="text" value="' + id_doc_ + '" readonly><button id="dlt_file" type="button" class="btn btn-danger dlt_file">Eliminar</button></li>';
+				            					'</a><div hidden><input id="ruta_doc_i" type="text" value="'+ruta+'" readonly><input id="ruta_archivo_i" type="text" value="'+nombreArchivo+'" readonly><input id="cod_doc_i" type="text" value="' + id_doc_ + '" readonly></div><button id="dlt_file" type="button" class="btn btn-danger dlt_file">Eliminar</button></li>';
 
 				        });
 
