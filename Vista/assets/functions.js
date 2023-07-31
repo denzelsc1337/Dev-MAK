@@ -229,7 +229,7 @@ $(document).ready(function () {
   dragArea.forEach((element) => {
     var dragText = element.querySelector("span");
     var buttonFile = element.querySelectorAll("#buttonFile");
-    var inputFile = element.querySelector("#upload");
+    var inputFile = element.querySelector(".upload");
 
     buttonFile.forEach((buttonFile) => {
       buttonFile.addEventListener("click", (e) => {

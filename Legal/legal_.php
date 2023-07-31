@@ -192,7 +192,16 @@
                     <div class="row">
                         <div class="col-sm-12">
                             <div class="container">
+
+                                <form method="POST" action="../Controller/Upload_Legal_Docs.php" enctype="multipart/form-data">
                                 <div class="content-file flex flex-column">
+                                    <div hidden>
+                                        <label>H.R</label>
+                                        <input type="text" class="form-control" id="dni_usu_0" name="dni_usu_0" value="<?php echo $_SESSION['dni']; ?>">
+                                        <input type="text" class="form-control" id="id_cli_0" name="id_cli_0" value="<?php echo $_SESSION['id_usu']; ?>">
+                                        <input type="text" class="form-control" id="tipo_doc_0" name="tipo_doc_0" value="1">
+                                    </div>    
+
                                     <div class="input-file">
                                         <div class="file-message">
                                             <i class="fa-solid fa-file"></i>
@@ -205,10 +214,14 @@
 
                                     <div>
                                         <label id="buttonFile" class="btn btn-mak mak-bg buton-file">Seleccionar archivos</label>
-                                        <input hidden type="file" name="upload" id="upload" multiple>
+                                        <input class="upload" type="file" id="hr_s" name="hr_s[]" multiple>
                                     </div>
 
                                 </div>
+
+                                    <button type="submit" class="btn btn-info btn-lg col-md-12" id="btn_save_hr" name="btn_save_hr" disabled>Registrar</button>
+                                </form>
+
                             </div>
                         </div>
                     </div>
@@ -270,6 +283,16 @@
                     <div class="row">
                         <div class="col-sm-12">
                             <div class="container">
+
+                                <form method="POST" action="../Controller/Upload_Legal_Docs.php" enctype="multipart/form-data">
+                                <div hidden>
+                                    <label>P.U</label>
+                                    <input type="text" class="form-control" id="dni_usu_1" name="dni_usu_1" value="<?php echo $_SESSION['dni']; ?>">
+                                    <input type="text" class="form-control" id="id_cli_1" name="id_cli_1" value="<?php echo $_SESSION['id_usu']; ?>">
+                                    
+                                    <input type="text" class="form-control" id="tipo_doc_1" name="tipo_doc_1" value="2">
+                                </div>
+                                    
                                 <div class="content-file flex flex-column">
                                     <div class="input-file">
                                         <div class="file-message">
@@ -282,9 +305,11 @@
 
                                     <div>
                                         <label id="buttonFile" class="btn btn-mak mak-bg buton-file">Seleccionar archivos</label>
-                                        <input hidden type="file" name="upload" id="upload" multiple>
+                                        <input class="upload" type="file" id="pu_s" name="pu_s[]" multiple hidden>
                                     </div>
                                 </div>
+                                    <button type="submit" class="btn btn-info btn-lg col-md-12" id="btn_save_pu" name="btn_save_pu" disabled>Registrar</button>
+                                </form>
                                 <div id="preview"></div>
                             </div>
                         </div>
@@ -1093,6 +1118,38 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+
+    <script>
+
+      //inputs
+      var hr_inpt = document.getElementById('hr_s');
+      var pu_inpt = document.getElementById('pu_s');
+
+      var btn_hr = document.getElementById('btn_save_hr');
+      var btn_pu = document.getElementById('btn_save_pu');
+
+      hr_inpt.addEventListener('change', function() {
+
+        if (hr_inpt.files.length > 0) {
+
+          btn_hr.disabled = false;
+        } else {
+
+          btn_hr.disabled = true;
+        }
+      });
+
+      pu_inpt.addEventListener('change', function() {
+
+        if (pu_inpt.files.length > 0) {
+
+          btn_pu.disabled = false;
+        } else {
+
+          btn_pu.disabled = true;
+        }
+      });
+  </script>
 
 </body>
 
