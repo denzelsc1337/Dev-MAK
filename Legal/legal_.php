@@ -194,9 +194,11 @@
                             <div class="container">
 
                                 <form method="POST" action="../Controller/Upload_Legal_Docs.php" enctype="multipart/form-data">
+
                                 <div class="content-file flex flex-column">
+
+                                    <label>H.R</label>
                                     <div hidden>
-                                        <label>H.R</label>
                                         <input type="text" class="form-control" id="dni_usu_0" name="dni_usu_0" value="<?php echo $_SESSION['dni']; ?>">
                                         <input type="text" class="form-control" id="id_cli_0" name="id_cli_0" value="<?php echo $_SESSION['id_usu']; ?>">
                                         <input type="text" class="form-control" id="tipo_doc_0" name="tipo_doc_0" value="1">
@@ -285,15 +287,14 @@
                             <div class="container">
 
                                 <form method="POST" action="../Controller/Upload_Legal_Docs.php" enctype="multipart/form-data">
-                                <div hidden>
-                                    <label>P.U</label>
-                                    <input type="text" class="form-control" id="dni_usu_1" name="dni_usu_1" value="<?php echo $_SESSION['dni']; ?>">
-                                    <input type="text" class="form-control" id="id_cli_1" name="id_cli_1" value="<?php echo $_SESSION['id_usu']; ?>">
-                                    
-                                    <input type="text" class="form-control" id="tipo_doc_1" name="tipo_doc_1" value="2">
-                                </div>
                                     
                                 <div class="content-file flex flex-column">
+                                    <label>P.U</label>
+                                    <div hidden>
+                                        <input type="text" class="form-control" id="dni_usu_1" name="dni_usu_1" value="<?php echo $_SESSION['dni']; ?>">
+                                        <input type="text" class="form-control" id="id_cli_1" name="id_cli_1" value="<?php echo $_SESSION['id_usu']; ?>">
+                                        <input type="text" class="form-control" id="tipo_doc_1" name="tipo_doc_1" value="2">
+                                    </div>
                                     <div class="input-file">
                                         <div class="file-message">
                                             <i class="fa-solid fa-file"></i>
@@ -372,7 +373,15 @@
                     <div class="row">
                         <div class="col-sm-12">
                             <div class="container">
+                                <form method="POST" action="../Controller/Upload_Legal_Docs.php" enctype="multipart/form-data">
+
                                 <div class="content-file flex flex-column">
+                                    <label>Copia Literal</label>
+                                    <div hidden>
+                                        <input type="text" class="form-control" id="dni_usu_2" name="dni_usu_2" value="<?php echo $_SESSION['dni']; ?>">
+                                        <input type="text" class="form-control" id="id_cli_2" name="id_cli_2" value="<?php echo $_SESSION['id_usu']; ?>">
+                                        <input type="text" class="form-control" id="tipo_doc_2" name="tipo_doc_2" value="3">
+                                    </div>
                                     <div class="input-file">
                                         <div class="file-message">
                                             <i class="fa-solid fa-file"></i>
@@ -381,12 +390,13 @@
                                         <div class="file-archives"></div>
                                     </div>
                                     <span>O</span>
-
                                     <div>
                                         <label id="buttonFile" class="btn btn-mak mak-bg buton-file">Seleccionar archivos</label>
-                                        <input hidden type="file" name="upload" id="upload" multiple>
+                                        <input class="upload" type="file" id="cl_s" name="cl_s[]" multiple hidden>
                                     </div>
                                 </div>
+                                    <button type="submit" class="btn btn-info btn-lg col-md-12" id="btn_save_cl" name="btn_save_cl" disabled>Registrar</button>
+                                </form>
                                 <div id="preview"></div>
                             </div>
                         </div>
@@ -449,21 +459,31 @@
                     <div class="row">
                         <div class="col-sm-12">
                             <div class="container">
-                                <div class="content-file flex flex-column">
-                                    <div class="input-file">
-                                        <div class="file-message">
-                                            <i class="fa-solid fa-file"></i>
-                                            <span>Arrastre los archivos aquí para subirlos.</span>
+                                <form method="POST" action="../Controller/Upload_Legal_Docs.php" enctype="multipart/form-data">
+                                    <div class="content-file flex flex-column">
+                                        <label>DNI</label>
+                                        <div hidden>
+                                            <input type="text" class="form-control" id="dni_usu_3" name="dni_usu_3" value="<?php echo $_SESSION['dni']; ?>">
+                                            <input type="text" class="form-control" id="id_cli_3" name="id_cli_3" value="<?php echo $_SESSION['id_usu']; ?>">
+                                            <input type="text" class="form-control" id="tipo_doc_3" name="tipo_doc_3" value="4">
                                         </div>
-                                        <div class="file-archives"></div>
-                                    </div>
-                                    <span>O</span>
+                                        <div class="input-file">
+                                            <div class="file-message">
+                                                <i class="fa-solid fa-file"></i>
+                                                <span>Arrastre los archivos aquí para subirlos.</span>
+                                            </div>
+                                            <div class="file-archives">
+                                            </div>
+                                        </div>
+                                        <span>O</span>
 
-                                    <div>
-                                        <label id="buttonFile" class="btn btn-mak mak-bg buton-file">Seleccionar archivos</label>
-                                        <input hidden type="file" name="upload" id="upload" multiple>
+                                        <div>
+                                            <label id="buttonFile" class="btn btn-mak mak-bg buton-file">Seleccionar archivos</label>
+                                            <input class="upload" type="file" id="dni_s" name="dni_s[]" multiple hidden>
+                                        </div>
                                     </div>
-                                </div>
+                                    <button type="submit" class="btn btn-info btn-lg col-md-12" id="btn_save_dni" name="btn_save_dni" disabled>Registrar</button>
+                                </form>
                                 <div id="preview"></div>
                             </div>
                         </div>
@@ -1124,9 +1144,14 @@
       //inputs
       var hr_inpt = document.getElementById('hr_s');
       var pu_inpt = document.getElementById('pu_s');
+      var cl_inpt = document.getElementById('cl_s');
+      var dni_inpt = document.getElementById('dni_s');
+
 
       var btn_hr = document.getElementById('btn_save_hr');
       var btn_pu = document.getElementById('btn_save_pu');
+      var btn_cl = document.getElementById('btn_save_cl');
+      var btn_dni = document.getElementById('btn_save_dni');
 
       hr_inpt.addEventListener('change', function() {
 
@@ -1149,6 +1174,31 @@
           btn_pu.disabled = true;
         }
       });
+
+
+      cl_inpt.addEventListener('change', function() {
+
+        if (cl_inpt.files.length > 0) {
+
+          btn_cl.disabled = false;
+        } else {
+
+          btn_cl.disabled = true;
+        }
+      });
+
+      dni_inpt.addEventListener('change', function() {
+
+        if (dni_inpt.files.length > 0) {
+
+          btn_dni.disabled = false;
+        } else {
+
+          btn_dni.disabled = true;
+        }
+      });
+
+
   </script>
 
 </body>
