@@ -220,101 +220,113 @@ $(document).ready(function () {
   // INPUT WITH LIST
 
   // DRAG AND DROP FILES
-  var dragArea = document.querySelector(".content-file");
-  var dragText = dragArea.querySelector("span");
-  var buttonFile = dragArea.querySelector("#buttonFile");
-  var inputFile = dragArea.querySelector("#upload");
-  let files;
+  var dragArea = document.querySelectorAll(".content-file");
+  // var dragText = dragArea.querySelector("span");
+  // var buttonFile = dragArea.querySelector("#buttonFile");
+  // var inputFile = dragArea.querySelector("#upload");
+  // let files;
 
-  buttonFile.addEventListener("click", (e) => {
-    inputFile.click();
-  });
+  dragArea.forEach((element) => {
+    var dragText = element.querySelector("span");
+    var buttonFile = element.querySelectorAll("#buttonFile");
+    var inputFile = element.querySelector("#upload");
 
-  inputFile.addEventListener("change", (e) => {
-    files = inputFile.files;
-    showFiles(files);
-  });
+    buttonFile.forEach((buttonFile) => {
+      buttonFile.addEventListener("click", (e) => {
+        inputFile.click();
+      });
+    });
 
-  dragArea.addEventListener("dragover", (e) => {
-    e.preventDefault();
-    dragText.textContent = "Suelta los archivos aquí para subirlos.";
-  });
+    inputFile.addEventListener("change", (e) => {
+      files = inputFile.files;
+      showFiles(files);
+    });
 
-  dragArea.addEventListener("dragleave", (e) => {
-    e.preventDefault();
-    dragText.textContent = "Arrastre los archivos aquí para subirlos.";
-  });
+    element.addEventListener("dragover", (e) => {
+      e.preventDefault();
+      dragText.textContent = "Suelta los archivos aquí para subirlos.";
+    });
 
-  dragArea.addEventListener("drop", (e) => {
-    e.preventDefault();
-    files = e.dataTransfer.files;
-    showFiles(files);
-    dragText.textContent = "Arrastre los archivos aquí para subirlos.";
-  });
+    element.addEventListener("dragleave", (e) => {
+      e.preventDefault();
+      dragText.textContent = "Arrastre los archivos aquí para subirlos.";
+    });
 
-  function showFiles(files) {
-    if (files.length === undefined) {
-      processFile(files);
-    } else {
-      for (const file of files) {
-        processFile(file);
+    element.addEventListener("drop", (e) => {
+      e.preventDefault();
+      files = e.dataTransfer.files;
+      showFiles(files);
+      dragText.textContent = "Arrastre los archivos aquí para subirlos.";
+    });
+
+    function showFiles(files) {
+      if (files.length === undefined) {
+        processFile(files);
+      } else {
+        for (const file of files) {
+          processFile(file);
+        }
       }
     }
-  }
 
-  function processFile(file) {
-    const docType = file.type;
-    const validExtensions = [
-      "image/jpeg",
-      "image/jpg",
-      "image/png",
-      "image/gif",
-    ];
+    function processFile(file) {
+      const docType = file.type;
+      const validExtensions = [
+        "image/jpeg",
+        "image/jpg",
+        "image/png",
+        "image/gif",
+      ];
 
-    if (validExtensions.includes(docType)) {
-      // archivo valido
-      const fileReader = new FileReader();
-      const id = `file-${Math.random().toString(32).substring(7)}`;
+      if (validExtensions.includes(docType)) {
+        // archivo valido
+        const fileReader = new FileReader();
+        const id = `file-${Math.random().toString(32).substring(7)}`;
 
-      fileReader.addEventListener("load", (e) => {
-        const fileUrl = fileReader.result;
-        const image = `
-          <div id="${id}" class="">
-            <img src="${fileUrl}" alt="${file.name}" width="50">
-            <div>
-              <span>${file.name}</span>
+        fileReader.addEventListener("load", (e) => {
+          const fileUrl = fileReader.result;
+          const image = `
+            <div id="${id}" class="">
+              <img src="${fileUrl}" alt="${file.name}" width="50">
+              <div>
+                <span>${file.name}</span>
+              </div>
             </div>
-          </div>
-          `;
+            `;
 
-        const html = document.querySelector("#preview");
-        html.innerHTML += image;
-      });
-      fileReader.readAsDataURL(file);
-      uploadFile(file, id);
-    } else {
-      // archivo no valido
-      alert("nel");
+          /////////////
+          const html = element.querySelectorAll(".file-archives");
+          html.forEach((element) => {
+            element.innerHTML += image;
+          });
+          /////////////
+        });
+        fileReader.readAsDataURL(file);
+        // uploadFile(file, id);
+      } else {
+        // archivo no valido
+        alert("Archivo no válido: " + file.name);
+      }
     }
-  }
 
-  async function uploadFile(file, id) {
-    const formData = new FormData();
-    formData.append("file", file);
+    // async function uploadFile(file, id) {
+    //   const formData = new FormData();
+    //   formData.append("file", file);
 
-    try {
-      const response = await fetch("http://localhost:3000/upload", {
-        method: "POST",
-        body: formData,
-      });
+    //   try {
+    //     const response = await fetch("http://localhost:3000/upload", {
+    //       method: "POST",
+    //       body: formData,
+    //     });
 
-      const responseText = await response.text();
+    //     const responseText = await response.text();
 
-      document.querySelector(`${id}`).innerHTML = `<span>Uploaded</span>`;
-    } catch (error) {
-      document.querySelector(`${id}`).innerHTML = `<span>NHE</span>`;
-    }
-  }
+    //     document.querySelector(`${id}`).innerHTML = `<span>Uploaded</span>`;
+    //   } catch (error) {
+    //     document.querySelector(`${id}`).innerHTML = `<span>NHE</span>`;
+    //   }
+    // }
+  });
   // DRAG AND DROP FILES
 
   //--------------------------------------------EN USO-------------------------------------------------------------------//

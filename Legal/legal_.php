@@ -99,7 +99,7 @@
                                             <label class="col-sm-5 col-form-label">HR:</label>
                                             <div class="section-input col-sm-6">
                                                 <div class="upload-file">
-                                                    <label id="" class="modal_archive" data-modal="archive_HR" data-bs-toggle="modal" data-bs-target="#modal_archive">Seleccionar archivos.</label>
+                                                    <label data-bs-toggle="modal" data-bs-target="#modal_archive_HR">Seleccionar archivos.</label>
                                                 </div>
                                             </div>
                                             <div class="input-group-append">
@@ -115,8 +115,7 @@
                                             <label class="col-sm-5 col-form-label">PU:</label>
                                             <div class="section-input col-sm-6">
                                                 <div class="upload-file">
-                                                    <!-- <label id="file-button" class="mak-txt" for="">Seleccionar archivo</label> -->
-                                                    <label id="" class="modal_archive" data-modal="archive_PU" data-bs-toggle="modal" data-bs-target="#modal_archive">Seleccionar archivos.</label>
+                                                    <label data-bs-toggle="modal" data-bs-target="#modal_archive_PU">Seleccionar archivos.</label>
                                                 </div>
                                             </div>
                                             <div class="input-group-append">
@@ -132,7 +131,7 @@
                                             <label class="col-sm-5 col-form-label">COPIA LITERAL:</label>
                                             <div class="section-input col-sm-6">
                                                 <div class="upload-file">
-                                                    <label id="" class="modal_archive" data-modal="archive_CL" data-bs-toggle="modal" data-bs-target="#modal_archive">Seleccionar archivos.</label>
+                                                    <label data-bs-toggle="modal" data-bs-target="#modal_archive_CL">Seleccionar archivos.</label>
                                                 </div>
                                             </div>
                                             <div class="input-group-append">
@@ -148,7 +147,7 @@
                                             <label class="col-sm-5 col-form-label">DNI:</label>
                                             <div class="section-input col-sm-6">
                                                 <div class="upload-file">
-                                                    <label id="" class="modal_archive" data-modal="archive_DNI" data-bs-toggle="modal" data-bs-target="#modal_archive">Seleccionar archivos.</label>
+                                                    <label data-bs-toggle="modal" data-bs-target="#modal_archive_DNI">Seleccionar archivos.</label>
                                                 </div>
                                             </div>
                                             <div class="input-group-append">
@@ -176,12 +175,15 @@
 
 
     <!-- MODALES -->
+
+
+    <!-- Modal_HR -->
     <!-- Modal -->
-    <div class="modal fade" id="modal_archive" tabindex="-1" aria-labelledby="modal_archiveLabel" aria-hidden="true">
+    <div class="modal fade" id="modal_archive_HR" tabindex="-1" aria-labelledby="modal_archive_HRLabel" aria-hidden="true">
         <div class="modal-dialog modal-xl">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="modal_archiveLabel">Carga archivos máximo de 2MB.</h5>
+                    <h5 class="modal-title" id="modal_archive_HRLabel">Carga archivos máximo de 2MB.</h5>
                     <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">×</span>
                     </button>
@@ -192,17 +194,21 @@
                             <div class="container">
                                 <div class="content-file flex flex-column">
                                     <div class="input-file">
-                                        <i class="fa-solid fa-file"></i>
-                                        <span>Arrastre los archivos aquí para subirlos.</span>
+                                        <div class="file-message">
+                                            <i class="fa-solid fa-file"></i>
+                                            <span>Arrastre los archivos aquí para subirlos.</span>
+                                        </div>
+                                        <div class="file-archives"></div>
                                     </div>
+
                                     <span>O</span>
 
                                     <div>
                                         <label id="buttonFile" class="btn btn-mak mak-bg buton-file">Seleccionar archivos</label>
                                         <input hidden type="file" name="upload" id="upload" multiple>
                                     </div>
+
                                 </div>
-                                <div id="preview"></div>
                             </div>
                         </div>
                     </div>
@@ -211,8 +217,6 @@
         </div>
     </div>
     <!-- Modal -->
-
-    <!-- Modal_HR -->
     <div class="modal fade" id="modal_hr" tabindex="-1" role="dialog" aria-labelledby="modal_hr" aria-hidden="true">
         <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
             <div class="modal-content">
@@ -248,9 +252,48 @@
             </div>
         </div>
     </div>
+    <!-- Modal -->
     <!-- Modal_HR -->
 
     <!-- Modal_PU -->
+    <!-- Modal -->
+    <div class="modal fade" id="modal_archive_PU" tabindex="-1" aria-labelledby="modal_archive_PULabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modal_archive_PULabel">Carga archivos máximo de 2MB.</h5>
+                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="container">
+                                <div class="content-file flex flex-column">
+                                    <div class="input-file">
+                                        <div class="file-message">
+                                            <i class="fa-solid fa-file"></i>
+                                            <span>Arrastre los archivos aquí para subirlos.</span>
+                                        </div>
+                                        <div class="file-archives"></div>
+                                    </div>
+                                    <span>O</span>
+
+                                    <div>
+                                        <label id="buttonFile" class="btn btn-mak mak-bg buton-file">Seleccionar archivos</label>
+                                        <input hidden type="file" name="upload" id="upload" multiple>
+                                    </div>
+                                </div>
+                                <div id="preview"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal -->
     <div class="modal fade" id="modal_pu" tabindex="-1" role="dialog" aria-labelledby="modal_pu" aria-hidden="true">
         <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
             <div class="modal-content">
@@ -286,9 +329,48 @@
             </div>
         </div>
     </div>
+    <!-- Modal -->
     <!-- Modal_PU -->
 
     <!-- Modal_CL -->
+    <!-- Modal -->
+    <div class="modal fade" id="modal_archive_CL" tabindex="-1" aria-labelledby="modal_archive_CLLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modal_archive_CLLabel">Carga archivos máximo de 2MB.</h5>
+                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="container">
+                                <div class="content-file flex flex-column">
+                                    <div class="input-file">
+                                        <div class="file-message">
+                                            <i class="fa-solid fa-file"></i>
+                                            <span>Arrastre los archivos aquí para subirlos.</span>
+                                        </div>
+                                        <div class="file-archives"></div>
+                                    </div>
+                                    <span>O</span>
+
+                                    <div>
+                                        <label id="buttonFile" class="btn btn-mak mak-bg buton-file">Seleccionar archivos</label>
+                                        <input hidden type="file" name="upload" id="upload" multiple>
+                                    </div>
+                                </div>
+                                <div id="preview"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal -->
     <div class="modal fade" id="modal_cl" tabindex="-1" role="dialog" aria-labelledby="modal_cl" aria-hidden="true">
         <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
             <div class="modal-content">
@@ -324,9 +406,48 @@
             </div>
         </div>
     </div>
+    <!-- Modal -->
     <!-- Modal_CL -->
 
     <!-- Modal_DNI -->
+    <!-- Modal -->
+    <div class="modal fade" id="modal_archive_DNI" tabindex="-1" aria-labelledby="modal_archive_DNILabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modal_archive_DNILabel">Carga archivos máximo de 2MB.</h5>
+                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="container">
+                                <div class="content-file flex flex-column">
+                                    <div class="input-file">
+                                        <div class="file-message">
+                                            <i class="fa-solid fa-file"></i>
+                                            <span>Arrastre los archivos aquí para subirlos.</span>
+                                        </div>
+                                        <div class="file-archives"></div>
+                                    </div>
+                                    <span>O</span>
+
+                                    <div>
+                                        <label id="buttonFile" class="btn btn-mak mak-bg buton-file">Seleccionar archivos</label>
+                                        <input hidden type="file" name="upload" id="upload" multiple>
+                                    </div>
+                                </div>
+                                <div id="preview"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal -->
     <div class="modal fade" id="modal_dni" tabindex="-1" role="dialog" aria-labelledby="modal_dni" aria-hidden="true">
         <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
             <div class="modal-content">
@@ -362,6 +483,7 @@
             </div>
         </div>
     </div>
+    <!-- Modal -->
     <!-- Modal_DNI -->
 
 
@@ -765,18 +887,18 @@
     </script>
 
     <script type="text/javascript">
-        $(document).ready(function() {
+        // $(document).ready(function() {
 
-            $('.modal_archive').on('click', function() {
-                $('#modal_archive').modal('show');
+        //     $('.modal_archive').on('click', function() {
+        //         $('#modal_archive').modal('show');
 
-                var whatIDis = $(this).data('modal');
+        //         var whatIDis = $(this).data('modal');
 
-                console.log(whatIDis);
-            });
+        //         console.log(whatIDis);
+        //     });
 
 
-        });
+        // });
 
         $(document).ready(function() {
             $('#tipo_zoni_l').on('keyup', function() {
