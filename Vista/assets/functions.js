@@ -220,16 +220,12 @@ $(document).ready(function () {
   // INPUT WITH LIST
 
   // DRAG AND DROP FILES
-  var dragArea = document.querySelectorAll(".content-file");
-  // var dragText = dragArea.querySelector("span");
-  // var buttonFile = dragArea.querySelector("#buttonFile");
-  // var inputFile = dragArea.querySelector("#upload");
-  // let files;
+  var dragArea = document.querySelectorAll(".input-file");
 
   dragArea.forEach((element) => {
     var dragText = element.querySelector("span");
-    var buttonFile = element.querySelectorAll("#buttonFile");
-    var inputFile = element.querySelector(".upload");
+    var buttonFile = document.querySelectorAll("#buttonFile");
+    var inputFile = document.querySelectorAll(".upload");
 
     buttonFile.forEach((buttonFile) => {
       buttonFile.addEventListener("click", (e) => {
@@ -237,9 +233,11 @@ $(document).ready(function () {
       });
     });
 
-    inputFile.addEventListener("change", (e) => {
-      files = inputFile.files;
-      showFiles(files);
+    inputFile.forEach((inputFile) => {
+      inputFile.addEventListener("change", (e) => {
+        files = inputFile.files;
+        showFiles(files);
+      });
     });
 
     element.addEventListener("dragover", (e) => {
@@ -290,9 +288,10 @@ $(document).ready(function () {
         fileReader.addEventListener("load", (e) => {
           const fileUrl = fileReader.result;
           const image = `
-            <div id="${id}" class="">
-              <img src="${fileUrl}" alt="${file.name}" width="50">
-              <div>
+            <div id="${id}" class="archive-item" title="${file.name}">
+              <span class="drop-item"><i class="fa-solid fa-xmark"></i></span>
+              <img src="${fileUrl}" alt="${file.name}" >
+              <div class="archive-name">
                 <span>${file.name}</span>
               </div>
             </div>
@@ -300,9 +299,27 @@ $(document).ready(function () {
 
           /////////////
           const html = element.querySelectorAll(".file-archives");
+
           html.forEach((element) => {
             element.innerHTML += image;
+
+            // ACÁ LLAMAR FUNCTION
+            contTagFiles();
+
+            const dropItem = document.querySelectorAll(".drop-item");
+            dropItem.forEach((dropItem) => {
+              dropItem.addEventListener("click", (e) => {
+                let Object = document.querySelectorAll(".archive-item");
+                Object.forEach((element) => {
+                  element.addEventListener("click", (e) => {
+                    element.remove();
+                    contTagFiles();
+                  });
+                });
+              });
+            });
           });
+
           /////////////
         });
         fileReader.readAsDataURL(file);
@@ -311,6 +328,21 @@ $(document).ready(function () {
         // archivo no valido
         alert("Archivo no válido: " + file.name);
       }
+    }
+
+    function contTagFiles() {
+      const fileMessage = element.querySelector(".file-message");
+      const fileArchives = element.querySelector(".file-archives");
+      var cantFileMessage = element.querySelectorAll(".archive-item").length;
+
+      if (cantFileMessage > 0) {
+        fileMessage.style.display = "none";
+        fileArchives.style.display = "grid";
+      } else {
+        fileMessage.style.display = "flex";
+        fileArchives.style.display = "none";
+      }
+      console.log(cantFileMessage);
     }
 
     // async function uploadFile(file, id) {

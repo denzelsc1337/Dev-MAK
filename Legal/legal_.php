@@ -195,31 +195,31 @@
 
                                 <form method="POST" action="../Controller/Upload_Legal_Docs.php" enctype="multipart/form-data">
 
-                                <div class="content-file flex flex-column">
+                                    <div class="content-file flex flex-column">
 
-                                    <label>H.R</label>
-                                    <div hidden>
-                                        <input type="text" class="form-control" id="dni_usu_0" name="dni_usu_0" value="<?php echo $_SESSION['dni']; ?>">
-                                        <input type="text" class="form-control" id="id_cli_0" name="id_cli_0" value="<?php echo $_SESSION['id_usu']; ?>">
-                                        <input type="text" class="form-control" id="tipo_doc_0" name="tipo_doc_0" value="1">
-                                    </div>    
-
-                                    <div class="input-file" id="dropArea">
-                                        <div class="file-message">
-                                            <i class="fa-solid fa-file"></i>
+                                        <label>H.R</label>
+                                        <div hidden>
+                                            <input type="text" class="form-control" id="dni_usu_0" name="dni_usu_0" value="<?php echo $_SESSION['dni']; ?>">
+                                            <input type="text" class="form-control" id="id_cli_0" name="id_cli_0" value="<?php echo $_SESSION['id_usu']; ?>">
+                                            <input type="text" class="form-control" id="tipo_doc_0" name="tipo_doc_0" value="1">
                                         </div>
-                                        <span>Arrastre los archivos aquí para subirlos.</span>
-                                        <div class="file-archives"></div>
+
+                                        <div class="input-file" id="dropArea">
+                                            <div class="file-message">
+                                                <i class="fa-solid fa-file"></i>
+                                                <span>Arrastre los archivos aquí para subirlos.</span>
+                                            </div>
+                                            <div class="file-archives"></div>
+                                        </div>
+
+                                        <span>O</span>
+
+                                        <div>
+                                            <label id="buttonFile" class="btn btn-mak mak-bg buton-file">Seleccionar archivos</label>
+                                            <input class="upload" type="file" id="hr_s" name="hr_s[]" multiple hidden>
+                                        </div>
+
                                     </div>
-
-                                    <span>O</span>
-
-                                    <div>
-                                        <label id="buttonFile" class="btn btn-mak mak-bg buton-file">Seleccionar archivos</label>
-                                        <input class="upload" type="file" id="hr_s" name="hr_s[]" multiple hidden>
-                                    </div>
-
-                                </div>
 
                                     <button type="submit" class="btn btn-info btn-lg col-md-12" id="btn_save_hr" name="btn_save_hr" disabled>Registrar</button>
                                 </form>
@@ -287,28 +287,28 @@
                             <div class="container">
 
                                 <form method="POST" action="../Controller/Upload_Legal_Docs.php" enctype="multipart/form-data">
-                                    
-                                <div class="content-file flex flex-column">
-                                    <label>P.U</label>
-                                    <div hidden>
-                                        <input type="text" class="form-control" id="dni_usu_1" name="dni_usu_1" value="<?php echo $_SESSION['dni']; ?>">
-                                        <input type="text" class="form-control" id="id_cli_1" name="id_cli_1" value="<?php echo $_SESSION['id_usu']; ?>">
-                                        <input type="text" class="form-control" id="tipo_doc_1" name="tipo_doc_1" value="2">
-                                    </div>
-                                    <div class="input-file" id="dropArea_2">
-                                        <div class="file-message">
-                                            <i class="fa-solid fa-file"></i>
-                                        </div>
-                                        <span>Arrastre los archivos aquí para subirlos.</span>
-                                        <div class="file-archives"></div>
-                                    </div>
-                                    <span>O</span>
 
-                                    <div>
-                                        <label id="buttonFile" class="btn btn-mak mak-bg buton-file">Seleccionar archivos</label>
-                                        <input class="upload" type="file" id="pu_s" name="pu_s[]" multiple hidden>
+                                    <div class="content-file flex flex-column">
+                                        <label>P.U</label>
+                                        <div hidden>
+                                            <input type="text" class="form-control" id="dni_usu_1" name="dni_usu_1" value="<?php echo $_SESSION['dni']; ?>">
+                                            <input type="text" class="form-control" id="id_cli_1" name="id_cli_1" value="<?php echo $_SESSION['id_usu']; ?>">
+                                            <input type="text" class="form-control" id="tipo_doc_1" name="tipo_doc_1" value="2">
+                                        </div>
+                                        <div class="input-file" id="dropArea_2">
+                                            <div class="file-message">
+                                                <i class="fa-solid fa-file"></i>
+                                                <span>Arrastre los archivos aquí para subirlos.</span>
+                                            </div>
+                                            <div class="file-archives"></div>
+                                        </div>
+                                        <span>O</span>
+
+                                        <div>
+                                            <label id="buttonFile" class="btn btn-mak mak-bg buton-file">Seleccionar archivos</label>
+                                            <input class="upload" type="file" id="pu_s" name="pu_s[]" multiple hidden>
+                                        </div>
                                     </div>
-                                </div>
                                     <button type="submit" class="btn btn-info btn-lg col-md-12" id="btn_save_pu" name="btn_save_pu" disabled>Registrar</button>
                                 </form>
                                 <div id="preview"></div>
@@ -375,26 +375,26 @@
                             <div class="container">
                                 <form method="POST" action="../Controller/Upload_Legal_Docs.php" enctype="multipart/form-data">
 
-                                <div class="content-file flex flex-column">
-                                    <label>Copia Literal</label>
-                                    <div hidden>
-                                        <input type="text" class="form-control" id="dni_usu_2" name="dni_usu_2" value="<?php echo $_SESSION['dni']; ?>">
-                                        <input type="text" class="form-control" id="id_cli_2" name="id_cli_2" value="<?php echo $_SESSION['id_usu']; ?>">
-                                        <input type="text" class="form-control" id="tipo_doc_2" name="tipo_doc_2" value="3">
-                                    </div>
-                                    <div class="input-file" id="dropArea_3">
-                                        <div class="file-message">
-                                            <i class="fa-solid fa-file"></i>
+                                    <div class="content-file flex flex-column">
+                                        <label>Copia Literal</label>
+                                        <div hidden>
+                                            <input type="text" class="form-control" id="dni_usu_2" name="dni_usu_2" value="<?php echo $_SESSION['dni']; ?>">
+                                            <input type="text" class="form-control" id="id_cli_2" name="id_cli_2" value="<?php echo $_SESSION['id_usu']; ?>">
+                                            <input type="text" class="form-control" id="tipo_doc_2" name="tipo_doc_2" value="3">
                                         </div>
-                                        <span>Arrastre los archivos aquí para subirlos.</span>
-                                        <div class="file-archives"></div>
+                                        <div class="input-file" id="dropArea_3">
+                                            <div class="file-message">
+                                                <i class="fa-solid fa-file"></i>
+                                                <span>Arrastre los archivos aquí para subirlos.</span>
+                                            </div>
+                                            <div class="file-archives"></div>
+                                        </div>
+                                        <span>O</span>
+                                        <div>
+                                            <label id="buttonFile" class="btn btn-mak mak-bg buton-file">Seleccionar archivos</label>
+                                            <input class="upload" type="file" id="cl_s" name="cl_s[]" multiple hidden>
+                                        </div>
                                     </div>
-                                    <span>O</span>
-                                    <div>
-                                        <label id="buttonFile" class="btn btn-mak mak-bg buton-file">Seleccionar archivos</label>
-                                        <input class="upload" type="file" id="cl_s" name="cl_s[]" multiple hidden>
-                                    </div>
-                                </div>
                                     <button type="submit" class="btn btn-info btn-lg col-md-12" id="btn_save_cl" name="btn_save_cl" disabled>Registrar</button>
                                 </form>
                                 <div id="preview"></div>
@@ -470,8 +470,8 @@
                                         <div class="input-file" id="dropArea_4">
                                             <div class="file-message">
                                                 <i class="fa-solid fa-file"></i>
+                                                <span>Arrastre los archivos aquí para subirlos.</span>
                                             </div>
-                                            <span>Arrastre los archivos aquí para subirlos.</span>
                                             <div class="file-archives">
                                             </div>
                                         </div>
@@ -768,7 +768,7 @@
 
     <script>
         function send_file_upld(drop_id, file_input_id, btn_id) {
-        
+
             const dropArea = document.getElementById(drop_id);
             const fileInput = document.getElementById(file_input_id);
 
@@ -813,11 +813,11 @@
         }
 
         document.addEventListener("DOMContentLoaded", () => {
-            send_file_upld("dropArea","hr_s","btn_save_hr");
-            send_file_upld("dropArea_2","pu_s","btn_save_pu");
-            send_file_upld("dropArea_3","cl_s","btn_save_cl");
-            send_file_upld("dropArea_4","dni_s","btn_save_dni");
-        });                              
+            send_file_upld("dropArea", "hr_s", "btn_save_hr");
+            send_file_upld("dropArea_2", "pu_s", "btn_save_pu");
+            send_file_upld("dropArea_3", "cl_s", "btn_save_cl");
+            send_file_upld("dropArea_4", "dni_s", "btn_save_dni");
+        });
     </script>
 
     <style type="text/css">
@@ -1194,66 +1194,63 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
 
     <script>
-
-      //inputs
-      var hr_inpt = document.getElementById('hr_s');
-      var pu_inpt = document.getElementById('pu_s');
-      var cl_inpt = document.getElementById('cl_s');
-      var dni_inpt = document.getElementById('dni_s');
-
-
-      var btn_hr = document.getElementById('btn_save_hr');
-      var btn_pu = document.getElementById('btn_save_pu');
-      var btn_cl = document.getElementById('btn_save_cl');
-      var btn_dni = document.getElementById('btn_save_dni');
-
-      hr_inpt.addEventListener('change', function() {
-
-        if (hr_inpt.files.length > 0) {
-
-          btn_hr.disabled = false;
-        } else {
-
-          btn_hr.disabled = true;
-        }
-      });
-
-      pu_inpt.addEventListener('change', function() {
-
-        if (pu_inpt.files.length > 0) {
-
-          btn_pu.disabled = false;
-        } else {
-
-          btn_pu.disabled = true;
-        }
-      });
+        //inputs
+        var hr_inpt = document.getElementById('hr_s');
+        var pu_inpt = document.getElementById('pu_s');
+        var cl_inpt = document.getElementById('cl_s');
+        var dni_inpt = document.getElementById('dni_s');
 
 
-      cl_inpt.addEventListener('change', function() {
+        var btn_hr = document.getElementById('btn_save_hr');
+        var btn_pu = document.getElementById('btn_save_pu');
+        var btn_cl = document.getElementById('btn_save_cl');
+        var btn_dni = document.getElementById('btn_save_dni');
 
-        if (cl_inpt.files.length > 0) {
+        hr_inpt.addEventListener('change', function() {
 
-          btn_cl.disabled = false;
-        } else {
+            if (hr_inpt.files.length > 0) {
 
-          btn_cl.disabled = true;
-        }
-      });
+                btn_hr.disabled = false;
+            } else {
 
-      dni_inpt.addEventListener('change', function() {
+                btn_hr.disabled = true;
+            }
+        });
 
-        if (dni_inpt.files.length > 0) {
+        pu_inpt.addEventListener('change', function() {
 
-          btn_dni.disabled = false;
-        } else {
+            if (pu_inpt.files.length > 0) {
 
-          btn_dni.disabled = true;
-        }
-      });
+                btn_pu.disabled = false;
+            } else {
+
+                btn_pu.disabled = true;
+            }
+        });
 
 
-  </script>
+        cl_inpt.addEventListener('change', function() {
+
+            if (cl_inpt.files.length > 0) {
+
+                btn_cl.disabled = false;
+            } else {
+
+                btn_cl.disabled = true;
+            }
+        });
+
+        dni_inpt.addEventListener('change', function() {
+
+            if (dni_inpt.files.length > 0) {
+
+                btn_dni.disabled = false;
+            } else {
+
+                btn_dni.disabled = true;
+            }
+        });
+    </script>
 
 </body>
 

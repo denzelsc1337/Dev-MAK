@@ -1007,7 +1007,6 @@ form .form-content {
 .content-file {
   display: flex;
   align-items: center;
-  text-align: center;
 }
 
 .content-file span {
@@ -1023,12 +1022,13 @@ form .form-content {
 }
 
 .content-file .input-file {
+  /* position: relative;
   display: flex;
-  flex-direction: column;
+  flex-direction: column; */
   border: 1px dashed;
   border-radius: 10px;
   width: 100%;
-  padding: 8rem 10rem;
+  /* padding: 8rem 10rem; */
   background-color: #f4f4f5;
 }
 
@@ -1080,7 +1080,6 @@ form .form-content {
   position: absolute;
   top: 0;
   right: 100%;
-  /* transform: translateY(-50%); */
   padding: 10px;
   margin-right: 5px;
   background-color: #555;
@@ -1088,19 +1087,7 @@ form .form-content {
   border-radius: 5px;
   font-size: 14px;
   z-index: 2;
-  /* white-space: nowrap; */
 }
-
-/* .tooltip-left .tooltiptext::before {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 100%;
-  transform: translateX(-50%) translateY(-50%);
-  border-width: 5px;
-  border-style: solid;
-  border-color: transparent transparent transparent #000;
-} */
 
 .tooltip-left:hover .tooltiptext {
   display: inline-block;
@@ -1115,7 +1102,6 @@ form .form-content {
   position: absolute;
   top: 0;
   left: 100%;
-  /* transform: translateY(-50%); */
   padding: 10px;
   margin-left: 5px;
   background-color: #555;
@@ -1141,3 +1127,62 @@ form .form-content {
 }
 
 /* ATTR TITLE PERSONALIZADO */
+
+.file-message {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 8rem 10rem;
+}
+
+.file-archives {
+  width: 100%;
+  gap: 15px;
+  padding: 1.3rem 1rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+}
+
+.file-archives .archive-item {
+  position: relative;
+  border: 1px solid;
+  width: 120px;
+  height: 100px;
+  padding: 5px;
+  margin: auto;
+  user-select: none;
+}
+
+.file-archives .archive-item .drop-item {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 25px;
+  height: 25px;
+  background: var(--white-mak);
+  border-radius: 50%;
+  border: 1px solid;
+  top: -10px;
+  right: -10px;
+  margin: 0;
+  font-size: 11px;
+  cursor: pointer;
+}
+.file-archives .archive-item .drop-item i {
+  font-size: 11px;
+  margin: 0;
+}
+
+.file-archives .archive-item img {
+  width: 100%;
+  height: 70px;
+  object-fit: cover;
+}
+
+.file-archives .archive-item .archive-name {
+  width: 100px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
