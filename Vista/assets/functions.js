@@ -220,16 +220,12 @@ $(document).ready(function () {
   // INPUT WITH LIST
 
   // DRAG AND DROP FILES
-  var dragArea = document.querySelectorAll(".content-file");
-  // var dragText = dragArea.querySelector("span");
-  // var buttonFile = dragArea.querySelector("#buttonFile");
-  // var inputFile = dragArea.querySelector("#upload");
-  // let files;
+  var dragArea = document.querySelectorAll(".input-file");
 
   dragArea.forEach((element) => {
     var dragText = element.querySelector("span");
-    var buttonFile = element.querySelectorAll("#buttonFile");
-    var inputFile = element.querySelector(".upload");
+    var buttonFile = document.querySelectorAll("#buttonFile");
+    var inputFile = document.querySelectorAll(".upload");
 
     buttonFile.forEach((buttonFile) => {
       buttonFile.addEventListener("click", (e) => {
@@ -237,9 +233,11 @@ $(document).ready(function () {
       });
     });
 
-    inputFile.addEventListener("change", (e) => {
-      files = inputFile.files;
-      showFiles(files);
+    inputFile.forEach((inputFile) => {
+      inputFile.addEventListener("change", (e) => {
+        files = inputFile.files;
+        showFiles(files);
+      });
     });
 
     element.addEventListener("dragover", (e) => {
@@ -285,24 +283,71 @@ $(document).ready(function () {
       if (validExtensions.includes(docType)) {
         // archivo valido
         const fileReader = new FileReader();
+
         const id = `file-${Math.random().toString(32).substring(7)}`;
 
         fileReader.addEventListener("load", (e) => {
           const fileUrl = fileReader.result;
-          const image = `
-            <div id="${id}" class="">
-              <img src="${fileUrl}" alt="${file.name}" width="50">
-              <div>
-                <span>${file.name}</span>
-              </div>
-            </div>
-            `;
+          const fileExtension = getFileExtension(file.name);
+
+          let FaceArchive = "";
+          FaceArchive += `
+             <div id="${id}" class="archive-item" title="${file.name}">
+               <span class="drop-item"><i class="fa-solid fa-xmark"></i></span>
+               `;
+
+          switch (fileExtension) {
+            case "jpg":
+            case "jpeg":
+            case "png":
+            case "gif":
+              FaceArchive += `<img class="file-icon" src="${fileUrl}" alt="${file.name}">`;
+              break;
+            case "pdf":
+              FaceArchive += `<div><i class="file-icon fa-solid fa-file-pdf"></i></div>`;
+              break;
+            case "doc":
+            case "docx":
+              FaceArchive += `<div><i class="file-icon fa-regular fa-file-word"></i></div>`;
+              break;
+            case "xls":
+            case "xlsx":
+              FaceArchive += `<div><i class="file-icon fa-solid fa-file-excel"></i></div>`;
+              break;
+            // Agregar más casos para otros tipos de archivos
+            default:
+              FaceArchive += `<div><i class="file-icon fa-regular fa-file"></i></div>`;
+          }
+          FaceArchive += `
+               <div class="archive-name">
+                 <span>${file.name}</span>
+               </div>
+             </div>
+             `;
 
           /////////////
           const html = element.querySelectorAll(".file-archives");
+
           html.forEach((element) => {
-            element.innerHTML += image;
+            element.innerHTML += FaceArchive;
+
+            // ACÁ LLAMAR FUNCTION
+            contTagFiles();
+
+            const dropItem = document.querySelectorAll(".drop-item");
+            dropItem.forEach((dropItem) => {
+              dropItem.addEventListener("click", (e) => {
+                let Object = document.querySelectorAll(".archive-item");
+                Object.forEach((element) => {
+                  element.addEventListener("click", (e) => {
+                    element.remove();
+                    contTagFiles();
+                  });
+                });
+              });
+            });
           });
+
           /////////////
         });
         fileReader.readAsDataURL(file);
@@ -311,6 +356,24 @@ $(document).ready(function () {
         // archivo no valido
         alert("Archivo no válido: " + file.name);
       }
+    }
+
+    function contTagFiles() {
+      const fileMessage = element.querySelector(".file-message");
+      const fileArchives = element.querySelector(".file-archives");
+      var cantFileMessage = element.querySelectorAll(".archive-item").length;
+
+      if (cantFileMessage > 0) {
+        fileMessage.style.display = "none";
+        fileArchives.style.display = "grid";
+      } else {
+        fileMessage.style.display = "flex";
+        fileArchives.style.display = "none";
+      }
+    }
+
+    function getFileExtension(filename) {
+      return filename.slice(((filename.lastIndexOf(".") - 1) >>> 0) + 2);
     }
 
     // async function uploadFile(file, id) {
