@@ -276,6 +276,10 @@ $(document).ready(function () {
         "image/jpg",
         "image/png",
         "image/gif",
+        "application/pdf",
+        "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+        "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+        "application/vnd.openxmlformats-officedocument.presentationml.presentation",
       ];
 
       if (validExtensions.includes(docType)) {

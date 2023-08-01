@@ -204,11 +204,11 @@
                                         <input type="text" class="form-control" id="tipo_doc_0" name="tipo_doc_0" value="1">
                                     </div>    
 
-                                    <div class="input-file">
+                                    <div class="input-file" id="dropArea">
                                         <div class="file-message">
                                             <i class="fa-solid fa-file"></i>
-                                            <span>Arrastre los archivos aquí para subirlos.</span>
                                         </div>
+                                        <span>Arrastre los archivos aquí para subirlos.</span>
                                         <div class="file-archives"></div>
                                     </div>
 
@@ -216,7 +216,7 @@
 
                                     <div>
                                         <label id="buttonFile" class="btn btn-mak mak-bg buton-file">Seleccionar archivos</label>
-                                        <input class="upload" type="file" id="hr_s" name="hr_s[]" multiple>
+                                        <input class="upload" type="file" id="hr_s" name="hr_s[]" multiple hidden>
                                     </div>
 
                                 </div>
@@ -295,11 +295,11 @@
                                         <input type="text" class="form-control" id="id_cli_1" name="id_cli_1" value="<?php echo $_SESSION['id_usu']; ?>">
                                         <input type="text" class="form-control" id="tipo_doc_1" name="tipo_doc_1" value="2">
                                     </div>
-                                    <div class="input-file">
+                                    <div class="input-file" id="dropArea_2">
                                         <div class="file-message">
                                             <i class="fa-solid fa-file"></i>
-                                            <span>Arrastre los archivos aquí para subirlos.</span>
                                         </div>
+                                        <span>Arrastre los archivos aquí para subirlos.</span>
                                         <div class="file-archives"></div>
                                     </div>
                                     <span>O</span>
@@ -382,11 +382,11 @@
                                         <input type="text" class="form-control" id="id_cli_2" name="id_cli_2" value="<?php echo $_SESSION['id_usu']; ?>">
                                         <input type="text" class="form-control" id="tipo_doc_2" name="tipo_doc_2" value="3">
                                     </div>
-                                    <div class="input-file">
+                                    <div class="input-file" id="dropArea_3">
                                         <div class="file-message">
                                             <i class="fa-solid fa-file"></i>
-                                            <span>Arrastre los archivos aquí para subirlos.</span>
                                         </div>
+                                        <span>Arrastre los archivos aquí para subirlos.</span>
                                         <div class="file-archives"></div>
                                     </div>
                                     <span>O</span>
@@ -467,11 +467,11 @@
                                             <input type="text" class="form-control" id="id_cli_3" name="id_cli_3" value="<?php echo $_SESSION['id_usu']; ?>">
                                             <input type="text" class="form-control" id="tipo_doc_3" name="tipo_doc_3" value="4">
                                         </div>
-                                        <div class="input-file">
+                                        <div class="input-file" id="dropArea_4">
                                             <div class="file-message">
                                                 <i class="fa-solid fa-file"></i>
-                                                <span>Arrastre los archivos aquí para subirlos.</span>
                                             </div>
+                                            <span>Arrastre los archivos aquí para subirlos.</span>
                                             <div class="file-archives">
                                             </div>
                                         </div>
@@ -764,6 +764,60 @@
         }
         const tipo_prop = document.getElementById("tipo_prop");
         tipo_prop.addEventListener("change", changeInputs);*/
+    </script>
+
+    <script>
+        function send_file_upld(drop_id, file_input_id, btn_id) {
+        
+            const dropArea = document.getElementById(drop_id);
+            const fileInput = document.getElementById(file_input_id);
+
+            // Prevenir el comportamiento predeterminado para los eventos de arrastrar para permitir soltar archivos
+            dropArea.addEventListener("dragover", (event) => {
+                event.preventDefault();
+            });
+
+            // Manejar el evento de soltar archivos
+            dropArea.addEventListener("drop", (event) => {
+                event.preventDefault();
+                const files = event.dataTransfer.files;
+                actualizarListaArchivos(files);
+                fileInput.files = files;
+                habilitarBotonRegistrar(files.length > 0);
+            });
+
+            // Manejar el evento de cambio en el input de archivos
+            fileInput.addEventListener("change", (event) => {
+                const files = event.target.files;
+                actualizarListaArchivos(files);
+                habilitarBotonRegistrar(files.length > 0);
+            });
+
+            // Actualizar la lista de archivos en el área de arrastre
+            function actualizarListaArchivos(files) {
+                const fileArchives = dropArea.querySelector(".file-archives");
+                fileArchives.innerHTML = "";
+
+                for (const file of files) {
+                    const fileDiv = document.createElement("div");
+                    fileDiv.textContent = file.name;
+                    fileArchives.appendChild(fileDiv);
+                }
+            }
+
+            // Habilitar o deshabilitar el botón de registrar según la cantidad de archivos seleccionados
+            function habilitarBotonRegistrar(habilitar) {
+                const submitButton = document.getElementById(btn_id);
+                submitButton.disabled = !habilitar;
+            }
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+            send_file_upld("dropArea","hr_s","btn_save_hr");
+            send_file_upld("dropArea_2","pu_s","btn_save_pu");
+            send_file_upld("dropArea_3","cl_s","btn_save_cl");
+            send_file_upld("dropArea_4","dni_s","btn_save_dni");
+        });                              
     </script>
 
     <style type="text/css">
