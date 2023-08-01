@@ -37,6 +37,7 @@
     <link rel="stylesheet" href="../Vista/dist/css/adminlte.min.css">
     <!-- Modal -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer">
+
     <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
 
 
@@ -103,7 +104,9 @@
                                                 </div>
                                             </div>
                                             <div class="input-group-append">
-                                                <i class="cursor fa-solid fa-eye" data-bs-toggle="modal" data-bs-target="#modal_hr"></i>
+                                                <i class="cursor fa-solid fa-eye" data-bs-toggle="modal" data-bs-target="#lst_hr_0"
+                                                data-target="#lst_hr_0" data-valor="H_R" data-titulo="Hoja de Resumen" data-id_doc_="1"></i>
+                                                <button type="button" class="btn btn-rounded btn-success btn_lst_hr btn_lst_hr_0" data-toggle="modal" data-target="#lst_hr_0" data-valor="H_R" data-titulo="Hoja de Resumen" data-id_doc_="1">ver</button>
                                             </div>
                                         </div>
                                     </div>
@@ -232,33 +235,28 @@
         </div>
     </div>
     <!-- Modal -->
-    <div class="modal fade" id="modal_hr" tabindex="-1" role="dialog" aria-labelledby="modal_hr" aria-hidden="true">
+    <div class="modal fade" id="lst_hr_0" tabindex="-1" role="dialog" aria-labelledby="lst_hr_0" aria-hidden="true">
         <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-body">
                     <h1 class="title-m">HR</h1>
                     <div class="row margin">
                         <div class="col-sm-12">
+                            <div class="form-group">
+                                <label>id usu</label>
+                                <input type="text" name="usu_dni" id="usu_dni" value="<?php echo $_SESSION['id_usu'] ?>">
+                                <br>
+                                <label>usuario</label>
+                                <input type="text" name="usu_dni" id="usu_dni" value="<?php echo $_SESSION['dni'] ?>">
+                                <br>
+                                <label>id_tipo_doc_lgl</label>
+                                <input type="text" name="_id_tipo_doc_lgl" id="_id_tipo_doc_lgl">
+                                <br>
+                            </div>
+
                             <div class="container">
-                                <div class="form-group row">
-                                    <div class="col-sm-2">
-                                        <div class="lgl-modal-num">
-                                            1
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-8">
-                                        <input type="text" class="form-mak">
-                                    </div>
-                                    <div class="tw-modal-ots">
-                                        <div class="row">
-                                            <div class="brd-rght-blue">
-                                                <i class="cursor fa-solid fa-trash"></i>
-                                            </div>
-                                            <div>
-                                                <i class="cursor fa-solid fa-download"></i>
-                                            </div>
-                                        </div>
-                                    </div>
+                                <div class="form-group row" id="descarga_archivo_m">
+
                                 </div>
                             </div>
                         </div>
@@ -569,629 +567,11 @@
     <!-- AdminLTE for demo purposes -->
     <script src="../Vista/dist/js/demo.js"></script>
     <!-- Page specific script -->
-
-    <!--GOOGLE MAPS TESTING-->
-    <script type="text/javascript">
-        function initmap() {
-            const autocomplete = new google.maps.places.Autocomplete(document.getElementById('direccion_'));
-            var map = new google.maps.Map(document.getElementById('mapa'), {
-                center: {
-                    lat: -34.397,
-                    lng: 150.644
-                },
-                zoom: 18
-            });
-            var marker = new google.maps.Marker({
-                position: {
-                    lat: -34.397,
-                    lng: 150.644
-                },
-                map: map
-            });
-
-            if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition(function(position) {
-                    var pos = {
-                        lat: position.coords.latitude,
-                        lng: position.coords.longitude
-                    };
-                    map.setCenter(pos);
-                    var marker = new google.maps.Marker({
-                        position: pos,
-                        map: map,
-                        title: 'Ubicación actual'
-                    });
-                }, function() {
-                    // Manejar errores de geolocalización aquí
-                });
-            }
-        }
-
-        function onGoogleMapsLoaded() {
-            const autocomplete = new google.maps.places.Autocomplete(document.getElementById('direccion_'));
-        }
-    </script>
-
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCNO5GraIm8rWrrLbWt-Gv9GxsenRng-8o&callback=initmap&libraries=places" onload="onGoogleMapsLoaded()" async defer>
-    </script>
-
-
-    <script type="text/javascript">
-        /*
-        function buscarDireccion(event, mapa1Id, mapa2Id) {
-            if (event.keyCode === 13) { // 13 es el código de la tecla "Enter"
-                event.preventDefault();
-                const direccion = document.getElementById('direccion_').value;
-                const geocoder = new google.maps.Geocoder();
-                geocoder.geocode({
-                    address: direccion
-                }, function(results, status) {
-                    if (status === 'OK') {
-                        const latitud = results[0].geometry.location.lat();
-                        const longitud = results[0].geometry.location.lng();
-                        mostrarMapa(latitud, longitud, mapa1Id);
-                        mostrarMapa(latitud, longitud, mapa2Id);
-                    }
-                });
-            }
-        }*/
-
-        async function buscarDireccion(event, mapa1Id, mapa2Id) {
-            const isEnterKey = event.keyCode === 13;
-            const isMouseClick = event.type === 'click';
-
-            if (isEnterKey || isMouseClick) {
-                event.preventDefault();
-                const direccion = document.getElementById('direccion_').value;
-                const geocoder = new google.maps.Geocoder();
-
-                try {
-                    const results = await geocodeAddress(geocoder, direccion);
-                    const {
-                        lat,
-                        lng
-                    } = getLatLngFromGeocodeResult(results);
-
-                    await mostrarMapaAsync(lat, lng, mapa1Id);
-                    await mostrarMapaAsync(lat, lng, mapa2Id);
-                } catch (error) {
-                    console.error('Ocurrió un error al buscar la dirección:', error);
-                }
-            }
-        }
-
-        function geocodeAddress(geocoder, direccion) {
-            return new Promise((resolve, reject) => {
-                geocoder.geocode({
-                    address: direccion
-                }, (results, status) => {
-                    if (status === 'OK') {
-                        resolve(results);
-                    } else {
-                        reject(status);
-                    }
-                });
-            });
-        }
-
-        function getLatLngFromGeocodeResult(results) {
-            const location = results[0].geometry.location;
-            return {
-                lat: location.lat(),
-                lng: location.lng()
-            };
-        }
-
-        function mostrarMapaAsync(latitud, longitud, divId) {
-            return new Promise((resolve, reject) => {
-                const mapa = new google.maps.Map(document.getElementById(divId), {
-                    zoom: 17,
-                    center: {
-                        lat: latitud,
-                        lng: longitud
-                    },
-                });
-
-                const marcador = new google.maps.Marker({
-                    position: {
-                        lat: latitud,
-                        lng: longitud
-                    },
-                    map: mapa,
-                });
-
-                // Espera un breve período para asegurar que el mapa se haya cargado correctamente
-                setTimeout(() => resolve(), 100);
-            });
-        }
-
-
-        function mostrarMapa(latitud, longitud, divId) {
-            const mapa = new google.maps.Map(document.getElementById(divId), {
-                zoom: 17,
-                center: {
-                    lat: latitud,
-                    lng: longitud
-                },
-            });
-            const marcador = new google.maps.Marker({
-                position: {
-                    lat: latitud,
-                    lng: longitud
-                },
-                map: mapa,
-            });
-        }
-
-        function initAutocomplete() {
-            const input = document.getElementById('direccion_');
-            const autocomplete = new google.maps.places.Autocomplete(input);
-            autocomplete.addListener('place_changed', function() {
-                const place = autocomplete.getPlace();
-                if (!place.geometry) {
-                    //alert("No se encontró la dirección");
-                    return;
-                }
-                const latitud = place.geometry.location.lat();
-                const longitud = place.geometry.location.lng();
-                mostrarMapa(latitud, longitud, 'mapa');
-            });
-        }
-    </script>
-    <!--GOOGLE MAPS TESTING-->
-
-    <script type="text/javascript">
-        /*function changeInputs() {
-          const tipo_prop = document.getElementById("tipo_prop");
-
-          const tipo_prop_value_selected = tipo_prop.value;
-
-
-          if (tipo_prop_value_selected === "1") {
-            const area_t = document.getElementById("a_t");
-            area_t.style.display = "none";
-            console.log("testing");
-
-          } else if (tipo_prop_value_selected === "2") {
-
-            console.log("testing2");
-
-          } else if (tipo_prop_value_selected === "3") {
-
-            console.log("testing3");
-
-          }
-        }
-        const tipo_prop = document.getElementById("tipo_prop");
-        tipo_prop.addEventListener("change", changeInputs);*/
-    </script>
-
-    <script>
-        function send_file_upld(drop_id, file_input_id, btn_id) {
-
-            const dropArea = document.getElementById(drop_id);
-            const fileInput = document.getElementById(file_input_id);
-
-            // Prevenir el comportamiento predeterminado para los eventos de arrastrar para permitir soltar archivos
-            dropArea.addEventListener("dragover", (event) => {
-                event.preventDefault();
-            });
-
-            // Manejar el evento de soltar archivos
-            dropArea.addEventListener("drop", (event) => {
-                event.preventDefault();
-                const files = event.dataTransfer.files;
-                actualizarListaArchivos(files);
-                fileInput.files = files;
-                habilitarBotonRegistrar(files.length > 0);
-            });
-
-            // Manejar el evento de cambio en el input de archivos
-            fileInput.addEventListener("change", (event) => {
-                const files = event.target.files;
-                actualizarListaArchivos(files);
-                habilitarBotonRegistrar(files.length > 0);
-            });
-
-            // Actualizar la lista de archivos en el área de arrastre
-            function actualizarListaArchivos(files) {
-                const fileArchives = dropArea.querySelector(".file-archives");
-                fileArchives.innerHTML = "";
-
-                for (const file of files) {
-                    const fileDiv = document.createElement("div");
-                    fileDiv.textContent = file.name;
-                    fileArchives.appendChild(fileDiv);
-                }
-            }
-
-            // Habilitar o deshabilitar el botón de registrar según la cantidad de archivos seleccionados
-            function habilitarBotonRegistrar(habilitar) {
-                const submitButton = document.getElementById(btn_id);
-                submitButton.disabled = !habilitar;
-            }
-        }
-
-        document.addEventListener("DOMContentLoaded", () => {
-            send_file_upld("dropArea", "hr_s", "btn_save_hr");
-            send_file_upld("dropArea_2", "pu_s", "btn_save_pu");
-            send_file_upld("dropArea_3", "cl_s", "btn_save_cl");
-            send_file_upld("dropArea_4", "dni_s", "btn_save_dni");
-        });
-    </script>
-
-    <style type="text/css">
-        #a__t,
-        #a__c,
-        #a__o,
-        #antig_ {
-            opacity: 1;
-            height: 100%;
-            margin-bottom: 3px;
-            transition: opacity 0.3s ease-out, height 0.3s ease-out, margin-bottom 0.3s ease-out;
-        }
-
-
-        #a__t.hidden,
-        #a__c.hidden,
-        #a__o.hidden,
-        #antig_.hidden {
-            opacity: 0;
-            height: 0;
-            margin-bottom: 0;
-        }
-    </style>
-
-    <script type="text/javascript">
-        const tipo_prop = document.getElementById("tipo_prop");
-        const sub_tipo_prop = document.getElementById("sub_tipo_prop");
-
-        const area_t = document.getElementById("a__t");
-        const area_c = document.getElementById("a__c");
-        const area_o = document.getElementById("a__o");
-        const antig = document.getElementById("antig_");
-
-
-        const a_t_ = document.getElementById("a_t");
-        const a_c_ = document.getElementById("a_c");
-        const a_o_ = document.getElementById("a_o");
-        const a_ant_ = document.getElementById("antig");
-
-        //const r1 = document.getElementById("resumen_1");
-        //const r2 = document.getElementById("resumen_2");
-
-
-        tipo_prop.addEventListener("change", function() {
-            switch (tipo_prop.value) {
-                case "1":
-                    area_o.classList.add("hidden");
-                    //a_o_.removeAttribute("required");
-
-                    area_t.classList.remove("hidden");
-                    area_c.classList.remove("hidden");
-                    antig.classList.remove("hidden");
-
-
-                    //r1.style.display = "block";
-
-                    break;
-
-                case "2":
-                    area_t.classList.add("hidden");
-                    //a_t_.removeAttribute("required");
-
-                    area_c.classList.remove("hidden");
-                    area_o.classList.remove("hidden");
-                    antig.classList.remove("hidden");
-
-                    //r2.style.display = "block";
-                    break;
-
-                case "3":
-                    area_c.classList.add("hidden");
-                    //a_c_.removeAttribute("required");
-
-                    area_o.classList.add("hidden");
-                    antig.classList.add("hidden");
-                    area_t.classList.remove("hidden");
-                    break;
-
-                case "4":
-                    area_c.classList.remove("hidden");
-                    area_o.classList.remove("hidden");
-                    antig.classList.remove("hidden");
-
-                    area_t.classList.add("hidden");
-                    break;
-
-                case "6":
-                    area_t.classList.remove("hidden");
-                    area_c.classList.remove("hidden");
-                    antig.classList.remove("hidden");
-
-                    area_o.classList.add("hidden");
-
-
-                    break;
-
-                default:
-                    break;
-            }
-
-        });
-
-
-        sub_tipo_prop.addEventListener("change", function() {
-            switch (sub_tipo_prop.value) {
-                case "13":
-                    area_c.classList.remove("hidden");
-                    area_o.classList.remove("hidden");
-                    antig.classList.remove("hidden");
-
-                    area_t.classList.add("hidden");
-                    break;
-                case "14":
-                    area_c.classList.remove("hidden");
-                    area_o.classList.remove("hidden");
-                    antig.classList.remove("hidden");
-
-                    area_t.classList.add("hidden");
-                    break;
-
-                default:
-                    break;
-            }
-
-        });
-
-        function agregar_tabla() {
-            // DISTRITO - DIRECCION
-            var _dir = document.getElementById("direccion_").value;
-            var _dir_dist = _dir.split(", ");
-            // TIPO
-            var _tip = document.getElementById("tipo_prop");
-            var select_tip = _tip.selectedOptions[0];
-            var texto_tip = select_tip.textContent
-            // PROMOCIÓN
-            var _pro = document.getElementById("tipo_prom");
-            var select_pro = _pro.selectedOptions[0];
-            var texto_pro = select_pro.textContent;
-            // AT
-            var _at = document.getElementById("a_t").value;
-            // AC
-            var _ac = document.getElementById("a_c").value;
-            // AO
-            var _ao = document.getElementById("a_o").value;
-
-            document.getElementById("at__").innerHTML = _at;
-            document.getElementById("ac__").innerHTML = _ac;
-            document.getElementById("ao__").innerHTML = _ao;
-            var bla;
-            if (_dir_dist[2] === undefined) {
-                bla = "";
-            } else {
-                bla = ", " + _dir_dist[2];
-            }
-            document.getElementById("dir__dist").innerHTML = _dir_dist[1] + bla;
-            document.getElementById("dir__").innerHTML = _dir_dist[0];
-            document.getElementById("tip__").innerHTML = texto_tip;
-            document.getElementById("pro__").innerHTML = texto_pro;
-
-            // console.log(_at, _ac, _ao);
-            console.log(_dir_dist);
-            console.log(_dir_dist[0]);
-            console.log(_dir_dist[1]);
-            console.log(_dir_dist[2]);
-        }
-    </script>
-
-    <script type="text/javascript">
-        // $(document).ready(function() {
-
-        //     $('.modal_archive').on('click', function() {
-        //         $('#modal_archive').modal('show');
-
-        //         var whatIDis = $(this).data('modal');
-
-        //         console.log(whatIDis);
-        //     });
-
-
-        // });
-
-        $(document).ready(function() {
-            $('#tipo_zoni_l').on('keyup', function() {
-                var letra = $(this).val();
-                var opcionesZoni = $('.opciones_zoni_t');
-
-                if (letra.length > 0) {
-                    $.ajax({
-                        url: '../Controller/getZonas.php',
-                        method: 'POST',
-                        data: {
-                            tipo_zoni_l: letra
-                        },
-                        success: function(response) {
-                            console.log(response);
-                            opcionesZoni.html(response);
-                        }
-                    });
-                } else {
-                    opcionesZoni.empty();
-                }
-            });
-        });
-
-        $(document).ready(function() {
-            $('#tipo_zoni_ofi').on('keyup', function() {
-                var letra = $(this).val();
-                var opcionesZoni = $('.opciones_zoni_ofi');
-
-                if (letra.length > 0) {
-                    $.ajax({
-                        url: '../Controller/getZonas.php',
-                        method: 'POST',
-                        data: {
-                            tipo_zoni_l: letra
-                        },
-                        success: function(response) {
-                            console.log(response);
-                            opcionesZoni.html(response);
-                        }
-                    });
-                } else {
-                    opcionesZoni.empty();
-                }
-            });
-        });
-    </script>
-
-    <script>
-        $(function() {
-            //Initialize Select2 Elements
-            $('.select2').select2()
-
-            //Initialize Select2 Elements
-            $('.select2bs4').select2({
-                theme: 'bootstrap4'
-            })
-
-            //Datemask dd/mm/yyyy
-            $('#datemask').inputmask('dd/mm/yyyy', {
-                'placeholder': 'dd/mm/yyyy'
-            })
-            //Datemask2 mm/dd/yyyy
-            $('#datemask2').inputmask('mm/dd/yyyy', {
-                'placeholder': 'mm/dd/yyyy'
-            })
-            //Money Euro
-            $('[data-mask]').inputmask()
-
-            //Date picker
-            $('#reservationdate').datetimepicker({
-                format: 'L'
-            });
-
-            //Date and time picker
-            $('#reservationdatetime').datetimepicker({
-                icons: {
-                    time: 'far fa-clock'
-                }
-            });
-
-            //Date range picker
-            $('#reservation').daterangepicker()
-            //Date range picker with time picker
-            $('#reservationtime').daterangepicker({
-                timePicker: true,
-                timePickerIncrement: 30,
-                locale: {
-                    format: 'MM/DD/YYYY hh:mm A'
-                }
-            })
-            //Date range as a button
-            $('#daterange-btn').daterangepicker({
-                    ranges: {
-                        'Today': [moment(), moment()],
-                        'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
-                        'Last 7 Days': [moment().subtract(6, 'days'), moment()],
-                        'Last 30 Days': [moment().subtract(29, 'days'), moment()],
-                        'This Month': [moment().startOf('month'), moment().endOf('month')],
-                        'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
-                    },
-                    startDate: moment().subtract(29, 'days'),
-                    endDate: moment()
-                },
-                function(start, end) {
-                    $('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'))
-                }
-            )
-
-            //Timepicker
-            $('#timepicker').datetimepicker({
-                format: 'LT'
-            })
-
-            //Bootstrap Duallistbox
-            $('.duallistbox').bootstrapDualListbox()
-
-            //Colorpicker
-            $('.my-colorpicker1').colorpicker()
-            //color picker with addon
-            $('.my-colorpicker2').colorpicker()
-
-            $('.my-colorpicker2').on('colorpickerChange', function(event) {
-                $('.my-colorpicker2 .fa-square').css('color', event.color.toString());
-            })
-        })
-        // BS-Stepper Init
-        // document.addEventListener('DOMContentLoaded', function() {
-        //     window.stepper = new Stepper(document.querySelector('.bs-stepper'))
-        // })
-
-        // // DropzoneJS Demo Code Start
-        // Dropzone.autoDiscover = false
-
-        // // Get the template HTML and remove it from the doumenthe template HTML and remove it from the doument
-        // var previewNode = document.querySelector("#template");
-        // // previewNode.id = "";
-        // var previewTemplate = previewNode.parentNode.innerHTML
-        // previewNode.parentNode.removeChild(previewNode)
-
-        // var myDropzone = new Dropzone(document.body, { // Make the whole body a dropzone
-        //     url: "/target-url", // Set the url
-        //     thumbnailWidth: 80,
-        //     thumbnailHeight: 80,
-        //     parallelUploads: 20,
-        //     previewTemplate: previewTemplate,
-        //     autoQueue: false, // Make sure the files aren't queued until manually added
-        //     previewsContainer: "#previews", // Define the container to display the previews
-        //     clickable: ".fileinput-button" // Define the element that should be used as click trigger to select files.
-        // })
-
-        // myDropzone.on("addedfile", function(file) {
-        //     // Hookup the start button
-        //     file.previewElement.querySelector(".start").onclick = function() {
-        //         myDropzone.enqueueFile(file)
-        //     }
-        // })
-
-        // // Update the total progress bar
-        // myDropzone.on("totaluploadprogress", function(progress) {
-        //     document.querySelector("#total-progress .progress-bar").style.width = progress + "%"
-        // })
-
-        // myDropzone.on("sending", function(file) {
-        //     // Show the total progress bar when upload starts
-        //     document.querySelector("#total-progress").style.opacity = "1"
-        //     // And disable the start button
-        //     file.previewElement.querySelector(".start").setAttribute("disabled", "disabled")
-        // })
-
-        // // Hide the total progress bar when nothing's uploading anymore
-        // myDropzone.on("queuecomplete", function(progress) {
-        //     document.querySelector("#total-progress").style.opacity = "0"
-        // })
-
-        // // Setup the buttons for all transfers
-        // // The "add files" button doesn't need to be setup because the config
-        // // `clickable` has already been specified.
-        // document.querySelector("#actions .start").onclick = function() {
-        //     myDropzone.enqueueFiles(myDropzone.getFilesWithStatus(Dropzone.ADDED))
-        // }
-        // document.querySelector("#actions .cancel").onclick = function() {
-        //     myDropzone.removeAllFiles(true)
-        // }
-        // // DropzoneJS Demo Code End
-    </script>
-
-    <script src="../Vista/assets/selection_types.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
 
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+
 
     <script>
         //inputs
@@ -1249,6 +629,446 @@
 
                 btn_dni.disabled = true;
             }
+        });
+
+
+        $(document).ready(function() {
+
+        $('.btn_subir_1').on('click', function() {
+            console.log("test");
+            $('#upload_doc').modal('show');
+            $tr = $(this).closest('tr');
+            var data = $tr.children("td").map(function() {
+                return $(this).text();
+            }).get();
+            console.log(data);
+            $('#id_doc_type').val(data[1]);
+            $('#desc_doc').val(data[2].trim());
+        });
+
+
+        $('.btn_ver_files').on('click', function() {
+            console.log("test");
+            $('#lst_files').modal('show');
+
+            $tr = $(this).closest('tr');
+            var data = $tr.children("td").map(function() {
+                return $(this).text();
+            }).get();
+            console.log(data);
+
+            $('#id_usu_soli').val(data[4]);
+            $('#dni_usu_soli').val(data[5]);
+        });
+
+
+        $('.btn_ver_files_2').on('click', function() {
+            console.log("test");
+            $('#lst_files_2').modal('show');
+
+            $tr = $(this).closest('tr');
+            var data = $tr.children("td").map(function() {
+                return $(this).text();
+            }).get();
+            console.log(data);
+
+        });
+
+        function load_documents(){
+
+            var dni = '<?php echo $_SESSION['dni'] ?>';
+            var id_cli = '<?php echo $_SESSION['id_usu'] ?>';
+            var _id_tipo_doc = $('#_id_tipo_doc_lgl').val();
+
+            $.ajax({
+                type: 'POST',
+                url: '../Controller/obtener_files.php',
+                data: {
+                    id_client: id_cli,
+                    dni_client: dni,
+                    id_tipo_doc:_id_tipo_doc
+                },
+                success: function(response) {
+                    var data  = JSON.parse(response);
+
+                    var archivos = data.archivos;
+                    var estado_doc = data.status_doc;
+
+                    var cod_doc_, ruta_doc,nom_file;
+
+                    if (archivos && archivos.length > 0) {
+                        var enlaceHtml = '';
+
+                        archivos.forEach(function(archivo) {
+                            var ruta = archivo.ruta;
+                            var nombreArchivo = archivo.archivo;
+                            var estado = archivo.estado;
+                            var id_doc_ = archivo.id_doc;
+                            var status_r = '';
+
+                            var delete_btn = $('<button>').text('Eliminar').attr('class', 'btn btn-block btn-danger');
+
+                            enlaceHtml += `
+
+                                            <div class="col-sm-4">
+                                                <div class="lgl-modal-num">
+                                                    1
+                                                </div>
+                                            </div>
+
+                                            <div class="col-sm-8">
+                                                <a href="${ruta}${nombreArchivo}">${nombreArchivo}</a>
+                                            </div>
+
+                                            <div class="tw-modal-ots">
+                                                <div class="row">
+                                                    <div class="brd-rght-blue">
+                                                        <i class="cursor fa-solid fa-trash"></i>
+                                                        <button id="dlt_file" type="button" class="btn btn-danger dlt_file">Eliminar</button>
+                                                    </div>
+                                                    <div>
+
+                                                        <i class="cursor fa-solid fa-download"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            `;
+
+                        });
+
+                        document.getElementById('descarga_archivo_m').innerHTML = enlaceHtml;
+
+                    } else {
+
+                        document.getElementById('descarga_archivo_m').textContent = 'Archivo no encontrado';
+                    }
+
+                },
+                error: function(xhr, status, error) {
+                    console.log(error);
+                }
+            });
+        }
+
+        function eliminarArchivo($deleteBtn, cod_doc_, ruta_doc, ruta_archivo){
+
+            var dni = '<?php echo $_SESSION['dni'] ?>';
+            var id_cli = '<?php echo $_SESSION['id_usu'] ?>';
+            var _id_tipo_doc = $('#_id_tipo_doc_lgl').val();
+
+            $.ajax({
+                type: 'POST',
+                url: '../Controller/eliminarArchivos.php',
+                data: {
+                    id_client: id_cli,
+                    dni_client: dni,
+                    cod_doc_: cod_doc_,
+                    ruta_doc: ruta_doc,
+                    ruta_archivo: ruta_archivo,
+                },
+                success: function(response) {
+                    console.log("archivo eliminado con ID: " + cod_doc_);
+                    $deleteBtn.closest('.modal').modal('hide');
+                    //load_documents();
+                },
+                complete: function() {
+                    load_documents();
+                    setTimeout(function() {
+                        $('#lst_hr_0').modal('show');
+                    }, 500);
+
+                }
+            });
+        }
+
+        $(document).on('click', '.dlt_file', function() {
+            var $this = $(this);
+            console.log("probando botón");
+
+            var confirmar_ = window.confirm('¿Estás seguro de que deseas eliminar este archivo?');
+
+            if (confirmar_) {
+                var $parentLi = $(this).closest('li');
+
+                var cod_doc_ = $parentLi.find('#cod_doc_i').val();
+                var ruta_doc = $parentLi.find('#ruta_doc_i').val();
+                var ruta_archivo = $parentLi.find('#ruta_archivo_i').val();
+
+                eliminarArchivo($this,cod_doc_, ruta_doc, ruta_archivo);
+
+                console.log("archivo eliminado");
+            } else {
+                console.log("cancelado");
+            }
+        });
+
+
+        $('.btn_lst_hr').on('click', function() {
+            console.log("Botón seleccionado");
+
+            var valor1 = $(this).data('valor');
+            var titulo_ = $(this).data('titulo');
+            var _id_doc_lgl = $(this).data('id_doc_');
+
+            $('#_id_tipo_doc_lgl').val(_id_doc_lgl);
+            $('#_concept').val(valor1);
+            $('#titulo_docs').text(titulo_);
+
+            var concepto = $('#_concept').val();
+
+            var titulo_modal = $('#titulo_docs').val();
+
+
+
+            /*console.log(titulo_modal);
+            console.log(concepto);*/
+
+            load_documents();
+
+            $('#lst_hr_0').modal('show');
+
+
+        });
+
+
+        //codigo para el admin y ver los documentos de cada usuario
+
+        $('.btn_ver_tipos_0').on('click', function() {
+            console.log("test");
+
+            $('#lst_docs_1').modal('show');
+
+            //valores de los inputs del modal lst_files
+            var id_usu_soli = $('#id_usu_soli').val();
+            var dni_usu_soli = $('#dni_usu_soli').val();
+
+            //valores a los inputs en el modal lst_docs_1
+            $('#lst_docs_1').find('#id_client_0').val(id_usu_soli);
+            $('#lst_docs_1').find('#dni_client_0').val(dni_usu_soli);
+
+            console.log('e?'+id_usu_soli);
+            console.log('pop'+dni_usu_soli);
+
+            $tr = $(this).closest('tr');
+            var data = $tr.children("td").map(function() {
+                return $(this).text();
+            }).get();
+            console.log(data);
+
+
+            var id_doc_lgl_0 = $(this).data('id_doc');
+            var nom_doc_lgl_0 = $(this).data('nom_doc');
+
+            console.log(id_doc_lgl_0);
+            console.log(nom_doc_lgl_0);
+
+            $('#id_tipo_doc_lgl_0').val(id_doc_lgl_0);
+
+            $('#_concept_doc_0').val(nom_doc_lgl_0);
+
+
+            var concept =  $('#_concept_doc_0').val();
+            var id_tipo_doc_ = $('#id_tipo_doc_lgl_0').val();
+
+            $.ajax({
+                type: 'POST',
+                url: '../Controller/obtener_files_client.php',
+                data: {
+                    _concept_doc:concept,
+                    id_client: id_usu_soli,
+                    dni_client: dni_usu_soli,
+                    id_tipo_doc: id_tipo_doc_
+                },
+                success: function(response) {
+                    var data  = JSON.parse(response);
+
+                    var archivos = data.archivos;
+                    var estado_doc = data.status_doc;
+
+
+                    if (archivos && archivos.length > 0) {
+                        var enlaceHtml = '';
+
+                        archivos.forEach(function(archivo) {
+                            var ruta = archivo.ruta;
+                            var nombreArchivo = archivo.archivo;
+                            var estado = archivo.estado;
+                            var status_r = '';
+
+                            enlaceHtml += '<div>';
+                            enlaceHtml += '<a href="' + ruta + nombreArchivo+'">' + nombreArchivo + '</a> &nbsp';
+
+                            enlaceHtml += '<i>' + status_r + '</i><br>';
+
+                            enlaceHtml += '<select name="cbo_estados" id="cbo_estados">';
+
+                            if (estado === '500') {
+                                enlaceHtml += '<option value=""selected>Pendiente</option>';
+                                enlaceHtml += '<option value="">En revisión</option>';
+                                enlaceHtml += '<option value="">Finalizado</option>';
+                            } else if (estado === '405') {
+                                enlaceHtml += '<option value="">Pendiente</option>';
+                                enlaceHtml += '<option value="" selected>En revisión</option>';
+                                enlaceHtml += '<option value="">Finalizado</option>';
+                            } else if (estado === '200') {
+                                enlaceHtml += '<option value="">Pendiente</option>';
+                                enlaceHtml += '<option value="">En revisión</option>';
+                                enlaceHtml += '<option value="" selected>Finalizado</option>';
+                            }
+                             enlaceHtml += '</select><br>';
+                             enlaceHtml += '</div>';
+                        });
+
+                        document.getElementById('descarga_archivo_ul').innerHTML = enlaceHtml;
+
+                    } else {
+
+                        document.getElementById('descarga_archivo_ul').textContent = 'Archivo no encontrado';
+                    }
+
+                },
+                error: function(xhr, status, error) {
+                    console.log(error);
+                }
+            });
+
+        });
+        //codigo para el admin y ver los documentos de cada usuario
+
+
+
+        //codigo para el usuario comun vea sus propios documentos
+
+        $('.btn_ver_tipos').on('click', function() {
+
+            $('#lst_docs_0').modal('show');
+
+            var id_doc_lgl = $(this).data('id_doc');
+            var nom_doc_lgl = $(this).data('nom_doc');
+
+            console.log(id_doc_lgl);
+            console.log(nom_doc_lgl);
+
+            $('#id_tipo_doc_lgl').val(id_doc_lgl);
+
+            $('#_concept_doc').val(nom_doc_lgl);
+
+
+
+            var concept =  $('#_concept_doc').val();
+            var id_tipo_doc_ = $('#id_tipo_doc_lgl').val();
+
+            var dni = '<?php echo $_SESSION['dni'] ?>';
+            var id_cli = '<?php echo $_SESSION['id_usu'] ?>';
+
+            $.ajax({
+                type: 'POST',
+                url: '../Controller/obtener_files_client.php',
+                data: {
+                    _concept_doc:concept,
+                    id_client: id_cli,
+                    dni_client: dni,
+                    id_tipo_doc: id_tipo_doc_
+                },
+                success: function(response) {
+                    var data  = JSON.parse(response);
+
+                    var archivos = data.archivos;
+                    var estado_doc = data.status_doc;
+
+
+                    if (archivos && archivos.length > 0) {
+                        var enlaceHtml = '';
+
+                        archivos.forEach(function(archivo) {
+                            var ruta = archivo.ruta;
+                            var nombreArchivo = archivo.archivo;
+                            var estado = archivo.estado;
+                            var status_r = '';
+
+
+                            enlaceHtml += '<a href="' + ruta + nombreArchivo+'">' + nombreArchivo + '</a> &nbsp';
+
+                             if (estado==500) {
+                                status_r = 'Pendiente'
+                            }
+                            enlaceHtml += '<i>' + status_r + '</i><br>';
+                        });
+
+                        document.getElementById('descarga_archivo_s').innerHTML = enlaceHtml;
+
+                    } else {
+
+                        document.getElementById('descarga_archivo_s').textContent = 'Archivo no encontrado';
+                    }
+
+                },
+                error: function(xhr, status, error) {
+                    console.log(error);
+                }
+            });
+
+
+        });
+
+        //codigo para el usuario comun y ver sus documentos
+
+    });
+
+    </script>
+
+
+    <script>
+        function send_file_upld(drop_id, file_input_id, btn_id) {
+
+            const dropArea = document.getElementById(drop_id);
+            const fileInput = document.getElementById(file_input_id);
+
+            // Prevenir el comportamiento predeterminado para los eventos de arrastrar para permitir soltar archivos
+            dropArea.addEventListener("dragover", (event) => {
+                event.preventDefault();
+            });
+
+            // Manejar el evento de soltar archivos
+            dropArea.addEventListener("drop", (event) => {
+                event.preventDefault();
+                const files = event.dataTransfer.files;
+                actualizarListaArchivos(files);
+                fileInput.files = files;
+                habilitarBotonRegistrar(files.length > 0);
+            });
+
+            // Manejar el evento de cambio en el input de archivos
+            fileInput.addEventListener("change", (event) => {
+                const files = event.target.files;
+                actualizarListaArchivos(files);
+                habilitarBotonRegistrar(files.length > 0);
+            });
+
+            // Actualizar la lista de archivos en el área de arrastre
+            function actualizarListaArchivos(files) {
+                const fileArchives = dropArea.querySelector(".file-archives");
+                fileArchives.innerHTML = "";
+
+                for (const file of files) {
+                    const fileDiv = document.createElement("div");
+                    fileDiv.textContent = file.name;
+                    fileArchives.appendChild(fileDiv);
+                }
+            }
+
+            // Habilitar o deshabilitar el botón de registrar según la cantidad de archivos seleccionados
+            function habilitarBotonRegistrar(habilitar) {
+                const submitButton = document.getElementById(btn_id);
+                submitButton.disabled = !habilitar;
+            }
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+            send_file_upld("dropArea", "hr_s", "btn_save_hr");
+            send_file_upld("dropArea_2", "pu_s", "btn_save_pu");
+            send_file_upld("dropArea_3", "cl_s", "btn_save_cl");
+            send_file_upld("dropArea_4", "dni_s", "btn_save_dni");
         });
     </script>
 

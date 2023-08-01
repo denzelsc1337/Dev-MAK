@@ -278,6 +278,7 @@ $(document).ready(function () {
         "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
         "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
         "application/vnd.openxmlformats-officedocument.presentationml.presentation",
+        "text/plain",
       ];
 
       if (validExtensions.includes(docType)) {

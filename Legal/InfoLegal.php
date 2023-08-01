@@ -1,9 +1,7 @@
 <?php
 require_once('../Config/security.php');
 require_once('../Controller/controladorListar.php');
-
 ?>
-
 <!DOCTYPE html>
 <html>
 
@@ -472,7 +470,7 @@ require_once('../Controller/controladorListar.php');
 			            </div>
 			            <form action="../Controller/upload_docs_legal.php" method="POST" enctype="multipart/form-data">
 			            	<div class="modal-body">
-			            		<div class="form-group" hidden>
+			            		<div class="form-group">
 			            				<label>id usu</label>
 	                                    <input type="text" name="usu_dni" id="usu_dni" value="<?php echo $_SESSION['id_usu'] ?>">
 	                                    <br>
@@ -1020,6 +1018,7 @@ require_once('../Controller/controladorListar.php');
             load_documents();
 
             $('#lst_hr_0').modal('show');
+
             /*$.ajax({
 			    type: 'POST',
 			    url: '../Controller/obtener_files.php',
