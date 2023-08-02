@@ -106,11 +106,20 @@
                                 <div class="step" data-target="third_step">
                                     <button type="button" class="step-trigger" role="tab" aria-controls="" id="">
                                         <span class="bs-stepper-circle">3</span>
-                                        <span class="bs-stepper-label">Resumen de Solicitud</span>
+                                        <span class="bs-stepper-label">Subida de archivos</span>
                                     </button>
                                 </div>
 
                                 <div class="line" data-target="third_step"></div>
+
+                                <div class="step" data-target="fourth_step">
+                                    <button type="button" class="step-trigger" role="tab" aria-controls="" id="">
+                                        <span class="bs-stepper-circle">4</span>
+                                        <span class="bs-stepper-label">Resumen de Solicitud</span>
+                                    </button>
+                                </div>
+
+                                <div class="line" data-target="fourth_step"></div>
                             </div>
 
                             <div class="bs-stepper-content">
@@ -1620,8 +1629,21 @@
                                     <!-- LOCAL INDUSTRIAL -->
 
 
+                                    <!-- SUBIDA DE ARCHIVOS -->
+                                    <div id="pantalla-SA" class="section col-md-12" role="tabpanel" aria-labelledby="" data-target="third_step">
+                                        SUBIDA DE ARCHIVOS
+                                        <div class="card-footer">
+                                            <div class="d-grid gap-2 col-8 mx-auto form-flex">
+                                                <div type="button" class="btn btn-mak mak-bg  atrPag">Retroceder</div>
+                                                <div type="button" class="btn btn-mak mak-bg  lstPag">Continuar</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- SUBIDA DE ARCHIVOS -->
+
+
                                     <!-- RESUMEN DE SOLICITUD -->
-                                    <div id="pantalla-RS" class="section col-md-12" role="tabpanel" aria-labelledby="" data-target="third_step">
+                                    <div id="pantalla-RS" class="section col-md-12" role="tabpanel" aria-labelledby="" data-target="fourth_step">
 
                                         <div class="row">
                                             <div class="col-md-12">
@@ -1748,7 +1770,7 @@
                                             </div>
                                         </div>
                                         <div class="form-flex">
-                                            <button type="button" class="btn btn-mak mak-bg  atrPag">Retroceder</button>
+                                            <button type="button" class="btn btn-mak mak-bg  antPag">Retroceder</button>
 
                                             <button type="button" class="btn btn-mak mak-bg " id="btnValo_casa" name="btnValo_casa" style="display:none">
                                                 Finalizar Casa
