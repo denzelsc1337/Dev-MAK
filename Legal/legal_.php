@@ -63,36 +63,79 @@
 
                 <div class="container">
 
+                    <div class="card-header" hidden>
+                            <h3 class="card-title">Ingreso de Datos:</h3>
+                            <input type="text" class="form-control" id="dni_user" name="dni_user" value="<?php echo $_SESSION['dni']; ?>">
+                            <?php
+
+                                $dni = $_SESSION['dni'];
+
+                                $ruta_base ='../Documentos Legal/';
+
+                                $rutas = '';
+
+                                if (isset($_SESSION['dni'])) {
+                                    $dni = $_SESSION['dni'];
+                                    $rutaCompleta = $ruta_base . $dni . '/';
+
+
+                                    if (is_dir($rutaCompleta)) {
+                                        $elementos = scandir($rutaCompleta);
+
+                                        $elementos = array_diff($elementos, array('.', '..'));
+
+                                        foreach ($elementos as $elemento) {
+                                            if (is_dir($rutaCompleta . $elemento)) {
+                                                $rutas .= $rutaCompleta . $elemento . "\n";
+                                            }
+                                        }
+
+                                        if (empty($rutas)) {
+                                            echo "No hay carpetas disponibles.";
+                                        }
+                                    }else{
+
+                                        echo "La carpeta $dni no existe en la ruta especificada.";
+                                    }
+
+                                    //echo $rutaCompleta;
+
+                                }
+                             ?>
+                    </div>
+
                     <div class="card-body">
                         <div class="row">
-                            <div class="col-sm-6">
-                                <div class="row">
-                                    <div class="col-sm-6">
-                                        <div class="form-group">
-                                            <label class="mak-txt">Nombres y Apellidos</label>
-                                            <input type="text" class="form-mak">
+                            <form method="POST" action="../Controller/Add_Solic_Legal.php">
+                                <input type="text" class="form-control" id="id_user" name="id_user" value="<?php echo $_SESSION['id_usu']; ?>" hidden>
+                                <div class="col-sm-6">
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <label class="mak-txt">Nombres</label>
+                                                <input type="text" class="form-mak" id="nom_cli_solic" name="nom_cli_solic">
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-sm-6">
-                                        <div class="form-group">
-                                            <label class="mak-txt">Dirección</label>
-                                            <input type="text" class="form-mak">
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <label class="mak-txt">Apellidos</label>
+                                                <input type="text" class="form-mak" id="ape_cli_solic" name="ape_cli_solic">
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-sm-6">
-                                        <div class="form-group">
-                                            <label class="mak-txt">Distrito</label>
-                                            <select name="" id="" class="form-mak">
-                                                <option value="-1">Seleccione distrito</option>
-                                            </select>
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <label class="mak-txt">Dirección</label>
+                                                <input type="text" class="form-mak" id="dir_cli_solic" name="dir_cli_solic">
+                                            </div>
                                         </div>
                                     </div>
+
+                                    <textarea id="rutas_doscs" name="rutas_doscs" rows="5" cols="50" hidden><?php echo $rutas;?></textarea>
                                 </div>
-                            </div>
                             <div class="col-sm-6">
                                 <div class="row">
                                     <div class="col-sm-7">
@@ -104,9 +147,7 @@
                                                 </div>
                                             </div>
                                             <div class="input-group-append">
-                                                <i class="cursor fa-solid fa-eye" data-bs-toggle="modal" data-bs-target="#lst_hr_0"
-                                                data-target="#lst_hr_0" data-valor="H_R" data-titulo="Hoja de Resumen" data-id_doc_="1"></i>
-                                                <button type="button" class="btn btn-rounded btn-success btn_lst_hr btn_lst_hr_0" data-toggle="modal" data-target="#lst_hr_0" data-valor="H_R" data-titulo="Hoja de Resumen" data-id_doc_="1">ver</button>
+                                                <button type="button" class="btn btn-rounded  btn_lst_hr btn_lst_hr_0" data-toggle="modal" data-target="#lst_hr_0" data-valor="H_R" data-titulo="Hoja de Resumen" data-id_doc_="1"><i class="cursor fa-solid fa-eye"></i></button>
                                             </div>
                                         </div>
                                     </div>
@@ -122,7 +163,8 @@
                                                 </div>
                                             </div>
                                             <div class="input-group-append">
-                                                <i class="cursor fa-solid fa-eye" data-bs-toggle="modal" data-bs-target="#modal_pu"></i>
+
+                                                <button type="button" class="btn btn-rounded btn_lst_hr btn_lst_hr_0" data-toggle="modal" data-target="#lst_hr_0" data-valor="P_U" data-titulo="Predio Urbano" data-id_doc_="2"><i class="cursor fa-solid fa-eye"></i></button>
                                             </div>
                                         </div>
                                     </div>
@@ -138,7 +180,8 @@
                                                 </div>
                                             </div>
                                             <div class="input-group-append">
-                                                <i class="cursor fa-solid fa-eye" data-bs-toggle="modal" data-bs-target="#modal_cl"></i>
+
+                                                <button type="button" class="btn btn-rounded btn_lst_hr btn_lst_hr_0" data-toggle="modal" data-target="#lst_hr_0" data-valor="C_L" data-titulo="Copia Literal" data-id_doc_="3"><i class="cursor fa-solid fa-eye"></i></button>
                                             </div>
                                         </div>
                                     </div>
@@ -154,7 +197,7 @@
                                                 </div>
                                             </div>
                                             <div class="input-group-append">
-                                                <i class="cursor fa-solid fa-eye" data-bs-toggle="modal" data-bs-target="#modal_dni"></i>
+                                                <button type="button" class="btn btn-rounded btn_lst_hr btn_lst_hr_0" data-toggle="modal" data-target="#lst_hr_0" data-valor="DNI" data-titulo="DNI" data-id_doc_="4"><i class="cursor fa-solid fa-eye"></i></button>
                                             </div>
                                         </div>
                                     </div>
@@ -165,9 +208,10 @@
                     <div class="card-footer">
                         <div class="form-flex">
                             <button type="button" class="btn btn-mak mak-bg-sec">Guardar</button>
-                            <button type="button" class="btn btn-mak mak-bg">Enviar</button>
+                            <button type="submit" class="btn btn-mak mak-bg" id="btn_save_solic" name="btn_save_solic">Enviar</button>
                         </div>
                     </div>
+                    </form>
                 </div>
             </section>
 
@@ -239,10 +283,11 @@
         <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-body">
-                    <h1 class="title-m">HR</h1>
+                    <h1 class="title-m" id="titulo_docs">HR</h1>
                     <div class="row margin">
                         <div class="col-sm-12">
-                            <div class="form-group">
+
+                            <div class="form-group" hidden>
                                 <label>id usu</label>
                                 <input type="text" name="usu_dni" id="usu_dni" value="<?php echo $_SESSION['id_usu'] ?>">
                                 <br>
@@ -310,42 +355,6 @@
                                     <button type="submit" class="btn btn-info btn-lg col-md-12" id="btn_save_pu" name="btn_save_pu" disabled>Registrar</button>
                                 </form>
                                 <div id="preview"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Modal -->
-    <div class="modal fade" id="modal_pu" tabindex="-1" role="dialog" aria-labelledby="modal_pu" aria-hidden="true">
-        <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-body">
-                    <h1 class="title-m">PU</h1>
-                    <div class="row margin">
-                        <div class="col-sm-12">
-                            <div class="container">
-                                <div class="form-group row">
-                                    <div class="col-sm-2">
-                                        <div class="lgl-modal-num">
-                                            1
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-8">
-                                        <input type="text" class="form-mak">
-                                    </div>
-                                    <div class="tw-modal-ots">
-                                        <div class="row">
-                                            <div class="brd-rght-blue">
-                                                <i class="cursor fa-solid fa-trash"></i>
-                                            </div>
-                                            <div>
-                                                <i class="cursor fa-solid fa-download"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -703,6 +712,7 @@
                             var id_doc_ = archivo.id_doc;
                             var status_r = '';
 
+
                             var delete_btn = $('<button>').text('Eliminar').attr('class', 'btn btn-block btn-danger');
 
                             enlaceHtml += `
@@ -1035,7 +1045,7 @@
             dropArea.addEventListener("drop", (event) => {
                 event.preventDefault();
                 const files = event.dataTransfer.files;
-                actualizarListaArchivos(files);
+                //actualizarListaArchivos(files);
                 fileInput.files = files;
                 habilitarBotonRegistrar(files.length > 0);
             });
@@ -1043,21 +1053,21 @@
             // Manejar el evento de cambio en el input de archivos
             fileInput.addEventListener("change", (event) => {
                 const files = event.target.files;
-                actualizarListaArchivos(files);
+                //actualizarListaArchivos(files);
                 habilitarBotonRegistrar(files.length > 0);
             });
 
             // Actualizar la lista de archivos en el área de arrastre
-            function actualizarListaArchivos(files) {
-                const fileArchives = dropArea.querySelector(".file-archives");
-                fileArchives.innerHTML = "";
+            //function actualizarListaArchivos(files) {
+                //const fileArchives = dropArea.querySelector(".file-archives");
+                //fileArchives.innerHTML = "";
 
-                for (const file of files) {
-                    const fileDiv = document.createElement("div");
-                    fileDiv.textContent = file.name;
-                    fileArchives.appendChild(fileDiv);
-                }
-            }
+                //for (const file of files) {
+                    //const fileDiv = document.createElement("div");
+                    //fileDiv.textContent = file.name;
+                    //fileArchives.appendChild(fileDiv);
+                //}
+            //}
 
             // Habilitar o deshabilitar el botón de registrar según la cantidad de archivos seleccionados
             function habilitarBotonRegistrar(habilitar) {

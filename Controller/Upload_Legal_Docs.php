@@ -45,7 +45,7 @@ if(isset($_POST["btn_save_hr"])) {
 
     if ($archivos_total>0) {
     ?>
-    <META http-equiv='Refresh' content='0.2; URL =../Legal/InfoLegal.php'>;
+    <META http-equiv='Refresh' content='0.2; URL =../Legal/legal_.php'>;
     <script>
         alert("Hoja Resumen correctamente cargada.");
     </script>
@@ -106,7 +106,7 @@ if(isset($_POST["btn_save_pu"])) {
 
     if ($archivos_total>0) {
     ?>
-    <META http-equiv='Refresh' content='0.2; URL =../Legal/InfoLegal.php'>;
+    <META http-equiv='Refresh' content='0.2; URL =../Legal/legal_.php'>;
     <script>
         alert("Predio Urbano correctamente cargado.");
     </script>
@@ -166,7 +166,7 @@ if(isset($_POST["btn_save_cl"])) {
 
     if ($archivos_total>0) {
     ?>
-    <META http-equiv='Refresh' content='0.2; URL =../Legal/InfoLegal.php'>;
+    <META http-equiv='Refresh' content='0.2; URL =../Legal/legal_.php'>;
     <script>
         alert("Copia(s) Literal(es) subido(s).");
     </script>
@@ -227,7 +227,7 @@ if(isset($_POST["btn_save_dni"])) {
 
   if ($archivos_total>0) {
   ?>
-  <META http-equiv='Refresh' content='0.2; URL =../Legal/InfoLegal.php'>;
+  <META http-equiv='Refresh' content='0.2; URL =../Legal/legal_.php'>;
   <script>
       alert("DNI(s)subido(s) correctamente.");
   </script>

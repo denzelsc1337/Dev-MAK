@@ -12,7 +12,7 @@ class cLegal
 		$this->lst_solics_legal_cli = array();
 	}
 
-	function save_solic_legal($rutas,$data )
+	function save_solic_legal($rutas,$data)
 	{
 		include_once('../config/Conexion.php');
 		$cnx = new Conexion();
