@@ -112,7 +112,7 @@
                                     <div class="row">
                                         <div class="col-sm-6">
                                             <div class="form-group">
-                                                <label class="mak-txt">Nombres</label>
+                                                <label class="mak-txt">Nombre</label>
                                                 <input type="text" class="form-mak" id="nom_cli_solic" name="nom_cli_solic">
                                             </div>
                                         </div>
