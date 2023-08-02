@@ -227,7 +227,7 @@ require_once('../Controller/controladorListar.php');
                 },
                 beforeSend:function(){
                     console.log("loading");
-                }
+                },
             });
 
 
