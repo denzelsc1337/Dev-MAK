@@ -220,12 +220,12 @@ $(document).ready(function () {
   // INPUT WITH LIST
 
   // DRAG AND DROP FILES
-  var dragArea = document.querySelectorAll(".input-file");
+  var dragArea = document.querySelectorAll(".content-file");
 
   dragArea.forEach((element) => {
     var dragText = element.querySelector("span");
-    var buttonFile = document.querySelectorAll("#buttonFile");
-    var inputFile = document.querySelectorAll(".upload");
+    var buttonFile = element.querySelectorAll("#buttonFile");
+    var inputFile = element.querySelector(".upload");
 
     buttonFile.forEach((buttonFile) => {
       buttonFile.addEventListener("click", (e) => {
@@ -233,12 +233,12 @@ $(document).ready(function () {
       });
     });
 
-    inputFile.forEach((inputFile) => {
+    //inputFile.forEach((inputFile) => {
       inputFile.addEventListener("change", (e) => {
         files = inputFile.files;
         showFiles(files);
       });
-    });
+    //});
 
     element.addEventListener("dragover", (e) => {
       e.preventDefault();
@@ -363,6 +363,7 @@ $(document).ready(function () {
       const fileMessage = element.querySelector(".file-message");
       const fileArchives = element.querySelector(".file-archives");
       var cantFileMessage = element.querySelectorAll(".archive-item").length;
+
 
       if (cantFileMessage > 0) {
         fileMessage.style.display = "none";
