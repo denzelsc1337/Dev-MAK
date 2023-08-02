@@ -47,38 +47,86 @@
 
         <div class="content-wrapper">
 
-            <section class="content">
+            <section class="content mak-forms">
                 <!-- <header class="header-mak">
                     <h1 class="title">¿Más de 2,000 propiedades <br> esperan por ti!</h1>
                 </header> -->
 
                 <?php include '../Vista/head-form.php' ?>
 
+                <div class="container">
 
-                <section class="body-mak mak-txt">
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <div class="container">
-                                <div class="content-file flex flex-column">
-                                    <div class="file-header">
-                                        <span>Carga archivos máximo de 2MB.</span>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label class="mak-txt">Nombres y Apellidos</label>
+                                            <input type="text" class="form-mak">
+                                        </div>
                                     </div>
-                                    <div class="input-file">
-                                        <i class="fa-solid fa-file"></i>
-                                        <span>Arrastre los archivos aquí para subirlos.</span>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label class="mak-txt">Dirección</label>
+                                            <input type="text" class="form-mak">
+                                        </div>
                                     </div>
-                                    <span>O</span>
-                                    <div>
-                                        <label for="upload" class="buton-file">Seleccionar archivos</label>
-                                        <input hidden type="file" name="upload" id="upload">
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label class="mak-txt">Distrito</label>
+                                            <select name="" id="" class="form-mak">
+                                                <option value="-1">Seleccione distrito</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label class="mak-txt">Comentario</label>
+                                            <textarea name="" id=""></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class=" d-flex justify-content-end">
+                                    <div class="btn btn-mak bg-success">Aprobado</div>
+                                </div>
+                                <div class="card-body  card-resume">
+                                    <div class="row">
+                                        <div class="col-sm-2">
+                                            <div class="lgl-modal-num">
+                                                1
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-8 brd-rght-blue d-flex align-items-center">
+                                            <span class="mak-txt bld">HR</span>
+                                        </div>
+                                        <div class="tw-modal-ots">
+                                            <div class="row">
+                                                <div>
+                                                    <i class="cursor fa-solid fa-eye"></i>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </section>
-
-
+                    <div class="card-footer">
+                        <div class="form-flex">
+                            <button type="button" class="btn btn-mak mak-bg-sec">Guardar</button>
+                            <button type="button" class="btn btn-mak mak-bg">Enviar</button>
+                        </div>
+                    </div>
+                </div>
 
             </section>
         </div>
@@ -127,6 +175,18 @@
     <!-- Page specific script -->
 
     <script src="../Vista/assets/selection_types.js"></script>
+
+    <script>
+        const textArea = document.querySelectorAll("textarea");
+        textArea.forEach(element => {
+            element.addEventListener("keyup", (e) => {
+                element.style.height = 'auto';
+
+                let scHeight = e.target.scrollHeight;
+                element.style.height = `${scHeight}px`;
+            })
+        });
+    </script>
 </body>
 
 </html>
