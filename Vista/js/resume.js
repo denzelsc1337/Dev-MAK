@@ -43,7 +43,6 @@
         cardBodys.forEach((element) => {
           const lbl = element.querySelectorAll("label");
           lbl.forEach((label) => {
-            console.log(label);
             arrayNames.push(label.textContent);
           });
         });
@@ -93,8 +92,8 @@
         });
 
         //
-        console.log(arrayNames);
-        console.log(arrayValues);
+        //console.log(arrayNames);
+        //console.log(arrayValues);
 
         const cards = document.querySelectorAll(".card-body");
 
