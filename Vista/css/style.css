@@ -293,6 +293,9 @@ h2 {
   border-radius: var(--radius-20);
   box-shadow: 0 6px 10px 0 rgb(0 0 0 / 40%), 0 1px 3px rgba(0, 0, 0, 15%) !important;
 }
+.table td{
+  vertical-align: middle !important;
+}
 
 .table thead tr th:first-child {
   border-radius: 20px 0 0 0;
@@ -369,9 +372,10 @@ h2 {
   border-bottom: 1px solid var(--blue-mak) !important;
 }
 
-/* .select2.select2-container.select2-container--default {
-  padding: 0px 5px !important;
-} */
+.badge{
+  padding: 10px 15px !important;
+  font-size: 15px !important;
+}
 
 .form-group select option {
   height: 50px;
