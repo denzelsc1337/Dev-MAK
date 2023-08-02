@@ -64,49 +64,49 @@
                 <div class="container">
 
                     <div class="card-header" hidden>
-                            <h3 class="card-title">Ingreso de Datos:</h3>
-                            <input type="text" class="form-control" id="dni_user" name="dni_user" value="<?php echo $_SESSION['dni']; ?>">
-                            <?php
+                        <h3 class="card-title">Ingreso de Datos:</h3>
+                        <input type="text" class="form-control" id="dni_user" name="dni_user" value="<?php echo $_SESSION['dni']; ?>">
+                        <?php
 
-                                $dni = $_SESSION['dni'];
+                        $dni = $_SESSION['dni'];
 
-                                $ruta_base ='../Documentos Legal/';
+                        $ruta_base = '../Documentos Legal/';
 
-                                $rutas = '';
+                        $rutas = '';
 
-                                if (isset($_SESSION['dni'])) {
-                                    $dni = $_SESSION['dni'];
-                                    $rutaCompleta = $ruta_base . $dni . '/';
+                        if (isset($_SESSION['dni'])) {
+                            $dni = $_SESSION['dni'];
+                            $rutaCompleta = $ruta_base . $dni . '/';
 
 
-                                    if (is_dir($rutaCompleta)) {
-                                        $elementos = scandir($rutaCompleta);
+                            if (is_dir($rutaCompleta)) {
+                                $elementos = scandir($rutaCompleta);
 
-                                        $elementos = array_diff($elementos, array('.', '..'));
+                                $elementos = array_diff($elementos, array('.', '..'));
 
-                                        foreach ($elementos as $elemento) {
-                                            if (is_dir($rutaCompleta . $elemento)) {
-                                                $rutas .= $rutaCompleta . $elemento . "\n";
-                                            }
-                                        }
-
-                                        if (empty($rutas)) {
-                                            echo "No hay carpetas disponibles.";
-                                        }
-                                    }else{
-
-                                        echo "La carpeta $dni no existe en la ruta especificada.";
+                                foreach ($elementos as $elemento) {
+                                    if (is_dir($rutaCompleta . $elemento)) {
+                                        $rutas .= $rutaCompleta . $elemento . "\n";
                                     }
-
-                                    //echo $rutaCompleta;
-
                                 }
-                             ?>
+
+                                if (empty($rutas)) {
+                                    echo "No hay carpetas disponibles.";
+                                }
+                            } else {
+
+                                echo "La carpeta $dni no existe en la ruta especificada.";
+                            }
+
+                            //echo $rutaCompleta;
+
+                        }
+                        ?>
                     </div>
 
-                    <div class="card-body">
-                        <div class="row">
-                            <form method="POST" action="../Controller/Add_Solic_Legal.php">
+                    <form method="POST" action="../Controller/Add_Solic_Legal.php">
+                        <div class="card-body">
+                            <div class="row">
                                 <input type="text" class="form-control" id="id_user" name="id_user" value="<?php echo $_SESSION['id_usu']; ?>" hidden>
                                 <div class="col-sm-6">
                                     <div class="row">
@@ -134,83 +134,83 @@
                                         </div>
                                     </div>
 
-                                    <textarea id="rutas_doscs" name="rutas_doscs" rows="5" cols="50" hidden><?php echo $rutas;?></textarea>
+                                    <textarea id="rutas_doscs" name="rutas_doscs" rows="5" cols="50" hidden><?php echo $rutas; ?></textarea>
                                 </div>
-                            <div class="col-sm-6">
-                                <div class="row">
-                                    <div class="col-sm-7">
-                                        <div class="form-group row">
-                                            <label class="col-sm-5 col-form-label">HR:</label>
-                                            <div class="section-input col-sm-6">
-                                                <div class="upload-file">
-                                                    <label data-bs-toggle="modal" data-bs-target="#modal_archive_HR">Seleccionar archivos.</label>
+                                <div class="col-sm-6">
+                                    <div class="row">
+                                        <div class="col-sm-7">
+                                            <div class="form-group row">
+                                                <label class="col-sm-5 col-form-label">HR:</label>
+                                                <div class="section-input col-sm-6">
+                                                    <div class="upload-file">
+                                                        <label data-bs-toggle="modal" data-bs-target="#modal_archive_HR">Seleccionar archivos.</label>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="input-group-append">
-                                                <button type="button" class="btn btn-rounded  btn_lst_hr btn_lst_hr_0" data-toggle="modal" data-target="#lst_hr_0" data-valor="H_R" data-titulo="Hoja de Resumen" data-id_doc_="1"><i class="cursor fa-solid fa-eye"></i></button>
+                                                <div class="input-group-append">
+                                                    <button type="button" class="btn btn-rounded  btn_lst_hr btn_lst_hr_0" data-toggle="modal" data-target="#lst_hr_0" data-valor="H_R" data-titulo="Hoja de Resumen" data-id_doc_="1"><i class="cursor fa-solid fa-eye"></i></button>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <br>
-                                <div class="row">
-                                    <div class="col-sm-7">
-                                        <div class="form-group row">
-                                            <label class="col-sm-5 col-form-label">PU:</label>
-                                            <div class="section-input col-sm-6">
-                                                <div class="upload-file">
-                                                    <label data-bs-toggle="modal" data-bs-target="#modal_archive_PU">Seleccionar archivos.</label>
+                                    <br>
+                                    <div class="row">
+                                        <div class="col-sm-7">
+                                            <div class="form-group row">
+                                                <label class="col-sm-5 col-form-label">PU:</label>
+                                                <div class="section-input col-sm-6">
+                                                    <div class="upload-file">
+                                                        <label data-bs-toggle="modal" data-bs-target="#modal_archive_PU">Seleccionar archivos.</label>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="input-group-append">
+                                                <div class="input-group-append">
 
-                                                <button type="button" class="btn btn-rounded btn_lst_hr btn_lst_hr_0" data-toggle="modal" data-target="#lst_hr_0" data-valor="P_U" data-titulo="Predio Urbano" data-id_doc_="2"><i class="cursor fa-solid fa-eye"></i></button>
+                                                    <button type="button" class="btn btn-rounded btn_lst_hr btn_lst_hr_0" data-toggle="modal" data-target="#lst_hr_0" data-valor="P_U" data-titulo="Predio Urbano" data-id_doc_="2"><i class="cursor fa-solid fa-eye"></i></button>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <br>
-                                <div class="row">
-                                    <div class="col-sm-7">
-                                        <div class="form-group row">
-                                            <label class="col-sm-5 col-form-label">COPIA LITERAL:</label>
-                                            <div class="section-input col-sm-6">
-                                                <div class="upload-file">
-                                                    <label data-bs-toggle="modal" data-bs-target="#modal_archive_CL">Seleccionar archivos.</label>
+                                    <br>
+                                    <div class="row">
+                                        <div class="col-sm-7">
+                                            <div class="form-group row">
+                                                <label class="col-sm-5 col-form-label">COPIA LITERAL:</label>
+                                                <div class="section-input col-sm-6">
+                                                    <div class="upload-file">
+                                                        <label data-bs-toggle="modal" data-bs-target="#modal_archive_CL">Seleccionar archivos.</label>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="input-group-append">
+                                                <div class="input-group-append">
 
-                                                <button type="button" class="btn btn-rounded btn_lst_hr btn_lst_hr_0" data-toggle="modal" data-target="#lst_hr_0" data-valor="C_L" data-titulo="Copia Literal" data-id_doc_="3"><i class="cursor fa-solid fa-eye"></i></button>
+                                                    <button type="button" class="btn btn-rounded btn_lst_hr btn_lst_hr_0" data-toggle="modal" data-target="#lst_hr_0" data-valor="C_L" data-titulo="Copia Literal" data-id_doc_="3"><i class="cursor fa-solid fa-eye"></i></button>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <br>
-                                <div class="row">
-                                    <div class="col-sm-7">
-                                        <div class="form-group row">
-                                            <label class="col-sm-5 col-form-label">DNI:</label>
-                                            <div class="section-input col-sm-6">
-                                                <div class="upload-file">
-                                                    <label data-bs-toggle="modal" data-bs-target="#modal_archive_DNI">Seleccionar archivos.</label>
+                                    <br>
+                                    <div class="row">
+                                        <div class="col-sm-7">
+                                            <div class="form-group row">
+                                                <label class="col-sm-5 col-form-label">DNI:</label>
+                                                <div class="section-input col-sm-6">
+                                                    <div class="upload-file">
+                                                        <label data-bs-toggle="modal" data-bs-target="#modal_archive_DNI">Seleccionar archivos.</label>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="input-group-append">
-                                                <button type="button" class="btn btn-rounded btn_lst_hr btn_lst_hr_0" data-toggle="modal" data-target="#lst_hr_0" data-valor="DNI" data-titulo="DNI" data-id_doc_="4"><i class="cursor fa-solid fa-eye"></i></button>
+                                                <div class="input-group-append">
+                                                    <button type="button" class="btn btn-rounded btn_lst_hr btn_lst_hr_0" data-toggle="modal" data-target="#lst_hr_0" data-valor="DNI" data-titulo="DNI" data-id_doc_="4"><i class="cursor fa-solid fa-eye"></i></button>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="card-footer">
-                        <div class="form-flex">
-                            <button type="button" class="btn btn-mak mak-bg-sec">Guardar</button>
-                            <button type="submit" class="btn btn-mak mak-bg" id="btn_save_solic" name="btn_save_solic">Enviar</button>
+                        <div class="card-footer">
+                            <div class="form-flex">
+                                <button type="button" class="btn btn-mak mak-bg-sec">Guardar</button>
+                                <button type="submit" class="btn btn-mak mak-bg" id="btn_save_solic" name="btn_save_solic">Enviar</button>
+                            </div>
                         </div>
-                    </div>
                     </form>
                 </div>
             </section>
@@ -640,82 +640,82 @@
 
         $(document).ready(function() {
 
-        $('.btn_subir_1').on('click', function() {
-            console.log("test");
-            $('#upload_doc').modal('show');
-            $tr = $(this).closest('tr');
-            var data = $tr.children("td").map(function() {
-                return $(this).text();
-            }).get();
-            console.log(data);
-            $('#id_doc_type').val(data[1]);
-            $('#desc_doc').val(data[2].trim());
-        });
+            $('.btn_subir_1').on('click', function() {
+                console.log("test");
+                $('#upload_doc').modal('show');
+                $tr = $(this).closest('tr');
+                var data = $tr.children("td").map(function() {
+                    return $(this).text();
+                }).get();
+                console.log(data);
+                $('#id_doc_type').val(data[1]);
+                $('#desc_doc').val(data[2].trim());
+            });
 
 
-        $('.btn_ver_files').on('click', function() {
-            console.log("test");
-            $('#lst_files').modal('show');
+            $('.btn_ver_files').on('click', function() {
+                console.log("test");
+                $('#lst_files').modal('show');
 
-            $tr = $(this).closest('tr');
-            var data = $tr.children("td").map(function() {
-                return $(this).text();
-            }).get();
-            console.log(data);
+                $tr = $(this).closest('tr');
+                var data = $tr.children("td").map(function() {
+                    return $(this).text();
+                }).get();
+                console.log(data);
 
-            $('#id_usu_soli').val(data[4]);
-            $('#dni_usu_soli').val(data[5]);
-        });
-
-
-        $('.btn_ver_files_2').on('click', function() {
-            console.log("test");
-            $('#lst_files_2').modal('show');
-
-            $tr = $(this).closest('tr');
-            var data = $tr.children("td").map(function() {
-                return $(this).text();
-            }).get();
-            console.log(data);
-
-        });
-
-        function load_documents(){
-
-            var dni = '<?php echo $_SESSION['dni'] ?>';
-            var id_cli = '<?php echo $_SESSION['id_usu'] ?>';
-            var _id_tipo_doc = $('#_id_tipo_doc_lgl').val();
-
-            $.ajax({
-                type: 'POST',
-                url: '../Controller/obtener_files.php',
-                data: {
-                    id_client: id_cli,
-                    dni_client: dni,
-                    id_tipo_doc:_id_tipo_doc
-                },
-                success: function(response) {
-                    var data  = JSON.parse(response);
-
-                    var archivos = data.archivos;
-                    var estado_doc = data.status_doc;
-
-                    var cod_doc_, ruta_doc,nom_file;
-
-                    if (archivos && archivos.length > 0) {
-                        var enlaceHtml = '';
-
-                        archivos.forEach(function(archivo) {
-                            var ruta = archivo.ruta;
-                            var nombreArchivo = archivo.archivo;
-                            var estado = archivo.estado;
-                            var id_doc_ = archivo.id_doc;
-                            var status_r = '';
+                $('#id_usu_soli').val(data[4]);
+                $('#dni_usu_soli').val(data[5]);
+            });
 
 
-                            var delete_btn = $('<button>').text('Eliminar').attr('class', 'btn btn-block btn-danger');
+            $('.btn_ver_files_2').on('click', function() {
+                console.log("test");
+                $('#lst_files_2').modal('show');
 
-                            enlaceHtml += `
+                $tr = $(this).closest('tr');
+                var data = $tr.children("td").map(function() {
+                    return $(this).text();
+                }).get();
+                console.log(data);
+
+            });
+
+            function load_documents() {
+
+                var dni = '<?php echo $_SESSION['dni'] ?>';
+                var id_cli = '<?php echo $_SESSION['id_usu'] ?>';
+                var _id_tipo_doc = $('#_id_tipo_doc_lgl').val();
+
+                $.ajax({
+                    type: 'POST',
+                    url: '../Controller/obtener_files.php',
+                    data: {
+                        id_client: id_cli,
+                        dni_client: dni,
+                        id_tipo_doc: _id_tipo_doc
+                    },
+                    success: function(response) {
+                        var data = JSON.parse(response);
+
+                        var archivos = data.archivos;
+                        var estado_doc = data.status_doc;
+
+                        var cod_doc_, ruta_doc, nom_file;
+
+                        if (archivos && archivos.length > 0) {
+                            var enlaceHtml = '';
+
+                            archivos.forEach(function(archivo) {
+                                var ruta = archivo.ruta;
+                                var nombreArchivo = archivo.archivo;
+                                var estado = archivo.estado;
+                                var id_doc_ = archivo.id_doc;
+                                var status_r = '';
+
+
+                                var delete_btn = $('<button>').text('Eliminar').attr('class', 'btn btn-block btn-danger');
+
+                                enlaceHtml += `
                                             
                                             <div class="col-sm-4">
                                                 <div class="lgl-modal-num">
@@ -746,287 +746,286 @@
                                             </div>
                                             `;
 
-                        });
+                            });
 
-                        document.getElementById('descarga_archivo_m').innerHTML = enlaceHtml;
+                            document.getElementById('descarga_archivo_m').innerHTML = enlaceHtml;
 
-                    } else {
+                        } else {
 
-                        document.getElementById('descarga_archivo_m').textContent = 'Archivo no encontrado';
+                            document.getElementById('descarga_archivo_m').textContent = 'Archivo no encontrado';
+                        }
+
+                    },
+                    error: function(xhr, status, error) {
+                        console.log(error);
                     }
-
-                },
-                error: function(xhr, status, error) {
-                    console.log(error);
-                }
-            });
-        }
-
-        function eliminarArchivo($deleteBtn, cod_doc_, ruta_doc, ruta_archivo){
-
-            var dni = '<?php echo $_SESSION['dni'] ?>';
-            var id_cli = '<?php echo $_SESSION['id_usu'] ?>';
-            var _id_tipo_doc = $('#_id_tipo_doc_lgl').val();
-
-            $.ajax({
-                type: 'POST',
-                url: '../Controller/eliminarArchivos.php',
-                data: {
-                    id_client: id_cli,
-                    dni_client: dni,
-                    cod_doc_: cod_doc_,
-                    ruta_doc: ruta_doc,
-                    ruta_archivo: ruta_archivo,
-                },
-                success: function(response) {
-                    console.log("archivo eliminado con ID: " + cod_doc_);
-                    $deleteBtn.closest('.modal').modal('hide');
-                    //load_documents();
-                },
-                complete: function() {
-                    load_documents();
-                    setTimeout(function() {
-                        $('#lst_hr_0').modal('show');
-                    }, 500);
-
-                }
-            });
-        }
-
-        $(document).on('click', '.dlt_file', function() {
-            var $this = $(this);
-            console.log("probando botón");
-
-            var confirmar_ = window.confirm('¿Estás seguro de que deseas eliminar este archivo?');
-
-            if (confirmar_) {
-                var $parentDiv = $(this).closest('.inputs').parent();
-
-                var cod_doc_ = $parentDiv.find('#cod_doc_i').val();
-                var ruta_doc = $parentDiv.find('#ruta_doc_i').val();
-                var ruta_archivo = $parentDiv.find('#ruta_archivo_i').val();
-
-                eliminarArchivo($this,cod_doc_, ruta_doc, ruta_archivo);
-
-                console.log("archivo eliminado");
-            } else {
-                console.log("cancelado");
+                });
             }
-        });
 
+            function eliminarArchivo($deleteBtn, cod_doc_, ruta_doc, ruta_archivo) {
 
-        $('.btn_lst_hr').on('click', function() {
-            console.log("Botón seleccionado");
+                var dni = '<?php echo $_SESSION['dni'] ?>';
+                var id_cli = '<?php echo $_SESSION['id_usu'] ?>';
+                var _id_tipo_doc = $('#_id_tipo_doc_lgl').val();
 
-            var valor1 = $(this).data('valor');
-            var titulo_ = $(this).data('titulo');
-            var _id_doc_lgl = $(this).data('id_doc_');
+                $.ajax({
+                    type: 'POST',
+                    url: '../Controller/eliminarArchivos.php',
+                    data: {
+                        id_client: id_cli,
+                        dni_client: dni,
+                        cod_doc_: cod_doc_,
+                        ruta_doc: ruta_doc,
+                        ruta_archivo: ruta_archivo,
+                    },
+                    success: function(response) {
+                        console.log("archivo eliminado con ID: " + cod_doc_);
+                        $deleteBtn.closest('.modal').modal('hide');
+                        //load_documents();
+                    },
+                    complete: function() {
+                        load_documents();
+                        setTimeout(function() {
+                            $('#lst_hr_0').modal('show');
+                        }, 500);
 
-            $('#_id_tipo_doc_lgl').val(_id_doc_lgl);
-            $('#_concept').val(valor1);
-            $('#titulo_docs').text(titulo_);
-
-            var concepto = $('#_concept').val();
-
-            var titulo_modal = $('#titulo_docs').val();
-
-
-
-            /*console.log(titulo_modal);
-            console.log(concepto);*/
-
-            load_documents();
-
-            $('#lst_hr_0').modal('show');
-
-
-        });
-
-
-        //codigo para el admin y ver los documentos de cada usuario
-
-        $('.btn_ver_tipos_0').on('click', function() {
-            console.log("test");
-
-            $('#lst_docs_1').modal('show');
-
-            //valores de los inputs del modal lst_files
-            var id_usu_soli = $('#id_usu_soli').val();
-            var dni_usu_soli = $('#dni_usu_soli').val();
-
-            //valores a los inputs en el modal lst_docs_1
-            $('#lst_docs_1').find('#id_client_0').val(id_usu_soli);
-            $('#lst_docs_1').find('#dni_client_0').val(dni_usu_soli);
-
-            console.log('e?'+id_usu_soli);
-            console.log('pop'+dni_usu_soli);
-
-            $tr = $(this).closest('tr');
-            var data = $tr.children("td").map(function() {
-                return $(this).text();
-            }).get();
-            console.log(data);
-
-
-            var id_doc_lgl_0 = $(this).data('id_doc');
-            var nom_doc_lgl_0 = $(this).data('nom_doc');
-
-            console.log(id_doc_lgl_0);
-            console.log(nom_doc_lgl_0);
-
-            $('#id_tipo_doc_lgl_0').val(id_doc_lgl_0);
-
-            $('#_concept_doc_0').val(nom_doc_lgl_0);
-
-
-            var concept =  $('#_concept_doc_0').val();
-            var id_tipo_doc_ = $('#id_tipo_doc_lgl_0').val();
-
-            $.ajax({
-                type: 'POST',
-                url: '../Controller/obtener_files_client.php',
-                data: {
-                    _concept_doc:concept,
-                    id_client: id_usu_soli,
-                    dni_client: dni_usu_soli,
-                    id_tipo_doc: id_tipo_doc_
-                },
-                success: function(response) {
-                    var data  = JSON.parse(response);
-
-                    var archivos = data.archivos;
-                    var estado_doc = data.status_doc;
-
-
-                    if (archivos && archivos.length > 0) {
-                        var enlaceHtml = '';
-
-                        archivos.forEach(function(archivo) {
-                            var ruta = archivo.ruta;
-                            var nombreArchivo = archivo.archivo;
-                            var estado = archivo.estado;
-                            var status_r = '';
-
-                            enlaceHtml += '<div>';
-                            enlaceHtml += '<a href="' + ruta + nombreArchivo+'">' + nombreArchivo + '</a> &nbsp';
-
-                            enlaceHtml += '<i>' + status_r + '</i><br>';
-
-                            enlaceHtml += '<select name="cbo_estados" id="cbo_estados">';
-
-                            if (estado === '500') {
-                                enlaceHtml += '<option value=""selected>Pendiente</option>';
-                                enlaceHtml += '<option value="">En revisión</option>';
-                                enlaceHtml += '<option value="">Finalizado</option>';
-                            } else if (estado === '405') {
-                                enlaceHtml += '<option value="">Pendiente</option>';
-                                enlaceHtml += '<option value="" selected>En revisión</option>';
-                                enlaceHtml += '<option value="">Finalizado</option>';
-                            } else if (estado === '200') {
-                                enlaceHtml += '<option value="">Pendiente</option>';
-                                enlaceHtml += '<option value="">En revisión</option>';
-                                enlaceHtml += '<option value="" selected>Finalizado</option>';
-                            }
-                             enlaceHtml += '</select><br>';
-                             enlaceHtml += '</div>';
-                        });
-
-                        document.getElementById('descarga_archivo_ul').innerHTML = enlaceHtml;
-
-                    } else {
-
-                        document.getElementById('descarga_archivo_ul').textContent = 'Archivo no encontrado';
                     }
+                });
+            }
 
-                },
-                error: function(xhr, status, error) {
-                    console.log(error);
-                }
-            });
+            $(document).on('click', '.dlt_file', function() {
+                var $this = $(this);
+                console.log("probando botón");
 
-        });
-        //codigo para el admin y ver los documentos de cada usuario
+                var confirmar_ = window.confirm('¿Estás seguro de que deseas eliminar este archivo?');
 
+                if (confirmar_) {
+                    var $parentDiv = $(this).closest('.inputs').parent();
 
+                    var cod_doc_ = $parentDiv.find('#cod_doc_i').val();
+                    var ruta_doc = $parentDiv.find('#ruta_doc_i').val();
+                    var ruta_archivo = $parentDiv.find('#ruta_archivo_i').val();
 
-        //codigo para el usuario comun vea sus propios documentos
+                    eliminarArchivo($this, cod_doc_, ruta_doc, ruta_archivo);
 
-        $('.btn_ver_tipos').on('click', function() {
-
-            $('#lst_docs_0').modal('show');
-
-            var id_doc_lgl = $(this).data('id_doc');
-            var nom_doc_lgl = $(this).data('nom_doc');
-
-            console.log(id_doc_lgl);
-            console.log(nom_doc_lgl);
-
-            $('#id_tipo_doc_lgl').val(id_doc_lgl);
-
-            $('#_concept_doc').val(nom_doc_lgl);
-
-
-
-            var concept =  $('#_concept_doc').val();
-            var id_tipo_doc_ = $('#id_tipo_doc_lgl').val();
-
-            var dni = '<?php echo $_SESSION['dni'] ?>';
-            var id_cli = '<?php echo $_SESSION['id_usu'] ?>';
-
-            $.ajax({
-                type: 'POST',
-                url: '../Controller/obtener_files_client.php',
-                data: {
-                    _concept_doc:concept,
-                    id_client: id_cli,
-                    dni_client: dni,
-                    id_tipo_doc: id_tipo_doc_
-                },
-                success: function(response) {
-                    var data  = JSON.parse(response);
-
-                    var archivos = data.archivos;
-                    var estado_doc = data.status_doc;
-
-
-                    if (archivos && archivos.length > 0) {
-                        var enlaceHtml = '';
-
-                        archivos.forEach(function(archivo) {
-                            var ruta = archivo.ruta;
-                            var nombreArchivo = archivo.archivo;
-                            var estado = archivo.estado;
-                            var status_r = '';
-
-
-                            enlaceHtml += '<a href="' + ruta + nombreArchivo+'">' + nombreArchivo + '</a> &nbsp';
-
-                             if (estado==500) {
-                                status_r = 'Pendiente'
-                            }
-                            enlaceHtml += '<i>' + status_r + '</i><br>';
-                        });
-
-                        document.getElementById('descarga_archivo_s').innerHTML = enlaceHtml;
-
-                    } else {
-
-                        document.getElementById('descarga_archivo_s').textContent = 'Archivo no encontrado';
-                    }
-
-                },
-                error: function(xhr, status, error) {
-                    console.log(error);
+                    console.log("archivo eliminado");
+                } else {
+                    console.log("cancelado");
                 }
             });
 
 
+            $('.btn_lst_hr').on('click', function() {
+                console.log("Botón seleccionado");
+
+                var valor1 = $(this).data('valor');
+                var titulo_ = $(this).data('titulo');
+                var _id_doc_lgl = $(this).data('id_doc_');
+
+                $('#_id_tipo_doc_lgl').val(_id_doc_lgl);
+                $('#_concept').val(valor1);
+                $('#titulo_docs').text(titulo_);
+
+                var concepto = $('#_concept').val();
+
+                var titulo_modal = $('#titulo_docs').val();
+
+
+
+                /*console.log(titulo_modal);
+                console.log(concepto);*/
+
+                load_documents();
+
+                $('#lst_hr_0').modal('show');
+
+
+            });
+
+
+            //codigo para el admin y ver los documentos de cada usuario
+
+            $('.btn_ver_tipos_0').on('click', function() {
+                console.log("test");
+
+                $('#lst_docs_1').modal('show');
+
+                //valores de los inputs del modal lst_files
+                var id_usu_soli = $('#id_usu_soli').val();
+                var dni_usu_soli = $('#dni_usu_soli').val();
+
+                //valores a los inputs en el modal lst_docs_1
+                $('#lst_docs_1').find('#id_client_0').val(id_usu_soli);
+                $('#lst_docs_1').find('#dni_client_0').val(dni_usu_soli);
+
+                console.log('e?' + id_usu_soli);
+                console.log('pop' + dni_usu_soli);
+
+                $tr = $(this).closest('tr');
+                var data = $tr.children("td").map(function() {
+                    return $(this).text();
+                }).get();
+                console.log(data);
+
+
+                var id_doc_lgl_0 = $(this).data('id_doc');
+                var nom_doc_lgl_0 = $(this).data('nom_doc');
+
+                console.log(id_doc_lgl_0);
+                console.log(nom_doc_lgl_0);
+
+                $('#id_tipo_doc_lgl_0').val(id_doc_lgl_0);
+
+                $('#_concept_doc_0').val(nom_doc_lgl_0);
+
+
+                var concept = $('#_concept_doc_0').val();
+                var id_tipo_doc_ = $('#id_tipo_doc_lgl_0').val();
+
+                $.ajax({
+                    type: 'POST',
+                    url: '../Controller/obtener_files_client.php',
+                    data: {
+                        _concept_doc: concept,
+                        id_client: id_usu_soli,
+                        dni_client: dni_usu_soli,
+                        id_tipo_doc: id_tipo_doc_
+                    },
+                    success: function(response) {
+                        var data = JSON.parse(response);
+
+                        var archivos = data.archivos;
+                        var estado_doc = data.status_doc;
+
+
+                        if (archivos && archivos.length > 0) {
+                            var enlaceHtml = '';
+
+                            archivos.forEach(function(archivo) {
+                                var ruta = archivo.ruta;
+                                var nombreArchivo = archivo.archivo;
+                                var estado = archivo.estado;
+                                var status_r = '';
+
+                                enlaceHtml += '<div>';
+                                enlaceHtml += '<a href="' + ruta + nombreArchivo + '">' + nombreArchivo + '</a> &nbsp';
+
+                                enlaceHtml += '<i>' + status_r + '</i><br>';
+
+                                enlaceHtml += '<select name="cbo_estados" id="cbo_estados">';
+
+                                if (estado === '500') {
+                                    enlaceHtml += '<option value=""selected>Pendiente</option>';
+                                    enlaceHtml += '<option value="">En revisión</option>';
+                                    enlaceHtml += '<option value="">Finalizado</option>';
+                                } else if (estado === '405') {
+                                    enlaceHtml += '<option value="">Pendiente</option>';
+                                    enlaceHtml += '<option value="" selected>En revisión</option>';
+                                    enlaceHtml += '<option value="">Finalizado</option>';
+                                } else if (estado === '200') {
+                                    enlaceHtml += '<option value="">Pendiente</option>';
+                                    enlaceHtml += '<option value="">En revisión</option>';
+                                    enlaceHtml += '<option value="" selected>Finalizado</option>';
+                                }
+                                enlaceHtml += '</select><br>';
+                                enlaceHtml += '</div>';
+                            });
+
+                            document.getElementById('descarga_archivo_ul').innerHTML = enlaceHtml;
+
+                        } else {
+
+                            document.getElementById('descarga_archivo_ul').textContent = 'Archivo no encontrado';
+                        }
+
+                    },
+                    error: function(xhr, status, error) {
+                        console.log(error);
+                    }
+                });
+
+            });
+            //codigo para el admin y ver los documentos de cada usuario
+
+
+
+            //codigo para el usuario comun vea sus propios documentos
+
+            $('.btn_ver_tipos').on('click', function() {
+
+                $('#lst_docs_0').modal('show');
+
+                var id_doc_lgl = $(this).data('id_doc');
+                var nom_doc_lgl = $(this).data('nom_doc');
+
+                console.log(id_doc_lgl);
+                console.log(nom_doc_lgl);
+
+                $('#id_tipo_doc_lgl').val(id_doc_lgl);
+
+                $('#_concept_doc').val(nom_doc_lgl);
+
+
+
+                var concept = $('#_concept_doc').val();
+                var id_tipo_doc_ = $('#id_tipo_doc_lgl').val();
+
+                var dni = '<?php echo $_SESSION['dni'] ?>';
+                var id_cli = '<?php echo $_SESSION['id_usu'] ?>';
+
+                $.ajax({
+                    type: 'POST',
+                    url: '../Controller/obtener_files_client.php',
+                    data: {
+                        _concept_doc: concept,
+                        id_client: id_cli,
+                        dni_client: dni,
+                        id_tipo_doc: id_tipo_doc_
+                    },
+                    success: function(response) {
+                        var data = JSON.parse(response);
+
+                        var archivos = data.archivos;
+                        var estado_doc = data.status_doc;
+
+
+                        if (archivos && archivos.length > 0) {
+                            var enlaceHtml = '';
+
+                            archivos.forEach(function(archivo) {
+                                var ruta = archivo.ruta;
+                                var nombreArchivo = archivo.archivo;
+                                var estado = archivo.estado;
+                                var status_r = '';
+
+
+                                enlaceHtml += '<a href="' + ruta + nombreArchivo + '">' + nombreArchivo + '</a> &nbsp';
+
+                                if (estado == 500) {
+                                    status_r = 'Pendiente'
+                                }
+                                enlaceHtml += '<i>' + status_r + '</i><br>';
+                            });
+
+                            document.getElementById('descarga_archivo_s').innerHTML = enlaceHtml;
+
+                        } else {
+
+                            document.getElementById('descarga_archivo_s').textContent = 'Archivo no encontrado';
+                        }
+
+                    },
+                    error: function(xhr, status, error) {
+                        console.log(error);
+                    }
+                });
+
+
+            });
+
+            //codigo para el usuario comun y ver sus documentos
+
         });
-
-        //codigo para el usuario comun y ver sus documentos
-
-    });
-
     </script>
 
 
@@ -1059,14 +1058,14 @@
 
             // Actualizar la lista de archivos en el área de arrastre
             //function actualizarListaArchivos(files) {
-                //const fileArchives = dropArea.querySelector(".file-archives");
-                //fileArchives.innerHTML = "";
+            //const fileArchives = dropArea.querySelector(".file-archives");
+            //fileArchives.innerHTML = "";
 
-                //for (const file of files) {
-                    //const fileDiv = document.createElement("div");
-                    //fileDiv.textContent = file.name;
-                    //fileArchives.appendChild(fileDiv);
-                //}
+            //for (const file of files) {
+            //const fileDiv = document.createElement("div");
+            //fileDiv.textContent = file.name;
+            //fileArchives.appendChild(fileDiv);
+            //}
             //}
 
             // Habilitar o deshabilitar el botón de registrar según la cantidad de archivos seleccionados
