@@ -533,10 +533,7 @@
     <!-- MODALES -->
 
     <!-- REQUIRED SCRIPTS -->
-    <script src="../Vista/js/stepper.js"></script>
-    <script src="../Vista/js/resume.js"></script>
     <script src="../Vista/assets/functions.js"></script>
-
 
     <!-- jQuery -->
     <script src="../Vista/plugins/jquery/jquery.min.js"></script>
@@ -709,10 +706,10 @@
                             var delete_btn = $('<button>').text('Eliminar').attr('class', 'btn btn-block btn-danger');
 
                             enlaceHtml += `
-
+                                            
                                             <div class="col-sm-4">
                                                 <div class="lgl-modal-num">
-                                                    1
+                                                    c
                                                 </div>
                                             </div>
 
@@ -722,12 +719,17 @@
 
                                             <div class="tw-modal-ots">
                                                 <div class="row">
-                                                    <div class="brd-rght-blue">
-                                                        <i class="cursor fa-solid fa-trash"></i>
-                                                        <button id="dlt_file" type="button" class="btn btn-danger dlt_file">Eliminar</button>
+                                                    <div class="inputs">
+                                                        <input id="ruta_doc_i" type="text" value="${ruta}" readonly hidden>
+                                                        <input id="ruta_archivo_i" type="text" value="${nombreArchivo}" readonly hidden>
+                                                        <input id="cod_doc_i" type="text" value="${id_doc_}" readonly hidden>
+                                                        
+                                                        <div class="brd-rght-blue">
+                                                            <i class="cursor fa-solid fa-trash"></i>
+                                                            <button id="dlt_file" type="button" class="btn btn-danger dlt_file">Eliminar</button>
+                                                        </div>
                                                     </div>
                                                     <div>
-
                                                         <i class="cursor fa-solid fa-download"></i>
                                                     </div>
                                                 </div>
@@ -788,11 +790,11 @@
             var confirmar_ = window.confirm('¿Estás seguro de que deseas eliminar este archivo?');
 
             if (confirmar_) {
-                var $parentLi = $(this).closest('li');
+                var $parentDiv = $(this).closest('.inputs').parent();
 
-                var cod_doc_ = $parentLi.find('#cod_doc_i').val();
-                var ruta_doc = $parentLi.find('#ruta_doc_i').val();
-                var ruta_archivo = $parentLi.find('#ruta_archivo_i').val();
+                var cod_doc_ = $parentDiv.find('#cod_doc_i').val();
+                var ruta_doc = $parentDiv.find('#ruta_doc_i').val();
+                var ruta_archivo = $parentDiv.find('#ruta_archivo_i').val();
 
                 eliminarArchivo($this,cod_doc_, ruta_doc, ruta_archivo);
 
