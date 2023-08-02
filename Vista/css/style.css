@@ -309,7 +309,7 @@ h2 {
   border-bottom: 10px solid transparent;
 }
 
-.table tbody td div .options {
+ .options {
   width: 40px;
   height: 40px;
   display: flex;
@@ -317,11 +317,11 @@ h2 {
   align-items: center;
 }
 
-.table tbody td div .options .options {
+.options .options {
   cursor: pointer;
 }
 
-.table tbody td div .options .options:hover {
+ .options .options:hover {
   border-radius: 5px;
   background-color: rgba(0, 0, 0, 0.1);
 }

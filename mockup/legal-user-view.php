@@ -108,11 +108,9 @@
                                         <div class="col-sm-8 brd-rght-blue d-flex align-items-center">
                                             <span class="mak-txt bld">HR</span>
                                         </div>
-                                        <div class="tw-modal-ots">
-                                            <div class="row">
-                                                <div>
-                                                    <i class="cursor fa-solid fa-eye"></i>
-                                                </div>
+                                        <div class="col-sm-2 justify-content-center options">
+                                            <div class="options">
+                                                <i class="fa-solid fa-eye"></i>
                                             </div>
                                         </div>
                                     </div>
