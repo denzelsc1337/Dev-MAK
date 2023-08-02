@@ -13,7 +13,6 @@ if (isset($_POST['btn_save_solic'])) {
 
     if ($r == 1) {
     ?>
-
     <script type="text/javascript"> alert("Solicitud guardada") </script>
     <META http-equiv='Refresh' content = '0.2; URL =../Legal/InfoLegal.php'>;
   <?php

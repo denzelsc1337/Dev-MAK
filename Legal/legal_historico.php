@@ -42,7 +42,7 @@ require_once('../Controller/controladorListar.php');
 
 </head>
 
-<body class="hold-transition sidebar-mini  sidebar-collapse layout-fixed layout-navbar-fixed layout-footer-fixed" onload="initAutocomplete()">
+<body class="hold-transition sidebar-mini  sidebar-collapse layout-fixed layout-navbar-fixed layout-footer-fixed">
 
     <div class="wrapper">
 
@@ -103,7 +103,6 @@ require_once('../Controller/controladorListar.php');
                                             </td>
                                             <td hidden><?php echo $lst_legal_d[4] ?></td>
                                             <td hidden><?php echo $lst_legal_d[5] ?></td>
-
                                             <td >
                                                 <div class="row justify-content-evenly">
                                                     <div class="col-sm-4 justify-content-center options brd-rght-blue">
@@ -118,7 +117,9 @@ require_once('../Controller/controladorListar.php');
                                                     </div>
                                                     <div class="col-sm-4 justify-content-center options">
                                                         <div class="options">
-                                                            <i class="fa-solid fa-eye"></i>
+                                                            <button type="button" class="btn btn-rounded find_data" id="get_data">
+                                                                <i class="fa-solid fa-eye"></i>
+                                                            </button>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -147,6 +148,10 @@ require_once('../Controller/controladorListar.php');
         <?php include '../Vista/foot-form.php' ?>
 
     </div>
+
+
+
+
     <!-- CUSTOM JS -->
     <script type="text/javascript">
 
@@ -154,9 +159,10 @@ require_once('../Controller/controladorListar.php');
     <!-- CUSTOM JS -->
 
     <!-- REQUIRED SCRIPTS -->
-    <script src="../Vista/js/stepper.js"></script>
-    <script src="../Vista/js/resume.js"></script>
     <script src="../Vista/assets/functions.js"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/viewerjs/dist/viewer.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/viewerjs/dist/viewer.min.js"></script>
 
 
     <!-- jQuery -->
@@ -187,7 +193,50 @@ require_once('../Controller/controladorListar.php');
     <!-- Page specific script -->
 
 
-    <script src="../Vista/assets/selection_types.js"></script>
+
+    <script>
+
+
+        $('.find_data').on('click', function() {
+            console.log("testing");
+
+            $tr = $(this).closest('tr');
+
+            var data = $tr.children("td").map(function() {
+                return $(this).text();
+            }).get();
+
+            console.log(data);
+
+            var id_soli = data[0];
+            var id_cli = data[4];
+            var dni_cli = data[5];
+
+            console.log(dni_cli);
+
+            $.ajax({
+                type: 'GET',
+                url: '../Controller/get_data_solic.php',
+                data: {
+                    id_solic: id_soli,
+                    id_client: id_cli,
+                    dni_client: dni_cli
+                },
+                success: function(response) {
+                    console.log("Revisando data de la solicitud: " + id_soli);
+                },
+                beforeSend:function(){
+                    console.log("loading");
+                }
+            });
+
+
+
+        });
+
+
+
+    </script>
 </body>
 
 </html>

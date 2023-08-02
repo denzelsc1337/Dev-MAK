@@ -724,6 +724,7 @@
                                             </div>
 
                                             <div class="col-sm-8">
+                                                <img src="#" id="loader" style="display: none;">
                                                 <a href="${ruta}${nombreArchivo}">${nombreArchivo}</a>
                                             </div>
 
