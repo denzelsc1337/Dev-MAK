@@ -10,10 +10,12 @@ body {
   background-color: #f8fafb;
   color: var(--blue-mak) !important;
 }
+
 select.form-mak option {
   background-color: transparent;
   border: none;
 }
+
 p {
   color: var(--white-mak);
   font-weight: 300;
@@ -38,6 +40,7 @@ h6,
   /* border-radius: var(--radius-20); */
   border-radius: 20px 0 0 20px;
 }
+
 .bor-lft-20 {
   /* border-radius: var(--radius-20); */
   border-radius: 0 20px 20px 0;
@@ -68,15 +71,23 @@ a:hover {
 .mak-txt {
   color: var(--blue-mak) !important;
 }
+
+.mak-txt.bld {
+  font-weight: 900;
+}
+
 .mak-wht {
   color: var(--white-mak) !important;
 }
+
 .mak-bg {
   background-color: var(--blue-mak) !important;
 }
+
 .mak-bg-sec {
   background-color: var(--yell-mak) !important;
 }
+
 .txt-center {
   text-align: center;
 }
@@ -84,6 +95,7 @@ a:hover {
 .active .bs-stepper-circle {
   background-color: var(--blue-mak) !important;
 }
+
 .mak {
   height: 100%;
   display: flex;
@@ -108,7 +120,8 @@ a:hover {
 }
 
 .lista.visible {
-  display: block; /* Mostramos la lista si tiene la clase 'visible' */
+  display: block;
+  /* Mostramos la lista si tiene la clase 'visible' */
 }
 
 .lista li {
@@ -124,7 +137,8 @@ a:hover {
 .lista li.disabled-li {
   /* Estilos para simular un elemento <li> deshabilitado */
   color: #ccc;
-  pointer-events: none; /* Evitar interacción con el elemento */
+  pointer-events: none;
+  /* Evitar interacción con el elemento */
 }
 
 .card-login {
@@ -177,6 +191,7 @@ h2 {
 }
 
 @media (max-width: 1199.98px) {
+
   .content .contents,
   .content .bg {
     width: 100%;
@@ -193,20 +208,24 @@ h2 {
 .card-login p {
   color: white !important;
 }
+
 .forgot .card-login,
 .forgot .card-login p {
   color: var(--blue-mak) !important;
 }
+
 .header-login {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 1.5rem 1rem;
 }
+
 .body-login {
   margin: 0 auto;
   text-align: center;
 }
+
 .card-login h1 {
   font-size: 50px;
 }
@@ -219,6 +238,7 @@ h2 {
 .forgot .card-login p {
   margin-bottom: 1rem;
 }
+
 .forgot .card-login p:nth-child(3) {
   font-weight: bold;
 }
@@ -234,6 +254,7 @@ h2 {
   justify-content: center;
   gap: 15px;
 }
+
 .footer-login .footer-social span {
   /* display: block; */
   display: flex;
@@ -247,11 +268,13 @@ h2 {
   /* padding: 5px 10px; */
   /* font-size: 40px; */
 }
+
 .footer-login .footer-social span a {
   font-size: 30px;
   position: relative;
   top: 2px;
 }
+
 /* LOGIN */
 
 /* VALORIZACION */
@@ -259,6 +282,7 @@ h2 {
   max-width: 85%;
   margin: auto;
 }
+
 /* VALORIZACION */
 
 /*  */
@@ -273,6 +297,7 @@ h2 {
 .table thead tr th:first-child {
   border-radius: 20px 0 0 0;
 }
+
 .table thead tr th:last-child {
   border-radius: 0 20px 0 0;
 }
@@ -284,18 +309,19 @@ h2 {
   border-bottom: 10px solid transparent;
 }
 
-.table tbody td div .options {
+ .options {
   width: 40px;
   height: 40px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.table tbody td div .options .options {
+
+.options .options {
   cursor: pointer;
 }
 
-.table tbody td div .options .options:hover {
+ .options .options:hover {
   border-radius: 5px;
   background-color: rgba(0, 0, 0, 0.1);
 }
@@ -324,10 +350,11 @@ h2 {
   padding-right: 7px !important;
 }
 
-.custom-control-input:checked ~ .custom-control-label::before {
+.custom-control-input:checked~.custom-control-label::before {
   border-color: var(--blue-mak) !important;
   background-color: var(--blue-mak) !important;
 }
+
 .select2-container--default .select2-selection--single,
 .form-mak,
 .form-group select {
@@ -341,6 +368,7 @@ h2 {
   font-weight: bold;
   border-bottom: 1px solid var(--blue-mak) !important;
 }
+
 /* .select2.select2-container.select2-container--default {
   padding: 0px 5px !important;
 } */
@@ -370,10 +398,12 @@ h2 {
   color: var(--blue-mak);
   border-bottom: 1px solid var(--blue-mak);
 }
+
 .form-mak::placeholder {
   color: var(--blue-mak);
   font-weight: bold;
 }
+
 .btn-mak {
   color: white !important;
   padding: 5px 30px !important;
@@ -393,8 +423,7 @@ h2 {
   margin-bottom: 1.5rem;
 }
 
-.body-mak {
-}
+.body-mak {}
 
 .footer-mak {
   padding: 5rem 0;
@@ -448,9 +477,11 @@ h2 {
   bottom: -40px;
   transition: all 1s ease;
 }
+
 .card-mak .card-intro-txt a {
   text-decoration: none;
 }
+
 .card-mak .card-intro-txt h1 {
   font-weight: bold;
 }
@@ -485,6 +516,7 @@ h2 {
 .card-mak:hover .card-intro-txt {
   transform: translateY(-40px);
 }
+
 .card-mak:hover .card-intro-txt p {
   opacity: 1;
   transition: 1.5s;
@@ -495,8 +527,7 @@ h2 {
   border-radius: var(--radius-20);
 }
 
-.card-mak img:hover {
-}
+.card-mak img:hover {}
 
 .upload-file {
   width: 100%;
@@ -514,6 +545,7 @@ h2 {
   gap: 50px;
   justify-content: flex-end;
 }
+
 /*  */
 
 .content .contents .form-group,
@@ -691,21 +723,21 @@ h2 {
   border-radius: 50%;
 }
 
-.control:hover input ~ .control__indicator,
-.control input:focus ~ .control__indicator {
+.control:hover input~.control__indicator,
+.control input:focus~.control__indicator {
   background: #ccc;
 }
 
-.control input:checked ~ .control__indicator {
+.control input:checked~.control__indicator {
   background: #6c63ff;
 }
 
-.control:hover input:not([disabled]):checked ~ .control__indicator,
-.control input:checked:focus ~ .control__indicator {
+.control:hover input:not([disabled]):checked~.control__indicator,
+.control input:checked:focus~.control__indicator {
   background: #847dff;
 }
 
-.control input:disabled ~ .control__indicator {
+.control input:disabled~.control__indicator {
   background: #e6e6e6;
   opacity: 0.9;
   pointer-events: none;
@@ -722,7 +754,7 @@ h2 {
   transition: 0.3s all ease;
 }
 
-.control input:checked ~ .control__indicator:after {
+.control input:checked~.control__indicator:after {
   display: block;
   color: #fff;
 }
@@ -736,11 +768,11 @@ h2 {
   transform: translate(-50%, -50%);
 }
 
-.control--checkbox input:disabled ~ .control__indicator:after {
+.control--checkbox input:disabled~.control__indicator:after {
   border-color: #7b7b7b;
 }
 
-.control--checkbox input:disabled:checked ~ .control__indicator {
+.control--checkbox input:disabled:checked~.control__indicator {
   background-color: #7e0cf5;
   opacity: 0.2;
 }
@@ -782,6 +814,20 @@ h2 {
 .section-input input,
 .section-input select {
   padding-left: 40px !important;
+}
+
+textarea {
+  width: 100%;
+  border-style: none;
+  border-bottom: 1px solid var(--blue-mak);
+}
+
+textarea:focus {
+  outline: 0px;
+}
+
+textarea::-webkit-scrollbar {
+  width: 0;
 }
 
 /* INPUT PERSONALIZADO */
@@ -883,7 +929,7 @@ h2 {
   width: 20px;
 }
 
-.down.custom-control-input:checked ~ .custom-control-label::before,
+.down.custom-control-input:checked~.custom-control-label::before,
 .down.custom-control-label::before,
 .down.custom-control-label::after {
   top: 35px !important;
@@ -892,7 +938,7 @@ h2 {
   height: 1.5rem !important;
 }
 
-.right.custom-control-input:checked ~ .custom-control-label::before,
+.right.custom-control-input:checked~.custom-control-label::before,
 .right.custom-control-label::before,
 .right.custom-control-label::after {
   top: -2px !important;
@@ -901,15 +947,11 @@ h2 {
   height: 1.5rem !important;
 }
 
-.custom-radio
-  .down.custom-control-input:checked
-  ~ .custom-control-label::after {
+.custom-radio .down.custom-control-input:checked~.custom-control-label::after {
   background-image: none !important;
 }
 
-.custom-radio
-  .right.custom-control-input:checked
-  ~ .custom-control-label::after {
+.custom-radio .right.custom-control-input:checked~.custom-control-label::after {
   background-image: none !important;
 }
 
@@ -1169,6 +1211,7 @@ form .form-content {
   font-size: 11px;
   cursor: pointer;
 }
+
 .file-archives .archive-item .drop-item i {
   font-size: 11px;
   margin: 0;

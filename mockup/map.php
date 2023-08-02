@@ -47,81 +47,29 @@
 
         <div class="content-wrapper">
 
-            <section class="content mak-forms">
+            <section class="content">
                 <!-- <header class="header-mak">
                     <h1 class="title">¿Más de 2,000 propiedades <br> esperan por ti!</h1>
                 </header> -->
 
                 <?php include '../Vista/head-form.php' ?>
 
-                <div class="container">
 
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-sm-6">
-                                <div class="row">
-                                    <div class="col-sm-6">
-                                        <div class="form-group">
-                                            <label class="mak-txt">Nombres y Apellidos</label>
-                                            <input type="text" class="form-mak">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-sm-6">
-                                        <div class="form-group">
-                                            <label class="mak-txt">Dirección</label>
-                                            <input type="text" class="form-mak">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-sm-6">
-                                        <div class="form-group">
-                                            <label class="mak-txt">Distrito</label>
-                                            <select name="" id="" class="form-mak">
-                                                <option value="-1">Seleccione distrito</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-sm-6">
-                                        <div class="form-group">
-                                            <label class="mak-txt">Comentario</label>
-                                            <textarea name="" id=""></textarea>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-6">
-                                <div class=" d-flex justify-content-end">
-                                    <div class="btn btn-mak bg-success">Aprobado</div>
-                                </div>
-                                <div class="card-body  card-resume">
-                                    <div class="row">
-                                        <div class="col-sm-2">
-                                            <div class="lgl-modal-num">
-                                                1
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-8 brd-rght-blue d-flex align-items-center">
-                                            <span class="mak-txt bld">HR</span>
-                                        </div>
-                                        <div class="col-sm-2 justify-content-center options">
-                                            <div class="options">
-                                                <i class="fa-solid fa-eye"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                <section class="body-mak mak-txt">
+                    <div class="container">
+                        <h1 class="text-center">BUSQUEDA</h1>
+                        <div class="col-sm-12">
+                            <div class="card-resume">
+                                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d15607.47206823551!2d-77.04493215!3d-12.0526008!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses-419!2spe!4v1678375977472!5m2!1ses-419!2spe" style="width:100%; height:50vh; border:20px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                             </div>
                         </div>
                     </div>
-                    <div class="card-footer">
-                        <div class="form-flex">
-                            <button type="button" class="btn btn-mak mak-bg-sec">Guardar</button>
-                            <button type="button" class="btn btn-mak mak-bg">Enviar</button>
+                </section>
+
+                <div class="footer-mak">
+                    <div class="container">
+                        <div class="flex">
+                            <a href="" class="btn btn-mak mak-bg ml-auto">Continuar</a>
                         </div>
                     </div>
                 </div>
@@ -172,19 +120,8 @@
     <script src="../Vista/dist/js/demo.js"></script>
     <!-- Page specific script -->
 
+
     <script src="../Vista/assets/selection_types.js"></script>
-
-    <script>
-        const textArea = document.querySelectorAll("textarea");
-        textArea.forEach(element => {
-            element.addEventListener("keyup", (e) => {
-                element.style.height = 'auto';
-
-                let scHeight = e.target.scrollHeight;
-                element.style.height = `${scHeight}px`;
-            })
-        });
-    </script>
 </body>
 
 </html>
