@@ -487,7 +487,7 @@ $(document).ready(function () {
       //console.log(dropHeight);
 
       // filter.style.height = "100%";
-      table.style.width = "83%";
+      table.style.width = "85%";
       // filter.style.height = "";
       // filter.style.minHeight = "100%";
       filter.style.height = dropHeight + "px";
