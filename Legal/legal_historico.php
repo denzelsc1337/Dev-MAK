@@ -196,7 +196,6 @@ require_once('../Controller/controladorListar.php');
 
     <script>
 
-
         $('.find_data').on('click', function() {
             console.log("testing");
 
@@ -212,30 +211,28 @@ require_once('../Controller/controladorListar.php');
             var id_cli = data[4];
             var dni_cli = data[5];
 
+            var targetURL = "../Controller/get_data_solic.php?id_reg="+ encodeURIComponent(id_soli);
+            
             console.log(dni_cli);
 
             $.ajax({
                 type: 'GET',
-                url: '../Controller/get_data_solic.php',
-                data: {
-                    id_solic: id_soli,
-                    id_client: id_cli,
-                    dni_client: dni_cli
-                },
+                url: targetURL,
+                
                 success: function(response) {
                     console.log("Revisando data de la solicitud: " + id_soli);
+                    console.log(response); 
+
+                    localStorage.setItem('data_legal', JSON.stringify(response));
+
+                    window.location.href = 'legal-admin-view.php?data_legal=' + encodeURIComponent(JSON.stringify(response));
                 },
                 beforeSend:function(){
                     console.log("loading");
                 },
             });
 
-
-
         });
-
-
-
     </script>
 </body>
 

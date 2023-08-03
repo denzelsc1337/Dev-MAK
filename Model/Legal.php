@@ -10,6 +10,7 @@ class cLegal
 	{
 		$this->lst_solics_legal = array();
 		$this->lst_solics_legal_cli = array();
+		$this->data_legal=array();
 	}
 
 	function save_solic_legal($rutas,$data)
@@ -18,11 +19,15 @@ class cLegal
 		$cnx = new Conexion();
 		$cadena = $cnx->abrirConexion();
 
-		$Query = "INSERT INTO `docs_legal`(`id_legal`,`rutas_docs`, `nom_client`,`ape_client`, `dir_client`,`fecha_reg`, `user_cod`)
+		$query = "INSERT INTO `docs_legal`(`id_legal`,`rutas_docs`, `nom_client`,`ape_client`, `dir_client`,`fecha_reg`, `user_cod`)
 								   VALUES (null,'".$rutas."','".$data[1]."','".$data[2]."','".$data[3]."',now(),'".$data[4]."');";
 
-		echo mysqli_query($cadena, $Query);
+		$result = mysqli_query($cadena, $query);
 		$cnx->cerrarConexion($cadena);
+		return $result;
+
+		/*echo mysqli_query($cadena, $query);
+		$cnx->cerrarConexion($cadena);*/
 
 	}
 
@@ -102,6 +107,27 @@ class cLegal
 
         return $this->lst_solics_legal_cli;
 
+	}
+
+	public function get_data_legal($id_reg){
+
+	    include_once('../config/Conexion.php');
+	    $cnx = new conexion();
+	    $cadena = $cnx->abrirConexion();
+
+	    $query = "SELECT nom_client, ape_client, dir_client FROM docs_legal WHERE id_legal = '$id_reg'";
+
+	    $resultado = mysqli_query($cadena, $query);
+
+	    if (mysqli_num_rows($resultado) > 0) {
+	        while ($fila = mysqli_fetch_assoc($resultado)) {
+	            $this->data_legal = $fila;
+	        }
+	    }
+
+	    $cnx->cerrarConexion($cadena);
+
+	    return $this->data_legal;
 	}
 }
 

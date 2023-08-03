@@ -10,6 +10,7 @@ class Cliente_Servicio
 	{
 		$this->selectorTypes_Cl = array();
 		
+		
 	}
 
 	function add_Client_service($data)
@@ -48,6 +49,9 @@ class Cliente_Servicio
 
 		return $this->selectorTypes_Cl;
 	}
+
+
+	
 
 
 	
