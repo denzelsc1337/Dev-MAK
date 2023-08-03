@@ -69,7 +69,7 @@ require_once('../Controller/controladorListar.php');
                                         Filtros &nbsp;
                                         <i class="fa-solid fa-sliders"></i>
                                     </div>
-                                    <div class="menu-filter optn-filter">
+                                    <div class="optn-filter">
                                         <ul class="list-group list-group-flush">
                                             <li class="list-group-item cursor">ID</li>
                                             <li class="list-group-item cursor">Dirección</li>
@@ -78,8 +78,6 @@ require_once('../Controller/controladorListar.php');
                                         </ul>
                                     </div>
                                 </div>
-
-
                             </div>
 
                             <!-- </div> -->

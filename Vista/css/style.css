@@ -351,6 +351,18 @@ h2 {
   box-shadow: 0 6px 10px 0 rgb(0 0 0 / 40%), 0 1px 3px rgba(0, 0, 0, 15%);
 }
 
+.card-resume.maps {
+  padding: 0;
+  overflow: hidden;
+  border-radius: 1rem;
+
+}
+
+.card-resume.maps .menu-filter {
+  top: 8px;
+  left: 8px;
+}
+
 .select2-selection.select2-selection--single {
   display: flex;
   justify-content: space-between;

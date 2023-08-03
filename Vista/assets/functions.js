@@ -471,36 +471,33 @@ $(document).ready(function () {
     const filter = document.querySelector(".filter-drop");
     const table = document.querySelector(".table");
     const optnFilter = document.querySelector(".optn-filter");
-    console.log(optnFilter);
     const listGroupItem = optnFilter.querySelectorAll(".list-group-item");
-    console.log(listGroupItem);
 
-    // optnFilter.forEach((element) => {
-    //   let
-    //   console.log(element);
-    // });
 
-    if (table.style.width === "100%") {
-      let items = listGroupItem.length + 1;
-      let dropHeight = items * "49.33" + "50";
+    if (table) {
+      if (table.style.width === "100%") {
+        let items = listGroupItem.length + 1;
+        let dropHeight = items * "49.33" + "50";
 
-      //console.log(dropHeight);
+        table.style.width = "85%";
+        filter.style.height = dropHeight + "px";
 
-      // filter.style.height = "100%";
-      table.style.width = "85%";
-      // filter.style.height = "";
-      // filter.style.minHeight = "100%";
-      filter.style.height = dropHeight + "px";
+      } else {
+        table.style.width = "100%";
+        filter.style.height = "50px";
+      }
+    }
 
-      // dropDown.style.minHeight = "100%";
-    } else {
-      table.style.width = "100%";
-      filter.style.height = "50px";
-
-      // filter.style.minHeight = "";
+    if (filter) {
+      if (filter.style.height === "50px") {
+        let items = listGroupItem.length + 1;
+        let dropHeight = items * "49.33" + "50";
+        filter.style.height = dropHeight + "px";
+      } else {
+        filter.style.height = "50px";
+      }
     }
   });
 
-  // dropDown.addEventListener("click", function name(params) { });
   // DROPDOWN
 });

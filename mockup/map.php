@@ -59,7 +59,22 @@
                     <div class="container">
                         <h1 class="text-center">BUSQUEDA</h1>
                         <div class="col-sm-12">
-                            <div class="card-resume">
+                            <div class="card-resume maps position-relative">
+                                <div class="menu-filter position-absolute">
+                                    <div class="filter-drop shadow" style="height: 50px;">
+                                        <div class="dropdown">
+                                            Filtros &nbsp;
+                                            <i class="fa-solid fa-sliders"></i>
+                                        </div>
+                                        <div class="optn-filter">
+                                            <ul class="list-group list-group-flush">
+                                                <li class="list-group-item cursor">Ciudad</li>
+                                                <li class="list-group-item cursor">Zona</li>
+                                                <li class="list-group-item cursor">Dormitorios</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
                                 <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d15607.47206823551!2d-77.04493215!3d-12.0526008!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses-419!2spe!4v1678375977472!5m2!1ses-419!2spe" style="width:100%; height:50vh; border:20px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                             </div>
                         </div>
