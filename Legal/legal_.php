@@ -715,9 +715,6 @@
                                 var delete_btn = $('<button>').text('Eliminar').attr('class', 'btn btn-block btn-danger');
 
                                 
-
-
-
                                 enlaceHtml += `
                                             
                                             <div class="row align-center mb-4">
