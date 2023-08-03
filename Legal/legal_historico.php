@@ -58,102 +58,193 @@ require_once('../Controller/controladorListar.php');
                 <?php include '../Vista/head-form.php' ?>
 
 
-                <section class="body-mak mak-txt">
-                    <div class="container">
-                        <h1 class="text-center">HISTORICO</h1>
-                        <div class="row">
+                <div class="overflow-hidden">
+                    <div class="d-flex scroll">
 
-                            <div class="menu-filter">
-                                <div class="filter-drop shadow ml-auto">
-                                    <div class="dropdown">
-                                        Filtros &nbsp;
-                                        <i class="fa-solid fa-sliders"></i>
+
+                        <section class="body-mak mak-txt">
+                            <div class="container">
+                                <h1 class="text-center">HISTORICO</h1>
+                                <div class="row">
+
+                                    <div class="menu-filter">
+                                        <div class="filter-drop shadow ml-auto">
+                                            <div class="dropdown">
+                                                Filtros &nbsp;
+                                                <i class="fa-solid fa-sliders"></i>
+                                            </div>
+                                            <div class="optn-filter">
+                                                <div class="list-group-item">1</div>
+                                                <div class="list-group-item">2</div>
+                                                <div class="list-group-item">3</div>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="optn-filter">
-                                        <div class="list-group-item">1</div>
-                                        <div class="list-group-item">2</div>
-                                        <div class="list-group-item">3</div>
+
+                                    <!-- </div> -->
+                                    <div class="col-sm-12">
+
+                                        <table class="table table-borderless" style="width: 100%;">
+                                            <thead class="">
+                                                <tr>
+                                                    <th>ID</th>
+                                                    <th>DIRECCIÓN</th>
+                                                    <th>FECHA</th>
+                                                    <th>ESTADO</th>
+                                                    <th>OPCIONES</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <?php foreach ($list_solic_legal as $lst_legal_d) : ?>
+                                                    <tr>
+                                                        <td><?php echo $lst_legal_d[0] ?></td>
+                                                        <td><?php echo $lst_legal_d[1] ?></td>
+                                                        <td><?php echo $lst_legal_d[2] ?></td>
+                                                        <td>
+                                                            <?php
+                                                            if ($lst_legal_d[3] == 10) {
+                                                            ?>
+                                                                <span class="badge rounded-pill bg-secondary">Pendiente</span>
+                                                            <?php
+                                                            } elseif ($lst_legal_d[3] == 20) {
+                                                            ?>
+                                                                <span class="badge rounded-pill bg-warning text-dark">En revision</span>
+                                                            <?php
+                                                            } elseif ($lst_legal_d[3] == 90) {
+                                                            ?>
+                                                                <span class="badge rounded-pill bg-success">Finalizado</span>
+                                                            <?php
+                                                            }
+                                                            ?>
+                                                        </td>
+                                                        <td hidden><?php echo $lst_legal_d[4] ?></td>
+                                                        <td hidden><?php echo $lst_legal_d[5] ?></td>
+                                                        <td>
+                                                            <div class="row justify-content-evenly">
+                                                                <div class="col-sm-4 justify-content-center options brd-rght-blue">
+                                                                    <div class="options">
+                                                                        <i class="fa-solid fa-trash"></i>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-sm-4 justify-content-center options brd-rght-blue">
+                                                                    <div class="options">
+                                                                        <i class="fa-solid fa-pencil"></i>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-sm-4 justify-content-center options">
+                                                                    <div class="options">
+                                                                        <button type="button" class="btn btn-rounded find_data" id="get_data">
+                                                                            <i class="fa-solid fa-eye"></i>
+                                                                        </button>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-sm-4 justify-content-center options">
+                                                                    <div class="options">
+                                                                        <button type="button" class="btn btn-rounded scroll-toggle" id="">
+                                                                            <i class="fa-solid fa-eye"></i>
+                                                                        </button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                <?php endforeach ?>
+                                            </tbody>
+                                        </table>
                                     </div>
                                 </div>
+                            </div>
+                            <div class="footer-mak">
+                                <div class="container">
+                                    <div class="flex">
+                                        <a href="legal_.php" class="btn btn-mak mak-bg ml-auto">Continuar</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
 
+                        <section class="body-mak mak-txt position-relative">
 
+                            <div class="d-flex justify-content-stard arrow-left">
+                                <i class="fa-solid fa-angle-left"></i>
                             </div>
 
-                            <!-- </div> -->
-                            <div class="col-sm-12">
+                            <div class="container">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-sm-6">
 
-                                <table class="table table-borderless" style="width: 100%;">
-                                    <thead class="">
-                                        <tr>
-                                            <th>ID</th>
-                                            <th>DIRECCIÓN</th>
-                                            <th>FECHA</th>
-                                            <th>ESTADO</th>
-                                            <th>OPCIONES</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <?php foreach ($list_solic_legal as $lst_legal_d) : ?>
-                                            <tr>
-                                                <td><?php echo $lst_legal_d[0] ?></td>
-                                                <td><?php echo $lst_legal_d[1] ?></td>
-                                                <td><?php echo $lst_legal_d[2] ?></td>
-                                                <td>
-                                                    <?php
-                                                    if ($lst_legal_d[3] == 10) {
-                                                    ?>
-                                                        <span class="badge rounded-pill bg-secondary">Pendiente</span>
-                                                    <?php
-                                                    } elseif ($lst_legal_d[3] == 20) {
-                                                    ?>
-                                                        <span class="badge rounded-pill bg-warning text-dark">En revision</span>
-                                                    <?php
-                                                    } elseif ($lst_legal_d[3] == 90) {
-                                                    ?>
-                                                        <span class="badge rounded-pill bg-success">Finalizado</span>
-                                                    <?php
-                                                    }
-                                                    ?>
-                                                </td>
-                                                <td hidden><?php echo $lst_legal_d[4] ?></td>
-                                                <td hidden><?php echo $lst_legal_d[5] ?></td>
-                                                <td>
-                                                    <div class="row justify-content-evenly">
-                                                        <div class="col-sm-4 justify-content-center options brd-rght-blue">
-                                                            <div class="options">
-                                                                <i class="fa-solid fa-trash"></i>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-sm-4 justify-content-center options brd-rght-blue">
-                                                            <div class="options">
-                                                                <i class="fa-solid fa-pencil"></i>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-sm-4 justify-content-center options">
-                                                            <div class="options">
-                                                                <button type="button" class="btn btn-rounded find_data" id="get_data">
-                                                                    <i class="fa-solid fa-eye"></i>
-                                                                </button>
-                                                            </div>
+                                            <div class="row">
+                                                <div class="col-sm-6">
+                                                    <div class="form-group">
+                                                        <label class="mak-txt">Nombres y Apellidos</label>
+                                                        <input type="text" class="form-mak">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-sm-6">
+                                                    <div class="form-group">
+                                                        <label class="mak-txt">Dirección</label>
+                                                        <input type="text" class="form-mak">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-sm-6">
+                                                    <div class="form-group">
+                                                        <label class="mak-txt">Distrito</label>
+                                                        <select name="" id="" class="form-mak">
+                                                            <option value="-1">Seleccione distrito</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-sm-6">
+                                                    <div class="form-group">
+                                                        <label class="mak-txt">Comentario</label>
+                                                        <textarea name="" id=""></textarea>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class=" d-flex justify-content-end">
+                                                <div class="btn btn-mak bg-success">Aprobado</div>
+                                            </div>
+                                            <div class="card-body  card-resume">
+                                                <div class="row">
+                                                    <div class="col-sm-2">
+                                                        <div class="lgl-modal-num">
+                                                            1
                                                         </div>
                                                     </div>
-                                                </td>
-                                            </tr>
-                                        <?php endforeach ?>
-                                    </tbody>
-                                </table>
+                                                    <div class="col-sm-8 brd-rght-blue d-flex align-items-center">
+                                                        <span class="mak-txt bld">HR</span>
+                                                    </div>
+                                                    <div class="col-sm-2 justify-content-center options">
+                                                        <div class="options">
+                                                            <i class="fa-solid fa-eye"></i>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-footer">
+                                    <div class="form-flex">
+                                        <button type="button" class="btn btn-mak mak-bg-sec">Guardar</button>
+                                        <button type="button" class="btn btn-mak mak-bg">Enviar</button>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                    </div>
-                </section>
-
-                <div class="footer-mak">
-                    <div class="container">
-                        <div class="flex">
-                            <a href="legal_.php" class="btn btn-mak mak-bg ml-auto">Continuar</a>
-                        </div>
+                        </section>
                     </div>
                 </div>
+
+
 
             </section>
         </div>
@@ -247,6 +338,60 @@ require_once('../Controller/controladorListar.php');
                 },
             });
 
+        });
+    </script>
+
+    <script>
+        document.querySelector(".scroll-toggle").addEventListener("click", function() {
+            const contenedor = document.querySelector(".overflow-hidden");
+
+            const contenido = contenedor.scrollWidth;
+            const anchoVisible = contenedor.clientWidth;
+            const tamanoMaximoScrollHorizontal = contenido - anchoVisible;
+
+            // Realiza la transición al final del scroll horizontal
+            const duracionAnimacion = 600;
+            const inicioScroll = contenedor.scrollLeft;
+            const finScroll = tamanoMaximoScrollHorizontal;
+
+            let startTime = null;
+
+            function scrollAnimado(timestamp) {
+                if (!startTime) startTime = timestamp;
+                const tiempoTranscurrido = timestamp - startTime;
+                const progreso = Math.min(tiempoTranscurrido / duracionAnimacion, 1);
+                const scrollPos = inicioScroll + (finScroll - inicioScroll) * progreso;
+                contenedor.scrollLeft = scrollPos;
+                if (tiempoTranscurrido < duracionAnimacion) {
+                    requestAnimationFrame(scrollAnimado);
+                }
+            }
+
+            requestAnimationFrame(scrollAnimado);
+        });
+
+        document.querySelector(".arrow-left").addEventListener("click", function() {
+            const contenedor = document.querySelector(".overflow-hidden");
+
+            // Realiza la transición al principio del scroll horizontal
+            const duracionAnimacion = 600; // Duración de la animación en milisegundos
+            const inicioScroll = contenedor.scrollLeft;
+            const finScroll = 0; // Desplaza al inicio del scroll horizontal
+
+            let startTime = null;
+
+            function scrollAnimado(timestamp) {
+                if (!startTime) startTime = timestamp;
+                const tiempoTranscurrido = timestamp - startTime;
+                const progreso = Math.min(tiempoTranscurrido / duracionAnimacion, 1);
+                const scrollPos = inicioScroll + (finScroll - inicioScroll) * progreso;
+                contenedor.scrollLeft = scrollPos;
+                if (tiempoTranscurrido < duracionAnimacion) {
+                    requestAnimationFrame(scrollAnimado);
+                }
+            }
+
+            requestAnimationFrame(scrollAnimado);
         });
     </script>
 </body>

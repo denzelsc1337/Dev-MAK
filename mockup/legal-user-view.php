@@ -54,77 +54,79 @@
 
                 <?php include '../Vista/head-form.php' ?>
 
-                <div class="container">
+                <section class="body-mak mak-txt">
+                    <div class="container">
 
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-sm-6">
-                                <div class="row">
-                                    <div class="col-sm-6">
-                                        <div class="form-group">
-                                            <label class="mak-txt">Nombres y Apellidos</label>
-                                            <input type="text" class="form-mak">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-sm-6">
-                                        <div class="form-group">
-                                            <label class="mak-txt">Dirección</label>
-                                            <input type="text" class="form-mak">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-sm-6">
-                                        <div class="form-group">
-                                            <label class="mak-txt">Distrito</label>
-                                            <select name="" id="" class="form-mak">
-                                                <option value="-1">Seleccione distrito</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-sm-6">
-                                        <div class="form-group">
-                                            <label class="mak-txt">Comentario</label>
-                                            <textarea name="" id=""></textarea>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-6">
-                                <div class=" d-flex justify-content-end">
-                                    <div class="btn btn-mak bg-success">Aprobado</div>
-                                </div>
-                                <div class="card-body  card-resume">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-sm-6">
                                     <div class="row">
-                                        <div class="col-sm-2">
-                                            <div class="lgl-modal-num">
-                                                1
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <label class="mak-txt">Nombres y Apellidos</label>
+                                                <input type="text" class="form-mak">
                                             </div>
                                         </div>
-                                        <div class="col-sm-8 brd-rght-blue d-flex align-items-center">
-                                            <span class="mak-txt bld">HR</span>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <label class="mak-txt">Dirección</label>
+                                                <input type="text" class="form-mak">
+                                            </div>
                                         </div>
-                                        <div class="col-sm-2 justify-content-center options">
-                                            <div class="options">
-                                                <i class="fa-solid fa-eye"></i>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <label class="mak-txt">Distrito</label>
+                                                <select name="" id="" class="form-mak">
+                                                    <option value="-1">Seleccione distrito</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <label class="mak-txt">Comentario</label>
+                                                <textarea name="" id=""></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class=" d-flex justify-content-end">
+                                        <div class="btn btn-mak bg-success">Aprobado</div>
+                                    </div>
+                                    <div class="card-body  card-resume">
+                                        <div class="row">
+                                            <div class="col-sm-2">
+                                                <div class="lgl-modal-num">
+                                                    1
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-8 brd-rght-blue d-flex align-items-center">
+                                                <span class="mak-txt bld">HR</span>
+                                            </div>
+                                            <div class="col-sm-2 justify-content-center options">
+                                                <div class="options">
+                                                    <i class="fa-solid fa-eye"></i>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="card-footer">
-                        <div class="form-flex">
-                            <button type="button" class="btn btn-mak mak-bg-sec">Guardar</button>
-                            <button type="button" class="btn btn-mak mak-bg">Enviar</button>
+                        <div class="card-footer">
+                            <div class="form-flex">
+                                <button type="button" class="btn btn-mak mak-bg-sec">Guardar</button>
+                                <button type="button" class="btn btn-mak mak-bg">Enviar</button>
+                            </div>
                         </div>
                     </div>
-                </div>
+                </section>
 
             </section>
         </div>
