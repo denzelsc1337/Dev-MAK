@@ -285,26 +285,24 @@
                 <div class="modal-body">
                     <h1 class="title-m" id="titulo_docs">HR</h1>
                     <div class="row margin">
-                        <div class="col-sm-12">
 
-                            <div class="form-group" hidden>
-                                <label>id usu</label>
-                                <input type="text" name="usu_dni" id="usu_dni" value="<?php echo $_SESSION['id_usu'] ?>">
-                                <br>
-                                <label>usuario</label>
-                                <input type="text" name="usu_dni" id="usu_dni" value="<?php echo $_SESSION['dni'] ?>">
-                                <br>
-                                <label>id_tipo_doc_lgl</label>
-                                <input type="text" name="_id_tipo_doc_lgl" id="_id_tipo_doc_lgl">
-                                <br>
-                            </div>
-
-                            <div class="container">
-                                <div class="form-group row" id="descarga_archivo_m">
-
-                                </div>
-                            </div>
+                        <div class="form-group" hidden>
+                            <label>id usu</label>
+                            <input type="text" name="usu_dni" id="usu_dni" value="<?php echo $_SESSION['id_usu'] ?>">
+                            <br>
+                            <label>usuario</label>
+                            <input type="text" name="usu_dni" id="usu_dni" value="<?php echo $_SESSION['dni'] ?>">
+                            <br>
+                            <label>id_tipo_doc_lgl</label>
+                            <input type="text" name="_id_tipo_doc_lgl" id="_id_tipo_doc_lgl">
+                            <br>
                         </div>
+
+
+                        <div class="col-sm-12" id="descarga_archivo_m">
+
+                        </div>
+
                     </div>
                 </div>
             </div>
@@ -701,6 +699,7 @@
                         var estado_doc = data.status_doc;
 
                         var cod_doc_, ruta_doc, nom_file;
+                        var cont = 1;
 
                         if (archivos && archivos.length > 0) {
                             var enlaceHtml = '';
@@ -715,33 +714,38 @@
 
                                 var delete_btn = $('<button>').text('Eliminar').attr('class', 'btn btn-block btn-danger');
 
+                                
+
+
+
                                 enlaceHtml += `
                                             
-                                            <div class="col-sm-4">
-                                                <div class="lgl-modal-num">
-                                                    c
-                                                </div>
-                                            </div>
-
-                                            <div class="col-sm-8">
-                                                <img src="#" id="loader" style="display: none;">
-                                                <a href="${ruta}${nombreArchivo}">${nombreArchivo}</a>
-                                            </div>
-
-                                            <div class="tw-modal-ots">
-                                                <div class="row">
-                                                    <div class="inputs">
-                                                        <input id="ruta_doc_i" type="text" value="${ruta}" readonly hidden>
-                                                        <input id="ruta_archivo_i" type="text" value="${nombreArchivo}" readonly hidden>
-                                                        <input id="cod_doc_i" type="text" value="${id_doc_}" readonly hidden>
-                                                        
-                                                        <div class="brd-rght-blue">
-                                                            <i class="cursor fa-solid fa-trash"></i>
-                                                            <button id="dlt_file" type="button" class="btn btn-danger dlt_file">Eliminar</button>
-                                                        </div>
+                                            <div class="row align-center mb-4">
+                                                <div class="col-sm-2">
+                                                    <div class="lgl-modal-num">
+                                                        ${cont++}
                                                     </div>
-                                                    <div>
-                                                        <i class="cursor fa-solid fa-download"></i>
+                                                </div>
+
+                                                <div class="col-sm-8">
+                                                    <img src="#" id="loader" style="display: none;">
+                                                    <a href="${ruta}${nombreArchivo}">${nombreArchivo}</a>
+                                                </div>
+
+                                                <div class="col-sm-2 tw-modal-ots">
+                                                    <div class="row">
+                                                        <div class="inputs brd-rght-blue">
+                                                            <input id="ruta_doc_i" type="text" value="${ruta}" readonly hidden>
+                                                            <input id="ruta_archivo_i" type="text" value="${nombreArchivo}" readonly hidden>
+                                                            <input id="cod_doc_i" type="text" value="${id_doc_}" readonly hidden>
+                                                        
+                                                            <div class="">
+                                                                <button id="dlt_file" type="button" class="btn dlt_file"><i class="cursor fa-solid fa-trash"></i></button>
+                                                            </div>
+                                                        </div> 
+                                                        <div>
+                                                            <button id="dlt_file" type="button" class="btn dlt_file"> <i class="cursor fa-solid fa-download"></i></button>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>

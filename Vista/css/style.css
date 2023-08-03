@@ -1030,8 +1030,13 @@ form .form-content {
   justify-content: center;
 }
 
-.tw-modal-ots div {
+.tw-modal-ots button{
   padding: 5px 10px;
+  font-size: 20px;
+}
+
+.tw-modal-ots button i:hover{
+  background-color: transparent !important;
 }
 
 .menu-filter {
