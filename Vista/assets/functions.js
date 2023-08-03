@@ -482,7 +482,7 @@ $(document).ready(function () {
 
     if (table.style.width === "100%") {
       let items = listGroupItem.length + 1;
-      let dropHeight = items * "49.33" + "40";
+      let dropHeight = items * "49.33" + "50";
 
       //console.log(dropHeight);
 
@@ -495,7 +495,7 @@ $(document).ready(function () {
       // dropDown.style.minHeight = "100%";
     } else {
       table.style.width = "100%";
-      filter.style.height = "40px";
+      filter.style.height = "50px";
 
       // filter.style.minHeight = "";
     }

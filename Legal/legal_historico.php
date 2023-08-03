@@ -70,9 +70,12 @@ require_once('../Controller/controladorListar.php');
                                         <i class="fa-solid fa-sliders"></i>
                                     </div>
                                     <div class="menu-filter optn-filter">
-                                        <div class="list-group-item">1</div>
-                                        <div class="list-group-item">2</div>
-                                        <div class="list-group-item">3</div>
+                                        <ul class="list-group list-group-flush">
+                                            <li class="list-group-item cursor">ID</li>
+                                            <li class="list-group-item cursor">Dirección</li>
+                                            <li class="list-group-item cursor">Fecha</li>
+                                            <li class="list-group-item cursor">Estado</li>
+                                        </ul>
                                     </div>
                                 </div>
 
