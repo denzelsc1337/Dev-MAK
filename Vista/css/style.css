@@ -394,6 +394,13 @@ h2 {
   font-size: 15px !important;
 }
 
+.arrow-left {
+  position: absolute;
+  left: 60px;
+  font-size: 25px;
+  cursor: pointer;
+}
+
 .form-group select option {
   height: 50px;
 }
@@ -408,10 +415,7 @@ h2 {
   cursor: pointer;
 }
 
-/* .form-mak.between {
-  padding: 0 40px;
-  background-color: transparent;
-} */
+
 .form-mak:focus {
   border: none;
   outline: 0px;
@@ -444,7 +448,9 @@ h2 {
   margin-bottom: 1.5rem;
 }
 
-.body-mak {}
+.body-mak {
+  min-width: 100%;
+}
 
 .footer-mak {
   padding: 5rem 0;
