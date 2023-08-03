@@ -1,12 +1,21 @@
 <?php 
 
 $data_legal_json = isset($_GET['data_legal']) ? $_GET['data_legal'] : '';
-$data_legal = json_decode($data_legal_json, true, 512, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
+$data_legal = json_decode($data_legal_json, true);
 
 echo "<pre>";
-print_r($data_legal_json);
-print_r($data_legal);
+//print_r($data_legal_json);
+//print_r($data_legal_json);
+//print_r($data_legal);
+echo $data_legal['nom_client'];
 echo "</pre>";
+
+if (isset($data_legal_json['nom_client']) && isset($data_legal_json['ape_client'])) {
+    $nombre_apellido = $data_legal_json['nom_client'] . ' ' . $data_legal_json['ape_client'];
+} else {
+    $nombre_apellido = 'Datos no disponibles';
+}
+
 
 ?>
 <!DOCTYPE html>
@@ -73,14 +82,8 @@ echo "</pre>";
                                     <div class="col-sm-6">
                                         <div class="form-group"id="data-container">
                                             <label class="mak-txt">Nombres y Apellidos</label>
-                                            <?php 
-                                            if (isset($data_legal['nom_client']) && isset($data_legal['ape_client'])) {
-                                                echo $data_legal['nom_client'] . ' ' . $data_legal['ape_client'];
-                                            } else {
-                                                echo 'Datos no disponibles';
-                                            }
-                                            ?>
-                                            <input type="text" class="form-mak">
+
+                                            <input type="text" class="form-mak" value="<?php echo $data_legal['nom_client']. ' ' .$data_legal['ape_client']; ?>" readonly>
                                         </div>
                                     </div>
                                 </div>
@@ -88,7 +91,7 @@ echo "</pre>";
                                     <div class="col-sm-6">
                                         <div class="form-group">
                                             <label class="mak-txt">Dirección</label>
-                                            <input type="text" class="form-mak">
+                                            <input type="text" class="form-mak" value="<?php echo $data_legal['dir_client'] ?>" readonly>
                                         </div>
                                     </div>
                                 </div>

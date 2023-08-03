@@ -70,14 +70,13 @@ require_once('../Controller/controladorListar.php');
                                         <i class="fa-solid fa-sliders"></i>
                                     </div>
                                     <div class="optn-filter">
-                                        <ul class="list-group list-group-flush">
-                                            <li class="list-group-item cursor">ID</li>
-                                            <li class="list-group-item cursor">Dirección</li>
-                                            <li class="list-group-item cursor">Fecha</li>
-                                            <li class="list-group-item cursor">Estado</li>
-                                        </ul>
+                                        <div class="list-group-item">1</div>
+                                        <div class="list-group-item">2</div>
+                                        <div class="list-group-item">3</div>
                                     </div>
                                 </div>
+
+
                             </div>
 
                             <!-- </div> -->
@@ -237,9 +236,11 @@ require_once('../Controller/controladorListar.php');
                     console.log("Revisando data de la solicitud: " + id_soli);
                     console.log(response);
 
-                    localStorage.setItem('data_legal', JSON.stringify(response));
+                    var data_legal = JSON.parse(response);
 
-                    window.location.href = 'legal-admin-view.php?data_legal=' + encodeURIComponent(JSON.stringify(response));
+                    localStorage.setItem('data_legal', JSON.stringify(data_legal));
+
+                    window.location.href = 'legal-admin-view.php?data_legal=' + encodeURIComponent(response);
                 },
                 beforeSend: function() {
                     console.log("loading");
