@@ -62,13 +62,27 @@ require_once('../Controller/controladorListar.php');
                     <div class="container">
                         <h1 class="text-center">HISTORICO</h1>
                         <div class="row">
-                            <div class="filter-drop shadow ml-auto">
-                                Filtros &nbsp;
-                                <i class="fa-solid fa-sliders"></i>
+
+                            <div class="menu-filter">
+                                <div class="filter-drop shadow ml-auto">
+                                    <div class="dropdown">
+                                        Filtros &nbsp;
+                                        <i class="fa-solid fa-sliders"></i>
+                                    </div>
+                                    <div class="menu-filter optn-filter">
+                                        <div class="list-group-item">1</div>
+                                        <div class="list-group-item">2</div>
+                                        <div class="list-group-item">3</div>
+                                    </div>
+                                </div>
+
+
                             </div>
+
+                            <!-- </div> -->
                             <div class="col-sm-12">
 
-                                <table class="table table-borderless">
+                                <table class="table table-borderless" style="width: 100%;">
                                     <thead class="">
                                         <tr>
                                             <th>ID</th>
@@ -79,52 +93,52 @@ require_once('../Controller/controladorListar.php');
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <?php foreach ($list_solic_legal as $lst_legal_d): ?>
-                                        <tr>
-                                            <td><?php echo $lst_legal_d[0] ?></td>
-                                            <td><?php echo $lst_legal_d[1] ?></td>
-                                            <td><?php echo $lst_legal_d[2] ?></td>
-                                            <td>
-                                            <?php
-                                                if ($lst_legal_d[3] == 10) {
-                                            ?>
-                                            <span class="badge rounded-pill bg-secondary">Pendiente</span>
-                                            <?php
-                                            }elseif ($lst_legal_d[3] == 20) {
-                                            ?>
-                                            <span class="badge rounded-pill bg-warning text-dark">En revision</span>
-                                            <?php
-                                            }elseif ($lst_legal_d[3] == 90) {
-                                            ?>
-                                            <span class="badge rounded-pill bg-success">Finalizado</span>
-                                            <?php
-                                            }
-                                            ?>
-                                            </td>
-                                            <td hidden><?php echo $lst_legal_d[4] ?></td>
-                                            <td hidden><?php echo $lst_legal_d[5] ?></td>
-                                            <td >
-                                                <div class="row justify-content-evenly">
-                                                    <div class="col-sm-4 justify-content-center options brd-rght-blue">
-                                                        <div class="options">
-                                                            <i class="fa-solid fa-trash"></i>
+                                        <?php foreach ($list_solic_legal as $lst_legal_d) : ?>
+                                            <tr>
+                                                <td><?php echo $lst_legal_d[0] ?></td>
+                                                <td><?php echo $lst_legal_d[1] ?></td>
+                                                <td><?php echo $lst_legal_d[2] ?></td>
+                                                <td>
+                                                    <?php
+                                                    if ($lst_legal_d[3] == 10) {
+                                                    ?>
+                                                        <span class="badge rounded-pill bg-secondary">Pendiente</span>
+                                                    <?php
+                                                    } elseif ($lst_legal_d[3] == 20) {
+                                                    ?>
+                                                        <span class="badge rounded-pill bg-warning text-dark">En revision</span>
+                                                    <?php
+                                                    } elseif ($lst_legal_d[3] == 90) {
+                                                    ?>
+                                                        <span class="badge rounded-pill bg-success">Finalizado</span>
+                                                    <?php
+                                                    }
+                                                    ?>
+                                                </td>
+                                                <td hidden><?php echo $lst_legal_d[4] ?></td>
+                                                <td hidden><?php echo $lst_legal_d[5] ?></td>
+                                                <td>
+                                                    <div class="row justify-content-evenly">
+                                                        <div class="col-sm-4 justify-content-center options brd-rght-blue">
+                                                            <div class="options">
+                                                                <i class="fa-solid fa-trash"></i>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-sm-4 justify-content-center options brd-rght-blue">
+                                                            <div class="options">
+                                                                <i class="fa-solid fa-pencil"></i>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-sm-4 justify-content-center options">
+                                                            <div class="options">
+                                                                <button type="button" class="btn btn-rounded find_data" id="get_data">
+                                                                    <i class="fa-solid fa-eye"></i>
+                                                                </button>
+                                                            </div>
                                                         </div>
                                                     </div>
-                                                    <div class="col-sm-4 justify-content-center options brd-rght-blue">
-                                                        <div class="options">
-                                                            <i class="fa-solid fa-pencil"></i>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-sm-4 justify-content-center options">
-                                                        <div class="options">
-                                                            <button type="button" class="btn btn-rounded find_data" id="get_data">
-                                                                <i class="fa-solid fa-eye"></i>
-                                                            </button>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                        </tr>
+                                                </td>
+                                            </tr>
                                         <?php endforeach ?>
                                     </tbody>
                                 </table>
@@ -195,7 +209,6 @@ require_once('../Controller/controladorListar.php');
 
 
     <script>
-
         $('.find_data').on('click', function() {
             console.log("testing");
 
@@ -211,23 +224,23 @@ require_once('../Controller/controladorListar.php');
             var id_cli = data[4];
             var dni_cli = data[5];
 
-            var targetURL = "../Controller/get_data_solic.php?id_reg="+ encodeURIComponent(id_soli);
-            
+            var targetURL = "../Controller/get_data_solic.php?id_reg=" + encodeURIComponent(id_soli);
+
             console.log(dni_cli);
 
             $.ajax({
                 type: 'GET',
                 url: targetURL,
-                
+
                 success: function(response) {
                     console.log("Revisando data de la solicitud: " + id_soli);
-                    console.log(response); 
+                    console.log(response);
 
                     localStorage.setItem('data_legal', JSON.stringify(response));
 
                     window.location.href = 'legal-admin-view.php?data_legal=' + encodeURIComponent(JSON.stringify(response));
                 },
-                beforeSend:function(){
+                beforeSend: function() {
                     console.log("loading");
                 },
             });

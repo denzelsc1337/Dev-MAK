@@ -234,10 +234,10 @@ $(document).ready(function () {
     });
 
     //inputFile.forEach((inputFile) => {
-      inputFile.addEventListener("change", (e) => {
-        files = inputFile.files;
-        showFiles(files);
-      });
+    inputFile.addEventListener("change", (e) => {
+      files = inputFile.files;
+      showFiles(files);
+    });
     //});
 
     element.addEventListener("dragover", (e) => {
@@ -471,8 +471,8 @@ $(document).ready(function () {
     const filter = document.querySelector(".filter-drop");
     const table = document.querySelector(".table");
     const optnFilter = document.querySelector(".optn-filter");
-    const listGroupItem = optnFilter.querySelectorAll(".list-group-item");
     console.log(optnFilter);
+    const listGroupItem = optnFilter.querySelectorAll(".list-group-item");
     console.log(listGroupItem);
 
     // optnFilter.forEach((element) => {
@@ -484,7 +484,7 @@ $(document).ready(function () {
       let items = listGroupItem.length + 1;
       let dropHeight = items * "49.33" + "40";
 
-      console.log(dropHeight);
+      //console.log(dropHeight);
 
       // filter.style.height = "100%";
       table.style.width = "83%";
@@ -501,6 +501,6 @@ $(document).ready(function () {
     }
   });
 
-  dropDown.addEventListener("click", function name(params) {});
+  // dropDown.addEventListener("click", function name(params) { });
   // DROPDOWN
 });
