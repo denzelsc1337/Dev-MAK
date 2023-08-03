@@ -394,13 +394,6 @@ h2 {
   font-size: 15px !important;
 }
 
-.arrow-left {
-  position: absolute;
-  left: 60px;
-  font-size: 25px;
-  cursor: pointer;
-}
-
 .form-group select option {
   height: 50px;
 }
@@ -414,7 +407,6 @@ h2 {
   right: 0;
   cursor: pointer;
 }
-
 
 .form-mak:focus {
   border: none;
@@ -1267,4 +1259,34 @@ form .form-content {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+
+
+
+
+.arrow-left {
+  position: absolute;
+  left: 60px;
+  font-size: 25px;
+  cursor: pointer;
+}
+
+.overflow-hidden {
+  transition: scrollAnimation 5s ease;
+}
+
+@keyframes scrollAnimation {
+  from {
+    /* scroll-behavior: smooth; */
+  }
+
+  50% {
+    /* scroll-behavior: smooth; */
+  }
+
+  to {
+    /* scroll-behavior: auto; */
+  }
+  
+
 }

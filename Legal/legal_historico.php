@@ -347,12 +347,11 @@ require_once('../Controller/controladorListar.php');
 
             const contenido = contenedor.scrollWidth;
             const anchoVisible = contenedor.clientWidth;
-            const tamanoMaximoScrollHorizontal = contenido - anchoVisible;
+            const finScroll = contenido - anchoVisible;
 
             // Realiza la transición al final del scroll horizontal
-            const duracionAnimacion = 600;
+            const duracionAnimacion = 700;
             const inicioScroll = contenedor.scrollLeft;
-            const finScroll = tamanoMaximoScrollHorizontal;
 
             let startTime = null;
 
@@ -374,7 +373,7 @@ require_once('../Controller/controladorListar.php');
             const contenedor = document.querySelector(".overflow-hidden");
 
             // Realiza la transición al principio del scroll horizontal
-            const duracionAnimacion = 600; // Duración de la animación en milisegundos
+            const duracionAnimacion = 700; // Duración de la animación en milisegundos
             const inicioScroll = contenedor.scrollLeft;
             const finScroll = 0; // Desplaza al inicio del scroll horizontal
 
@@ -393,6 +392,33 @@ require_once('../Controller/controladorListar.php');
 
             requestAnimationFrame(scrollAnimado);
         });
+
+
+
+
+        // document.querySelector(".scroll-toggle").addEventListener("click", function() {
+        //     const contenedor = document.querySelector(".overflow-hidden");
+        //     const contenido = contenedor.scrollWidth;
+        //     const anchoVisible = contenedor.clientWidth;
+        //     const tamanoMaximoScrollHorizontal = contenido - anchoVisible;
+
+        //     // Realizar la transición al final del scroll horizontal con animación
+        //     contenedor.style.scrollBehavior = "smooth"; // Activar la animación
+        //     contenedor.scrollLeft = tamanoMaximoScrollHorizontal; // Ir al final
+        // });
+
+        // document.querySelector(".arrow-left").addEventListener("click", function() {
+        //     const contenedor = document.querySelector(".overflow-hidden");
+
+        //     // Realizar la transición al inicio del scroll horizontal con animación
+        //     contenedor.style.scrollBehavior = "smooth"; // Activar la animación
+        //     contenedor.scrollLeft = 0; // Ir al inicio
+        // });
+
+        // // Restaurar scroll behavior predeterminado después de completar la animación
+        // document.querySelector(".overflow-hidden").addEventListener("animationend", function() {
+        //     this.style.scrollBehavior = "auto";
+        // });
     </script>
 </body>
 
