@@ -1030,12 +1030,12 @@ form .form-content {
   justify-content: center;
 }
 
-.tw-modal-ots button{
+.tw-modal-ots button {
   padding: 5px 10px;
   font-size: 20px;
 }
 
-.tw-modal-ots button i:hover{
+.tw-modal-ots button i:hover {
   background-color: transparent !important;
 }
 
@@ -1259,8 +1259,8 @@ form .form-content {
   justify-content: center;
 }
 
-.file-archives .archive-item .archive-name {
-  width: 100px;
+.archive {
+  width: 100%;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -1292,6 +1292,6 @@ form .form-content {
   to {
     /* scroll-behavior: auto; */
   }
-  
+
 
 }
