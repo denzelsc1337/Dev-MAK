@@ -717,14 +717,14 @@
                                 
                                 enlaceHtml += `
                                             
-                                            <div class="row align-center mb-4">
+                                            <div class="row d-flex justify-content-between align-center mb-4">
                                                 <div class="col-sm-2">
                                                     <div class="lgl-modal-num">
                                                         ${cont++}
                                                     </div>
                                                 </div>
 
-                                                <div class="col-sm-8">
+                                                <div class="col-sm-8 archive">
                                                     <img src="#" id="loader" style="display: none;">
                                                     <a href="${ruta}${nombreArchivo}">${nombreArchivo}</a>
                                                 </div>

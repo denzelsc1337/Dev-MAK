@@ -175,9 +175,12 @@ require_once('../Controller/controladorListar.php');
                                             <thead class="">
                                                 <tr>
                                                     <th>ID</th>
+                                                    <th>nom</th>
                                                     <th>DIRECCIÓN</th>
                                                     <th>FECHA</th>
                                                     <th>ESTADO</th>
+                                                    <th>id_user</th>
+                                                    <th>dni_user</th>
                                                     <th>OPCIONES</th>
                                                 </tr>
                                             </thead>
@@ -190,28 +193,29 @@ require_once('../Controller/controladorListar.php');
                                                         <td><?php echo $lst_legal_d[0] ?></td>
                                                         <td><?php echo $lst_legal_d[1] ?></td>
                                                         <td><?php echo $lst_legal_d[2] ?></td>
+                                                        <td><?php echo $lst_legal_d[3] ?></td>
                                                         <td>
                                                             <?php
-                                                            if ($lst_legal_d[3] == 10) {
+                                                            if ($lst_legal_d[4] == 10) {
                                                             ?>
                                                                 <span class="badge rounded-pill bg-secondary">Pendiente</span>
                                                             <?php
-                                                            } elseif ($lst_legal_d[3] == 20) {
+                                                            } elseif ($lst_legal_d[4] == 20) {
                                                             ?>
                                                                 <span class="badge rounded-pill bg-warning text-dark">En revision</span>
                                                             <?php
-                                                            } elseif ($lst_legal_d[3] == 90) {
+                                                            } elseif ($lst_legal_d[4] == 90) {
                                                             ?>
                                                                 <span class="badge rounded-pill bg-success">Finalizado</span>
                                                             <?php
                                                             }
                                                             ?>
                                                         </td>
-                                                        <td hidden><?php echo $lst_legal_d[4] ?></td>
-                                                        <td hidden><?php echo $lst_legal_d[5] ?></td>
+                                                        <td ><?php echo $lst_legal_d[5] ?></td>
+                                                        <td ><?php echo $lst_legal_d[6] ?></td>
                                                         <td>
                                                             <div class="row justify-content-evenly">
-                                                                <div class="col-sm-4 justify-content-center options brd-rght-blue">
+                                                                <div class="col-sm-4 justify-content-center options brd-rght-blue" hidden>
                                                                     <div class="options">
                                                                         <i class="fa-solid fa-trash"></i>
                                                                     </div>
@@ -221,7 +225,7 @@ require_once('../Controller/controladorListar.php');
                                                                         <i class="fa-solid fa-pencil"></i>
                                                                     </div>
                                                                 </div>
-                                                                <div class="col-sm-4 justify-content-center options">
+                                                                <div class="col-sm-4 justify-content-center options" hidden>
                                                                     <div class="options">
                                                                         <button type="button" class="btn btn-rounded find_data" id="get_data">
                                                                             <i class="fa-solid fa-eye"></i>
@@ -275,7 +279,7 @@ require_once('../Controller/controladorListar.php');
                                                 <div class="col-sm-6">
                                                     <div class="form-group">
                                                         <label class="mak-txt">Nombres y Apellidos</label>
-                                                        <input type="text" class="form-mak">
+                                                        <input type="text" class="form-mak" id="data_names_" readonly>
                                                     </div>
                                                 </div>
                                             </div>
@@ -283,7 +287,7 @@ require_once('../Controller/controladorListar.php');
                                                 <div class="col-sm-6">
                                                     <div class="form-group">
                                                         <label class="mak-txt">Dirección</label>
-                                                        <input type="text" class="form-mak">
+                                                        <input type="text" class="form-mak" id="data_direcion_" readonly>
                                                     </div>
                                                 </div>
                                             </div>
@@ -297,14 +301,36 @@ require_once('../Controller/controladorListar.php');
                                                     </div>
                                                 </div>
                                             </div>
+                                            <?php
+
+                                            if ($_SESSION['tipo_usu']==1) {
+                                                //habilitar al admin
+                                            ?>
                                             <div class="row">
                                                 <div class="col-sm-6">
                                                     <div class="form-group">
                                                         <label class="mak-txt">Comentario</label>
-                                                        <textarea name="" id=""></textarea>
+                                                        <textarea name="" id="" ></textarea>
                                                     </div>
                                                 </div>
                                             </div>
+                                            <?php
+                                            }else{
+                                                //deshabilitar al user
+                                            ?>
+
+                                             <div class="row">
+                                                <div class="col-sm-6">
+                                                    <div class="form-group">
+                                                        <label class="mak-txt">Comentario</label>
+                                                        <textarea name="" id="" readonly></textarea>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <?php
+                                             }
+                                            ?>
+
                                         </div>
                                         <div class="col-sm-6">
                                             <div class=" d-flex justify-content-end">
@@ -504,6 +530,8 @@ require_once('../Controller/controladorListar.php');
 
                 console.log(data);
 
+                $('#data_names_').val(data[1]);
+                $('#data_direcion_').val(data[2]);
 
                 const contenedor = document.querySelector(".overflow-hidden");
                 const contenido = contenedor.scrollWidth;
