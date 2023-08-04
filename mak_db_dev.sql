@@ -456,8 +456,11 @@ create table docs_legal(
     fecha_reg			date,
     user_cod			int,
     status_solic		varchar(20) default "10",
+    comentario			varchar(255) NULL,
     FOREIGN KEY (user_cod) REFERENCES clientes_servicios (id_client) ON DELETE SET NULL
 );
+
+ALTER TABLE `docs_legal` ADD `comentario` VARCHAR(255) NULL AFTER `status_solic`;
 
 -- 10 = Pendiente
 -- 20 = En revision
@@ -719,6 +722,12 @@ WHERE estado_solicitud = 500;
 select * from documents_clients where id_client = 1 and dni_client = 75481104 and tipo_doc = 1;
 
 delete from documents_clients where id_document = 82 and id_client = 1 and dni_client = 75481104
+
+
+SELECT id_legal, CONCAT(cs.nom_client, " ",cs.ape_client) as nom_client , dir_client, fecha_reg, status_solic,user_cod,dni_client
+				FROM docs_legal dl
+				inner join clientes_servicios cs
+				on dl.user_cod = cs.id_client
 
 
 

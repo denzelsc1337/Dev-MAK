@@ -69,7 +69,7 @@ class cLegal
 		$cnx = new conexion();
 		$cadena = $cnx->abrirConexion();
 
-		$query = "SELECT id_legal,dir_client, fecha_reg, status_solic,user_cod,dni_client
+		$query = "SELECT id_legal, CONCAT(cs.nom_client,' ',cs.ape_client) as nom_client , dir_client, fecha_reg, status_solic,user_cod,dni_client
 				FROM docs_legal dl
 				inner join clientes_servicios cs
 				on dl.user_cod = cs.id_client";

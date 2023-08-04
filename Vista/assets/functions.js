@@ -320,7 +320,7 @@ $(document).ready(function () {
               FaceArchive += `<div><i class="file-icon fa-regular fa-file"></i></div>`;
           }
           FaceArchive += `
-               <div class="archive-name">
+               <div class="archive">
                  <span>${file.name}</span>
                </div>
              </div>

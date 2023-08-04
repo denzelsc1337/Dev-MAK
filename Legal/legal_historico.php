@@ -93,12 +93,16 @@ require_once('../Controller/controladorListar.php');
                                     <div class="col-sm-12">
 
                                         <table class="table table-borderless" style="width: 100%;">
+                                            Admin
                                             <thead class="">
                                                 <tr>
                                                     <th>ID</th>
+                                                    <th>nom</th>
                                                     <th>DIRECCIÓN</th>
                                                     <th>FECHA</th>
                                                     <th>ESTADO</th>
+                                                    <th>id_user</th>
+                                                    <th>dni_user</th>
                                                     <th>OPCIONES</th>
                                                 </tr>
                                             </thead>
@@ -108,38 +112,39 @@ require_once('../Controller/controladorListar.php');
                                                         <td><?php echo $lst_legal_d[0] ?></td>
                                                         <td><?php echo $lst_legal_d[1] ?></td>
                                                         <td><?php echo $lst_legal_d[2] ?></td>
+                                                        <td><?php echo $lst_legal_d[3] ?></td>
                                                         <td>
                                                             <?php
-                                                            if ($lst_legal_d[3] == 10) {
+                                                            if ($lst_legal_d[4] == 10) {
                                                             ?>
                                                                 <span class="badge rounded-pill bg-secondary">Pendiente</span>
                                                             <?php
-                                                            } elseif ($lst_legal_d[3] == 20) {
+                                                            } elseif ($lst_legal_d[4] == 20) {
                                                             ?>
                                                                 <span class="badge rounded-pill bg-warning text-dark">En revision</span>
                                                             <?php
-                                                            } elseif ($lst_legal_d[3] == 90) {
+                                                            } elseif ($lst_legal_d[4] == 90) {
                                                             ?>
                                                                 <span class="badge rounded-pill bg-success">Finalizado</span>
                                                             <?php
                                                             }
                                                             ?>
                                                         </td>
-                                                        <td hidden><?php echo $lst_legal_d[4] ?></td>
-                                                        <td hidden><?php echo $lst_legal_d[5] ?></td>
+                                                        <td><?php echo $lst_legal_d[5] ?></td>
+                                                        <td><?php echo $lst_legal_d[6] ?></td>
                                                         <td>
                                                             <div class="row justify-content-evenly">
-                                                                <div class="col-sm-4 justify-content-center options brd-rght-blue">
+                                                                <div class="col-sm-4 justify-content-center options brd-rght-blue" hidden>
                                                                     <div class="options">
                                                                         <i class="fa-solid fa-trash"></i>
                                                                     </div>
                                                                 </div>
-                                                                <div class="col-sm-4 justify-content-center options brd-rght-blue">
+                                                                <div class="col-sm-4 justify-content-center options brd-rght-blue" hidden>
                                                                     <div class="options">
                                                                         <i class="fa-solid fa-pencil"></i>
                                                                     </div>
                                                                 </div>
-                                                                <div class="col-sm-4 justify-content-center options">
+                                                                <div class="col-sm-4 justify-content-center options" hidden>
                                                                     <div class="options">
                                                                         <button type="button" class="btn btn-rounded find_data" id="get_data">
                                                                             <i class="fa-solid fa-eye"></i>
@@ -163,14 +168,14 @@ require_once('../Controller/controladorListar.php');
 
                                     <!-- </div> TABLA ADMIN -->
 
-                                    <?php 
+                                    <?php
                                     }else{
                                      ?>
 
                                     <!-- </div> TABLA USER -->
 
                                     <div class="col-sm-12">
-
+                                        User
                                         <table class="table table-borderless" style="width: 100%;">
                                             <thead class="">
                                                 <tr>
@@ -187,7 +192,7 @@ require_once('../Controller/controladorListar.php');
                                             <tbody>
                                                 <?php
                                                 $list_solic_legal_client= $oLegal->listadoSolicDocsLegal_clients($_SESSION['id_usu'], $_SESSION['dni']);
-                                                foreach ($list_solic_legal_client as $lst_legal_d): 
+                                                foreach ($list_solic_legal_client as $lst_legal_d):
                                                 ?>
                                                     <tr>
                                                         <td><?php echo $lst_legal_d[0] ?></td>
@@ -248,7 +253,7 @@ require_once('../Controller/controladorListar.php');
                                     </div>
 
                                     <!-- </div> TABLA USER -->
-                                    <?php 
+                                    <?php
                                         //ocultar el del admin y mostrar el del user
                                     }
                                      ?>
@@ -269,100 +274,142 @@ require_once('../Controller/controladorListar.php');
                             <div class="d-flex justify-content-stard arrow-left">
                                 <i class="fa-solid fa-angle-left"></i>
                             </div>
+                            <form method="POST" action="../Controller/Add_Solic_Legal.php">
+                                <div class="container">
+                                    <div class="card-body">
+                                        <div class="row">
 
-                            <div class="container">
-                                <div class="card-body">
-                                    <div class="row">
-                                        <div class="col-sm-6">
+                                            <div class="col-sm-6">
+                                                <?php
 
-                                            <div class="row">
-                                                <div class="col-sm-6">
-                                                    <div class="form-group">
-                                                        <label class="mak-txt">Nombres y Apellidos</label>
-                                                        <input type="text" class="form-mak" id="data_names_" readonly>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-sm-6">
-                                                    <div class="form-group">
-                                                        <label class="mak-txt">Dirección</label>
-                                                        <input type="text" class="form-mak" id="data_direcion_" readonly>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-sm-6">
-                                                    <div class="form-group">
-                                                        <label class="mak-txt">Distrito</label>
-                                                        <select name="" id="" class="form-mak">
-                                                            <option value="-1">Seleccione distrito</option>
-                                                        </select>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <?php
+                                                if ($_SESSION['tipo_usu']==1) {
+                                                    //habilitar al admin
+                                                ?>
 
-                                            if ($_SESSION['tipo_usu']==1) {
-                                                //habilitar al admin
-                                            ?>
-                                            <div class="row">
-                                                <div class="col-sm-6">
-                                                    <div class="form-group">
-                                                        <label class="mak-txt">Comentario</label>
-                                                        <textarea name="" id="" ></textarea>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <?php
-                                            }else{
-                                                //deshabilitar al user
-                                            ?>
-
-                                             <div class="row">
-                                                <div class="col-sm-6">
-                                                    <div class="form-group">
-                                                        <label class="mak-txt">Comentario</label>
-                                                        <textarea name="" id="" readonly></textarea>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <?php
-                                             }
-                                            ?>
-
-                                        </div>
-                                        <div class="col-sm-6">
-                                            <div class=" d-flex justify-content-end">
-                                                <div class="btn btn-mak bg-success">Aprobado</div>
-                                            </div>
-                                            <div class="card-body  card-resume">
                                                 <div class="row">
-                                                    <div class="col-sm-2">
-                                                        <div class="lgl-modal-num">
-                                                            1
+                                                    <div class="col-sm-6">
+                                                        <div class="form-group">
+                                                            <label class="mak-txt">Nombres y Apellidos</label>
+                                                            <input type="text" class="form-mak" id="data_names_" readonly>
                                                         </div>
                                                     </div>
-                                                    <div class="col-sm-8 brd-rght-blue d-flex align-items-center">
-                                                        <span class="mak-txt bld">HR</span>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-sm-6">
+                                                        <div class="form-group">
+                                                            <label class="mak-txt">Dirección</label>
+                                                            <input type="text" class="form-mak" id="data_direcion_" readonly>
+                                                        </div>
                                                     </div>
-                                                    <div class="col-sm-2 justify-content-center options">
-                                                        <div class="options">
-                                                            <i class="fa-solid fa-eye"></i>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-sm-6">
+                                                        <div class="form-group">
+                                                            <label class="mak-txt">Distrito</label>
+                                                            <select name="" id="" class="form-mak">
+                                                                <option value="-1" disabled>Seleccione distrito</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-sm-6">
+                                                        <div class="form-group">
+                                                            <label class="mak-txt">Comentario</label>
+                                                            <textarea name="" id="" ></textarea>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                80874
+                                                <?php
+                                                }else{
+                                                    //deshabilitar al user
+                                                ?>
+
+                                                <div class="row">
+                                                    <div class="col-sm-6">
+                                                        <div class="form-group">
+                                                            <label class="mak-txt">Nombres y Apellidos</label>
+                                                            <input type="text" class="form-mak" id="data_names_" readonly>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-sm-6">
+                                                        <div class="form-group">
+                                                            <label class="mak-txt">Dirección</label>
+                                                            <input type="text" class="form-mak" id="data_direcion_" readonly>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-sm-6">
+                                                        <div class="form-group">
+                                                            <label class="mak-txt">Distrito</label>
+                                                            <select name="" id="" class="form-mak">
+                                                                <option value="-1" disabled>Seleccione distrito</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                 <div class="row">
+                                                    <div class="col-sm-6">
+                                                        <div class="form-group">
+                                                            <label class="mak-txt">Comentario</label>
+                                                            <textarea name="" id="" readonly></textarea>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <?php
+                                                 }
+                                                ?>
+                                            </div>
+
+                                            <div class="col-sm-6">
+                                                <div class=" d-flex justify-content-end">
+                                                    <div class="btn btn-mak bg-success">Aprobado</div>
+                                                </div>
+                                                <div class="card-body  card-resume">
+                                                    <div class="row">
+                                                        <div class="col-sm-2">
+                                                            <div class="lgl-modal-num">
+                                                                1
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-sm-8 brd-rght-blue d-flex align-items-center">
+                                                            <span class="mak-txt bld">HR</span>
+                                                        </div>
+                                                        <div class="col-sm-2 justify-content-center options">
+                                                            <div class="options">
+                                                                <i class="fa-solid fa-eye"></i>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
+
+
                                     </div>
-                                </div>
-                                <div class="card-footer">
-                                    <div class="form-flex">
-                                        <button type="button" class="btn btn-mak mak-bg-sec">Guardar</button>
-                                        <button type="button" class="btn btn-mak mak-bg">Enviar</button>
+
+                                    <?php
+
+                                    if ($_SESSION['tipo_usu']==1) {
+                                        //habilitar al admin
+                                    ?>
+                                    <div class="card-footer">
+                                        <div class="form-flex">
+                                            <button type="button" class="btn btn-mak mak-bg-sec">Guardar</button>
+                                            <button type="button" class="btn btn-mak mak-bg">Enviar</button>
+                                        </div>
                                     </div>
+                                    <?php
+                                    }
+                                    ?>
                                 </div>
-                            </div>
+                            </form>
                         </section>
                     </div>
                 </div>
