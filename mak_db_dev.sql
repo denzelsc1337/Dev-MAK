@@ -116,8 +116,9 @@ CREATE TABLE clientes_servicios (
   tipo_client_service_cod 	int,
   corredor_cod				char(15) default 'no es corredor',
   suscripcion_cod 			int,
-  FOREIGN KEY (tipo_client_service_cod) REFERENCES tipo_client_service(id_tipo_client_s)
-  -- FOREIGN KEY (suscripcion_cod) 		REFERENCES suscripciones(id_suscr)
+  tipo_usu_cod				int,
+  FOREIGN KEY (tipo_client_service_cod) REFERENCES tipo_client_service(id_tipo_client_s),
+  FOREIGN KEY (tipo_usu_cod) REFERENCES tipo_usuario (tipo_usu_id)
 );
 
 

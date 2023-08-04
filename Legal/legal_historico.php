@@ -1,6 +1,8 @@
 <?php
 require_once('../Config/security.php');
 require_once('../Controller/controladorListar.php');
+
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -81,7 +83,13 @@ require_once('../Controller/controladorListar.php');
                                         </div>
                                     </div>
 
-                                    <!-- </div> -->
+                                    <?php 
+                                    if ($_SESSION['tipo_usu']==1) {
+                                        //ocultar el del user y mostrar el del admin
+                                     ?>
+
+                                    <!-- </div> TABLA ADMIN -->
+
                                     <div class="col-sm-12">
 
                                         <table class="table table-borderless" style="width: 100%;">
@@ -152,6 +160,95 @@ require_once('../Controller/controladorListar.php');
                                             </tbody>
                                         </table>
                                     </div>
+
+                                    <!-- </div> TABLA ADMIN -->
+
+                                    <?php 
+                                    }else{
+                                     ?>
+
+                                    <!-- </div> TABLA USER -->
+
+                                    <div class="col-sm-12">
+
+                                        <table class="table table-borderless" style="width: 100%;">
+                                            <thead class="">
+                                                <tr>
+                                                    <th>ID</th>
+                                                    <th>DIRECCIÓN</th>
+                                                    <th>FECHA</th>
+                                                    <th>ESTADO</th>
+                                                    <th>OPCIONES</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <?php
+                                                $list_solic_legal_client= $oLegal->listadoSolicDocsLegal_clients($_SESSION['id_usu'], $_SESSION['dni']);
+                                                foreach ($list_solic_legal_client as $lst_legal_d): 
+                                                ?>
+                                                    <tr>
+                                                        <td><?php echo $lst_legal_d[0] ?></td>
+                                                        <td><?php echo $lst_legal_d[1] ?></td>
+                                                        <td><?php echo $lst_legal_d[2] ?></td>
+                                                        <td>
+                                                            <?php
+                                                            if ($lst_legal_d[3] == 10) {
+                                                            ?>
+                                                                <span class="badge rounded-pill bg-secondary">Pendiente</span>
+                                                            <?php
+                                                            } elseif ($lst_legal_d[3] == 20) {
+                                                            ?>
+                                                                <span class="badge rounded-pill bg-warning text-dark">En revision</span>
+                                                            <?php
+                                                            } elseif ($lst_legal_d[3] == 90) {
+                                                            ?>
+                                                                <span class="badge rounded-pill bg-success">Finalizado</span>
+                                                            <?php
+                                                            }
+                                                            ?>
+                                                        </td>
+                                                        <td hidden><?php echo $lst_legal_d[4] ?></td>
+                                                        <td hidden><?php echo $lst_legal_d[5] ?></td>
+                                                        <td>
+                                                            <div class="row justify-content-evenly">
+                                                                <div class="col-sm-4 justify-content-center options brd-rght-blue">
+                                                                    <div class="options">
+                                                                        <i class="fa-solid fa-trash"></i>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-sm-4 justify-content-center options brd-rght-blue" hidden>
+                                                                    <div class="options">
+                                                                        <i class="fa-solid fa-pencil"></i>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-sm-4 justify-content-center options">
+                                                                    <div class="options">
+                                                                        <button type="button" class="btn btn-rounded find_data" id="get_data">
+                                                                            <i class="fa-solid fa-eye"></i>
+                                                                        </button>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-sm-4 justify-content-center options">
+                                                                    <div class="options">
+                                                                        <button type="button" class="btn btn-rounded scroll-toggle" id="">
+                                                                            <i class="fa-solid fa-eye"></i>
+                                                                        </button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                <?php endforeach ?>
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+                                    <!-- </div> TABLA USER -->
+                                    <?php 
+                                        //ocultar el del admin y mostrar el del user
+                                    }
+                                     ?>
+
                                 </div>
                             </div>
                             <div class="footer-mak">

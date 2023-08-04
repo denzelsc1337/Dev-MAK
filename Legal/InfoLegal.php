@@ -376,8 +376,9 @@ require_once('../Controller/controladorListar.php');
 								<tbody>
 
 									<?php
-									$list_solic_legal_client= $oLegal->listadoSolicDocsLegal_clients($_SESSION['id_usu'], $_SESSION['dni']);
-									foreach ($list_solic_legal_client as $lst_legal_d): ?>
+									$list_solic_legal_client = $oLegal->listadoSolicDocsLegal_clients($_SESSION['id_usu'], $_SESSION['dni']);
+									foreach ($list_solic_legal_client as $lst_legal_d): 
+									?>
 									<tr>
 
 										<td><?php echo $lst_legal_d[0] ?></td>
