@@ -1,5 +1,6 @@
 <?php
 require_once('../Model/Legal.php');
+
 if (isset($_POST['btn_save_solic'])) {
     $rutas = $_POST["rutas_doscs"];
     $data[1] = $_POST["nom_cli_solic"];

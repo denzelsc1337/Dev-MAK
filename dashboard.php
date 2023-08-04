@@ -107,7 +107,7 @@ require_once('config/security.php');
               </a>
             </li>
             <li class="nav-item">
-              <a href="Legal/InfoLegal.php" class="nav-link">
+              <a href="Legal/" class="nav-link">
                 <i class="nav-icon fas fa-copy"></i>
                 <p>Informe Legal</p>
               </a>
@@ -230,7 +230,7 @@ require_once('config/security.php');
                   <h1>Informe Legal</h1>
                   <p>Texto informativo</p>
                 </div>
-                <a href="Legal/InfoLegal.php" class="btn btn-mak mak-bg">INICIAR</a>
+                <a href="Legal/" class="btn btn-mak mak-bg">INICIAR</a>
               </div>
             </div>
             <div class="card-mak col-md-4">

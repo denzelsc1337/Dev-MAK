@@ -472,7 +472,7 @@ create table documents_clients(
 	id_document 	int primary key auto_increment,
 	
     file_destination	varchar(100),
-    file_name           varchar(50),
+    file_name           varchar(300),
     file_ext			varchar(50),
     file_type			varchar(100),
     file_size			int,
