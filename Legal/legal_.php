@@ -1434,7 +1434,7 @@ require_once('../Controller/controladorListar.php');
             const totalScroll = contenido - anchoVisible;
             const mitadScroll = totalScroll / 2;
 
-
+            //
             if (element.getAttribute("data-content") === "legal") {
 
                 element.querySelector(".arrow-right").addEventListener("click", (e) => {
