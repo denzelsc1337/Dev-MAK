@@ -1276,6 +1276,13 @@ form .form-content {
   cursor: pointer;
 }
 
+.arrow-right {
+  position: absolute;
+  right: 60px;
+  font-size: 25px;
+  cursor: pointer;
+}
+
 .overflow-hidden {
   transition: scrollAnimation 5s ease;
 }
