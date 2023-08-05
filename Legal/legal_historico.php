@@ -59,8 +59,10 @@ require_once('../Controller/controladorListar.php');
 
                 <?php include '../Vista/head-form.php' ?>
 
+
                 <div class="overflow-hidden">
                     <div class="d-flex scroll">
+
 
                         <section class="body-mak mak-txt">
                             <div class="container">
@@ -85,6 +87,7 @@ require_once('../Controller/controladorListar.php');
                                     if ($_SESSION['tipo_usu']==1) {
                                         //ocultar el del user y mostrar el del admin
                                      ?>
+
                                     <!-- </div> TABLA ADMIN -->
 
                                     <div class="col-sm-12">
@@ -313,7 +316,7 @@ require_once('../Controller/controladorListar.php');
                                                     <div class="col-sm-6">
                                                         <div class="form-group">
                                                             <label class="mak-txt">Comentario</label>
-                                                            <textarea name="coment_" id="coment_" ></textarea>
+                                                            <textarea name="" id="" ></textarea>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -321,6 +324,7 @@ require_once('../Controller/controladorListar.php');
                                                 }else{
                                                     //deshabilitar al user
                                                 ?>
+
                                                 <div class="row">
                                                     <div class="col-sm-6">
                                                         <div class="form-group">
@@ -395,7 +399,7 @@ require_once('../Controller/controladorListar.php');
                                     ?>
                                     <div class="card-footer">
                                         <div class="form-flex">
-                                            <button type="submit" class="btn btn-mak mak-bg-sec">Guardar</button>
+                                            <button type="button" class="btn btn-mak mak-bg-sec">Guardar</button>
                                             <button type="button" class="btn btn-mak mak-bg">Enviar</button>
                                         </div>
                                     </div>
