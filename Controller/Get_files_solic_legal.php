@@ -1,8 +1,7 @@
 <?php
 
 $id_client_ = $_POST['id_client'];
-$dni_u = $_POST['dni_client'];
-$tipo_doc_ = $_POST['id_tipo_doc'];
+
 
 $servername = "localhost";
 $username = "root";
@@ -17,11 +16,14 @@ if ($conn->connect_error) {
 
 
 $id_client = $conn->real_escape_string($id_client_);
-$dni_client = $conn->real_escape_string($dni_u);
-$tipo_doc = $conn->real_escape_string($tipo_doc_);
 
-$sql = "SELECT * FROM documents_clients
-        WHERE id_client = '$id_client' and dni_client = '$dni_client' and tipo_doc = '$tipo_doc'";
+//$tipo_doc = $conn->real_escape_string($tipo_doc_);
+
+$sql = "SELECT id_document, id_legal, file_destination, rutas_docs, file_name, status_doc
+		from documents_clients dcl
+		inner join docs_legal dl
+		on dcl.id_client = dl.user_cod
+		where dl.user_cod = '$id_client'";
 
 $result = $conn->query($sql);
 
@@ -31,7 +33,7 @@ if ($result->num_rows > 0) {
     while ($row = $result->fetch_assoc()) {
         $archivo = array();
         $archivo['ruta'] = $row['file_destination'];
-        $archivo['archivo'] = $row['file_name'];
+        $archivo['archivo'] = $row['rutas_docs'];
         $archivo['estado'] = $row['status_doc'];
 
         $archivo['id_doc'] = $row['id_document'];

@@ -466,6 +466,8 @@ require_once('../Controller/controladorListar.php');
                                                     //habilitar al admin
                                                 ?>
                                                     <input type="text" class="form-mak" id="id_legal_solic" name="id_legal_solic" readonly>
+                                                    <input type="text" class="form-mak" id="id_client_l" readonly>
+
                                                     <div class="row">
                                                         <div class="col-sm-6">
                                                             <div class="form-group">
@@ -506,6 +508,9 @@ require_once('../Controller/controladorListar.php');
                                                 } else {
                                                     //deshabilitar al user
                                                 ?>
+
+                                                    <input type="text" class="form-mak" id="id_legal_solic" name="id_legal_solic" readonly>
+                                                    <input type="text" class="form-mak" id="id_client_l" readonly>
 
                                                     <div class="row">
                                                         <div class="col-sm-6">
@@ -567,6 +572,10 @@ require_once('../Controller/controladorListar.php');
                                                             </div>
                                                         </div>
                                                     </div>
+                                                </div>
+
+                                                <div id="legal_docs">
+
                                                 </div>
                                             </div>
                                         </div>
@@ -1145,6 +1154,9 @@ require_once('../Controller/controladorListar.php');
                 });
             }
 
+
+
+
             function eliminarArchivo($deleteBtn, cod_doc_, ruta_doc, ruta_archivo) {
 
                 var dni = '<?php echo $_SESSION['dni'] ?>';
@@ -1413,6 +1425,89 @@ require_once('../Controller/controladorListar.php');
 
 
     <script>
+
+        function load_documents_legal(ID_cli) {
+
+                $.ajax({
+                    type: 'POST',
+                    url: '../Controller/Get_files_solic_legal.php',
+                    data: {
+                        id_client: ID_cli,
+                    },
+                    success: function(response) {
+                        console.log(response);
+
+                        var data = JSON.parse(response);
+
+                        var archivos = data.archivos;
+                        var estado_doc = data.status_doc;
+
+                        var cod_doc_, ruta_doc, nom_file;
+                        var cont = 1;
+
+                        if (archivos && archivos.length > 0) {
+                            var enlaceHtml = '';
+
+                            archivos.forEach(function(archivo) {
+                                var ruta = archivo.ruta;
+                                var nombreArchivo = archivo.archivo;
+                                var estado = archivo.estado;
+                                var id_doc_ = archivo.id_doc;
+                                var status_r = '';
+
+
+                                var delete_btn = $('<button>').text('Eliminar').attr('class', 'btn btn-block btn-danger');
+
+
+                                enlaceHtml += `
+
+                                            <div class="row d-flex justify-content-between align-center mb-4">
+                                                <div class="col-sm-2">
+                                                    <div class="lgl-modal-num">
+                                                        ${cont++}
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-sm-8 archive">
+                                                    <img src="#" id="loader" style="display: none;">
+                                                    <a href="${ruta}${nombreArchivo}">${nombreArchivo}</a>
+                                                </div>
+
+                                                <div class="col-sm-2 tw-modal-ots">
+                                                    <div class="row">
+                                                        <div class="inputs brd-rght-blue">
+                                                            <input id="ruta_doc_i" type="text" value="${ruta}" readonly hidden>
+                                                            <input id="ruta_archivo_i" type="text" value="${nombreArchivo}" readonly hidden>
+                                                            <input id="cod_doc_i" type="text" value="${id_doc_}" readonly hidden>
+
+                                                            <div class="">
+                                                                <button id="dlt_file" type="button" class="btn dlt_file"><i class="cursor fa-solid fa-trash"></i></button>
+                                                            </div>
+                                                        </div>
+                                                        <div>
+                                                            <button id="dlt_file" type="button" class="btn dlt_file"> <i class="cursor fa-solid fa-download"></i></button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            `;
+
+                            });
+
+                            document.getElementById('legal_docs').innerHTML = enlaceHtml;
+
+                        } else {
+
+                            document.getElementById('legal_docs').textContent = 'Archivo no encontrado';
+                        }
+
+                    },
+                    error: function(xhr, status, error) {
+                        console.log(error);
+                    }
+                });
+            }
+
         function send_file_upld(drop_id, file_input_id, btn_id) {
 
             const dropArea = document.getElementById(drop_id);
@@ -1504,10 +1599,15 @@ require_once('../Controller/controladorListar.php');
 
                         console.log(data);
                         $('#id_legal_solic').val(data[0]);
+
                         $('#data_names_').val(data[1]);
                         $('#data_direcion_').val(data[2]);
 
                         $('#coment_').val(data[7]);
+
+                        $('#id_client_l').val(data[5]);
+
+                        load_documents_legal(1)
 
 
                         // Realizar la transición al final del scroll horizontal con animación

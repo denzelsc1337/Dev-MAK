@@ -728,6 +728,13 @@ SELECT id_legal, CONCAT(cs.nom_client, " ",cs.ape_client) as nom_client , dir_cl
 				FROM docs_legal dl
 				inner join clientes_servicios cs
 				on dl.user_cod = cs.id_client
+                
+
+select id_document, id_legal, file_destination, rutas_docs, file_name, status_doc
+from documents_clients dcl
+inner join docs_legal dl
+on dcl.id_client = dl.user_cod
+where dl.user_cod = 1 and tipo_doc = 3
 
 
 
