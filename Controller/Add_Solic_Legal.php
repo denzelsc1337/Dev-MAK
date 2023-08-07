@@ -16,12 +16,12 @@ if (isset($_POST['btn_save_solic'])) {
     ?>
     <script type="text/javascript"> alert("Solicitud guardada") </script>
     <META http-equiv='Refresh' content = '0.2; URL =../Legal/legal_historico.php'>
-  <?php
-    }else{
-  ?>
-    <script type="text/javascript"> alert("error") </script>
-  <?php
-  }
+    <?php
+      }else{
+    ?>
+      <script type="text/javascript"> alert("error") </script>
+    <?php
+    }
 
 }
 ?>

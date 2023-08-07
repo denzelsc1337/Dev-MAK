@@ -69,7 +69,7 @@ class cLegal
 		$cnx = new conexion();
 		$cadena = $cnx->abrirConexion();
 
-		$query = "SELECT id_legal, CONCAT(cs.nom_client,' ',cs.ape_client) as nom_client , dir_client, fecha_reg, status_solic,user_cod,dni_client
+		$query = "SELECT id_legal, CONCAT(cs.nom_client,' ',cs.ape_client) as nom_client , dir_client, fecha_reg, status_solic,user_cod,dni_client, comentario
 				FROM docs_legal dl
 				inner join clientes_servicios cs
 				on dl.user_cod = cs.id_client";
@@ -128,6 +128,35 @@ class cLegal
 	    $cnx->cerrarConexion($cadena);
 
 	    return $this->data_legal;
+	}
+
+	function updateSolicLegalDocs($Id_solic,$coment)
+	{
+		include_once('../config/Conexion.php');
+		$cnx = new Conexion();
+		$cadena = $cnx->abrirConexion();
+
+		$query = "UPDATE docs_legal
+				  set comentario = '$coment'
+				  WHERE id_legal = '$Id_solic'";
+
+		$result = mysqli_query($cadena, $query);
+		$cnx->cerrarConexion($cadena);
+		return $result;
+
+		/*$result = mysqli_query($cadena, $query);
+
+
+        if ($result) {
+            $num_rows = mysqli_affected_rows($cadena);
+            echo "Se han insertado $num_rows filas correctamente";
+        } else {
+            echo "Error al ejecutar la consulta: " . mysqli_error($cadena);
+        }*/
+
+		/*echo mysqli_query($cadena, $query);
+		$cnx->cerrarConexion($cadena);*/
+
 	}
 }
 

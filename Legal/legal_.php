@@ -67,6 +67,43 @@ require_once('../Controller/controladorListar.php');
 
                 <?php include '../Vista/head-form.php' ?>
 
+                <?php
+
+                                $dni = $_SESSION['dni'];
+
+                                $ruta_base ='../Documentos Legal/';
+
+                                $rutas = '';
+
+                                if (isset($_SESSION['dni'])) {
+                                    $dni = $_SESSION['dni'];
+                                    $rutaCompleta = $ruta_base . $dni . '/';
+
+
+                                    if (is_dir($rutaCompleta)) {
+                                        $elementos = scandir($rutaCompleta);
+
+                                        $elementos = array_diff($elementos, array('.', '..'));
+
+                                        foreach ($elementos as $elemento) {
+                                            if (is_dir($rutaCompleta . $elemento)) {
+                                                $rutas .= $rutaCompleta . $elemento . "\n";
+                                            }
+                                        }
+
+                                        if (empty($rutas)) {
+                                            echo "No hay carpetas disponibles.";
+                                        }
+                                    }else{
+
+                                        echo "La carpeta $dni no existe en la ruta especificada.";
+                                    }
+
+                                    //echo $rutaCompleta;
+
+                                }
+                             ?>
+
 
                 <div class="overflow-hidden">
                     <div class="d-flex scroll">
@@ -240,6 +277,7 @@ require_once('../Controller/controladorListar.php');
                                                         <th>ESTADO</th>
                                                         <th>id_user</th>
                                                         <th>dni_user</th>
+                                                        <th>coment</th>
                                                         <th>OPCIONES</th>
                                                     </tr>
                                                 </thead>
@@ -269,6 +307,7 @@ require_once('../Controller/controladorListar.php');
                                                             </td>
                                                             <td><?php echo $lst_legal_d[5] ?></td>
                                                             <td><?php echo $lst_legal_d[6] ?></td>
+                                                            <td><?php echo $lst_legal_d[7] ?></td>
                                                             <td>
                                                                 <div class="row justify-content-evenly">
                                                                     <div class="col-sm-4 justify-content-center options brd-rght-blue" hidden>
@@ -412,7 +451,8 @@ require_once('../Controller/controladorListar.php');
                             <div class="arrow-left">
                                 <i class="fa-solid fa-angle-left"></i>
                             </div>
-                            <form method="POST" action="../Controller/Add_Solic_Legal.php">
+                            <form method="POST" action="../Controller/update_solic_docs_legal.php">
+                            
                                 <div class="container">
                                     <div class="card-body">
                                         <div class="row">
@@ -423,7 +463,7 @@ require_once('../Controller/controladorListar.php');
                                                 if ($_SESSION['tipo_usu'] == 1) {
                                                     //habilitar al admin
                                                 ?>
-
+                                                    <input type="text" class="form-mak" id="id_legal_solic" name="id_legal_solic" readonly>
                                                     <div class="row">
                                                         <div class="col-sm-6">
                                                             <div class="form-group">
@@ -454,7 +494,7 @@ require_once('../Controller/controladorListar.php');
                                                         <div class="col-sm-6">
                                                             <div class="form-group">
                                                                 <label class="mak-txt">Comentario</label>
-                                                                <textarea name="" id=""></textarea>
+                                                                <textarea name="coment_" id="coment_"></textarea>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -540,7 +580,7 @@ require_once('../Controller/controladorListar.php');
                                         <div class="card-footer">
                                             <div class="form-flex">
                                                 <button type="button" class="btn btn-mak mak-bg-sec">Guardar</button>
-                                                <button type="button" class="btn btn-mak mak-bg">Enviar</button>
+                                                <button type="submit" class="btn btn-mak mak-bg" id="btn_save_solic_l" name="btn_save_solic_l">Enviar</button>
                                             </div>
                                         </div>
                                     <?php
@@ -1458,9 +1498,11 @@ require_once('../Controller/controladorListar.php');
                         }).get();
 
                         console.log(data);
-
+                        $('#id_legal_solic').val(data[0]);
                         $('#data_names_').val(data[1]);
                         $('#data_direcion_').val(data[2]);
+
+                        $('#coment_').val(data[7]);
 
 
                         // Realizar la transición al final del scroll horizontal con animación
