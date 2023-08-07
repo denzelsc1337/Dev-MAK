@@ -208,7 +208,7 @@ require_once('config/security.php');
               <div class="image-overlay"></div>
               <div class="card-intro">
                 <div class="card-intro-txt">
-                  <h1>Busqueda</h1>
+                  <h1>Búsqueda</h1>
                   <p>Texto informativo</p>
                 </div>
                 <a href="Search/Busqueda.php" class="btn btn-mak mak-bg">INICIAR</a>
@@ -219,7 +219,7 @@ require_once('config/security.php');
               <div class="image-overlay"></div>
               <div class="card-intro">
                 <div class="card-intro-txt">
-                  <h1>Valorizacion</h1>
+                  <h1>Valorizaciones</h1>
                   <p>Texto informativo</p>
                 </div>
                 <a href="Valorizacion/index.php" class="btn btn-mak mak-bg">INICIAR</a>
