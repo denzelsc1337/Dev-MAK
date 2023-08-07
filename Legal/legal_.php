@@ -556,22 +556,10 @@ require_once('../Controller/controladorListar.php');
                                                 <div class=" d-flex justify-content-end">
                                                     <div class="btn btn-mak bg-success">Aprobado</div>
                                                 </div>
-                                                <div class="card-body  card-resume">
-                                                    <div class="row">
-                                                        <div class="col-sm-2">
-                                                            <div class="lgl-modal-num">
-                                                                1
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-sm-8 brd-rght-blue d-flex align-items-center">
-                                                            <span class="mak-txt bld">HR</span>
-                                                        </div>
-                                                        <div class="col-sm-2 justify-content-center options">
-                                                            <div class="options">
-                                                                <i class="fa-solid fa-eye"></i>
-                                                            </div>
-                                                        </div>
-                                                    </div>
+
+
+                                                <div class="card-body" id="carpeta_l">
+
                                                 </div>
 
                                                 <div id="legal_docs">
@@ -1435,7 +1423,6 @@ require_once('../Controller/controladorListar.php');
                         id_client: ID_cli,
                     },
                     success: function(response) {
-                        console.log(response);
 
                         var data = JSON.parse(response);
 
@@ -1458,47 +1445,65 @@ require_once('../Controller/controladorListar.php');
 
                                 var delete_btn = $('<button>').text('Eliminar').attr('class', 'btn btn-block btn-danger');
 
+                                //console.log(nombreArchivo);
 
-                                enlaceHtml += `
 
-                                            <div class="row d-flex justify-content-between align-center mb-4">
-                                                <div class="col-sm-2">
-                                                    <div class="lgl-modal-num">
-                                                        ${cont++}
-                                                    </div>
-                                                </div>
+                                var lista_ = [nombreArchivo];
 
-                                                <div class="col-sm-8 archive">
-                                                    <img src="#" id="loader" style="display: none;">
-                                                    <a href="${ruta}${nombreArchivo}">${nombreArchivo}</a>
-                                                </div>
+                                /*xd.push(nombreArchivo);
 
-                                                <div class="col-sm-2 tw-modal-ots">
-                                                    <div class="row">
-                                                        <div class="inputs brd-rght-blue">
-                                                            <input id="ruta_doc_i" type="text" value="${ruta}" readonly hidden>
-                                                            <input id="ruta_archivo_i" type="text" value="${nombreArchivo}" readonly hidden>
-                                                            <input id="cod_doc_i" type="text" value="${id_doc_}" readonly hidden>
+                                console.log(xd)*/
 
-                                                            <div class="">
-                                                                <button id="dlt_file" type="button" class="btn dlt_file"><i class="cursor fa-solid fa-trash"></i></button>
+                                /*rutas_total = ['../Documentos Legal/75481104/H_R',
+                                                '../Documentos Legal/75481104/C_L',
+                                                '../Documentos Legal/75481104/P_U',
+                                                '../Documentos Legal/75481104/DNI'];*/
+                                var carpetas_ = nombreArchivo.split('\r\n');
+
+                                console.log(carpetas_);
+
+
+                                 //console.log(lista_)
+
+
+                                 var cod_usu = '<?php echo $_SESSION['dni'] ?>';
+
+                                 var ruta_1 = '../Documentos Legal/'+cod_usu+'/H_R';
+
+                                 var ruta_2 = '../Documentos Legal/'+cod_usu+'/C_L';
+
+                                 console.log(cod_usu);
+
+                                if (carpetas_.includes(ruta_1)) {
+
+                                    enlaceHtml += `<div class="row card-resume">
+                                                        <div class="col-sm-2">
+                                                            <div class="lgl-modal-num">
+                                                                1
                                                             </div>
                                                         </div>
-                                                        <div>
-                                                            <button id="dlt_file" type="button" class="btn dlt_file"> <i class="cursor fa-solid fa-download"></i></button>
+                                                        <div class="col-sm-8 brd-rght-blue d-flex align-items-center">
+                                                            <span class="mak-txt bld">HR</span>
+                                                        </div>
+                                                        <div class="col-sm-2 justify-content-center options">
+                                                            <div class="options">
+                                                                <i class="fa-solid fa-eye"></i>
+                                                            </div>
                                                         </div>
                                                     </div>
-                                                </div>
-                                            </div>
-                                            `;
+                                                    `
+                                    document.getElementById('carpeta_l').innerHTML = enlaceHtml;
+                                }else{
+                                    document.getElementById('carpeta_l').textContent = 'Archivo no encontrado';
+                                }
 
                             });
 
-                            document.getElementById('legal_docs').innerHTML = enlaceHtml;
+                            //document.getElementById('legal_docs').innerHTML = enlaceHtml;
 
                         } else {
 
-                            document.getElementById('legal_docs').textContent = 'Archivo no encontrado';
+                            //document.getElementById('legal_docs').textContent = 'Archivo no encontrado';
                         }
 
                     },
@@ -1607,7 +1612,7 @@ require_once('../Controller/controladorListar.php');
 
                         $('#id_client_l').val(data[5]);
 
-                        load_documents_legal(1)
+                        load_documents_legal('<?php echo $_SESSION['id_usu'] ?>');
 
 
                         // Realizar la transición al final del scroll horizontal con animación
