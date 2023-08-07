@@ -75,7 +75,7 @@
 
                   <div class="section-input">
                     <span class="icon-input"><i class="fas fa-lock"></i></span>
-                    <span class="icon-input rght"><i class="fas fa-eye"></i></span>
+                    <span id="showPass" class="icon-input rght"><i class="fa-solid fa-eye-slash"></i></span>
                     <input type="password" class="form-mak" id="password" name="password" placeholder="Contraseña">
                   </div>
                 </div>
@@ -131,6 +131,26 @@
   <script src="Vista/js/popper.min.js"></script>
   <script src="Vista/js/bootstrap.min.js"></script>
   <script src="Vista/js/main.js"></script>
+
+  <script>
+    const showPass = document.querySelector("#showPass");
+    const iptPass = document.querySelector("#password");
+
+    showPass.addEventListener("click", (e) => {
+      let eye = showPass.querySelector(".fa-solid");
+      if (eye.classList.contains("fa-eye-slash")) {
+        console.log(iptPass.type);
+        iptPass.type = "text";
+        eye.classList.remove("fa-eye-slash");
+        eye.classList.add("fa-eye");
+      } else {
+        console.log(iptPass.type);
+        iptPass.type = "password";
+        eye.classList.remove("fa-eye");
+        eye.classList.add("fa-eye-slash");
+      }
+    })
+  </script>
 </body>
 
 </html>
