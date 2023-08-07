@@ -145,7 +145,7 @@ require_once('config/security.php');
 
         <header class="header-mak">
 
-          <h1 class="title">¿Más de 2,000 propiedades <br> esperan por ti!</h1>
+          <h1 class="title">¡Más de 2,000 propiedades <br> esperan por ti!</h1>
         </header>
 
         <section class="body-mak">
@@ -202,13 +202,13 @@ require_once('config/security.php');
           </div> -->
 
 
-          <div class="row justify-content-center" style="gap:20px;">
+          <div class="row justify-content-center" style="gap:20px; padding-bottom: 5rem;">
             <div class="card-mak col-md-4">
               <img class="card-img-top" src="Vista/images/search.jpg" alt="Dist Photo 1">
               <div class="image-overlay"></div>
               <div class="card-intro">
                 <div class="card-intro-txt">
-                  <h1>Busqueda</h1>
+                  <h1>Búsqueda</h1>
                   <p>Texto informativo</p>
                 </div>
                 <a href="Search/Busqueda.php" class="btn btn-mak mak-bg">INICIAR</a>
@@ -219,7 +219,7 @@ require_once('config/security.php');
               <div class="image-overlay"></div>
               <div class="card-intro">
                 <div class="card-intro-txt">
-                  <h1>Valorizacion</h1>
+                  <h1>Valorizaciones</h1>
                   <p>Texto informativo</p>
                 </div>
                 <a href="Valorizacion/index.php" class="btn btn-mak mak-bg">INICIAR</a>
