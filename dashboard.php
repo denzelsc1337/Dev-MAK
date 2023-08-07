@@ -127,6 +127,10 @@ require_once('config/security.php');
                 <i class="nav-icon fas fa-sharp fa-regular fa-check"></i>
                 <p>Revision de Valorizaciones</p>
               </a>
+
+              <a href="Config/logout.php" class="">
+                <i class="fa fa-power-off"></i>
+              </a>
             </li>
           </ul>
         </nav>
