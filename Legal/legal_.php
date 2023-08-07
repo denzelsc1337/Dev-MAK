@@ -362,6 +362,7 @@ require_once('../Controller/controladorListar.php');
                                                         <th>ESTADO</th>
                                                         <th>id_user</th>
                                                         <th>dni_user</th>
+                                                        <th>coment</th>
                                                         <th>OPCIONES</th>
                                                     </tr>
                                                 </thead>
@@ -394,6 +395,7 @@ require_once('../Controller/controladorListar.php');
                                                             </td>
                                                             <td><?php echo $lst_legal_d[5] ?></td>
                                                             <td><?php echo $lst_legal_d[6] ?></td>
+                                                            <td><?php echo $lst_legal_d[7] ?></td>
                                                             <td>
                                                                 <div class="row justify-content-evenly">
                                                                     <div class="col-sm-4 justify-content-center options brd-rght-blue" hidden>
@@ -536,7 +538,7 @@ require_once('../Controller/controladorListar.php');
                                                         <div class="col-sm-6">
                                                             <div class="form-group">
                                                                 <label class="mak-txt">Comentario</label>
-                                                                <textarea name="" id="" readonly></textarea>
+                                                                <textarea name="coment_" id="coment_" readonly></textarea>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -1471,8 +1473,11 @@ require_once('../Controller/controladorListar.php');
             const contenedor = document.querySelector(".overflow-hidden");
             const contenido = contenedor.scrollWidth;
             const anchoVisible = contenedor.clientWidth;
+
+
             const totalScroll = contenido - anchoVisible;
             const mitadScroll = totalScroll / 2;
+
 
             //
             if (element.getAttribute("data-content") === "legal") {
