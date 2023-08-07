@@ -56,8 +56,10 @@
 
 
                 <section class="body-mak txt-center mak-txt">
-                    <div class="b-title">Valorizaciones</div>
-                    <p class="b-text mak-txt">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora culpa iste, facere veniam aperiam corporis placeat pariatur, dignissimos, nostrum illum ex adipisci officiis necessitatibus obcaecati doloribus velit sint omnis ipsum!</p>
+                    <div class="container">
+                        <div class="b-title">Valorizaciones</div>
+                        <p class="b-text mak-txt">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora culpa iste, facere veniam aperiam corporis placeat pariatur, dignissimos, nostrum illum ex adipisci officiis necessitatibus obcaecati doloribus velit sint omnis ipsum!</p>
+                    </div>
                 </section>
 
                 <div class="footer-mak">

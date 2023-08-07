@@ -289,269 +289,125 @@
                                             <h1>Casa -</h1>
                                         </div> -->
                                         <div class="card-body">
+
                                             <div class="row">
-                                                <div class="col-md-6">
-                                                    <div class="row">
-                                                        <div class="col-sm-12">
-                                                            <div class="card">
-                                                                <div class="card-header mak-bg mak-wht">
-                                                                    <h3 class="card-title">Generales</h3>
-                                                                </div>
-                                                                <div class="card-body">
-                                                                    <div class="col-sm-12">
-                                                                        <div class="form-group flex">
-                                                                            <div class="col-sm-6 pdd-left">
-                                                                                <div class="custom-control custom-checkbox">
-                                                                                    <input class="right custom-control-input" type="checkbox" id="sala_com" name="sala_com" value="">
-                                                                                    <label for="sala_com" class="right custom-control-label">Sala Comedor:</label>
-                                                                                </div>
-                                                                                <br>
-                                                                                <div class="custom-control custom-checkbox">
-                                                                                    <input class="right custom-control-input" type="checkbox" id="sala_" name="sala_" value="">
-                                                                                    <label for="sala_" class="right custom-control-label">Sala:</label>
-                                                                                </div>
-                                                                                <br>
-                                                                                <div class="custom-control custom-checkbox">
-                                                                                    <input class="right custom-control-input" type="checkbox" id="comedor_" name="comedor_" value="">
-                                                                                    <label for="comedor_" class="right custom-control-label">Comedor:</label>
-                                                                                </div>
+
+                                                <div class="column-card">
+                                                    <div class="column">
+                                                        <div class="card">
+                                                            <div class="card-header mak-bg mak-wht">
+                                                                <h3 class="card-title">Generales</h3>
+                                                            </div>
+                                                            <div class="card-body">
+                                                                <div class="col-sm-12">
+                                                                    <div class="form-group flex">
+                                                                        <div class="col-sm-6 pdd-left">
+                                                                            <div class="custom-control custom-checkbox">
+                                                                                <input class="right custom-control-input" type="checkbox" id="sala_com" name="sala_com" value="">
+                                                                                <label for="sala_com" class="right custom-control-label">Sala Comedor:</label>
                                                                             </div>
                                                                             <br>
-                                                                            <div class="col-sm-6 pdd-left">
-                                                                                <div class="custom-control custom-checkbox">
-                                                                                    <input class="right custom-control-input" type="checkbox" id="cocina_" name="cocina_" value="">
-                                                                                    <label for="cocina_" class="right custom-control-label">Cocina:</label>
-                                                                                </div>
-                                                                                <br>
-                                                                                <!-- <div class="custom-control custom-checkbox">
-                                                                                                    <input class="right custom-control-input" type="checkbox" id="jardin_t" name="jardin_t" value="true">
-                                                                                                    <label for="jardin_t" class="right custom-control-label">Jardín Trasero:</label>
-                                                                                                </div> -->
-                                                                                <div class="custom-control custom-checkbox">
-                                                                                    <input class="right custom-control-input" type="checkbox" id="amoblado_" name="amoblado_" value="">
-                                                                                    <label for="amoblado_" class="right custom-control-label">Amoblado:</label>
-                                                                                </div>
-                                                                                <br>
-                                                                                <div class="custom-control custom-checkbox">
-                                                                                    <input class="right custom-control-input" type="checkbox" id="piscina_d" name="piscina_d">
-                                                                                    <label for="piscina_d" class="right custom-control-label">Piscina propia:</label>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-
-                                                            <div class="card">
-                                                                <div class="card-header mak-bg mak-wht">
-                                                                    <div class="flex">
-                                                                        <h3 class="card-title">Dormitorios</h3>
-                                                                        <div class="input-group-append">
-                                                                            <i class="fa-solid fa-circle-info tooltipInfo tooltip-right">
-                                                                                <span class="tooltiptext">
-                                                                                    No considerar dormitorio de servicio.
-                                                                                </span>
-                                                                            </i>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="card-body">
-                                                                    <div class="col-sm-12 flex">
-                                                                        <div class="col-sm-6 pdd-left">
-                                                                            <label>Dormitorio(s):</label>
-                                                                            <div class="section-input col-sm-5">
-                                                                                <span class="icon-input">
-                                                                                    <img src="https://cdn-icons-png.flaticon.com/512/7118/7118098.png" alt="">
-                                                                                </span>
-                                                                                <input class="form-control input-number" type="number" min="0" id="cant_dorm" name="cant_dorm">
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="col-sm-6 pdd-left">
-                                                                            <label>Dormitorio con baño:</label>
-                                                                            <div class="section-input col-sm-5">
-                                                                                <span class="icon-input">
-                                                                                    <img src="https://cdn-icons-png.flaticon.com/512/5697/5697404.png" alt="">
-                                                                                </span>
-                                                                                <input class="form-control input-number" type="number" min="0" id="cant_dorm_b_" name="cant_dorm_b_">
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-
-                                                            <div class="card">
-                                                                <div class="card-header mak-bg mak-wht">
-                                                                    <div class="flex">
-                                                                        <h3 class="card-title">Baños</h3>
-                                                                        <div class="input-group-append">
-                                                                            <i class="fa-solid fa-circle-info tooltipInfo tooltip-right">
-                                                                                <span class="tooltiptext">
-                                                                                    No considerar baño de servicio.
-                                                                                </span>
-                                                                            </i>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="card-body">
-                                                                    <div class="col-sm-12 flex">
-                                                                        <div class="col-sm-6 pdd-left">
-                                                                            <label>Baño(s):</label>
-                                                                            <div class="section-input col-sm-5">
-                                                                                <span class="icon-input">
-                                                                                    <img src="https://cdn-icons-png.flaticon.com/512/456/456365.png" alt="">
-                                                                                </span>
-                                                                                <input class="form-control input-number" type="number" min="0" id="cant_banho" name="cant_banho">
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="col-sm-6 pdd-left align-center">
                                                                             <div class="custom-control custom-checkbox">
-                                                                                <input class="right custom-control-input" type="checkbox" id="banho_vis" name="banho_vis">
-                                                                                <label for="banho_vis" class="right custom-control-label">Baño(s) de visita:</label>
+                                                                                <input class="right custom-control-input" type="checkbox" id="sala_" name="sala_" value="">
+                                                                                <label for="sala_" class="right custom-control-label">Sala:</label>
                                                                             </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-
-
-
-                                                        </div>
-
-                                                    </div>
-                                                </div>
-
-                                                <div class="col-md-6">
-                                                    <div class="row">
-                                                        <div class="col-sm-12">
-                                                            <div class="card">
-                                                                <div class="card-header mak-bg mak-wht">
-                                                                    <h3 class="card-title">Area de Servicio</h3>
-                                                                </div>
-                                                                <div class="card-body">
-                                                                    <div class="col-sm-12 flex">
-                                                                        <div class="col-sm-6 pdd-left align-center">
+                                                                            <br>
                                                                             <div class="custom-control custom-checkbox">
-                                                                                <input class="right custom-control-input" type="checkbox" id="cuarto_serv" name="cuarto_serv">
-                                                                                <label for="cuarto_serv" class="right custom-control-label">Cuarto de servicio</label>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="col-sm-6 pdd-left align-center">
-                                                                            <div class="custom-control custom-checkbox">
-                                                                                <input class="right custom-control-input" type="checkbox" id="banho_serv" name="banho_serv">
-                                                                                <label for="banho_serv" class="right custom-control-label">Baño de servicio</label>
+                                                                                <input class="right custom-control-input" type="checkbox" id="comedor_" name="comedor_" value="">
+                                                                                <label for="comedor_" class="right custom-control-label">Comedor:</label>
                                                                             </div>
                                                                         </div>
                                                                         <br>
-                                                                    </div>
-                                                                </div>
-
-                                                            </div>
-
-                                                            <div class="card">
-                                                                <div class="card-header mak-bg mak-wht">
-                                                                    <h3 class="card-title">Estacionamiento y Depósito</h3>
-                                                                </div>
-                                                                <div class="card-body">
-                                                                    <div class="col-sm-12 flex">
                                                                         <div class="col-sm-6 pdd-left">
-                                                                            <label>Estacionamiento(s):</label>
-                                                                            <div class="section-input col-sm-5">
-                                                                                <span class="icon-input"><i class="fa-solid fa-warehouse"></i></span>
-                                                                                <input class="form-control input-number" type="number" min="0" id="cant_estac" name="cant_estac">
-                                                                            </div>
-                                                                        </div>
-
-
-                                                                        <div class="col-sm-6 pdd-left align-center">
                                                                             <div class="custom-control custom-checkbox">
-                                                                                <input class="right custom-control-input" type="checkbox" id="deposito_" name="deposito_">
-                                                                                <label for="deposito_" class="right custom-control-label">Depósito:</label>
+                                                                                <input class="right custom-control-input" type="checkbox" id="cocina_" name="cocina_" value="">
+                                                                                <label for="cocina_" class="right custom-control-label">Cocina:</label>
+                                                                            </div>
+                                                                            <br>
+                                                                            <!-- <div class="custom-control custom-checkbox">
+                                                                                                    <input class="right custom-control-input" type="checkbox" id="jardin_t" name="jardin_t" value="true">
+                                                                                                    <label for="jardin_t" class="right custom-control-label">Jardín Trasero:</label>
+                                                                                                </div> -->
+                                                                            <div class="custom-control custom-checkbox">
+                                                                                <input class="right custom-control-input" type="checkbox" id="amoblado_" name="amoblado_" value="">
+                                                                                <label for="amoblado_" class="right custom-control-label">Amoblado:</label>
+                                                                            </div>
+                                                                            <br>
+                                                                            <div class="custom-control custom-checkbox">
+                                                                                <input class="right custom-control-input" type="checkbox" id="piscina_d" name="piscina_d">
+                                                                                <label for="piscina_d" class="right custom-control-label">Piscina propia:</label>
                                                                             </div>
                                                                         </div>
                                                                     </div>
                                                                 </div>
                                                             </div>
+                                                        </div>
 
-                                                            <div class="card">
-                                                                <div class="card-header mak-bg mak-wht">
-                                                                    <h3 class="card-title">Otros</h3>
+                                                        <div class="card">
+                                                            <div class="card-header mak-bg mak-wht">
+                                                                <div class="flex">
+                                                                    <h3 class="card-title">Dormitorios</h3>
+                                                                    <div class="input-group-append">
+                                                                        <i class="fa-solid fa-circle-info tooltipInfo tooltip-right">
+                                                                            <span class="tooltiptext">
+                                                                                No considerar dormitorio de servicio.
+                                                                            </span>
+                                                                        </i>
+                                                                    </div>
                                                                 </div>
-                                                                <div class="card-body">
-                                                                    <div class="col-sm-12">
-                                                                        <div class="form-group row">
-                                                                            <label class="col-sm-3 col-form-label">Localización:</label>
-                                                                            <div class="section-input col-sm-8">
-                                                                                <span class="icon-input"><i class="fa-solid fa-location-dot"></i></span>
-                                                                                <select class="form-mak" id="ubic_casa" name="ubic_casa">
-                                                                                    <option value="-1">Seleccione</option>
-                                                                                    <?php foreach ($selector_types_ubi as $cod_type_u) : ?>
-                                                                                        <option value="<?php echo $cod_type_u[0]; ?>"><?php echo $cod_type_u[1]; ?></option>
-                                                                                    <?php endforeach ?>
-                                                                                </select>
-                                                                            </div>
-                                                                            <div class="input-group-append">
-                                                                                <i class="fa-solid fa-circle-info tooltipInfo tooltip-left">
-                                                                                    <span class="tooltiptext">
-                                                                                        Info...
-                                                                                    </span>
-                                                                                </i>
-                                                                            </div>
+                                                            </div>
+                                                            <div class="card-body">
+                                                                <div class="col-sm-12 flex">
+                                                                    <div class="col-sm-6 pdd-left">
+                                                                        <label>Dormitorio(s):</label>
+                                                                        <div class="section-input col-sm-5">
+                                                                            <span class="icon-input">
+                                                                                <img src="https://cdn-icons-png.flaticon.com/512/7118/7118098.png" alt="">
+                                                                            </span>
+                                                                            <input class="form-control input-number" type="number" min="0" id="cant_dorm" name="cant_dorm">
                                                                         </div>
                                                                     </div>
-
-                                                                    <div class="col-sm-12">
-                                                                        <div class="form-group row">
-                                                                            <label class="col-sm-3 col-form-label">Vista:</label>
-                                                                            <div class="section-input col-sm-8">
-                                                                                <span class="icon-input">
-                                                                                    <img src="https://cdn-icons-png.flaticon.com/512/3017/3017956.png" alt="">
-                                                                                </span>
-                                                                                <select class="form-mak" id="vista_casa" name="vista_casa">
-                                                                                    <option value="-1">Seleccione</option>
-                                                                                    <?php foreach ($selector_types_vis as $cod_type_v) : ?>
-                                                                                        <option value="<?php echo $cod_type_v[0]; ?>"><?php echo $cod_type_v[1]; ?></option>
-                                                                                    <?php endforeach ?>
-                                                                                </select>
-                                                                            </div>
-                                                                            <div class="input-group-append">
-                                                                                <i class="fa-solid fa-circle-info tooltipInfo tooltip-left">
-                                                                                    <span class="tooltiptext">
-                                                                                        Info...
-                                                                                    </span>
-                                                                                </i>
-                                                                            </div>
+                                                                    <div class="col-sm-6 pdd-left">
+                                                                        <label>Dormitorio con baño:</label>
+                                                                        <div class="section-input col-sm-5">
+                                                                            <span class="icon-input">
+                                                                                <img src="https://cdn-icons-png.flaticon.com/512/5697/5697404.png" alt="">
+                                                                            </span>
+                                                                            <input class="form-control input-number" type="number" min="0" id="cant_dorm_b_" name="cant_dorm_b_">
                                                                         </div>
                                                                     </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
 
-                                                                    <div class="col-sm-12">
-                                                                        <div class="form-group row">
-                                                                            <label class="col-sm-3 col-form-label">Acabado:</label>
-                                                                            <div class="section-input col-sm-8">
-                                                                                <span class="icon-input">
-                                                                                    <img src="https://cdn-icons-png.flaticon.com/512/1249/1249293.png" alt="">
-                                                                                </span>
-                                                                                <select class="form-mak" id="acabado_casa" name="acabado_casa">
-                                                                                    <option value="-1">Seleccione</option>
-                                                                                    <?php foreach ($selector_types_acab as $cod_type_a) : ?>
-                                                                                        <option value="<?php echo $cod_type_a[0]; ?>"><?php echo $cod_type_a[1]; ?></option>
-                                                                                    <?php endforeach ?>
-                                                                                </select>
-                                                                            </div>
-                                                                            <div class="input-group-append">
-
-                                                                                <i id="test" class="test fa-solid fa-circle-info tooltipInfo tooltip-left">
-                                                                                    <span class="tooltiptext" style="width: 450px;">
-                                                                                        <ul>
-                                                                                            <li>
-                                                                                                <b>Edificación en casco</b> - Construcción sin terminar: Estructura básica de la construcción, sin acabados interiores ni instalaciones.
-                                                                                            </li>
-                                                                                            <li>
-                                                                                                <b>Edificación terminada</b> - Construcción completa y lista para su uso: Estructura completa de la construcción, con acabados interiores y exteriores, instalaciones y servicios.
-                                                                                            </li>
-                                                                                        </ul>
-                                                                                    </span>
-                                                                                </i>
-                                                                            </div>
+                                                        <div class="card">
+                                                            <div class="card-header mak-bg mak-wht">
+                                                                <div class="flex">
+                                                                    <h3 class="card-title">Baños</h3>
+                                                                    <div class="input-group-append">
+                                                                        <i class="fa-solid fa-circle-info tooltipInfo tooltip-right">
+                                                                            <span class="tooltiptext">
+                                                                                No considerar baño de servicio.
+                                                                            </span>
+                                                                        </i>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="card-body">
+                                                                <div class="col-sm-12 flex">
+                                                                    <div class="col-sm-6 pdd-left">
+                                                                        <label>Baño(s):</label>
+                                                                        <div class="section-input col-sm-5">
+                                                                            <span class="icon-input">
+                                                                                <img src="https://cdn-icons-png.flaticon.com/512/456/456365.png" alt="">
+                                                                            </span>
+                                                                            <input class="form-control input-number" type="number" min="0" id="cant_banho" name="cant_banho">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-sm-6 pdd-left align-center">
+                                                                        <div class="custom-control custom-checkbox">
+                                                                            <input class="right custom-control-input" type="checkbox" id="banho_vis" name="banho_vis">
+                                                                            <label for="banho_vis" class="right custom-control-label">Baño(s) de visita:</label>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -559,6 +415,145 @@
                                                         </div>
                                                     </div>
                                                 </div>
+
+                                                <div class="column-card">
+                                                    <div class="column">
+                                                        <div class="card">
+                                                            <div class="card-header mak-bg mak-wht">
+                                                                <h3 class="card-title">Area de Servicio</h3>
+                                                            </div>
+                                                            <div class="card-body">
+                                                                <div class="col-sm-12 flex">
+                                                                    <div class="col-sm-6 pdd-left align-center">
+                                                                        <div class="custom-control custom-checkbox">
+                                                                            <input class="right custom-control-input" type="checkbox" id="cuarto_serv" name="cuarto_serv">
+                                                                            <label for="cuarto_serv" class="right custom-control-label">Cuarto de servicio</label>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-sm-6 pdd-left align-center">
+                                                                        <div class="custom-control custom-checkbox">
+                                                                            <input class="right custom-control-input" type="checkbox" id="banho_serv" name="banho_serv">
+                                                                            <label for="banho_serv" class="right custom-control-label">Baño de servicio</label>
+                                                                        </div>
+                                                                    </div>
+                                                                    <br>
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+
+                                                        <div class="card">
+                                                            <div class="card-header mak-bg mak-wht">
+                                                                <h3 class="card-title">Estacionamiento y Depósito</h3>
+                                                            </div>
+                                                            <div class="card-body">
+                                                                <div class="col-sm-12 flex">
+                                                                    <div class="col-sm-6 pdd-left">
+                                                                        <label>Estacionamiento(s):</label>
+                                                                        <div class="section-input col-sm-5">
+                                                                            <span class="icon-input"><i class="fa-solid fa-warehouse"></i></span>
+                                                                            <input class="form-control input-number" type="number" min="0" id="cant_estac" name="cant_estac">
+                                                                        </div>
+                                                                    </div>
+
+
+                                                                    <div class="col-sm-6 pdd-left align-center">
+                                                                        <div class="custom-control custom-checkbox">
+                                                                            <input class="right custom-control-input" type="checkbox" id="deposito_" name="deposito_">
+                                                                            <label for="deposito_" class="right custom-control-label">Depósito:</label>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="card">
+                                                            <div class="card-header mak-bg mak-wht">
+                                                                <h3 class="card-title">Otros</h3>
+                                                            </div>
+                                                            <div class="card-body">
+                                                                <div class="col-sm-12">
+                                                                    <div class="form-group row">
+                                                                        <label class="col-sm-3 col-form-label">Localización:</label>
+                                                                        <div class="section-input col-sm-8">
+                                                                            <span class="icon-input"><i class="fa-solid fa-location-dot"></i></span>
+                                                                            <select class="form-mak" id="ubic_casa" name="ubic_casa">
+                                                                                <option value="-1">Seleccione</option>
+                                                                                <?php foreach ($selector_types_ubi as $cod_type_u) : ?>
+                                                                                    <option value="<?php echo $cod_type_u[0]; ?>"><?php echo $cod_type_u[1]; ?></option>
+                                                                                <?php endforeach ?>
+                                                                            </select>
+                                                                        </div>
+                                                                        <div class="input-group-append">
+                                                                            <i class="fa-solid fa-circle-info tooltipInfo tooltip-left">
+                                                                                <span class="tooltiptext">
+                                                                                    Info...
+                                                                                </span>
+                                                                            </i>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="col-sm-12">
+                                                                    <div class="form-group row">
+                                                                        <label class="col-sm-3 col-form-label">Vista:</label>
+                                                                        <div class="section-input col-sm-8">
+                                                                            <span class="icon-input">
+                                                                                <img src="https://cdn-icons-png.flaticon.com/512/3017/3017956.png" alt="">
+                                                                            </span>
+                                                                            <select class="form-mak" id="vista_casa" name="vista_casa">
+                                                                                <option value="-1">Seleccione</option>
+                                                                                <?php foreach ($selector_types_vis as $cod_type_v) : ?>
+                                                                                    <option value="<?php echo $cod_type_v[0]; ?>"><?php echo $cod_type_v[1]; ?></option>
+                                                                                <?php endforeach ?>
+                                                                            </select>
+                                                                        </div>
+                                                                        <div class="input-group-append">
+                                                                            <i class="fa-solid fa-circle-info tooltipInfo tooltip-left">
+                                                                                <span class="tooltiptext">
+                                                                                    Info...
+                                                                                </span>
+                                                                            </i>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="col-sm-12">
+                                                                    <div class="form-group row">
+                                                                        <label class="col-sm-3 col-form-label">Acabado:</label>
+                                                                        <div class="section-input col-sm-8">
+                                                                            <span class="icon-input">
+                                                                                <img src="https://cdn-icons-png.flaticon.com/512/1249/1249293.png" alt="">
+                                                                            </span>
+                                                                            <select class="form-mak" id="acabado_casa" name="acabado_casa">
+                                                                                <option value="-1">Seleccione</option>
+                                                                                <?php foreach ($selector_types_acab as $cod_type_a) : ?>
+                                                                                    <option value="<?php echo $cod_type_a[0]; ?>"><?php echo $cod_type_a[1]; ?></option>
+                                                                                <?php endforeach ?>
+                                                                            </select>
+                                                                        </div>
+                                                                        <div class="input-group-append">
+
+                                                                            <i id="test" class="test fa-solid fa-circle-info tooltipInfo tooltip-left">
+                                                                                <span class="tooltiptext" style="width: 450px;">
+                                                                                    <ul>
+                                                                                        <li>
+                                                                                            <b>Edificación en casco</b> - Construcción sin terminar: Estructura básica de la construcción, sin acabados interiores ni instalaciones.
+                                                                                        </li>
+                                                                                        <li>
+                                                                                            <b>Edificación terminada</b> - Construcción completa y lista para su uso: Estructura completa de la construcción, con acabados interiores y exteriores, instalaciones y servicios.
+                                                                                        </li>
+                                                                                    </ul>
+                                                                                </span>
+                                                                            </i>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
                                             </div>
                                         </div>
                                         <div class="card-footer">
@@ -584,7 +579,7 @@
                                                                     <h3 class="card-title">Generales</h3>
                                                                 </div>
                                                                 <div class="card-body">
-                                                                    <div class="col-sm-12 flex">
+                                                                    <div class="column-card flex">
                                                                         <div class="col-sm-6 pdd-left">
                                                                             <div class="custom-control custom-checkbox">
                                                                                 <input class="right custom-control-input" type="checkbox" id="sala_com_d" name="sala_com_d">
@@ -607,24 +602,11 @@
                                                                                 <label for="cocina_d" class="right custom-control-label">Cocina:</label>
                                                                             </div>
                                                                             <br>
-                                                                            <!-- <div class="custom-control custom-checkbox">
-                                                                                            <input class="right custom-control-input" type="checkbox" id="jardin_t_d" name="jardin_t_d">
-                                                                                            <label for="jardin_t_d" class="right custom-control-label">Jardín Trasero:</label>
-                                                                                        </div> -->
                                                                             <div class="custom-control custom-checkbox">
                                                                                 <input class="right custom-control-input" type="checkbox" id="amoblado_d" name="amoblado_d">
                                                                                 <label for="amoblado_d" class="right custom-control-label">Amoblado:</label>
                                                                             </div>
                                                                             <br>
-                                                                            <!-- <div class="custom-control custom-checkbox">
-                                                                                            <input class="right custom-control-input" type="checkbox" id="ascensor_d" name="ascensor_d">
-                                                                                            <label for="ascensor_d" class="right custom-control-label">Ascensor:</label>
-                                                                                        </div>
-                                                                                        <br>
-                                                                                        <div class="custom-control custom-checkbox">
-                                                                                            <input class="right custom-control-input" type="checkbox" id="ascensor_directo_d" name="ascensor_directo_d">
-                                                                                            <label for="ascensor_directo_d" class="right custom-control-label">Ascensor directo:</label>
-                                                                                        </div> -->
                                                                         </div>
                                                                     </div>
                                                                 </div>
