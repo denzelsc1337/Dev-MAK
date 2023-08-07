@@ -83,7 +83,8 @@
 
                 <div class="footer-login">
                   <button type="submit" class="btn btn-mak mak-bg">Ingresar</button>
-                  <span><a href="http://" class="mak-txt">¿Olvidaste tu<br> contraseña?</a></span>
+                  <!-- <span><a href="http://" class="mak-txt">¿Olvidaste tu<br> contraseña?</a></span> -->
+                  <span id="toForgot" class="mak-txt">¿Olvidaste tu<br> contraseña?</span>
                 </div>
               </form>
             </div>
@@ -95,7 +96,7 @@
   <!-- LOGIN -->
 
   <!-- FORGOT PASS -->
-  <div class="content display-center">
+  <div class="content display-center hide forgot">
     <div class="container">
       <div class="row card-login forgot" style="border-radius: 20px;">
         <div class="col-md-12 bor-rght-20">
@@ -103,8 +104,10 @@
             <div>
               <img src="Vista/images/mak_2.png" alt="MAK" height="70" width="80%">
             </div>
-            <div>
-              <h2>Corredores <br> Aliados</h2>
+            <div id="toLogin">
+              <span class="mak-txt">
+                <h2>Corredores <br> Aliados</h2>
+              </span>
             </div>
           </div>
           <div class="body-login col-md-10">
