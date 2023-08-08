@@ -403,25 +403,25 @@ class Valorizacion
 		return $this->lst_valorizacion;
 	}
 
-	// public function list_Valo_Historico()
-	// {
-	// 	include_once('../config/Conexion.php');
-	// 	$cnx = new conexion();
-	// 	$cadena = $cnx->abrirConexion();
+	public function list_Valo_Historico()
+	{
+		include_once('../config/Conexion.php');
+		$cnx = new conexion();
+		$cadena = $cnx->abrirConexion();
 
-	// 	$query = "SELECT id_valor, direccion FROM valorizacion
-	// 			where dl.user_cod = $id_client and cs.dni_client = $dni_client";
+		$query = "SELECT *
+				  FROM valorizacion ";
 
-	// 	$resultado = mysqli_query($cadena, $query);
+		$resultado = mysqli_query($cadena, $query);
 
-	// 	while ($fila = mysqli_fetch_row($resultado)) {
-	// 		$this->lst_valo_hist[] = $fila;
-	// 	}
+		while ($fila = mysqli_fetch_row($resultado)) {
+			$this->lst_valo_hist[] = $fila;
+		}
 
-	// 	$cnx->cerrarConexion($cadena);
+		$cnx->cerrarConexion($cadena);
 
-	// 	return $this->lst_valo_hist;
-	// }
+		return $this->lst_valo_hist;
+	}
 
 
 	public function listadoZonificacion()

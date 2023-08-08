@@ -1,4 +1,5 @@
-<?php require_once('../Config/security.php'); ?>
+<?php require_once('../Config/security.php'); 
+require_once('../Controller/controladorListar.php');?>
 <!DOCTYPE html>
 <html>
 
