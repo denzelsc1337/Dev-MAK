@@ -18,6 +18,7 @@ class Valorizacion
 		$this->selector_suelo = array();
 
 		$this->lst_valorizacion = array();
+		$this->lst_valo_hist = array();
 
 		$this->lst_zonificacion = array();
 	}
@@ -41,9 +42,9 @@ class Valorizacion
 
 												`estacionamiento`, `deposito`,
 
-												`cod_ubi`, `cod_vista`, `cod_acabado`)
+												`cod_ubi`, `cod_vista`, `cod_acabado`,`cod_client`)
 
-						 VALUES(null, '" . $data[1] . "', '" . $data[2] . "', '" . $data[3] . "','" . $data[4] . "',
+						 VALUES(null, '" . $data[1] . "',  '" . $data[2] . "', '" . $data[3] . "','" . $data[4] . "',
 						 	'" . $data[5] . "', '" . $data[6] . "','" . $data[7] . "',
 
 						 	'" . $data[8] . "','" . $data[9] . "','" . $data[10] . "','" . $data[11] . "', '" . $data[12] . "','" . $data[13] . "',
@@ -56,19 +57,19 @@ class Valorizacion
 
 						 	'" . $data[20] . "','" . $data[21] . "',
 
-						 	'" . $data[22] . "','" . $data[23] . "','" . $data[24] . "');";
+						 	'" . $data[22] . "','" . $data[23] . "','" . $data[24] . "', '". $data[25] . "');";
 
-		/*verificacion de error en la consulta
+		/*verificacion de error en la consulta*/
 
-		$result = mysqli_query($cadena, $query);
+		// $result = mysqli_query($cadena, $query);
 
-        if ($result) {
-            $num_rows = mysqli_affected_rows($cadena);
-        } else {
-            echo "Error al ejecutar la consulta: " . mysqli_error($cadena);
-        }
+        // if ($result) {
+        //     $num_rows = mysqli_affected_rows($cadena);
+        // } else {
+        //     echo "Error al ejecutar la consulta: " . mysqli_error($cadena);
+        // }
 
-		verificacion de error en la consulta */
+		/*verificacion de error en la consulta */
 
 		echo mysqli_query($cadena, $query);
 		$cnx->cerrarConexion($cadena);
@@ -400,6 +401,26 @@ class Valorizacion
 		$cnx->cerrarConexion($cadena);
 
 		return $this->lst_valorizacion;
+	}
+
+	public function list_Valo_Historico()
+	{
+		include_once('../config/Conexion.php');
+		$cnx = new conexion();
+		$cadena = $cnx->abrirConexion();
+
+		$query = "SELECT *
+				  FROM valorizacion ";
+
+		$resultado = mysqli_query($cadena, $query);
+
+		while ($fila = mysqli_fetch_row($resultado)) {
+			$this->lst_valo_hist[] = $fila;
+		}
+
+		$cnx->cerrarConexion($cadena);
+
+		return $this->lst_valo_hist;
 	}
 
 

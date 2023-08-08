@@ -23,6 +23,8 @@ $selector_types_suel = $oValor->selector_type_suelo();
 
 $selector_zon = $oValor->listadoZonificacion();
 
+$list_valo = $oValor->list_Valo_Historico();
+
 
 require_once('../Model/Legal.php');
 $oLegal = new cLegal();

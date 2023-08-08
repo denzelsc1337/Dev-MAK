@@ -2,6 +2,7 @@
 require_once('../Model/Valorizacion.php');
 
 $data[1] = $_POST["direccion_"];
+
 $data[2] = $_POST["tipo_prop"];
 $data[3] = $_POST["sub_tipo_prop"];
 $data[4] = $_POST["tipo_prom"];
@@ -34,6 +35,7 @@ $data[21] = isset($_POST['deposito_']) ? true : false;
 $data[22] = $_POST["ubic_casa"];
 $data[23] = $_POST["vista_casa"];
 $data[24] = $_POST["acabado_casa"];
+$data[25] = $_POST['id_client_v'];
 //form casa
 
 $oValor = new Valorizacion();
