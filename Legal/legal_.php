@@ -553,18 +553,93 @@ require_once('../Controller/controladorListar.php');
                                             </div>
 
                                             <div class="col-sm-6">
+
                                                 <div class=" d-flex justify-content-end">
                                                     <div class="btn btn-mak bg-success">Aprobado</div>
                                                 </div>
 
 
                                                 <div class="card-body" id="carpeta_l">
+                                                    <div class="row card-resume">
+                                                        <div class="col-sm-2">
+                                                            <div class="lgl-modal-num">
+                                                                1
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-sm-8 brd-rght-blue d-flex align-items-center">
+                                                            <span class="mak-txt bld">Hoja de Resumen</span>
+                                                        </div>
+                                                        <div class="col-sm-2 justify-content-center options">
+                                                            <div class="options">
+                                                                <button type="button" class="btn btn-rounded  btn_lst_docs btn_lst_docs_0" data-toggle="modal" data-target="#lst_docs_legal" data-valor="H_R" data-titulo="Hoja de Resumen" data-id_doc_="1"
+                                                                data-id_user_="<?php echo $_SESSION['id_usu'] ?>">
+                                                                <i class="cursor fa-solid fa-eye"></i>
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
 
+                                                    <div class="row card-resume">
+                                                        <div class="col-sm-2">
+                                                            <div class="lgl-modal-num">
+                                                                2
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-sm-8 brd-rght-blue d-flex align-items-center">
+                                                            <span class="mak-txt bld">Predio Urbano</span>
+                                                        </div>
+                                                        <div class="col-sm-2 justify-content-center options">
+                                                            <div class="options">
+                                                                <button type="button" class="btn btn-rounded  btn_lst_docs btn_lst_docs_0" data-toggle="modal" data-target="#lst_docs_legal" data-valor="H_R" data-titulo="Hoja de Resumen" data-id_doc_="2"
+                                                                data-id_user_="<?php echo $_SESSION['id_usu'] ?>">
+                                                                <i class="cursor fa-solid fa-eye"></i>
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="row card-resume">
+                                                        <div class="col-sm-2">
+                                                            <div class="lgl-modal-num">
+                                                                3
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-sm-8 brd-rght-blue d-flex align-items-center">
+                                                            <span class="mak-txt bld">Copia Literal</span>
+                                                        </div>
+                                                        <div class="col-sm-2 justify-content-center options">
+                                                            <div class="options">
+                                                               <button type="button" class="btn btn-rounded  btn_lst_docs btn_lst_docs_0" data-toggle="modal" data-target="#lst_docs_legal" data-valor="H_R" data-titulo="Hoja de Resumen" data-id_doc_="3"
+                                                                data-id_user_="<?php echo $_SESSION['id_usu'] ?>">
+                                                                <i class="cursor fa-solid fa-eye"></i>
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="row card-resume">
+                                                        <div class="col-sm-2">
+                                                            <div class="lgl-modal-num">
+                                                                4
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-sm-8 brd-rght-blue d-flex align-items-center">
+                                                            <span class="mak-txt bld">DNI</span>
+                                                        </div>
+                                                        <div class="col-sm-2 justify-content-center options">
+                                                            <div class="options">
+                                                                <button type="button" class="btn btn-rounded  btn_lst_docs btn_lst_docs_0" data-toggle="modal" data-target="#lst_docs_legal" data-valor="H_R" data-titulo="Hoja de Resumen" data-id_doc_="4"
+                                                                data-id_user_="<?php echo $_SESSION['id_usu'] ?>">
+                                                                <i class="cursor fa-solid fa-eye"></i>
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 </div>
 
-                                                <div id="legal_docs">
+                                                <!--<div id="legal_docs">
 
-                                                </div>
+                                                </div>-->
                                             </div>
                                         </div>
 
@@ -664,7 +739,7 @@ require_once('../Controller/controladorListar.php');
                     <h1 class="title-m" id="titulo_docs">HR</h1>
                     <div class="row margin">
 
-                        <div class="form-group" hidden>
+                        <div class="form-group">
                             <label>id usu</label>
                             <input type="text" name="usu_dni" id="usu_dni" value="<?php echo $_SESSION['id_usu'] ?>">
                             <br>
@@ -676,8 +751,24 @@ require_once('../Controller/controladorListar.php');
                             <br>
                         </div>
 
-
                         <div class="col-sm-12" id="descarga_archivo_m">
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="lst_docs_legal" tabindex="-1" role="dialog" aria-labelledby="lst_docs_legal" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <h1 class="title-m" id="titulo_docs">HR</h1>
+                    <div class="row margin">
+
+                        <div class="col-sm-12" id="descarga_archivo_l">
 
                         </div>
 
@@ -1142,6 +1233,87 @@ require_once('../Controller/controladorListar.php');
                 });
             }
 
+            function load_documents_legal_(id_cli,_id_tipo_doc,id_reg) {
+
+                $.ajax({
+                    type: 'POST',
+                    url: '../Controller/Get_files_solic_legal.php',
+                    data: {
+                        id_client: id_cli,
+                        id_tipo_doc: _id_tipo_doc,
+                        id_solic_l: id_reg
+                    },
+                    success: function(response) {
+                        var data = JSON.parse(response);
+
+                        var archivos = data.archivos;
+                        var estado_doc = data.status_doc;
+
+                        var cod_doc_, ruta_doc, nom_file;
+                        var cont = 1;
+
+                        if (archivos && archivos.length > 0) {
+                            var enlaceHtml = '';
+
+                            archivos.forEach(function(archivo) {
+                                var ruta = archivo.ruta;
+                                var nombreArchivo = archivo.archivo;
+                                var estado = archivo.estado;
+                                var id_doc_ = archivo.id_doc;
+                                var status_r = '';
+
+
+                                var delete_btn = $('<button>').text('Eliminar').attr('class', 'btn btn-block btn-danger');
+
+                                enlaceHtml += `
+
+                                            <div class="row d-flex justify-content-between align-center mb-4">
+                                                <div class="col-sm-2">
+                                                    <div class="lgl-modal-num">
+                                                        ${cont++}
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-sm-8 archive">
+                                                    <img src="#" id="loader" style="display: none;">
+                                                    <a href="${ruta}${nombreArchivo}">${nombreArchivo}</a>
+                                                </div>
+
+                                                <div class="col-sm-2 tw-modal-ots">
+                                                    <div class="row">
+                                                        <div class="inputs brd-rght-blue">
+                                                            <input id="ruta_doc_i" type="text" value="${ruta}" readonly hidden>
+                                                            <input id="ruta_archivo_i" type="text" value="${nombreArchivo}" readonly hidden>
+                                                            <input id="cod_doc_i" type="text" value="${id_doc_}" readonly hidden>
+
+                                                            <div class="">
+                                                                <button id="dlt_file" type="button" class="btn dlt_file"><i class="cursor fa-solid fa-trash"></i></button>
+                                                            </div>
+                                                        </div>
+                                                        <div>
+                                                            <button id="dlt_file" type="button" class="btn dlt_file"> <i class="cursor fa-solid fa-download"></i></button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            `;
+
+                            });
+
+                            document.getElementById('descarga_archivo_l').innerHTML = enlaceHtml;
+
+                        } else {
+
+                            document.getElementById('descarga_archivo_l').textContent = 'Archivo no encontrado';
+                        }
+
+                    },
+                    error: function(xhr, status, error) {
+                        console.log(error);
+                    }
+                });
+            }
+
 
 
 
@@ -1221,7 +1393,22 @@ require_once('../Controller/controladorListar.php');
                 load_documents();
 
                 $('#lst_hr_0').modal('show');
+            });
 
+
+            $('.btn_lst_docs').on('click', function() {
+                console.log("Botón seleccionado");
+
+                var valor1 = $(this).data('valor');
+                var titulo_ = $(this).data('titulo');
+
+                var _id_doc_lgl = $(this).data('id_doc_');
+                var id_cli = $(this).data('id_user_');
+                var id_reg = $('#id_legal_solic').val();
+
+                $('#lst_docs_legal').modal('show');
+
+                load_documents_legal_(id_cli,_id_doc_lgl,id_reg)
 
             });
 
@@ -1423,17 +1610,21 @@ require_once('../Controller/controladorListar.php');
                         id_client: ID_cli,
                     },
                     success: function(response) {
-
                         var data = JSON.parse(response);
 
                         var archivos = data.archivos;
-                        var estado_doc = data.status_doc;
-
-                        var cod_doc_, ruta_doc, nom_file;
-                        var cont = 1;
 
                         if (archivos && archivos.length > 0) {
                             var enlaceHtml = '';
+                            var cod_usu = '<?php echo $_SESSION['dni'] ?>';
+
+                            var ruta_1 = '../Documentos Legal/' + cod_usu + '/H_R';
+                            var ruta_2 = '../Documentos Legal/' + cod_usu + '/C_L';
+                            var ruta_3 = '../Documentos Legal/' + cod_usu + '/P_U';
+                            var ruta_4 = '../Documentos Legal/' + cod_usu + '/DNI';
+
+                            // Definir las rutas a validar
+                            var lista_ = [ruta_1, ruta_2, ruta_3, ruta_4];
 
                             archivos.forEach(function(archivo) {
                                 var ruta = archivo.ruta;
@@ -1442,76 +1633,53 @@ require_once('../Controller/controladorListar.php');
                                 var id_doc_ = archivo.id_doc;
                                 var status_r = '';
 
-
                                 var delete_btn = $('<button>').text('Eliminar').attr('class', 'btn btn-block btn-danger');
 
-                                //console.log(nombreArchivo);
+                                // Dividir las rutas entregadas por el servidor
+                                var carpetas_ = ruta.split('\r\n');
 
+                                var enlaceHtmlCard = '';
 
-                                var lista_ = [nombreArchivo];
-
-                                /*xd.push(nombreArchivo);
-
-                                console.log(xd)*/
-
-                                /*rutas_total = ['../Documentos Legal/75481104/H_R',
-                                                '../Documentos Legal/75481104/C_L',
-                                                '../Documentos Legal/75481104/P_U',
-                                                '../Documentos Legal/75481104/DNI'];*/
-                                var carpetas_ = nombreArchivo.split('\r\n');
-
-                                console.log(carpetas_);
-
-
-                                 //console.log(lista_)
-
-
-                                 var cod_usu = '<?php echo $_SESSION['dni'] ?>';
-
-                                 var ruta_1 = '../Documentos Legal/'+cod_usu+'/H_R';
-
-                                 var ruta_2 = '../Documentos Legal/'+cod_usu+'/C_L';
-
-                                 console.log(cod_usu);
-
-                                if (carpetas_.includes(ruta_1)) {
-
-                                    enlaceHtml += `<div class="row card-resume">
-                                                        <div class="col-sm-2">
-                                                            <div class="lgl-modal-num">
-                                                                1
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-sm-8 brd-rght-blue d-flex align-items-center">
-                                                            <span class="mak-txt bld">HR</span>
-                                                        </div>
-                                                        <div class="col-sm-2 justify-content-center options">
-                                                            <div class="options">
-                                                                <i class="fa-solid fa-eye"></i>
-                                                            </div>
-                                                        </div>
+                                carpetas_.forEach(function(carpetasRuta) {
+                                    // Comparar las rutas utilizando .includes() y .startsWith()
+                                    if (lista_.some(function(item) { return carpetasRuta.startsWith(item); })) {
+                                        enlaceHtmlCard += `
+                                            <div class="row card-resume">
+                                                <div class="col-sm-2">
+                                                    <div class="lgl-modal-num">
+                                                        1
                                                     </div>
-                                                    `
-                                    document.getElementById('carpeta_l').innerHTML = enlaceHtml;
-                                }else{
+                                                </div>
+                                                <div class="col-sm-8 brd-rght-blue d-flex align-items-center">
+                                                    <span class="mak-txt bld">${carpetasRuta}</span>
+                                                </div>
+                                                <div class="col-sm-2 justify-content-center options">
+                                                    <div class="options">
+                                                        <i class="fa-solid fa-eye"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        `;
+                                    }
+                                });
+
+                                if (enlaceHtmlCard !== '') {
+                                    enlaceHtml += enlaceHtmlCard;
+                                } else {
                                     document.getElementById('carpeta_l').textContent = 'Archivo no encontrado';
                                 }
-
                             });
 
-                            //document.getElementById('legal_docs').innerHTML = enlaceHtml;
-
+                            document.getElementById('carpeta_l').innerHTML = enlaceHtml;
                         } else {
-
-                            //document.getElementById('legal_docs').textContent = 'Archivo no encontrado';
+                            // No se encontraron archivos
                         }
-
                     },
                     error: function(xhr, status, error) {
                         console.log(error);
                     }
-                });
-            }
+            });
+        }
 
         function send_file_upld(drop_id, file_input_id, btn_id) {
 
@@ -1612,7 +1780,7 @@ require_once('../Controller/controladorListar.php');
 
                         $('#id_client_l').val(data[5]);
 
-                        load_documents_legal('<?php echo $_SESSION['id_usu'] ?>');
+                        //load_documents_legal('<?php echo $_SESSION['id_usu'] ?>');
 
 
                         // Realizar la transición al final del scroll horizontal con animación
