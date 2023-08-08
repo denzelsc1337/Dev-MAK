@@ -6,7 +6,7 @@
 }
 
 body {
-  font-family: "Roboto", sans-serif;
+  font-family: 'Poppins', sans-serif !important;
   background-color: #f8fafb;
   color: var(--blue-mak) !important;
 }
@@ -896,8 +896,8 @@ textarea::-webkit-scrollbar {
 .form-flex {
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
-  gap: 10px;
+  justify-content: flex-end;
+  gap: 5rem;
 }
 
 .text-center {

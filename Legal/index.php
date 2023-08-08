@@ -62,9 +62,10 @@ require_once('../Controller/controladorListar.php');
 
 
                 <section class="content body-mak txt-center mak-txt">
-                    <div class="b-title">Resumen Legal</div>
-                    <p class="b-text mak-txt">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora culpa iste, facere veniam aperiam corporis placeat pariatur, dignissimos, nostrum illum ex adipisci officiis necessitatibus obcaecati doloribus velit sint omnis ipsum!</p>
-
+                    <div class="container">
+                        <div class="b-title">Resumen Legal</div>
+                        <p class="b-text mak-txt">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora culpa iste, facere veniam aperiam corporis placeat pariatur, dignissimos, nostrum illum ex adipisci officiis necessitatibus obcaecati doloribus velit sint omnis ipsum!</p>
+                    </div>
 
                     <div class="footer-mak">
                         <div class="container">
@@ -1196,6 +1197,8 @@ require_once('../Controller/controladorListar.php');
     </script>
 
     <script src="../Vista/assets/selection_types.js"></script>
+    <!-- REQUIRED SCRIPTS -->
+    <script src="../Vista/assets/functions.js"></script>
 </body>
 
 </html>

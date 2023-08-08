@@ -55,20 +55,246 @@
                 <?php include '../Vista/head-form.php' ?>
 
 
-                <section class="body-mak txt-center mak-txt">
+                <section class="content body-mak txt-center mak-txt">
                     <div class="container">
                         <div class="b-title">Valorizaciones</div>
                         <p class="b-text mak-txt">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora culpa iste, facere veniam aperiam corporis placeat pariatur, dignissimos, nostrum illum ex adipisci officiis necessitatibus obcaecati doloribus velit sint omnis ipsum!</p>
                     </div>
-                </section>
 
-                <div class="footer-mak">
-                    <div class="container">
-                        <div class="flex">
-                            <a href="valorizacion.php" class="btn btn-mak mak-bg ml-auto">Continuar</a>
+
+                    <div class="footer-mak">
+                        <div class="container">
+                            <div class="flex">
+                                <a href="valorizacion.php" class="btn btn-mak mak-bg ml-auto">Continuar</a>
+                            </div>
                         </div>
                     </div>
-                </div>
+
+                </section>
+
+
+                <section class="content body-mak mak-txt position-relative" data-content="historico">
+
+                    <!-- <div class="arrow-left">
+                                <i class="fa-solid fa-angle-left"></i>
+                            </div> -->
+
+                    <div class="container">
+                        <h1 class="text-center">HISTORICO</h1>
+                        <div class="row">
+
+                            <div class="menu-filter">
+                                <div class="filter-drop shadow ml-auto">
+                                    <div class="dropdown">
+                                        Filtros &nbsp;
+                                        <i class="fa-solid fa-sliders"></i>
+                                    </div>
+                                    <div class="optn-filter">
+                                        <div class="list-group-item">1</div>
+                                        <div class="list-group-item">2</div>
+                                        <div class="list-group-item">3</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <?php
+
+
+                            if ($_SESSION['tipo_usu'] == 1) {
+                                //ocultar el del user y mostrar el del admin
+                            ?>
+
+                                <!-- </div> TABLA ADMIN -->
+
+                                <div class="col-sm-12">
+
+                                    <table class="table table-borderless" style="width: 100%;">
+                                        Admin
+                                        <thead class="">
+                                            <tr>
+                                                <th>ID</th>
+                                                <th>nom</th>
+                                                <th>DIRECCIÓN</th>
+                                                <th>FECHA</th>
+                                                <th>ESTADO</th>
+                                                <th>id_user</th>
+                                                <th>dni_user</th>
+                                                <th>coment</th>
+                                                <th>OPCIONES</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <?php foreach ($list_solic_legal as $lst_legal_d) : ?>
+                                                <tr>
+                                                    <td><?php echo $lst_legal_d[0] ?></td>
+                                                    <td><?php echo $lst_legal_d[1] ?></td>
+                                                    <td><?php echo $lst_legal_d[2] ?></td>
+                                                    <td><?php echo $lst_legal_d[3] ?></td>
+                                                    <td>
+                                                        <?php
+                                                        if ($lst_legal_d[4] == 10) {
+                                                        ?>
+                                                            <span class="badge rounded-pill bg-secondary">Pendiente</span>
+                                                        <?php
+                                                        } elseif ($lst_legal_d[4] == 20) {
+                                                        ?>
+                                                            <span class="badge rounded-pill bg-warning text-dark">En revision</span>
+                                                        <?php
+                                                        } elseif ($lst_legal_d[4] == 90) {
+                                                        ?>
+                                                            <span class="badge rounded-pill bg-success">Finalizado</span>
+                                                        <?php
+                                                        }
+                                                        ?>
+                                                    </td>
+                                                    <td><?php echo $lst_legal_d[5] ?></td>
+                                                    <td><?php echo $lst_legal_d[6] ?></td>
+                                                    <td><?php echo $lst_legal_d[7] ?></td>
+                                                    <td>
+                                                        <div class="row justify-content-evenly">
+                                                            <div class="col-sm-4 justify-content-center options brd-rght-blue" hidden>
+                                                                <div class="options">
+                                                                    <i class="fa-solid fa-trash"></i>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-sm-4 justify-content-center options brd-rght-blue" hidden>
+                                                                <div class="options">
+                                                                    <i class="fa-solid fa-pencil"></i>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-sm-4 justify-content-center options" hidden>
+                                                                <div class="options">
+                                                                    <button type="button" class="btn btn-rounded find_data" id="get_data">
+                                                                        <i class="fa-solid fa-eye"></i>
+                                                                    </button>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-sm-4 justify-content-center options">
+                                                                <div class="options">
+                                                                    <button type="button" class="btn btn-rounded scroll-toggle" id="">
+                                                                        <i class="fa-solid fa-eye"></i>
+                                                                    </button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <button type="submit"><i class="fa-solid fa-upload"></i></button>
+                                                    </td>
+                                                </tr>
+                                            <?php endforeach ?>
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                                <!-- </div> TABLA ADMIN -->
+
+                            <?php
+                            } else {
+                            ?>
+
+                                <!-- </div> TABLA USER -->
+
+                                <div class="col-sm-12">
+                                    User
+                                    <table class="table table-borderless" style="width: 100%;">
+                                        <thead class="">
+                                            <tr>
+                                                <th>ID</th>
+                                                <th>nom</th>
+                                                <th>DIRECCIÓN</th>
+                                                <th>FECHA</th>
+                                                <th>ESTADO</th>
+                                                <th>id_user</th>
+                                                <th>dni_user</th>
+                                                <th>coment</th>
+                                                <th>DESCARGA</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <?php
+                                            $list_solic_legal_client = $oLegal->listadoSolicDocsLegal_clients($_SESSION['id_usu'], $_SESSION['dni']);
+                                            foreach ($list_solic_legal_client as $lst_legal_d) :
+                                            ?>
+                                                <tr>
+                                                    <td><?php echo $lst_legal_d[0] ?></td>
+                                                    <td><?php echo $lst_legal_d[1] ?></td>
+                                                    <td><?php echo $lst_legal_d[2] ?></td>
+                                                    <td><?php echo $lst_legal_d[3] ?></td>
+                                                    <td>
+                                                        <?php
+                                                        if ($lst_legal_d[4] == 10) {
+                                                        ?>
+                                                            <span class="badge rounded-pill bg-secondary">Pendiente</span>
+                                                        <?php
+                                                        } elseif ($lst_legal_d[4] == 20) {
+                                                        ?>
+                                                            <span class="badge rounded-pill bg-warning text-dark">En revision</span>
+                                                        <?php
+                                                        } elseif ($lst_legal_d[4] == 90) {
+                                                        ?>
+                                                            <span class="badge rounded-pill bg-success">Finalizado</span>
+                                                        <?php
+                                                        }
+                                                        ?>
+                                                    </td>
+                                                    <td><?php echo $lst_legal_d[5] ?></td>
+                                                    <td><?php echo $lst_legal_d[6] ?></td>
+                                                    <td><?php echo $lst_legal_d[7] ?></td>
+                                                    <td>
+                                                        <div class="row justify-content-evenly">
+                                                            <div class="col-sm-4 justify-content-center options brd-rght-blue" hidden>
+                                                                <div class="options">
+                                                                    <i class="fa-solid fa-trash"></i>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-sm-4 justify-content-center options brd-rght-blue" hidden>
+                                                                <div class="options">
+                                                                    <i class="fa-solid fa-pencil"></i>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-sm-4 justify-content-center options" hidden>
+                                                                <div class="options">
+                                                                    <button type="button" class="btn btn-rounded find_data" id="get_data">
+                                                                        <i class="fa-solid fa-eye"></i>
+                                                                    </button>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-sm-4 justify-content-center options">
+                                                                <div class="options">
+                                                                    <button type="button" class="btn btn-rounded scroll-toggle" id="">
+                                                                        <i class="fa-solid fa-eye"></i>
+                                                                    </button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <button type="submit"><i class="fa-solid fa-download"></i></button>
+                                                    </td>
+                                                </tr>
+                                            <?php endforeach ?>
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                                <!-- </div> TABLA USER -->
+                            <?php
+                                //ocultar el del admin y mostrar el del user
+                            }
+                            ?>
+
+                        </div>
+
+                    </div>
+                    <div class="footer-mak">
+                        <div class="container">
+                            <div class="flex">
+                                <a href="legal_.php" class="btn btn-mak mak-bg ml-auto">Continuar</a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
 
             </section>
         </div>
@@ -667,6 +893,8 @@
         // // DropzoneJS Demo Code End
     </script>
 
+    <!-- REQUIRED SCRIPTS -->
+    <script src="../Vista/assets/functions.js"></script>
     <script src="../Vista/assets/selection_types.js"></script>
 </body>
 
