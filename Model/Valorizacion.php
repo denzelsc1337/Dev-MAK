@@ -57,17 +57,17 @@ class Valorizacion
 
 						 	'" . $data[20] . "','" . $data[21] . "',
 
-						 	'" . $data[22] . "','" . $data[23] . "','" . $data[24] . "', '". $data[25] . "');";
+						 	'" . $data[22] . "','" . $data[23] . "','" . $data[24] . "', '" . $data[25] . "');";
 
 		/*verificacion de error en la consulta*/
 
 		// $result = mysqli_query($cadena, $query);
 
-        // if ($result) {
-        //     $num_rows = mysqli_affected_rows($cadena);
-        // } else {
-        //     echo "Error al ejecutar la consulta: " . mysqli_error($cadena);
-        // }
+		// if ($result) {
+		//     $num_rows = mysqli_affected_rows($cadena);
+		// } else {
+		//     echo "Error al ejecutar la consulta: " . mysqli_error($cadena);
+		// }
 
 		/*verificacion de error en la consulta */
 
@@ -93,7 +93,7 @@ class Valorizacion
 												`ascensor_dep`,`ascensor_dir_dep`,
 												`pisos_edif_dep`, `piso_dep`,
 
-												`cod_ubi`, `cod_vista`, `cod_acabado`)
+												`cod_ubi`, `cod_vista`, `cod_acabado`,`cod_client`)
 
 						 VALUES(null, '" . $data[1] . "', '" . $data[2] . "', '" . $data[3] . "','" . $data[4] . "',
 						 	'" . $data[5] . "', '" . $data[6] . "','" . $data[7] . "',
@@ -107,7 +107,7 @@ class Valorizacion
 						 	'" . $data[21] . "','" . $data[22] . "',
 						 	'" . $data[23] . "','" . $data[24] . "',
 
-						 	'" . $data[25] . "','" . $data[26] . "','" . $data[27] . "');";
+						 	'" . $data[25] . "','" . $data[26] . "','" . $data[27] . "','" . $data[28] . "');";
 
 		/*verificacion de error en la consulta
 
@@ -403,25 +403,71 @@ class Valorizacion
 		return $this->lst_valorizacion;
 	}
 
+	// public function list_Valo_Historico()
+	// {
+	// 	include_once('../config/Conexion.php');
+	// 	$cnx = new conexion();
+	// 	$cadena = $cnx->abrirConexion();
+
+	// 	$query = "SELECT *
+	// 			  FROM valorizacion ";
+
+	// 	$resultado = mysqli_query($cadena, $query);
+
+	// 	while ($fila = mysqli_fetch_row($resultado)) {
+	// 		$this->lst_valo_hist[] = $fila;
+	// 	}
+
+	// 	echo "asd";
+
+	// 	$cnx->cerrarConexion($cadena);
+
+	// 	return $this->lst_valo_hist;
+	// }
+
 	public function list_Valo_Historico()
 	{
 		include_once('../config/Conexion.php');
 		$cnx = new conexion();
 		$cadena = $cnx->abrirConexion();
 
+		// $query = "SELECT id_valor, cs.nom_client, direccion, ti.tipo_inmb, sti.sub_tipo_inmb, tp.tipo_promo, area_terreno, area_construida, area_ocupada, antiguedad, sala_comedor, sala, comedor, cocina, amoblado, piscina_prop, cant_dorm, dormitorio_banho, cant_banho, banho_visita, cuarto_serv, banho_serv, estacionamiento, deposito, ub.tipo_ubic, tv.tipo_vista, ta.tipo_acabado,
+		// -- dep
+		// sala_comedor_dep
+
+
+		// FROM valorizacion vl
+		// INNER JOIN clientes_servicios cs ON vl.cod_client = cs.id_client
+		// INNER JOIN tipo_inmuebles ti ON vl.cod_tipo_inmue = ti.id_tipo_inmb
+		// INNER JOIN sub_tipo_inmuebles sti ON vl.cod_sub_tipo_inmue = sti.id_sub_tipo_inmb
+		// INNER JOIN tipo_promocion tp ON vl.cod_tipo_prom = tp.id_promo
+		// INNER JOIN ubicacion ub ON vl.cod_ubi = ub.id_ubicacion
+		// INNER JOIN tipo_vista tv ON vl.cod_vista = tv.id_vista
+		// INNER JOIN tipo_acabado ta ON vl.cod_acabado = ta.id_acabado
+		// ";
+
 		$query = "SELECT *
-				  FROM valorizacion ";
+		FROM valorizacion ";
+
+
 
 		$resultado = mysqli_query($cadena, $query);
 
 		while ($fila = mysqli_fetch_row($resultado)) {
+			$filteredFields = array_filter($fila, function ($value) {
+				return $value !== null;
+			});
+
 			$this->lst_valo_hist[] = $fila;
 		}
+
 
 		$cnx->cerrarConexion($cadena);
 
 		return $this->lst_valo_hist;
 	}
+
+
 
 
 	public function listadoZonificacion()

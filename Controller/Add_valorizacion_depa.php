@@ -40,6 +40,7 @@ $data[24] = $_POST["piso_dpto_"];
 $data[25] = $_POST["ubic_depa"];
 $data[26] = $_POST["vista_depa"];
 $data[27] = $_POST["acabado_depa"];
+$data[28] = $_POST['id_client_v'];
 //form depa
 
 $oValor = new Valorizacion();

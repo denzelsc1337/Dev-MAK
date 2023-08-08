@@ -1,5 +1,5 @@
-<?php require_once('../Config/security.php'); 
-require_once('../Controller/controladorListar.php');?>
+<?php require_once('../Config/security.php');
+require_once('../Controller/controladorListar.php'); ?>
 <!DOCTYPE html>
 <html>
 
@@ -198,35 +198,95 @@ require_once('../Controller/controladorListar.php');?>
 
                                 <div class="col-sm-12">
                                     User
-                                    <table class="table table-borderless" style="width: 100%;">
-                                        <thead class="">
-                                            <tr>
-                                                <th>ID</th>
-                                                <th>nom</th>
-                                                <th>DIRECCIÓN</th>
-                                                <th>FECHA</th>
-                                                <th>ESTADO</th>
-                                                <th>id_user</th>
-                                                <th>dni_user</th>
-                                                <th>coment</th>
-                                                <th>DESCARGA</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <?php
-                                            foreach ($list_valo as $lst_vlzn) :
-                                            ?>
+                                    <div class="table-responsive pl-2 pr-2">
+                                        <table class="table table-borderless" style="width: 100%;">
+                                            <thead class="">
                                                 <tr>
-                                                    <td><?php echo $lst_vlzn[0] ?></td>
-                                                    <td><?php echo $lst_vlzn[1] ?></td>
-
-                                                    <td>
-                                                        <button type="submit"><i class="fa-solid fa-download"></i></button>
-                                                    </td>
+                                                    <th>ID</th>
+                                                    <th>nom</th>
+                                                    <th>DIRECCIÓN</th>
+                                                    <th>FECHA</th>
+                                                    <th>ESTADO</th>
+                                                    <th>id_user</th>
+                                                    <th>dni_user</th>
+                                                    <th>coment</th>
+                                                    <th>DESCARGA</th>
                                                 </tr>
-                                            <?php endforeach ?>
-                                        </tbody>
-                                    </table>
+                                            </thead>
+                                            <tbody>
+                                                <?php
+                                                function getValue($param1)
+                                                {
+                                                    if ($param1 == 0) {
+                                                        echo "No";
+                                                    } else {
+                                                        echo "Si";
+                                                    }
+
+                                                    // if ($param1 !== null) {
+                                                    //     echo "<td>$param1</td>";
+                                                    // }
+                                                }
+
+                                                function mostrarData($data)
+                                                {
+                                                    if ($data !== null) {
+                                                        echo "<td>$data</td>";
+                                                    }
+                                                }
+
+                                                foreach ($list_valo as $lst_vlzn) :
+
+
+                                                ?>
+                                                    <tr>
+                                                        <td><?php echo $lst_vlzn[0] ?></td>
+                                                        <td><?php echo $lst_vlzn[1] ?></td>
+                                                        <td><?php echo $lst_vlzn[2] ?></td>
+                                                        <td><?php echo $lst_vlzn[3] ?></td>
+                                                        <td><?php echo $lst_vlzn[4] ?></td>
+                                                        <td><?php echo $lst_vlzn[5] ?></td>
+                                                        <td><?php echo $lst_vlzn[6] ?></td>
+                                                        <td><?php echo $lst_vlzn[7] ?></td>
+
+                                                        <?php if ($lst_vlzn[8] == null) { ?>
+                                                            <td>--</td>
+                                                        <?php
+                                                        } else { ?>
+                                                            <td><?php echo $lst_vlzn[9] ?></td>
+                                                        <?php
+                                                        } ?>
+
+                                                        <td><?php echo getValue($lst_vlzn[9]) ?></td>
+                                                        <td><?php echo getValue($lst_vlzn[10]) ?></td>
+                                                        <td><?php echo getValue($lst_vlzn[11]) ?></td>
+                                                        <td><?php echo getValue($lst_vlzn[12]) ?></td>
+                                                        <td><?php echo getValue($lst_vlzn[13]) ?></td>
+                                                        <td><?php echo getValue($lst_vlzn[14]) ?></td>
+                                                        <td><?php echo getValue($lst_vlzn[15]) ?></td>
+                                                        <td><?php echo getValue($lst_vlzn[16]) ?></td>
+                                                        <td><?php echo getValue($lst_vlzn[17]) ?></td>
+                                                        <td><?php echo getValue($lst_vlzn[18]) ?></td>
+                                                        <td><?php echo getValue($lst_vlzn[19]) ?></td>
+                                                        <td><?php echo getValue($lst_vlzn[20]) ?></td>
+                                                        <td><?php echo getValue($lst_vlzn[21]) ?></td>
+                                                        <td><?php echo getValue($lst_vlzn[22]) ?></td>
+                                                        <td><?php echo getValue($lst_vlzn[23]) ?></td>
+                                                        <td><?php echo $lst_vlzn[24] ?></td>
+                                                        <td><?php echo $lst_vlzn[25] ?></td>
+                                                        <td><?php echo $lst_vlzn[26] ?></td>
+                                                        <?php mostrarData($lst_vlzn[27]); ?>
+                                                        <?php mostrarData($lst_vlzn[28]); ?>
+                                                        <?php mostrarData($lst_vlzn[29]); ?>
+
+                                                        <td>
+                                                            <button type="submit"><i class="fa-solid fa-download"></i></button>
+                                                        </td>
+                                                    </tr>
+                                                <?php endforeach ?>
+                                            </tbody>
+                                        </table>
+                                    </div>
                                 </div>
 
                                 <!-- </div> TABLA USER -->
