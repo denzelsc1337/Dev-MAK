@@ -370,6 +370,7 @@ require_once('../Controller/controladorListar.php');
                                                 <tbody>
                                                     <?php
                                                     $list_solic_legal_client = $oLegal->listadoSolicDocsLegal_clients($_SESSION['id_usu'], $_SESSION['dni']);
+
                                                     foreach ($list_solic_legal_client as $lst_legal_d) :
                                                     ?>
                                                         <tr>
@@ -573,7 +574,7 @@ require_once('../Controller/controladorListar.php');
                                                         <div class="col-sm-2 justify-content-center options">
                                                             <div class="options">
                                                                 <button type="button" class="btn btn-rounded  btn_lst_docs btn_lst_docs_0" data-toggle="modal" data-target="#lst_docs_legal" data-valor="H_R" data-titulo="Hoja de Resumen" data-id_doc_="1"
-                                                                data-id_user_="<?php echo $_SESSION['id_usu'] ?>">
+                                                                data-id_user_="<?php echo $_SESSION['dni'] ?>">
                                                                 <i class="cursor fa-solid fa-eye"></i>
                                                                 </button>
                                                             </div>
@@ -591,8 +592,8 @@ require_once('../Controller/controladorListar.php');
                                                         </div>
                                                         <div class="col-sm-2 justify-content-center options">
                                                             <div class="options">
-                                                                <button type="button" class="btn btn-rounded  btn_lst_docs btn_lst_docs_0" data-toggle="modal" data-target="#lst_docs_legal" data-valor="H_R" data-titulo="Hoja de Resumen" data-id_doc_="2"
-                                                                data-id_user_="<?php echo $_SESSION['id_usu'] ?>">
+                                                                <button type="button" class="btn btn-rounded  btn_lst_docs btn_lst_docs_0" data-toggle="modal" data-target="#lst_docs_legal" data-valor="P_U" data-titulo="Hoja de Resumen" data-id_doc_="2"
+                                                                data-id_user_="<?php echo $_SESSION['dni'] ?>">
                                                                 <i class="cursor fa-solid fa-eye"></i>
                                                                 </button>
                                                             </div>
@@ -610,8 +611,8 @@ require_once('../Controller/controladorListar.php');
                                                         </div>
                                                         <div class="col-sm-2 justify-content-center options">
                                                             <div class="options">
-                                                               <button type="button" class="btn btn-rounded  btn_lst_docs btn_lst_docs_0" data-toggle="modal" data-target="#lst_docs_legal" data-valor="H_R" data-titulo="Hoja de Resumen" data-id_doc_="3"
-                                                                data-id_user_="<?php echo $_SESSION['id_usu'] ?>">
+                                                               <button type="button" class="btn btn-rounded  btn_lst_docs btn_lst_docs_0" data-toggle="modal" data-target="#lst_docs_legal" data-valor="C_L" data-titulo="Hoja de Resumen" data-id_doc_="3"
+                                                                data-id_user_="<?php echo $_SESSION['dni'] ?>">
                                                                 <i class="cursor fa-solid fa-eye"></i>
                                                                 </button>
                                                             </div>
@@ -629,8 +630,8 @@ require_once('../Controller/controladorListar.php');
                                                         </div>
                                                         <div class="col-sm-2 justify-content-center options">
                                                             <div class="options">
-                                                                <button type="button" class="btn btn-rounded  btn_lst_docs btn_lst_docs_0" data-toggle="modal" data-target="#lst_docs_legal" data-valor="H_R" data-titulo="Hoja de Resumen" data-id_doc_="4"
-                                                                data-id_user_="<?php echo $_SESSION['id_usu'] ?>">
+                                                                <button type="button" class="btn btn-rounded  btn_lst_docs btn_lst_docs_0" data-toggle="modal" data-target="#lst_docs_legal" data-valor="DNI" data-titulo="Hoja de Resumen" data-id_doc_="4"
+                                                                data-id_user_="<?php echo $_SESSION['dni'] ?>">
                                                                 <i class="cursor fa-solid fa-eye"></i>
                                                                 </button>
                                                             </div>
@@ -1234,15 +1235,16 @@ require_once('../Controller/controladorListar.php');
                 });
             }
 
-            function load_documents_legal_(id_cli,_id_tipo_doc,id_reg) {
+            function load_documents_legal_(id_reg,id_cli,tipo_doc) {
 
                 $.ajax({
                     type: 'POST',
                     url: '../Controller/Get_files_solic_legal.php',
                     data: {
-                        id_client: id_cli,
-                        id_tipo_doc: _id_tipo_doc,
-                        id_solic_l: id_reg
+                        id_solic_l: id_reg,
+                        dni_cli: id_cli,
+                        id_tipo_doc: tipo_doc,
+
                     },
                     success: function(response) {
                         var data = JSON.parse(response);
@@ -1409,7 +1411,7 @@ require_once('../Controller/controladorListar.php');
 
                 $('#lst_docs_legal').modal('show');
 
-                load_documents_legal_(id_cli,_id_doc_lgl,id_reg)
+                load_documents_legal_(id_reg,id_cli,valor1)
 
             });
 
@@ -1602,7 +1604,7 @@ require_once('../Controller/controladorListar.php');
 
     <script>
 
-        function load_documents_legal(ID_cli) {
+        /*function load_documents_legal(ID_cli) {
 
                 $.ajax({
                     type: 'POST',
@@ -1680,7 +1682,7 @@ require_once('../Controller/controladorListar.php');
                         console.log(error);
                     }
             });
-        }
+        }*/
 
         function send_file_upld(drop_id, file_input_id, btn_id) {
 
