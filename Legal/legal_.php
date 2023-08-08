@@ -119,7 +119,8 @@ require_once('../Controller/controladorListar.php');
                                     <div class="card-body">
                                         <div class="row">
 
-                                            <input type="text" class="form-control" id="id_user" name="id_user" value="<?php echo $_SESSION['id_usu']; ?>" hidden>
+                                            <input type="text" class="form-control" id="id_user" name="id_user" value="<?php echo $_SESSION['id_usu']; ?>">
+                                            <input type="text" class="form-control" id="dni_user_l" name="dni_user_l" value="<?php echo $_SESSION['dni']; ?>">
 
                                             <div class="col-sm-6">
                                                 <div class="row">
@@ -739,7 +740,7 @@ require_once('../Controller/controladorListar.php');
                     <h1 class="title-m" id="titulo_docs">HR</h1>
                     <div class="row margin">
 
-                        <div class="form-group">
+                        <div class="form-group" hidden>
                             <label>id usu</label>
                             <input type="text" name="usu_dni" id="usu_dni" value="<?php echo $_SESSION['id_usu'] ?>">
                             <br>
@@ -1147,7 +1148,7 @@ require_once('../Controller/controladorListar.php');
 
             });
 
-            function load_documents() {
+            function load_documents(valor1) {
 
                 var dni = '<?php echo $_SESSION['dni'] ?>';
                 var id_cli = '<?php echo $_SESSION['id_usu'] ?>';
@@ -1159,7 +1160,7 @@ require_once('../Controller/controladorListar.php');
                     data: {
                         id_client: id_cli,
                         dni_client: dni,
-                        id_tipo_doc: _id_tipo_doc
+                        id_tipo_doc: valor1
                     },
                     success: function(response) {
                         var data = JSON.parse(response);
@@ -1390,7 +1391,7 @@ require_once('../Controller/controladorListar.php');
                 /*console.log(titulo_modal);
                 console.log(concepto);*/
 
-                load_documents();
+                load_documents(valor1);
 
                 $('#lst_hr_0').modal('show');
             });

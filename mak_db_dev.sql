@@ -734,7 +734,9 @@ select id_document, id_legal, file_destination, rutas_docs, file_name, status_do
 from documents_clients dcl
 inner join docs_legal dl
 on dcl.id_client = dl.user_cod
-where dl.user_cod = 1 and tipo_doc = 3
+where dl.user_cod = 2 and tipo_doc = 3
+
+select * from documents_clients
 
 
 

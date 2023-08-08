@@ -13,23 +13,32 @@ class cLegal
 		$this->data_legal=array();
 	}
 
-	function save_solic_legal($rutas,$data)
+
+
+	public function save_solic_legal($rutas, $data, $cadena)
 	{
-		include_once('../config/Conexion.php');
-		$cnx = new Conexion();
-		$cadena = $cnx->abrirConexion();
+	    $query = "INSERT INTO `docs_legal`(`rutas_docs`, `nom_client`,`ape_client`, `dir_client`,`fecha_reg`, `user_cod`)
+	                               VALUES ('".$rutas."','".$data[1]."','".$data[2]."','".$data[3]."',now(),'".$data[4]."');";
 
-		$query = "INSERT INTO `docs_legal`(`id_legal`,`rutas_docs`, `nom_client`,`ape_client`, `dir_client`,`fecha_reg`, `user_cod`)
-								   VALUES (null,'".$rutas."','".$data[1]."','".$data[2]."','".$data[3]."',now(),'".$data[4]."');";
-
-		$result = mysqli_query($cadena, $query);
-		$cnx->cerrarConexion($cadena);
-		return $result;
-
-		/*echo mysqli_query($cadena, $query);
-		$cnx->cerrarConexion($cadena);*/
-
+	    $result = mysqli_query($cadena, $query);
+	    return $result;
 	}
+
+	public function getLastInsertedID() {
+        include_once('../config/Conexion.php');
+        $cnx = new Conexion();
+        $cadena = $cnx->abrirConexion();
+
+        $query = "SELECT LAST_INSERT_ID() as last_id";
+        $result = mysqli_query($cadena, $query);
+        $row = mysqli_fetch_assoc($result);
+
+        echo "Último ID autoincrementado: " . $row['last_id'];
+
+        $cnx->cerrarConexion($cadena);
+
+        return $row['last_id'];
+    }
 
 	function upload_documents_clients($file_name, $file_type, $file_destination, $file_size, $file_ext, $tipo_doc,$id_client,$dni_client)
 	{
