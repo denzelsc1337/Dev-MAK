@@ -335,6 +335,7 @@ FOREIGN KEY (cod_tipo_suel)		REFERENCES  tipo_suelo  (id_tipo_suelo)ON DELETE SE
 
 create table valorizacion(
 	id_valor		int auto_increment primary key,
+	cod_client 		int,
 	direccion		varchar(150),
     
     cod_tipo_inmue		int, 
@@ -434,6 +435,7 @@ create table valorizacion(
     FOREIGN KEY (cod_vista) REFERENCES  tipo_vista  (id_vista) ON DELETE SET NULL,
     FOREIGN KEY (cod_acabado) REFERENCES  tipo_acabado  (id_acabado) ON DELETE SET NULL,
     FOREIGN KEY (cod_zonificacion) REFERENCES  tipo_zonificacion  (id_zona) ON DELETE SET NULL,
+    FOREIGN KEY (cod_client) REFERENCES  clientes_servicios  (id_client) ON DELETE SET NULL,
     FOREIGN KEY (cod_tipo_suelo) REFERENCES  tipo_suelo  (id_tipo_suelo) ON DELETE SET NULL
 );
 
