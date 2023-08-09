@@ -1127,6 +1127,14 @@ form .form-content {
   background-color: #f4f4f5;
 }
 
+.content-file .form-flex {
+  justify-content: center;
+}
+
+.content-file .form-flex .btn-mak {
+  width: 235px;
+}
+
 .content-file .input-file i {
   font-size: 10rem;
   margin-bottom: 2rem;

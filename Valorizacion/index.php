@@ -109,7 +109,7 @@ require_once('../Controller/controladorListar.php'); ?>
 
                                 <div class="col-sm-12">
 
-                                    <table class="table table-borderless" style="width: 150%;">
+                                    <table class="table table-borderless" style="width: 100%;">
                                         Admin
                                         <thead class="">
                                             <tr>
@@ -199,101 +199,28 @@ require_once('../Controller/controladorListar.php'); ?>
                                 <div class="col-sm-12">
                                     User
                                     <div class="table-responsive pl-2 pr-2">
-                                        <table class="table table-borderless" style="width: 150%;">
+                                        <table class="table table-borderless" style="width: 100%;">
                                             <thead class="">
                                                 <tr>
-                                                    <th>id_valor</th>
-                                                    <th>nom_client</th>
-                                                    <th>direccion</th>
-                                                    <th>tipo_inmue</th>
-                                                    <th>sub_tipo_inmue</th>
-                                                    <th>tipo_promo</th>
-                                                    <th>area_terreno</th>
-                                                    <th>area_ocupada</th>
-                                                    <th>antiguedad</th>
-                                                    <th>sala_comedor</th>
-                                                    <th>sala</th>
-                                                    <th>comedor</th>
-                                                    <th>cocina</th>
-                                                    <th>amoblado</th>
-                                                    <th>piscina_prop</th>
-                                                    <th>cant_dorm</th>
-                                                    <th>dormitorio_banho</th>
-                                                    <th>cant_banho</th>
-                                                    <th>banho_visita</th>
-                                                    <th>cuarto_serv</th>
-                                                    <th>banho_serv</th>
-                                                    <th>estacionamiento</th>
-                                                    <th>deposito</th>
-                                                    <th>cod_ubi</th>
-                                                    <th>cod_vista</th>
-                                                    <th>cod_acabado</th>
-                                                    <th>sala_comedor_dep</th>
-                                                    <th>sala_dep</th>
-                                                    <th>comedor_dep</th>
-                                                    <th>cocina_dep</th>
-                                                    <th>amob_dep</th>
-                                                    <!-- <th>cant_dorm_dep</th>
-                                                    <th>dormitorio_banho_dep</th>
-                                                    <th>cant_banho_dep</th>
-                                                    <th>banho_visita_dep</th>
-                                                    <th>cuarto_serv_dep</th>
-                                                    <th>banho_serv_dep</th>
-                                                    <th>estac_dep</th>
-                                                    <th>deposito_dep</th>
-                                                    <th>ascensor_dep</th>
-                                                    <th>ascensor_dir_dep</th>
-                                                    <th>pisos_edif_dep</th>
-                                                    <th>piso_dep</th>
-                                                    <th>cod_zonificacion</th>
-                                                    <th>cod_tipo_suelo</th>
-                                                    <th>param_terreno</th>
-                                                    <th>frent_terreno</th>
-                                                    <th>izq_terreno</th>
-                                                    <th>fondo_terreno</th>
-                                                    <th>der_terreno</th>
-                                                    <th>piso_ofi</th>
-                                                    <th>cochera_ofi</th>
-                                                    <th>ascensor_ofi</th>
-                                                    <th>aire_ofi</th>
-                                                    <th>frente_lcl_com</th>
-                                                    <th>cochera_lcl_com</th>
-                                                    <th>piso_lcl_com</th>
-                                                    <th>ascensor_lcl_com</th>
-                                                    <th>aire_lcl_com</th>
-                                                    <th>frente_lcl_ind</th>
-                                                    <th>nave_lcl_ind</th>
-                                                    <th>estado_solicitud</th> -->
+                                                    <th>ID</th>
+                                                    <th>nom</th>
+                                                    <th>DIRECCIÓN</th>
+                                                    <th>FECHA</th>
+                                                    <th>ESTADO</th>
+                                                    <th>id_user</th>
+                                                    <th>dni_user</th>
+                                                    <th>coment</th>
+                                                    <th>DESCARGA</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
                                                 <?php
-                                                function getValue($param1)
-                                                {
-                                                    if ($param1 == 0) {
-                                                        echo "No";
-                                                    } else {
-                                                        echo "Si";
-                                                    }
 
-                                                    // if ($param1 !== null) {
-                                                    //     echo "<td>$param1</td>";
-                                                    // }
-                                                }
 
                                                 function mostrarData($data)
                                                 {
-                                                    // if ($data == 0) {
-                                                    //     echo "<td>No</td>";
-                                                    // } else if ($data == 1) {
-                                                    //     echo "<td>Si</td>";
-                                                    // } else {
-                                                    //     if ($data !== null) {
-                                                    //         echo "<td>$data</td>";
-                                                    //     }
-                                                    // }
-
                                                     if ($data !== null) {
+                                                        echo "<td>$data</td>";
 
                                                         if ($data) {
                                                             echo "<td>$data</td>";
@@ -343,10 +270,12 @@ require_once('../Controller/controladorListar.php'); ?>
                                                         <?php mostrarData($lst_vlzn[28]) ?>
                                                         <?php mostrarData($lst_vlzn[29]) ?>
                                                         <?php mostrarData($lst_vlzn[30]) ?>
-
+                                                        <?php mostrarData($lst_vlzn[31]) ?>
 
                                                         <td>
                                                             <button type="submit"><i class="fa-solid fa-download"></i></button>
+                                                            <button type="button" class="btn editbtn" data-toggle="modal" data-target="#exampleModal"><i class="fa-solid fa-download">Admin</i></button>
+                                                            <button type=""><i class="fa-solid fa-download">usu</i></button>
                                                         </td>
                                                     </tr>
                                                 <?php endforeach ?>
@@ -372,6 +301,35 @@ require_once('../Controller/controladorListar.php'); ?>
                         </div>
                     </div>
                 </section>
+
+                <div class="modal fade" id="upload_valorizacion" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Subir Valorizacion</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <form action="../Controller/upload_doc_valorizacion.php" method="POST" enctype="multipart/form-data">
+                                <div class="modal-body">
+                                    <input type="text" name="id_reg_valor" id="id_reg_valor">
+                                    <div class="form-group">
+                                        <label>Archivo de Valorizacion</label>
+                                        <br>
+                                        <input type="file" name="valorizacion_files[]" id="valorizacion_files" multiple>
+                                    </div>
+
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                                        <button type="submit" name="upload_valor_" class="btn btn-primary">Subir</button>
+                                    </div>
+                                </div>
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
 
             </section>
         </div>
@@ -616,6 +574,22 @@ require_once('../Controller/controladorListar.php'); ?>
         }
         const tipo_prop = document.getElementById("tipo_prop");
         tipo_prop.addEventListener("change", changeInputs);*/
+    </script>
+
+    <script>
+        $(document).ready(function() {
+
+            $('.editbtn').on('click', function() {
+                console.log("test");
+                $('#upload_valorizacion').modal('show');
+                $tr = $(this).closest('tr');
+                var data = $tr.children("td").map(function() {
+                    return $(this).text();
+                }).get();
+                console.log(data);
+                $('#id_reg_valor').val(data[0]);
+            });
+        });
     </script>
 
     <style type="text/css">

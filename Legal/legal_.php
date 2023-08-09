@@ -63,46 +63,46 @@ require_once('../Controller/controladorListar.php');
 
         <div class="content-wrapper">
 
-             <section class="content">
+            <section class="content">
 
                 <?php include '../Vista/head-form.php' ?>
 
                 <?php
 
-                                $dni = $_SESSION['dni'];
+                $dni = $_SESSION['dni'];
 
-                                $ruta_base ='../Documentos Legal/';
+                $ruta_base = '../Documentos Legal/';
 
-                                $rutas = '';
+                $rutas = '';
 
-                                if (isset($_SESSION['dni'])) {
-                                    $dni = $_SESSION['dni'];
-                                    $rutaCompleta = $ruta_base . $dni . '/';
+                if (isset($_SESSION['dni'])) {
+                    $dni = $_SESSION['dni'];
+                    $rutaCompleta = $ruta_base . $dni . '/';
 
 
-                                    if (is_dir($rutaCompleta)) {
-                                        $elementos = scandir($rutaCompleta);
+                    if (is_dir($rutaCompleta)) {
+                        $elementos = scandir($rutaCompleta);
 
-                                        $elementos = array_diff($elementos, array('.', '..'));
+                        $elementos = array_diff($elementos, array('.', '..'));
 
-                                        foreach ($elementos as $elemento) {
-                                            if (is_dir($rutaCompleta . $elemento)) {
-                                                $rutas .= $rutaCompleta . $elemento . "\n";
-                                            }
-                                        }
+                        foreach ($elementos as $elemento) {
+                            if (is_dir($rutaCompleta . $elemento)) {
+                                $rutas .= $rutaCompleta . $elemento . "\n";
+                            }
+                        }
 
-                                        if (empty($rutas)) {
-                                            echo "No hay carpetas disponibles.";
-                                        }
-                                    }else{
+                        if (empty($rutas)) {
+                            echo "No hay carpetas disponibles.";
+                        }
+                    } else {
 
-                                        echo "La carpeta $dni no existe en la ruta especificada.";
-                                    }
+                        echo "La carpeta $dni no existe en la ruta especificada.";
+                    }
 
-                                    //echo $rutaCompleta;
+                    //echo $rutaCompleta;
 
-                                }
-                             ?>
+                }
+                ?>
 
 
                 <div class="overflow-hidden">
@@ -456,7 +456,7 @@ require_once('../Controller/controladorListar.php');
                                 <i class="fa-solid fa-angle-left"></i>
                             </div>
                             <form method="POST" action="../Controller/update_solic_docs_legal.php">
-                            
+
                                 <div class="container">
                                     <div class="card-body">
                                         <div class="row">
@@ -573,9 +573,8 @@ require_once('../Controller/controladorListar.php');
                                                         </div>
                                                         <div class="col-sm-2 justify-content-center options">
                                                             <div class="options">
-                                                                <button type="button" class="btn btn-rounded  btn_lst_docs btn_lst_docs_0" data-toggle="modal" data-target="#lst_docs_legal" data-valor="H_R" data-titulo="Hoja de Resumen" data-id_doc_="1"
-                                                                data-id_user_="<?php echo $_SESSION['dni'] ?>">
-                                                                <i class="cursor fa-solid fa-eye"></i>
+                                                                <button type="button" class="btn btn-rounded  btn_lst_docs btn_lst_docs_0" data-toggle="modal" data-target="#lst_docs_legal" data-valor="H_R" data-titulo="Hoja de Resumen" data-id_doc_="1" data-id_user_="<?php echo $_SESSION['dni'] ?>">
+                                                                    <i class="cursor fa-solid fa-eye"></i>
                                                                 </button>
                                                             </div>
                                                         </div>
@@ -592,9 +591,8 @@ require_once('../Controller/controladorListar.php');
                                                         </div>
                                                         <div class="col-sm-2 justify-content-center options">
                                                             <div class="options">
-                                                                <button type="button" class="btn btn-rounded  btn_lst_docs btn_lst_docs_0" data-toggle="modal" data-target="#lst_docs_legal" data-valor="P_U" data-titulo="Hoja de Resumen" data-id_doc_="2"
-                                                                data-id_user_="<?php echo $_SESSION['dni'] ?>">
-                                                                <i class="cursor fa-solid fa-eye"></i>
+                                                                <button type="button" class="btn btn-rounded  btn_lst_docs btn_lst_docs_0" data-toggle="modal" data-target="#lst_docs_legal" data-valor="P_U" data-titulo="Hoja de Resumen" data-id_doc_="2" data-id_user_="<?php echo $_SESSION['dni'] ?>">
+                                                                    <i class="cursor fa-solid fa-eye"></i>
                                                                 </button>
                                                             </div>
                                                         </div>
@@ -611,9 +609,8 @@ require_once('../Controller/controladorListar.php');
                                                         </div>
                                                         <div class="col-sm-2 justify-content-center options">
                                                             <div class="options">
-                                                               <button type="button" class="btn btn-rounded  btn_lst_docs btn_lst_docs_0" data-toggle="modal" data-target="#lst_docs_legal" data-valor="C_L" data-titulo="Hoja de Resumen" data-id_doc_="3"
-                                                                data-id_user_="<?php echo $_SESSION['dni'] ?>">
-                                                                <i class="cursor fa-solid fa-eye"></i>
+                                                                <button type="button" class="btn btn-rounded  btn_lst_docs btn_lst_docs_0" data-toggle="modal" data-target="#lst_docs_legal" data-valor="C_L" data-titulo="Hoja de Resumen" data-id_doc_="3" data-id_user_="<?php echo $_SESSION['dni'] ?>">
+                                                                    <i class="cursor fa-solid fa-eye"></i>
                                                                 </button>
                                                             </div>
                                                         </div>
@@ -630,9 +627,8 @@ require_once('../Controller/controladorListar.php');
                                                         </div>
                                                         <div class="col-sm-2 justify-content-center options">
                                                             <div class="options">
-                                                                <button type="button" class="btn btn-rounded  btn_lst_docs btn_lst_docs_0" data-toggle="modal" data-target="#lst_docs_legal" data-valor="DNI" data-titulo="Hoja de Resumen" data-id_doc_="4"
-                                                                data-id_user_="<?php echo $_SESSION['dni'] ?>">
-                                                                <i class="cursor fa-solid fa-eye"></i>
+                                                                <button type="button" class="btn btn-rounded  btn_lst_docs btn_lst_docs_0" data-toggle="modal" data-target="#lst_docs_legal" data-valor="DNI" data-titulo="Hoja de Resumen" data-id_doc_="4" data-id_user_="<?php echo $_SESSION['dni'] ?>">
+                                                                    <i class="cursor fa-solid fa-eye"></i>
                                                                 </button>
                                                             </div>
                                                         </div>
@@ -668,7 +664,7 @@ require_once('../Controller/controladorListar.php');
                     </div>
                 </div>
 
-             </section>
+            </section>
 
 
         </div>
@@ -708,7 +704,7 @@ require_once('../Controller/controladorListar.php');
 
                                         <div class="input-file" id="dropArea">
                                             <div class="file-message">
-                                                <i class="fa-solid fa-file"></i>
+                                                <img src="../Vista/images/document-text-svgrepo-com 1.svg" alt="doc">
                                                 <span>Arrastre los archivos aquí para subirlos.</span>
                                             </div>
                                             <div class="file-archives"></div>
@@ -716,14 +712,22 @@ require_once('../Controller/controladorListar.php');
 
                                         <span>O</span>
 
-                                        <div>
+                                        <!-- <div>
                                             <label id="buttonFile" class="btn btn-mak mak-bg buton-file">Seleccionar archivos</label>
                                             <input class="upload" type="file" id="hr_s" name="hr_s[]" multiple hidden>
+                                        </div> -->
+                                        <div class="card-footer">
+                                            <div class="form-flex">
+                                                <button type="submit" class="btn btn-mak mak-bg buton-file" id="btn_save_hr" name="btn_save_hr" disabled>Registrar</button>
+
+                                                <label id="buttonFile" class="btn btn-mak mak-bg buton-file">Seleccionar archivos</label>
+                                                <input class="upload" type="file" id="hr_s" name="hr_s[]" multiple hidden>
+                                            </div>
                                         </div>
 
                                     </div>
 
-                                    <button type="submit" class="btn btn-info btn-lg col-md-12" id="btn_save_hr" name="btn_save_hr" disabled>Registrar</button>
+
                                 </form>
 
                             </div>
@@ -809,19 +813,29 @@ require_once('../Controller/controladorListar.php');
                                         </div>
                                         <div class="input-file" id="dropArea_2">
                                             <div class="file-message">
-                                                <i class="fa-solid fa-file"></i>
+                                                <img src="../Vista/images/document-text-svgrepo-com 1.svg" alt="doc">
                                                 <span>Arrastre los archivos aquí para subirlos.</span>
                                             </div>
                                             <div class="file-archives"></div>
                                         </div>
                                         <span>O</span>
 
-                                        <div>
+                                        <!-- <div>
                                             <label id="buttonFile" class="btn btn-mak mak-bg buton-file">Seleccionar archivos</label>
                                             <input class="upload" type="file" id="pu_s" name="pu_s[]" multiple hidden>
+                                        </div> -->
+                                        <div class="card-footer">
+                                            <div class="form-flex">
+                                                <button type="submit" class="btn btn-mak mak-bg buton-file" id="btn_save_pu" name="btn_save_pu" disabled>Registrar</button>
+
+                                                <label id="buttonFile" class="btn btn-mak mak-bg buton-file">Seleccionar archivos</label>
+                                                <input class="upload" type="file" id="pu_s" name="pu_s[]" multiple hidden>
+                                            </div>
                                         </div>
                                     </div>
-                                    <button type="submit" class="btn btn-info btn-lg col-md-12" id="btn_save_pu" name="btn_save_pu" disabled>Registrar</button>
+
+
+
                                 </form>
                                 <div id="preview"></div>
                             </div>
@@ -860,7 +874,7 @@ require_once('../Controller/controladorListar.php');
                                         </div>
                                         <div class="input-file" id="dropArea_3">
                                             <div class="file-message">
-                                                <i class="fa-solid fa-file"></i>
+                                                <img src="../Vista/images/document-text-svgrepo-com 1.svg" alt="doc">
                                                 <span>Arrastre los archivos aquí para subirlos.</span>
                                             </div>
                                             <div class="file-archives"></div>
@@ -873,7 +887,6 @@ require_once('../Controller/controladorListar.php');
                                     </div>
                                     <button type="submit" class="btn btn-info btn-lg col-md-12" id="btn_save_cl" name="btn_save_cl" disabled>Registrar</button>
                                 </form>
-                                <div id="preview"></div>
                             </div>
                         </div>
                     </div>
@@ -945,7 +958,7 @@ require_once('../Controller/controladorListar.php');
                                         </div>
                                         <div class="input-file" id="dropArea_4">
                                             <div class="file-message">
-                                                <i class="fa-solid fa-file"></i>
+                                                <img src="../Vista/images/document-text-svgrepo-com 1.svg" alt="doc">
                                                 <span>Arrastre los archivos aquí para subirlos.</span>
                                             </div>
                                             <div class="file-archives">
@@ -1235,7 +1248,7 @@ require_once('../Controller/controladorListar.php');
                 });
             }
 
-            function load_documents_legal_(id_reg,id_cli,tipo_doc) {
+            function load_documents_legal_(id_reg, id_cli, tipo_doc) {
 
                 $.ajax({
                     type: 'POST',
@@ -1411,7 +1424,7 @@ require_once('../Controller/controladorListar.php');
 
                 $('#lst_docs_legal').modal('show');
 
-                load_documents_legal_(id_reg,id_cli,valor1)
+                load_documents_legal_(id_reg, id_cli, valor1)
 
             });
 
@@ -1603,7 +1616,6 @@ require_once('../Controller/controladorListar.php');
 
 
     <script>
-
         /*function load_documents_legal(ID_cli) {
 
                 $.ajax({
