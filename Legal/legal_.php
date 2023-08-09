@@ -118,11 +118,11 @@ require_once('../Controller/controladorListar.php');
                                 <div class="container mt-5">
                                     <div class="card-body">
                                         <div class="row">
-
-                                            <input type="text" class="form-control" id="id_user" name="id_user" value="<?php echo $_SESSION['id_usu']; ?>" hidden>
-                                            <input type="text" class="form-control" id="dni_user_l" name="dni_user_l" value="<?php echo $_SESSION['dni']; ?>" hidden>
-                                            <input type="text" class="form-control" id="cod_reg_l" name="cod_reg_l" hidden>
-
+                                            <div class="row">
+                                                <input type="text" class="form-control" id="id_user" name="id_user" value="<?php echo $_SESSION['id_usu']; ?>" >
+                                                <input type="text" class="form-control" id="dni_user_l" name="dni_user_l" value="<?php echo $_SESSION['dni']; ?>" >
+                                                <input type="text" class="form-control" id="cod_reg_l" name="cod_reg_l" >
+                                            </div>
                                             <div class="col-sm-6">
                                                 <div class="row">
                                                     <div class="col-sm-6">
@@ -162,7 +162,10 @@ require_once('../Controller/controladorListar.php');
                                                                 </div>
                                                             </div>
                                                             <div class="input-group-append">
+
                                                                 <button type="button" class="btn btn-rounded  btn_lst_hr btn_lst_hr_0" data-toggle="modal" data-target="#lst_hr_0" data-valor="H_R" data-titulo="Hoja de Resumen" data-id_doc_="1"><i class="cursor fa-solid fa-eye"></i></button>
+
+                                                                <button type="button" class="btn btn-rounded  btn_lst_lyts btn_lst_hr_0" data-toggle="modal" data-target="#lst_lyts" data-valor="H_R" data-titulo="Hoja de Resumen" data-id_doc_="1"><i class="cursor fa-solid fa-eye"></i></button>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -180,6 +183,8 @@ require_once('../Controller/controladorListar.php');
                                                             <div class="input-group-append">
 
                                                                 <button type="button" class="btn btn-rounded btn_lst_hr btn_lst_hr_0" data-toggle="modal" data-target="#lst_hr_0" data-valor="P_U" data-titulo="Predio Urbano" data-id_doc_="2"><i class="cursor fa-solid fa-eye"></i></button>
+
+                                                                <button type="button" class="btn btn-rounded  btn_lst_lyts btn_lst_hr_0" data-toggle="modal" data-target="#lst_lyts" data-valor="P_U" data-titulo="Hoja de Resumen" data-id_doc_="2"><i class="cursor fa-solid fa-eye"></i></button>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -197,6 +202,9 @@ require_once('../Controller/controladorListar.php');
                                                             <div class="input-group-append">
 
                                                                 <button type="button" class="btn btn-rounded btn_lst_hr btn_lst_hr_0" data-toggle="modal" data-target="#lst_hr_0" data-valor="C_L" data-titulo="Copia Literal" data-id_doc_="3"><i class="cursor fa-solid fa-eye"></i></button>
+
+
+                                                                <button type="button" class="btn btn-rounded  btn_lst_lyts btn_lst_hr_0" data-toggle="modal" data-target="#lst_lyts" data-valor="C_L" data-titulo="Hoja de Resumen" data-id_doc_="3"><i class="cursor fa-solid fa-eye"></i></button>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -213,6 +221,8 @@ require_once('../Controller/controladorListar.php');
                                                             </div>
                                                             <div class="input-group-append">
                                                                 <button type="button" class="btn btn-rounded btn_lst_hr btn_lst_hr_0" data-toggle="modal" data-target="#lst_hr_0" data-valor="DNI" data-titulo="DNI" data-id_doc_="4"><i class="cursor fa-solid fa-eye"></i></button>
+
+                                                                <button type="button" class="btn btn-rounded  btn_lst_lyts btn_lst_hr_0" data-toggle="modal" data-target="#lst_lyts" data-valor="DNI" data-titulo="Hoja de Resumen" data-id_doc_="4"><i class="cursor fa-solid fa-eye"></i></button>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -225,6 +235,7 @@ require_once('../Controller/controladorListar.php');
 
                                     <div class="card-footer">
                                         <div class="form-flex">
+                                            <button type="submit" class="btn btn-mak mak-bg-sec" id="btn_updt_borrador" name="btn_updt_borrador">Actualizar</button>
                                             <button type="submit" class="btn btn-mak mak-bg-sec" id="btn_save_borrador" name="btn_save_borrador">Guardar</button>
                                             <button type="submit" class="btn btn-mak mak-bg" id="btn_save_solic" name="btn_save_solic">Enviar</button>
                                         </div>
@@ -796,6 +807,36 @@ require_once('../Controller/controladorListar.php');
         </div>
     </div>
 
+
+    <div class="modal fade" id="lst_lyts" tabindex="-1" role="dialog" aria-labelledby="lst_lyts" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <h1 class="title-m" id="titulo_docs">HR</h1>
+                    <div class="row margin">
+
+                        <div class="form-group" hidden>
+                            <label>id usu</label>
+                            <input type="text" name="usu_dni" id="usu_dni" value="<?php echo $_SESSION['id_usu'] ?>">
+                            <br>
+                            <label>usuario</label>
+                            <input type="text" name="usu_dni" id="usu_dni" value="<?php echo $_SESSION['dni'] ?>">
+                            <br>
+                            <label>id_tipo_doc_lgl</label>
+                            <input type="text" name="_id_tipo_doc_lgl" id="_id_tipo_doc_lgl">
+                            <br>
+                        </div>
+
+                        <div class="col-sm-12" id="descarga_archivo_l">
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="modal fade" id="lst_docs_legal" tabindex="-1" role="dialog" aria-labelledby="lst_docs_legal" aria-hidden="true">
         <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
             <div class="modal-content">
@@ -1291,6 +1332,93 @@ require_once('../Controller/controladorListar.php');
                 });
             }
 
+
+
+            function load_documents_lyt(id_soli_l,id_tipo_doc) {
+
+                var dni = '<?php echo $_SESSION['dni'] ?>';
+
+                $.ajax({
+                    type: 'POST',
+                    url: '../Controller/get_lyts.php',
+                    data: {
+                        id_solic_l: id_soli_l,
+                        dni_client: dni,
+                        id_tipo_doc: id_tipo_doc,
+
+                    },
+                    success: function(response) {
+                        var data = JSON.parse(response);
+
+                        var archivos = data.archivos;
+                        var estado_doc = data.status_doc;
+
+                        var cod_doc_, ruta_doc, nom_file;
+                        var cont = 1;
+
+                        if (archivos && archivos.length > 0) {
+                            var enlaceHtml = '';
+
+                            archivos.forEach(function(archivo) {
+                                var ruta = archivo.ruta;
+                                var nombreArchivo = archivo.archivo;
+                                var estado = archivo.estado;
+                                var id_doc_ = archivo.id_doc;
+                                var status_r = '';
+
+
+                                var delete_btn = $('<button>').text('Eliminar').attr('class', 'btn btn-block btn-danger');
+
+
+                                enlaceHtml += `
+
+                                            <div class="row d-flex justify-content-between align-center mb-4">
+                                                <div class="col-sm-2">
+                                                    <div class="lgl-modal-num">
+                                                        ${cont++}
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-sm-8 archive">
+                                                    <img src="#" id="loader" style="display: none;">
+                                                    <a href="${ruta}${nombreArchivo}">${nombreArchivo}</a>
+                                                </div>
+
+                                                <div class="col-sm-2 tw-modal-ots">
+                                                    <div class="row">
+                                                        <div class="inputs brd-rght-blue">
+                                                            <input id="ruta_doc_i" type="text" value="${ruta}" readonly hidden>
+                                                            <input id="ruta_archivo_i" type="text" value="${nombreArchivo}" readonly hidden>
+                                                            <input id="cod_doc_i" type="text" value="${id_doc_}" readonly hidden>
+
+                                                            <div class="">
+                                                                <button id="dlt_file" type="button" class="btn dlt_file"><i class="cursor fa-solid fa-trash"></i></button>
+                                                            </div>
+                                                        </div>
+                                                        <div>
+                                                            <button id="dlt_file" type="button" class="btn dlt_file"> <i class="cursor fa-solid fa-download"></i></button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            `;
+
+                            });
+
+                            document.getElementById('descarga_archivo_l').innerHTML = enlaceHtml;
+
+                        } else {
+
+                            document.getElementById('descarga_archivo_l').textContent = 'Archivo no encontrado';
+                        }
+
+                    },
+                    error: function(xhr, status, error) {
+                        console.log(error);
+                    }
+                });
+            }
+
             function load_documents_legal_(id_reg, id_cli, tipo_doc) {
 
                 $.ajax({
@@ -1452,6 +1580,33 @@ require_once('../Controller/controladorListar.php');
                 load_documents(valor1);
 
                 $('#lst_hr_0').modal('show');
+            });
+
+            $('.btn_lst_lyts').on('click', function() {
+                console.log("Botón seleccionado");
+
+                var titulo_doc = $(this).data('valor');
+                var titulo_ = $(this).data('titulo');
+                var _id_doc_lgl = $(this).data('id_doc_');
+
+                $('#_id_tipo_doc_lgl').val(_id_doc_lgl);
+                $('#_concept').val(titulo_doc);
+                $('#titulo_docs').text(titulo_);
+
+
+                var id_soli_l = $('#cod_reg_l').val();
+                var concepto = $('#_concept').val();
+
+                var titulo_modal = $('#titulo_docs').val();
+
+
+
+                /*console.log(titulo_modal);
+                console.log(concepto);*/
+
+                load_documents_lyt(id_soli_l,titulo_doc)
+
+                $('#lst_lyts').modal('show');
             });
 
 

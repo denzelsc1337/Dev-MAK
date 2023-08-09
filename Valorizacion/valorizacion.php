@@ -898,7 +898,7 @@
                                                                             <!-- <input type="text" id="tipo_zoni_ofi" name="tipo_zoni_ofi"> -->
                                                                             <!-- <select id="opciones_zoni_ofi" name="opciones_zoni_ofi" class="opciones_zoni_ofi"></select> -->
                                                                             <div style="width: 100%">
-                                                                                <input type="text" class="form-mak auto-input">
+                                                                                <input type="text" class="form-mak auto-input" id="opciones_zoni_t" name="opciones_zoni_t">
                                                                                 <ul class="lista">
                                                                                 </ul>
                                                                             </div>

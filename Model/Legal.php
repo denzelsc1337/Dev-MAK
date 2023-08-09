@@ -25,14 +25,14 @@ class cLegal
 	}
 
 
-	public function save_borrador_legal($data)
+	public function save_borrador_legal($data,$cadena)
 	{
-		include_once('../config/Conexion.php');
+		/*include_once('../config/Conexion.php');
 	    $cnx = new Conexion();
-	    $cadena = $cnx->abrirConexion();
+	    $cadena = $cnx->abrirConexion();*/
 
 	    $query = "INSERT INTO `docs_legal`( `nom_client`,`ape_client`, `dir_client`,`fecha_reg`, `user_cod`, `status_solic`)
-	                               VALUES ('".$data[1]."','".$data[2]."','".$data[3]."',now(),'".$data[4]."', 100);";
+	                               VALUES ('".$data[1]."','".$data[2]."','".$data[3]."',now(),'".$data[4]."', 30);";
 
 	    $result = mysqli_query($cadena, $query);
 	    return $result;

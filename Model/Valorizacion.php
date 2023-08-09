@@ -21,6 +21,8 @@ class Valorizacion
 		$this->lst_valo_hist = array();
 
 		$this->lst_zonificacion = array();
+
+		$this->lst_valo_hist_user=array();
 	}
 
 	public function add_valorizacion_casa($data)
@@ -143,7 +145,7 @@ class Valorizacion
 
 						 			  '" . $data[8] . "','" . $data[9] . "')";
 
-		/*verificacion de error en la consulta
+		//verificacion de error en la consulta
 
 		$result = mysqli_query($cadena, $query);
 
@@ -153,10 +155,10 @@ class Valorizacion
             echo "Error al ejecutar la consulta: " . mysqli_error($cadena);
         }
 
-		verificacion de error en la consulta */
+		//verificacion de error en la consulta
 
-		echo mysqli_query($cadena, $query);
-		$cnx->cerrarConexion($cadena);
+		/*echo mysqli_query($cadena, $query);
+		$cnx->cerrarConexion($cadena);*/
 	}
 
 	public function add_valorizacion_oficina($data)
@@ -460,7 +462,7 @@ class Valorizacion
 
 		$cnx->cerrarConexion($cadena);
 
-		return $this->lst_valo_hist;
+		return $this->lst_valo_hist_user;
 	}
 
 	// public function list_Valo_Historico()

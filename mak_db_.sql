@@ -383,7 +383,7 @@ create table valorizacion(
     -- form depa dormitorios
     cant_dorm_dep			int,
     dormitorio_banho_dep 	int, 
-	cant_banho_dep		    int, 
+		cant_banho_dep		    int,
     banho_visita_dep	 	boolean,
     
     cuarto_serv_dep		    boolean,
@@ -434,7 +434,7 @@ create table valorizacion(
     FOREIGN KEY (cod_ubi) REFERENCES  ubicacion  (id_ubicacion) ON DELETE SET NULL,
     FOREIGN KEY (cod_vista) REFERENCES  tipo_vista  (id_vista) ON DELETE SET NULL,
     FOREIGN KEY (cod_acabado) REFERENCES  tipo_acabado  (id_acabado) ON DELETE SET NULL,
-    FOREIGN KEY (cod_zonificacion) REFERENCES  tipo_zonificacion  (id_zona) ON DELETE SET NULL,
+    FOREIGN KEY (cod_zonificacion) REFERENCES  tipo_zonificacion (id_zona) ON DELETE SET NULL,
     FOREIGN KEY (cod_client) REFERENCES  clientes_servicios  (id_client) ON DELETE SET NULL,
     FOREIGN KEY (cod_tipo_suelo) REFERENCES  tipo_suelo  (id_tipo_suelo) ON DELETE SET NULL
 );
