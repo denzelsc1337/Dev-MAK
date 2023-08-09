@@ -126,7 +126,7 @@
                                 <!--<form method="POST" id="form_valor" action="../Controller/Add_Valorizacion.php">-->
                                 <form method="POST" id="form_valor">
 
-                                <input type="text" id="id_client_v" name="id_client_v" value=" <?php echo $_SESSION['id_usu'] ?>" hidden>
+                                    <input type="text" id="id_client_v" name="id_client_v" value=" <?php echo $_SESSION['id_usu'] ?>" hidden>
                                     <!-- SELECCION TIPO -->
                                     <div id="0" class="section col-md-12 movPag show" role="tabpanel" aria-labelledby="logins-part-trigger" data-target="first_step">
                                         <div class="row">
@@ -1603,7 +1603,43 @@
 
                                     <!-- SUBIDA DE ARCHIVOS -->
                                     <div id="pantalla-SA" class="section col-md-12" role="tabpanel" aria-labelledby="" data-target="third_step">
-                                        SUBIDA DE ARCHIVOS
+
+                                        <div class="row">
+                                            <div class="column-card">
+                                                <div class="column">
+                                                    <label class="mak-txt">Comentario <small>(Opcional)</small></label>
+                                                    <textarea name="" id=""></textarea>
+                                                </div>
+                                            </div>
+
+                                            <div class="column-card">
+                                                <div class="column">
+                                                    <div class="valo-file">
+                                                        <div class="file-content" id="fileValorArchives">
+                                                            <div class="up-archive file-item">
+                                                                <div class="item-box">
+                                                                    Agregar
+                                                                </div>
+                                                                <input type="file" id="inpt-file-valo" name="inpt-file-valo" hidden>
+                                                            </div>
+                                                            <!-- <div class="file-item">
+                                                                <img class="file-img" src="../Vista/images/bg_1.jpg" alt="">
+                                                                <div class="archive">
+                                                                    <div class="btn-clear">
+                                                                        <img src="../Vista/images/delete-filled-svgrepo-com 3.svg" alt="">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="file-item">3</div>
+                                                            <div class="file-item">4</div>
+                                                            <div class="file-item">5</div> -->
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+
                                         <div class="card-footer">
                                             <div class="form-flex">
                                                 <div type="button" class="btn btn-mak mak-bg  atrPag">Retroceder</div>
@@ -1963,7 +1999,7 @@
                 });
 
                 // Evento 'dragend' para el marcador
-                marcador.addListener('dragend', async function () {
+                marcador.addListener('dragend', async function() {
                     const newPosition = marcador.getPosition();
                     const newLatitud = newPosition.lat();
                     const newLongitud = newPosition.lng();
@@ -1977,7 +2013,7 @@
                 });
 
                 // Evento 'center_changed' para el mapa
-                mapa.addListener('center_changed', async function () {
+                mapa.addListener('center_changed', async function() {
                     const newCenter = mapa.getCenter();
                     marcador.setPosition(newCenter); // Actualiza la posición del marcador
                     const newLatitud = newCenter.lat();
@@ -1997,14 +2033,19 @@
         }
 
 
-        async function getAddressFromLatLng(lat, lng){
+        async function getAddressFromLatLng(lat, lng) {
             const geocoder = new google.maps.Geocoder();
 
-            return new Promise((resolve, reject)=>{
-                geocoder.geocode({location:{lat, lng}}, (results, status) =>{
+            return new Promise((resolve, reject) => {
+                geocoder.geocode({
+                    location: {
+                        lat,
+                        lng
+                    }
+                }, (results, status) => {
                     if (status === 'OK' && results[0]) {
                         resolve(results[0].formatted_address);
-                    }else{
+                    } else {
                         reject(status);
                     }
                 });
