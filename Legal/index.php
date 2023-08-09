@@ -264,18 +264,24 @@ require_once('../Controller/controladorListar.php');
                                                             <td><?php echo $lst_legal_d[3] ?></td>
                                                             <td>
                                                                 <?php
-                                                                if ($lst_legal_d[4] == 10) {
-                                                                ?>
-                                                                    <span class="badge rounded-pill bg-secondary">Pendiente</span>
-                                                                <?php
-                                                                } elseif ($lst_legal_d[4] == 20) {
-                                                                ?>
-                                                                    <span class="badge rounded-pill bg-warning text-dark">En revision</span>
-                                                                <?php
-                                                                } elseif ($lst_legal_d[4] == 90) {
-                                                                ?>
-                                                                    <span class="badge rounded-pill bg-success">Finalizado</span>
-                                                                <?php
+                                                                $estado = $lst_legal_d[4];
+                                                                //echo $estado;
+                                                                switch ($estado) {
+                                                                    case '10':
+                                                                        echo '<span class="badge rounded-pill bg-secondary">Pendiente</span>';
+                                                                        break;
+                                                                    case '20':
+                                                                        echo '<span class="badge rounded-pill bg-warning text-dark">En revision</span>';
+                                                                        break;
+                                                                    case '90':
+                                                                        echo '<span class="badge rounded-pill bg-success">Finalizado</span>';
+                                                                        break;
+                                                                    case '30':
+                                                                        echo '<span class="badge rounded-pill bg-success">Borrador</span>';
+                                                                        break;
+                                                                    default:
+                                                                        echo 'test';
+                                                                        break;
                                                                 }
                                                                 ?>
                                                             </td>
@@ -352,18 +358,24 @@ require_once('../Controller/controladorListar.php');
                                                             <td><?php echo $lst_legal_d[3] ?></td>
                                                             <td>
                                                                 <?php
-                                                                if ($lst_legal_d[4] == 10) {
-                                                                ?>
-                                                                    <span class="badge rounded-pill bg-secondary">Pendiente</span>
-                                                                <?php
-                                                                } elseif ($lst_legal_d[4] == 20) {
-                                                                ?>
-                                                                    <span class="badge rounded-pill bg-warning text-dark">En revision</span>
-                                                                <?php
-                                                                } elseif ($lst_legal_d[4] == 90) {
-                                                                ?>
-                                                                    <span class="badge rounded-pill bg-success">Finalizado</span>
-                                                                <?php
+                                                                $estado = $lst_legal_d[4];
+                                                                //echo $estado;
+                                                                switch ($estado) {
+                                                                    case '10':
+                                                                        echo '<span class="badge rounded-pill bg-secondary">Pendiente</span>';
+                                                                        break;
+                                                                    case '20':
+                                                                        echo '<span class="badge rounded-pill bg-warning text-dark">En revision</span>';
+                                                                        break;
+                                                                    case '90':
+                                                                        echo '<span class="badge rounded-pill bg-success">Finalizado</span>';
+                                                                        break;
+                                                                    case '30':
+                                                                        echo '<span class="badge rounded-pill bg-success">Borrador</span>';
+                                                                        break;
+                                                                    default:
+                                                                        echo 'test';
+                                                                        break;
                                                                 }
                                                                 ?>
                                                             </td>

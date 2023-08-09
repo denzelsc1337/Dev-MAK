@@ -119,15 +119,16 @@ require_once('../Controller/controladorListar.php');
                                     <div class="card-body">
                                         <div class="row">
 
-                                            <input type="text" class="form-control" id="id_user" name="id_user" value="<?php echo $_SESSION['id_usu']; ?>">
-                                            <input type="text" class="form-control" id="dni_user_l" name="dni_user_l" value="<?php echo $_SESSION['dni']; ?>">
+                                            <input type="text" class="form-control" id="id_user" name="id_user" value="<?php echo $_SESSION['id_usu']; ?>" hidden>
+                                            <input type="text" class="form-control" id="dni_user_l" name="dni_user_l" value="<?php echo $_SESSION['dni']; ?>" hidden>
+                                            <input type="text" class="form-control" id="cod_reg_l" name="cod_reg_l"  hidden>
 
                                             <div class="col-sm-6">
                                                 <div class="row">
                                                     <div class="col-sm-6">
                                                         <div class="form-group">
                                                             <label class="mak-txt">Nombre</label>
-                                                            <input type="text" class="form-mak" id="nom_cli_solic" name="nom_cli_solic">
+                                                            <input type="text" class="form-mak" id="nom_cli_solic" name="nom_cli_solic" required>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -135,7 +136,7 @@ require_once('../Controller/controladorListar.php');
                                                     <div class="col-sm-6">
                                                         <div class="form-group">
                                                             <label class="mak-txt">Apellidos</label>
-                                                            <input type="text" class="form-mak" id="ape_cli_solic" name="ape_cli_solic">
+                                                            <input type="text" class="form-mak" id="ape_cli_solic" name="ape_cli_solic" required>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -143,7 +144,7 @@ require_once('../Controller/controladorListar.php');
                                                     <div class="col-sm-6">
                                                         <div class="form-group">
                                                             <label class="mak-txt">Dirección</label>
-                                                            <input type="text" class="form-mak" id="dir_cli_solic" name="dir_cli_solic">
+                                                            <input type="text" class="form-mak" id="dir_cli_solic" name="dir_cli_solic" required>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -224,7 +225,7 @@ require_once('../Controller/controladorListar.php');
 
                                     <div class="card-footer">
                                         <div class="form-flex">
-                                            <button type="button" class="btn btn-mak mak-bg-sec">Guardar</button>
+                                            <button type="submit" class="btn btn-mak mak-bg-sec" id="btn_save_borrador" name="btn_save_borrador">Guardar</button>
                                             <button type="submit" class="btn btn-mak mak-bg" id="btn_save_solic" name="btn_save_solic">Enviar</button>
                                         </div>
                                     </div>
@@ -291,18 +292,23 @@ require_once('../Controller/controladorListar.php');
                                                             <td><?php echo $lst_legal_d[3] ?></td>
                                                             <td>
                                                                 <?php
-                                                                if ($lst_legal_d[4] == 10) {
-                                                                ?>
-                                                                    <span class="badge rounded-pill bg-secondary">Pendiente</span>
-                                                                <?php
-                                                                } elseif ($lst_legal_d[4] == 20) {
-                                                                ?>
-                                                                    <span class="badge rounded-pill bg-warning text-dark">En revision</span>
-                                                                <?php
-                                                                } elseif ($lst_legal_d[4] == 90) {
-                                                                ?>
-                                                                    <span class="badge rounded-pill bg-success">Finalizado</span>
-                                                                <?php
+                                                                $estado = $lst_legal_d[4];
+                                                                switch ($estado) {
+                                                                    case '10':
+                                                                        echo '<span class="badge rounded-pill bg-secondary">Pendiente</span>';
+                                                                        break;
+                                                                    case '20':
+                                                                        echo '<span class="badge rounded-pill bg-warning text-dark">En revision</span>';
+                                                                        break;
+                                                                    case '90':
+                                                                        echo '<span class="badge rounded-pill bg-success">Finalizado</span>';
+                                                                        break;
+                                                                    case '30':
+                                                                        echo '<span class="badge rounded-pill bg-success">Borrador</span>';
+                                                                        break;
+                                                                    default:
+                                                                        echo 'test';
+                                                                        break;
                                                                 }
                                                                 ?>
                                                             </td>
@@ -358,6 +364,8 @@ require_once('../Controller/controladorListar.php');
                                                     <tr>
                                                         <th>ID</th>
                                                         <th>nom</th>
+                                                        <th>ape</th>
+                                                        <th>nom completo</th>
                                                         <th>DIRECCIÓN</th>
                                                         <th>FECHA</th>
                                                         <th>ESTADO</th>
@@ -372,32 +380,41 @@ require_once('../Controller/controladorListar.php');
                                                     $list_solic_legal_client = $oLegal->listadoSolicDocsLegal_clients($_SESSION['id_usu'], $_SESSION['dni']);
 
                                                     foreach ($list_solic_legal_client as $lst_legal_d) :
+                                                        //print_r($lst_legal_d)
                                                     ?>
                                                         <tr>
                                                             <td><?php echo $lst_legal_d[0] ?></td>
                                                             <td><?php echo $lst_legal_d[1] ?></td>
                                                             <td><?php echo $lst_legal_d[2] ?></td>
                                                             <td><?php echo $lst_legal_d[3] ?></td>
+                                                            <td><?php echo $lst_legal_d[4] ?></td>
+                                                            <td><?php echo $lst_legal_d[5] ?></td>
                                                             <td>
                                                                 <?php
-                                                                if ($lst_legal_d[4] == 10) {
-                                                                ?>
-                                                                    <span class="badge rounded-pill bg-secondary">Pendiente</span>
-                                                                <?php
-                                                                } elseif ($lst_legal_d[4] == 20) {
-                                                                ?>
-                                                                    <span class="badge rounded-pill bg-warning text-dark">En revision</span>
-                                                                <?php
-                                                                } elseif ($lst_legal_d[4] == 90) {
-                                                                ?>
-                                                                    <span class="badge rounded-pill bg-success">Finalizado</span>
-                                                                <?php
+                                                                $estado = $lst_legal_d[6];
+                                                                //echo $estado;
+                                                                switch ($estado) {
+                                                                    case '10':
+                                                                        echo '<span class="badge rounded-pill bg-secondary">Pendiente</span>';
+                                                                        break;
+                                                                    case '20':
+                                                                        echo '<span class="badge rounded-pill bg-warning text-dark">En revision</span>';
+                                                                        break;
+                                                                    case '90':
+                                                                        echo '<span class="badge rounded-pill bg-success">Finalizado</span>';
+                                                                        break;
+                                                                    case '30':
+                                                                        echo '<span class="badge rounded-pill bg-success">Borrador</span>';
+                                                                        break;
+                                                                    default:
+                                                                        echo 'test';
+                                                                        break;
                                                                 }
                                                                 ?>
                                                             </td>
-                                                            <td><?php echo $lst_legal_d[5] ?></td>
-                                                            <td><?php echo $lst_legal_d[6] ?></td>
                                                             <td><?php echo $lst_legal_d[7] ?></td>
+                                                            <td><?php echo $lst_legal_d[8] ?></td>
+                                                            <td><?php echo $lst_legal_d[9] ?></td>
                                                             <td>
                                                                 <div class="row justify-content-evenly">
                                                                     <div class="col-sm-4 justify-content-center options brd-rght-blue" hidden>
@@ -424,6 +441,18 @@ require_once('../Controller/controladorListar.php');
                                                                             </button>
                                                                         </div>
                                                                     </div>
+
+                                                                    <?php if ($lst_legal_d[6] == 30) { ?>
+                                                                    <div class="col-sm-4 justify-content-center options">
+                                                                        <div class="options">
+                                                                            <button type="button" class="btn btn-rounded arrow-left" id="">
+                                                                                <i class="fa-solid fa-eye">editar borrador</i>
+                                                                            </button>
+                                                                        </div>
+                                                                    </div>
+                                                                    <?php  } ?>
+
+
                                                                 </div>
                                                             </td>
                                                         </tr>
@@ -1819,6 +1848,39 @@ require_once('../Controller/controladorListar.php');
                     });
 
                 });
+
+                document.querySelectorAll(".arrow-left").forEach((element) => {
+
+                    element.addEventListener("click", function() {
+
+                        $tr = $(this).closest('tr');
+
+                        var data = $tr.children("td").map(function() {
+                            return $(this).text();
+                        }).get();
+
+                        console.log(data);
+                        $('#cod_reg_l').val(data[0]);
+
+                        $('#nom_cli_solic').val(data[1]);
+                        $('#ape_cli_solic').val(data[2]);
+
+                        $('#dir_cli_solic').val(data[4]);
+
+                        //load_documents_legal('<?php echo $_SESSION['id_usu'] ?>');
+
+
+                        // Realizar la transición al final del scroll horizontal con animación
+                        contenedor.style.scrollBehavior = "smooth"; // Activar la animación
+                        contenedor.scrollLeft = 0; // Ir al final
+
+                    });
+
+                });
+
+
+
+
 
                 element.querySelector(".arrow-left").addEventListener("click", () => {
                     // Realizar la transición de volver a la mitad del scroll horizontal con animación

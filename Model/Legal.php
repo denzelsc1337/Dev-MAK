@@ -15,30 +15,29 @@ class cLegal
 
 
 
-	public function save_solic_legal($rutas, $data, $cadena)
+	public function save_solic_legal($data, $cadena)
 	{
-	    $query = "INSERT INTO `docs_legal`(`rutas_docs`, `nom_client`,`ape_client`, `dir_client`,`fecha_reg`, `user_cod`)
-	                               VALUES ('".$rutas."','".$data[1]."','".$data[2]."','".$data[3]."',now(),'".$data[4]."');";
+	    $query = "INSERT INTO `docs_legal`(`nom_client`,`ape_client`, `dir_client`,`fecha_reg`, `user_cod`)
+	                               VALUES ('".$data[1]."','".$data[2]."','".$data[3]."',now(),'".$data[4]."');";
 
 	    $result = mysqli_query($cadena, $query);
 	    return $result;
 	}
 
-	public function getLastInsertedID() {
-        include_once('../config/Conexion.php');
-        $cnx = new Conexion();
-        $cadena = $cnx->abrirConexion();
 
-        $query = "SELECT LAST_INSERT_ID() as last_id";
-        $result = mysqli_query($cadena, $query);
-        $row = mysqli_fetch_assoc($result);
+	public function save_borrador_legal($data)
+	{
+		include_once('../config/Conexion.php');
+	    $cnx = new Conexion();
+	    $cadena = $cnx->abrirConexion();
 
-        echo "Último ID autoincrementado: " . $row['last_id'];
+	    $query = "INSERT INTO `docs_legal`( `nom_client`,`ape_client`, `dir_client`,`fecha_reg`, `user_cod`, `status_solic`)
+	                               VALUES ('".$data[1]."','".$data[2]."','".$data[3]."',now(),'".$data[4]."', 100);";
 
-        $cnx->cerrarConexion($cadena);
+	    $result = mysqli_query($cadena, $query);
+	    return $result;
+	}
 
-        return $row['last_id'];
-    }
 
 	function upload_documents_clients($file_name, $file_type, $file_destination, $file_size, $file_ext, $tipo_doc,$id_client,$dni_client)
 	{
@@ -100,7 +99,7 @@ class cLegal
 		$cnx = new conexion();
 		$cadena = $cnx->abrirConexion();
 
-		$query = "SELECT id_legal, CONCAT(cs.nom_client,' ',cs.ape_client) as nom_client , dir_client, fecha_reg, status_solic,user_cod,dni_client,comentario
+		$query = "SELECT id_legal, cs.nom_client,cs.ape_client, CONCAT(cs.nom_client,' ',cs.ape_client) as nom_client , dir_client, fecha_reg, status_solic,user_cod,dni_client,comentario
 				FROM docs_legal dl
 				inner join clientes_servicios cs
 				on dl.user_cod = cs.id_client
@@ -111,6 +110,7 @@ class cLegal
         while ($fila = mysqli_fetch_row($resultado)) {
             $this->lst_solics_legal_cli[] = $fila;
         }
+
 
         $cnx->cerrarConexion($cadena);
 

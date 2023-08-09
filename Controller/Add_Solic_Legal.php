@@ -1,8 +1,9 @@
 <?php
 require_once('../Model/Legal.php');
+$oLegal = new cLegal();
 
 if (isset($_POST['btn_save_solic'])) {
-    $rutas = $_POST["rutas_doscs"];
+
     $data[1] = $_POST["nom_cli_solic"];
     $data[2] = $_POST["ape_cli_solic"];
     $data[3] = $_POST["dir_cli_solic"];
@@ -15,7 +16,7 @@ if (isset($_POST['btn_save_solic'])) {
     $cnx = new Conexion();
     $cadena = $cnx->abrirConexion();
 
-    $r = $oLegal->save_solic_legal($rutas, $data,$cadena);
+    $r = $oLegal->save_solic_legal($data,$cadena);
 
     if ($r) {
 
@@ -48,13 +49,37 @@ if (isset($_POST['btn_save_solic'])) {
 
         ?>
         <script type="text/javascript"> alert("Solicitud guardada y carpeta creada") </script>
-        <!-- <META http-equiv='Refresh' content='0.2; URL =../Legal/legal_historico.php'> -->
+        <META http-equiv='Refresh' content='0.2; URL =../Legal/'>
         <?php
         echo $carpeta_nueva;
     } else {
         ?>
         <script type="text/javascript"> alert("Error al guardar la solicitud") </script>
         <?php
+    }
+}
+
+
+if (isset($_POST['btn_save_borrador'])) {
+
+    $data[1] = $_POST["nom_cli_solic"];
+    $data[2] = $_POST["ape_cli_solic"];
+    $data[3] = $_POST["dir_cli_solic"];
+    $data[4] = $_POST["id_user"];
+
+    $dni_client = $_POST["dni_user_l"];
+
+    $r = $oLegal->save_borrador_legal($data);
+
+    if ($r == 1) {
+    ?>
+    <script type="text/javascript"> alert("Borrador Guardado") </script>
+    <META http-equiv='Refresh' content='0.2; URL =../Legal/'>
+    <?php
+      }else{
+    ?>
+      <script type="text/javascript"> alert("error") </script>
+    <?php
     }
 }
 ?>
