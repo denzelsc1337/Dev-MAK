@@ -1959,10 +1959,55 @@
                         lng: longitud
                     },
                     map: mapa,
+                    draggable: true
+                });
+
+                // Evento 'dragend' para el marcador
+                marcador.addListener('dragend', async function () {
+                    const newPosition = marcador.getPosition();
+                    const newLatitud = newPosition.lat();
+                    const newLongitud = newPosition.lng();
+
+                    try {
+                        const address = await getAddressFromLatLng(newLatitud, newLongitud);
+                        document.getElementById('direccion_').value = address;
+                    } catch (error) {
+                        console.error('Error al obtener la dirección:', error);
+                    }
+                });
+
+                // Evento 'center_changed' para el mapa
+                mapa.addListener('center_changed', async function () {
+                    const newCenter = mapa.getCenter();
+                    marcador.setPosition(newCenter); // Actualiza la posición del marcador
+                    const newLatitud = newCenter.lat();
+                    const newLongitud = newCenter.lng();
+
+                    try {
+                        const address = await getAddressFromLatLng(newLatitud, newLongitud);
+                        document.getElementById('direccion_').value = address;
+                    } catch (error) {
+                        console.error('Error al obtener la dirección:', error);
+                    }
                 });
 
                 // Espera un breve período para asegurar que el mapa se haya cargado correctamente
                 setTimeout(() => resolve(), 100);
+            });
+        }
+
+
+        async function getAddressFromLatLng(lat, lng){
+            const geocoder = new google.maps.Geocoder();
+
+            return new Promise((resolve, reject)=>{
+                geocoder.geocode({location:{lat, lng}}, (results, status) =>{
+                    if (status === 'OK' && results[0]) {
+                        resolve(results[0].formatted_address);
+                    }else{
+                        reject(status);
+                    }
+                });
             });
         }
 

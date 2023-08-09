@@ -280,7 +280,8 @@ require_once('../Controller/controladorListar.php'); ?>
                                                         <?php mostrarData($lst_vlzn[29]); ?>
 
                                                         <td>
-                                                            <button type="submit"><i class="fa-solid fa-download"></i></button>
+                                                            <button type="button" class="btn editbtn" data-toggle="modal" data-target="#exampleModal"><i class="fa-solid fa-download">Admin</i></button>
+                                                            <button type=""><i class="fa-solid fa-download">usu</i></button>
                                                         </td>
                                                     </tr>
                                                 <?php endforeach ?>
@@ -306,6 +307,35 @@ require_once('../Controller/controladorListar.php'); ?>
                         </div>
                     </div>
                 </section>
+
+                <div class="modal fade" id="upload_valorizacion" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Subir Valorizacion</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <form action="../Controller/upload_doc_valorizacion.php" method="POST" enctype="multipart/form-data">
+                            <div class="modal-body">
+                                <input type="text" name="id_reg_valor" id="id_reg_valor">
+                                <div class="form-group">
+                                    <label>Archivo de Valorizacion</label>
+                                    <br>
+                                    <input type="file" name="valorizacion_files[]" id="valorizacion_files" multiple>
+                                </div>
+
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                                    <button type="submit" name="upload_valor_" class="btn btn-primary">Subir</button>
+                                </div>
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
 
             </section>
         </div>
@@ -356,175 +386,6 @@ require_once('../Controller/controladorListar.php'); ?>
     <script src="../Vista/dist/js/demo.js"></script>
     <!-- Page specific script -->
 
-    <!--GOOGLE MAPS TESTING-->
-    <script type="text/javascript">
-        function initmap() {
-            const autocomplete = new google.maps.places.Autocomplete(document.getElementById('direccion_'));
-            var map = new google.maps.Map(document.getElementById('mapa'), {
-                center: {
-                    lat: -34.397,
-                    lng: 150.644
-                },
-                zoom: 18
-            });
-            var marker = new google.maps.Marker({
-                position: {
-                    lat: -34.397,
-                    lng: 150.644
-                },
-                map: map
-            });
-
-            if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition(function(position) {
-                    var pos = {
-                        lat: position.coords.latitude,
-                        lng: position.coords.longitude
-                    };
-                    map.setCenter(pos);
-                    var marker = new google.maps.Marker({
-                        position: pos,
-                        map: map,
-                        title: 'Ubicación actual'
-                    });
-                }, function() {
-                    // Manejar errores de geolocalización aquí
-                });
-            }
-        }
-
-        function onGoogleMapsLoaded() {
-            const autocomplete = new google.maps.places.Autocomplete(document.getElementById('direccion_'));
-        }
-    </script>
-
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCNO5GraIm8rWrrLbWt-Gv9GxsenRng-8o&callback=initmap&libraries=places" onload="onGoogleMapsLoaded()" async defer>
-    </script>
-
-
-    <script type="text/javascript">
-        /*
-        function buscarDireccion(event, mapa1Id, mapa2Id) {
-            if (event.keyCode === 13) { // 13 es el código de la tecla "Enter"
-                event.preventDefault();
-                const direccion = document.getElementById('direccion_').value;
-                const geocoder = new google.maps.Geocoder();
-                geocoder.geocode({
-                    address: direccion
-                }, function(results, status) {
-                    if (status === 'OK') {
-                        const latitud = results[0].geometry.location.lat();
-                        const longitud = results[0].geometry.location.lng();
-                        mostrarMapa(latitud, longitud, mapa1Id);
-                        mostrarMapa(latitud, longitud, mapa2Id);
-                    }
-                });
-            }
-        }*/
-
-        async function buscarDireccion(event, mapa1Id, mapa2Id) {
-            const isEnterKey = event.keyCode === 13;
-            const isMouseClick = event.type === 'click';
-
-            if (isEnterKey || isMouseClick) {
-                event.preventDefault();
-                const direccion = document.getElementById('direccion_').value;
-                const geocoder = new google.maps.Geocoder();
-
-                try {
-                    const results = await geocodeAddress(geocoder, direccion);
-                    const {
-                        lat,
-                        lng
-                    } = getLatLngFromGeocodeResult(results);
-
-                    await mostrarMapaAsync(lat, lng, mapa1Id);
-                    await mostrarMapaAsync(lat, lng, mapa2Id);
-                } catch (error) {
-                    console.error('Ocurrió un error al buscar la dirección:', error);
-                }
-            }
-        }
-
-        function geocodeAddress(geocoder, direccion) {
-            return new Promise((resolve, reject) => {
-                geocoder.geocode({
-                    address: direccion
-                }, (results, status) => {
-                    if (status === 'OK') {
-                        resolve(results);
-                    } else {
-                        reject(status);
-                    }
-                });
-            });
-        }
-
-        function getLatLngFromGeocodeResult(results) {
-            const location = results[0].geometry.location;
-            return {
-                lat: location.lat(),
-                lng: location.lng()
-            };
-        }
-
-        function mostrarMapaAsync(latitud, longitud, divId) {
-            return new Promise((resolve, reject) => {
-                const mapa = new google.maps.Map(document.getElementById(divId), {
-                    zoom: 17,
-                    center: {
-                        lat: latitud,
-                        lng: longitud
-                    },
-                });
-
-                const marcador = new google.maps.Marker({
-                    position: {
-                        lat: latitud,
-                        lng: longitud
-                    },
-                    map: mapa,
-                });
-
-                // Espera un breve período para asegurar que el mapa se haya cargado correctamente
-                setTimeout(() => resolve(), 100);
-            });
-        }
-
-
-        function mostrarMapa(latitud, longitud, divId) {
-            const mapa = new google.maps.Map(document.getElementById(divId), {
-                zoom: 17,
-                center: {
-                    lat: latitud,
-                    lng: longitud
-                },
-            });
-            const marcador = new google.maps.Marker({
-                position: {
-                    lat: latitud,
-                    lng: longitud
-                },
-                map: mapa,
-            });
-        }
-
-        function initAutocomplete() {
-            const input = document.getElementById('direccion_');
-            const autocomplete = new google.maps.places.Autocomplete(input);
-            autocomplete.addListener('place_changed', function() {
-                const place = autocomplete.getPlace();
-                if (!place.geometry) {
-                    //alert("No se encontró la dirección");
-                    return;
-                }
-                const latitud = place.geometry.location.lat();
-                const longitud = place.geometry.location.lng();
-                mostrarMapa(latitud, longitud, 'mapa');
-            });
-        }
-    </script>
-    <!--GOOGLE MAPS TESTING-->
 
     <script type="text/javascript">
         /*function changeInputs() {
@@ -551,6 +412,22 @@ require_once('../Controller/controladorListar.php'); ?>
         const tipo_prop = document.getElementById("tipo_prop");
         tipo_prop.addEventListener("change", changeInputs);*/
     </script>
+
+    <script>
+    $(document).ready(function() {
+
+        $('.editbtn').on('click', function() {
+            console.log("test");
+            $('#upload_valorizacion').modal('show');
+            $tr = $(this).closest('tr');
+            var data = $tr.children("td").map(function() {
+                return $(this).text();
+            }).get();
+            console.log(data);
+            $('#id_reg_valor').val(data[0]);
+        });
+    });
+</script>
 
     <style type="text/css">
         #a__t,
