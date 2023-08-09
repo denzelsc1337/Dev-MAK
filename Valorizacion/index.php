@@ -109,7 +109,7 @@ require_once('../Controller/controladorListar.php'); ?>
 
                                 <div class="col-sm-12">
 
-                                    <table class="table table-borderless" style="width: 100%;">
+                                    <table class="table table-borderless" style="width: 150%;">
                                         Admin
                                         <thead class="">
                                             <tr>
@@ -199,18 +199,71 @@ require_once('../Controller/controladorListar.php'); ?>
                                 <div class="col-sm-12">
                                     User
                                     <div class="table-responsive pl-2 pr-2">
-                                        <table class="table table-borderless" style="width: 100%;">
+                                        <table class="table table-borderless" style="width: 150%;">
                                             <thead class="">
                                                 <tr>
-                                                    <th>ID</th>
-                                                    <th>nom</th>
-                                                    <th>DIRECCIÓN</th>
-                                                    <th>FECHA</th>
-                                                    <th>ESTADO</th>
-                                                    <th>id_user</th>
-                                                    <th>dni_user</th>
-                                                    <th>coment</th>
-                                                    <th>DESCARGA</th>
+                                                    <th>id_valor</th>
+                                                    <th>nom_client</th>
+                                                    <th>direccion</th>
+                                                    <th>tipo_inmue</th>
+                                                    <th>sub_tipo_inmue</th>
+                                                    <th>tipo_promo</th>
+                                                    <th>area_terreno</th>
+                                                    <th>area_ocupada</th>
+                                                    <th>antiguedad</th>
+                                                    <th>sala_comedor</th>
+                                                    <th>sala</th>
+                                                    <th>comedor</th>
+                                                    <th>cocina</th>
+                                                    <th>amoblado</th>
+                                                    <th>piscina_prop</th>
+                                                    <th>cant_dorm</th>
+                                                    <th>dormitorio_banho</th>
+                                                    <th>cant_banho</th>
+                                                    <th>banho_visita</th>
+                                                    <th>cuarto_serv</th>
+                                                    <th>banho_serv</th>
+                                                    <th>estacionamiento</th>
+                                                    <th>deposito</th>
+                                                    <th>cod_ubi</th>
+                                                    <th>cod_vista</th>
+                                                    <th>cod_acabado</th>
+                                                    <th>sala_comedor_dep</th>
+                                                    <th>sala_dep</th>
+                                                    <th>comedor_dep</th>
+                                                    <th>cocina_dep</th>
+                                                    <th>amob_dep</th>
+                                                    <!-- <th>cant_dorm_dep</th>
+                                                    <th>dormitorio_banho_dep</th>
+                                                    <th>cant_banho_dep</th>
+                                                    <th>banho_visita_dep</th>
+                                                    <th>cuarto_serv_dep</th>
+                                                    <th>banho_serv_dep</th>
+                                                    <th>estac_dep</th>
+                                                    <th>deposito_dep</th>
+                                                    <th>ascensor_dep</th>
+                                                    <th>ascensor_dir_dep</th>
+                                                    <th>pisos_edif_dep</th>
+                                                    <th>piso_dep</th>
+                                                    <th>cod_zonificacion</th>
+                                                    <th>cod_tipo_suelo</th>
+                                                    <th>param_terreno</th>
+                                                    <th>frent_terreno</th>
+                                                    <th>izq_terreno</th>
+                                                    <th>fondo_terreno</th>
+                                                    <th>der_terreno</th>
+                                                    <th>piso_ofi</th>
+                                                    <th>cochera_ofi</th>
+                                                    <th>ascensor_ofi</th>
+                                                    <th>aire_ofi</th>
+                                                    <th>frente_lcl_com</th>
+                                                    <th>cochera_lcl_com</th>
+                                                    <th>piso_lcl_com</th>
+                                                    <th>ascensor_lcl_com</th>
+                                                    <th>aire_lcl_com</th>
+                                                    <th>frente_lcl_ind</th>
+                                                    <th>nave_lcl_ind</th>
+                                                    <th>estado_solicitud</th> -->
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -230,8 +283,27 @@ require_once('../Controller/controladorListar.php'); ?>
 
                                                 function mostrarData($data)
                                                 {
+                                                    // if ($data == 0) {
+                                                    //     echo "<td>No</td>";
+                                                    // } else if ($data == 1) {
+                                                    //     echo "<td>Si</td>";
+                                                    // } else {
+                                                    //     if ($data !== null) {
+                                                    //         echo "<td>$data</td>";
+                                                    //     }
+                                                    // }
+
                                                     if ($data !== null) {
-                                                        echo "<td>$data</td>";
+
+                                                        if ($data) {
+                                                            echo "<td>$data</td>";
+                                                        } else if ($data === 0) {
+                                                            echo "<td>No</td>";
+                                                        } else {
+                                                            echo "<td>Si</td>";
+                                                        }
+                                                    } else {
+                                                        echo "<td></td>";
                                                     }
                                                 }
 
@@ -240,48 +312,41 @@ require_once('../Controller/controladorListar.php'); ?>
 
                                                 ?>
                                                     <tr>
-                                                        <td><?php echo $lst_vlzn[0] ?></td>
-                                                        <td><?php echo $lst_vlzn[1] ?></td>
-                                                        <td><?php echo $lst_vlzn[2] ?></td>
-                                                        <td><?php echo $lst_vlzn[3] ?></td>
-                                                        <td><?php echo $lst_vlzn[4] ?></td>
-                                                        <td><?php echo $lst_vlzn[5] ?></td>
-                                                        <td><?php echo $lst_vlzn[6] ?></td>
-                                                        <td><?php echo $lst_vlzn[7] ?></td>
+                                                        <?php mostrarData($lst_vlzn[0]) ?>
+                                                        <?php mostrarData($lst_vlzn[1]) ?>
+                                                        <?php mostrarData($lst_vlzn[2]) ?>
+                                                        <?php mostrarData($lst_vlzn[3]) ?>
+                                                        <?php mostrarData($lst_vlzn[4]) ?>
+                                                        <?php mostrarData($lst_vlzn[5]) ?>
+                                                        <?php mostrarData($lst_vlzn[6]) ?>
+                                                        <?php mostrarData($lst_vlzn[7]) ?>
+                                                        <?php mostrarData($lst_vlzn[8]) ?>
+                                                        <?php mostrarData($lst_vlzn[9]) ?>
+                                                        <?php mostrarData($lst_vlzn[10]) ?>
+                                                        <?php mostrarData($lst_vlzn[11]) ?>
+                                                        <?php mostrarData($lst_vlzn[12]) ?>
+                                                        <?php mostrarData($lst_vlzn[13]) ?>
+                                                        <?php mostrarData($lst_vlzn[14]) ?>
+                                                        <?php mostrarData($lst_vlzn[15]) ?>
+                                                        <?php mostrarData($lst_vlzn[16]) ?>
+                                                        <?php mostrarData($lst_vlzn[17]) ?>
+                                                        <?php mostrarData($lst_vlzn[18]) ?>
+                                                        <?php mostrarData($lst_vlzn[19]) ?>
+                                                        <?php mostrarData($lst_vlzn[20]) ?>
+                                                        <?php mostrarData($lst_vlzn[21]) ?>
+                                                        <?php mostrarData($lst_vlzn[22]) ?>
+                                                        <?php mostrarData($lst_vlzn[23]) ?>
+                                                        <?php mostrarData($lst_vlzn[24]) ?>
+                                                        <?php mostrarData($lst_vlzn[25]) ?>
+                                                        <?php mostrarData($lst_vlzn[26]) ?>
+                                                        <?php mostrarData($lst_vlzn[27]) ?>
+                                                        <?php mostrarData($lst_vlzn[28]) ?>
+                                                        <?php mostrarData($lst_vlzn[29]) ?>
+                                                        <?php mostrarData($lst_vlzn[30]) ?>
 
-                                                        <?php if ($lst_vlzn[8] == null) { ?>
-                                                            <td>--</td>
-                                                        <?php
-                                                        } else { ?>
-                                                            <td><?php echo $lst_vlzn[9] ?></td>
-                                                        <?php
-                                                        } ?>
-
-                                                        <td><?php echo getValue($lst_vlzn[9]) ?></td>
-                                                        <td><?php echo getValue($lst_vlzn[10]) ?></td>
-                                                        <td><?php echo getValue($lst_vlzn[11]) ?></td>
-                                                        <td><?php echo getValue($lst_vlzn[12]) ?></td>
-                                                        <td><?php echo getValue($lst_vlzn[13]) ?></td>
-                                                        <td><?php echo getValue($lst_vlzn[14]) ?></td>
-                                                        <td><?php echo getValue($lst_vlzn[15]) ?></td>
-                                                        <td><?php echo getValue($lst_vlzn[16]) ?></td>
-                                                        <td><?php echo getValue($lst_vlzn[17]) ?></td>
-                                                        <td><?php echo getValue($lst_vlzn[18]) ?></td>
-                                                        <td><?php echo getValue($lst_vlzn[19]) ?></td>
-                                                        <td><?php echo getValue($lst_vlzn[20]) ?></td>
-                                                        <td><?php echo getValue($lst_vlzn[21]) ?></td>
-                                                        <td><?php echo getValue($lst_vlzn[22]) ?></td>
-                                                        <td><?php echo getValue($lst_vlzn[23]) ?></td>
-                                                        <td><?php echo $lst_vlzn[24] ?></td>
-                                                        <td><?php echo $lst_vlzn[25] ?></td>
-                                                        <td><?php echo $lst_vlzn[26] ?></td>
-                                                        <?php mostrarData($lst_vlzn[27]); ?>
-                                                        <?php mostrarData($lst_vlzn[28]); ?>
-                                                        <?php mostrarData($lst_vlzn[29]); ?>
 
                                                         <td>
-                                                            <button type="button" class="btn editbtn" data-toggle="modal" data-target="#exampleModal"><i class="fa-solid fa-download">Admin</i></button>
-                                                            <button type=""><i class="fa-solid fa-download">usu</i></button>
+                                                            <button type="submit"><i class="fa-solid fa-download"></i></button>
                                                         </td>
                                                     </tr>
                                                 <?php endforeach ?>
@@ -307,35 +372,6 @@ require_once('../Controller/controladorListar.php'); ?>
                         </div>
                     </div>
                 </section>
-
-                <div class="modal fade" id="upload_valorizacion" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Subir Valorizacion</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <form action="../Controller/upload_doc_valorizacion.php" method="POST" enctype="multipart/form-data">
-                            <div class="modal-body">
-                                <input type="text" name="id_reg_valor" id="id_reg_valor">
-                                <div class="form-group">
-                                    <label>Archivo de Valorizacion</label>
-                                    <br>
-                                    <input type="file" name="valorizacion_files[]" id="valorizacion_files" multiple>
-                                </div>
-
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                                    <button type="submit" name="upload_valor_" class="btn btn-primary">Subir</button>
-                                </div>
-                            </div>
-                        </form>
-
-                    </div>
-                </div>
-            </div>
 
             </section>
         </div>
@@ -386,6 +422,175 @@ require_once('../Controller/controladorListar.php'); ?>
     <script src="../Vista/dist/js/demo.js"></script>
     <!-- Page specific script -->
 
+    <!--GOOGLE MAPS TESTING-->
+    <script type="text/javascript">
+        function initmap() {
+            const autocomplete = new google.maps.places.Autocomplete(document.getElementById('direccion_'));
+            var map = new google.maps.Map(document.getElementById('mapa'), {
+                center: {
+                    lat: -34.397,
+                    lng: 150.644
+                },
+                zoom: 18
+            });
+            var marker = new google.maps.Marker({
+                position: {
+                    lat: -34.397,
+                    lng: 150.644
+                },
+                map: map
+            });
+
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(function(position) {
+                    var pos = {
+                        lat: position.coords.latitude,
+                        lng: position.coords.longitude
+                    };
+                    map.setCenter(pos);
+                    var marker = new google.maps.Marker({
+                        position: pos,
+                        map: map,
+                        title: 'Ubicación actual'
+                    });
+                }, function() {
+                    // Manejar errores de geolocalización aquí
+                });
+            }
+        }
+
+        function onGoogleMapsLoaded() {
+            const autocomplete = new google.maps.places.Autocomplete(document.getElementById('direccion_'));
+        }
+    </script>
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCNO5GraIm8rWrrLbWt-Gv9GxsenRng-8o&callback=initmap&libraries=places" onload="onGoogleMapsLoaded()" async defer>
+    </script>
+
+
+    <script type="text/javascript">
+        /*
+        function buscarDireccion(event, mapa1Id, mapa2Id) {
+            if (event.keyCode === 13) { // 13 es el código de la tecla "Enter"
+                event.preventDefault();
+                const direccion = document.getElementById('direccion_').value;
+                const geocoder = new google.maps.Geocoder();
+                geocoder.geocode({
+                    address: direccion
+                }, function(results, status) {
+                    if (status === 'OK') {
+                        const latitud = results[0].geometry.location.lat();
+                        const longitud = results[0].geometry.location.lng();
+                        mostrarMapa(latitud, longitud, mapa1Id);
+                        mostrarMapa(latitud, longitud, mapa2Id);
+                    }
+                });
+            }
+        }*/
+
+        async function buscarDireccion(event, mapa1Id, mapa2Id) {
+            const isEnterKey = event.keyCode === 13;
+            const isMouseClick = event.type === 'click';
+
+            if (isEnterKey || isMouseClick) {
+                event.preventDefault();
+                const direccion = document.getElementById('direccion_').value;
+                const geocoder = new google.maps.Geocoder();
+
+                try {
+                    const results = await geocodeAddress(geocoder, direccion);
+                    const {
+                        lat,
+                        lng
+                    } = getLatLngFromGeocodeResult(results);
+
+                    await mostrarMapaAsync(lat, lng, mapa1Id);
+                    await mostrarMapaAsync(lat, lng, mapa2Id);
+                } catch (error) {
+                    console.error('Ocurrió un error al buscar la dirección:', error);
+                }
+            }
+        }
+
+        function geocodeAddress(geocoder, direccion) {
+            return new Promise((resolve, reject) => {
+                geocoder.geocode({
+                    address: direccion
+                }, (results, status) => {
+                    if (status === 'OK') {
+                        resolve(results);
+                    } else {
+                        reject(status);
+                    }
+                });
+            });
+        }
+
+        function getLatLngFromGeocodeResult(results) {
+            const location = results[0].geometry.location;
+            return {
+                lat: location.lat(),
+                lng: location.lng()
+            };
+        }
+
+        function mostrarMapaAsync(latitud, longitud, divId) {
+            return new Promise((resolve, reject) => {
+                const mapa = new google.maps.Map(document.getElementById(divId), {
+                    zoom: 17,
+                    center: {
+                        lat: latitud,
+                        lng: longitud
+                    },
+                });
+
+                const marcador = new google.maps.Marker({
+                    position: {
+                        lat: latitud,
+                        lng: longitud
+                    },
+                    map: mapa,
+                });
+
+                // Espera un breve período para asegurar que el mapa se haya cargado correctamente
+                setTimeout(() => resolve(), 100);
+            });
+        }
+
+
+        function mostrarMapa(latitud, longitud, divId) {
+            const mapa = new google.maps.Map(document.getElementById(divId), {
+                zoom: 17,
+                center: {
+                    lat: latitud,
+                    lng: longitud
+                },
+            });
+            const marcador = new google.maps.Marker({
+                position: {
+                    lat: latitud,
+                    lng: longitud
+                },
+                map: mapa,
+            });
+        }
+
+        function initAutocomplete() {
+            const input = document.getElementById('direccion_');
+            const autocomplete = new google.maps.places.Autocomplete(input);
+            autocomplete.addListener('place_changed', function() {
+                const place = autocomplete.getPlace();
+                if (!place.geometry) {
+                    //alert("No se encontró la dirección");
+                    return;
+                }
+                const latitud = place.geometry.location.lat();
+                const longitud = place.geometry.location.lng();
+                mostrarMapa(latitud, longitud, 'mapa');
+            });
+        }
+    </script>
+    <!--GOOGLE MAPS TESTING-->
 
     <script type="text/javascript">
         /*function changeInputs() {
@@ -412,22 +617,6 @@ require_once('../Controller/controladorListar.php'); ?>
         const tipo_prop = document.getElementById("tipo_prop");
         tipo_prop.addEventListener("change", changeInputs);*/
     </script>
-
-    <script>
-    $(document).ready(function() {
-
-        $('.editbtn').on('click', function() {
-            console.log("test");
-            $('#upload_valorizacion').modal('show');
-            $tr = $(this).closest('tr');
-            var data = $tr.children("td").map(function() {
-                return $(this).text();
-            }).get();
-            console.log(data);
-            $('#id_reg_valor').val(data[0]);
-        });
-    });
-</script>
 
     <style type="text/css">
         #a__t,
