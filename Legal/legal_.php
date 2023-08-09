@@ -121,7 +121,7 @@ require_once('../Controller/controladorListar.php');
 
                                             <input type="text" class="form-control" id="id_user" name="id_user" value="<?php echo $_SESSION['id_usu']; ?>" hidden>
                                             <input type="text" class="form-control" id="dni_user_l" name="dni_user_l" value="<?php echo $_SESSION['dni']; ?>" hidden>
-                                            <input type="text" class="form-control" id="cod_reg_l" name="cod_reg_l"  hidden>
+                                            <input type="text" class="form-control" id="cod_reg_l" name="cod_reg_l" hidden>
 
                                             <div class="col-sm-6">
                                                 <div class="row">
@@ -443,13 +443,13 @@ require_once('../Controller/controladorListar.php');
                                                                     </div>
 
                                                                     <?php if ($lst_legal_d[6] == 30) { ?>
-                                                                    <div class="col-sm-4 justify-content-center options">
-                                                                        <div class="options">
-                                                                            <button type="button" class="btn btn-rounded arrow-left" id="">
-                                                                                <i class="fa-solid fa-eye">editar borrador</i>
-                                                                            </button>
+                                                                        <div class="col-sm-4 justify-content-center options">
+                                                                            <div class="options">
+                                                                                <button type="button" class="btn btn-rounded arrow-left" id="">
+                                                                                    <i class="fa-solid fa-eye">editar borrador</i>
+                                                                                </button>
+                                                                            </div>
                                                                         </div>
-                                                                    </div>
                                                                     <?php  } ?>
 
 
@@ -1794,7 +1794,14 @@ require_once('../Controller/controladorListar.php');
 
 
         // ----------------------------
+    
         document.querySelectorAll(".body-mak").forEach(element => {
+
+            document.addEventListener("keydown", function(event) {
+                if (event.key === "Tab") {
+                    event.preventDefault(); // Evita el comportamiento predeterminado de TAB
+                }
+            });
 
             const contenedor = document.querySelector(".overflow-hidden");
             const contenido = contenedor.scrollWidth;

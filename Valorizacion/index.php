@@ -125,62 +125,77 @@ require_once('../Controller/controladorListar.php'); ?>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <?php foreach ($list_solic_legal as $lst_legal_d) : ?>
-                                                <tr>
-                                                    <td><?php echo $lst_legal_d[0] ?></td>
-                                                    <td><?php echo $lst_legal_d[1] ?></td>
-                                                    <td><?php echo $lst_legal_d[2] ?></td>
-                                                    <td><?php echo $lst_legal_d[3] ?></td>
-                                                    <td>
-                                                        <?php
-                                                        if ($lst_legal_d[4] == 10) {
-                                                        ?>
-                                                            <span class="badge rounded-pill bg-secondary">Pendiente</span>
-                                                        <?php
-                                                        } elseif ($lst_legal_d[4] == 20) {
-                                                        ?>
-                                                            <span class="badge rounded-pill bg-warning text-dark">En revision</span>
-                                                        <?php
-                                                        } elseif ($lst_legal_d[4] == 90) {
-                                                        ?>
-                                                            <span class="badge rounded-pill bg-success">Finalizado</span>
-                                                        <?php
+                                            <?php
+
+
+                                            function mostrarData($data)
+                                            {
+                                                switch ($data) {
+                                                    case "1":
+                                                        echo "<td>Si</td>";
+                                                        break;
+                                                    case "0":
+                                                        echo "<td>No</td>";
+                                                        break;
+                                                    default:
+                                                        // echo "<td>$data</td>";
+                                                        if ($data !== null) {
+                                                            echo  "<td>$data</td>";
+                                                        } else {
+                                                            echo "<td>-</td>";
                                                         }
-                                                        ?>
-                                                    </td>
-                                                    <td><?php echo $lst_legal_d[5] ?></td>
-                                                    <td><?php echo $lst_legal_d[6] ?></td>
-                                                    <td><?php echo $lst_legal_d[7] ?></td>
+                                                        break;
+                                                }
+                                            }
+
+                                            foreach ($list_valo as $lst_vlzn) : ?>
+                                                <tr>
+                                                    <?php mostrarData($lst_vlzn[0]) ?>
+                                                    <?php mostrarData($lst_vlzn[1]) ?>
+                                                    <?php mostrarData($lst_vlzn[2]) ?>
+                                                    <?php mostrarData($lst_vlzn[3]) ?>
+                                                    <?php mostrarData($lst_vlzn[4]) ?>
+                                                    <?php mostrarData($lst_vlzn[5]) ?>
+                                                    <?php mostrarData($lst_vlzn[6]) ?>
+                                                    <?php mostrarData($lst_vlzn[7]) ?>
+                                                    <?php mostrarData($lst_vlzn[8]) ?>
+                                                    <?php mostrarData($lst_vlzn[9]) ?>
+                                                    <?php mostrarData($lst_vlzn[10]) ?>
+                                                    <?php mostrarData($lst_vlzn[11]) ?>
+                                                    <?php mostrarData($lst_vlzn[12]) ?>
+                                                    <?php mostrarData($lst_vlzn[13]) ?>
+                                                    <?php mostrarData($lst_vlzn[14]) ?>
+                                                    <?php mostrarData($lst_vlzn[15]) ?>
+                                                    <?php mostrarData($lst_vlzn[16]) ?>
+                                                    <?php mostrarData($lst_vlzn[17]) ?>
+                                                    <?php mostrarData($lst_vlzn[18]) ?>
+                                                    <?php mostrarData($lst_vlzn[19]) ?>
+                                                    <?php mostrarData($lst_vlzn[20]) ?>
+                                                    <?php mostrarData($lst_vlzn[21]) ?>
+                                                    <?php mostrarData($lst_vlzn[22]) ?>
+                                                    <?php mostrarData($lst_vlzn[23]) ?>
+                                                    <?php mostrarData($lst_vlzn[24]) ?>
+                                                    <?php mostrarData($lst_vlzn[25]) ?>
+                                                    <?php mostrarData($lst_vlzn[26]) ?>
+                                                    <?php mostrarData($lst_vlzn[27]) ?>
+                                                    <?php mostrarData($lst_vlzn[28]) ?>
+                                                    <?php mostrarData($lst_vlzn[29]) ?>
+                                                    <?php mostrarData($lst_vlzn[30]) ?>
+                                                    <?php mostrarData($lst_vlzn[31]) ?>
+                                                    <?php mostrarData($lst_vlzn[32]) ?>
+                                                    <?php mostrarData($lst_vlzn[33]) ?>
+                                                    <?php mostrarData($lst_vlzn[34]) ?>
+                                                    <?php mostrarData($lst_vlzn[35]) ?>
+                                                    <?php mostrarData($lst_vlzn[36]) ?>
+                                                    <?php mostrarData($lst_vlzn[37]) ?>
+                                                    <?php mostrarData($lst_vlzn[38]) ?>
+                                                    <?php mostrarData($lst_vlzn[39]) ?>
+                                                    <?php mostrarData($lst_vlzn[40]) ?>
+
                                                     <td>
-                                                        <div class="row justify-content-evenly">
-                                                            <div class="col-sm-4 justify-content-center options brd-rght-blue" hidden>
-                                                                <div class="options">
-                                                                    <i class="fa-solid fa-trash"></i>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-sm-4 justify-content-center options brd-rght-blue" hidden>
-                                                                <div class="options">
-                                                                    <i class="fa-solid fa-pencil"></i>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-sm-4 justify-content-center options" hidden>
-                                                                <div class="options">
-                                                                    <button type="button" class="btn btn-rounded find_data" id="get_data">
-                                                                        <i class="fa-solid fa-eye"></i>
-                                                                    </button>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-sm-4 justify-content-center options">
-                                                                <div class="options">
-                                                                    <button type="button" class="btn btn-rounded scroll-toggle" id="">
-                                                                        <i class="fa-solid fa-eye"></i>
-                                                                    </button>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </td>
-                                                    <td>
-                                                        <button type="submit"><i class="fa-solid fa-upload"></i></button>
+                                                        <button type="submit"><i class="fa-solid fa-download"></i></button>
+                                                        <button type="button" class="btn editbtn" data-toggle="modal" data-target="#exampleModal"><i class="fa-solid fa-download">Admin</i></button>
+                                                        <button type=""><i class="fa-solid fa-download">usu</i></button>
                                                     </td>
                                                 </tr>
                                             <?php endforeach ?>
@@ -215,73 +230,43 @@ require_once('../Controller/controladorListar.php'); ?>
                                             </thead>
                                             <tbody>
                                                 <?php
-
-
-                                                function mostrarData($data)
+                                                function mostrarDataUser($data)
                                                 {
-                                                    // if ($data == 0) {
-                                                    //     echo "<td>No</td>";
-                                                    // } else if ($data == 1) {
-                                                    //     echo "<td>Si</td>";
-                                                    // } else {
-                                                    //     if ($data !== null) {
-                                                    //         echo "<td>$data</td>";
-                                                    //     }
-                                                    // }
-
-                                                    if ($data !== null) {
-                                                        // echo "<td>$data</td>";
-
-                                                        if ($data) {
-                                                            echo "<td>$data</td>";
-                                                        } else if ($data === 0) {
-                                                            echo "<td>No</td>";
-                                                        } else {
+                                                    switch ($data) {
+                                                        case "1":
                                                             echo "<td>Si</td>";
-                                                        }
-                                                        print_r($data);
-                                                    } else {
-                                                        echo "<td></td>";
+                                                            break;
+                                                        case "0":
+                                                            echo "<td>No</td>";
+                                                            break;
+                                                        default:
+                                                            // echo "<td>$data</td>";
+                                                            if ($data !== null) {
+                                                                echo  "<td>$data</td>";
+                                                            } else {
+                                                                echo "<td>-</td>";
+                                                            }
+                                                            break;
                                                     }
                                                 }
 
-                                                foreach ($list_valo as $lst_vlzn) :
 
+                                                $list_valo_user = $oValor->list_Valo_Historico_User($_SESSION['id_usu'], $_SESSION['dni']);
 
+                                                foreach ($list_valo_user as $lst_vlzn_) :
+                                                    $cont = 0;
                                                 ?>
                                                     <tr>
-                                                        <?php mostrarData($lst_vlzn[0]) ?>
-                                                        <?php mostrarData($lst_vlzn[1]) ?>
-                                                        <?php mostrarData($lst_vlzn[2]) ?>
-                                                        <?php mostrarData($lst_vlzn[3]) ?>
-                                                        <?php mostrarData($lst_vlzn[4]) ?>
-                                                        <?php mostrarData($lst_vlzn[5]) ?>
-                                                        <?php mostrarData($lst_vlzn[6]) ?>
-                                                        <?php mostrarData($lst_vlzn[7]) ?>
-                                                        <?php mostrarData($lst_vlzn[8]) ?>
-                                                        <?php mostrarData($lst_vlzn[9]) ?>
-                                                        <?php mostrarData($lst_vlzn[10]) ?>
-                                                        <?php mostrarData($lst_vlzn[11]) ?>
-                                                        <?php mostrarData($lst_vlzn[12]) ?>
-                                                        <?php mostrarData($lst_vlzn[13]) ?>
-                                                        <?php mostrarData($lst_vlzn[14]) ?>
-                                                        <?php mostrarData($lst_vlzn[15]) ?>
-                                                        <?php mostrarData($lst_vlzn[16]) ?>
-                                                        <?php mostrarData($lst_vlzn[17]) ?>
-                                                        <?php mostrarData($lst_vlzn[18]) ?>
-                                                        <?php mostrarData($lst_vlzn[19]) ?>
-                                                        <?php mostrarData($lst_vlzn[20]) ?>
-                                                        <?php mostrarData($lst_vlzn[21]) ?>
-                                                        <?php mostrarData($lst_vlzn[22]) ?>
-                                                        <?php mostrarData($lst_vlzn[23]) ?>
-                                                        <?php mostrarData($lst_vlzn[24]) ?>
-                                                        <?php mostrarData($lst_vlzn[25]) ?>
-                                                        <?php mostrarData($lst_vlzn[26]) ?>
-                                                        <?php mostrarData($lst_vlzn[27]) ?>
-                                                        <?php mostrarData($lst_vlzn[28]) ?>
-                                                        <?php mostrarData($lst_vlzn[29]) ?>
-                                                        <?php mostrarData($lst_vlzn[30]) ?>
-                                                        <?php mostrarData($lst_vlzn[31]) ?>
+
+                                                        <?php mostrarDataUser($lst_vlzn_[$cont++]) ?>
+                                                        <?php mostrarDataUser($lst_vlzn_[$cont++]) ?>
+                                                        <?php mostrarDataUser($lst_vlzn_[$cont++]) ?>
+                                                        <?php mostrarDataUser($lst_vlzn_[$cont++]) ?>
+                                                        <?php mostrarDataUser($lst_vlzn_[$cont++]) ?>
+                                                        <?php mostrarDataUser($lst_vlzn_[$cont++]) ?>
+                                                        <?php mostrarDataUser($lst_vlzn_[$cont++]) ?>
+
+
 
                                                         <td>
                                                             <button type="submit"><i class="fa-solid fa-download"></i></button>
