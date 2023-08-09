@@ -880,12 +880,19 @@ require_once('../Controller/controladorListar.php');
                                             <div class="file-archives"></div>
                                         </div>
                                         <span>O</span>
-                                        <div>
+                                        <!-- <div>
                                             <label id="buttonFile" class="btn btn-mak mak-bg buton-file">Seleccionar archivos</label>
                                             <input class="upload" type="file" id="cl_s" name="cl_s[]" multiple hidden>
+                                        </div> -->
+                                        <div class="card-footer">
+                                            <div class="form-flex">
+                                                <button type="submit" class="btn btn-mak mak-bg buton-file" id="btn_save_cl" name="btn_save_cl" disabled>Registrar</button>
+
+                                                <label id="buttonFile" class="btn btn-mak mak-bg buton-file">Seleccionar archivos</label>
+                                                <input class="upload" type="file" id="cl_s" name="cl_s[]" multiple hidden>
+                                            </div>
                                         </div>
                                     </div>
-                                    <button type="submit" class="btn btn-info btn-lg col-md-12" id="btn_save_cl" name="btn_save_cl" disabled>Registrar</button>
                                 </form>
                             </div>
                         </div>
@@ -966,12 +973,19 @@ require_once('../Controller/controladorListar.php');
                                         </div>
                                         <span>O</span>
 
-                                        <div>
+                                        <!-- <div>
                                             <label id="buttonFile" class="btn btn-mak mak-bg buton-file">Seleccionar archivos</label>
                                             <input class="upload" type="file" id="dni_s" name="dni_s[]" multiple hidden>
+                                        </div> -->
+                                        <div class="card-footer">
+                                            <div class="form-flex">
+                                                <button type="submit" class="btn btn-mak mak-bg buton-file" id="btn_save_dni" name="btn_save_dni" disabled>Registrar</button>
+
+                                                <label id="buttonFile" class="btn btn-mak mak-bg buton-file">Seleccionar archivos</label>
+                                                <input class="upload" type="file" id="dni_s" name="dni_s[]" multiple hidden>
+                                            </div>
                                         </div>
                                     </div>
-                                    <button type="submit" class="btn btn-info btn-lg col-md-12" id="btn_save_dni" name="btn_save_dni" disabled>Registrar</button>
                                 </form>
                                 <div id="preview"></div>
                             </div>

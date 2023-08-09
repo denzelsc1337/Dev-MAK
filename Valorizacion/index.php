@@ -219,8 +219,18 @@ require_once('../Controller/controladorListar.php'); ?>
 
                                                 function mostrarData($data)
                                                 {
+                                                    // if ($data == 0) {
+                                                    //     echo "<td>No</td>";
+                                                    // } else if ($data == 1) {
+                                                    //     echo "<td>Si</td>";
+                                                    // } else {
+                                                    //     if ($data !== null) {
+                                                    //         echo "<td>$data</td>";
+                                                    //     }
+                                                    // }
+
                                                     if ($data !== null) {
-                                                        echo "<td>$data</td>";
+                                                        // echo "<td>$data</td>";
 
                                                         if ($data) {
                                                             echo "<td>$data</td>";
@@ -229,6 +239,7 @@ require_once('../Controller/controladorListar.php'); ?>
                                                         } else {
                                                             echo "<td>Si</td>";
                                                         }
+                                                        print_r($data);
                                                     } else {
                                                         echo "<td></td>";
                                                     }
