@@ -119,9 +119,9 @@ require_once('../Controller/controladorListar.php');
                                     <div class="card-body">
                                         <div class="row">
                                             <div class="row">
-                                                <input type="text" class="form-control" id="id_user" name="id_user" value="<?php echo $_SESSION['id_usu']; ?>" >
-                                                <input type="text" class="form-control" id="dni_user_l" name="dni_user_l" value="<?php echo $_SESSION['dni']; ?>" >
-                                                <input type="text" class="form-control" id="cod_reg_l" name="cod_reg_l" >
+                                                <input type="text" class="form-control" id="id_user" name="id_user" value="<?php echo $_SESSION['id_usu']; ?>">
+                                                <input type="text" class="form-control" id="dni_user_l" name="dni_user_l" value="<?php echo $_SESSION['dni']; ?>">
+                                                <input type="text" class="form-control" id="cod_reg_l" name="cod_reg_l">
                                             </div>
                                             <div class="col-sm-6">
                                                 <div class="row">
@@ -164,7 +164,7 @@ require_once('../Controller/controladorListar.php');
                                                             <div class="input-group-append">
 
                                                                 <button type="button" class="btn btn-rounded  
-                                                                btn_lst_hr btn_lst_hr_0" data-toggle="modal" data-target="#lst_hr_0" data-valor ="H_R" data-titulo="Hoja de Resumen" data-id_doc_="1"><i class="cursor fa-solid fa-eye"></i></button>
+                                                                btn_lst_hr btn_lst_hr_0" data-toggle="modal" data-target="#lst_hr_0" data-valor="H_R" data-titulo="Hoja de Resumen" data-id_doc_="1"><i class="cursor fa-solid fa-eye"></i></button>
 
                                                                 <button type="button" class="btn btn-rounded  btn_lst_lyts btn_lst_lyts_0" data-toggle="modal" data-target="#lst_lyts" data-valor="H_R" data-titulo="Hoja de Resumen" data-id_doc_="1" style="display:none"><i class="cursor fa-solid fa-pencil"></i></button>
                                                             </div>
@@ -1147,62 +1147,62 @@ require_once('../Controller/controladorListar.php');
 
 
     <script>
-        //inputs
-        var hr_inpt = document.getElementById('hr_s');
-        var pu_inpt = document.getElementById('pu_s');
-        var cl_inpt = document.getElementById('cl_s');
-        var dni_inpt = document.getElementById('dni_s');
+        // //inputs
+        // var hr_inpt = document.getElementById('hr_s');
+        // var pu_inpt = document.getElementById('pu_s');
+        // var cl_inpt = document.getElementById('cl_s');
+        // var dni_inpt = document.getElementById('dni_s');
 
 
-        var btn_hr = document.getElementById('btn_save_hr');
-        var btn_pu = document.getElementById('btn_save_pu');
-        var btn_cl = document.getElementById('btn_save_cl');
-        var btn_dni = document.getElementById('btn_save_dni');
+        // var btn_hr = document.getElementById('btn_save_hr');
+        // var btn_pu = document.getElementById('btn_save_pu');
+        // var btn_cl = document.getElementById('btn_save_cl');
+        // var btn_dni = document.getElementById('btn_save_dni');
 
-        hr_inpt.addEventListener('change', function() {
+        // hr_inpt.addEventListener('change', function() {
 
-            if (hr_inpt.files.length > 0) {
+        //     if (hr_inpt.files.length > 0) {
 
-                btn_hr.disabled = false;
-            } else {
+        //         btn_hr.disabled = false;
+        //     } else {
 
-                btn_hr.disabled = true;
-            }
-        });
+        //         btn_hr.disabled = true;
+        //     }
+        // });
 
-        pu_inpt.addEventListener('change', function() {
+        // pu_inpt.addEventListener('change', function() {
 
-            if (pu_inpt.files.length > 0) {
+        //     if (pu_inpt.files.length > 0) {
 
-                btn_pu.disabled = false;
-            } else {
+        //         btn_pu.disabled = false;
+        //     } else {
 
-                btn_pu.disabled = true;
-            }
-        });
+        //         btn_pu.disabled = true;
+        //     }
+        // });
 
 
-        cl_inpt.addEventListener('change', function() {
+        // cl_inpt.addEventListener('change', function() {
 
-            if (cl_inpt.files.length > 0) {
+        //     if (cl_inpt.files.length > 0) {
 
-                btn_cl.disabled = false;
-            } else {
+        //         btn_cl.disabled = false;
+        //     } else {
 
-                btn_cl.disabled = true;
-            }
-        });
+        //         btn_cl.disabled = true;
+        //     }
+        // });
 
-        dni_inpt.addEventListener('change', function() {
+        // dni_inpt.addEventListener('change', function() {
 
-            if (dni_inpt.files.length > 0) {
+        //     if (dni_inpt.files.length > 0) {
 
-                btn_dni.disabled = false;
-            } else {
+        //         btn_dni.disabled = false;
+        //     } else {
 
-                btn_dni.disabled = true;
-            }
-        });
+        //         btn_dni.disabled = true;
+        //     }
+        // });
 
 
         $(document).ready(function() {
@@ -1335,7 +1335,7 @@ require_once('../Controller/controladorListar.php');
 
 
 
-            function load_documents_lyt(id_soli_l,id_tipo_doc_) {
+            function load_documents_lyt(id_soli_l, id_tipo_doc_) {
 
                 var dni = '<?php echo $_SESSION['dni'] ?>';
 
@@ -1605,7 +1605,7 @@ require_once('../Controller/controladorListar.php');
                 /*console.log(titulo_modal);
                 console.log(concepto);*/
 
-                load_documents_lyt(id_soli_l,titulo_doc)
+                load_documents_lyt(id_soli_l, titulo_doc)
 
                 $('#lst_lyts').modal('show');
             });
@@ -1897,50 +1897,50 @@ require_once('../Controller/controladorListar.php');
             });
         }*/
 
-        function send_file_upld(drop_id, file_input_id, btn_id) {
+        // function send_file_upld(drop_id, file_input_id, btn_id) {
 
-            const dropArea = document.getElementById(drop_id);
-            const fileInput = document.getElementById(file_input_id);
+        //     const dropArea = document.getElementById(drop_id);
+        //     const fileInput = document.getElementById(file_input_id);
 
-            // Prevenir el comportamiento predeterminado para los eventos de arrastrar para permitir soltar archivos
-            dropArea.addEventListener("dragover", (event) => {
-                event.preventDefault();
-            });
+        //     // Prevenir el comportamiento predeterminado para los eventos de arrastrar para permitir soltar archivos
+        //     dropArea.addEventListener("dragover", (event) => {
+        //         event.preventDefault();
+        //     });
 
-            // Manejar el evento de soltar archivos
-            dropArea.addEventListener("drop", (event) => {
-                event.preventDefault();
-                const files = event.dataTransfer.files;
-                //actualizarListaArchivos(files);
-                fileInput.files = files;
-                habilitarBotonRegistrar(files.length > 0);
-            });
+        //     // Manejar el evento de soltar archivos
+        //     dropArea.addEventListener("drop", (event) => {
+        //         event.preventDefault();
+        //         const files = event.dataTransfer.files;
+        //         //actualizarListaArchivos(files);
+        //         fileInput.files = files;
+        //         habilitarBotonRegistrar(files.length > 0);
+        //     });
 
-            // Manejar el evento de cambio en el input de archivos
-            fileInput.addEventListener("change", (event) => {
-                const files = event.target.files;
-                //actualizarListaArchivos(files);
-                habilitarBotonRegistrar(files.length > 0);
-            });
+        //     // Manejar el evento de cambio en el input de archivos
+        //     fileInput.addEventListener("change", (event) => {
+        //         const files = event.target.files;
+        //         //actualizarListaArchivos(files);
+        //         habilitarBotonRegistrar(files.length > 0);
+        //     });
 
-            // Actualizar la lista de archivos en el área de arrastre
-            //function actualizarListaArchivos(files) {
-            //const fileArchives = dropArea.querySelector(".file-archives");
-            //fileArchives.innerHTML = "";
+        //     // Actualizar la lista de archivos en el área de arrastre
+        //     //function actualizarListaArchivos(files) {
+        //     //const fileArchives = dropArea.querySelector(".file-archives");
+        //     //fileArchives.innerHTML = "";
 
-            //for (const file of files) {
-            //const fileDiv = document.createElement("div");
-            //fileDiv.textContent = file.name;
-            //fileArchives.appendChild(fileDiv);
-            //}
-            //}
+        //     //for (const file of files) {
+        //     //const fileDiv = document.createElement("div");
+        //     //fileDiv.textContent = file.name;
+        //     //fileArchives.appendChild(fileDiv);
+        //     //}
+        //     //}
 
-            // Habilitar o deshabilitar el botón de registrar según la cantidad de archivos seleccionados
-            function habilitarBotonRegistrar(habilitar) {
-                const submitButton = document.getElementById(btn_id);
-                submitButton.disabled = !habilitar;
-            }
-        }
+        //     // Habilitar o deshabilitar el botón de registrar según la cantidad de archivos seleccionados
+        //     function habilitarBotonRegistrar(habilitar) {
+        //         const submitButton = document.getElementById(btn_id);
+        //         submitButton.disabled = !habilitar;
+        //     }
+        // }
 
         document.addEventListener("DOMContentLoaded", () => {
             send_file_upld("dropArea", "hr_s", "btn_save_hr");
@@ -1952,7 +1952,7 @@ require_once('../Controller/controladorListar.php');
 
 
         // ----------------------------
-    
+
         document.querySelectorAll(".body-mak").forEach(element => {
 
             document.addEventListener("keydown", function(event) {

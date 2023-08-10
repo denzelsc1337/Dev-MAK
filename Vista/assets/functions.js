@@ -363,38 +363,30 @@ $(document).ready(function () {
       const fileMessage = element.querySelector(".file-message");
       const fileArchives = element.querySelector(".file-archives");
       var cantFileMessage = element.querySelectorAll(".archive-item").length;
+      let btnDisable = element.querySelector("button");
+      // DISABLE BUTTON
 
+
+      // DISABLE BUTTON
 
       if (cantFileMessage > 0) {
         fileMessage.style.display = "none";
         fileArchives.style.display = "grid";
+        btnDisable.disabled = false;
       } else {
         fileMessage.style.display = "flex";
         fileArchives.style.display = "none";
+        btnDisable.disabled = true;
       }
+
+
     }
 
     function getFileExtension(filename) {
       return filename.slice(((filename.lastIndexOf(".") - 1) >>> 0) + 2);
     }
 
-    // async function uploadFile(file, id) {
-    //   const formData = new FormData();
-    //   formData.append("file", file);
 
-    //   try {
-    //     const response = await fetch("http://localhost:3000/upload", {
-    //       method: "POST",
-    //       body: formData,
-    //     });
-
-    //     const responseText = await response.text();
-
-    //     document.querySelector(`${id}`).innerHTML = `<span>Uploaded</span>`;
-    //   } catch (error) {
-    //     document.querySelector(`${id}`).innerHTML = `<span>NHE</span>`;
-    //   }
-    // }
   });
   // DRAG AND DROP FILES
 
