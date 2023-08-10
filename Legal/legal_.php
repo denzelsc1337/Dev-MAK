@@ -158,7 +158,7 @@ require_once('../Controller/controladorListar.php');
                                                             <label class="col-sm-5 col-form-label">HR:</label>
                                                             <div class="section-input col-sm-6">
                                                                 <div class="upload-file">
-                                                                    <label data-bs-toggle="modal" data-bs-target="#modal_archive_HR">Seleccionar archivos.</label>
+                                                                    <label class="upld-file" data-bs-toggle="modal" data-bs-target="#modal_archive_HR">Seleccionar archivos.</label>
                                                                 </div>
                                                             </div>
                                                             <div class="input-group-append">
@@ -178,7 +178,7 @@ require_once('../Controller/controladorListar.php');
                                                             <label class="col-sm-5 col-form-label">PU:</label>
                                                             <div class="section-input col-sm-6">
                                                                 <div class="upload-file">
-                                                                    <label data-bs-toggle="modal" data-bs-target="#modal_archive_PU">Seleccionar archivos.</label>
+                                                                    <label class="upld-file" data-bs-toggle="modal" data-bs-target="#modal_archive_PU">Seleccionar archivos.</label>
                                                                 </div>
                                                             </div>
                                                             <div class="input-group-append">
@@ -197,7 +197,7 @@ require_once('../Controller/controladorListar.php');
                                                             <label class="col-sm-5 col-form-label">COPIA LITERAL:</label>
                                                             <div class="section-input col-sm-6">
                                                                 <div class="upload-file">
-                                                                    <label data-bs-toggle="modal" data-bs-target="#modal_archive_CL">Seleccionar archivos.</label>
+                                                                    <label class="upld-file" data-bs-toggle="modal" data-bs-target="#modal_archive_CL">Seleccionar archivos.</label>
                                                                 </div>
                                                             </div>
                                                             <div class="input-group-append">
@@ -217,7 +217,7 @@ require_once('../Controller/controladorListar.php');
                                                             <label class="col-sm-5 col-form-label">DNI:</label>
                                                             <div class="section-input col-sm-6">
                                                                 <div class="upload-file">
-                                                                    <label data-bs-toggle="modal" data-bs-target="#modal_archive_DNI">Seleccionar archivos.</label>
+                                                                    <label class="upld-file" data-bs-toggle="modal" data-bs-target="#modal_archive_DNI">Seleccionar archivos.</label>
                                                                 </div>
                                                             </div>
                                                             <div class="input-group-append">
@@ -759,6 +759,7 @@ require_once('../Controller/controladorListar.php');
                                         </div> -->
                                         <div class="card-footer">
                                             <div class="form-flex">
+                                                <button type="submit" class="btn btn-mak mak-bg buton-file" id="" name="" style="display: none;">Actualizar</button>
                                                 <button type="submit" class="btn btn-mak mak-bg buton-file" id="btn_save_hr" name="btn_save_hr" disabled>Registrar</button>
 
                                                 <label id="buttonFile" class="btn btn-mak mak-bg buton-file">Seleccionar archivos</label>
@@ -897,6 +898,7 @@ require_once('../Controller/controladorListar.php');
                                         </div> -->
                                         <div class="card-footer">
                                             <div class="form-flex">
+                                                <button type="submit" class="btn btn-mak mak-bg buton-file" id="" name="" style="display: none;">Actualizar</button>
                                                 <button type="submit" class="btn btn-mak mak-bg buton-file" id="btn_save_pu" name="btn_save_pu" disabled>Registrar</button>
 
                                                 <label id="buttonFile" class="btn btn-mak mak-bg buton-file">Seleccionar archivos</label>
@@ -957,6 +959,7 @@ require_once('../Controller/controladorListar.php');
                                         </div> -->
                                         <div class="card-footer">
                                             <div class="form-flex">
+                                                <button type="submit" class="btn btn-mak mak-bg buton-file" id="" name="" style="display: none;">Actualizar</button>
                                                 <button type="submit" class="btn btn-mak mak-bg buton-file" id="btn_save_cl" name="btn_save_cl" disabled>Registrar</button>
 
                                                 <label id="buttonFile" class="btn btn-mak mak-bg buton-file">Seleccionar archivos</label>
@@ -1050,6 +1053,7 @@ require_once('../Controller/controladorListar.php');
                                         </div> -->
                                         <div class="card-footer">
                                             <div class="form-flex">
+                                                <button type="submit" class="btn btn-mak mak-bg buton-file" id="" name="" style="display: none;">Actualizar</button>
                                                 <button type="submit" class="btn btn-mak mak-bg buton-file" id="btn_save_dni" name="btn_save_dni" disabled>Registrar</button>
 
                                                 <label id="buttonFile" class="btn btn-mak mak-bg buton-file">Seleccionar archivos</label>
@@ -2088,6 +2092,49 @@ require_once('../Controller/controladorListar.php');
                         contenedor.style.scrollBehavior = "smooth"; // Activar la animación
                         contenedor.scrollLeft = 0; // Ir al final
 
+
+
+
+
+
+
+                        // console.log(element);
+                        // contenido.querySelector(".card-footer").querySelectorAll("button").forEach(btns => {
+                        //     console.log(btns);
+                        // });;
+
+
+                        // var contenido = document.querySelectorAll(".content-file").forEach(element => {
+                        //     var buttons = element.querySelectorAll("button");
+                        //     buttons.forEach(btns => {
+                        //         console.log(contenido.querySelector("button:last-child"));
+
+                        //     });
+                        // });
+
+
+
+
+                    });
+
+                    var upldFile = document.querySelectorAll(".upld-file").forEach(element => {
+                        element.addEventListener("click", () => {
+                            /////
+                            var contenido = document.querySelectorAll(".content-file").forEach(element => {
+                                // var buttons = element.querySelectorAll("button");
+                                // buttons.forEach(btns => {
+                                //     console.log(btns);
+
+                                // });
+                                element.addEventListener("click", () => {
+                                    //     // var buttons = element.querySelectorAll("button");
+                                    //     // console.log(buttons);
+                                    console.log("asdsadsadsda");
+                                })
+                                // console.log(element);
+                            });
+                            /////
+                        })
                     });
 
                 });
