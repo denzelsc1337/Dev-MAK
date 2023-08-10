@@ -1356,6 +1356,7 @@ form .form-content {
   display: flex;
   align-items: center;
   justify-content: center;
+  text-align: center;
   width: 65%;
   height: 65%;
   border-radius: 8px;

@@ -422,14 +422,14 @@ $(document).ready(function () {
 
   dragValo.addEventListener("dragleave", (e) => {
     e.preventDefault();
-    texto.textContent = "Agregar";
+    texto.textContent = "Agregar Fotos";
   });
 
   dragValo.addEventListener("drop", (e) => {
     e.preventDefault();
     files = e.dataTransfer.files;
     showValoFiles(files);
-    texto.textContent = "Agregar";
+    texto.textContent = "Agregar Fotos";
   });
 
   // function showValoFiles(files) {
