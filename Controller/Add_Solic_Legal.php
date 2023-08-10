@@ -65,7 +65,6 @@ if (isset($_POST['btn_save_solic'])) {
 
 if(isset($_POST["btn_save_borrador"])) {
 
-
     $data[1] = $_POST["nom_cli_solic"];
     $data[2] = $_POST["ape_cli_solic"];
     $data[3] = $_POST["dir_cli_solic"];
