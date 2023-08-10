@@ -164,9 +164,9 @@ require_once('../Controller/controladorListar.php');
                                                             <div class="input-group-append">
 
                                                                 <button type="button" class="btn btn-rounded  
-                                                                btn_lst_hr btn_lst_hr_0" data-toggle="modal" data-target="#lst_hr_0" data-valor="H_R" data-titulo="Hoja de Resumen" data-id_doc_="1"><i class="cursor fa-solid fa-eye"></i></button>
+                                                                btn_lst_hr btn_lst_hr_0" data-toggle="modal" data-target="#lst_hr_0" data-valor ="H_R" data-titulo="Hoja de Resumen" data-id_doc_="1"><i class="cursor fa-solid fa-eye"></i></button>
 
-                                                                <button type="button" class="btn btn-rounded  btn_lst_lyts btn_lst_lyts_0" data-toggle="modal" data-target="#lst_lyts" data-valor="H_R" data-titulo="Hoja de Resumen" data-id_doc_="1"><i class="cursor fa-solid fa-pencil"></i></button>
+                                                                <button type="button" class="btn btn-rounded  btn_lst_lyts btn_lst_lyts_0" data-toggle="modal" data-target="#lst_lyts" data-valor="H_R" data-titulo="Hoja de Resumen" data-id_doc_="1" style="display:none"><i class="cursor fa-solid fa-pencil"></i></button>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -185,7 +185,7 @@ require_once('../Controller/controladorListar.php');
 
                                                                 <button type="button" class="btn btn-rounded btn_lst_hr btn_lst_hr_0" data-toggle="modal" data-target="#lst_hr_0" data-valor="P_U" data-titulo="Predio Urbano" data-id_doc_="2"><i class="cursor fa-solid fa-eye"></i></button>
 
-                                                                <button type="button" class="btn btn-rounded  btn_lst_lyts btn_lst_lyts_0" data-toggle="modal" data-target="#lst_lyts" data-valor="P_U" data-titulo="Hoja de Resumen" data-id_doc_="2"><i class="cursor fa-solid fa-pencil"></i></button>
+                                                                <button type="button" class="btn btn-rounded  btn_lst_lyts btn_lst_lyts_0" data-toggle="modal" data-target="#lst_lyts" data-valor="P_U" data-titulo="Predio Urbano" data-id_doc_="2" style="display:none"><i class="cursor fa-solid fa-pencil"></i></button>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -205,7 +205,7 @@ require_once('../Controller/controladorListar.php');
                                                                 <button type="button" class="btn btn-rounded btn_lst_hr btn_lst_hr_0" data-toggle="modal" data-target="#lst_hr_0" data-valor="C_L" data-titulo="Copia Literal" data-id_doc_="3"><i class="cursor fa-solid fa-eye"></i></button>
 
 
-                                                                <button type="button" class="btn btn-rounded  btn_lst_lyts btn_lst_lyts_0" data-toggle="modal" data-target="#lst_lyts" data-valor="C_L" data-titulo="Hoja de Resumen" data-id_doc_="3"><i class="cursor fa-solid fa-pencil"></i></button>
+                                                                <button type="button" class="btn btn-rounded  btn_lst_lyts btn_lst_lyts_0" data-toggle="modal" data-target="#lst_lyts" data-valor="C_L" data-titulo="Copia Literal" data-id_doc_="3" style="display:none"><i class="cursor fa-solid fa-pencil"></i></button>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -223,7 +223,7 @@ require_once('../Controller/controladorListar.php');
                                                             <div class="input-group-append">
                                                                 <button type="button" class="btn btn-rounded btn_lst_hr btn_lst_hr_0" data-toggle="modal" data-target="#lst_hr_0" data-valor="DNI" data-titulo="DNI" data-id_doc_="4"><i class="cursor fa-solid fa-eye"></i></button>
 
-                                                                <button type="button" class="btn btn-rounded  btn_lst_lyts btn_lst_lyts_0" data-toggle="modal" data-target="#lst_lyts" data-valor="DNI" data-titulo="Hoja de Resumen" data-id_doc_="4"><i class="cursor fa-solid fa-pencil"></i></button>
+                                                                <button type="button" class="btn btn-rounded  btn_lst_lyts btn_lst_lyts_0" data-toggle="modal" data-target="#lst_lyts" data-valor="DNI" data-titulo="DNI" data-id_doc_="4" style="display:none"><i class="cursor fa-solid fa-pencil"></i></button>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -458,7 +458,7 @@ require_once('../Controller/controladorListar.php');
                                                                         <div class="col-sm-4 justify-content-center options">
                                                                             <div class="options">
                                                                                 <button type="button" class="btn btn-rounded arrow-left_1" id="">
-                                                                                    <i class="fa-solid fa-eye">editar borrador</i>
+                                                                                    <i class="fa-solid fa-pencil"></i>
                                                                                 </button>
                                                                             </div>
                                                                         </div>
@@ -813,7 +813,7 @@ require_once('../Controller/controladorListar.php');
         <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-body">
-                    <h1 class="title-m" id="titulo_docs">HR</h1>
+                    <h1 class="title-m" id="titulo_docs_2">victor la rctmre</h1>
                     <div class="row margin">
 
                         <div class="form-group" hidden>
@@ -845,7 +845,7 @@ require_once('../Controller/controladorListar.php');
                     <h1 class="title-m" id="titulo_docs">HR</h1>
                     <div class="row margin">
 
-                        <div class="col-sm-12" id="descarga_archivo_l">
+                        <div class="col-sm-12" id="descarga_archivo_p">
 
                         </div>
 
@@ -1335,7 +1335,7 @@ require_once('../Controller/controladorListar.php');
 
 
 
-            function load_documents_lyt(id_soli_l,id_tipo_doc) {
+            function load_documents_lyt(id_soli_l,id_tipo_doc_) {
 
                 var dni = '<?php echo $_SESSION['dni'] ?>';
 
@@ -1345,7 +1345,7 @@ require_once('../Controller/controladorListar.php');
                     data: {
                         id_solic_l: id_soli_l,
                         dni_client: dni,
-                        id_tipo_doc: id_tipo_doc,
+                        id_tipo_doc: id_tipo_doc_,
 
                     },
                     success: function(response) {
@@ -1428,7 +1428,7 @@ require_once('../Controller/controladorListar.php');
                     data: {
                         id_solic_l: id_reg,
                         dni_cli: id_cli,
-                        id_tipo_doc: tipo_doc,
+                        cod_tipo_doc: tipo_doc,
 
                     },
                     success: function(response) {
@@ -1488,11 +1488,11 @@ require_once('../Controller/controladorListar.php');
 
                             });
 
-                            document.getElementById('descarga_archivo_l').innerHTML = enlaceHtml;
+                            document.getElementById('descarga_archivo_p').innerHTML = enlaceHtml;
 
                         } else {
 
-                            document.getElementById('descarga_archivo_l').textContent = 'Archivo no encontrado';
+                            document.getElementById('descarga_archivo_p').textContent = 'Archivo no encontrado';
                         }
 
                     },
@@ -1592,7 +1592,7 @@ require_once('../Controller/controladorListar.php');
 
                 $('#_id_tipo_doc_lgl').val(_id_doc_lgl);
                 $('#_concept').val(titulo_doc);
-                $('#titulo_docs').text(titulo_);
+                $('#titulo_docs_2').text(titulo_);
 
 
                 var id_soli_l = $('#cod_reg_l').val();
@@ -1614,16 +1614,18 @@ require_once('../Controller/controladorListar.php');
             $('.btn_lst_docs').on('click', function() {
                 console.log("Botón seleccionado");
 
-                var valor1 = $(this).data('valor');
+                var tipo_doc = $(this).data('valor');
                 var titulo_ = $(this).data('titulo');
 
                 var _id_doc_lgl = $(this).data('id_doc_');
-                var id_cli = $(this).data('id_user_');
+
                 var id_reg = $('#id_legal_solic').val();
+                var id_cli = $(this).data('id_user_');
+
 
                 $('#lst_docs_legal').modal('show');
 
-                load_documents_legal_(id_reg, id_cli, valor1)
+                load_documents_legal_(id_reg, id_cli, tipo_doc)
 
             });
 
@@ -1997,9 +1999,9 @@ require_once('../Controller/controladorListar.php');
                         $('#data_names_').val(data[1]);
                         $('#data_direcion_').val(data[2]);
 
-                        $('#coment_').val(data[7]);
+                        $('#coment_').val(data[9]);
 
-                        $('#id_client_l').val(data[5]);
+                        $('#id_client_l').val(data[7]);
 
                         //load_documents_legal('<?php echo $_SESSION['id_usu'] ?>');
 

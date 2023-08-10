@@ -2,13 +2,15 @@
 
 $cod_solic = $_POST['id_solic_l'];
 $dni_u = $_POST['dni_cli'];
-$tipo_doc_ = $_POST['id_tipo_doc'];
+$tipo_doc_ = $_POST['cod_tipo_doc'];
 
 
 // Directorio donde se encuentran los archivos
 $directorio = "../Solicitudes/".$cod_solic."/".$dni_u."/".$tipo_doc_."/";
 
 $response = array();
+
+echo $directorio;
 
 if (is_dir($directorio)){
         // Obtener la lista de archivos en el directorio
@@ -39,13 +41,6 @@ if (is_dir($directorio)){
 }
 
 echo json_encode($response);
-
-
-
-
-
-
-
 
 /*$servername = "localhost";
 $username = "root";
