@@ -1608,7 +1608,24 @@
                                             <div class="column-card">
                                                 <div class="column">
                                                     <label class="mak-txt">Comentario <small>(Opcional)</small></label>
-                                                    <textarea name="" id=""></textarea>
+                                                    <textarea placeholder="Escribe un comentario..."></textarea>
+                                                    <script>
+                                                        // TEXTAREA
+                                                        const textarea = document.querySelector("textarea");
+                                                        textarea.addEventListener("input", () => {
+                                                            adjustTextareaHeight(textarea);
+                                                        });
+
+                                                        function adjustTextareaHeight(textarea) {
+                                                            textarea.style.height = "auto";
+                                                            textarea.style.height = (textarea.scrollHeight) + "px";
+                                                        }
+
+                                                        // Adjust the textarea's height initially (optional)
+                                                        adjustTextareaHeight(textarea);
+                                                        // });
+                                                        // TEXTAREA
+                                                    </script>
                                                 </div>
                                             </div>
 
@@ -1617,22 +1634,13 @@
                                                     <div class="valo-file">
                                                         <div class="file-content" id="fileValorArchives">
                                                             <div class="up-archive file-item">
-                                                                <div class="item-box">
+                                                                <div id="btnFile" class="item-box">
                                                                     Agregar
                                                                 </div>
-                                                                <input type="file" id="inpt-file-valo" name="inpt-file-valo" hidden>
+                                                                <input type="file" id="inpt-file-valo" name="inpt-file-valo" multiple hidden>
                                                             </div>
-                                                            <!-- <div class="file-item">
-                                                                <img class="file-img" src="../Vista/images/bg_1.jpg" alt="">
-                                                                <div class="archive">
-                                                                    <div class="btn-clear">
-                                                                        <img src="../Vista/images/delete-filled-svgrepo-com 3.svg" alt="">
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="file-item">3</div>
-                                                            <div class="file-item">4</div>
-                                                            <div class="file-item">5</div> -->
+
+
                                                         </div>
                                                     </div>
 

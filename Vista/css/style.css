@@ -293,6 +293,10 @@ h2 {
   margin: auto;
 }
 
+#pantalla-SA .column-card .column {
+  justify-content: flex-start;
+}
+
 .column-card {
   flex: 0 0 50%;
   max-width: 50%;
