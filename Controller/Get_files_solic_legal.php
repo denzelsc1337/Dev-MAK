@@ -10,8 +10,6 @@ $directorio = "../Solicitudes/".$cod_solic."/".$dni_u."/".$tipo_doc_."/";
 
 $response = array();
 
-echo $directorio;
-
 if (is_dir($directorio)){
         // Obtener la lista de archivos en el directorio
     $archivos = scandir($directorio);
