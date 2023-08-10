@@ -402,8 +402,7 @@ $(document).ready(function () {
   var dragValo = document.querySelector(".up-archive");
   var inputBox = dragValo.querySelector("#btnFile");
   var inputDragValo = dragValo.querySelector("#inpt-file-valo");
-  var texto = dragValo.querySelector(".item-box")
-  let files;
+  var texto = dragValo.querySelector(".item-box");
 
   inputBox.addEventListener("click", (e) => {
     inputDragValo.click();
@@ -432,86 +431,11 @@ $(document).ready(function () {
     texto.textContent = "Agregar Fotos";
   });
 
-  // function showValoFiles(files) {
-  //   if (files.length === undefined) {
-  //     processValoFile(files);
-  //   } else {
-  //     for (const file of files) {
-  //       processValoFile(file);
-  //     }
-  //   }
-  // }
-
-  // function processValoFile(file) {
-  //   const docType = file.type;
-  //   const validExtensions = [
-  //     "image/png",
-  //     "image/jpg",
-  //     "image/jpeg",
-  //   ];
-
-  //   if (validExtensions.includes(docType)) {
-  //     // archivo valido
-  //     const fileReader = new FileReader();
-  //     const id = `file-${Math.random().toString(32).substring(7)}`;
-
-
-  //     fileReader.addEventListener("load", (e) => {
-  //       const fileUrl = fileReader.result;
-  //       // const fileExtension = getFileExtension(file.name);
-
-  //       let FaceArchive = "";
-  //       FaceArchive += `
-  //         <div class="file-item" id="${id}">
-  //           <img class="file-img" src="${fileUrl}" alt="${file.name}">
-  //           <div class="archive">
-  //               <div class="btn-clear">
-  //                   <img src="../Vista/images/delete-filled-svgrepo-com 3.svg" alt="">
-  //               </div>
-  //           </div>
-  //         </div>
-  //            `;
-
-  //       /////////////
-  //       const html = document.querySelector("#fileValorArchives");
-
-  //       // console.log(html);
-
-  //       // html.forEach((element) => {
-  //       html.innerHTML += FaceArchive;
-
-  //       // ACÁ LLAMAR FUNCTION
-  //       // contTagFiles();
-
-  //       // const dropItem = document.querySelectorAll(".drop-item");
-  //       // dropItem.forEach((dropItem) => {
-  //       //   dropItem.addEventListener("click", (e) => {
-  //       //     let Object = document.querySelectorAll(".archive-item");
-  //       //     Object.forEach((element) => {
-  //       //       element.addEventListener("click", (e) => {
-  //       //         element.remove();
-  //       //         contTagFiles();
-  //       //       });
-  //       //     });
-  //       //   });
-  //       // });
-  //       // });
-
-  //       /////////////
-  //     });
-  //     fileReader.readAsDataURL(file);
-
-  //   } else {
-  //     // archivo no valido
-  //     alert("Archivo no válido: " + file.name);
-  //   }
-
-  // }
   function showValoFiles(files) {
-    const html = document.querySelector("#fileValorArchives");
+    const html_Val = document.querySelector("#fileValorArchives");
 
     for (const file of files) {
-      processValoFile(file, html);
+      processValoFile(file, html_Val);
     }
   }
 
