@@ -1608,7 +1608,8 @@
                                             <div class="column-card">
                                                 <div class="column">
                                                     <label class="mak-txt">Comentario <small>(Opcional)</small></label>
-                                                    <textarea name="" id=""></textarea>
+                                                    <textarea placeholder="Escribe un comentario..."></textarea>
+
                                                 </div>
                                             </div>
 
@@ -1617,22 +1618,13 @@
                                                     <div class="valo-file">
                                                         <div class="file-content" id="fileValorArchives">
                                                             <div class="up-archive file-item">
-                                                                <div class="item-box">
-                                                                    Agregar
+                                                                <div id="btnFile" class="item-box">
+                                                                    Agregar Fotos
                                                                 </div>
-                                                                <input type="file" id="inpt-file-valo" name="inpt-file-valo" hidden>
+                                                                <input type="file" id="inpt-file-valo" name="inpt-file-valo" multiple hidden>
                                                             </div>
-                                                            <!-- <div class="file-item">
-                                                                <img class="file-img" src="../Vista/images/bg_1.jpg" alt="">
-                                                                <div class="archive">
-                                                                    <div class="btn-clear">
-                                                                        <img src="../Vista/images/delete-filled-svgrepo-com 3.svg" alt="">
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="file-item">3</div>
-                                                            <div class="file-item">4</div>
-                                                            <div class="file-item">5</div> -->
+
+
                                                         </div>
                                                     </div>
 
@@ -1687,15 +1679,21 @@
                                                         </table>
 
                                                         <br>
-                                                        <!-- <div class="card-body"> -->
-                                                        <div class="col-sm-12  card-resume flex">
-                                                            <div class="col-sm-6 brd-rght-blue">
-                                                                <div class="card-body">
+
+                                                        <div class="row col-sm-12 resumen">
+                                                            <div class="col-sm-3">
+                                                                <div class="card-body card-resume">
+                                                                    <label class="mak-txt">Comentario</label>
+                                                                    <textarea placeholder="Escribe un comentario..."></textarea>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-sm-4 "> <!-- brd-rght-blue -->
+                                                                <div class="card-body  card-resume">
                                                                     <div id="mapa_2" style="height: 400px;"></div>
                                                                 </div>
                                                             </div>
-                                                            <div class="col-sm-6">
-                                                                <div class="card-body data-resume">
+                                                            <div class="col-sm-5">
+                                                                <div class="card-body card-resume data-resume">
                                                                     <h2>Resumen</h2>
                                                                     <p><strong>Datos de contacto:</strong></p>
                                                                     <ul>
@@ -1705,74 +1703,14 @@
                                                                     </ul>
                                                                     <div>
                                                                         <p><strong>Información de la propiedad:</strong></p>
-                                                                        <div data-resume>
+                                                                        <div class="lst-resume" data-resume>
 
                                                                         </div>
                                                                     </div>
                                                                     <!-- <p><strong>Información del tipo de propiedad:</strong></p> -->
                                                                 </div>
                                                             </div>
-                                                            <!-- </div> -->
                                                         </div>
-
-                                                        <!-- <div class="col-md-6">
-                                                                <div class="card card-default">
-                                                                    <div class="card-body">
-                                                                        <div id="mapa_2" style="height: 400px;"></div>
-                                                                    </div>
-                                                                </div>
-                                                            </div> -->
-
-                                                        <!-- resumen de los inputs-->
-                                                        <!-- <div class="col-sm-6">
-                                                                <div class="card">
-                                                                    <div class="card-body data-resume">
-                                                                        <h2>Resumen</h2>
-
-                                                                        <p><strong>Datos de contacto:</strong></p>
-                                                                        <ul>
-                                                                            <li>Nombre: <?php echo $_SESSION['nom_usu']; ?></li>
-                                                                            <li>Email: <?php echo $_SESSION['email_usu']; ?></li>
-                                                                            <li>Teléfono: <?php echo $_SESSION['telef_usu']; ?></li>
-                                                                        </ul>
-                                                                        <div>
-                                                                            <p><strong>Información de la propiedad:</strong></p>
-                                                                            <div data-resume>
-                                                                                <ul>
-                                                                                    <!--Datos del paso 1--
-                                                                                    <li id="dire_resumen"></li>
-                                                                                    <li id="tipo_prop_resumen"> </li>
-                                                                                    <li id="sub_tipo_prop_resumen"></li>
-                                                                                    <li id="tipo_prom_resumen">Tipo de promoción: </li>
-                                                                                    <!--Datos del paso 1--
-
-
-                                                                                    <!--Datos del paso 2 casa--
-                                                                                    <li id="sala_com_resumen" style="display: none;"></li>
-                                                                                    <li id="cocin_cas_resumen" style="display: none;"></li>
-                                                                                    <li id="sala_cas_resumen" style="display: none;"></li>
-                                                                                    <li id="amob_cas_resumen" style="display: none;"></li>
-                                                                                    <li id="comed_cas_resumen" style="display: none;"></li>
-                                                                                    <li id="pisc_cas_resumen" style="display: none;"></li>
-                                                                                    <li id="cant_dorm_cas_resumen" style="display: none;"></li>
-                                                                                    <li id="banho_vis_resumen" style="display: none;"></li>
-                                                                                    <li id="cuarto_serv_resumen" style="display: none;"></li>
-                                                                                    <li id="banho_serv_resumen" style="display: none;"></li>
-                                                                                    <li id="deposito_resumen" style="display: none;"></li>
-                                                                                    <li id="bano_resumen" style="display: none;"></li>
-                                                                                    <li id="ascensor_resumen" style="display: none;"></li>
-                                                                                    <li id="ascensor_Dir_resumen" style="display: none;"></li>
-                                                                                    <li id="aire_acon_resumen" style="display: none;"></li>
-                                                                                    <!--Datos del paso 2 casa--
-                                                                                </ul>
-                                                                            </div>
-                                                                        </div>
-                                                                        <p><strong>Información del tipo de propiedad:</strong></p>
-                                                                    </div>
-                                                                </div>
-                                                            </div> -->
-                                                        <!-- resumen de los inputs-->
-
                                                     </div>
                                                 </div>
                                             </div>
@@ -2463,6 +2401,19 @@
         //     myDropzone.removeAllFiles(true)
         // }
         // // DropzoneJS Demo Code End
+    </script>
+
+    <script>
+        // TEXTAREA
+        const textareas = document.querySelectorAll("textarea");
+        textareas.forEach((textarea) => {
+            textarea.addEventListener("keyup", e => {
+                textarea.style.height = "auto";
+                let scHeight = e.target.scrollHeight;
+                textarea.style.height = `${scHeight}px`;
+            })
+        })
+        // TEXTAREA
     </script>
 
     <script src="../Vista/assets/selection_types.js"></script>

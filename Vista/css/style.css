@@ -293,6 +293,10 @@ h2 {
   margin: auto;
 }
 
+#pantalla-SA .column-card .column {
+  justify-content: flex-start;
+}
+
 .column-card {
   flex: 0 0 50%;
   max-width: 50%;
@@ -369,6 +373,12 @@ h2 {
 .data-resume,
 .data-resume p {
   color: var(--blue-mak);
+}
+
+.data-resume .lst-resume {
+  display: grid;
+  grid-template-columns: auto auto;
+  align-items: center;
 }
 
 .card-resume {
@@ -1352,6 +1362,7 @@ form .form-content {
   display: flex;
   align-items: center;
   justify-content: center;
+  text-align: center;
   width: 65%;
   height: 65%;
   border-radius: 8px;
