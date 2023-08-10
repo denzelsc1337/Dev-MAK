@@ -163,9 +163,10 @@ require_once('../Controller/controladorListar.php');
                                                             </div>
                                                             <div class="input-group-append">
 
-                                                                <button type="button" class="btn btn-rounded  btn_lst_hr btn_lst_hr_0" data-toggle="modal" data-target="#lst_hr_0" data-valor="H_R" data-titulo="Hoja de Resumen" data-id_doc_="1"><i class="cursor fa-solid fa-eye"></i></button>
+                                                                <button type="button" class="btn btn-rounded  
+                                                                btn_lst_hr btn_lst_hr_0" data-toggle="modal" data-target="#lst_hr_0" data-valor="H_R" data-titulo="Hoja de Resumen" data-id_doc_="1"><i class="cursor fa-solid fa-eye"></i></button>
 
-                                                                <button type="button" class="btn btn-rounded  btn_lst_lyts btn_lst_hr_0" data-toggle="modal" data-target="#lst_lyts" data-valor="H_R" data-titulo="Hoja de Resumen" data-id_doc_="1"><i class="cursor fa-solid fa-eye"></i></button>
+                                                                <button type="button" class="btn btn-rounded  btn_lst_lyts btn_lst_lyts_0" data-toggle="modal" data-target="#lst_lyts" data-valor="H_R" data-titulo="Hoja de Resumen" data-id_doc_="1"><i class="cursor fa-solid fa-pencil"></i></button>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -184,7 +185,7 @@ require_once('../Controller/controladorListar.php');
 
                                                                 <button type="button" class="btn btn-rounded btn_lst_hr btn_lst_hr_0" data-toggle="modal" data-target="#lst_hr_0" data-valor="P_U" data-titulo="Predio Urbano" data-id_doc_="2"><i class="cursor fa-solid fa-eye"></i></button>
 
-                                                                <button type="button" class="btn btn-rounded  btn_lst_lyts btn_lst_hr_0" data-toggle="modal" data-target="#lst_lyts" data-valor="P_U" data-titulo="Hoja de Resumen" data-id_doc_="2"><i class="cursor fa-solid fa-eye"></i></button>
+                                                                <button type="button" class="btn btn-rounded  btn_lst_lyts btn_lst_lyts_0" data-toggle="modal" data-target="#lst_lyts" data-valor="P_U" data-titulo="Hoja de Resumen" data-id_doc_="2"><i class="cursor fa-solid fa-pencil"></i></button>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -204,7 +205,7 @@ require_once('../Controller/controladorListar.php');
                                                                 <button type="button" class="btn btn-rounded btn_lst_hr btn_lst_hr_0" data-toggle="modal" data-target="#lst_hr_0" data-valor="C_L" data-titulo="Copia Literal" data-id_doc_="3"><i class="cursor fa-solid fa-eye"></i></button>
 
 
-                                                                <button type="button" class="btn btn-rounded  btn_lst_lyts btn_lst_hr_0" data-toggle="modal" data-target="#lst_lyts" data-valor="C_L" data-titulo="Hoja de Resumen" data-id_doc_="3"><i class="cursor fa-solid fa-eye"></i></button>
+                                                                <button type="button" class="btn btn-rounded  btn_lst_lyts btn_lst_lyts_0" data-toggle="modal" data-target="#lst_lyts" data-valor="C_L" data-titulo="Hoja de Resumen" data-id_doc_="3"><i class="cursor fa-solid fa-pencil"></i></button>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -222,7 +223,7 @@ require_once('../Controller/controladorListar.php');
                                                             <div class="input-group-append">
                                                                 <button type="button" class="btn btn-rounded btn_lst_hr btn_lst_hr_0" data-toggle="modal" data-target="#lst_hr_0" data-valor="DNI" data-titulo="DNI" data-id_doc_="4"><i class="cursor fa-solid fa-eye"></i></button>
 
-                                                                <button type="button" class="btn btn-rounded  btn_lst_lyts btn_lst_hr_0" data-toggle="modal" data-target="#lst_lyts" data-valor="DNI" data-titulo="Hoja de Resumen" data-id_doc_="4"><i class="cursor fa-solid fa-eye"></i></button>
+                                                                <button type="button" class="btn btn-rounded  btn_lst_lyts btn_lst_lyts_0" data-toggle="modal" data-target="#lst_lyts" data-valor="DNI" data-titulo="Hoja de Resumen" data-id_doc_="4"><i class="cursor fa-solid fa-pencil"></i></button>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -456,7 +457,7 @@ require_once('../Controller/controladorListar.php');
                                                                     <?php if ($lst_legal_d[6] == 30) { ?>
                                                                         <div class="col-sm-4 justify-content-center options">
                                                                             <div class="options">
-                                                                                <button type="button" class="btn btn-rounded arrow-left" id="">
+                                                                                <button type="button" class="btn btn-rounded arrow-left_1" id="">
                                                                                     <i class="fa-solid fa-eye">editar borrador</i>
                                                                                 </button>
                                                                             </div>
@@ -2031,6 +2032,55 @@ require_once('../Controller/controladorListar.php');
 
                         //load_documents_legal('<?php echo $_SESSION['id_usu'] ?>');
 
+                        var btnLstHr = $('.btn_lst_hr');
+                        if (btnLstHr.length > 0) {
+                            btnLstHr.show();
+                        }
+
+
+                        var btnLstLyts = $('.btn_lst_lyts');
+                        if (btnLstLyts.length > 0) {
+                            btnLstLyts.hide();
+                        }
+
+                        // Realizar la transición al final del scroll horizontal con animación
+                        contenedor.style.scrollBehavior = "smooth"; // Activar la animación
+                        contenedor.scrollLeft = 0; // Ir al final
+
+                    });
+
+                });
+
+
+                document.querySelectorAll(".arrow-left_1").forEach((element) => {
+
+                    element.addEventListener("click", function() {
+
+                        $tr = $(this).closest('tr');
+
+                        var data = $tr.children("td").map(function() {
+                            return $(this).text();
+                        }).get();
+
+                        console.log(data);
+                        $('#cod_reg_l').val(data[0]);
+
+                        $('#nom_cli_solic').val(data[1]);
+                        $('#ape_cli_solic').val(data[2]);
+
+                        $('#dir_cli_solic').val(data[4]);
+
+                        //load_documents_legal('<?php echo $_SESSION['id_usu'] ?>');
+
+                        var btnLstHr = $('.btn_lst_hr');
+                        if (btnLstHr.length > 0) {
+                            btnLstHr.hide();
+                        }
+
+                        var btnLstLyts = $('.btn_lst_lyts');
+                        if (btnLstLyts.length > 0) {
+                            btnLstLyts.show();
+                        }
 
                         // Realizar la transición al final del scroll horizontal con animación
                         contenedor.style.scrollBehavior = "smooth"; // Activar la animación
