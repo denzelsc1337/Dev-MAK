@@ -124,7 +124,8 @@
                     valor2 !== 0 &&
                     valor2 !== "-1" &&
                     valor2 !== "on" &&
-                    valor2 !== "Seleccione"
+                    valor2 !== "Seleccione" &&
+                    valor2 !== "undefined"
                   ) {
                     resumeForm +=
                       contenidoExplicit + valor2 + "." + "<br></li>";

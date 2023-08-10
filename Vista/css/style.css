@@ -375,6 +375,12 @@ h2 {
   color: var(--blue-mak);
 }
 
+.data-resume .lst-resume {
+  display: grid;
+  grid-template-columns: auto auto;
+  align-items: center;
+}
+
 .card-resume {
   width: 100%;
   margin-top: 20px;
