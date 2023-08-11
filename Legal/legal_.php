@@ -110,8 +110,8 @@ require_once('../Controller/controladorListar.php');
 
                         <section class="body-mak mak-txt position-relative" data-content="legal">
 
-                            <div class="btn btn-mak bg-lightblue arrow-right">
-                                <div class="">Historico</div>
+                            <div class="arrow-right">
+                                <i class="fa-solid fa-angle-right"></i>
                             </div>
 
                             <form method="POST" action="../Controller/Add_Solic_Legal.php">
@@ -1994,12 +1994,12 @@ require_once('../Controller/controladorListar.php');
         //     }
         // }
 
-        document.addEventListener("DOMContentLoaded", () => {
-            send_file_upld("dropArea", "hr_s", "btn_save_hr");
-            send_file_upld("dropArea_2", "pu_s", "btn_save_pu");
-            send_file_upld("dropArea_3", "cl_s", "btn_save_cl");
-            send_file_upld("dropArea_4", "dni_s", "btn_save_dni");
-        });
+        // document.addEventListener("DOMContentLoaded", () => {
+        //     send_file_upld("dropArea", "hr_s", "btn_save_hr");
+        //     send_file_upld("dropArea_2", "pu_s", "btn_save_pu");
+        //     send_file_upld("dropArea_3", "cl_s", "btn_save_cl");
+        //     send_file_upld("dropArea_4", "dni_s", "btn_save_dni");
+        // });
 
 
 
@@ -2030,6 +2030,8 @@ require_once('../Controller/controladorListar.php');
                     // Realizar la transición a la mitad del scroll horizontal con animación
                     contenedor.style.scrollBehavior = "smooth"; // Activar la animación
                     contenedor.scrollLeft = mitadScroll; // Ir a la mitad
+
+
                 })
 
 
@@ -2145,20 +2147,53 @@ require_once('../Controller/controladorListar.php');
 
 
 
+                        // el lapiz hace que salga el boton actualizar
+                        var contenido = document.querySelectorAll(".content-file").forEach(element => {
+                            var buttons = element.querySelectorAll("button");
+                            buttons.forEach((btns, indice) => {
+                                if (indice % 2 === 1) { // Los índices pares tienen resto 1 al dividir por 2
+                                    btns.style.display = "none";
 
-                        // console.log(element);
-                        // contenido.querySelector(".card-footer").querySelectorAll("button").forEach(btns => {
-                        //     console.log(btns);
-                        // });;
+                                } else {
+                                    btns.style.display = "block";
+
+                                }
+                            });
+                        });
+                        // el lapiz hace que salga el boton actualizar
 
 
-                        // var contenido = document.querySelectorAll(".content-file").forEach(element => {
-                        //     var buttons = element.querySelectorAll("button");
-                        //     buttons.forEach(btns => {
-                        //         console.log(contenido.querySelector("button:last-child"));
 
-                        //     });
+                        // el boton a historico hace que salga el registrar
+                        var arw_rght = document.querySelector(".arrow-right").addEventListener("click", () => {
+                            var contenido = document.querySelectorAll(".content-file").forEach(element => {
+                                // console.log(element);
+                                var buttons = element.querySelectorAll("button");
+                                buttons.forEach((btns, indice) => {
+                                    if (indice % 2 === 0) { // Los índices pares tienen resto 1 al dividir por 2
+                                        btns.style.display = "none";
+                                    } else {
+                                        btns.style.display = "block";
+
+                                    }
+                                });
+                            });
+                        })
+                        // var contenido = element.querySelectorAll(".content-file").forEach(element => {
+                        //     console.log(element);
+                        //     // var buttons = element.querySelectorAll("button");
+                        //     // buttons.forEach((btns, indice) => {
+                        //     //     if (indice % 2 !== 1) { // Los índices pares tienen resto 1 al dividir por 2
+                        //     //         btns.style.display = "block";
+
+                        //     //     } else {
+                        //     //         btns.style.display = "none";
+
+                        //     //     }
+                        //     // });
                         // });
+                        // el boton a historico hace que salga el registrar
+
 
 
 

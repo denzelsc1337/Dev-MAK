@@ -253,6 +253,7 @@ $(document).ready(function () {
     element.addEventListener("drop", (e) => {
       e.preventDefault();
       files = e.dataTransfer.files;
+      inputFile.files = files;
       showFiles(files);
       dragText.textContent = "Arrastre los archivos aquí para subirlos.";
     });
@@ -266,6 +267,8 @@ $(document).ready(function () {
         }
       }
     }
+
+
 
     function processFile(file) {
       const docType = file.type;
@@ -363,21 +366,34 @@ $(document).ready(function () {
       const fileMessage = element.querySelector(".file-message");
       const fileArchives = element.querySelector(".file-archives");
       var cantFileMessage = element.querySelectorAll(".archive-item").length;
-      // let btnDisable = element.querySelector("button");
+      var btnDisable = element.querySelectorAll("button");
+
+
       // DISABLE BUTTON
+
+      btnDisable.forEach((element, indice) => {
+        if (indice % 2 === 1) { // Los índices pares tienen resto 1 al dividir por 2
+          // element.style.display = "none";
+          element.disabled = true;
+
+        } else {
+          // element.style.display = "block";
+          element.disabled = false;
+
+        }
+
+      });
       // console.log(btnDisable);
 
       // DISABLE BUTTON
 
-      if (cantFileMessage > 0) {
-        fileMessage.style.display = "none";
-        fileArchives.style.display = "grid";
-        // btnDisable.disabled = false;
-      } else {
-        fileMessage.style.display = "flex";
-        fileArchives.style.display = "none";
-        // btnDisable.disabled = true;
-      }
+      // if (cantFileMessage > 0) {
+      //   fileMessage.style.display = "none";
+      //   fileArchives.style.display = "grid";
+      // } else {
+      //   fileMessage.style.display = "flex";
+      //   fileArchives.style.display = "none";
+      // }
 
 
     }
@@ -385,6 +401,7 @@ $(document).ready(function () {
     function getFileExtension(filename) {
       return filename.slice(((filename.lastIndexOf(".") - 1) >>> 0) + 2);
     }
+
 
 
   });
