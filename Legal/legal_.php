@@ -239,6 +239,7 @@ require_once('../Controller/controladorListar.php');
                                             <button type="submit" class="btn btn-mak mak-bg-sec" id="btn_updt_borrador" name="btn_updt_borrador">Actualizar</button>
                                             <button type="submit" class="btn btn-mak mak-bg-sec" id="btn_save_borrador" name="btn_save_borrador">Guardar</button>
                                             <button type="submit" class="btn btn-mak mak-bg" id="btn_save_solic" name="btn_save_solic">Enviar</button>
+                                            <button type="submit" class="btn btn-mak mak-bg" id="btn_updt_solic" name="btn_save_solic">Enviar_2</button>
                                         </div>
                                     </div>
                                 </div>
