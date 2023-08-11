@@ -740,6 +740,9 @@ where dl.user_cod = 2 and tipo_doc = 3
 
 select * from documents_clients
 
-
-
+SELECT id_document, id_legal, file_name, status_doc
+		from documents_clients dcl
+		inner join docs_legal dl
+		on dcl.id_client = dl.user_cod
+		where dl.user_cod = 1 and tipo_doc = 1 and id_legal = 7 and file_name = 'test_1.jpg'
 

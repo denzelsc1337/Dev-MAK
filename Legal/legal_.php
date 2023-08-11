@@ -1424,7 +1424,9 @@ require_once('../Controller/controladorListar.php');
                 });
             }
 
-            function load_documents_legal_(id_reg, id_cli, tipo_doc) {
+
+
+            function load_documents_legal_(id_reg, id_cli,tipo_doc ,id_cli_l , id_tipo_doc) {
 
                 $.ajax({
                     type: 'POST',
@@ -1434,6 +1436,9 @@ require_once('../Controller/controladorListar.php');
                         dni_cli: id_cli,
                         cod_tipo_doc: tipo_doc,
 
+                        id_cli_lgl: id_cli_l, 
+                        id_tipo_doc: id_tipo_doc
+
                     },
                     success: function(response) {
                         var data = JSON.parse(response);
@@ -1441,6 +1446,10 @@ require_once('../Controller/controladorListar.php');
                         var archivos = data.archivos;
                         var estado_doc = data.status_doc;
 
+                        var dbInfo = data.base_de_datos;
+                        var estado_db = data.status_doc_;
+
+                        console.log(dbInfo)
                         var cod_doc_, ruta_doc, nom_file;
                         var cont = 1;
 
@@ -1456,6 +1465,8 @@ require_once('../Controller/controladorListar.php');
 
 
                                 var delete_btn = $('<button>').text('Eliminar').attr('class', 'btn btn-block btn-danger');
+                                var estadoHtml = estado === 'estado_desconocido' ? '' : `<span class="estado-archivo">${estado}</span>`;
+                                var estadoDbHtml = estado_db ? `<span class="estado-db">${estado_db}</span>` : '';
 
                                 enlaceHtml += `
 
@@ -1473,6 +1484,36 @@ require_once('../Controller/controladorListar.php');
 
                                                 <div class="col-sm-2 tw-modal-ots">
                                                     <div class="row">
+
+                                                        ${
+                                                        estadoHtml === '500'
+                                                            ? `
+                                                            <select>
+                                                                <option selected>Pendiente</option>
+                                                                <option>Revisado</option>
+                                                                <option>Rechazado</option>
+                                                                <option>Aceptado</option>
+                                                            </select>
+                                                            `
+                                                            : estadoHtml === '200'
+                                                                ? `
+                                                                <select>
+                                                                    <option>Pendiente</option>
+                                                                    <option selected>Revisado</option>
+                                                                    <option>Rechazado</option>
+                                                                    <option>Aceptado</option>
+                                                                </select>
+                                                                `
+                                                                : `
+                                                                <select>
+                                                                    <option>Pendiente</option>
+                                                                    <option>Revisado</option>
+                                                                    <option>Rechazado</option>
+                                                                    <option>Aceptado</option>
+                                                                </select>
+                                                                `
+                                                        }
+
                                                         <div class="inputs brd-rght-blue">
                                                             <input id="ruta_doc_i" type="text" value="${ruta}" readonly hidden>
                                                             <input id="ruta_archivo_i" type="text" value="${nombreArchivo}" readonly hidden>
@@ -1498,6 +1539,9 @@ require_once('../Controller/controladorListar.php');
 
                             document.getElementById('descarga_archivo_p').textContent = 'Archivo no encontrado';
                         }
+
+                        console.log('Estado de archivos:', estado_doc);
+                        console.log('Estado de la base de datos:', estado_db);
 
                     },
                     error: function(xhr, status, error) {
@@ -1626,10 +1670,13 @@ require_once('../Controller/controladorListar.php');
                 var id_reg = $('#id_legal_solic').val();
                 var id_cli = $(this).data('id_user_');
 
+                
+                var _id_cli_lgl = $('#id_client_l').val();
+                var _id_cli_lgl = $('#id_client_l').val();
 
                 $('#lst_docs_legal').modal('show');
 
-                load_documents_legal_(id_reg, id_cli, tipo_doc)
+                load_documents_legal_(id_reg, id_cli, tipo_doc, _id_cli_lgl, _id_doc_lgl )
 
             });
 
