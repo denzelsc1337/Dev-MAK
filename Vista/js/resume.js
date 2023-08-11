@@ -93,7 +93,7 @@
 
         //
         //console.log(arrayNames);
-        //console.log(arrayValues);
+        console.log(arrayValues);
 
         const cards = document.querySelectorAll(".card-body");
 
@@ -153,9 +153,15 @@
     }
   });
 
+  const buttonAntPag = document.querySelector(".antPag");
   const buttonAtrPag = document.querySelector(".atrPag");
 
+  buttonAntPag.addEventListener("click", function () {
+    arrayValues.splice(0);
+    console.log(arrayValues);
+  });
   buttonAtrPag.addEventListener("click", function () {
     arrayValues.splice(0);
+    console.log(arrayValues);
   });
 })();

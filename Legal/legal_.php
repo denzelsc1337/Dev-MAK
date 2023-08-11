@@ -481,7 +481,7 @@ require_once('../Controller/controladorListar.php');
                                 </div>
 
                             </div>
-                            <div class="footer-mak">
+                            <div class="footer-mak" hidden>
                                 <div class="container">
                                     <div class="flex">
                                         <a href="legal_.php" class="btn btn-mak mak-bg ml-auto">Continuar</a>

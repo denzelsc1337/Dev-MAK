@@ -60,7 +60,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a href="../Legal/InfoLegal.php" class="nav-link">
+          <a href="../Legal/" class="nav-link">
             <i class="nav-icon fas fa-copy"></i>
             <p>Informe Legal</p>
           </a>
