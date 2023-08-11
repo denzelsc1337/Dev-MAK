@@ -91,12 +91,12 @@ require_once('../Controller/controladorListar.php');
                             }
                         }
 
-                        if (empty($rutas)) {
-                            echo "No hay carpetas disponibles.";
-                        }
+                        // if (empty($rutas)) {
+                        //     echo "No hay carpetas disponibles.";
+                        // }
                     } else {
 
-                        echo "La carpeta $dni no existe en la ruta especificada.";
+                        // echo "La carpeta $dni no existe en la ruta especificada.";
                     }
 
                     //echo $rutaCompleta;
@@ -118,7 +118,7 @@ require_once('../Controller/controladorListar.php');
                                 <div class="container mt-5">
                                     <div class="card-body">
                                         <div class="row">
-                                            <div class="row">
+                                            <div class="row" hidden>
                                                 <input type="text" class="form-control" id="id_user" name="id_user" value="<?php echo $_SESSION['id_usu']; ?>">
                                                 <input type="text" class="form-control" id="dni_user_l" name="dni_user_l" value="<?php echo $_SESSION['dni']; ?>">
                                                 <input type="text" class="form-control" id="cod_reg_l" name="cod_reg_l">
@@ -281,7 +281,6 @@ require_once('../Controller/controladorListar.php');
                                         <div class="col-sm-12">
 
                                             <table class="table table-borderless" style="width: 100%;">
-                                                Admin
                                                 <thead class="">
                                                     <tr>
                                                         <th>ID</th>
@@ -370,7 +369,6 @@ require_once('../Controller/controladorListar.php');
                                         <!-- </div> TABLA USER -->
 
                                         <div class="col-sm-12">
-                                            User
                                             <table class="table table-borderless" style="width: 100%;">
                                                 <thead class="">
                                                     <tr>
@@ -508,8 +506,10 @@ require_once('../Controller/controladorListar.php');
                                                 if ($_SESSION['tipo_usu'] == 1) {
                                                     //habilitar al admin
                                                 ?>
-                                                    <input type="text" class="form-mak" id="id_legal_solic" name="id_legal_solic" readonly>
-                                                    <input type="text" class="form-mak" id="id_client_l" readonly>
+                                                    <div hidden>
+                                                        <input type="text" class="form-mak" id="id_legal_solic" name="id_legal_solic" readonly>
+                                                        <input type="text" class="form-mak" id="id_client_l" readonly>
+                                                    </div>
 
                                                     <div class="row">
                                                         <div class="col-sm-6">
@@ -1426,7 +1426,7 @@ require_once('../Controller/controladorListar.php');
 
 
 
-            function load_documents_legal_(id_reg, id_cli,tipo_doc ,id_cli_l , id_tipo_doc) {
+            function load_documents_legal_(id_reg, id_cli, tipo_doc, id_cli_l, id_tipo_doc) {
 
                 $.ajax({
                     type: 'POST',
@@ -1436,7 +1436,7 @@ require_once('../Controller/controladorListar.php');
                         dni_cli: id_cli,
                         cod_tipo_doc: tipo_doc,
 
-                        id_cli_lgl: id_cli_l, 
+                        id_cli_lgl: id_cli_l,
                         id_tipo_doc: id_tipo_doc
 
                     },
@@ -1671,13 +1671,13 @@ require_once('../Controller/controladorListar.php');
                 var id_reg = $('#id_legal_solic').val();
                 var id_cli = $(this).data('id_user_');
 
-                
+
                 var _id_cli_lgl = $('#id_client_l').val();
                 var _id_cli_lgl = $('#id_client_l').val();
 
                 $('#lst_docs_legal').modal('show');
 
-                load_documents_legal_(id_reg, id_cli, tipo_doc, _id_cli_lgl, _id_doc_lgl )
+                load_documents_legal_(id_reg, id_cli, tipo_doc, _id_cli_lgl, _id_doc_lgl)
 
             });
 
