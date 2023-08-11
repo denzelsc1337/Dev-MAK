@@ -72,6 +72,39 @@ class cLegal
 	}
 
 
+
+
+	public function updt_solic_legal_($id_solic_l)
+	{
+		include_once('../config/Conexion.php');
+		$cnx = new Conexion();
+		$cadena = $cnx->abrirConexion();
+
+		$query = "UPDATE docs_legal
+				  set status_solic = 10
+				  WHERE id_legal = '$id_solic_l'";
+
+		$result = mysqli_query($cadena, $query);
+		$cnx->cerrarConexion($cadena);
+		return $result;
+
+		/*$result = mysqli_query($cadena, $query);
+
+
+        if ($result) {
+            $num_rows = mysqli_affected_rows($cadena);
+            echo "Se han insertado $num_rows filas correctamente";
+        } else {
+            echo "Error al ejecutar la consulta: " . mysqli_error($cadena);
+        }*/
+
+		/*echo mysqli_query($cadena, $query);
+		$cnx->cerrarConexion($cadena);*/
+
+	}
+
+
+
 	public function listadoSolicDocsLegal(){
 		include_once('../config/Conexion.php');
 		$cnx = new conexion();

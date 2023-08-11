@@ -239,7 +239,7 @@ require_once('../Controller/controladorListar.php');
                                             <button type="submit" class="btn btn-mak mak-bg-sec" id="btn_save_borrador" name="btn_save_borrador">Guardar</button>
                                             <button type="submit" class="btn btn-mak mak-bg-sec" id="btn_updt_borrador" name="btn_updt_borrador" style="display: none;">Actualizar</button>
                                             <button type="submit" class="btn btn-mak mak-bg" id="btn_save_solic" name="btn_save_solic">Enviar</button>
-                                            <button type="submit" class="btn btn-mak mak-bg" id="btn_updt_solic" name="btn_save_solic" style="display: none;">Enviar</button>
+                                            <button type="submit" class="btn btn-mak mak-bg" id="btn_updt_solic" name="btn_updt_solic" style="display: none;">Enviar</button>
                                         </div>
                                     </div>
                                 </div>
@@ -742,6 +742,7 @@ require_once('../Controller/controladorListar.php');
                                             <input type="text" class="form-control" id="dni_usu_0" name="dni_usu_0" value="<?php echo $_SESSION['dni']; ?>">
                                             <input type="text" class="form-control" id="id_cli_0" name="id_cli_0" value="<?php echo $_SESSION['id_usu']; ?>">
                                             <input type="text" class="form-control" id="tipo_doc_0" name="tipo_doc_0" value="1">
+                                            <input type="text" name="cod_reg_" id="cod_reg_">
                                         </div>
 
                                         <div class="input-file" id="dropArea">
@@ -760,7 +761,7 @@ require_once('../Controller/controladorListar.php');
                                         </div> -->
                                         <div class="card-footer">
                                             <div class="form-flex">
-                                                <button type="submit" class="btn btn-mak mak-bg buton-file" id="" name="" style="display: none;">Actualizar</button>
+                                                <button type="submit" class="btn btn-mak mak-bg buton-file" id="btn_updt_hr" name="btn_updt_hr" style="display: none;">Actualizar</button>
                                                 <button type="submit" class="btn btn-mak mak-bg buton-file" id="btn_save_hr" name="btn_save_hr" disabled>Registrar</button>
 
                                                 <label id="buttonFile" class="btn btn-mak mak-bg buton-file">Seleccionar archivos</label>
@@ -883,6 +884,7 @@ require_once('../Controller/controladorListar.php');
                                             <input type="text" class="form-control" id="dni_usu_1" name="dni_usu_1" value="<?php echo $_SESSION['dni']; ?>">
                                             <input type="text" class="form-control" id="id_cli_1" name="id_cli_1" value="<?php echo $_SESSION['id_usu']; ?>">
                                             <input type="text" class="form-control" id="tipo_doc_1" name="tipo_doc_1" value="2">
+                                            <input type="text" name="cod_reg_2" id="cod_reg_2">
                                         </div>
                                         <div class="input-file" id="dropArea_2">
                                             <div class="file-message">
@@ -899,7 +901,7 @@ require_once('../Controller/controladorListar.php');
                                         </div> -->
                                         <div class="card-footer">
                                             <div class="form-flex">
-                                                <button type="submit" class="btn btn-mak mak-bg buton-file" id="" name="" style="display: none;">Actualizar</button>
+                                                <button type="submit" class="btn btn-mak mak-bg buton-file" id="btn_updt_pu" name="btn_updt_pu" style="display: none;">Actualizar</button>
                                                 <button type="submit" class="btn btn-mak mak-bg buton-file" id="btn_save_pu" name="btn_save_pu" disabled>Registrar</button>
 
                                                 <label id="buttonFile" class="btn btn-mak mak-bg buton-file">Seleccionar archivos</label>
@@ -945,6 +947,7 @@ require_once('../Controller/controladorListar.php');
                                             <input type="text" class="form-control" id="dni_usu_2" name="dni_usu_2" value="<?php echo $_SESSION['dni']; ?>">
                                             <input type="text" class="form-control" id="id_cli_2" name="id_cli_2" value="<?php echo $_SESSION['id_usu']; ?>">
                                             <input type="text" class="form-control" id="tipo_doc_2" name="tipo_doc_2" value="3">
+                                            <input type="text" name="cod_reg_3" id="cod_reg_3">
                                         </div>
                                         <div class="input-file" id="dropArea_3">
                                             <div class="file-message">
@@ -960,7 +963,7 @@ require_once('../Controller/controladorListar.php');
                                         </div> -->
                                         <div class="card-footer">
                                             <div class="form-flex">
-                                                <button type="submit" class="btn btn-mak mak-bg buton-file" id="" name="" style="display: none;">Actualizar</button>
+                                                <button type="submit" class="btn btn-mak mak-bg buton-file" id="btn_updt_cl" name="btn_updt_cl" style="display: none;">Actualizar</button>
                                                 <button type="submit" class="btn btn-mak mak-bg buton-file" id="btn_save_cl" name="btn_save_cl" disabled>Registrar</button>
 
                                                 <label id="buttonFile" class="btn btn-mak mak-bg buton-file">Seleccionar archivos</label>
@@ -1037,6 +1040,7 @@ require_once('../Controller/controladorListar.php');
                                             <input type="text" class="form-control" id="dni_usu_3" name="dni_usu_3" value="<?php echo $_SESSION['dni']; ?>">
                                             <input type="text" class="form-control" id="id_cli_3" name="id_cli_3" value="<?php echo $_SESSION['id_usu']; ?>">
                                             <input type="text" class="form-control" id="tipo_doc_3" name="tipo_doc_3" value="4">
+                                            <input type="text" name="cod_reg_4" id="cod_reg_4">
                                         </div>
                                         <div class="input-file" id="dropArea_4">
                                             <div class="file-message">
@@ -1054,7 +1058,7 @@ require_once('../Controller/controladorListar.php');
                                         </div> -->
                                         <div class="card-footer">
                                             <div class="form-flex">
-                                                <button type="submit" class="btn btn-mak mak-bg buton-file" id="" name="" style="display: none;">Actualizar</button>
+                                                <button type="submit" class="btn btn-mak mak-bg buton-file" id="btn_updt_dni" name="btn_updt_dni" style="display: none;">Actualizar</button>
                                                 <button type="submit" class="btn btn-mak mak-bg buton-file" id="btn_save_dni" name="btn_save_dni" disabled>Registrar</button>
 
                                                 <label id="buttonFile" class="btn btn-mak mak-bg buton-file">Seleccionar archivos</label>
@@ -2218,15 +2222,24 @@ require_once('../Controller/controladorListar.php');
                         element.addEventListener("click", () => {
                             /////
                             var contenido = document.querySelectorAll(".content-file").forEach(element => {
+                                 var cod_l = $('#cod_reg_l').val();
+
+
                                 // var buttons = element.querySelectorAll("button");
                                 // buttons.forEach(btns => {
                                 //     console.log(btns);
 
                                 // });
                                 element.addEventListener("click", () => {
+                                    $('#cod_reg_').val(cod_l)
+                                    $('#cod_reg_2').val(cod_l)
+                                    $('#cod_reg_3').val(cod_l)
+                                    $('#cod_reg_4').val(cod_l)
+
                                     //     // var buttons = element.querySelectorAll("button");
                                     //     // console.log(buttons);
                                     console.log("asdsadsadsda");
+                                    console.log(cod_l);
                                 })
                                 // console.log(element);
                             });
