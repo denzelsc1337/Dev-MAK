@@ -1468,6 +1468,7 @@ require_once('../Controller/controladorListar.php');
                                 var estadoHtml = estado === 'estado_desconocido' ? '' : `<span class="estado-archivo">${estado}</span>`;
                                 var estadoDbHtml = estado_db ? `<span class="estado-db">${estado_db}</span>` : '';
 
+                                //arroshi recontra tarao
                                 enlaceHtml += `
 
                                             <div class="row d-flex justify-content-between align-center mb-4">

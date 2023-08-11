@@ -10,7 +10,7 @@ $id_tipo_doc = $_POST['id_tipo_doc'];
 
 // Directorio donde se encuentran los archivos
 $directorio = "../Solicitudes/".$cod_solic."/".$dni_u."/".$tipo_doc_."/";
-
+//arroshi recontra imbecil
 $response = array();
 
 if (is_dir($directorio)){
