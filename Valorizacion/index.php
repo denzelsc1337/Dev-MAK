@@ -193,7 +193,7 @@ require_once('../Controller/controladorListar.php'); ?>
                                                     <?php mostrarData($lst_vlzn[40]) ?>
 
                                                     <td>
-                                                        <button type="submit"><i class="fa-solid fa-download"></i></button>
+
                                                         <button type="button" class="btn editbtn" data-toggle="modal" data-target="#exampleModal"><i class="fa-solid fa-download">Admin</i></button>
                                                         <button type=""><i class="fa-solid fa-download">usu</i></button>
                                                     </td>
@@ -257,21 +257,51 @@ require_once('../Controller/controladorListar.php'); ?>
                                                     $cont = 0;
                                                 ?>
                                                     <tr>
-
-                                                        <?php mostrarDataUser($lst_vlzn_[$cont++]) ?>
-                                                        <?php mostrarDataUser($lst_vlzn_[$cont++]) ?>
-                                                        <?php mostrarDataUser($lst_vlzn_[$cont++]) ?>
-                                                        <?php mostrarDataUser($lst_vlzn_[$cont++]) ?>
-                                                        <?php mostrarDataUser($lst_vlzn_[$cont++]) ?>
-                                                        <?php mostrarDataUser($lst_vlzn_[$cont++]) ?>
-                                                        <?php mostrarDataUser($lst_vlzn_[$cont++]) ?>
-
-
-
                                                         <td>
-                                                            <button type="submit"><i class="fa-solid fa-download"></i></button>
+                                                        <?php echo $lst_vlzn_[0] ?></td>
+                                                        <?php mostrarDataUser($lst_vlzn_[1]) ?>
+                                                        <?php mostrarDataUser($lst_vlzn_[2]) ?>
+                                                        <?php mostrarDataUser($lst_vlzn_[3]) ?>
+                                                        <?php mostrarDataUser($lst_vlzn_[4]) ?>
+                                                        <?php mostrarDataUser($lst_vlzn_[5]) ?>
+                                                        <?php mostrarDataUser($lst_vlzn_[6]) ?>
+                                                        <?php mostrarDataUser($lst_vlzn_[7]) ?>
+                                                        <?php mostrarDataUser($lst_vlzn_[8]) ?>
+                                                        <?php mostrarDataUser($lst_vlzn_[9]) ?>
+                                                        <?php mostrarDataUser($lst_vlzn_[10]) ?>
+                                                        <?php mostrarDataUser($lst_vlzn_[11]) ?>
+                                                        <?php mostrarDataUser($lst_vlzn_[12]) ?>
+                                                        <?php mostrarDataUser($lst_vlzn_[13]) ?>
+                                                        <?php mostrarDataUser($lst_vlzn_[14]) ?>
+                                                        <?php mostrarDataUser($lst_vlzn_[15]) ?>
+                                                        <?php mostrarDataUser($lst_vlzn_[16]) ?>
+                                                        <?php mostrarDataUser($lst_vlzn_[17]) ?>
+                                                        <?php mostrarDataUser($lst_vlzn_[18]) ?>
+                                                        <?php mostrarDataUser($lst_vlzn_[19]) ?>
+                                                        <?php mostrarDataUser($lst_vlzn_[20]) ?>
+                                                        <?php mostrarDataUser($lst_vlzn_[21]) ?>
+                                                        <?php mostrarDataUser($lst_vlzn_[22]) ?>
+                                                        <?php mostrarDataUser($lst_vlzn_[23]) ?>
+                                                        <?php mostrarDataUser($lst_vlzn_[24]) ?>
+                                                        <?php mostrarDataUser($lst_vlzn_[25]) ?>
+                                                        <?php mostrarDataUser($lst_vlzn_[26]) ?>
+                                                        <?php mostrarDataUser($lst_vlzn_[27]) ?>
+                                                        <?php mostrarDataUser($lst_vlzn_[28]) ?>
+                                                        <?php mostrarDataUser($lst_vlzn_[29]) ?>
+                                                        <?php mostrarDataUser($lst_vlzn_[30]) ?>
+                                                        <?php mostrarDataUser($lst_vlzn_[31]) ?>
+                                                        <?php mostrarDataUser($lst_vlzn_[32]) ?>
+                                                        <?php mostrarDataUser($lst_vlzn_[33]) ?>
+                                                        <?php mostrarDataUser($lst_vlzn_[34]) ?>
+                                                        <?php mostrarDataUser($lst_vlzn_[35]) ?>
+                                                        <?php mostrarDataUser($lst_vlzn_[36]) ?>
+                                                        <?php mostrarDataUser($lst_vlzn_[37]) ?>
+                                                        <?php mostrarDataUser($lst_vlzn_[38]) ?>
+                                                        <?php mostrarDataUser($lst_vlzn_[39]) ?>
+                                                        <?php mostrarDataUser($lst_vlzn_[40]) ?>
+                                                        <td>
                                                             <button type="button" class="btn editbtn" data-toggle="modal" data-target="#exampleModal"><i class="fa-solid fa-download">Admin</i></button>
-                                                            <button type=""><i class="fa-solid fa-download">usu</i></button>
+                                                            <a href="../Valorizaciones/<?php echo $lst_vlzn_[0] ?>/<?php echo $lst_vlzn_[62]?>"><i class="fa-solid fa-download">usu</i></a>
                                                         </td>
                                                     </tr>
                                                 <?php endforeach ?>
@@ -583,7 +613,7 @@ require_once('../Controller/controladorListar.php'); ?>
                     return $(this).text();
                 }).get();
                 console.log(data);
-                $('#id_reg_valor').val(data[0]);
+                $('#id_reg_valor').val(data[0].trim());
             });
         });
     </script>

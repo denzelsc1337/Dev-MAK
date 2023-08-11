@@ -1,4 +1,5 @@
 <?php 
+require_once('../Model/Valorizacion.php');
 if(isset($_POST["upload_valor_"])) {
     
   $id_reg = $_POST["id_reg_valor"];
@@ -18,6 +19,9 @@ if(isset($_POST["upload_valor_"])) {
   for ($i=0; $i < $archivos_cont ; $i++) { 
     $ubicacion_save = $target_dir . basename($archivos_selecc["name"][$i]);
     if (move_uploaded_file($archivos_selecc["tmp_name"][$i], $ubicacion_save)) {
+
+        $oValor = new Valorizacion();
+        $r = $oValor->updt_valoc_doc($id_reg,$archivos_selecc["name"][$i]);
         $archivos_total++;
     }
   }
