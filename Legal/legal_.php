@@ -236,10 +236,10 @@ require_once('../Controller/controladorListar.php');
 
                                     <div class="card-footer">
                                         <div class="form-flex">
-                                            <button type="submit" class="btn btn-mak mak-bg-sec" id="btn_updt_borrador" name="btn_updt_borrador">Actualizar</button>
                                             <button type="submit" class="btn btn-mak mak-bg-sec" id="btn_save_borrador" name="btn_save_borrador">Guardar</button>
+                                            <button type="submit" class="btn btn-mak mak-bg-sec" id="btn_updt_borrador" name="btn_updt_borrador" style="display: none;">Actualizar</button>
                                             <button type="submit" class="btn btn-mak mak-bg" id="btn_save_solic" name="btn_save_solic">Enviar</button>
-                                            <button type="submit" class="btn btn-mak mak-bg" id="btn_updt_solic" name="btn_save_solic">Enviar_2</button>
+                                            <button type="submit" class="btn btn-mak mak-bg" id="btn_updt_solic" name="btn_save_solic" style="display: none;">Enviar</button>
                                         </div>
                                     </div>
                                 </div>
@@ -2163,6 +2163,21 @@ require_once('../Controller/controladorListar.php');
                         });
                         // el lapiz hace que salga el boton actualizar
 
+                        // el lapiz hace que se oculte y muestren los botones
+                        var cardFooter = document.querySelector(".card-footer");
+                        var botones = cardFooter.querySelectorAll("button");
+
+                        botones.forEach((botones, indice) => {
+                            if (indice % 2 === 0) { // Los índices pares tienen resto 1 al dividir por 2
+                                botones.style.display = "none";
+                            } else {
+                                botones.style.display = "block";
+
+                            }
+                        });
+                        // el lapiz hace que se oculte y muestren los botones
+
+
 
 
                         // el boton a historico hace que salga el registrar
@@ -2179,20 +2194,18 @@ require_once('../Controller/controladorListar.php');
                                     }
                                 });
                             });
-                        })
-                        // var contenido = element.querySelectorAll(".content-file").forEach(element => {
-                        //     console.log(element);
-                        //     // var buttons = element.querySelectorAll("button");
-                        //     // buttons.forEach((btns, indice) => {
-                        //     //     if (indice % 2 !== 1) { // Los índices pares tienen resto 1 al dividir por 2
-                        //     //         btns.style.display = "block";
+                            var cardFooter = document.querySelector(".card-footer");
+                            var botones = cardFooter.querySelectorAll("button");
 
-                        //     //     } else {
-                        //     //         btns.style.display = "none";
+                            botones.forEach((botones, indice) => {
+                                if (indice % 2 === 1) { // Los índices pares tienen resto 1 al dividir por 2
+                                    botones.style.display = "none";
+                                } else {
+                                    botones.style.display = "block";
 
-                        //     //     }
-                        //     // });
-                        // });
+                                }
+                            });
+                        });
                         // el boton a historico hace que salga el registrar
 
 

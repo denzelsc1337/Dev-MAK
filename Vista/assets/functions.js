@@ -367,59 +367,25 @@ $(document).ready(function () {
       const fileArchives = element.querySelector(".file-archives");
       var cantFileMessage = element.querySelectorAll(".archive-item").length;
       var btnDisable = element.querySelectorAll("button");
-      // var btnDisable = element.querySelectorAll("button");
 
 
-      // DISABLE BUTTON
-
-
-      // btnDisable.forEach((element, indice) => {
-      //   if (indice % 2 === 1) { // Los índices pares tienen resto 1 al dividir por 2
-      //     // element.style.display = "none";
-      //     element.disabled = true;
-
-      //   } else {
-      //     // element.style.display = "block";
-      //     element.disabled = false;
-
-      //   }
-
-      // });
-      // console.log(btnDisable);
-
-      // DISABLE BUTTON
 
       if (cantFileMessage > 0) {
         fileMessage.style.display = "none";
         fileArchives.style.display = "grid";
+        // DISABLE BUTTON
         btnDisable.forEach((element) => {
-          // if (indice % 2 === 1) { // Los índices pares tienen resto 1 al dividir por 2
-          //   // element.style.display = "none";
           element.disabled = false;
-
-          // } else {
-          //   // element.style.display = "block";
-          //   element.disabled = false;
-
-          // }
-
         });
+        // DISABLE BUTTON
       } else {
         fileMessage.style.display = "flex";
         fileArchives.style.display = "none";
-
+        // DISABLE BUTTON
         btnDisable.forEach((element) => {
-          // if (indice % 2 === 1) { // Los índices pares tienen resto 1 al dividir por 2
-          //   // element.style.display = "none";
           element.disabled = true;
-
-          // } else {
-          //   // element.style.display = "block";
-          //   element.disabled = false;
-
-          // }
-
         });
+        // DISABLE BUTTON
       }
 
 
