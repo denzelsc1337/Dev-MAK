@@ -363,20 +363,20 @@ $(document).ready(function () {
       const fileMessage = element.querySelector(".file-message");
       const fileArchives = element.querySelector(".file-archives");
       var cantFileMessage = element.querySelectorAll(".archive-item").length;
-      let btnDisable = element.querySelector("button");
+      // let btnDisable = element.querySelector("button");
       // DISABLE BUTTON
-
+      // console.log(btnDisable);
 
       // DISABLE BUTTON
 
       if (cantFileMessage > 0) {
         fileMessage.style.display = "none";
         fileArchives.style.display = "grid";
-        btnDisable.disabled = false;
+        // btnDisable.disabled = false;
       } else {
         fileMessage.style.display = "flex";
         fileArchives.style.display = "none";
-        btnDisable.disabled = true;
+        // btnDisable.disabled = true;
       }
 
 
@@ -566,39 +566,5 @@ $(document).ready(function () {
   //--------------------------------------------FUERA DE USO-------------------------------------------------------------------//
   //--------------------------------------------FUERA DE USO-------------------------------------------------------------------//
 
-  // DROPDOWN
-  const dropDown = document.querySelector(".dropdown");
 
-  const drops = document.querySelector(".position-absolute");
-
-  dropDown.addEventListener("click", () => {
-    const filter = document.querySelector(".filter-drop");
-    const table = document.querySelector(".table");
-    const optnFilter = document.querySelector(".optn-filter");
-    const listGroupItem = optnFilter.querySelectorAll(".list-group-item");
-
-
-    if (drops) {
-      if (filter.style.height === "50px") {
-        let items = listGroupItem.length + 1;
-        let dropHeight = items * "49.33" + "50";
-        filter.style.height = dropHeight + "px";
-      } else {
-        filter.style.height = "50px";
-      }
-    } else {
-      if (table.style.width === "100%") {
-        let items = listGroupItem.length + 1;
-        let dropHeight = items * "49.33" + "50";
-
-        table.style.width = "85%";
-        filter.style.height = dropHeight + "px";
-      } else {
-        table.style.width = "100%";
-        filter.style.height = "50px";
-      }
-    }
-  });
-
-  // DROPDOWN
 });

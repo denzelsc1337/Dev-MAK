@@ -940,8 +940,45 @@ require_once('../Controller/controladorListar.php'); ?>
         // // DropzoneJS Demo Code End
     </script>
 
+    <script>
+        // DROPDOWN
+        const dropDown = document.querySelector(".dropdown");
+
+        const drops = document.querySelector(".position-absolute");
+
+        dropDown.addEventListener("click", () => {
+            const filter = document.querySelector(".filter-drop");
+            const table = document.querySelector(".table");
+            const optnFilter = document.querySelector(".optn-filter");
+            const listGroupItem = optnFilter.querySelectorAll(".list-group-item");
+
+
+            if (drops) {
+                if (filter.style.height === "50px") {
+                    let items = listGroupItem.length + 1;
+                    let dropHeight = items * "49.33" + "50";
+                    filter.style.height = dropHeight + "px";
+                } else {
+                    filter.style.height = "50px";
+                }
+            } else {
+                if (table.style.width === "100%") {
+                    let items = listGroupItem.length + 1;
+                    let dropHeight = items * "49.33" + "50";
+
+                    table.style.width = "85%";
+                    filter.style.height = dropHeight + "px";
+                } else {
+                    table.style.width = "100%";
+                    filter.style.height = "50px";
+                }
+            }
+        });
+
+        // DROPDOWN
+    </script>
+
     <!-- REQUIRED SCRIPTS -->
-    <script src="../Vista/assets/functions.js"></script>
     <script src="../Vista/assets/selection_types.js"></script>
 </body>
 

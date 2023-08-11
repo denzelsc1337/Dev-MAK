@@ -382,6 +382,8 @@ require_once('../Controller/controladorListar.php');
                                                             <td><?php echo $lst_legal_d[5] ?></td>
                                                             <td><?php echo $lst_legal_d[6] ?></td>
                                                             <td><?php echo $lst_legal_d[7] ?></td>
+                                                            <td><?php echo $lst_legal_d[8] ?></td>
+                                                            <td><?php echo $lst_legal_d[9] ?></td>
                                                             <td>
                                                                 <div class="row justify-content-evenly">
                                                                     <div class="col-sm-4 justify-content-center options brd-rght-blue" hidden>
@@ -495,8 +497,8 @@ require_once('../Controller/controladorListar.php');
                                                     //deshabilitar al user
                                                 ?>
 
-                                                    <input type="text" class="form-mak" id="id_legal_solic" name="id_legal_solic" readonly>
-                                                    <input type="text" class="form-mak" id="id_client_l" readonly>
+                                                    <input type="text" class="form-mak" id="id_legal_solic" name="id_legal_solic" readonly hidden>
+                                                    <input type="text" class="form-mak" id="id_client_l" readonly hidden>
 
                                                     <div class="row">
                                                         <div class="col-sm-6">
@@ -1170,7 +1172,7 @@ require_once('../Controller/controladorListar.php');
 
                         $('#coment_').val(data[7]);
 
-                        $('#id_client_l').val(data[5]);
+                        $('#id_client_l').val(data[8]);
 
                         // load_documents_legal(1)
 
@@ -1194,7 +1196,7 @@ require_once('../Controller/controladorListar.php');
                 // document.querySelectorAll(".scroll-toggle").forEach((element) => {
                 element.querySelector(".arrow-left").addEventListener("click", () => {
 
-                    console.log("looaosd");
+       
 
                     // Realizar la transición de volver a la mitad del scroll horizontal con animación
                     contenedor.style.scrollBehavior = "smooth"; // Activar la animación
