@@ -158,7 +158,7 @@ class Valorizacion
 
 	}
 
-	public function add_valorizacion_terreno($data, $id_zonificacion)
+	public function add_valorizacion_terreno($data)
 	{
 		include_once('../config/Conexion.php');
 		$cnx = new Conexion();
@@ -172,24 +172,24 @@ class Valorizacion
 
 						 VALUES(null, '" . $data[1] . "', '" . $data[2] . "', '" . $data[3] . "','" . $data[4] . "','" . $data[5] . "',
 
-						 			  '" . $id_zonificacion . "','" . $data[6] . "',
+						 			  '" . $data[6] . "','" . $data[7] . "',
 
-						 			  '" . $data[7] . "','" . $data[8] . "')";
-
-		//verificacion de error en la consulta
-
-		// $result = mysqli_query($cadena, $query);
-
-        // if ($result) {
-        //     $num_rows = mysqli_affected_rows($cadena);
-        // } else {
-        //     echo "Error al ejecutar la consulta: " . mysqli_error($cadena);
-        // }
+						 			  '" . $data[8] . "','" . $data[9] . "')";
 
 		//verificacion de error en la consulta
 
-		echo mysqli_query($cadena, $query);
-		$cnx->cerrarConexion($cadena);
+		$result = mysqli_query($cadena, $query);
+
+        if ($result) {
+            $num_rows = mysqli_affected_rows($cadena);
+        } else {
+            echo "Error al ejecutar la consulta: " . mysqli_error($cadena);
+        }
+
+		//verificacion de error en la consulta
+
+		/*echo mysqli_query($cadena, $query);
+		$cnx->cerrarConexion($cadena);*/
 	}
 
 	public function add_valorizacion_oficina($data)
@@ -509,14 +509,15 @@ class Valorizacion
 	}
 
 
-	public function details_valorizacion($id_reg, $id_client, $dni_client)
+	public function details_valorizacion($id_reg /*, $id_client, $dni_client*/)
 	{
 		include_once('../config/Conexion.php');
 		$cnx = new conexion();
 		$cadena = $cnx->abrirConexion();
 
+		$query = "SELECT * FROM valorizacion WHERE id_valor =$id_reg";
 
-		$query = "SELECT id_valor, cs.nom_client, direccion, ti.tipo_inmb, sti.sub_tipo_inmb, tp.tipo_promo, area_terreno, area_construida, area_ocupada, antiguedad, sala_comedor, sala, comedor, cocina, amoblado, piscina_prop, cant_dorm, dormitorio_banho, cant_banho, banho_visita, cuarto_serv, banho_serv, estacionamiento, deposito, ub.tipo_ubic, tv.tipo_vista, ta.tipo_acabado, sala_comedor_dep, sala_dep, comedor_dep, cocina_dep, amob_dep, cant_dorm_dep, dormitorio_banho_dep, cant_banho_dep, banho_visita_dep, cuarto_serv_dep, banho_serv_dep, estac_dep, deposito_dep, ascensor_dep, ascensor_dir_dep, pisos_edif_dep, piso_dep
+		/*$query = "SELECT id_valor, cs.nom_client, direccion, ti.tipo_inmb, sti.sub_tipo_inmb, tp.tipo_promo, area_terreno, area_construida, area_ocupada, antiguedad, sala_comedor, sala, comedor, cocina, amoblado, piscina_prop, cant_dorm, dormitorio_banho, cant_banho, banho_visita, cuarto_serv, banho_serv, estacionamiento, deposito, ub.tipo_ubic, tv.tipo_vista, ta.tipo_acabado, sala_comedor_dep, sala_dep, comedor_dep, cocina_dep, amob_dep, cant_dorm_dep, dormitorio_banho_dep, cant_banho_dep, banho_visita_dep, cuarto_serv_dep, banho_serv_dep, estac_dep, deposito_dep, ascensor_dep, ascensor_dir_dep, pisos_edif_dep, piso_dep
 		cod_zonificacion, cod_tipo_suelo, param_terreno, frent_terreno, izq_terreno, fondo_terreno, der_terreno, piso_ofi, cochera_ofi, ascensor_ofi, aire_ofi, frente_lcl_com, cochera_lcl_com, piso_lcl_com, ascensor_lcl_com, aire_lcl_com, frente_lcl_ind, nave_lcl_ind, estado_solicitud, nom_doc_valor
 		FROM valorizacion vl
 		 INNER JOIN clientes_servicios cs ON vl.cod_client = cs.id_client
@@ -526,7 +527,7 @@ class Valorizacion
 		 INNER JOIN ubicacion ub ON vl.cod_ubi = ub.id_ubicacion
 		 INNER JOIN tipo_vista tv ON vl.cod_vista = tv.id_vista
 		 INNER JOIN tipo_acabado ta ON vl.cod_acabado = ta.id_acabado
-		WHERE vl.id_valor =$id_reg and cs.id_client = $id_client AND cs.dni_client = $dni_client";
+		WHERE vl.id_valor =$id_reg and cs.id_client = $id_client AND cs.dni_client = $dni_client";*/
 
 		$resultado = mysqli_query($cadena, $query);
 

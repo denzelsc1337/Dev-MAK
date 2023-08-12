@@ -259,7 +259,17 @@ require_once('../Controller/controladorListar.php'); ?>
                                                 ?>
                                                     <tr>
                                                         <td>
-                                                        <?php echo $lst_vlzn_[0] ?></td>
+                                                            <?php echo $lst_vlzn_[0] ?>
+                                                        </td>
+
+                                                        <td>
+                                                            <?php echo $lst_vlzn_[8] ?>
+                                                        </td>
+
+                                                        <td>
+                                                            <?php echo $lst_vlzn_[9] ?>
+                                                        </td>
+
                                                         <?php mostrarDataUser($lst_vlzn_[1]) ?>
                                                         <?php mostrarDataUser($lst_vlzn_[2]) ?>
                                                         <?php mostrarDataUser($lst_vlzn_[3].' ('.$lst_vlzn_[4].')') ?>
@@ -345,7 +355,8 @@ require_once('../Controller/controladorListar.php'); ?>
                                 <div class="row margin">
 
                                     <div class="col-sm-12">
-                                        <ul id="detalles_valor"></ul>
+                                        <ul id="detalles_valor" style="display:none"></ul>
+                                        <img src="../Vista/assets/loading_uhd.gif" id="loader_uhd" style="display:none">
                                     </div>
 
                                 </div>
@@ -619,47 +630,69 @@ require_once('../Controller/controladorListar.php'); ?>
 
     <script type="text/javascript">
         $('.btn_get_details').on('click', function() {
-            console.log("Botón seleccionado");
-
-            var id_solic_v = $(this).data('id_solic_val');
-            var id_cli_v = $(this).data('id_cli');
-            var dni_cli_v = $(this).data('dni_cli');
 
             $('#details_v').modal('show');
 
-            console.log(id_solic_v);
-            console.log(id_cli_v);
-            console.log(dni_cli_v);
+            /*var id_solic_v = $(this).data('id_solic_val');
+            var id_cli_v = $(this).data('id_cli');
+            var dni_cli_v = $(this).data('dni_cli');*/
 
-            get_details_solic(id_solic_v, id_cli_v, dni_cli_v)
+            $tr = $(this).closest('tr');
+            var data = $tr.children("td").map(function() {
+                return $(this).text();
+            }).get();
+
+            var id_solic_v = data[0].trim();
+            var id_cli_v = data[1].trim();
+            var dni_cli_v = data[2].trim();
+
+            console.log(id_solic_v,id_cli_v,dni_cli_v);
+
+            get_details_solic(id_solic_v/*, id_cli_v, dni_cli_v*/)
         });
 
 
-        function get_details_solic(idsolicitud, idclient, dniclient){
+        function get_details_solic(idsolicitud/*, idclient, dniclient*/){
             $.ajax({
                 type: 'POST',
                 url: '../Controller/Get_Details_Valorizacion.php',
                 data: {
                     id_solic_l: idsolicitud,
-                    id_client: idclient,
-                    dni_client: dniclient,
+                    /*id_client: idclient,
+                    dni_client: dniclient,*/
+                },
+
+                beforeSend:function(){
+                    $("#loader_uhd").show();
+                    $("#detalles_valor").hide();
                 },
 
                 success: function(response) {
+                    console.log(response);
+
                     var detalles = JSON.parse(response);
                     var detalles_valor = detalles.detalles_valor;
 
-                    var container = document.getElementById('detalles_valor');
-                    container.innerHTML = '';
-                    
-                    for (var prop in detalles) {
-                        if (detalles.hasOwnProperty(prop)) {
-                            var valor = detalles[prop];
-                            var li = document.createElement('li');
-                            li.textContent = valor;
-                            container.appendChild(li);
+                    setTimeout(function() {
+                        $("#loader_uhd").hide();
+                        $("#detalles_valor").show();
+                        var container = document.getElementById('detalles_valor');
+
+                        container.innerHTML = '';
+
+
+                        for (var prop in detalles) {
+                            if (detalles.hasOwnProperty(prop)) {
+                                var valor = detalles[prop];
+                                var li = document.createElement('li');
+                                li.textContent = valor;
+                                container.appendChild(li);
+                            }
                         }
-                    }
+                    }, 1000);
+                },
+                error:function(xhr, status, error){
+                    console.log("Error en la solicitud ajax ", error)
                 }
             });
         }
