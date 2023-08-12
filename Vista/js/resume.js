@@ -49,26 +49,22 @@
       });
       ///
       // console.log(titles);
-      //
-      inputs_chk.forEach((element) => {
-        // console.log(element);
-        inputsID_chk.push(element.getAttribute("id"));
-      });
-      // ------
-      inputs_num.forEach((element) => {
-        inputsID_num.push(element.getAttribute("id"));
-      });
-      //
-      selects.forEach((element) => {
-        selectsID.push(element.getAttribute("id"));
-      });
 
       // -----
       const buttonSigPag = section.querySelector(".sigPag");
       buttonSigPag.addEventListener("click", function () {
+        arrayNames.splice(0);
+        arrayValues.splice(0);
+
         cardPrimary.forEach((card) => {
           //
           const cardBodys = card.querySelectorAll(".card-body");
+          cardBodys.forEach((element) => {
+            const lbl = element.querySelectorAll("label");
+            lbl.forEach((label) => {
+              arrayNames.push(label.textContent);
+            });
+          });
           //
           cardBodys.forEach((element) => {
             const input = element.querySelectorAll("input");
@@ -92,8 +88,6 @@
         });
 
         //
-        //console.log(arrayNames);
-        console.log(arrayValues);
 
         const cards = document.querySelectorAll(".card-body");
 
@@ -136,6 +130,9 @@
             });
           }
         });
+
+        console.log(arrayNames);
+        console.log(arrayValues);
       });
 
       // true or false in chks
@@ -155,13 +152,24 @@
 
   const buttonAntPag = document.querySelector(".antPag");
   const buttonAtrPag = document.querySelector(".atrPag");
+  const buttonBckPag = document.querySelector(".backPag");
 
   buttonAntPag.addEventListener("click", function () {
+    arrayNames.splice(0);
     arrayValues.splice(0);
+    console.log(arrayNames);
     console.log(arrayValues);
   });
   buttonAtrPag.addEventListener("click", function () {
+    arrayNames.splice(0);
     arrayValues.splice(0);
+    console.log(arrayNames);
+    console.log(arrayValues);
+  });
+  buttonBckPag.addEventListener("click", function () {
+    arrayNames.splice(0);
+    arrayValues.splice(0);
+    console.log(arrayNames);
     console.log(arrayValues);
   });
 })();

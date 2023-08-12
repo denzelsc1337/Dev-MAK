@@ -2207,12 +2207,6 @@
             document.getElementById("dir__").innerHTML = _dir_dist[0];
             document.getElementById("tip__").innerHTML = texto_tip;
             document.getElementById("pro__").innerHTML = texto_pro;
-
-            // console.log(_at, _ac, _ao);
-            console.log(_dir_dist);
-            console.log(_dir_dist[0]);
-            console.log(_dir_dist[1]);
-            console.log(_dir_dist[2]);
         }
     </script>
 
@@ -2230,7 +2224,6 @@
                             tipo_zoni_l: letra
                         },
                         success: function(response) {
-                            console.log(response);
                             opcionesZoni.html(response);
                         }
                     });
@@ -2253,7 +2246,6 @@
                             tipo_zoni_l: letra
                         },
                         success: function(response) {
-                            console.log(response);
                             opcionesZoni.html(response);
                         }
                     });

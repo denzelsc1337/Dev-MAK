@@ -89,7 +89,6 @@ var btn_li = document.getElementById("btnValo_lc_ind");
     // Obtener el valor seleccionado del combobox
     const pantallaSeleccionada = document.getElementById("tipo_prop").value;
 
-
     if (pantallaSeleccionada > 0 && pantallaSeleccionada !== "5") {
       switch (pantallaSeleccionada) {
         case "1":
@@ -100,7 +99,6 @@ var btn_li = document.getElementById("btnValo_lc_ind");
           btn_lc_ex.style.display = "none";
           btn_lc_com.style.display = "none";
           btn_li.style.display = "none";
-          console.log("boton casa");
           break;
 
         case "2":
@@ -111,7 +109,6 @@ var btn_li = document.getElementById("btnValo_lc_ind");
           btn_lc_ex.style.display = "none";
           btn_lc_com.style.display = "none";
           btn_li.style.display = "none";
-          console.log("boton depa");
           break;
 
         case "3":
@@ -122,7 +119,6 @@ var btn_li = document.getElementById("btnValo_lc_ind");
           btn_lc_ex.style.display = "none";
           btn_lc_com.style.display = "none";
           btn_li.style.display = "none";
-          console.log("boton terreno");
           break;
 
         case "4":
@@ -133,7 +129,6 @@ var btn_li = document.getElementById("btnValo_lc_ind");
           btn_lc_ex.style.display = "none";
           btn_lc_com.style.display = "none";
           btn_li.style.display = "none";
-          console.log("boton oficina");
           break;
 
         case "6":
@@ -144,7 +139,6 @@ var btn_li = document.getElementById("btnValo_lc_ind");
           btn_lc_ex.style.display = "none";
           btn_lc_com.style.display = "none";
           btn_li.style.display = "block";
-          console.log("boton local industrial");
           break;
 
         default:
@@ -159,15 +153,12 @@ var btn_li = document.getElementById("btnValo_lc_ind");
       pantallaActual();
       hideScreen();
 
-
       const siguientePantalla = document.getElementById(pantallaSeleccionada);
 
       siguientePantalla.classList.remove("hide");
       siguientePantalla.classList.add("show");
 
       Pasos();
-
-
     } else if (pantallaSeleccionada === "5") {
       const sub_tipo_prop = document.querySelector("#sub_tipo_prop").value;
 
@@ -182,7 +173,7 @@ var btn_li = document.getElementById("btnValo_lc_ind");
 
         const siguientePantalla_lcl_c =
           document.getElementById(pantallaSeleccionada);
-        console.log(siguientePantalla_lcl_c);
+        // console.log(siguientePantalla_lcl_c);
         const exclusivo = siguientePantalla_lcl_c.querySelector(".exclusivo");
         const comun = siguientePantalla_lcl_c.querySelector(".comun");
 
@@ -245,7 +236,9 @@ var btn_li = document.getElementById("btnValo_lc_ind");
       pantallaActual();
       hideScreen();
       // Mostrar la penultima pantalla
-      const penultimaPantalla = document.querySelector(".section:nth-last-of-type(2)");
+      const penultimaPantalla = document.querySelector(
+        ".section:nth-last-of-type(2)"
+      );
       // penultimaPantalla.style.display = "block";
       penultimaPantalla.classList.remove("hide");
       penultimaPantalla.classList.add("show");
@@ -276,7 +269,7 @@ var btn_li = document.getElementById("btnValo_lc_ind");
 
     // Obtener el valor seleccionado del combobox
     const pantallaSeleccionada = document.getElementById("tipo_prop").value;
-    console.log(pantallaSeleccionada);
+    // console.log(pantallaSeleccionada);
     // // Obtener la pantalla anterior
     // const pantallas = document.querySelectorAll('[id^="pantalla"]');
 
@@ -289,10 +282,7 @@ var btn_li = document.getElementById("btnValo_lc_ind");
 
       Pasos();
     }
-
-
   });
-
 
   antPag.addEventListener("click", () => {
     // Ocultar la pantalla actual
@@ -303,8 +293,6 @@ var btn_li = document.getElementById("btnValo_lc_ind");
     const ultimaPantalla = document.querySelector(".section:last-of-type");
     const dataLastWindow = ultimaPantalla.getAttribute("data-target");
 
-
-
     if (pantallaCargaArchivos) {
       pantallaCargaArchivos.classList.remove("hide");
       pantallaCargaArchivos.classList.add("show");
@@ -312,6 +300,4 @@ var btn_li = document.getElementById("btnValo_lc_ind");
       Pasos();
     }
   });
-
-
 })();
