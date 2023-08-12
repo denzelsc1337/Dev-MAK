@@ -648,7 +648,7 @@ require_once('../Controller/controladorListar.php'); ?>
 
             console.log(id_solic_v,id_cli_v,dni_cli_v);
 
-            get_details_solic(id_solic_v/*, id_cli_v, dni_cli_v*/)
+            get_details_solic(id_solic_v, id_cli_v/*, dni_cli_v*/)
         });
 
 
