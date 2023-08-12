@@ -8,13 +8,13 @@ $data[4] = $_POST["tipo_prom"];
 $data[5] = $_POST["a_t"];
 
 //form terreno
-$data[6] = $_POST["opciones_zoni_t"];
-$data[7] = $_POST["tipo_suelo_tern"];
+$id_zonificacion = $_POST["cod_zonificacion"];
+$data[6] = $_POST["tipo_suelo_tern"];
 
-$data[8] = $_POST["params_tern"];
-$data[9] = $_POST["frnte_tern"];
+$data[7] = $_POST["params_tern"];
+$data[8] = $_POST["frnte_tern"];
 //form terreno
 
 $oValor = new Valorizacion();
-$r = $oValor->add_valorizacion_terreno($data);
+$r = $oValor->add_valorizacion_terreno($data, $id_zonificacion);
 ?>

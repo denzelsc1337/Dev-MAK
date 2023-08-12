@@ -158,7 +158,7 @@ class Valorizacion
 
 	}
 
-	public function add_valorizacion_terreno($data)
+	public function add_valorizacion_terreno($data, $id_zonificacion)
 	{
 		include_once('../config/Conexion.php');
 		$cnx = new Conexion();
@@ -172,24 +172,24 @@ class Valorizacion
 
 						 VALUES(null, '" . $data[1] . "', '" . $data[2] . "', '" . $data[3] . "','" . $data[4] . "','" . $data[5] . "',
 
-						 			  '" . $data[6] . "','" . $data[7] . "',
+						 			  '" . $id_zonificacion . "','" . $data[6] . "',
 
-						 			  '" . $data[8] . "','" . $data[9] . "')";
-
-		//verificacion de error en la consulta
-
-		$result = mysqli_query($cadena, $query);
-
-        if ($result) {
-            $num_rows = mysqli_affected_rows($cadena);
-        } else {
-            echo "Error al ejecutar la consulta: " . mysqli_error($cadena);
-        }
+						 			  '" . $data[7] . "','" . $data[8] . "')";
 
 		//verificacion de error en la consulta
 
-		/*echo mysqli_query($cadena, $query);
-		$cnx->cerrarConexion($cadena);*/
+		// $result = mysqli_query($cadena, $query);
+
+        // if ($result) {
+        //     $num_rows = mysqli_affected_rows($cadena);
+        // } else {
+        //     echo "Error al ejecutar la consulta: " . mysqli_error($cadena);
+        // }
+
+		//verificacion de error en la consulta
+
+		echo mysqli_query($cadena, $query);
+		$cnx->cerrarConexion($cadena);
 	}
 
 	public function add_valorizacion_oficina($data)

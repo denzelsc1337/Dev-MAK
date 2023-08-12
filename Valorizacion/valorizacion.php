@@ -898,7 +898,7 @@
                                                                             <!-- <input type="text" id="tipo_zoni_ofi" name="tipo_zoni_ofi"> -->
                                                                             <!-- <select id="opciones_zoni_ofi" name="opciones_zoni_ofi" class="opciones_zoni_ofi"></select> -->
                                                                             <div style="width: 100%">
-                                                                                <input type="text" class="form-mak auto-input" id="opciones_zoni_t" name="opciones_zoni_t">
+                                                                                <input type="text" class="form-mak auto-input" id="opciones_zoni_t" name="opciones_zoni_t" value="" >
                                                                                 <ul class="lista">
                                                                                 </ul>
                                                                             </div>
@@ -1726,7 +1726,7 @@
                                                 Finalizar Depa
                                             </button>
 
-                                            <button type="button" class="btn btn-mak mak-bg " id="btnValo_terren" name="btnValo_terren" style="display:none">
+                                            <button type="button" class="btn btn-mak mak-bg " id="btnValo_terren" name="btnValo_terren" style="display:none" data-id-zoni="">
                                                 Finalizar Terreno
                                             </button>
 

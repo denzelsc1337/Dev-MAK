@@ -85,10 +85,14 @@ $(document).ready(function () {
   $("#btnValo_terren").click(function (e) {
     e.preventDefault();
     var data = $("#form_valor").serialize();
+    var id_zoni_t = 20;
+    console.log(id_zoni_t);
+    console.log(data);
     $.ajax({
       type: "POST",
       url: "../Controller/Add_valorizacion_terreno.php",
       data: data,
+      cod_zonificacion: id_zoni_t,
       success: function (r) {
         if (r == 1) {
           alert("Solicitud enviada correctamente.");
@@ -181,11 +185,11 @@ $(document).ready(function () {
           },
           success: function (response) {
             var zonas = JSON.parse(response);
-            console.log(response);
+            console.log(zonas);
 
             listaZonas.empty();
 
-            if (zonas.length > 1) {
+            if (zonas.length >= 1) {
               zonas.forEach(function (zona) {
                 listaZonas.append(
                   '<li id="' + zona.id_zona + '">' + zona.tipo_zona + "</li>"
@@ -202,7 +206,13 @@ $(document).ready(function () {
 
             listaZonas.find("li").click(function () {
               var texto = $(this).text();
+              var id = $(this).attr("id");
+              console.log(texto);
+              console.log(id);
+              $("#btnValo_terren").attr("data-id-zoni", id);
+              // $(".auto-input").val(id);
               $(".auto-input").val(texto);
+
               listaZonas.empty(); // Vaciamos la lista después de seleccionar
               listaZonas.removeClass("visible");
             });
