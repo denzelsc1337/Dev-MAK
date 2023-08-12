@@ -23,6 +23,8 @@ class Valorizacion
 		$this->lst_zonificacion = array();
 
 		$this->lst_valo_hist_user=array();
+
+		$this->details_valo=array();
 	}
 
 	public function add_valorizacion_casa($data)
@@ -469,7 +471,20 @@ class Valorizacion
 		$cnx = new conexion();
 		$cadena = $cnx->abrirConexion();
 
-		$query = "SELECT id_valor, cs.nom_client, direccion, ti.tipo_inmb, sti.sub_tipo_inmb, tp.tipo_promo, area_terreno, area_construida, area_ocupada, antiguedad, sala_comedor, sala, comedor, cocina, amoblado, piscina_prop, cant_dorm, dormitorio_banho, cant_banho, banho_visita, cuarto_serv, banho_serv, estacionamiento, deposito, ub.tipo_ubic, tv.tipo_vista, ta.tipo_acabado, sala_comedor_dep, sala_dep, comedor_dep, cocina_dep, amob_dep, cant_dorm_dep, dormitorio_banho_dep, cant_banho_dep, banho_visita_dep, cuarto_serv_dep, banho_serv_dep, estac_dep, deposito_dep, ascensor_dep, ascensor_dir_dep, pisos_edif_dep, piso_dep
+
+		$query = "SELECT id_valor, cs.nom_client, direccion, ti.tipo_inmb, sti.sub_tipo_inmb, tp.tipo_promo,
+				estado_solicitud, nom_doc_valor, cs.id_client, cs.dni_client
+				FROM valorizacion vl
+				 INNER JOIN clientes_servicios cs ON vl.cod_client = cs.id_client
+				 INNER JOIN tipo_inmuebles ti ON vl.cod_tipo_inmue = ti.id_tipo_inmb
+				 INNER JOIN sub_tipo_inmuebles sti ON vl.cod_sub_tipo_inmue = sti.id_sub_tipo_inmb
+				 INNER JOIN tipo_promocion tp ON vl.cod_tipo_prom = tp.id_promo
+				 INNER JOIN ubicacion ub ON vl.cod_ubi = ub.id_ubicacion
+				 INNER JOIN tipo_vista tv ON vl.cod_vista = tv.id_vista
+				 INNER JOIN tipo_acabado ta ON vl.cod_acabado = ta.id_acabado
+				WHERE cs.id_client = $id_client AND cs.dni_client = $dni_client";
+
+		/*$query = "SELECT id_valor, cs.nom_client, direccion, ti.tipo_inmb, sti.sub_tipo_inmb, tp.tipo_promo, area_terreno, area_construida, area_ocupada, antiguedad, sala_comedor, sala, comedor, cocina, amoblado, piscina_prop, cant_dorm, dormitorio_banho, cant_banho, banho_visita, cuarto_serv, banho_serv, estacionamiento, deposito, ub.tipo_ubic, tv.tipo_vista, ta.tipo_acabado, sala_comedor_dep, sala_dep, comedor_dep, cocina_dep, amob_dep, cant_dorm_dep, dormitorio_banho_dep, cant_banho_dep, banho_visita_dep, cuarto_serv_dep, banho_serv_dep, estac_dep, deposito_dep, ascensor_dep, ascensor_dir_dep, pisos_edif_dep, piso_dep
 		cod_zonificacion, cod_tipo_suelo, param_terreno, frent_terreno, izq_terreno, fondo_terreno, der_terreno, piso_ofi, cochera_ofi, ascensor_ofi, aire_ofi, frente_lcl_com, cochera_lcl_com, piso_lcl_com, ascensor_lcl_com, aire_lcl_com, frente_lcl_ind, nave_lcl_ind, estado_solicitud, nom_doc_valor
 		FROM valorizacion vl
 		 INNER JOIN clientes_servicios cs ON vl.cod_client = cs.id_client
@@ -479,7 +494,7 @@ class Valorizacion
 		 INNER JOIN ubicacion ub ON vl.cod_ubi = ub.id_ubicacion
 		 INNER JOIN tipo_vista tv ON vl.cod_vista = tv.id_vista
 		 INNER JOIN tipo_acabado ta ON vl.cod_acabado = ta.id_acabado
-		WHERE cs.id_client = $id_client AND cs.dni_client = $dni_client";
+		WHERE cs.id_client = $id_client AND cs.dni_client = $dni_client";*/
 
 		$resultado = mysqli_query($cadena, $query);
 
@@ -492,6 +507,39 @@ class Valorizacion
 
 		return $this->lst_valo_hist_user;
 	}
+
+
+	public function details_valorizacion($id_reg, $id_client, $dni_client)
+	{
+		include_once('../config/Conexion.php');
+		$cnx = new conexion();
+		$cadena = $cnx->abrirConexion();
+
+
+		$query = "SELECT id_valor, cs.nom_client, direccion, ti.tipo_inmb, sti.sub_tipo_inmb, tp.tipo_promo, area_terreno, area_construida, area_ocupada, antiguedad, sala_comedor, sala, comedor, cocina, amoblado, piscina_prop, cant_dorm, dormitorio_banho, cant_banho, banho_visita, cuarto_serv, banho_serv, estacionamiento, deposito, ub.tipo_ubic, tv.tipo_vista, ta.tipo_acabado, sala_comedor_dep, sala_dep, comedor_dep, cocina_dep, amob_dep, cant_dorm_dep, dormitorio_banho_dep, cant_banho_dep, banho_visita_dep, cuarto_serv_dep, banho_serv_dep, estac_dep, deposito_dep, ascensor_dep, ascensor_dir_dep, pisos_edif_dep, piso_dep
+		cod_zonificacion, cod_tipo_suelo, param_terreno, frent_terreno, izq_terreno, fondo_terreno, der_terreno, piso_ofi, cochera_ofi, ascensor_ofi, aire_ofi, frente_lcl_com, cochera_lcl_com, piso_lcl_com, ascensor_lcl_com, aire_lcl_com, frente_lcl_ind, nave_lcl_ind, estado_solicitud, nom_doc_valor
+		FROM valorizacion vl
+		 INNER JOIN clientes_servicios cs ON vl.cod_client = cs.id_client
+		 INNER JOIN tipo_inmuebles ti ON vl.cod_tipo_inmue = ti.id_tipo_inmb
+		 INNER JOIN sub_tipo_inmuebles sti ON vl.cod_sub_tipo_inmue = sti.id_sub_tipo_inmb
+		 INNER JOIN tipo_promocion tp ON vl.cod_tipo_prom = tp.id_promo
+		 INNER JOIN ubicacion ub ON vl.cod_ubi = ub.id_ubicacion
+		 INNER JOIN tipo_vista tv ON vl.cod_vista = tv.id_vista
+		 INNER JOIN tipo_acabado ta ON vl.cod_acabado = ta.id_acabado
+		WHERE vl.id_valor =$id_reg and cs.id_client = $id_client AND cs.dni_client = $dni_client";
+
+		$resultado = mysqli_query($cadena, $query);
+
+		while ($fila = mysqli_fetch_row($resultado)) {
+			$this->details_valo[] = $fila;
+		}
+
+
+		$cnx->cerrarConexion($cadena);
+
+		return $this->details_valo;
+	}
+
 
 	// public function list_Valo_Historico()
 	// {

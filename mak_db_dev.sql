@@ -439,7 +439,7 @@ create table valorizacion(
     FOREIGN KEY (cod_client) REFERENCES  clientes_servicios  (id_client) ON DELETE SET NULL,
     FOREIGN KEY (cod_tipo_suelo) REFERENCES  tipo_suelo  (id_tipo_suelo) ON DELETE SET NULL
 );
-
+ALTER TABLE `valorizacion` ADD `nom_doc_valor` VARCHAR(255) NULL DEFAULT NULL AFTER `estado_solicitud`;
 -- 502 = Pendiente
 -- 402 = En revision
 -- 200 = Finalizado
