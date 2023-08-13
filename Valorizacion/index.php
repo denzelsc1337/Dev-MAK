@@ -359,6 +359,18 @@ require_once('../Controller/controladorListar.php'); ?>
                                         <img src="../Vista/assets/loading_uhd.gif" id="loader_uhd" style="display:none">
                                     </div>
 
+                                    <?php
+
+                                    if ($_SESSION['tipo_usu'] == 1) {
+
+                                    ?>
+                                    <label>Subir Archivos</label>
+                                    <input type="file" name="">
+
+                                    <?php } else {?>
+                                        <label>Descargar Archivos</label>
+                                    <?php   } ?>
+
                                 </div>
                             </div>
                         </div>
