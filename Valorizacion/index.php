@@ -110,18 +110,17 @@ require_once('../Controller/controladorListar.php'); ?>
                                 <div class="col-sm-12">
 
                                     <table class="table table-borderless" style="width: 100%;">
-                                        Admin
+                                        
                                         <thead class="">
                                             <tr>
                                                 <th>ID</th>
-                                                <th>nom</th>
-                                                <th>DIRECCIÓN</th>
-                                                <th>FECHA</th>
-                                                <th>ESTADO</th>
-                                                <th>id_user</th>
-                                                <th>dni_user</th>
-                                                <th>coment</th>
-                                                <th>OPCIONES</th>
+                                                <th>Dni</th>
+                                                <th>Cliente</th>
+                                                <th>Direccion</th>
+                                                <th>Tipo Propiedad</th>
+                                                <th>Tipo</th>
+                                                <th>Estado</th>
+                                                <th>Detalles</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -137,6 +136,12 @@ require_once('../Controller/controladorListar.php'); ?>
                                                     case "0":
                                                         echo "<td>No</td>";
                                                         break;
+                                                    case "500":
+                                                        echo "<td><span class='badge rounded-pill bg-secondary'>Pendiente</span></td>";
+                                                        break;
+                                                    case "400":
+                                                        echo "<td><span class='badge rounded-pill bg-secondary'>En revision</span></td>";
+                                                        break;
                                                     default:
                                                         // echo "<td>$data</td>";
                                                         if ($data !== null) {
@@ -150,53 +155,34 @@ require_once('../Controller/controladorListar.php'); ?>
 
                                             foreach ($list_valo as $lst_vlzn) : ?>
                                                 <tr>
-                                                    <?php mostrarData($lst_vlzn[0]) ?>
+                                                    <td>
+                                                        <?php echo $lst_vlzn[0] ?>
+                                                    </td>
                                                     <?php mostrarData($lst_vlzn[1]) ?>
                                                     <?php mostrarData($lst_vlzn[2]) ?>
                                                     <?php mostrarData($lst_vlzn[3]) ?>
-                                                    <?php mostrarData($lst_vlzn[4]) ?>
-                                                    <?php mostrarData($lst_vlzn[5]) ?>
+                                                    <?php mostrarData($lst_vlzn[4].' ('.$lst_vlzn[5].')') ?>
+                                                    
                                                     <?php mostrarData($lst_vlzn[6]) ?>
-                                                    <?php mostrarData($lst_vlzn[7]) ?>
-                                                    <?php mostrarData($lst_vlzn[8]) ?>
-                                                    <?php mostrarData($lst_vlzn[9]) ?>
-                                                    <?php mostrarData($lst_vlzn[10]) ?>
-                                                    <?php mostrarData($lst_vlzn[11]) ?>
-                                                    <?php mostrarData($lst_vlzn[12]) ?>
-                                                    <?php mostrarData($lst_vlzn[13]) ?>
-                                                    <?php mostrarData($lst_vlzn[14]) ?>
-                                                    <?php mostrarData($lst_vlzn[15]) ?>
-                                                    <?php mostrarData($lst_vlzn[16]) ?>
-                                                    <?php mostrarData($lst_vlzn[17]) ?>
-                                                    <?php mostrarData($lst_vlzn[18]) ?>
-                                                    <?php mostrarData($lst_vlzn[19]) ?>
-                                                    <?php mostrarData($lst_vlzn[20]) ?>
-                                                    <?php mostrarData($lst_vlzn[21]) ?>
-                                                    <?php mostrarData($lst_vlzn[22]) ?>
-                                                    <?php mostrarData($lst_vlzn[23]) ?>
-                                                    <?php mostrarData($lst_vlzn[24]) ?>
-                                                    <?php mostrarData($lst_vlzn[25]) ?>
-                                                    <?php mostrarData($lst_vlzn[26]) ?>
-                                                    <?php mostrarData($lst_vlzn[27]) ?>
-                                                    <?php mostrarData($lst_vlzn[28]) ?>
-                                                    <?php mostrarData($lst_vlzn[29]) ?>
-                                                    <?php mostrarData($lst_vlzn[30]) ?>
-                                                    <?php mostrarData($lst_vlzn[31]) ?>
-                                                    <?php mostrarData($lst_vlzn[32]) ?>
-                                                    <?php mostrarData($lst_vlzn[33]) ?>
-                                                    <?php mostrarData($lst_vlzn[34]) ?>
-                                                    <?php mostrarData($lst_vlzn[35]) ?>
-                                                    <?php mostrarData($lst_vlzn[36]) ?>
-                                                    <?php mostrarData($lst_vlzn[37]) ?>
-                                                    <?php mostrarData($lst_vlzn[38]) ?>
-                                                    <?php mostrarData($lst_vlzn[39]) ?>
-                                                    <?php mostrarData($lst_vlzn[40]) ?>
+                                                    <?php mostrarData($lst_vlzn[62]) ?>
 
+                                                    <td>
+                                                        <button type="button" class="btn btn-rounded btn_get_details scroll-toggle" 
+                                                        data-id_solic_val="<?php echo $lst_vlzn[0] ?>" 
+                                                        data-id_cli="<?php echo $lst_vlzn[9] ?>" 
+                                                        data-dni_cli = "<?php echo $lst_vlzn[10] ?>"
+                                                        data-toggle="modal" 
+                                                        data-target="#details_v">
+                                                            <i class="fa-solid fa-eye"></i>
+                                                        </button>
+                                                    </td>
+
+                                                    <!--
                                                     <td>
 
                                                         <button type="button" class="btn editbtn" data-toggle="modal" data-target="#exampleModal"><i class="fa-solid fa-upload"></i></button>
                                                         
-                                                    </td>
+                                                    </td>-->
                                                 </tr>
                                             <?php endforeach ?>
                                         </tbody>
@@ -223,7 +209,6 @@ require_once('../Controller/controladorListar.php'); ?>
                                                     <th>Tipo</th>
                                                     <th>Estado</th>
                                                     <th>Detalles</th>
-                                                    <th>Descarga</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -239,6 +224,9 @@ require_once('../Controller/controladorListar.php'); ?>
                                                             break;
                                                         case "500":
                                                             echo "<td><span class='badge rounded-pill bg-secondary'>Pendiente</span></td>";
+                                                            break;
+                                                        case "400":
+                                                            echo "<td><span class='badge rounded-pill bg-secondary'>En revision</span></td>";
                                                             break;
                                                         default:
                                                             // echo "<td>$data</td>";
@@ -262,14 +250,6 @@ require_once('../Controller/controladorListar.php'); ?>
                                                             <?php echo $lst_vlzn_[0] ?>
                                                         </td>
 
-                                                        <td>
-                                                            <?php echo $lst_vlzn_[8] ?>
-                                                        </td>
-
-                                                        <td>
-                                                            <?php echo $lst_vlzn_[9] ?>
-                                                        </td>
-
                                                         <?php mostrarDataUser($lst_vlzn_[1]) ?>
                                                         <?php mostrarDataUser($lst_vlzn_[2]) ?>
                                                         <?php mostrarDataUser($lst_vlzn_[3].' ('.$lst_vlzn_[4].')') ?>
@@ -288,10 +268,11 @@ require_once('../Controller/controladorListar.php'); ?>
                                                                 <i class="fa-solid fa-eye"></i>
                                                             </button>
                                                         </td>
-                                                        
+                                                        <!--
                                                         <td>
                                                             <a href="../Valorizaciones/<?php echo $lst_vlzn_[0] ?>/<?php echo $lst_vlzn_[7]?>"><i class="fa-solid fa-download"></i></a>
                                                         </td>
+                                                        -->
                                                     </tr>
                                                 <?php endforeach ?>
                                             </tbody>
@@ -358,19 +339,46 @@ require_once('../Controller/controladorListar.php'); ?>
                                         <ul id="detalles_valor" style="display:none"></ul>
                                         <img src="../Vista/assets/loading_uhd.gif" id="loader_uhd" style="display:none">
                                     </div>
-
+                                    <div id="docs_val" style="display:none" >
                                     <?php
 
                                     if ($_SESSION['tipo_usu'] == 1) {
 
                                     ?>
-                                    <label>Subir Archivos</label>
-                                    <input type="file" name="">
+                                    <form action="../Controller/upload_doc_valorizacion.php" method="POST" enctype="multipart/form-data">
+                                        <div class="modal-body">
+                                            <div hidden>
+                                                <input type="text" name="id_solic_arch" id="id_solic_arch">
+                                                <input type="text" name="dni_cli_arch" id="dni_cli_arch">
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Archivo de Valorizacion</label>
+                                                <br>
+                                                <input type="file" name="valorizacion_files[]" id="valorizacion_files" multiple>
 
-                                    <?php } else {?>
+                                                <select name="status_doc" id="status_doc">
+                                                    <option value="500">Pendiente</option>
+                                                    <option value="400">En revision</option>
+                                                    <option value="200">Finalizado</option>
+                                                </select>
+                                            </div>
+
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                                                <button type="submit" name="upload_valor_" class="btn btn-primary">Subir</button>
+                                            </div>
+                                        </div>
+                                    </form>
+
+                                    <?php } else { ?>
                                         <label>Descargar Archivos</label>
+                                        <div>
+                                            <div id="descarga_archivo_m">
+                                                <ul id="archivos_lista"></ul>
+                                            </div>
+                                        </div>
                                     <?php   } ?>
-
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -645,22 +653,29 @@ require_once('../Controller/controladorListar.php'); ?>
 
             $('#details_v').modal('show');
 
-            /*var id_solic_v = $(this).data('id_solic_val');
+            var id_solic_v = $(this).data('id_solic_val');
             var id_cli_v = $(this).data('id_cli');
-            var dni_cli_v = $(this).data('dni_cli');*/
+            var dni_cli_v = $(this).data('dni_cli');
+
+            /*var id_solic_v = data[0].trim();
+            var id_cli_v = data[1].trim();
+            var dni_cli_v = data[2].trim();*/
+
+            
+            
 
             $tr = $(this).closest('tr');
             var data = $tr.children("td").map(function() {
                 return $(this).text();
             }).get();
 
-            var id_solic_v = data[0].trim();
-            var id_cli_v = data[1].trim();
-            var dni_cli_v = data[2].trim();
+            $("#id_solic_arch").val(data[0].trim());
+            $("#dni_cli_arch").val(data[1].trim());
 
             console.log(id_solic_v,id_cli_v,dni_cli_v);
 
-            get_details_solic(id_solic_v, id_cli_v/*, dni_cli_v*/)
+            get_details_solic(id_solic_v, id_cli_v, dni_cli_v)
+            get_files_valor(id_solic_v, dni_cli_v)
         });
 
 
@@ -677,6 +692,8 @@ require_once('../Controller/controladorListar.php'); ?>
                 beforeSend:function(){
                     $("#loader_uhd").show();
                     $("#detalles_valor").hide();
+                    $("#docs_val").hide();
+                    
                 },
 
                 success: function(response) {
@@ -686,8 +703,11 @@ require_once('../Controller/controladorListar.php'); ?>
                     var detalles_valor = detalles.detalles_valor;
 
                     setTimeout(function() {
+
                         $("#loader_uhd").hide();
                         $("#detalles_valor").show();
+                        $("#docs_val").show();
+
                         var container = document.getElementById('detalles_valor');
 
                         container.innerHTML = '';
@@ -701,10 +721,50 @@ require_once('../Controller/controladorListar.php'); ?>
                                 container.appendChild(li);
                             }
                         }
-                    }, 1000);
+                    }, 700);
                 },
                 error:function(xhr, status, error){
                     console.log("Error en la solicitud ajax ", error)
+                }
+            });
+        }
+
+        function get_files_valor(id_sol_v, dni){
+            $.ajax({
+                type: 'POST',
+                url: '../Controller/Get_Valorizacion_files.php',
+                data: {
+                    id_solic_v: id_sol_v,
+                    dni_cli_v: dni,   
+                },
+                success: function(response) {
+                        var archivos = response.split('\n');
+                        var archivosLista = $('#archivos_lista');
+
+                        archivosLista.empty();
+                        if (archivos.length === 0 || (archivos.length === 1 && archivos[0].trim() === '')) {
+                            var noFilesMessage = $('<strong>').text('Esta carpeta esta vacia');
+                            archivosLista.append(noFilesMessage);
+                        } else {
+
+                            archivos.forEach(function(archivo) {
+                                if (archivo.trim() !== '') {
+                                    var link_ = $('<a>')
+                                    .attr('href','../Valorizaciones/'+id_sol_v+'/' + dni +'/' +archivo)
+                                    .attr('download', archivo)
+                                    .text(archivo);
+
+                                    var listItem = $('<li>').append(link_);
+                                    archivosLista.append(listItem);
+                                }
+                            });
+                        }
+                        //$('#descarga_archivo_m').html(link_);
+
+                        console.log(response);
+                },
+                error: function(xhr, status, error) {
+                    console.log(error);
                 }
             });
         }

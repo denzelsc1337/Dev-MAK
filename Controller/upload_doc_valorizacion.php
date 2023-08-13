@@ -2,9 +2,12 @@
 require_once('../Model/Valorizacion.php');
 if(isset($_POST["upload_valor_"])) {
     
-  $id_reg = $_POST["id_reg_valor"];
+  $id_reg = $_POST["id_solic_arch"];
+  $status_solic = $_POST["status_doc"];
 
-  $target_dir = "../Valorizaciones/".$id_reg."/";
+  $dni_cli = $_POST["dni_cli_arch"];
+  
+  $target_dir = "../Valorizaciones/".$id_reg."/".$dni_cli."/";
 
   if (!file_exists($target_dir)) {
     mkdir($target_dir, 0777, true);
@@ -21,7 +24,7 @@ if(isset($_POST["upload_valor_"])) {
     if (move_uploaded_file($archivos_selecc["tmp_name"][$i], $ubicacion_save)) {
 
         $oValor = new Valorizacion();
-        $r = $oValor->updt_valoc_doc($id_reg,$archivos_selecc["name"][$i]);
+        $r = $oValor->updt_valoc_doc($id_reg,$status_solic);
         $archivos_total++;
     }
   }

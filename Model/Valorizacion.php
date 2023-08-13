@@ -129,14 +129,14 @@ class Valorizacion
 		$cnx->cerrarConexion($cadena);
 	}
 
-	public function updt_valoc_doc($id_valo,$doc)
+	public function updt_valoc_doc($id_valo,$status)
 	{
 		include_once('../config/Conexion.php');
 		$cnx = new Conexion();
 		$cadena = $cnx->abrirConexion();
 
 		$query = "UPDATE valorizacion
-				  set nom_doc_valor = '$doc'
+				  set estado_solicitud = '$status'
 				  WHERE id_valor = '$id_valo'";
 
 		$result = mysqli_query($cadena, $query);
@@ -442,7 +442,7 @@ class Valorizacion
 		$cnx = new conexion();
 		$cadena = $cnx->abrirConexion();
 
-		$query = "SELECT id_valor, cs.nom_client, direccion, ti.tipo_inmb, sti.sub_tipo_inmb, tp.tipo_promo, area_terreno, area_construida, area_ocupada, antiguedad, sala_comedor, sala, comedor, cocina, amoblado, piscina_prop, cant_dorm, dormitorio_banho, cant_banho, banho_visita, cuarto_serv, banho_serv, estacionamiento, deposito, ub.tipo_ubic, tv.tipo_vista, ta.tipo_acabado, sala_comedor_dep, sala_dep, comedor_dep, cocina_dep, amob_dep, cant_dorm_dep, dormitorio_banho_dep, cant_banho_dep, banho_visita_dep, cuarto_serv_dep, banho_serv_dep, estac_dep, deposito_dep, ascensor_dep, ascensor_dir_dep, pisos_edif_dep, piso_dep
+		$query = "SELECT id_valor,cs.dni_client, cs.nom_client, direccion, ti.tipo_inmb, sti.sub_tipo_inmb, tp.tipo_promo, area_terreno, area_construida, area_ocupada, antiguedad, sala_comedor, sala, comedor, cocina, amoblado, piscina_prop, cant_dorm, dormitorio_banho, cant_banho, banho_visita, cuarto_serv, banho_serv, estacionamiento, deposito, ub.tipo_ubic, tv.tipo_vista, ta.tipo_acabado, sala_comedor_dep, sala_dep, comedor_dep, cocina_dep, amob_dep, cant_dorm_dep, dormitorio_banho_dep, cant_banho_dep, banho_visita_dep, cuarto_serv_dep, banho_serv_dep, estac_dep, deposito_dep, ascensor_dep, ascensor_dir_dep, pisos_edif_dep, piso_dep
 					cod_zonificacion, cod_tipo_suelo, param_terreno, frent_terreno, izq_terreno, fondo_terreno, der_terreno, piso_ofi, cochera_ofi, ascensor_ofi, aire_ofi, frente_lcl_com, cochera_lcl_com, piso_lcl_com, ascensor_lcl_com, aire_lcl_com, frente_lcl_ind, nave_lcl_ind, estado_solicitud
 					FROM valorizacion vl
 				 	INNER JOIN clientes_servicios cs ON vl.cod_client = cs.id_client
