@@ -42,6 +42,7 @@
 
 
         if (sub_tipo_prop === "13" || sub_tipo_prop === "14") {
+
           const locales = section.querySelectorAll(".lcl");
 
           locales.forEach(element => {
@@ -295,6 +296,7 @@
   function InputsErase() {
     const allInputsTxt = document.querySelectorAll("input[type='text']");
     const allInputsNum = document.querySelectorAll("input[type='number']");
+    const allCheckBox = document.querySelectorAll("input[type='checkbox']:checked");
 
 
     for (var i = 0; i < allInputsTxt.length; i++) {
@@ -303,6 +305,10 @@
 
     for (var i = 0; i < allInputsNum.length; i++) {
       allInputsNum[i].value = "";
+    }
+
+    for (var i = 0; i < allCheckBox.length; i++) {
+      allCheckBox[i].checked = false;
     }
   }
 
