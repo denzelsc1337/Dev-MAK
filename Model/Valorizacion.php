@@ -90,11 +90,11 @@ class Valorizacion
 	    //return $result;
 	}
 
-	public function add_valorizacion_depa($data)
+	public function add_valorizacion_depa($data,$cadena)
 	{
-		include_once('../config/Conexion.php');
+		/*include_once('../config/Conexion.php');
 		$cnx = new Conexion();
-		$cadena = $cnx->abrirConexion();
+		$cadena = $cnx->abrirConexion();*/
 
 		$query = "INSERT INTO `valorizacion`(`id_valor`,`direccion`, `cod_tipo_inmue`, `cod_sub_tipo_inmue`,`cod_tipo_prom`,
 													`area_construida`, `area_ocupada`,`antiguedad`,
@@ -136,8 +136,18 @@ class Valorizacion
 
 		verificacion de error en la consulta */
 
-		echo mysqli_query($cadena, $query);
-		$cnx->cerrarConexion($cadena);
+		/*echo mysqli_query($cadena, $query);
+		$cnx->cerrarConexion($cadena);*/
+
+		$result = mysqli_query($cadena, $query);
+
+		if ($result) {
+        	echo "OK";
+    		return true;
+	    } else {
+	        echo "Error al insertar el registro: " . mysqli_error($cadena);
+	        return true;
+	    }
 	}
 
 	public function updt_valoc_doc($id_valo,$status)
@@ -224,6 +234,41 @@ class Valorizacion
 
 						 			  '" . $data[11] . "','" . $data[12] . "',
 						 			  '" . $data[13] . "','" . $data[14] . "','" . $data[15] . "')";
+
+		/*verificacion de error en la consulta
+
+		$result = mysqli_query($cadena, $query);
+
+        if ($result) {
+            $num_rows = mysqli_affected_rows($cadena);
+        } else {
+            echo "Error al ejecutar la consulta: " . mysqli_error($cadena);
+        }
+
+		verificacion de error en la consulta */
+
+		echo mysqli_query($cadena, $query);
+		$cnx->cerrarConexion($cadena);
+	}
+
+	public function add_valorizacion_local_comercial($data)
+	{
+		include_once('../config/Conexion.php');
+		$cnx = new Conexion();
+		$cadena = $cnx->abrirConexion();
+
+		$query = "INSERT INTO `valorizacion`(`id_valor`,`direccion`, `cod_tipo_inmue`, `cod_sub_tipo_inmue`,`cod_tipo_prom`,
+												`area_terreno`,`area_construida`,`antiguedad`,
+
+												`cod_acabado`,`cod_tipo_suelo`,
+
+												`frente_lcl_ind`,`nave_lcl_ind`, `cod_ubi`)
+
+						 VALUES(null, '" . $data[1] . "', '" . $data[2] . "', '" . $data[3] . "','" . $data[4] . "',
+						 			  '" . $data[5] . "','" . $data[6] . "','" . $data[7] . "',
+
+						 			  '" . $data[8] . "','" . $data[9] . "',
+						 			  '" . $data[10] . "','" . $data[11] . "','" . $data[12] . "')";
 
 		/*verificacion de error en la consulta
 
