@@ -903,7 +903,7 @@
                                                                                 <ul class="lista">
                                                                                 </ul>
 
-                                                                                <input type="text" name="opciones_zoni_t" id="opciones_zoni_t">
+                                                                                <input type="text" name="opciones_zoni_t" id="opciones_zoni_t" hidden>
                                                                             </div>
 
 
@@ -1060,7 +1060,7 @@
                                                                                 <ul class="lista">
                                                                                 </ul>
 
-                                                                                <input type="text" name="opciones_zoni_ofi" id="opciones_zoni_ofi">
+                                                                                <input type="text" name="opciones_zoni_ofi" id="opciones_zoni_ofi" hidden>
                                                                             </div>
 
                                                                         </div>
@@ -1231,7 +1231,7 @@
                                                                                         <ul class="lista">
                                                                                         </ul>
 
-                                                                                        <input type="text" name="opciones_zoni_lc" id="opciones_zoni_lc">
+                                                                                        <input type="text" name="opciones_zoni_lc" id="opciones_zoni_lc" hidden>
                                                                                     </div>
                                                                                 </div>
                                                                                 <div class="input-group-append">
@@ -1393,7 +1393,7 @@
                                                                                         <ul class="lista">
                                                                                         </ul>
 
-                                                                                        <input type="text" name="opciones_zoni_lc_c" id="opciones_zoni_lc_c">
+                                                                                        <input type="text" name="opciones_zoni_lc_c" id="opciones_zoni_lc_c" hidden>
                                                                                     </div>
                                                                                 </div>
                                                                                 <div class="input-group-append">
@@ -1697,7 +1697,7 @@
                                                             <div class="col-sm-3">
                                                                 <div class="card-body card-resume">
                                                                     <label class="mak-txt">Comentario</label>
-                                                                    <textarea placeholder="Escribe un comentario..."></textarea>
+                                                                    <textarea id="coment_valr_" placeholder="Escribe un comentario..."></textarea>
                                                                 </div>
                                                             </div>
                                                             <div class="col-sm-4 "> <!-- brd-rght-blue -->

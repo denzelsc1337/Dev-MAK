@@ -856,11 +856,7 @@ h2 {
 /* INPUT PERSONALIZADO */
 
 .form-control.input-number {
-  border-radius: 50px;
-}
-
-.form-control.input-number {
-  border-radius: 50px;
+  border: 1px solid var(--blue-mak);
 }
 
 .section-input {
@@ -1002,6 +998,9 @@ textarea::-webkit-scrollbar {
   left: 200px !important;
   width: 1.5rem !important;
   height: 1.5rem !important;
+  border-radius: 0.25rem;
+  border: 1px solid var(--blue-mak);
+  background-color: transparent;
 }
 
 .custom-radio .down.custom-control-input:checked~.custom-control-label::after {

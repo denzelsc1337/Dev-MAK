@@ -85,7 +85,7 @@
                   });
                   //
                   cardBodys.forEach((element) => {
-                    const input = element.querySelectorAll("input");
+                    const input = element.querySelectorAll("input:not([hidden])");
                     input.forEach((ele) => {
                       arrayValues.push(ele.value);
                     });
@@ -99,8 +99,8 @@
                   });
                 });
 
-                console.log(arrayNames);
-                console.log(arrayValues);
+                // console.log(arrayNames);
+                // console.log(arrayValues);
               })
 
 
@@ -124,7 +124,7 @@
         // true or false in chks
         inputsID_chk.forEach(function (checkboxID) {
           var checkbox = document.getElementById(checkboxID);
-          console.log(checkbox);
+          // console.log(checkbox);
           checkbox.addEventListener("change", function () {
             if (this.checked) {
               this.value = "true";
@@ -154,7 +154,7 @@
             });
             //
             cardBodys.forEach((element) => {
-              const input = element.querySelectorAll("input");
+              const input = element.querySelectorAll("input:not([hidden])");
               input.forEach((ele) => {
                 arrayValues.push(ele.value);
               });
@@ -168,8 +168,8 @@
             });
           });
 
-          console.log(arrayNames);
-          console.log(arrayValues);
+          // console.log(arrayNames);
+          // console.log(arrayValues);
         })
 
       }
@@ -261,6 +261,10 @@
         });
       }
     });
+
+
+    var comment = document.querySelector("#coment_valr").value;
+    document.getElementById("coment_valr_").innerHTML = comment;
   });
 
 
