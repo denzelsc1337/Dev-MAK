@@ -150,67 +150,48 @@ class Valorizacion
 	    }
 	}
 
-	public function updt_valoc_doc($id_valo,$status)
-	{
-		include_once('../config/Conexion.php');
+	public function add_valorizacion_terreno($data,$cadena){
+
+		/*include_once('../config/Conexion.php');
 		$cnx = new Conexion();
-		$cadena = $cnx->abrirConexion();
-
-		$query = "UPDATE valorizacion
-				  set estado_solicitud = '$status'
-				  WHERE id_valor = '$id_valo'";
-
-		$result = mysqli_query($cadena, $query);
-		$cnx->cerrarConexion($cadena);
-		return $result;
-
-		/*$result = mysqli_query($cadena, $query);
-
-
-        if ($result) {
-            $num_rows = mysqli_affected_rows($cadena);
-            echo "Se han insertado $num_rows filas correctamente";
-        } else {
-            echo "Error al ejecutar la consulta: " . mysqli_error($cadena);
-        }*/
-
-		/*echo mysqli_query($cadena, $query);
-		$cnx->cerrarConexion($cadena);*/
-
-	}
-
-	public function add_valorizacion_terreno($data)
-	{
-		include_once('../config/Conexion.php');
-		$cnx = new Conexion();
-		$cadena = $cnx->abrirConexion();
+		$cadena = $cnx->abrirConexion();*/
 
 		$query = "INSERT INTO `valorizacion`(`id_valor`,`direccion`, `cod_tipo_inmue`, `cod_sub_tipo_inmue`,`cod_tipo_prom`,`area_terreno`,
 
 												`cod_zonificacion`,`cod_tipo_suelo`,
 
-												`param_terreno`,`frent_terreno`)
+												`param_terreno`,`frent_terreno`,`cod_client`)
 
 						 VALUES(null, '" . $data[1] . "', '" . $data[2] . "', '" . $data[3] . "','" . $data[4] . "','" . $data[5] . "',
 
 						 			  '" . $data[6] . "','" . $data[7] . "',
 
-						 			  '" . $data[8] . "','" . $data[9] . "')";
+						 			  '" . $data[8] . "','" . $data[9] . "','" . $data[10] . "')";
 
 		//verificacion de error en la consulta
 
-		$result = mysqli_query($cadena, $query);
+		/*$result = mysqli_query($cadena, $query);
 
         if ($result) {
             $num_rows = mysqli_affected_rows($cadena);
         } else {
             echo "Error al ejecutar la consulta: " . mysqli_error($cadena);
-        }
+        }*/
 
 		//verificacion de error en la consulta
 
 		/*echo mysqli_query($cadena, $query);
 		$cnx->cerrarConexion($cadena);*/
+
+		$result = mysqli_query($cadena, $query);
+
+		if ($result) {
+        	echo "OK";
+    		return true;
+	    } else {
+	        echo "Error al insertar el registro: " . mysqli_error($cadena);
+	        return true;
+	    }
 	}
 
 	public function add_valorizacion_oficina($data)
@@ -320,6 +301,37 @@ class Valorizacion
 		echo mysqli_query($cadena, $query);
 		$cnx->cerrarConexion($cadena);
 	}
+
+	public function updt_valoc_doc($id_valo,$status)
+	{
+		include_once('../config/Conexion.php');
+		$cnx = new Conexion();
+		$cadena = $cnx->abrirConexion();
+
+		$query = "UPDATE valorizacion
+				  set estado_solicitud = '$status'
+				  WHERE id_valor = '$id_valo'";
+
+		$result = mysqli_query($cadena, $query);
+		$cnx->cerrarConexion($cadena);
+		return $result;
+
+		/*$result = mysqli_query($cadena, $query);
+
+
+        if ($result) {
+            $num_rows = mysqli_affected_rows($cadena);
+            echo "Se han insertado $num_rows filas correctamente";
+        } else {
+            echo "Error al ejecutar la consulta: " . mysqli_error($cadena);
+        }*/
+
+		/*echo mysqli_query($cadena, $query);
+		$cnx->cerrarConexion($cadena);*/
+
+	}
+
+
 
 	public function selectorType_props()
 	{

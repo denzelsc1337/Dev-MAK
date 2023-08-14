@@ -92,21 +92,24 @@ $(document).ready(function () {
 
   $("#btnValo_terren").click(function (e) {
     e.preventDefault();
-    var data = $("#form_valor").serialize();
-    var id_zoni_t = 20;
-    console.log(id_zoni_t);
-    console.log(data);
+    //var data = $("#form_valor").serialize();
+    var formData = new FormData($("#form_valor")[0]);
+    //var id_zoni_t = 20;
+    //console.log(id_zoni_t);
+    console.log(formData);
     $.ajax({
       type: "POST",
       url: "../Controller/Add_valorizacion_terreno.php",
-      data: data,
-      cod_zonificacion: id_zoni_t,
+      data: formData,
+      processData: false,
+      contentType: false,
+
       success: function (r) {
-        if (r == 1) {
+        if (r) {
           alert("Solicitud enviada correctamente.");
           console.log(r);
           event.returnValue = false;
-          window.location.href = "valorizacion.php";
+          //window.location.href = "valorizacion.php";
         } else {
           alert(
             "Error al registrar, Verifique que los campos esten correctamente completos."
@@ -247,6 +250,7 @@ $(document).ready(function () {
               console.log(texto);
               console.log(id);
               $("#btnValo_terren").attr("data-id-zoni", id);
+              $("#opciones_zoni_t").val(id);
               // $(".auto-input").val(id);
               $(".auto-input").val(texto);
 

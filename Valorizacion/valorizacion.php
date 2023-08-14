@@ -899,10 +899,13 @@
                                                                             <!-- <input type="text" id="tipo_zoni_ofi" name="tipo_zoni_ofi"> -->
                                                                             <!-- <select id="opciones_zoni_ofi" name="opciones_zoni_ofi" class="opciones_zoni_ofi"></select> -->
                                                                             <div style="width: 100%">
-                                                                                <input type="text" class="form-mak auto-input" id="opciones_zoni_t" name="opciones_zoni_t" value="">
+                                                                                <input type="text" class="form-mak auto-input" id="" name="" value="">
                                                                                 <ul class="lista">
                                                                                 </ul>
+                                                                                <input type="text" name="opciones_zoni_t" id="opciones_zoni_t">
                                                                             </div>
+
+
                                                                         </div>
                                                                         <div class="input-group-append">
                                                                             <i class="fa-solid fa-circle-info tooltipInfo tooltip-right">
@@ -1056,6 +1059,7 @@
                                                                                 <ul class="lista">
                                                                                 </ul>
                                                                             </div>
+
                                                                         </div>
                                                                         <div class="input-group-append">
                                                                             <i class="fa-solid fa-circle-info tooltipInfo tooltip-right">
