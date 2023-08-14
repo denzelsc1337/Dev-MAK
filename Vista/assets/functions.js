@@ -476,6 +476,7 @@ $(document).ready(function () {
   dragValo.addEventListener("drop", (e) => {
     e.preventDefault();
     files = e.dataTransfer.files;
+    inputDragValo.files = files;
     showValoFiles(files);
     texto.textContent = "Agregar Fotos";
   });
