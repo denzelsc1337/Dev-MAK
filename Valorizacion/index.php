@@ -171,7 +171,7 @@ require_once('../Controller/controladorListar.php'); ?>
                                                         <?php mostrarData($lst_vlzn[4] . ' (' . $lst_vlzn[5] . ')') ?>
 
                                                         <?php mostrarData($lst_vlzn[6]) ?>
-                                                        <?php mostrarData($lst_vlzn[62]) ?>
+                                                        <?php mostrarData($lst_vlzn[63]) ?>
 
                                                         <td>
                                                             <button type="button" class="btn btn-rounded btn_get_details scroll-toggle" data-id_solic_val="<?php echo $lst_vlzn[0] ?>" data-id_cli="<?php echo $lst_vlzn[0] ?>" data-dni_cli="<?php echo $lst_vlzn[1] ?>" data-toggle="modal" data-target="#details_v">
