@@ -8,6 +8,8 @@
   // all
   var arrayNames = [];
   var arrayValues = [];
+  var inputs = [];
+
   //
   var sections = document.querySelectorAll(".section");
   var section_Array = [];
@@ -41,13 +43,11 @@
 
         if (sub_tipo_prop === "13" || sub_tipo_prop === "14") {
           const locales = section.querySelectorAll(".lcl");
-          console.log(locales);
 
           locales.forEach(element => {
             if (element.classList.contains("show")) {
               const inputs_chk_lcl = element.querySelectorAll("input[type='checkbox']");
               inputs_chk_lcl.forEach(element => {
-                console.log(element);
 
                 inputsID_chk.push(element.getAttribute("id"));
               });
@@ -65,6 +65,46 @@
                 });
               });
               // true or false in chks
+
+              const buttonSigPag = section.querySelector(".sigPag");
+
+              buttonSigPag.addEventListener("click", function () {
+                arrayNames.splice(0);
+                arrayValues.splice(0);
+                const cardPrimary = element.querySelectorAll(".card");
+
+                cardPrimary.forEach((card) => {
+                  //
+                  const cardBodys = card.querySelectorAll(".card-body");
+                  cardBodys.forEach((element) => {
+                    const lbl = element.querySelectorAll("label");
+                    lbl.forEach((label) => {
+                      arrayNames.push(label.textContent);
+                    });
+                  });
+                  //
+                  cardBodys.forEach((element) => {
+                    const input = element.querySelectorAll("input");
+                    input.forEach((ele) => {
+                      arrayValues.push(ele.value);
+                    });
+                    //
+                    const select = element.querySelectorAll("select");
+                    select.forEach((ele) => {
+
+                      const textValue_ = ele.options[ele.selectedIndex].innerText;
+                      arrayValues.push(textValue_);
+                    });
+                  });
+                });
+
+                console.log(arrayNames);
+                console.log(arrayValues);
+              })
+
+
+
+
             }
 
           });
@@ -94,44 +134,81 @@
         });
         // true or false in chks
         ///
+
+        const buttonSigPag = section.querySelector(".sigPag");
+
+        buttonSigPag.addEventListener("click", function () {
+          arrayNames.splice(0);
+          arrayValues.splice(0);
+          const cardPrimary = section.querySelectorAll(".card");
+
+          cardPrimary.forEach((card) => {
+            //
+            const cardBodys = card.querySelectorAll(".card-body");
+            cardBodys.forEach((element) => {
+              const lbl = element.querySelectorAll("label");
+              lbl.forEach((label) => {
+                arrayNames.push(label.textContent);
+              });
+            });
+            //
+            cardBodys.forEach((element) => {
+              const input = element.querySelectorAll("input");
+              input.forEach((ele) => {
+                arrayValues.push(ele.value);
+              });
+              //
+              const select = element.querySelectorAll("select");
+              select.forEach((ele) => {
+
+                const textValue_ = ele.options[ele.selectedIndex].innerText;
+                arrayValues.push(textValue_);
+              });
+            });
+          });
+
+          console.log(arrayNames);
+          console.log(arrayValues);
+        })
+
       }
 
 
-      const buttonSigPag = section.querySelector(".sigPag");
+      // const buttonSigPag = section.querySelector(".sigPag");
 
-      buttonSigPag.addEventListener("click", function () {
-        arrayNames.splice(0);
-        arrayValues.splice(0);
-        const cardPrimary = section.querySelectorAll(".card");
+      // buttonSigPag.addEventListener("click", function () {
+      //   arrayNames.splice(0);
+      //   arrayValues.splice(0);
+      //   const cardPrimary = section.querySelectorAll(".card");
 
-        cardPrimary.forEach((card) => {
-          //
-          const cardBodys = card.querySelectorAll(".card-body");
-          cardBodys.forEach((element) => {
-            const lbl = element.querySelectorAll("label");
-            lbl.forEach((label) => {
-              arrayNames.push(label.textContent);
-            });
-          });
-          //
-          cardBodys.forEach((element) => {
-            const input = element.querySelectorAll("input");
-            input.forEach((ele) => {
-              arrayValues.push(ele.value);
-            });
-            //
-            const select = element.querySelectorAll("select");
-            select.forEach((ele) => {
+      //   cardPrimary.forEach((card) => {
+      //     //
+      //     const cardBodys = card.querySelectorAll(".card-body");
+      //     cardBodys.forEach((element) => {
+      //       const lbl = element.querySelectorAll("label");
+      //       lbl.forEach((label) => {
+      //         arrayNames.push(label.textContent);
+      //       });
+      //     });
+      //     //
+      //     cardBodys.forEach((element) => {
+      //       const input = element.querySelectorAll("input");
+      //       input.forEach((ele) => {
+      //         arrayValues.push(ele.value);
+      //       });
+      //       //
+      //       const select = element.querySelectorAll("select");
+      //       select.forEach((ele) => {
 
-              const textValue_ = ele.options[ele.selectedIndex].innerText;
-              arrayValues.push(textValue_);
-            });
-          });
-        });
+      //         const textValue_ = ele.options[ele.selectedIndex].innerText;
+      //         arrayValues.push(textValue_);
+      //       });
+      //     });
+      //   });
 
-        // console.log(arrayNames);
-        // console.log(arrayValues);
-      })
+      //   console.log(arrayNames);
+      //   console.log(arrayValues);
+      // })
 
     }
   });
@@ -197,20 +274,37 @@
 
   const buttonBckPag = document.querySelectorAll(".backPag").forEach(element => {
     element.addEventListener("click", function () {
-      arrayNames.splice(0);
-      arrayValues.splice(0);
-
+      // arrayNames.splice(0);
+      // arrayValues.splice(0);
+      // borrar checkbox de local comercial   => local exclusivo / local comun
       inputsID_chk.forEach(function (checkboxID) {
         var checkboxs = document.getElementById(checkboxID);
         for (var i = 0; i < inputsID_chk.length; i++) {
           checkboxs.value = false;
         }
       });
+      // borrar checkbox de local comercial   => local exclusivo / local comun
+
+      // borrar inputs de local comercial   => local exclusivo / local comun
+      InputsErase();
+      // borrar inputs de local comercial   => local exclusivo / local comun
     });
   });
 
 
+  function InputsErase() {
+    const allInputsTxt = document.querySelectorAll("input[type='text']");
+    const allInputsNum = document.querySelectorAll("input[type='number']");
 
+
+    for (var i = 0; i < allInputsTxt.length; i++) {
+      allInputsTxt[i].value = "";
+    }
+
+    for (var i = 0; i < allInputsNum.length; i++) {
+      allInputsNum[i].value = "";
+    }
+  }
 
 
 })();
