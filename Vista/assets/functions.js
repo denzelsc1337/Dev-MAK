@@ -28,17 +28,20 @@ $(document).ready(function () {
 
   $("#btnValo_casa").click(function (e) {
     e.preventDefault();
-    var data = $("#form_valor").serialize();
+    //var data = $("#form_valor").serialize();
+    var formData = new FormData($("#form_valor")[0]);
     $.ajax({
       type: "POST",
       url: "../Controller/Add_valorizacion_casa.php",
-      data: data,
+      data: formData,
+      processData: false,
+      contentType: false,
       success: function (r) {
-        if (r == 1) {
+        if (r) {
           alert("Solicitud enviada correctamente.");
           console.log(r);
           event.returnValue = false;
-          window.location.href = "valorizacion.php";
+          window.location.href = "../Valorizacion/";
         } else {
           alert(
             "Error al registrar, Verifique que los campos esten correctamente completos."
@@ -49,6 +52,7 @@ $(document).ready(function () {
       },
       error: function (xhr, status, error) {
         console.error(error);
+        console.log(xhr.responseText);
       },
     });
     return false;

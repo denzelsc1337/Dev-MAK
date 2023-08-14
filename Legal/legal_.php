@@ -846,7 +846,8 @@ require_once('../Controller/controladorListar.php');
             <div class="modal-content">
                 <div class="modal-body">
                     <h1 class="title-m" id="titulo_docs">HR</h1>
-                    <div class="row margin">
+                    <img class="row margin" src="../Vista/assets/loading_uhd.gif" id="loader_uhd" style="display:none; margin: 0 22rem 5rem">
+                    <div class="row margin" id="lst_docs_lgl" style="display:none">
 
                         <div class="col-sm-12" id="descarga_archivo_p">
 
@@ -1445,7 +1446,15 @@ require_once('../Controller/controladorListar.php');
                         id_tipo_doc: id_tipo_doc
 
                     },
+                    beforeSend:function(){
+                    $("#loader_uhd").show();
+                    $("#lst_docs_lgl").hide();
+                    //$("#docs_val").hide();
+                    
+                    },
                     success: function(response) {
+                        
+
                         var data = JSON.parse(response);
 
                         var archivos = data.archivos;
@@ -1457,8 +1466,10 @@ require_once('../Controller/controladorListar.php');
                         console.log(dbInfo)
                         var cod_doc_, ruta_doc, nom_file;
                         var cont = 1;
-
-                        if (archivos && archivos.length > 0) {
+                        setTimeout(function() {
+                            $("#loader_uhd").hide();
+                            $("#lst_docs_lgl").show();
+                            if (archivos && archivos.length > 0) {
                             var enlaceHtml = '';
 
                             archivos.forEach(function(archivo) {
@@ -1548,6 +1559,10 @@ require_once('../Controller/controladorListar.php');
 
                         console.log('Estado de archivos:', estado_doc);
                         console.log('Estado de la base de datos:', estado_db);
+
+                        }, 480);
+
+                        
 
                     },
                     error: function(xhr, status, error) {

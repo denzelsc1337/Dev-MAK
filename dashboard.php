@@ -101,7 +101,7 @@ require_once('config/security.php');
               </a>
             </li>
             <li class="nav-item">
-              <a href="Valorizacion/valorizacion.php" class="nav-link">
+              <a href="Valorizacion/" class="nav-link">
                 <i class="nav-icon fas fa-edit"></i>
                 <p>Valorización</p>
               </a>
@@ -120,18 +120,25 @@ require_once('config/security.php');
           <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
             <!-- Add icons to the links using the .nav-icon class
                  with font-awesome or any other icon font library -->
-            <!--MAK MODULOS-->
-            <li class="nav-header">Mis Pendientes</li>
-            <li class="nav-item">
-              <a href="Valorizacion/Valorizaciones.php" class="nav-link">
-                <i class="nav-icon fas fa-sharp fa-regular fa-check"></i>
-                <p>Revision de Valorizaciones</p>
-              </a>
+            <!--MAK MODULOS PARA EL ADMIN-->
+            <?php if ($_SESSION['tipo_usu'] == 1): ?>
+              <li class="nav-header">Mis Pendientes</li>
 
-              <a href="Config/logout.php" class="">
-                <i class="fa fa-power-off"></i>
+              <li class="nav-item">
+                <a href="Valorizacion/Valorizaciones.php" class="nav-link">
+                  <i class="nav-icon fas fa-sharp fa-regular fa-check"></i>
+                  <p>Revision de Valorizaciones</p>
+                </a>
+              </li>
+            <?php endif ?>
+
+            <li class="nav-item">
+              <a href="Config/logout.php" class="nav-link">
+                  <i class="nav-icon fas fa-sharp fa-regular fa-power-off"></i>
+                  <p>Cerrar Sesion</p>
               </a>
             </li>
+            
           </ul>
         </nav>
         <!-- /.sidebar-menu -->
@@ -222,7 +229,7 @@ require_once('config/security.php');
                   <h1>Valorizaciones</h1>
                   <p>Texto informativo</p>
                 </div>
-                <a href="Valorizacion/index.php" class="btn btn-mak mak-bg">INICIAR</a>
+                <a href="Valorizacion/" class="btn btn-mak mak-bg">INICIAR</a>
                 <!-- <a href="Valorizacion/valorizacion.php" class="btn btn-mak mak-bg">INICIAR</a> -->
               </div>
             </div>

@@ -140,7 +140,10 @@ require_once('../Controller/controladorListar.php'); ?>
                                                         echo "<td><span class='badge rounded-pill bg-secondary'>Pendiente</span></td>";
                                                         break;
                                                     case "400":
-                                                        echo "<td><span class='badge rounded-pill bg-secondary'>En revision</span></td>";
+                                                        echo "<td><span class='badge rounded-pill bg-warning text-dark'>En revision</span></td>";
+                                                        break;
+                                                    case "200":
+                                                        echo "<td><span class='badge rounded-pill bg-success'> Finalizado</span></td>";
                                                         break;
                                                     default:
                                                         // echo "<td>$data</td>";
@@ -169,8 +172,8 @@ require_once('../Controller/controladorListar.php'); ?>
                                                     <td>
                                                         <button type="button" class="btn btn-rounded btn_get_details scroll-toggle" 
                                                         data-id_solic_val="<?php echo $lst_vlzn[0] ?>" 
-                                                        data-id_cli="<?php echo $lst_vlzn[9] ?>" 
-                                                        data-dni_cli = "<?php echo $lst_vlzn[10] ?>"
+                                                        data-id_cli="<?php echo $lst_vlzn[0] ?>" 
+                                                        data-dni_cli = "<?php echo $lst_vlzn[1] ?>"
                                                         data-toggle="modal" 
                                                         data-target="#details_v">
                                                             <i class="fa-solid fa-eye"></i>
@@ -226,8 +229,12 @@ require_once('../Controller/controladorListar.php'); ?>
                                                             echo "<td><span class='badge rounded-pill bg-secondary'>Pendiente</span></td>";
                                                             break;
                                                         case "400":
-                                                            echo "<td><span class='badge rounded-pill bg-secondary'>En revision</span></td>";
+                                                            echo "<td><span class='badge rounded-pill bg-warning text-dark'>En revision</span></td>";
                                                             break;
+                                                        case "200":
+                                                            echo "<td><span class='badge rounded-pill bg-success'> Finalizado</span></td>";
+                                                            break;
+
                                                         default:
                                                             // echo "<td>$data</td>";
                                                             if ($data !== null) {
@@ -337,7 +344,7 @@ require_once('../Controller/controladorListar.php'); ?>
 
                                     <div class="col-sm-12">
                                         <ul id="detalles_valor" style="display:none"></ul>
-                                        <img src="../Vista/assets/loading_uhd.gif" id="loader_uhd" style="display:none">
+                                        <img src="../Vista/assets/loading_uhd.gif" id="loader_uhd" style="display:none; margin: 0 16rem 5rem">
                                     </div>
                                     <div id="docs_val" style="display:none" >
                                     <?php
@@ -346,13 +353,19 @@ require_once('../Controller/controladorListar.php'); ?>
 
                                     ?>
                                     <form action="../Controller/upload_doc_valorizacion.php" method="POST" enctype="multipart/form-data">
+
                                         <div class="modal-body">
                                             <div hidden>
                                                 <input type="text" name="id_solic_arch" id="id_solic_arch">
                                                 <input type="text" name="dni_cli_arch" id="dni_cli_arch">
                                             </div>
                                             <div class="form-group">
-                                                <label>Archivo de Valorizacion</label>
+                                                <label>Archivos de esta valorizacion:</label>
+                                                <div>
+                                                    <div id="descarga_archivo_m">
+                                                        <ul id="archivos_lista"></ul>
+                                                    </div>
+                                                </div>
                                                 <br>
                                                 <input type="file" name="valorizacion_files[]" id="valorizacion_files" multiple>
 
@@ -721,7 +734,7 @@ require_once('../Controller/controladorListar.php'); ?>
                                 container.appendChild(li);
                             }
                         }
-                    }, 700);
+                    }, 480);
                 },
                 error:function(xhr, status, error){
                     console.log("Error en la solicitud ajax ", error)
@@ -738,14 +751,18 @@ require_once('../Controller/controladorListar.php'); ?>
                     dni_cli_v: dni,   
                 },
                 success: function(response) {
-                        var archivos = response.split('\n');
-                        var archivosLista = $('#archivos_lista');
 
-                        archivosLista.empty();
-                        if (archivos.length === 0 || (archivos.length === 1 && archivos[0].trim() === '')) {
-                            var noFilesMessage = $('<strong>').text('Esta carpeta esta vacia');
-                            archivosLista.append(noFilesMessage);
+                        if (response.status === 'error') {
+                            var errorMessage = $('<strong>').text(response.mensaje);
+                            $('#archivos_lista').empty().append(errorMessage);
+                        }else if (response.status === 'empty'){
+                            var noFilesMessage = $('<strong>').text(response.mensaje);
+                            $('#archivos_lista').empty().append(noFilesMessage);
                         } else {
+                            var archivos = response.files;
+                            var archivosLista = $('#archivos_lista');
+
+                            archivosLista.empty();
 
                             archivos.forEach(function(archivo) {
                                 if (archivo.trim() !== '') {
@@ -758,16 +775,18 @@ require_once('../Controller/controladorListar.php'); ?>
                                     archivosLista.append(listItem);
                                 }
                             });
+                            
                         }
                         //$('#descarga_archivo_m').html(link_);
 
-                        console.log(response);
+                        //console.log(response);
                 },
                 error: function(xhr, status, error) {
                     console.log(error);
                 }
             });
         }
+
     </script>
 
     <style type="text/css">

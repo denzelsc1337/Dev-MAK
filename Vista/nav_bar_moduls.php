@@ -54,7 +54,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a href="../Valorizacion/valorizacion.php" class="nav-link">
+          <a href="../Valorizacion/" class="nav-link">
             <i class="nav-icon fas fa-edit"></i>
             <p>Valorización</p>
           </a>
@@ -74,14 +74,24 @@
       <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
         <!-- Add icons to the links using the .nav-icon class
               with font-awesome or any other icon font library -->
-        <!--MAK MODULOS-->
-        <li class="nav-header">Mis Pendientes</li>
-        <li class="nav-item">
-          <a href="Valorizaciones.php" class="nav-link">
-            <i class="nav-icon fas fa-sharp fa-regular fa-check"></i>
-            <p>Revision de Valorizaciones</p>
-          </a>
-        </li>
+        <!--MAK MODULOS PARA EL ADMIN-->
+          <?php if ($_SESSION['tipo_usu'] == 1): ?>
+            <li class="nav-header">Mis Pendientes</li>
+
+            <li class="nav-item">
+              <a href="../Valorizacion" class="nav-link">
+                <i class="nav-icon fas fa-sharp fa-regular fa-check"></i>
+                <p>Revision de Valorizaciones</p>
+              </a>
+            </li>
+          <?php endif ?>
+
+          <li class="nav-item">
+            <a href="Config/logout.php" class="nav-link">
+                <i class="nav-icon fas fa-sharp fa-regular fa-power-off"></i>
+                <p>Cerrar Sesion</p>
+            </a>
+          </li>
       </ul>
     </nav>
     <!-- /.sidebar-menu -->

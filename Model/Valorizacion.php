@@ -27,11 +27,11 @@ class Valorizacion
 		$this->details_valo=array();
 	}
 
-	public function add_valorizacion_casa($data)
+	public function add_valorizacion_casa($data,$cadena)
 	{
-		include_once('../config/Conexion.php');
+		/*include_once('../config/Conexion.php');
 		$cnx = new Conexion();
-		$cadena = $cnx->abrirConexion();
+		$cadena = $cnx->abrirConexion();*/
 
 		$query = "INSERT INTO `valorizacion`(`id_valor`,`direccion`, `cod_tipo_inmue`, `cod_sub_tipo_inmue`,`cod_tipo_prom`,
 													`area_terreno`, `area_construida`,`antiguedad`,
@@ -75,8 +75,19 @@ class Valorizacion
 
 		/*verificacion de error en la consulta */
 
-		echo mysqli_query($cadena, $query);
-		$cnx->cerrarConexion($cadena);
+		/*echo mysqli_query($cadena, $query);
+		$cnx->cerrarConexion($cadena);*/
+
+		$result = mysqli_query($cadena, $query);
+
+		if ($result) {
+        	echo "OK";
+    		return true;
+	    } else {
+	        echo "Error al insertar el registro: " . mysqli_error($cadena);
+	        return true;
+	    }
+	    //return $result;
 	}
 
 	public function add_valorizacion_depa($data)
