@@ -54,7 +54,7 @@ if ($r) {
 
     $id_registro = mysqli_insert_id($cadena);
 
-    $target_dir = "../Valorizaciones/".$id_registro."/".$dni_cli."/";
+    $target_dir = "../Valorizaciones/".$id_registro."/".$dni_cli."/fotos_val/";
 
 
     echo " se guarda en esta ruta -> " . $target_dir;

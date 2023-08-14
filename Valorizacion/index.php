@@ -360,12 +360,21 @@ require_once('../Controller/controladorListar.php'); ?>
                                                 <input type="text" name="dni_cli_arch" id="dni_cli_arch">
                                             </div>
                                             <div class="form-group">
+
+                                                <label>Fotos Subidas</label>
+                                                <div>
+                                                    <div id="fotos_val">
+                                                        <ul id="lst_fotos"></ul>
+                                                    </div>
+                                                </div>
+
                                                 <label>Archivos de esta valorizacion:</label>
                                                 <div>
                                                     <div id="descarga_archivo_m">
                                                         <ul id="archivos_lista"></ul>
                                                     </div>
                                                 </div>
+
                                                 <br>
                                                 <input type="file" name="valorizacion_files[]" id="valorizacion_files" multiple>
 
@@ -384,6 +393,13 @@ require_once('../Controller/controladorListar.php'); ?>
                                     </form>
 
                                     <?php } else { ?>
+                                        <label>Fotos Subidas</label>
+                                        <div>
+                                            <div id="fotos_val">
+                                                <ul id="lst_fotos"></ul>
+                                            </div>
+                                        </div>
+
                                         <label>Descargar Archivos</label>
                                         <div>
                                             <div id="descarga_archivo_m">
@@ -674,8 +690,9 @@ require_once('../Controller/controladorListar.php'); ?>
             var id_cli_v = data[1].trim();
             var dni_cli_v = data[2].trim();*/
 
+            var rol = '<?php echo $_SESSION['tipo_usu'] ?>'
             
-            
+            console.log(rol);
 
             $tr = $(this).closest('tr');
             var data = $tr.children("td").map(function() {
@@ -687,8 +704,18 @@ require_once('../Controller/controladorListar.php'); ?>
 
             console.log(id_solic_v,id_cli_v,dni_cli_v);
 
-            get_details_solic(id_solic_v, id_cli_v, dni_cli_v)
-            get_files_valor(id_solic_v, dni_cli_v)
+            if (rol == 1 ) {
+                get_details_solic(id_solic_v, id_cli_v, dni_cli_v)
+                get_imgs_valor(id_solic_v, dni_cli_v)
+                get_files_valor(id_solic_v, dni_cli_v)
+            }else{
+                get_details_solic(id_solic_v, id_cli_v, dni_cli_v)
+                get_files_valor(id_solic_v, dni_cli_v)
+                get_imgs_valor(id_solic_v, dni_cli_v)
+                console.log("uwu?");
+            }
+
+
         });
 
 
@@ -704,6 +731,7 @@ require_once('../Controller/controladorListar.php'); ?>
 
                 beforeSend:function(){
                     $("#loader_uhd").show();
+
                     $("#detalles_valor").hide();
                     $("#docs_val").hide();
                     
@@ -767,7 +795,7 @@ require_once('../Controller/controladorListar.php'); ?>
                             archivos.forEach(function(archivo) {
                                 if (archivo.trim() !== '') {
                                     var link_ = $('<a>')
-                                    .attr('href','../Valorizaciones/'+id_sol_v+'/' + dni +'/' +archivo)
+                                    .attr('href','../Valorizaciones/'+id_sol_v+'/'+dni+'/'+archivo)
                                     .attr('download', archivo)
                                     .text(archivo);
 
@@ -776,6 +804,51 @@ require_once('../Controller/controladorListar.php'); ?>
                                 }
                             });
                             
+                        }
+                        //$('#descarga_archivo_m').html(link_);
+
+                        //console.log(response);
+                },
+                error: function(xhr, status, error) {
+                    console.log(error);
+                }
+            });
+        }
+
+        function get_imgs_valor(id_sol_v, dni){
+            $.ajax({
+                type: 'POST',
+                url: '../Controller/Get_Valorizacion_fotos.php',
+                data: {
+                    id_solic_v: id_sol_v,
+                    dni_cli_v: dni,
+                },
+                success: function(response) {
+
+                        if (response.status === 'error') {
+                            var errorMessage = $('<strong>').text(response.mensaje);
+                            $('#lst_fotos').empty().append(errorMessage);
+                        }else if (response.status === 'empty'){
+                            var noFilesMessage = $('<strong>').text(response.mensaje);
+                            $('#lst_fotos').empty().append(noFilesMessage);
+                        } else {
+                            var archivos = response.files;
+                            var archivosLista = $('#lst_fotos');
+
+                            archivosLista.empty();
+
+                            archivos.forEach(function(archivo) {
+                                if (archivo.trim() !== '') {
+                                    var link_ = $('<a>')
+                                    .attr('href','../Valorizaciones/'+id_sol_v+'/'+dni+'/fotos_val/'+archivo)
+                                    .attr('download', archivo)
+                                    .text(archivo);
+
+                                    var listItem = $('<li>').append(link_);
+                                    archivosLista.append(listItem);
+                                }
+                            });
+
                         }
                         //$('#descarga_archivo_m').html(link_);
 
