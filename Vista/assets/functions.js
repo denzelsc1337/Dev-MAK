@@ -127,13 +127,17 @@ $(document).ready(function () {
 
   $("#btnValo_ofi").click(function (e) {
     e.preventDefault();
-    var data = $("#form_valor").serialize();
+    //var data = $("#form_valor").serialize();
+    var formData = new FormData($("#form_valor")[0]);
     $.ajax({
       type: "POST",
       url: "../Controller/Add_valorizacion_oficina.php",
-      data: data,
+      data: formData,
+      processData: false,
+      contentType: false,
+
       success: function (r) {
-        if (r == 1) {
+        if (r) {
           alert("Solicitud enviada correctamente.");
           console.log(r);
           event.returnValue = false;
@@ -251,6 +255,7 @@ $(document).ready(function () {
               console.log(id);
               $("#btnValo_terren").attr("data-id-zoni", id);
               $("#opciones_zoni_t").val(id);
+              $("#opciones_zoni_ofi").val(id);
               // $(".auto-input").val(id);
               $(".auto-input").val(texto);
 

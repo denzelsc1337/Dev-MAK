@@ -1620,7 +1620,7 @@
                                             <div class="column-card">
                                                 <div class="column">
                                                     <label class="mak-txt">Comentario <small>(Opcional)</small></label>
-                                                    <textarea placeholder="Escribe un comentario..."></textarea>
+                                                    <textarea id="coment_valr" name="coment_valr" placeholder="Escribe un comentario..."></textarea>
 
                                                 </div>
                                             </div>

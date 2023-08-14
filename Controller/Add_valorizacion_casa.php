@@ -36,6 +36,7 @@ $data[22] = $_POST["ubic_casa"];
 $data[23] = $_POST["vista_casa"];
 $data[24] = $_POST["acabado_casa"];
 $data[25] = $_POST['id_client_v'];
+$data[26] = $_POST['coment_valr'];
 //form casa
 
 $dni_cli = $_POST['dni_client_v'];
