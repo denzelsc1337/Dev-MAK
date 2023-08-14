@@ -3,7 +3,7 @@
 $cod_solic = $_POST['id_solic_v'];
 $dni_u = $_POST['dni_cli_v'];
 
-$directorio = "../Valorizaciones/".$cod_solic."/".$dni_u."/docs_val/";
+$directorio = "../Valorizaciones/".$cod_solic."/".$dni_u."/fotos_val/";
 
 $response = array(); 
 

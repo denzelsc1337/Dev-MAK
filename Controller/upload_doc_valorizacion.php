@@ -7,7 +7,7 @@ if(isset($_POST["upload_valor_"])) {
 
   $dni_cli = $_POST["dni_cli_arch"];
   
-  $target_dir = "../Valorizaciones/".$id_reg."/".$dni_cli."/";
+  $target_dir = "../Valorizaciones/".$id_reg."/".$dni_cli."/docs_val/";
 
   if (!file_exists($target_dir)) {
     mkdir($target_dir, 0777, true);
