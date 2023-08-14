@@ -9,7 +9,7 @@ $response = array();
 
 if (!is_dir($directorio)) {
     $response['status'] = "error";
-    $response['mensaje'] = "La ruta del directorio no existe.";
+    $response['mensaje'] = "Sin archivos";
 } else {
     $archivos = scandir($directorio);
 
@@ -17,7 +17,7 @@ if (!is_dir($directorio)) {
 
     if (count($archivos) == 0) {
         $response['status'] = "empty";
-        $response['mensaje'] = "Esta carpeta esta vacia.";
+        $response['mensaje'] = "Sin archivos";
     } else {
         $response['status'] = "success";
         $response['files'] = array_values($archivos);

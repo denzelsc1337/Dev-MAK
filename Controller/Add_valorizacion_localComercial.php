@@ -16,5 +16,5 @@ $data[9] = $_POST["frnte_"];
 //form terreno
 
 $oValor = new Valorizacion();
-$r = $oValor->add_valorizacion_terreno($data);
+$r = $oValor->add_valorizacion_local_comercial($data);
 ?>

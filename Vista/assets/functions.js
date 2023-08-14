@@ -60,13 +60,16 @@ $(document).ready(function () {
 
   $("#btnValo_depa").click(function (e) {
     e.preventDefault();
-    var data = $("#form_valor").serialize();
+    //var data = $("#form_valor").serialize();
+    var formData = new FormData($("#form_valor")[0]);
     $.ajax({
       type: "POST",
       url: "../Controller/Add_valorizacion_depa.php",
-      data: data,
+      data: formData,
+      processData: false,
+      contentType: false,
       success: function (r) {
-        if (r == 1) {
+        if (r) {
           alert("Solicitud enviada correctamente.");
           console.log(r);
           event.returnValue = false;
@@ -76,11 +79,12 @@ $(document).ready(function () {
             "Error al registrar, Verifique que los campos esten correctamente completos."
           );
           console.log(r);
-          console.log(data);
+          console.log(formData);
         }
       },
       error: function (xhr, status, error) {
         console.error(error);
+        console.log(xhr.responseText);
       },
     });
     return false;
@@ -152,6 +156,35 @@ $(document).ready(function () {
     $.ajax({
       type: "POST",
       url: "../Controller/Add_valorizacion_localIndustrial.php",
+      data: data,
+      success: function (r) {
+        if (r == 1) {
+          alert("Solicitud enviada correctamente.");
+          console.log(r);
+          event.returnValue = false;
+          window.location.href = "valorizacion.php";
+        } else {
+          alert(
+            "Error al registrar, Verifique que los campos esten correctamente completos."
+          );
+          console.log(r);
+          console.log(data);
+        }
+      },
+      error: function (xhr, status, error) {
+        console.error(error);
+      },
+    });
+    return false;
+  });
+
+
+  $("#btnValo_lc_ex").click(function (e) {
+    e.preventDefault();
+    var data = $("#form_valor").serialize();
+    $.ajax({
+      type: "POST",
+      url: "../Controller/Add_valorizacion_localComercial.php",
       data: data,
       success: function (r) {
         if (r == 1) {
