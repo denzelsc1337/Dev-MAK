@@ -902,6 +902,7 @@
                                                                                 <input type="text" class="form-mak auto-input" id="" name="" value="">
                                                                                 <ul class="lista">
                                                                                 </ul>
+
                                                                                 <input type="text" name="opciones_zoni_t" id="opciones_zoni_t">
                                                                             </div>
 
@@ -1058,6 +1059,8 @@
                                                                                 <input type="text" class="form-mak auto-input">
                                                                                 <ul class="lista">
                                                                                 </ul>
+
+                                                                                <input type="text" name="opciones_zoni_ofi" id="opciones_zoni_ofi">
                                                                             </div>
 
                                                                         </div>
@@ -1227,6 +1230,8 @@
                                                                                         <input type="text" class="form-mak auto-input"  id="zoni_lcl_exc" name="zoni_lcl_exc">
                                                                                         <ul class="lista">
                                                                                         </ul>
+
+                                                                                        <input type="text" name="opciones_zoni_lc" id="opciones_zoni_lc">
                                                                                     </div>
                                                                                 </div>
                                                                                 <div class="input-group-append">
@@ -1387,6 +1392,8 @@
                                                                                         <input type="text" class="form-mak auto-input" id="zoni_lcl_comun" name="zoni_lcl_comun">
                                                                                         <ul class="lista">
                                                                                         </ul>
+
+                                                                                        <input type="text" name="opciones_zoni_lc_c" id="opciones_zoni_lc_c">
                                                                                     </div>
                                                                                 </div>
                                                                                 <div class="input-group-append">
