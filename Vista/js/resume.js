@@ -1,8 +1,8 @@
 (() => {
   // inputs checkbox de los formularios
   var inputsID_chk = [];
-  // inputs number de los formularios
-  var inputsID_num = [];
+  // inputs checkbox de los formularios locales
+  var inputsID_chk_lcl = [];
   // selects de los formularios
   var selectsID = [];
   // all
@@ -24,10 +24,6 @@
     whatTI = tipoInmueble.value;
   });
 
-  // const section = document.getElementById(whatTI);
-  // console.log(section);
-
-  // var section = document.getElementById(whatTI);
 
   const buttonNextPag = document.querySelector(".nextPag");
 
@@ -36,29 +32,69 @@
 
     if (section_Array.includes(whatTI)) {
       const section = document.getElementById(whatTI);
-      // console.log(section);
+
+      if (section.getAttribute("id") === "5") {
+        arrayNames.splice(0);
+        arrayValues.splice(0);
+        const sub_tipo_prop = document.querySelector("#sub_tipo_prop").value;
 
 
-      ///
-      const inputs_chk = section.querySelectorAll("input[type='checkbox']");
-      //
-      inputs_chk.forEach((element) => {
-        inputsID_chk.push(element.getAttribute("id"));
-      });
-      //
-      // true or false in chks
-      inputsID_chk.forEach(function (checkboxID) {
-        var checkbox = document.getElementById(checkboxID);
-        checkbox.addEventListener("change", function () {
-          if (this.checked) {
-            this.value = "true";
-          } else {
-            this.value = "false";
-          }
+        if (sub_tipo_prop === "13" || sub_tipo_prop === "14") {
+          const locales = section.querySelectorAll(".lcl");
+          console.log(locales);
+
+          locales.forEach(element => {
+            if (element.classList.contains("show")) {
+              const inputs_chk_lcl = element.querySelectorAll("input[type='checkbox']");
+              inputs_chk_lcl.forEach(element => {
+                console.log(element);
+
+                inputsID_chk.push(element.getAttribute("id"));
+              });
+
+              // true or false in chks
+              inputsID_chk.forEach(function (checkboxID) {
+
+                var checkbox_lcl = document.getElementById(checkboxID);
+                checkbox_lcl.addEventListener("change", function () {
+                  if (this.checked) {
+                    this.value = "true";
+                  } else {
+                    this.value = "false";
+                  }
+                });
+              });
+              // true or false in chks
+            }
+
+          });
+        }
+
+      } else {
+
+
+        ///
+        const inputs_chk = section.querySelectorAll("input[type='checkbox']");
+        //
+        inputs_chk.forEach((element) => {
+          inputsID_chk.push(element.getAttribute("id"));
         });
-      });
-      // true or false in chks
-      ///
+        //
+        // true or false in chks
+        inputsID_chk.forEach(function (checkboxID) {
+          var checkbox = document.getElementById(checkboxID);
+          console.log(checkbox);
+          checkbox.addEventListener("change", function () {
+            if (this.checked) {
+              this.value = "true";
+            } else {
+              this.value = "false";
+            }
+          });
+        });
+        // true or false in chks
+        ///
+      }
 
 
       const buttonSigPag = section.querySelector(".sigPag");
@@ -81,25 +117,22 @@
           cardBodys.forEach((element) => {
             const input = element.querySelectorAll("input");
             input.forEach((ele) => {
-              // console.log(ele.value);
               arrayValues.push(ele.value);
             });
-            // console.log("---");
             //
             const select = element.querySelectorAll("select");
             select.forEach((ele) => {
 
               const textValue_ = ele.options[ele.selectedIndex].innerText;
-              // console.log(textValue_);
               arrayValues.push(textValue_);
             });
-            // console.log("---");
           });
         });
 
         // console.log(arrayNames);
         // console.log(arrayValues);
       })
+
     }
   });
 
@@ -160,16 +193,19 @@
   buttonAtrPag.addEventListener("click", function () {
     arrayNames.splice(0);
     arrayValues.splice(0);
-    console.log(arrayNames);
-    console.log(arrayValues);
   });
 
   const buttonBckPag = document.querySelectorAll(".backPag").forEach(element => {
     element.addEventListener("click", function () {
       arrayNames.splice(0);
       arrayValues.splice(0);
-      console.log(arrayNames);
-      console.log(arrayValues);
+
+      inputsID_chk.forEach(function (checkboxID) {
+        var checkboxs = document.getElementById(checkboxID);
+        for (var i = 0; i < inputsID_chk.length; i++) {
+          checkboxs.value = false;
+        }
+      });
     });
   });
 

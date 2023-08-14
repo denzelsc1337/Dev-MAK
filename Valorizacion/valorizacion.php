@@ -899,7 +899,7 @@
                                                                             <!-- <input type="text" id="tipo_zoni_ofi" name="tipo_zoni_ofi"> -->
                                                                             <!-- <select id="opciones_zoni_ofi" name="opciones_zoni_ofi" class="opciones_zoni_ofi"></select> -->
                                                                             <div style="width: 100%">
-                                                                                <input type="text" class="form-mak auto-input" id="opciones_zoni_t" name="opciones_zoni_t" value="" >
+                                                                                <input type="text" class="form-mak auto-input" id="opciones_zoni_t" name="opciones_zoni_t" value="">
                                                                                 <ul class="lista">
                                                                                 </ul>
                                                                             </div>
@@ -1099,7 +1099,7 @@
                                                             <div class="card-body">
                                                                 <div class="col-sm-12 flex">
                                                                     <div class="col-sm-6">
-                                                                        <label>Piso de oficina:</label>
+                                                                        <label>Pisos de oficina:</label>
                                                                         <div class="section-input col-sm-8">
                                                                             <span class="icon-input">
                                                                                 <img src="https://cdn-icons-png.flaticon.com/512/6080/6080750.png" alt="">
@@ -1403,10 +1403,10 @@
                                                                     <div class="card-body">
                                                                         <div class="col-sm-12 flex">
                                                                             <div class="col-sm-6">
-                                                                                <label>Frente:</label>
+                                                                                <label>Pisos de oficina:</label>
                                                                                 <div class="section-input col-sm-8">
                                                                                     <span class="icon-input">
-                                                                                        <img class="rotate-180" src="https://cdn-icons-png.flaticon.com/512/8264/8264013.png" alt="">
+                                                                                        <img src="https://cdn-icons-png.flaticon.com/512/6080/6080750.png" alt="">
                                                                                     </span>
                                                                                     <input class="form-control input-number" type="number" min="0" step="00.01" id="" name="">
                                                                                 </div>
@@ -1450,14 +1450,14 @@
 
                                                                             <div class="col-sm-6 pdd-left align-center">
                                                                                 <div class="custom-control custom-checkbox">
-                                                                                    <input class="right custom-control-input" type="checkbox" id="" name="">
-                                                                                    <label for="" class="right custom-control-label">Ascensor:</label>
+                                                                                    <input class="right custom-control-input" type="checkbox" id="ascen_lcl_com_comun" name="ascen_lcl_com_comun">
+                                                                                    <label for="ascen_lcl_com_comun" class="right custom-control-label">Ascensor:</label>
                                                                                 </div>
                                                                             </div>
                                                                             <div class="col-sm-6 pdd-left align-center">
                                                                                 <div class="custom-control custom-checkbox">
-                                                                                    <input class="right custom-control-input" type="checkbox" id="" name="">
-                                                                                    <label for="" class="right custom-control-label">Aire acondicionado:</label>
+                                                                                    <input class="right custom-control-input" type="checkbox" id="aire_lcl_com_comun" name="aire_lcl_com_comun">
+                                                                                    <label for="aire_lcl_com_comun" class="right custom-control-label">Aire acondicionado:</label>
                                                                                 </div>
                                                                             </div>
 
@@ -1623,8 +1623,7 @@
                                                                     Agregar Fotos
                                                                 </div>
 
-                                                                <input type="file" id="inpt-file-valo" 
-                                                                name="inpt-file-valo[]" multiple hidden>
+                                                                <input type="file" id="inpt-file-valo" name="inpt-file-valo[]" multiple hidden>
                                                             </div>
 
 
