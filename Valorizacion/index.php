@@ -1321,7 +1321,7 @@ require_once('../Controller/controladorListar.php'); ?>
                 ],
                 // Otras opciones de DataTables
                 "drawCallback": function(settings) {
-                    $('.dataTables_length select').addClass('form-mak');
+                    $('.dataTables_length select').addClass('form-mak tableLenght');
                     $('.dataTables_filter input').addClass('form-mak');
                 }
             });
