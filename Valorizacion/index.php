@@ -62,7 +62,7 @@ require_once('../Controller/controladorListar.php'); ?>
                 <section class="content body-mak txt-center mak-txt">
                     <div class="container">
                         <div class="b-title">VALORIZACIONES</div>
-                        <p class="b-text mak-txt">NO NOS PASARON EL TEXTO ASI QUE ESTO ES TEMPORAL, GRACIAS :)</p>
+                        <p class="b-text mak-txt">-</p>
                     </div>
 
                     <?php
