@@ -113,7 +113,7 @@ require_once('../Controller/controladorListar.php'); ?>
                                 <div class="table-responsive">
                                     <div class="col-sm-12">
 
-                                        <table id="tabla" class="table table-borderless" style="width: 100%;">
+                                        <table id="tabla" class="table table-borderless mb-3" style="width: 100%;">
 
                                             <thead class="">
                                                 <tr>
@@ -202,7 +202,7 @@ require_once('../Controller/controladorListar.php'); ?>
 
                                 <div class="col-sm-12">
                                     <div class="table-responsive pl-2 pr-2">
-                                        <table class="table table-borderless" style="width: 100%;">
+                                        <table class="table table-borderless mb-3" style="width: 100%;">
                                             <thead class="">
                                                 <tr>
                                                     <th>ID</th>
@@ -291,13 +291,13 @@ require_once('../Controller/controladorListar.php'); ?>
                         </div>
 
                     </div>
-                    <div class="footer-mak">
+                    <!-- <div class="footer-mak">
                         <div class="container">
                             <div class="flex">
                                 <a href="valorizacion.php" class="btn btn-mak mak-bg ml-auto">Continuar</a>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                 </section>
 
                 <div class="modal fade" id="upload_valorizacion" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -1246,55 +1246,83 @@ require_once('../Controller/controladorListar.php'); ?>
     </script>
 
     <script>
+        // $(document).ready(function() {
+        //     $('.table').DataTable({
+        //         // NO LOADING
+        //         //stateSave: true,
+        //         // scrollX: true,
+        //         // scrollY: 650,
+        //         //deferRender:    true,
+        //         //scroller:       true,
+        //         //scrollY:        650,
+        //         // dom: `<"row"
+        //         //         <"col-sm-6"f>
+        //         //         <"col-sm-6"l>
+        //         //         >t
+        //         //     <"row"
+        //         //         <"col-sm-6"i>
+        //         //         <"col-sm-6"p>
+        //         //         >`,
+
+        //         language: {
+
+        //             //
+        //             processing: "Traitement en cours...",
+        //             search: "Buscar:",
+        //             pageLenght: 5,
+        //             // lengthMenu: "Mostrar" + `
+        //             //                 <select class="form-select form-select-sm">
+        //             //                     <option value="10">10</option>
+        //             //                     <option value="25">25</option>
+        //             //                     <option value="50">50</option>
+        //             //                     <option value="100">100</option>
+        //             //                     <option value="-1">Todos</option>
+        //             //                 </select>
+        //             //             ` + "por página.",
+        //             lengthMenu: [
+        //                 [5, 10, 25, 50, -1],
+        //                 [5, 10, 25, 50, "Todos"]
+        //             ],
+        //             columnDefs: [{
+        //                 orderable: false,
+        //                 target: [1, 2, 3]
+        //             }],
+        //             info: "Mostrando del _START_ al _END_ de _TOTAL_ elementos.",
+        //             infoEmpty: "No se encontraron resultados.",
+        //             infoFiltered: "(Filtrado de _MAX_ elementos totales)",
+        //             infoPostFix: "",
+        //             loadingRecords: "Cargando datos...",
+        //             zeroRecords: "No se encontro resultados.",
+        //             emptyTable: "No hay datos disponibles en la tabla.",
+        //             paginate: {
+        //                 first: "Primero",
+        //                 previous: "Anterior",
+        //                 next: "Siguiente",
+        //                 last: "Último"
+        //             },
+        //             aria: {
+        //                 sortAscending: ": activer pour trier la colonne par ordre croissant",
+        //                 sortDescending: ": activer pour trier la colonne par ordre décroissant"
+        //             }
+        //         }
+        //     });
+        // });
+
+
         $(document).ready(function() {
             $('.table').DataTable({
-                // NO LOADING
-                //stateSave: true,
-                // scrollX: true,
-                // scrollY: 650,
-                //deferRender:    true,
-                //scroller:       true,
-                //scrollY:        650,
-                // dom: `<"row"
-                //         <"col-sm-6"f>
-                //         <"col-sm-6"l>
-                //         >t
-                //     <"row"
-                //         <"col-sm-6"i>
-                //         <"col-sm-6"p>
-                //         >`,
-
-                language: {
-
-                    //
-                    processing: "Traitement en cours...",
-                    search: "Buscar:",
-                    lengthMenu: "Mostrar" + `
-                                <select class="form-select form-select-sm">
-                                    <option value="10">10</option>
-                                    <option value="25">25</option>
-                                    <option value="50">50</option>
-                                    <option value="100">100</option>
-                                    <option value="-1">Todos</option>
-                                </select>
-                    ` + "por página.",
-                    info: "Mostrando del _START_ al _END_ de _TOTAL_ elementos.",
-                    infoEmpty: "No se encontraron resultados.",
-                    infoFiltered: "(Filtrado de _MAX_ elementos totales)",
-                    infoPostFix: "",
-                    loadingRecords: "Cargando datos...",
-                    zeroRecords: "No se encontro resultados.",
-                    emptyTable: "No hay datos disponibles en la tabla.",
-                    paginate: {
-                        first: "Primero",
-                        previous: "Anterior",
-                        next: "Siguiente",
-                        last: "Último"
-                    },
-                    aria: {
-                        sortAscending: ": activer pour trier la colonne par ordre croissant",
-                        sortDescending: ": activer pour trier la colonne par ordre décroissant"
-                    }
+                "language": {
+                    "url": "//cdn.datatables.net/plug-ins/1.10.25/i18n/Spanish.json", // URL del archivo de localización
+                    "searchPlaceholder": "Buscar en la tabla..." // placeholder del Buscar
+                },
+                "lengthMenu": [
+                    [5, 10, 25, 50, -1],
+                    [5, 10, 25, 50, "Todos"]
+                ],
+                // Otras opciones de DataTables
+                "drawCallback": function(settings) {
+                    $('.dataTables_length select').addClass('form-mak');
+                    $('.dataTables_filter input').addClass('form-mak');
                 }
             });
         });
