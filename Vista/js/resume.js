@@ -264,7 +264,7 @@
 
 
     var comment = document.querySelector("#coment_valr").value;
-    document.getElementById("coment_valr_").innerHTML = comment;
+    document.getElementById("coment_valr_").textContent = comment;
   });
 
 

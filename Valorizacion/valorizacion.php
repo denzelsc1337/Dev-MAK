@@ -945,8 +945,8 @@
                                                                 </div>
                                                                 <div class="col-sm-12 flex">
                                                                     <div class="col-sm-6 flex align-center" style="padding-right: 0px;padding-left: 0px;">
-                                                                        <label class="col-sm-5 col-form-label" style="padding-right: 0px;padding-left: 0px;">Parámetros:</label>
-                                                                        <div class=" section-input col-sm-8">
+                                                                        <label class="col-sm-4 col-form-label" style="padding-right: 0px;padding-left: 0px;">Parámetros:</label>
+                                                                        <div class=" section-input col-sm-6">
                                                                             <!-- <span class="icon-input">
                                                                                 <img src="https://cdn-icons-png.flaticon.com/512/3017/3017956.png" alt="">
                                                                             </span> -->
@@ -955,7 +955,7 @@
                                                                     </div>
                                                                     <div class="col-sm-6 flex align-center pdd-left" style="padding-right: 0px;padding-left: 0px;">
                                                                         <label class="col-sm-3 col-form-label" style="padding-right: 0px;padding-left: 0px;">Frente:</label>
-                                                                        <div class=" section-input col-sm-8">
+                                                                        <div class=" section-input col-sm-6">
                                                                             <!-- <span class="icon-input">
                                                                                 <img class="rotate-180" src="https://cdn-icons-png.flaticon.com/512/8264/8264013.png" alt="">
                                                                             </span> -->
@@ -2447,14 +2447,14 @@
 
     <script>
         // TEXTAREA
-        const textareas = document.querySelectorAll("textarea");
-        textareas.forEach((textarea) => {
+        const textarea = document.querySelector("textarea");
+        // textareas.forEach((textarea) => {
             textarea.addEventListener("keyup", e => {
                 textarea.style.height = "auto";
                 let scHeight = e.target.scrollHeight;
                 textarea.style.height = `${scHeight}px`;
             })
-        })
+        // })
         // TEXTAREA
     </script>
 
