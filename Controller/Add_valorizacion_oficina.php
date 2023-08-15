@@ -22,6 +22,8 @@ $data[12] = $_POST["coch_ofi"];
 $data[13] = isset($_POST['ascen_ofi']) ? true : false;
 $data[14] = isset($_POST['aire_ofio']) ? true : false;
 $data[15] = $_POST["ubic_ofi"];
+$data[16] = $_POST["dni_client_v"];
+$data[17] = $_POST["coment_valr"];
 //form oficina
 
 

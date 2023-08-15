@@ -41,6 +41,7 @@ $data[25] = $_POST["ubic_depa"];
 $data[26] = $_POST["vista_depa"];
 $data[27] = $_POST["acabado_depa"];
 $data[28] = $_POST['id_client_v'];
+$data[29] = $_POST["coment_valr"];
 //form depa
 
 $dni_cli = $_POST['dni_client_v'];

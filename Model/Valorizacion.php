@@ -108,7 +108,7 @@ class Valorizacion
 												`ascensor_dep`,`ascensor_dir_dep`,
 												`pisos_edif_dep`, `piso_dep`,
 
-												`cod_ubi`, `cod_vista`, `cod_acabado`,`cod_client`)
+												`cod_ubi`, `cod_vista`, `cod_acabado`,`cod_client`,`comentario`)
 
 						 VALUES(null, '" . $data[1] . "', '" . $data[2] . "', '" . $data[3] . "','" . $data[4] . "',
 						 	'" . $data[5] . "', '" . $data[6] . "','" . $data[7] . "',
@@ -122,7 +122,8 @@ class Valorizacion
 						 	'" . $data[21] . "','" . $data[22] . "',
 						 	'" . $data[23] . "','" . $data[24] . "',
 
-						 	'" . $data[25] . "','" . $data[26] . "','" . $data[27] . "','" . $data[28] . "');";
+						 	'" . $data[25] . "','" . $data[26] . "','" . $data[27] . "','" . $data[28] . "',
+						 	'" . $data[29] . "');";
 
 		/*verificacion de error en la consulta
 
@@ -160,13 +161,13 @@ class Valorizacion
 
 												`area_terreno`,`cod_zonificacion`,`cod_tipo_suelo`,
 
-												`param_terreno`,`frent_terreno`,`cod_client`)
+												`param_terreno`,`frent_terreno`,`cod_client`, `comentario`)
 
 						 VALUES(null, '" . $data[1] . "', '" . $data[2] . "', '" . $data[3] . "','" . $data[4] . "','" . $data[5] . "',
 
 						 			  '" . $data[6] . "','" . $data[7] . "',
 
-						 			  '" . $data[8] . "','" . $data[9] . "','" . $data[10] . "')";
+						 			  '" . $data[8] . "','" . $data[9] . "','" . $data[10] . "','" . $data[11] . "')";
 
 		//verificacion de error en la consulta
 
@@ -206,7 +207,7 @@ class Valorizacion
 												`cod_acabado`,`cod_zonificacion`,`cod_vista`,
 
 												`piso_ofi`,`cochera_ofi`,
-												`ascensor_ofi`, `aire_ofi`, `cod_ubi`)
+												`ascensor_ofi`, `aire_ofi`, `cod_ubi`, `cod_client`,`comentario` )
 
 						 VALUES(null, '" . $data[1] . "', '" . $data[2] . "', '" . $data[3] . "','" . $data[4] . "',
 						 			  '" . $data[5] . "','" . $data[6] . "','" . $data[7] . "',
@@ -214,7 +215,8 @@ class Valorizacion
 						 			  '" . $data[8] . "','" . $data[9] . "','" . $data[10] . "',
 
 						 			  '" . $data[11] . "','" . $data[12] . "',
-						 			  '" . $data[13] . "','" . $data[14] . "','" . $data[15] . "')";
+						 			  '" . $data[13] . "','" . $data[14] . "','" . $data[15] . "','" . $data[16] . "',
+						 			  '" . $data[17] . "')";
 
 		/*verificacion de error en la consulta
 

@@ -17,6 +17,7 @@ $data[7] = $_POST["tipo_suelo_tern"];
 $data[8] = $_POST["params_tern"];
 $data[9] = $_POST["frnte_tern"];
 $data[10] = $_POST['id_client_v'];
+$data[11] = $_POST["coment_valr"];
 //form terreno
 
 $dni_cli = $_POST['dni_client_v'];
