@@ -427,6 +427,10 @@ h2 {
   border-bottom: 1px solid var(--blue-mak) !important;
 }
 
+#tabla_length .form-mak {
+  padding: 0;
+}
+
 .badge {
   padding: 10px 15px !important;
   font-size: 15px !important;
@@ -582,6 +586,7 @@ h2 {
 .card-mak img {
   height: 100%;
   border-radius: var(--radius-20);
+  filter: brightness(0.7);
 }
 
 .card-mak img:hover {}
@@ -1033,6 +1038,10 @@ textarea::-webkit-scrollbar {
 
 .as {
   background-image: url(https://cdn-icons-png.flaticon.com/512/1606/1606273.png);
+}
+
+.table.dataTable {
+  margin-bottom: 1rem !important;
 }
 
 .table-form {
