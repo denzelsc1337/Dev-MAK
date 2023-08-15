@@ -1641,7 +1641,7 @@
                                                         <div class="file-content" id="fileValorArchives">
                                                             <div class="up-archive file-item">
                                                                 <div id="btnFile" class="item-box">
-                                                                    Agregar Fotos
+                                                                    Agregar Docs.
                                                                 </div>
 
                                                                 <input type="file" id="inpt-file-valo" name="inpt-file-valo[]" multiple hidden>

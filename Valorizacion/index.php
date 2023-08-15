@@ -341,7 +341,11 @@ require_once('../Controller/controladorListar.php'); ?>
                             <div class="modal-body">
                                 <h1 class="title-m" id="titulo_docs">Detalles</h1>
                                 <div class="row margin">
-
+                                    <div hidden>
+                                        <input type="text" name="txt_solic" id="txt_solic">
+                                        <input type="text" name="txt_id_cli" id="txt_id_cli">
+                                        <input type="text" name="txt_dni" id="txt_dni">
+                                    </div>
                                     <div class="col-sm-12">
                                         <ul id="detalles_valor" style="display:none"></ul>
                                         <img src="../Vista/assets/loading_uhd.gif" id="loader_uhd" style="display:none; margin: 0 16rem 5rem">
@@ -361,7 +365,7 @@ require_once('../Controller/controladorListar.php'); ?>
                                                     </div>
                                                     <div class="form-group">
 
-                                                        <label>Fotos Subidas</label>
+                                                        <label>Archivos Subidos</label>
                                                         <div>
                                                             <div id="fotos_val">
                                                                 <ul id="lst_fotos"></ul>
@@ -685,6 +689,15 @@ require_once('../Controller/controladorListar.php'); ?>
             var id_cli_v = $(this).data('id_cli');
             var dni_cli_v = $(this).data('dni_cli');
 
+
+            //var inpt_solic_v = id_solic_v;
+            var inpt_solic_v = $("#txt_solic").val(id_solic_v);
+            var inpt_cli_v = $("#txt_id_cli").val(id_cli_v);
+            var inpt_dni_v = $("#txt_dni").val(dni_cli_v);
+
+
+            //console.log(inpt_solic_v)
+
             /*var id_solic_v = data[0].trim();
             var id_cli_v = data[1].trim();
             var dni_cli_v = data[2].trim();*/
@@ -751,7 +764,6 @@ require_once('../Controller/controladorListar.php'); ?>
                         var container = document.getElementById('detalles_valor');
 
                         container.innerHTML = '';
-
 
                         for (var prop in detalles) {
                             if (detalles.hasOwnProperty(prop)) {
@@ -843,7 +855,7 @@ require_once('../Controller/controladorListar.php'); ?>
                     var ruta_doc = $parentDiv.find('#ruta_doc_i').val();
                     var ruta_archivo = $parentDiv.find('#ruta_archivo_i').val();*/
 
-                    eliminarArchivo(ruta_);
+                    eliminarArchivo($this, ruta_);
 
                     console.log("archivo eliminado");
                 } else {
@@ -851,8 +863,12 @@ require_once('../Controller/controladorListar.php'); ?>
                 }
             });
 
-        function eliminarArchivo(ruta_doc) {
+        function eliminarArchivo($deleteBtn, ruta_doc) {
 
+                var idsolicitud = $("#txt_solic").val();
+                var dni_cli_t = $("#txt_dni").val();
+
+                console.log(idsolicitud);
 
                 $.ajax({
                     type: 'POST',
@@ -862,16 +878,18 @@ require_once('../Controller/controladorListar.php'); ?>
                     },
                     success: function(response) {
                         console.log("archivo eliminado de la ruta: " + ruta_doc);
-                        //$deleteBtn.closest('.modal').modal('hide');
-                        //load_documents();
+                        $deleteBtn.closest('.modal').modal('hide');
+                        get_details_solic(idsolicitud);
+                        get_files_valor(idsolicitud, dni_cli_t)
                     },
-                    /*complete: function() {
-                        load_documents();
+                    complete: function() {
+                        get_details_solic(idsolicitud);
+                        get_files_valor(idsolicitud, dni_cli_t)
                         setTimeout(function() {
-                            $('#lst_hr_0').modal('show');
+                            $('#details_v').modal('show');
                         }, 500);
 
-                    }*/
+                    }
                 });
         }
 
