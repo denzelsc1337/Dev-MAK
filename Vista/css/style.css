@@ -424,6 +424,17 @@ h2 {
   color: var(--blue-mak);
   background-color: transparent !important;
   font-weight: bold;
+  /*border-bottom: 1px solid var(--blue-mak) !important;*/
+  border: 1px solid var(--blue-mak) !important;
+}
+
+.card-login .form-mak{
+  padding-left: 40px;
+}
+
+.card-login .form-mak,
+.form-mak.sect{
+  border: transparent !important;
   border-bottom: 1px solid var(--blue-mak) !important;
 }
 

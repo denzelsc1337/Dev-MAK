@@ -139,7 +139,7 @@
                                                             <!-- text input -->
                                                             <div class="form-group">
                                                                 <label class="mak-txt">Dirección</label>
-                                                                <input type="text" class="form-mak" placeholder="Ingrese una dirección" id="direccion_" name="direccion_" onkeydown="buscarDireccion(event, 'mapa', 'mapa_2')" autocomplete="off" required>
+                                                                <input type="text" class="form-mak sect" placeholder="Ingrese una dirección" id="direccion_" name="direccion_" onkeydown="buscarDireccion(event, 'mapa', 'mapa_2')" autocomplete="off" required>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -151,7 +151,7 @@
                                                                 <?php
                                                                 require_once('../Controller/controladorListar.php');
                                                                 ?>
-                                                                <select id="tipo_prop" name="tipo_prop" class="form-mak" value="-1"></select>
+                                                                <select id="tipo_prop" name="tipo_prop" class="form-mak sect" value="-1"></select>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -163,7 +163,7 @@
                                                             <!-- textarea -->
                                                             <div class="form-group">
                                                                 <label class="mak-txt">Subtipo Inmueble</label>
-                                                                <select id="sub_tipo_prop" name="sub_tipo_prop" class="form-mak"></select>
+                                                                <select id="sub_tipo_prop" name="sub_tipo_prop" class="form-mak sect"></select>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -173,7 +173,7 @@
                                                             <!-- textarea -->
                                                             <div class="form-group">
                                                                 <label>Venta o Alquiler</label>
-                                                                <select class="form-mak" id="tipo_prom" name="tipo_prom">
+                                                                <select class="form-mak sect" id="tipo_prom" name="tipo_prom">
                                                                     <?php foreach ($selector_types_prom as $cod_type_) : ?>
                                                                         <option value="<?php echo $cod_type_[0]; ?>"><?php echo $cod_type_[1]; ?></option>
                                                                     <?php endforeach ?>
@@ -210,7 +210,7 @@
                                                                         </i>
                                                                     </div>
                                                                 </div>
-                                                                <input type="number" inputmode="numeric" class="form-mak" min="0" placeholder="00.00m2" id="a_t" name="a_t" required>
+                                                                <input type="text" inputmode="numeric" class="form-mak sect" min="0" max="999" maxlength="4" placeholder="00.00m2" id="a_t" name="a_t" required>
                                                             </div>
                                                         </div>
 
@@ -230,7 +230,7 @@
                                                                         </i>
                                                                     </div>
                                                                 </div>
-                                                                <input type="number" inputmode="numeric" class="form-mak" min="0" placeholder="00.00m2" id="a_c" name="a_c" required>
+                                                                <input type="text" inputmode="numeric" class="form-mak sect" min="0" max="1000" maxlength="4" placeholder="00.00m2" id="a_c" name="a_c" required>
                                                             </div>
                                                         </div>
 
@@ -249,7 +249,7 @@
                                                                         </i>
                                                                     </div>
                                                                 </div>
-                                                                <input type="number" inputmode="numeric" class="form-mak" min="0" placeholder="00.00m2" id="a_o" name="a_o" required>
+                                                                <input type="text" inputmode="numeric" class="form-mak sect" min="0" max="1000" maxlength="4" placeholder="00.00m2" id="a_o" name="a_o" required>
                                                             </div>
                                                         </div>
 
@@ -260,7 +260,7 @@
                                                         <div class="col-sm-12">
                                                             <div class="form-group">
                                                                 <label class="mak-txt">Antigüedad</label>
-                                                                <input type="number" inputmode="numeric" class="form-mak" min="0" placeholder="0 años" id="antig" name="antig" required>
+                                                                <input type="text" inputmode="numeric" class="form-mak sect" min="0" max="1000" maxlength="4" placeholder="0 años" id="antig" name="antig" required>
                                                             </div>
                                                         </div>
 
@@ -2447,14 +2447,14 @@
 
     <script>
         // TEXTAREA
-        const textarea = document.querySelector("textarea");
-        // textareas.forEach((textarea) => {
+        const textareas = document.querySelectorAll("textarea");
+         textareas.forEach((textarea) => {
             textarea.addEventListener("keyup", e => {
                 textarea.style.height = "auto";
                 let scHeight = e.target.scrollHeight;
                 textarea.style.height = `${scHeight}px`;
             })
-        // })
+         })
         // TEXTAREA
     </script>
 

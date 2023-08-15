@@ -38,7 +38,7 @@ $(document).ready(function () {
       contentType: false,
       success: function (r) {
         if (r) {
-          alert("Solicitud enviada correctamente.");
+          //alert("Solicitud enviada correctamente.");
           console.log(r);
           event.returnValue = false;
           window.location.href = "../Valorizacion/";
@@ -70,7 +70,7 @@ $(document).ready(function () {
       contentType: false,
       success: function (r) {
         if (r) {
-          alert("Solicitud enviada correctamente.");
+          //alert("Solicitud enviada correctamente.");
           console.log(r);
           event.returnValue = false;
           window.location.href = "../Valorizacion/";
@@ -106,7 +106,7 @@ $(document).ready(function () {
 
       success: function (r) {
         if (r) {
-          alert("Solicitud enviada correctamente.");
+          //alert("Solicitud enviada correctamente.");
           console.log(r);
           event.returnValue = false;
           window.location.href = "../Valorizacion/";
@@ -138,7 +138,7 @@ $(document).ready(function () {
 
       success: function (r) {
         if (r) {
-          alert("Solicitud enviada correctamente.");
+          //alert("Solicitud enviada correctamente.");
           console.log(r);
           event.returnValue = false;
           window.location.href = "../Valorizacion/";
@@ -170,7 +170,7 @@ $(document).ready(function () {
 
       success: function (r) {
         if (r) {
-          alert("Solicitud enviada correctamente.");
+          //alert("Solicitud enviada correctamente.");
           console.log(r);
           event.returnValue = false;
           window.location.href = "../Valorizacion/";
@@ -202,7 +202,7 @@ $(document).ready(function () {
 
       success: function (r) {
         if (r) {
-          alert("Solicitud enviada correctamente.");
+          //alert("Solicitud enviada correctamente.");
           console.log(r);
           event.returnValue = false;
           window.location.href = "../Valorizacion/";
@@ -237,7 +237,7 @@ $(document).ready(function () {
 
       success: function (r) {
         if (r) {
-          alert("Solicitud enviada correctamente.");
+          //alert("Solicitud enviada correctamente.");
           console.log(r);
           event.returnValue = false;
           window.location.href = "../Valorizacion/";
@@ -547,9 +547,15 @@ $(document).ready(function () {
   function processValoFile(file, targetElement) {
     const docType = file.type;
     const validExtensions = [
-      "image/png",
-      "image/jpg",
       "image/jpeg",
+      "image/jpg",
+      "image/png",
+      "image/gif",
+      "application/pdf",
+      "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+      "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+      "application/vnd.openxmlformats-officedocument.presentationml.presentation",
+      "text/plain",
     ];
 
     if (validExtensions.includes(docType)) {

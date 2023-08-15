@@ -1,5 +1,5 @@
 <?php
-$servername = "localhost";
+/*$servername = "localhost";
 $username = "root";
 $password = "";
 $dbname = "mak";
@@ -13,12 +13,14 @@ if (!$conn) {
 
 $id_document = $_POST['cod_doc_'];
 $id_client = $_POST['id_client'];
-$dni_client = $_POST['dni_client'];
+$dni_client = $_POST['dni_client'];*/
+
 $ruta_archivo = $_POST['ruta_doc'];
-$nombre_archivo_input = $_POST['ruta_archivo'];
+
+//$nombre_archivo_input = $_POST['ruta_archivo'];
 
 
-$id_document = mysqli_real_escape_string($conn, $id_document);
+/*$id_document = mysqli_real_escape_string($conn, $id_document);
 $id_client = mysqli_real_escape_string($conn, $id_client);
 $dni_client = mysqli_real_escape_string($conn, $dni_client);
 $ruta_archivo = mysqli_real_escape_string($conn, $ruta_archivo);
@@ -31,8 +33,9 @@ if (mysqli_query($conn, $sql)) {
     echo "eliminado de la bd";
 } else {
     echo "error al eliminar el registro: " . mysqli_error($conn) . "<br>";
-}
-$file_delete = $ruta_archivo . $nombre_archivo_input;
+}*/
+$file_delete = $ruta_archivo;
+//$file_delete = $ruta_archivo . $nombre_archivo_input;
 
 $archivo_eliminar = urldecode($file_delete);
 

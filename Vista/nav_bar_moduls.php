@@ -87,7 +87,7 @@
           <?php endif ?>
 
           <li class="nav-item">
-            <a href="Config/logout.php" class="nav-link">
+            <a href="../Config/logout.php" class="nav-link">
                 <i class="nav-icon fas fa-sharp fa-regular fa-power-off"></i>
                 <p>Cerrar Sesion</p>
             </a>

@@ -61,18 +61,23 @@ require_once('../Controller/controladorListar.php'); ?>
 
                 <section class="content body-mak txt-center mak-txt">
                     <div class="container">
-                        <div class="b-title">Valorizaciones</div>
-                        <p class="b-text mak-txt">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora culpa iste, facere veniam aperiam corporis placeat pariatur, dignissimos, nostrum illum ex adipisci officiis necessitatibus obcaecati doloribus velit sint omnis ipsum!</p>
+                        <div class="b-title">VALORIZACIONES</div>
+                        <p class="b-text mak-txt">NO NOS PASARON EL TEXTO ASI QUE ESTO ES TEMPORAL, GRACIAS :)</p>
                     </div>
 
+                    <?php
+                    if ($_SESSION['tipo_usu'] == 1) {
 
-                    <div class="footer-mak">
-                        <div class="container">
-                            <div class="flex">
-                                <a href="valorizacion.php" class="btn btn-mak mak-bg ml-auto">Continuar</a>
+                    }else{ ?>
+                        <div class="footer-mak">
+                            <div class="container">
+                                <div class="flex">
+                                    <a href="valorizacion.php" class="btn btn-mak mak-bg ml-auto">Continuar</a>
+                                </div>
                             </div>
                         </div>
-                    </div>
+
+                    <?php } ?>
 
                 </section>
 
@@ -788,12 +793,26 @@ require_once('../Controller/controladorListar.php'); ?>
 
                         archivos.forEach(function(archivo) {
                             if (archivo.trim() !== '') {
+
                                 var link_ = $('<a>')
-                                    .attr('href', '../Valorizaciones/' + id_sol_v + '/' + dni + '/' + archivo)
+                                    .attr('href', '../Valorizaciones/' + id_sol_v + '/' + dni + '/docs_val/' + archivo)
                                     .attr('download', archivo)
                                     .text(archivo);
 
-                                var listItem = $('<li>').append(link_);
+                                var btn_dlt = $('<button type="button" class="btn btn-danger dlt_file"><i class="fa-solid fa-trash"></i>')
+                                                .attr('data-ruta', '../Valorizaciones/'+ id_sol_v + '/' + dni + '/docs_val/' + archivo);
+
+                                console.log(btn_dlt);
+
+                                var rol = '<?php echo $_SESSION['tipo_usu'] ?>'
+
+                                if (rol == 1) {
+                                    var listItem = $('<li>').append(link_,' - ',btn_dlt);
+                                }else{
+                                    var listItem = $('<li>').append(link_);
+                                }
+
+
                                 archivosLista.append(listItem);
                             }
                         });
@@ -807,6 +826,53 @@ require_once('../Controller/controladorListar.php'); ?>
                     console.log(error);
                 }
             });
+        }
+
+         $(document).on('click', '.dlt_file', function() {
+                var $this = $(this);
+
+                var ruta_ = $(this).data('ruta');
+
+
+                console.log(ruta_);
+
+                var confirmar_ = window.confirm('¿Estás seguro de que deseas eliminar este archivo?');
+
+                if (confirmar_) {
+                    /*var $parentDiv = $(this).closest('.inputs').parent();
+                    var ruta_doc = $parentDiv.find('#ruta_doc_i').val();
+                    var ruta_archivo = $parentDiv.find('#ruta_archivo_i').val();*/
+
+                    eliminarArchivo(ruta_);
+
+                    console.log("archivo eliminado");
+                } else {
+                    console.log("cancelado");
+                }
+            });
+
+        function eliminarArchivo(ruta_doc) {
+
+
+                $.ajax({
+                    type: 'POST',
+                    url: '../Controller/eliminarArchivos.php',
+                    data: {
+                        ruta_doc: ruta_doc,
+                    },
+                    success: function(response) {
+                        console.log("archivo eliminado de la ruta: " + ruta_doc);
+                        //$deleteBtn.closest('.modal').modal('hide');
+                        //load_documents();
+                    },
+                    /*complete: function() {
+                        load_documents();
+                        setTimeout(function() {
+                            $('#lst_hr_0').modal('show');
+                        }, 500);
+
+                    }*/
+                });
         }
 
         function get_imgs_valor(id_sol_v, dni) {
@@ -1321,8 +1387,8 @@ require_once('../Controller/controladorListar.php'); ?>
                 ],
                 // Otras opciones de DataTables
                 "drawCallback": function(settings) {
-                    $('.dataTables_length select').addClass('form-mak tableLenght');
-                    $('.dataTables_filter input').addClass('form-mak');
+                    $('.dataTables_length select').addClass('form-mak sect tableLenght');
+                    $('.dataTables_filter input').addClass('form-mak sect');
                 }
             });
         });
