@@ -1738,33 +1738,8 @@
                                         </div>
                                         <div class="form-flex">
                                             <button type="button" class="btn btn-mak mak-bg  antPag">Retroceder</button>
-
-                                            <button type="button" class="btn btn-mak mak-bg " id="btnValo_casa" name="btnValo_casa" style="display:none">
-                                                Finalizar Casa
-                                            </button>
-
-                                            <button type="button" class="btn btn-mak mak-bg " id="btnValo_depa" name="btnValo_depa" style="display:none">
-                                                Finalizar Depa
-                                            </button>
-
-                                            <button type="button" class="btn btn-mak mak-bg " id="btnValo_terren" name="btnValo_terren" style="display:none" data-id-zoni="">
-                                                Finalizar Terreno
-                                            </button>
-
-                                            <button type="button" class="btn btn-mak mak-bg " id="btnValo_ofi" name="btnValo_ofi" style="display:none">
-                                                Finalizar Oficina
-                                            </button>
-
-                                            <button type="button" class="btn btn-mak mak-bg " id="btnValo_lc_ex" name="btnValo_lc_ex" style="display:none">
-                                                Finalizar exclusivo
-                                            </button>
-
-                                            <button type="button" class="btn btn-mak mak-bg " id="btnValo_lc_com" name="btnValo_lc_com" style="display:none">
-                                                Finalizar comun
-                                            </button>
-
-                                            <button type="button" class="btn btn-mak mak-bg " id="btnValo_lc_ind" name="btnValo_lc_ind" style="display:none">
-                                                Finalizar local industrial
+                                            <button type="button" class="btn btn-mak mak-bg btn_finalizar" id="btn_finalizar" name="btn_finalizar">
+                                                Finalizar
                                             </button>
                                         </div>
 
@@ -1784,6 +1759,50 @@
                     <!-- </div> -->
                 </div>
             </section>
+
+
+            <div class="modal fade" id="buttons_fin" tabindex="-1" role="dialog" aria-labelledby="buttons_fin" aria-hidden="true">
+                    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                            <div class="modal-body">
+                                <h5 class="title-m" id="titulo_docs">¿Estas seguro que quieres enviar la solicitud?</h5>
+
+                                <div class="row margin">
+
+                                    <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+
+                                    <button type="button" class="btn btn-mak mak-bg " id="btnValo_casa" name="btnValo_casa" style="display:none">
+                                        Finalizar Casa
+                                    </button>
+
+                                    <button type="button" class="btn btn-mak mak-bg " id="btnValo_depa" name="btnValo_depa" style="display:none">
+                                        Finalizar Depa
+                                    </button>
+
+                                    <button type="button" class="btn btn-mak mak-bg " id="btnValo_terren" name="btnValo_terren" style="display:none" data-id-zoni="">
+                                        Finalizar Terreno
+                                    </button>
+
+                                    <button type="button" class="btn btn-mak mak-bg " id="btnValo_ofi" name="btnValo_ofi" style="display:none">
+                                        Finalizar Oficina
+                                    </button>
+
+                                    <button type="button" class="btn btn-mak mak-bg " id="btnValo_lc_ex" name="btnValo_lc_ex" style="display:none">
+                                        Finalizar exclusivo
+                                    </button>
+
+                                    <button type="button" class="btn btn-mak mak-bg " id="btnValo_lc_com" name="btnValo_lc_com" style="display:none">
+                                        Finalizar comun
+                                    </button>
+
+                                    <button type="button" class="btn btn-mak mak-bg " id="btnValo_lc_ind" name="btnValo_lc_ind" style="display:none">
+                                        Finalizar local industrial
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            </div>
 
 
         </div>
@@ -2230,6 +2249,14 @@
             document.getElementById("pro__").innerHTML = texto_pro;
         }
     </script>
+
+    <script type="text/javascript">
+        $('.btn_finalizar').on('click', function() {
+            $('#buttons_fin').modal('show');
+        });
+    </script>
+
+
 
     <script type="text/javascript">
         $(document).ready(function() {
