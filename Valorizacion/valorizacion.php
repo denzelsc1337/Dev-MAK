@@ -1183,8 +1183,12 @@
                                                                                 <label class="col-sm-3 col-form-label">Localización:</label>
                                                                                 <div class="section-input col-sm-8">
                                                                                     <span class="icon-input"><i class="fa-solid fa-location-dot"></i></span>
-                                                                                    <select class="form-mak" id="">
-                                                                                        <option selected disabled>Seleccione</option>
+                                                                                    <select id="tipo_lcl_ubi" name="tipo_lcl_ubi">
+                                                                                        <option value="-1">Seleccione</option>
+                                                                                        <?php foreach ($selector_types_ubi as $cod_type_u) : ?>
+                                                                                            <option value="<?php echo $cod_type_u[0]; ?>"><?php echo $cod_type_u[1]; ?>
+                                                                                            </option>
+                                                                                        <?php endforeach ?>
                                                                                     </select>
                                                                                 </div>
                                                                                 <div class="input-group-append">
@@ -1345,8 +1349,12 @@
                                                                                 <label class="col-sm-3 col-form-label">Localización:</label>
                                                                                 <div class="section-input col-sm-8">
                                                                                     <span class="icon-input"><i class="fa-solid fa-location-dot"></i></span>
-                                                                                    <select class="form-mak" id="">
-                                                                                        <option selected disabled>Seleccione</option>
+                                                                                    <select id="tipo_lcl_ubi" name="tipo_lcl_ubi">
+                                                                                        <option value="-1">Seleccione</option>
+                                                                                        <?php foreach ($selector_types_ubi as $cod_type_u) : ?>
+                                                                                            <option value="<?php echo $cod_type_u[0]; ?>"><?php echo $cod_type_u[1]; ?>
+                                                                                            </option>
+                                                                                        <?php endforeach ?>
                                                                                     </select>
                                                                                 </div>
                                                                                 <div class="input-group-append">
@@ -1365,7 +1373,7 @@
                                                                                     <span class="icon-input">
                                                                                         <img src="https://cdn-icons-png.flaticon.com/512/1249/1249293.png" alt="">
                                                                                     </span>
-                                                                                    <select class="form-mak" id="" name="">
+                                                                                    <select class="form-mak" id="acabado_" name="acabado_">
                                                                                         <option value="-1" selected>Seleccione</option>
                                                                                         <?php foreach ($selector_types_acab as $cod_type_a) : ?>
                                                                                             <option value="<?php echo $cod_type_a[0]; ?>"><?php echo $cod_type_a[1]; ?></option>
@@ -1419,7 +1427,7 @@
                                                                                     <span class="icon-input">
                                                                                         <img src="https://cdn-icons-png.flaticon.com/512/6080/6080750.png" alt="">
                                                                                     </span>
-                                                                                    <input class="form-control input-number" type="number" min="0" step="00.01" id="" name="">
+                                                                                    <input class="form-control input-number" type="number" min="0" step="00.01" id="frnt_lcl_com_cmn" name="frnt_lcl_com_cmn">
                                                                                 </div>
                                                                             </div>
 
@@ -1427,7 +1435,7 @@
                                                                                 <label>Cochera(s):</label>
                                                                                 <div class="section-input col-sm-8">
                                                                                     <span class="icon-input"><i class="fa-solid fa-warehouse"></i></span>
-                                                                                    <input class="form-control input-number" type="number" min="0" id="" name="">
+                                                                                    <input class="form-control input-number" type="number" min="0" id="coch_lcl_com_cmn" name="coch_lcl_com_cmn">
                                                                                 </div>
                                                                             </div>
                                                                         </div>
@@ -1452,7 +1460,7 @@
                                                                                     <span class="icon-input">
                                                                                         <img src="https://cdn-icons-png.flaticon.com/512/6080/6080750.png" alt="">
                                                                                     </span>
-                                                                                    <input class="form-control input-number" type="number" min="0" id="" name="">
+                                                                                    <input class="form-control input-number" type="number" min="0" id="piso_lcl_com_cmn" name="piso_lcl_com_cmn">
                                                                                 </div>
                                                                             </div>
                                                                         </div>

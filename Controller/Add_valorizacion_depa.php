@@ -1,5 +1,6 @@
 <?php
 require_once('../Model/Valorizacion.php');
+include_once('../config/Conexion.php');
 
 $data[1] = $_POST["direccion_"];
 $data[2] = $_POST["tipo_prop"];
@@ -47,8 +48,6 @@ $data[29] = $_POST["coment_valr"];
 $dni_cli = $_POST['dni_client_v'];
 
 
-
-include_once('../config/Conexion.php');
 $cnx = new Conexion();
 $cadena = $cnx->abrirConexion();
 

@@ -479,12 +479,19 @@ insert into tipo_inmuebles values (null, 'Oficina');
 insert into tipo_inmuebles values (null, 'Local Comercial');
 insert into tipo_inmuebles values (null, 'Local Industrial');
 
--- inicio sub tipos de departamento
+
 insert into sub_tipo_inmuebles values (-1, 'Sin tipo', -1);
+
+-- inicio sub tipos de casa
 
 insert into sub_tipo_inmuebles values (null, 'Vivienda', 1);
 insert into sub_tipo_inmuebles values (null, 'En bajos', 1);
 insert into sub_tipo_inmuebles values (null, 'En altos', 1);
+
+-- fin sub tipos de casa
+
+
+-- inicio sub tipos de depa
 
 insert into sub_tipo_inmuebles values (null, 'Flat', 2);
 insert into sub_tipo_inmuebles values (null, 'Duplex', 2);
@@ -492,14 +499,25 @@ insert into sub_tipo_inmuebles values (null, 'Triplex', 2);
 insert into sub_tipo_inmuebles values (null, 'Cuadruplex', 2);
 insert into sub_tipo_inmuebles values (null, 'PentHouse', 2);
 
+-- fin sub tipos de depa
+
+
+-- inicio sub tipos de terreno
+
 insert into sub_tipo_inmuebles values (null, 'Residencial', 3);
 insert into sub_tipo_inmuebles values (null, 'Comercial', 3);
 insert into sub_tipo_inmuebles values (null, 'Industrial', 3);
 insert into sub_tipo_inmuebles values (null, 'Casa como Terreno', 3);
 
+-- fin sub tipos de terreno
+
+
+-- inicio sub tipos de local comercial
+
 insert into sub_tipo_inmuebles values (null, 'Exclusivo', 5);
 insert into sub_tipo_inmuebles values (null, 'Comun', 5);
--- inicio sub tipos de departamento
+
+-- inicio sub tipos de local comercial
 
 
 

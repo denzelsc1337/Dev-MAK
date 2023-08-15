@@ -73,7 +73,7 @@ $(document).ready(function () {
           alert("Solicitud enviada correctamente.");
           console.log(r);
           event.returnValue = false;
-          window.location.href = "valorizacion.php";
+          window.location.href = "../Valorizacion/";
         } else {
           alert(
             "Error al registrar, Verifique que los campos esten correctamente completos."
@@ -109,7 +109,7 @@ $(document).ready(function () {
           alert("Solicitud enviada correctamente.");
           console.log(r);
           event.returnValue = false;
-          //window.location.href = "valorizacion.php";
+          window.location.href = "../Valorizacion/";
         } else {
           alert(
             "Error al registrar, Verifique que los campos esten correctamente completos."
@@ -141,7 +141,7 @@ $(document).ready(function () {
           alert("Solicitud enviada correctamente.");
           console.log(r);
           event.returnValue = false;
-          window.location.href = "valorizacion.php";
+          window.location.href = "../Valorizacion/";
         } else {
           alert(
             "Error al registrar, Verifique que los campos esten correctamente completos."
@@ -156,49 +156,24 @@ $(document).ready(function () {
     });
     return false;
   });
-
-  $("#btnValo_lc_ind").click(function (e) {
-    e.preventDefault();
-    var data = $("#form_valor").serialize();
-    $.ajax({
-      type: "POST",
-      url: "../Controller/Add_valorizacion_localIndustrial.php",
-      data: data,
-      success: function (r) {
-        if (r == 1) {
-          alert("Solicitud enviada correctamente.");
-          console.log(r);
-          event.returnValue = false;
-          window.location.href = "valorizacion.php";
-        } else {
-          alert(
-            "Error al registrar, Verifique que los campos esten correctamente completos."
-          );
-          console.log(r);
-          console.log(data);
-        }
-      },
-      error: function (xhr, status, error) {
-        console.error(error);
-      },
-    });
-    return false;
-  });
-
 
   $("#btnValo_lc_ex").click(function (e) {
     e.preventDefault();
-    var data = $("#form_valor").serialize();
+    //var data = $("#form_valor").serialize();
+    var formData = new FormData($("#form_valor")[0]);
     $.ajax({
       type: "POST",
       url: "../Controller/Add_valorizacion_localComercial.php",
-      data: data,
+      data: formData,
+      processData: false,
+      contentType: false,
+
       success: function (r) {
-        if (r == 1) {
+        if (r) {
           alert("Solicitud enviada correctamente.");
           console.log(r);
           event.returnValue = false;
-          window.location.href = "valorizacion.php";
+          //window.location.href = "valorizacion.php";
         } else {
           alert(
             "Error al registrar, Verifique que los campos esten correctamente completos."
@@ -213,6 +188,74 @@ $(document).ready(function () {
     });
     return false;
   });
+
+  $("#btnValo_lc_com").click(function (e) {
+    e.preventDefault();
+    //var data = $("#form_valor").serialize();
+    var formData = new FormData($("#form_valor")[0]);
+    $.ajax({
+      type: "POST",
+      url: "../Controller/Add_valorizacion_localComercial_Comun.php",
+      data: formData,
+      processData: false,
+      contentType: false,
+
+      success: function (r) {
+        if (r) {
+          alert("Solicitud enviada correctamente.");
+          console.log(r);
+          event.returnValue = false;
+          //window.location.href = "valorizacion.php";
+        } else {
+          alert(
+            "Error al registrar, Verifique que los campos esten correctamente completos."
+          );
+          console.log(r);
+          console.log(data);
+        }
+      },
+      error: function (xhr, status, error) {
+        console.error(error);
+      },
+    });
+    return false;
+  });
+
+  
+
+
+  $("#btnValo_lc_ind").click(function (e) {
+    e.preventDefault();
+    //var data = $("#form_valor").serialize();
+    var formData = new FormData($("#form_valor")[0]);
+    $.ajax({
+      type: "POST",
+      url: "../Controller/Add_valorizacion_localIndustrial.php",
+      data: formData,
+      processData: false,
+      contentType: false,
+
+      success: function (r) {
+        if (r) {
+          alert("Solicitud enviada correctamente.");
+          console.log(r);
+          event.returnValue = false;
+          window.location.href = "../Valorizacion/";
+        } else {
+          alert(
+            "Error al registrar, Verifique que los campos esten correctamente completos."
+          );
+          console.log(r);
+          console.log(data);
+        }
+      },
+      error: function (xhr, status, error) {
+        console.error(error);
+      },
+    });
+    return false;
+  });
+
 
   // INPUT WITH LIST
   $(document).ready(function () {
@@ -256,6 +299,9 @@ $(document).ready(function () {
               $("#btnValo_terren").attr("data-id-zoni", id);
               $("#opciones_zoni_t").val(id);
               $("#opciones_zoni_ofi").val(id);
+              $("#opciones_zoni_lc").val(id);
+              $("#opciones_zoni_lc_c").val(id);
+              
               // $(".auto-input").val(id);
               $(".auto-input").val(texto);
 

@@ -2,39 +2,41 @@
 require_once('../Model/Valorizacion.php');
 include_once('../config/Conexion.php');
 
+$oValor = new Valorizacion();
+$cnx = new Conexion();
+
+
 $data[1] = $_POST["direccion_"];
 $data[2] = $_POST["tipo_prop"];
 $data[3] = $_POST["sub_tipo_prop"];
 $data[4] = $_POST["tipo_prom"];
-$data[5] = $_POST["a_t"];
-$data[6] = $_POST["a_c"];
+$data[5] = $_POST["a_c"];
+$data[6] = $_POST["a_o"];
 $data[7] = $_POST["antig"];
 
 
 //form terreno
-$data[8] = $_POST["acabado_lci"];
-$data[9] = $_POST["tipo_suelo_lci"];
-$data[10] = $_POST["ubic_lci"];
+$data[8] = $_POST["tipo_lcl_ubi"];
+$data[9] = $_POST["acabado_"];
+$data[10] = $_POST["opciones_zoni_lc_c"];
 
+$data[11] = $_POST["frnt_lcl_com_cmn"];
+$data[12] = $_POST["coch_lcl_com_cmn"];
 
+$data[13] = $_POST["piso_lcl_com_cmn"];
 
-$data[11] = $_POST["frente_lci"];
-$data[12] = $_POST["nave_lci"];
+$data[14] = isset($_POST['ascen_lcl_com_comun']) ? true : false;
+$data[15] = isset($_POST['aire_lcl_com_comun']) ? true : false;
 
-$data[13] = $_POST["id_client_v"];
-$data[14] = $_POST["coment_valr"];
-
-
+$data[16] = $_POST["id_client_v"];
+$data[17] = $_POST["coment_valr"];
 //form terreno
 
 $dni_cli = $_POST['dni_client_v'];
 
-$cnx = new Conexion();
+
 $cadena = $cnx->abrirConexion();
-
-$oValor = new Valorizacion();
-$r = $oValor->add_valorizacion_local_industrial($data, $cadena);
-
+$r = $oValor->add_valorizacion_local_comercial($data, $cadena);
 
 if ($r) {
 
@@ -65,4 +67,5 @@ if ($r) {
 } else {
     echo "Error al insertar el registro.";
 }
+
 ?>
