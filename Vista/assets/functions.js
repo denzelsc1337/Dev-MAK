@@ -173,7 +173,7 @@ $(document).ready(function () {
           alert("Solicitud enviada correctamente.");
           console.log(r);
           event.returnValue = false;
-          //window.location.href = "valorizacion.php";
+          window.location.href = "../Valorizacion/";
         } else {
           alert(
             "Error al registrar, Verifique que los campos esten correctamente completos."
@@ -205,7 +205,7 @@ $(document).ready(function () {
           alert("Solicitud enviada correctamente.");
           console.log(r);
           event.returnValue = false;
-          //window.location.href = "valorizacion.php";
+          window.location.href = "../Valorizacion/";
         } else {
           alert(
             "Error al registrar, Verifique que los campos esten correctamente completos."
