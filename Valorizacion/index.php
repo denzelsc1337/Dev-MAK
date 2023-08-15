@@ -1313,7 +1313,7 @@ require_once('../Controller/controladorListar.php'); ?>
             $('.table').DataTable({
                 "language": {
                     "url": "//cdn.datatables.net/plug-ins/1.10.25/i18n/Spanish.json", // URL del archivo de localización
-                    "searchPlaceholder": "Buscar en la tabla..." // placeholder del Buscar
+                    "searchPlaceholder": "Buscar en la tabla..." // placeholder del Buscar.
                 },
                 "lengthMenu": [
                     [5, 10, 25, 50, -1],
