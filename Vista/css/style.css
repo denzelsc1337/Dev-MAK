@@ -23,7 +23,7 @@
 }
 
 body {
-  font-family: var(--Text);
+  font-family: var(--Text) !important;
   background-color: #f8fafb;
   color: var(--blue-mak) !important;
 }
@@ -349,6 +349,10 @@ h2 {
 #pantalla-RS .card-body {
   padding-left: 15px;
   padding-right: 15px;
+}
+
+#pantalla-RS .resumen .card-body {
+  padding: 0;
 }
 
 .card-box {
@@ -1238,7 +1242,7 @@ form .form-content {
 }
 
 .content-file .form-flex .btn-mak {
-  width: 235px;
+  width: 240px;
 }
 
 .content-file .input-file i {
@@ -1523,4 +1527,36 @@ form .form-content {
   color: white;
   text-align: center;
   padding-top: 20%;
+}
+
+.resumen {
+  gap: 10px;
+  padding: 0 15px;
+}
+
+.resumen ul {
+  font-size: 13px;
+}
+
+.resumen .card-body {
+  padding: 0;
+  margin: 0;
+}
+
+.resumen .btn-mak {
+  padding: 5px 15px !important;
+}
+
+.data-resume p {
+  margin: 0;
+}
+
+.bla {
+  flex: 0 0 29%;
+  max-width: 29%;
+}
+
+.blaa:last-child {
+  flex: 0 0 37%;
+  max-width: 37%;
 }
