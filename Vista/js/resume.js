@@ -168,8 +168,8 @@
             });
           });
 
-          // console.log(arrayNames);
-          // console.log(arrayValues);
+          console.log(arrayNames);
+          console.log(arrayValues);
         })
 
       }
@@ -220,9 +220,13 @@
 
   buttonLstPag.addEventListener("click", function () {
     const cards = document.querySelectorAll(".card-body");
+    console.log(cards);
 
     cards.forEach((element) => {
+      console.log(element);
       var dataResume = element.classList.contains("data-resume");
+      console.log(dataResume);
+
 
       if (dataResume === true) {
         const allTag = element.querySelectorAll("*");

@@ -209,7 +209,7 @@ require_once('config/security.php');
           </div> -->
 
 
-          <div class="row justify-content-center" style="gap:20px; padding-bottom: 5rem;">
+          <div class="row justify-content-center pt-5 pb-5" style="gap:20px;">
             <div class="card-mak col-md-4">
               <img class="card-img-top" src="Vista/images/search.jpg" alt="Dist Photo 1">
               <div class="image-overlay"></div>

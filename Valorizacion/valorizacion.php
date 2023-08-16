@@ -35,7 +35,13 @@
     <link rel="stylesheet" href="../Vista/plugins/dropzone/min/dropzone.min.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="../Vista/dist/css/adminlte.min.css">
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+    <!-- Modal -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
 
 
 </head>
@@ -1704,42 +1710,45 @@
                                             </div>
                                             <br>
 
-                                            <div class="d-flex w-100 resumen">
-                                                <div class="col-sm-3">
+                                            <div class="d-flex w-100 justify-content-between mt-3 resumen">
+                                                <div class="blaa">
                                                     <div class="card-body">
                                                         <div>
                                                             <label class="mak-txt">Comentario</label>
                                                             <textarea id="coment_valr_" placeholder="Escribe un comentario..."></textarea>
                                                         </div>
-                                                        <div class="row">
-                                                            <div class="btn btn-mak mak-bg">Ver Fotos</div>
-                                                            <div class="btn btn-mak mak-bg">Ver Documentos</div>
+                                                        <div class="row justify-content-between">
+                                                            <div class="btn btn-mak mak-bg" data-bs-toggle="modal" data-bs-target="#verFotos">Ver Fotos</div>
+                                                            <div class="btn btn-mak mak-bg" data-bs-toggle="modal" data-bs-target="#verDocs">Ver Documentos</div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="col-sm-4 "> <!-- brd-rght-blue -->
-                                                    <div class="card-body  card-resume">
-                                                        <div id="mapa_2" style="height: 400px;"></div>
+                                                <div class="blaa" style="width:33%;">
+                                                    <div class="card-box">
+                                                        <div id="mapa_2" style="height: 250px;"></div>
                                                     </div>
                                                 </div>
-                                                <div class="col-sm-5">
-                                                    <div class="card-body card-resume data-resume">
-                                                        <h2>Resumen</h2>
-                                                        <p><strong>Datos de contacto:</strong></p>
+                                                <div class="blaa">
+                                                    <div class="card-box card-body data-resume">
+
+                                                        <figcaption class="d-flex flex-column pl-2">
+                                                            <p class="b-text"><b>Resumen</b></p>
+                                                            <small class="">Datos de contacto:</small>
+                                                        </figcaption>
+
                                                         <ul>
-                                                            <li>Nombre: <?php echo $_SESSION['nom_usu']; ?></li>
-                                                            <li>Email: <?php echo $_SESSION['email_usu']; ?></li>
-                                                            <li>Teléfono: <?php echo $_SESSION['telef_usu']; ?></li>
+                                                            <li><b>Nombre: </b><?php echo $_SESSION['nom_usu']; ?></li>
+                                                            <li><b>Email: </b><?php echo $_SESSION['email_usu']; ?></li>
+                                                            <li><b>Teléfono: </b><?php echo $_SESSION['telef_usu']; ?></li>
                                                         </ul>
+
                                                         <div>
                                                             <p><strong>Información de la propiedad:</strong></p>
-                                                            <div class="lst-resume" data-resume>
-
-                                                            </div>
+                                                            <ul class="lst-resume" data-resume></ul>
                                                         </div>
-                                                        <!-- <p><strong>Información del tipo de propiedad:</strong></p> -->
                                                     </div>
                                                 </div>
+
                                             </div>
 
 
@@ -1763,7 +1772,7 @@
                 </div>
             </section>
 
-
+            <!-- MODAL FINAL -->
             <div class="modal fade" id="buttons_fin" tabindex="-1" role="dialog" aria-labelledby="buttons_fin" aria-hidden="true">
 
                 <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
@@ -1810,7 +1819,135 @@
                     </div>
                 </div>
             </div>
+            <!-- MODAL FINAL -->
+            <!-- MODAL VER FOTOS -->
+            <div class="modal fade" id="verFotos" tabindex="-1" aria-labelledby="verFotosLabel" aria-hidden="true">
+                <div class="modal-dialog modal-xl">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="verFotosLabel">Carga archivos máximo de 2MB.</h5>
+                            <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">×</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="container">
 
+                                        <form method="POST" action="../Controller/Upload_Legal_Docs.php" enctype="multipart/form-data">
+
+                                            <div class="content-file flex flex-column">
+
+                                                <label>H.R</label>
+                                                <div hidden>
+                                                    <input type="text" class="form-control" id="dni_usu_0" name="dni_usu_0" value="<?php echo $_SESSION['dni']; ?>">
+                                                    <input type="text" class="form-control" id="id_cli_0" name="id_cli_0" value="<?php echo $_SESSION['id_usu']; ?>">
+                                                    <input type="text" class="form-control" id="tipo_doc_0" name="tipo_doc_0" value="1">
+                                                    <input type="text" name="cod_reg_" id="cod_reg_">
+                                                </div>
+
+                                                <div class="input-file" id="dropArea">
+                                                    <div class="file-message">
+                                                        <img src="../Vista/images/document-text-svgrepo-com 1.svg" alt="doc">
+                                                        <span>Arrastre los archivos aquí para subirlos.</span>
+                                                    </div>
+                                                    <div class="file-archives"></div>
+                                                </div>
+
+                                                <span>O</span>
+
+                                                <!-- <div>
+                                            <label id="buttonFile" class="btn btn-mak mak-bg buton-file">Seleccionar archivos</label>
+                                            <input class="upload" type="file" id="hr_s" name="hr_s[]" multiple hidden>
+                                        </div> -->
+                                                <div class="card-footer">
+                                                    <div class="form-flex">
+                                                        <button type="submit" class="btn btn-mak mak-bg buton-file" id="btn_updt_hr" name="btn_updt_hr" style="display: none;">Actualizar</button>
+                                                        <button type="submit" class="btn btn-mak mak-bg buton-file" id="btn_save_hr" name="btn_save_hr" disabled>Registrar</button>
+
+                                                        <label id="buttonFile" class="btn btn-mak mak-bg buton-file">Seleccionar archivos</label>
+                                                        <input class="upload" type="file" id="hr_s" name="hr_s[]" multiple hidden>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+
+
+                                        </form>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- MODAL VER FOTOS -->
+            <!-- MODAL VER DOCS -->
+            <div class="modal fade" id="verDocs" tabindex="-1" aria-labelledby="verDocsLabel" aria-hidden="true">
+                <div class="modal-dialog modal-xl">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="verDocsLabel">eh?.</h5>
+                            <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">×</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="container">
+
+                                        <form method="POST" action="../Controller/Upload_Legal_Docs.php" enctype="multipart/form-data">
+
+                                            <div class="content-file flex flex-column">
+
+                                                <label>H.R</label>
+                                                <div hidden>
+                                                    <input type="text" class="form-control" id="dni_usu_0" name="dni_usu_0" value="<?php echo $_SESSION['dni']; ?>">
+                                                    <input type="text" class="form-control" id="id_cli_0" name="id_cli_0" value="<?php echo $_SESSION['id_usu']; ?>">
+                                                    <input type="text" class="form-control" id="tipo_doc_0" name="tipo_doc_0" value="1">
+                                                    <input type="text" name="cod_reg_" id="cod_reg_">
+                                                </div>
+
+                                                <div class="input-file" id="dropArea">
+                                                    <div class="file-message">
+                                                        <img src="../Vista/images/document-text-svgrepo-com 1.svg" alt="doc">
+                                                        <span>Arrastre los archivos aquí para subirlos.</span>
+                                                    </div>
+                                                    <div class="file-archives"></div>
+                                                </div>
+
+                                                <span>O</span>
+
+                                                <!-- <div>
+                                            <label id="buttonFile" class="btn btn-mak mak-bg buton-file">Seleccionar archivos</label>
+                                            <input class="upload" type="file" id="hr_s" name="hr_s[]" multiple hidden>
+                                        </div> -->
+                                                <div class="card-footer">
+                                                    <div class="form-flex">
+                                                        <button type="submit" class="btn btn-mak mak-bg buton-file" id="btn_updt_hr" name="btn_updt_hr" style="display: none;">Actualizar</button>
+                                                        <button type="submit" class="btn btn-mak mak-bg buton-file" id="btn_save_hr" name="btn_save_hr" disabled>Registrar</button>
+
+                                                        <label id="buttonFile" class="btn btn-mak mak-bg buton-file">Seleccionar archivos</label>
+                                                        <input class="upload" type="file" id="hr_s" name="hr_s[]" multiple hidden>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+
+
+                                        </form>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- MODAL VER DOCS -->
 
         </div>
         <?php include '../Vista/foot-form.php' ?>
@@ -1851,6 +1988,10 @@
     <!-- AdminLTE for demo purposes -->
     <script src="../Vista/dist/js/demo.js"></script>
     <!-- Page specific script -->
+
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
 
     <!--GOOGLE MAPS TESTING-->
     <script type="text/javascript">
