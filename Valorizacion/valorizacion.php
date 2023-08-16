@@ -48,23 +48,6 @@
 
         <div class="content-wrapper">
 
-            <!-- <section class="content-header">
-                <div class="container-fluid">
-                    <div class="row mb-2">
-                        <div class="col-sm-6">
-                            <h1>Seleccion de datos:</h1>
-                        </div>
-                        <div class="col-sm-6">
-                            <ol class="breadcrumb float-sm-right">
-                                <li class="breadcrumb-item"><a href="../dashboard.php">Dashboard</a></li>
-                                <li class="breadcrumb-item"><a href="#">Seleccion</a></li>
-                                <li class="breadcrumb-item active">Registro</li>
-                            </ol>
-                        </div>
-                    </div>
-                </div>
-            </section> -->
-
             <!-- Main content -->
             <section class="content mak-forms">
 
@@ -72,12 +55,6 @@
                 <?php include '../Vista/head-form.php' ?>
 
                 <div class="container">
-                    <!-- <div class="row"> -->
-                    <!-- <div class="col-md-12"> -->
-                    <!-- <div class="card card-default"> -->
-                    <!-- <div class="card-header mak-bg mak-wht">
-                            <h3 class="card-title">Ingreso de Datos:</h3>
-                        </div> -->
 
                     <!-- SECTION -->
                     <div class="card-body p-0">
@@ -130,7 +107,7 @@
                                     <input type="text" id="dni_client_v" name="dni_client_v" value="<?php echo $_SESSION['dni'] ?>" hidden>
                                     <!-- SELECCION TIPO -->
                                     <div id="0" class="section col-md-12 movPag show" role="tabpanel" aria-labelledby="logins-part-trigger" data-target="first_step">
-                                        <div class="row">
+                                        <div class="row mt-3">
 
                                             <div class="col-md-3">
                                                 <div class="card-body">
@@ -185,8 +162,8 @@
                                             </div>
 
                                             <div class="col-md-6">
-                                                <div class="card card-default">
-                                                    <div class="card-body">
+                                                <div class="card">
+                                                    <div class="card-box">
                                                         <div id="mapa" style="height: 350px;"></div>
                                                     </div>
                                                 </div>
@@ -305,44 +282,42 @@
                                                                 <h3 class="card-title">Generales</h3>
                                                             </div>
                                                             <div class="card-body">
-                                                                <div class="col-sm-12">
-                                                                    <div class="form-group flex">
-                                                                        <div class="col-sm-6 pdd-left">
-                                                                            <div class="custom-control custom-checkbox">
-                                                                                <input class="right custom-control-input" type="checkbox" id="sala_com" name="sala_com" value="">
-                                                                                <label for="sala_com" class="right custom-control-label">Sala Comedor:</label>
-                                                                            </div>
-                                                                            <br>
-                                                                            <div class="custom-control custom-checkbox">
-                                                                                <input class="right custom-control-input" type="checkbox" id="sala_" name="sala_" value="">
-                                                                                <label for="sala_" class="right custom-control-label">Sala:</label>
-                                                                            </div>
-                                                                            <br>
-                                                                            <div class="custom-control custom-checkbox">
-                                                                                <input class="right custom-control-input" type="checkbox" id="comedor_" name="comedor_" value="">
-                                                                                <label for="comedor_" class="right custom-control-label">Comedor:</label>
-                                                                            </div>
+                                                                <div class="form-group flex">
+                                                                    <div class="column-card">
+                                                                        <div class="custom-control custom-checkbox">
+                                                                            <input class="right custom-control-input" type="checkbox" id="sala_com" name="sala_com" value="">
+                                                                            <label for="sala_com" class="right custom-control-label">Sala Comedor:</label>
                                                                         </div>
                                                                         <br>
-                                                                        <div class="col-sm-6 pdd-left">
-                                                                            <div class="custom-control custom-checkbox">
-                                                                                <input class="right custom-control-input" type="checkbox" id="cocina_" name="cocina_" value="">
-                                                                                <label for="cocina_" class="right custom-control-label">Cocina:</label>
-                                                                            </div>
-                                                                            <br>
-                                                                            <!-- <div class="custom-control custom-checkbox">
+                                                                        <div class="custom-control custom-checkbox">
+                                                                            <input class="right custom-control-input" type="checkbox" id="sala_" name="sala_" value="">
+                                                                            <label for="sala_" class="right custom-control-label">Sala:</label>
+                                                                        </div>
+                                                                        <br>
+                                                                        <div class="custom-control custom-checkbox">
+                                                                            <input class="right custom-control-input" type="checkbox" id="comedor_" name="comedor_" value="">
+                                                                            <label for="comedor_" class="right custom-control-label">Comedor:</label>
+                                                                        </div>
+                                                                    </div>
+                                                                    <br>
+                                                                    <div class="column-card">
+                                                                        <div class="custom-control custom-checkbox">
+                                                                            <input class="right custom-control-input" type="checkbox" id="cocina_" name="cocina_" value="">
+                                                                            <label for="cocina_" class="right custom-control-label">Cocina:</label>
+                                                                        </div>
+                                                                        <br>
+                                                                        <!-- <div class="custom-control custom-checkbox">
                                                                                                     <input class="right custom-control-input" type="checkbox" id="jardin_t" name="jardin_t" value="true">
                                                                                                     <label for="jardin_t" class="right custom-control-label">Jardín Trasero:</label>
                                                                                                 </div> -->
-                                                                            <div class="custom-control custom-checkbox">
-                                                                                <input class="right custom-control-input" type="checkbox" id="amoblado_" name="amoblado_" value="">
-                                                                                <label for="amoblado_" class="right custom-control-label">Amoblado:</label>
-                                                                            </div>
-                                                                            <br>
-                                                                            <div class="custom-control custom-checkbox">
-                                                                                <input class="right custom-control-input" type="checkbox" id="piscina_d" name="piscina_d">
-                                                                                <label for="piscina_d" class="right custom-control-label">Piscina propia:</label>
-                                                                            </div>
+                                                                        <div class="custom-control custom-checkbox">
+                                                                            <input class="right custom-control-input" type="checkbox" id="amoblado_" name="amoblado_" value="">
+                                                                            <label for="amoblado_" class="right custom-control-label">Amoblado:</label>
+                                                                        </div>
+                                                                        <br>
+                                                                        <div class="custom-control custom-checkbox">
+                                                                            <input class="right custom-control-input" type="checkbox" id="piscina_d" name="piscina_d">
+                                                                            <label for="piscina_d" class="right custom-control-label">Piscina propia:</label>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -564,8 +539,8 @@
                                         </div>
                                         <div class="card-footer">
                                             <div class="form-flex">
-                                                <button type="button" class="btn btn-mak mak-bg  backPag">Retroceder</button>
-                                                <button type="button" class="btn btn-mak mak-bg  sigPag">Continuar</button>
+                                                <button type="button" class="btn btn-mak mak-bg-sec backPag">Retroceder</button>
+                                                <button type="button" class="btn btn-mak mak-bg sigPag">Continuar</button>
                                             </div>
                                         </div>
 
@@ -873,7 +848,7 @@
 
                                         <div class="card-footer">
                                             <div class="form-flex">
-                                                <div type="button" class="btn btn-mak mak-bg backPag">Retroceder</div>
+                                                <div type="button" class="btn btn-mak mak-bg-sec backPag">Retroceder</div>
                                                 <div type="button" class="btn btn-mak mak-bg sigPag">Continuar</div>
                                             </div>
                                         </div>
@@ -972,8 +947,8 @@
 
                                         <div class="card-footer">
                                             <div class="form-flex">
-                                                <div type="button" class="btn btn-mak mak-bg  backPag">Retroceder</div>
-                                                <div type="button" class="btn btn-mak mak-bg  sigPag">Continuar</div>
+                                                <div type="button" class="btn btn-mak mak-bg-sec backPag">Retroceder</div>
+                                                <div type="button" class="btn btn-mak mak-bg sigPag">Continuar</div>
                                             </div>
                                         </div>
                                     </div>
@@ -1151,7 +1126,7 @@
 
                                         <div class="card-footer">
                                             <div class="form-flex">
-                                                <div type="button" class="btn btn-mak mak-bg backPag">Retroceder</div>
+                                                <div type="button" class="btn btn-mak mak-bg-sec backPag">Retroceder</div>
                                                 <div type="button" class="btn btn-mak mak-bg sigPag">Continuar</div>
                                             </div>
                                         </div>
@@ -1496,7 +1471,7 @@
 
                                         <div class="card-footer">
                                             <div class="form-flex">
-                                                <div type="button" class="btn btn-mak mak-bg backPag">Retroceder</div>
+                                                <div type="button" class="btn btn-mak mak-bg-sec backPag">Retroceder</div>
                                                 <div type="button" class="btn btn-mak mak-bg sigPag">Continuar</div>
                                             </div>
                                         </div>
@@ -1614,8 +1589,8 @@
 
                                         <div class="card-footer">
                                             <div class="form-flex">
-                                                <div type="button" class="btn btn-mak mak-bg  backPag">Retroceder</div>
-                                                <div type="button" class="btn btn-mak mak-bg  sigPag">Continuar</div>
+                                                <div type="button" class="btn btn-mak mak-bg-sec backPag">Retroceder</div>
+                                                <div type="button" class="btn btn-mak mak-bg sigPag">Continuar</div>
                                             </div>
                                         </div>
 
@@ -1629,27 +1604,52 @@
                                         <div class="row">
                                             <div class="column-card">
                                                 <div class="column">
-                                                    <label class="mak-txt">Comentario <small>(Opcional)</small></label>
-                                                    <textarea id="coment_valr" name="coment_valr" placeholder="Escribe un comentario..."></textarea>
+                                                    <div>
+                                                        <label class="mak-txt">Comentario <small>(Opcional)</small></label>
+                                                        <textarea id="coment_valr" name="coment_valr" placeholder="Escribe un comentario..."></textarea>
+                                                    </div>
+                                                    <br><br>
+                                                    <div>
+                                                        <h3><b>Subir Documentos</b></h3>
+                                                        <div class="row">
+                                                            <label class="col-sm-3 col-form-label">Previo Urbano:</label>
+                                                            <div class="section-input col-sm-6">
+                                                                <div class="upload-file">
+                                                                    <label for="fls_pu" class="upld-file" data-bs-toggle="modal" data-bs-target="#modal_archive_PU">Seleccionar archivos.</label>
+                                                                    <input type="file" id="fls_pu" name="fls_pu[]" multiple hidden>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <br>
+                                                        <div class="row">
+                                                            <label class="col-sm-3 col-form-label">Copia Literal:</label>
+                                                            <div class="section-input col-sm-6">
+                                                                <div class="upload-file">
+                                                                    <label for="fls_cl" class="upld-file" data-bs-toggle="modal" data-bs-target="#modal_archive_PU">Seleccionar archivos.</label>
+                                                                    <input type="file" id="fls_cl" name="fls_cl[]" multiple hidden>
 
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
 
                                             <div class="column-card">
                                                 <div class="column">
+                                                    <div class="file-titled">
+                                                        <div>Imágenes principales</div>
+                                                    </div>
                                                     <div class="valo-file">
                                                         <div class="file-content" id="fileValorArchives">
                                                             <div class="up-archive file-item">
                                                                 <div id="btnFile" class="item-box">
-                                                                    Agregar Docs.
+                                                                    Agregar Archivos
                                                                 </div>
 
                                                                 <input type="file" id="inpt-file-valo" name="inpt-file-valo[]" multiple hidden>
                                                             </div>
-                                                            <label>PU</label>
-                                                            <input type="file" id="fls_pu" name="fls_pu[]" multiple>
-                                                            <label>CL</label>
-                                                            <input type="file" id="fls_cl" name="fls_cl[]" multiple>
+
                                                         </div>
                                                     </div>
 
@@ -1659,8 +1659,8 @@
 
                                         <div class="card-footer">
                                             <div class="form-flex">
-                                                <div type="button" class="btn btn-mak mak-bg  atrPag">Retroceder</div>
-                                                <div type="button" class="btn btn-mak mak-bg  lstPag">Continuar</div>
+                                                <div type="button" class="btn btn-mak mak-bg-sec atrPag">Retroceder</div>
+                                                <div type="button" class="btn btn-mak mak-bg lstPag">Continuar</div>
                                             </div>
                                         </div>
                                     </div>
@@ -1671,77 +1671,81 @@
                                     <div id="pantalla-RS" class="section col-md-12" role="tabpanel" aria-labelledby="" data-target="fourth_step">
 
                                         <div class="row">
-                                            <div class="col-md-12">
-                                                <div class="card-body">
-                                                    <div class="row">
-                                                        <table class="table table-borderless">
-                                                            <thead class="">
-                                                                <tr>
-                                                                    <th>DISTRITO</th>
-                                                                    <th>DIRECCIÓN</th>
-                                                                    <th>TIPO</th>
-                                                                    <th>PROMOCIÓN</th>
-                                                                    <th>AT</th>
-                                                                    <th>AC</th>
-                                                                    <th>AO</th>
-                                                                </tr>
-                                                            </thead>
-                                                            <tbody>
-                                                                <tr>
-                                                                    <!-- <td>MIRAFLORES</td> -->
-                                                                    <td id="dir__dist"></td>
-                                                                    <!-- <td>AV AREQUIPA 4960</td> -->
-                                                                    <td id="dir__"></td>
-                                                                    <!-- <td>CASA</td> -->
-                                                                    <td id="tip__"></td>
-                                                                    <!-- <td>VENTA</td> -->
-                                                                    <td id="pro__"></td>
-                                                                    <td id="at__"></td>
-                                                                    <td id="ac__"></td>
-                                                                    <td id="ao__"></td>
-                                                                </tr>
-                                                            </tbody>
-                                                        </table>
+                                            <div class="card-body">
 
-                                                        <br>
+                                                <table class="table table-borderless">
+                                                    <thead class="">
+                                                        <tr>
+                                                            <th>DISTRITO</th>
+                                                            <th>DIRECCIÓN</th>
+                                                            <th>TIPO</th>
+                                                            <th>PROMOCIÓN</th>
+                                                            <th>AT</th>
+                                                            <th>AC</th>
+                                                            <th>AO</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <!-- <td>MIRAFLORES</td> -->
+                                                            <td id="dir__dist"></td>
+                                                            <!-- <td>AV AREQUIPA 4960</td> -->
+                                                            <td id="dir__"></td>
+                                                            <!-- <td>CASA</td> -->
+                                                            <td id="tip__"></td>
+                                                            <!-- <td>VENTA</td> -->
+                                                            <td id="pro__"></td>
+                                                            <td id="at__"></td>
+                                                            <td id="ac__"></td>
+                                                            <td id="ao__"></td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                            <br>
 
-                                                        <div class="row col-sm-12 resumen">
-                                                            <div class="col-sm-3">
-                                                                <div class="card-body card-resume">
-                                                                    <label class="mak-txt">Comentario</label>
-                                                                    <textarea id="coment_valr_" placeholder="Escribe un comentario..."></textarea>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-sm-4 "> <!-- brd-rght-blue -->
-                                                                <div class="card-body  card-resume">
-                                                                    <div id="mapa_2" style="height: 400px;"></div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-sm-5">
-                                                                <div class="card-body card-resume data-resume">
-                                                                    <h2>Resumen</h2>
-                                                                    <p><strong>Datos de contacto:</strong></p>
-                                                                    <ul>
-                                                                        <li>Nombre: <?php echo $_SESSION['nom_usu']; ?></li>
-                                                                        <li>Email: <?php echo $_SESSION['email_usu']; ?></li>
-                                                                        <li>Teléfono: <?php echo $_SESSION['telef_usu']; ?></li>
-                                                                    </ul>
-                                                                    <div>
-                                                                        <p><strong>Información de la propiedad:</strong></p>
-                                                                        <div class="lst-resume" data-resume>
-
-                                                                        </div>
-                                                                    </div>
-                                                                    <!-- <p><strong>Información del tipo de propiedad:</strong></p> -->
-                                                                </div>
-                                                            </div>
+                                            <div class="d-flex w-100 resumen">
+                                                <div class="col-sm-3">
+                                                    <div class="card-body">
+                                                        <div>
+                                                            <label class="mak-txt">Comentario</label>
+                                                            <textarea id="coment_valr_" placeholder="Escribe un comentario..."></textarea>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="btn btn-mak mak-bg">Ver Fotos</div>
+                                                            <div class="btn btn-mak mak-bg">Ver Documentos</div>
                                                         </div>
                                                     </div>
                                                 </div>
+                                                <div class="col-sm-4 "> <!-- brd-rght-blue -->
+                                                    <div class="card-body  card-resume">
+                                                        <div id="mapa_2" style="height: 400px;"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-5">
+                                                    <div class="card-body card-resume data-resume">
+                                                        <h2>Resumen</h2>
+                                                        <p><strong>Datos de contacto:</strong></p>
+                                                        <ul>
+                                                            <li>Nombre: <?php echo $_SESSION['nom_usu']; ?></li>
+                                                            <li>Email: <?php echo $_SESSION['email_usu']; ?></li>
+                                                            <li>Teléfono: <?php echo $_SESSION['telef_usu']; ?></li>
+                                                        </ul>
+                                                        <div>
+                                                            <p><strong>Información de la propiedad:</strong></p>
+                                                            <div class="lst-resume" data-resume>
+
+                                                            </div>
+                                                        </div>
+                                                        <!-- <p><strong>Información del tipo de propiedad:</strong></p> -->
+                                                    </div>
+                                                </div>
                                             </div>
+
+
                                         </div>
                                         <div class="form-flex">
-                                            <button type="button" class="btn btn-mak mak-bg  antPag">Retroceder</button>
+                                            <button type="button" class="btn btn-mak mak-bg-sec antPag">Retroceder</button>
                                             <button type="button" class="btn btn-mak mak-bg btn_finalizar" id="btn_finalizar" name="btn_finalizar">
                                                 Finalizar
                                             </button>
@@ -1756,11 +1760,6 @@
                         </div>
                     </div>
                     <!-- END SECTION -->
-                    <!-- </div> -->
-
-                    <!-- </div> -->
-
-                    <!-- </div> -->
                 </div>
             </section>
 
@@ -1772,8 +1771,8 @@
                         <div class="modal-body">
                             <h5 class="title-m" id="titulo_docs">¿Estas seguro que quieres enviar la solicitud?</h5>
                             <div id="loader" style="display: none; margin: 0 22rem 5rem" class="loader-styla">
-                              <strong>Enviando Solicitud. Por favor espere</strong>
-                              <img src="../Vista/assets/loading_uhd.gif">                            
+                                <strong>Enviando Solicitud. Por favor espere</strong>
+                                <img src="../Vista/assets/loading_uhd.gif">
                             </div>
                             <div class="d-flex margin justify-content-around">
 
@@ -2454,13 +2453,13 @@
     <script>
         // TEXTAREA
         const textareas = document.querySelectorAll("textarea");
-         textareas.forEach((textarea) => {
+        textareas.forEach((textarea) => {
             textarea.addEventListener("keyup", e => {
                 textarea.style.height = "auto";
                 let scHeight = e.target.scrollHeight;
                 textarea.style.height = `${scHeight}px`;
             })
-         })
+        })
         // TEXTAREA
     </script>
 

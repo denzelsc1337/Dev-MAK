@@ -3,10 +3,27 @@
   --blue-mak: #182f59;
   --yell-mak: #f39200;
   --white-mak: #fff;
+
+  --Title: 'Poppins', sans-serif;
+  --Text: 'PoppinsText', sans-serif;
+}
+
+@font-face {
+  font-family: 'Poppins';
+  /* El nombre que usarás para referirte a la fuente */
+  src: url(../fonts/Poppins/Poppins-Bold.ttf) format('truetype');
+  /* Ruta al archivo de fuente */
+}
+
+@font-face {
+  font-family: 'PoppinsText';
+  /* El nombre que usarás para referirte a la fuente */
+  src: url(../fonts/Poppins/Poppins-Light.ttf) format('truetype');
+  /* Ruta al archivo de fuente */
 }
 
 body {
-  font-family: 'Poppins', sans-serif !important;
+  font-family: var(--Text);
   background-color: #f8fafb;
   color: var(--blue-mak) !important;
 }
@@ -21,7 +38,13 @@ p {
   font-weight: 300;
 }
 
-h1,
+
+b,
+strong {
+  font-weight: 600 !important;
+}
+
+/* h1,
 h2,
 h3,
 h4,
@@ -34,7 +57,7 @@ h6,
 .h5,
 .h6 {
   font-family: "Roboto", sans-serif;
-}
+} */
 
 .bor-rght-20 {
   /* border-radius: var(--radius-20); */
@@ -91,15 +114,26 @@ a:hover {
 }
 
 .mak-bg {
+  color: var(--white-mak) !important;
   background-color: var(--blue-mak) !important;
+}
+
+.btn.mak-bg:hover {
+  background-color: var(--yell-mak) !important;
+  color: var(--blue-mak) !important;
 }
 
 .mak-bg-sec {
   background-color: var(--yell-mak) !important;
+  color: var(--blue-mak) !important;
 }
 
 .txt-center {
   text-align: center;
+}
+
+.bs-stepper-content {
+  padding: 0 !important;
 }
 
 .active .bs-stepper-circle {
@@ -163,7 +197,7 @@ a:hover {
 .content-wrapper .content {
   padding: 0 !important;
   margin: 0 !important;
-  height: calc(100vh - 115px);
+  height: calc(100vh - 153px);
 }
 
 .content {
@@ -289,7 +323,7 @@ h2 {
 
 /* VALORIZACION */
 .mak-forms .container {
-  max-width: 85%;
+  max-width: 90%;
   margin: auto;
 }
 
@@ -303,6 +337,26 @@ h2 {
   padding: 0 8px;
 }
 
+.card {
+  box-shadow: 0 0 0 rgba(0, 0, 0, .125), 0 0 0 rgba(0, 0, 0, .2) !important;
+}
+
+#pantalla-RS table {
+  width: 95% !important;
+  margin: 0 auto;
+}
+
+#pantalla-RS .card-body {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.card-box {
+  border-radius: 35px !important;
+  overflow: hidden;
+  border: 15px solid #fff !important;
+  box-shadow: -7px 8px 15px 7px #0000001A !important;
+}
 
 .column-card .column {
   display: flex;
@@ -327,11 +381,17 @@ h2 {
   text-align: center;
   transition: all 0.5s ease;
   border-radius: var(--radius-20);
-  box-shadow: 0 6px 10px 0 rgb(0 0 0 / 40%), 0 1px 3px rgba(0, 0, 0, 15%) !important;
+  box-shadow: -7px 8px 15px 7px #0000001A;
 }
+
 
 .table td {
   vertical-align: middle !important;
+}
+
+.table thead tr {
+  background-color: var(--blue-mak);
+  color: var(--white-mak);
 }
 
 .table thead tr th:first-child {
@@ -428,12 +488,12 @@ h2 {
   border: 1px solid var(--blue-mak) !important;
 }
 
-.card-login .form-mak{
+.card-login .form-mak {
   padding-left: 40px;
 }
 
 .card-login .form-mak,
-.form-mak.sect{
+.form-mak.sect {
   border: transparent !important;
   border-bottom: 1px solid var(--blue-mak) !important;
 }
@@ -451,10 +511,10 @@ h2 {
   height: 50px;
 }
 
-.forgot .card-login .form-mak,
+/* .forgot .card-login .form-mak,
 .form-group .form-mak {
   padding-left: 10px;
-}
+} */
 
 .icon-input.rght {
   right: 0;
@@ -482,9 +542,10 @@ h2 {
 }
 
 .btn-mak {
-  color: white !important;
+  color: white;
   padding: 5px 30px !important;
   text-decoration: none !important;
+  border-radius: 18px !important;
 }
 
 .btn-mak:hover {
@@ -497,7 +558,6 @@ h2 {
   background-size: cover;
   background-position: center center;
   height: 20%;
-  margin-bottom: 1.5rem;
 }
 
 .body-mak {
@@ -509,12 +569,22 @@ h2 {
 }
 
 .body-mak .b-title {
-  font-size: 5rem;
+  font-family: var(--Title) !important;
+  font-size: 70px;
+  font-weight: 700;
   margin-bottom: .7rem;
 }
 
 .body-mak .b-text {
-  font-size: 2rem;
+  font-size: 17px;
+  font-weight: 400;
+  font-family: var(--Text) !important;
+}
+
+ul,
+li {
+  font-family: var(--Text) !important;
+
 }
 
 .body-mak .row {
@@ -554,7 +624,7 @@ h2 {
 .card-mak .card-intro-txt {
   position: relative;
   bottom: -40px;
-  transition: all 1s ease;
+  transition: all .5s ease;
 }
 
 .card-mak .card-intro-txt a {
@@ -572,7 +642,7 @@ h2 {
 
 .card-mak .card-intro-txt p {
   opacity: 0;
-  transition: all 1s ease;
+  transition: all .5s ease;
   color: white !important;
 }
 
@@ -1018,7 +1088,7 @@ textarea::-webkit-scrollbar {
 .right.custom-control-label::before,
 .right.custom-control-label::after {
   top: -2px !important;
-  left: 200px !important;
+  left: 150px !important;
   width: 1.5rem !important;
   height: 1.5rem !important;
   border-radius: 0.25rem;
@@ -1356,6 +1426,16 @@ form .form-content {
   cursor: pointer;
 }
 
+.file-titled {
+  margin: 0 auto;
+}
+
+.file-titled div {
+  border-radius: 10px;
+  padding: 0 13px;
+  background-color: var(--blue-mak);
+  color: var(--white-mak);
+}
 
 .valo-file {}
 
@@ -1365,11 +1445,12 @@ form .form-content {
 .valo-file .file-content {}
 
 .valo-file .file-content {
-  display: grid;
+  display: flex;
+  flex-wrap: wrap;
   width: 100%;
   gap: 15px;
   padding: 1.3rem 1rem;
-  grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+  /* grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); */
 }
 
 
@@ -1430,16 +1511,16 @@ form .form-content {
   background-color: var(--white-mak);
 }
 
-  .loader-styla {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    z-index: 9999; 
-    color: white;
-    text-align: center;
-    padding-top: 20%;
-  }
+.loader-styla {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 9999;
+  color: white;
+  text-align: center;
+  padding-top: 20%;
+}

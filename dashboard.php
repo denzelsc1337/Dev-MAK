@@ -121,7 +121,7 @@ require_once('config/security.php');
             <!-- Add icons to the links using the .nav-icon class
                  with font-awesome or any other icon font library -->
             <!--MAK MODULOS PARA EL ADMIN-->
-            <?php if ($_SESSION['tipo_usu'] == 1): ?>
+            <?php if ($_SESSION['tipo_usu'] == 1) : ?>
               <li class="nav-header">Mis Pendientes</li>
 
               <li class="nav-item">
@@ -134,11 +134,11 @@ require_once('config/security.php');
 
             <li class="nav-item">
               <a href="Config/logout.php" class="nav-link">
-                  <i class="nav-icon fas fa-sharp fa-regular fa-power-off"></i>
-                  <p>Cerrar Sesion</p>
+                <i class="nav-icon fas fa-sharp fa-regular fa-power-off"></i>
+                <p>Cerrar Sesion</p>
               </a>
             </li>
-            
+
           </ul>
         </nav>
         <!-- /.sidebar-menu -->
@@ -216,9 +216,9 @@ require_once('config/security.php');
               <div class="card-intro">
                 <div class="card-intro-txt">
                   <h1>Búsqueda</h1>
-                  <p>Texto informativo</p>
+                  <p class="mak-txt b-text">Contamos con más de 2000 inmuebles disponibles para ti.</p>
                 </div>
-                <a href="Search/Busqueda.php" class="btn btn-mak mak-bg">INICIAR</a>
+                <a href="Search/Busqueda.php" class="btn btn-mak mak-bg-sec">INICIAR</a>
               </div>
             </div>
             <div class="card-mak col-md-4">
@@ -227,9 +227,9 @@ require_once('config/security.php');
               <div class="card-intro">
                 <div class="card-intro-txt">
                   <h1>Valorizaciones</h1>
-                  <p>Texto informativo</p>
+                  <p class="mak-txt b-text">Analizamos la propiedad y te brindamos el valor exacto de dicha propiedad.</p>
                 </div>
-                <a href="Valorizacion/" class="btn btn-mak mak-bg">INICIAR</a>
+                <a href="Valorizacion/" class="btn btn-mak mak-bg-sec">INICIAR</a>
                 <!-- <a href="Valorizacion/valorizacion.php" class="btn btn-mak mak-bg">INICIAR</a> -->
               </div>
             </div>
@@ -239,9 +239,9 @@ require_once('config/security.php');
               <div class="card-intro">
                 <div class="card-intro-txt">
                   <h1>Informe Legal</h1>
-                  <p>Texto informativo</p>
+                  <p class="mak-txt b-text">Te brindamos el apoyo y la orientación legal necesaria.</p>
                 </div>
-                <a href="Legal/" class="btn btn-mak mak-bg">INICIAR</a>
+                <a href="Legal/" class="btn btn-mak mak-bg-sec">INICIAR</a>
               </div>
             </div>
             <div class="card-mak col-md-4">
@@ -250,9 +250,9 @@ require_once('config/security.php');
               <div class="card-intro">
                 <div class="card-intro-txt">
                   <h1>Beneficios</h1>
-                  <p>Texto informativo</p>
+                  <p class="mak-txt b-text">-</p>
                 </div>
-                <a href="" class="btn btn-mak mak-bg">INICIAR</a>
+                <a href="" class="btn btn-mak mak-bg-sec">INICIAR</a>
               </div>
             </div>
           </div>

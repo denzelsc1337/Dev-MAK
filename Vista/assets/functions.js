@@ -38,7 +38,7 @@ $(document).ready(function () {
       processData: false,
       contentType: false,
       success: function (r) {
-        $("#loader").hide();        
+        $("#loader").hide();
         if (r) {
           //alert("Solicitud enviada correctamente.");
           console.log(r);
@@ -224,7 +224,7 @@ $(document).ready(function () {
     return false;
   });
 
-  
+
 
 
   $("#btnValo_lc_ind").click(function (e) {
@@ -304,7 +304,7 @@ $(document).ready(function () {
               $("#opciones_zoni_ofi").val(id);
               $("#opciones_zoni_lc").val(id);
               $("#opciones_zoni_lc_c").val(id);
-              
+
               // $(".auto-input").val(id);
               $(".auto-input").val(texto);
 
@@ -523,12 +523,12 @@ $(document).ready(function () {
 
   dragValo.addEventListener("dragover", (e) => {
     e.preventDefault();
-    texto.textContent = "Soltar";
+    texto.textContent = "Soltar Archivos";
   });
 
   dragValo.addEventListener("dragleave", (e) => {
     e.preventDefault();
-    texto.textContent = "Agregar Fotos";
+    texto.textContent = "Agregar Archivos";
   });
 
   dragValo.addEventListener("drop", (e) => {
@@ -536,7 +536,7 @@ $(document).ready(function () {
     files = e.dataTransfer.files;
     inputDragValo.files = files;
     showValoFiles(files);
-    texto.textContent = "Agregar Fotos";
+    texto.textContent = "Agregar Archivos";
   });
 
   function showValoFiles(files) {
@@ -553,12 +553,12 @@ $(document).ready(function () {
       "image/jpeg",
       "image/jpg",
       "image/png",
-      "image/gif",
-      "application/pdf",
-      "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
-      "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
-      "application/vnd.openxmlformats-officedocument.presentationml.presentation",
-      "text/plain",
+      // "image/gif",
+      // "application/pdf",
+      // "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+      // "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+      // "application/vnd.openxmlformats-officedocument.presentationml.presentation",
+      // "text/plain",
     ];
 
     if (validExtensions.includes(docType)) {

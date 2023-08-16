@@ -59,16 +59,30 @@ require_once('../Controller/controladorListar.php'); ?>
                 <?php include '../Vista/head-form.php' ?>
 
 
-                <section class="content body-mak txt-center mak-txt">
+                <section class="content body-mak mak-txt">
                     <div class="container">
-                        <div class="b-title">VALORIZACIONES</div>
-                        <p class="b-text mak-txt">-</p>
+                        <div class="b-title txt-center">VALORIZACIONES</div>
+                        <p class="mak-txt b-text">¡Bienvenido <strong><?php echo $_SESSION['nom_usu'] . " " . $_SESSION['ape_usu'] ?></strong>! Para realizar un correcto proceso de valorización, es necesario tener en cuenta los siguientes puntos clave:</p>
+                        <label class="mak-txt b-text">1. Documentos requeridos:</label>
+                        <ul>
+                            <li>Adjunta una Copia Literal o Partida Registral.</li>
+                            <li>Incluye un Predio Urbano (PU).</li>
+                            <li>Asegúrate de proporcionar la Hoja de Resumen (HR).</li>
+                        </ul>
+                        <label class="mak-txt b-text">2. Importante: Los documentos no deben ser mayores a 3 meses del presente año.</label>
+                        <p class="mak-txt b-text">Además, tienes la opción de adjuntar documentos opcionales, que pueden enriquecer el proceso de valorización:</p>
+                        <ul>
+                            <li>Certificado de Parámetros. </li>
+                            <li>Planos.</li>
+                            <li>Tasación Anterior. </li>
+                            <li>Recibo de Agua o Luz.</li>
+                        </ul>
+                        <p class="mak-txt b-text">Recuerda que tu colaboración es esencial para garantizar la calidad de la información. ¡Agradecemos tu participación en este proceso!</p>
                     </div>
 
                     <?php
                     if ($_SESSION['tipo_usu'] == 1) {
-
-                    }else{ ?>
+                    } else { ?>
                         <div class="footer-mak">
                             <div class="container">
                                 <div class="flex">
@@ -812,15 +826,15 @@ require_once('../Controller/controladorListar.php'); ?>
                                     .text(archivo);
 
                                 var btn_dlt = $('<button type="button" class="btn btn-danger dlt_file"><i class="fa-solid fa-trash"></i>')
-                                                .attr('data-ruta', '../Valorizaciones/'+ id_sol_v + '/' + dni + '/docs_val/' + archivo);
+                                    .attr('data-ruta', '../Valorizaciones/' + id_sol_v + '/' + dni + '/docs_val/' + archivo);
 
                                 console.log(btn_dlt);
 
                                 var rol = '<?php echo $_SESSION['tipo_usu'] ?>'
 
                                 if (rol == 1) {
-                                    var listItem = $('<li>').append(link_,' - ',btn_dlt);
-                                }else{
+                                    var listItem = $('<li>').append(link_, ' - ', btn_dlt);
+                                } else {
                                     var listItem = $('<li>').append(link_);
                                 }
 
@@ -840,57 +854,57 @@ require_once('../Controller/controladorListar.php'); ?>
             });
         }
 
-         $(document).on('click', '.dlt_file', function() {
-                var $this = $(this);
+        $(document).on('click', '.dlt_file', function() {
+            var $this = $(this);
 
-                var ruta_ = $(this).data('ruta');
+            var ruta_ = $(this).data('ruta');
 
 
-                console.log(ruta_);
+            console.log(ruta_);
 
-                var confirmar_ = window.confirm('¿Estás seguro de que deseas eliminar este archivo?');
+            var confirmar_ = window.confirm('¿Estás seguro de que deseas eliminar este archivo?');
 
-                if (confirmar_) {
-                    /*var $parentDiv = $(this).closest('.inputs').parent();
-                    var ruta_doc = $parentDiv.find('#ruta_doc_i').val();
-                    var ruta_archivo = $parentDiv.find('#ruta_archivo_i').val();*/
+            if (confirmar_) {
+                /*var $parentDiv = $(this).closest('.inputs').parent();
+                var ruta_doc = $parentDiv.find('#ruta_doc_i').val();
+                var ruta_archivo = $parentDiv.find('#ruta_archivo_i').val();*/
 
-                    eliminarArchivo($this, ruta_);
+                eliminarArchivo($this, ruta_);
 
-                    console.log("archivo eliminado");
-                } else {
-                    console.log("cancelado");
-                }
-            });
+                console.log("archivo eliminado");
+            } else {
+                console.log("cancelado");
+            }
+        });
 
         function eliminarArchivo($deleteBtn, ruta_doc) {
 
-                var idsolicitud = $("#txt_solic").val();
-                var dni_cli_t = $("#txt_dni").val();
+            var idsolicitud = $("#txt_solic").val();
+            var dni_cli_t = $("#txt_dni").val();
 
-                console.log(idsolicitud);
+            console.log(idsolicitud);
 
-                $.ajax({
-                    type: 'POST',
-                    url: '../Controller/eliminarArchivos.php',
-                    data: {
-                        ruta_doc: ruta_doc,
-                    },
-                    success: function(response) {
-                        console.log("archivo eliminado de la ruta: " + ruta_doc);
-                        $deleteBtn.closest('.modal').modal('hide');
-                        get_details_solic(idsolicitud);
-                        get_files_valor(idsolicitud, dni_cli_t)
-                    },
-                    complete: function() {
-                        get_details_solic(idsolicitud);
-                        get_files_valor(idsolicitud, dni_cli_t)
-                        setTimeout(function() {
-                            $('#details_v').modal('show');
-                        }, 500);
+            $.ajax({
+                type: 'POST',
+                url: '../Controller/eliminarArchivos.php',
+                data: {
+                    ruta_doc: ruta_doc,
+                },
+                success: function(response) {
+                    console.log("archivo eliminado de la ruta: " + ruta_doc);
+                    $deleteBtn.closest('.modal').modal('hide');
+                    get_details_solic(idsolicitud);
+                    get_files_valor(idsolicitud, dni_cli_t)
+                },
+                complete: function() {
+                    get_details_solic(idsolicitud);
+                    get_files_valor(idsolicitud, dni_cli_t)
+                    setTimeout(function() {
+                        $('#details_v').modal('show');
+                    }, 500);
 
-                    }
-                });
+                }
+            });
         }
 
         function get_imgs_valor(id_sol_v, dni) {
