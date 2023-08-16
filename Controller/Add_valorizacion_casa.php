@@ -55,28 +55,67 @@ if ($r) {
 
     $id_registro = mysqli_insert_id($cadena);
 
-    $target_dir = "../Valorizaciones/".$id_registro."/".$dni_cli."/fotos_val/";
+    $archivos_selecc = $_FILES["inpt-file-valo"];
+    $pu_s = $_FILES["fls_pu"];
+    $cl_s = $_FILES["fls_cl"];
 
+    //ruta fptps
+    $main_ruta = "../Valorizaciones/".$id_registro."/".$dni_cli."/";
 
-    echo " se guarda en esta ruta -> " . $target_dir;
+    //ruta docs
+    $fotos_ruta = $main_ruta."/fotos_val/";
+    $ruta_pu = $main_ruta."Documentos/PU/";
+    $ruta_cl = $main_ruta."Documentos/CL/";
+    
 
-    if (!file_exists($target_dir)) {
-        mkdir($target_dir, 0777, true);
+    if (!file_exists($fotos_ruta)) {
+        mkdir($fotos_ruta, 0777, true);
     }
 
-    $archivos_selecc = $_FILES["inpt-file-valo"];
+    if (!file_exists($ruta_pu)) {
+        mkdir($ruta_pu, 0777, true);
+    }
 
+    if (!file_exists($ruta_cl)) {
+        mkdir($ruta_cl, 0777, true);
+    }
+
+    set_time_limit(0);
+  
+    //envio de las fotos a la carpeta
   	$archivos_cont = count($archivos_selecc['name']);
-
   	$archivos_total = 0;
 
 
   	for ($i=0; $i < $archivos_cont ; $i++) { 
-    $ubicacion_save = $target_dir . basename($archivos_selecc["name"][$i]);
+        $ubicacion_save = $fotos_ruta . basename($archivos_selecc["name"][$i]);
     	if (move_uploaded_file($archivos_selecc["tmp_name"][$i], $ubicacion_save)) {
 	        $archivos_total++;
     	}
   	}
+
+    //envio de los pu a la carpeta
+    $pu_archivos_cont = count($pu_s['name']);
+
+    for ($i=0; $i < $pu_archivos_cont ; $i++) { 
+        $ubicacion_save = $ruta_pu . basename($pu_s["name"][$i]);
+        if (move_uploaded_file($pu_s["tmp_name"][$i], $ubicacion_save)) {
+            $archivos_total++;
+        }
+    }
+
+    //envio de las cl a la carpeta
+    $cl_archivos_cont = count($cl_s['name']);
+
+    for ($i=0; $i < $cl_archivos_cont ; $i++) { 
+        $ubicacion_save = $ruta_cl . basename($cl_s["name"][$i]);
+        if (move_uploaded_file($cl_s["tmp_name"][$i], $ubicacion_save)) {
+            $archivos_total++;
+        }
+    }
+
+    echo "total files " . $archivos_total . " archivos.";
+
 } else {
     echo "Error al insertar el registro.";
 }

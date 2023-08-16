@@ -1646,8 +1646,10 @@
 
                                                                 <input type="file" id="inpt-file-valo" name="inpt-file-valo[]" multiple hidden>
                                                             </div>
-
-
+                                                            <label>PU</label>
+                                                            <input type="file" id="fls_pu" name="fls_pu[]" multiple>
+                                                            <label>CL</label>
+                                                            <input type="file" id="fls_cl" name="fls_cl[]" multiple>
                                                         </div>
                                                     </div>
 
@@ -1764,11 +1766,15 @@
 
 
             <div class="modal fade" id="buttons_fin" tabindex="-1" role="dialog" aria-labelledby="buttons_fin" aria-hidden="true">
+
                 <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
                     <div class="modal-content">
                         <div class="modal-body">
                             <h5 class="title-m" id="titulo_docs">¿Estas seguro que quieres enviar la solicitud?</h5>
-
+                            <div id="loader" style="display: none; margin: 0 22rem 5rem" class="loader-styla">
+                              <strong>Enviando Solicitud. Por favor espere</strong>
+                              <img src="../Vista/assets/loading_uhd.gif">                            
+                            </div>
                             <div class="d-flex margin justify-content-around">
 
                                 <button type="button" class="btn btn-mak btn-danger" data-dismiss="modal">Cancelar</button>

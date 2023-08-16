@@ -28,6 +28,7 @@ $(document).ready(function () {
 
   $("#btnValo_casa").click(function (e) {
     e.preventDefault();
+    $("#loader").show();
     //var data = $("#form_valor").serialize();
     var formData = new FormData($("#form_valor")[0]);
     $.ajax({
@@ -37,6 +38,7 @@ $(document).ready(function () {
       processData: false,
       contentType: false,
       success: function (r) {
+        $("#loader").hide();        
         if (r) {
           //alert("Solicitud enviada correctamente.");
           console.log(r);
@@ -51,6 +53,7 @@ $(document).ready(function () {
         }
       },
       error: function (xhr, status, error) {
+        $("#loader").hide()
         console.error(error);
         console.log(xhr.responseText);
       },
