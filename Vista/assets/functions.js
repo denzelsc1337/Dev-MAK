@@ -26,40 +26,68 @@ $(document).ready(function () {
   //--------------------------------------------EN USO-------------------------------------------------------------------//
   //--------------------------------------------EN USO-------------------------------------------------------------------//
 
-  $("#btnValo_casa").click(function (e) {
-    e.preventDefault();
-    $("#loader").show();
-    //var data = $("#form_valor").serialize();
-    var formData = new FormData($("#form_valor")[0]);
-    $.ajax({
-      type: "POST",
-      url: "../Controller/Add_valorizacion_casa.php",
-      data: formData,
-      processData: false,
-      contentType: false,
-      success: function (r) {
-        $("#loader").hide();
-        if (r) {
-          //alert("Solicitud enviada correctamente.");
-          console.log(r);
-          event.returnValue = false;
-          window.location.href = "../Valorizacion/";
-        } else {
-          alert(
-            "Error al registrar, Verifique que los campos esten correctamente completos."
-          );
-          console.log(r);
-          console.log(data);
-        }
-      },
-      error: function (xhr, status, error) {
-        $("#loader").hide()
-        console.error(error);
-        console.log(xhr.responseText);
-      },
-    });
-    return false;
+  const socket = new WebSocket('ws://localhost:8080'); // Cambia la URL según tu configuración
+
+  socket.addEventListener('message', (event) => {
+      const mensaje = JSON.parse(event.data);
+      console.log('Mensaje recibido:', mensaje);
+      if (mensaje.tipo === 'nuevo_registro') {
+          cargarTabla(); // Carga la tabla actualizada cuando se recibe la notificación
+      }
   });
+
+$("#btnValo_casa").click(function (e) {
+  e.preventDefault();
+  $("#loader").show();
+  var formData = new FormData($("#form_valor")[0]);
+
+  $.ajax({
+    type: "POST",
+    url: "../Controller/Add_valorizacion_casa.php",
+    data: formData,
+    processData: false,
+    contentType: false,
+    success: function (r) {
+      $("#loader").hide();
+      if (r) {
+        //alert("Solicitud enviada correctamente.");
+        console.log(r);
+        const mensaje = JSON.stringify({ tipo: 'nuevo_registro', mensaje: 'Nuevo registro insertado' });
+        socket.send(mensaje);
+        // No es necesario cambiar event.returnValue a false
+        //window.location.href = "../Valorizacion/";
+      } else {
+        alert(
+          "Error al registrar, Verifique que los campos esten correctamente completos."
+        );
+        console.log(r);
+        console.log(data);
+      }
+    },
+    error: function (xhr, status, error) {
+      $("#loader").hide()
+      console.error(error);
+      console.log(xhr.responseText);
+    },
+  });
+  // No es necesario cambiar event.returnValue a false
+  //return false;
+});
+
+  cargarTabla(); // Carga la tabla cuando se carga la página por primera vez
+
+  function cargarTabla() {
+      $.ajax({
+          url: '../Controller/Get_Data_Total.php', // Cambia la ruta según tu estructura
+          success: function (data) {
+            console.log('Tabla cargada:', data);
+              // Actualiza el contenido de la tabla con la nueva lista
+            $('#tabla-container').html(data);
+          }
+      });
+  }
+
+
 
   $("#btnValo_depa").click(function (e) {
     e.preventDefault();

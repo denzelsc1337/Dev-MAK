@@ -116,6 +116,9 @@ if ($r) {
 
     echo "total files " . $archivos_total . " archivos.";
 
+    $mensaje = array("tipo" => "nuevo_registro", "mensaje" => "Nuevo registro insertado");
+    echo json_encode($mensaje);
+
 } else {
     echo "Error al insertar el registro.";
 }
