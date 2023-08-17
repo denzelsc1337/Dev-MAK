@@ -1,25 +1,3 @@
-const express = require('express');
-const http = require('http');
-const { Server } = require('socket.io');
-const cors = require('cors'); // Importa el paquete cors
-
-const app = express();
-const server = http.createServer(app);
-const io = new Server(server);
-
-// Habilita CORS para permitir solicitudes desde http://localhost
-app.use(cors({
-  origin: 'http://localhost'
-}));
-
-io.on('connection', (socket) => {
-  // Resto de tu código para manejar conexiones y mensajes
-});
-
-server.listen(8080, () => {
-  console.log('Servidor WebSocket escuchando en el puerto 8080');
-});
-
 const WebSocket = require('ws');
 
 const wss = new WebSocket.Server({ port: 8080 });
