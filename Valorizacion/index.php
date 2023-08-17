@@ -194,17 +194,21 @@ require_once('../Controller/controladorListar.php'); ?>
                                                         <?php mostrarData($lst_vlzn[63]) ?>
 
                                                         <td>
-                                                            <button type="button" class="btn btn-rounded btn_get_details scroll-toggle" data-id_solic_val="<?php echo $lst_vlzn[0] ?>" data-id_cli="<?php echo $lst_vlzn[0] ?>" data-dni_cli="<?php echo $lst_vlzn[1] ?>" data-toggle="modal" data-target="#details_v">
+                                                            <!-- <button type="button" class="btn btn-rounded btn_get_details scroll-toggle" data-id_solic_val="<?php echo $lst_vlzn[0] ?>" data-id_cli="<?php echo $lst_vlzn[0] ?>" data-dni_cli="<?php echo $lst_vlzn[1] ?>" data-toggle="modal" data-target="#details_v">
+                                                                <i class="fa-solid fa-eye"></i>
+                                                            </button> -->
+
+                                                            <button type="button" class="btn btn-rounded scroll-toggle" data-id_solic_val="<?php echo $lst_vlzn[0] ?>" data-id_cli="<?php echo $lst_vlzn[0] ?>" data-dni_cli="<?php echo $lst_vlzn[1] ?>">
                                                                 <i class="fa-solid fa-eye"></i>
                                                             </button>
                                                         </td>
 
                                                         <!--
-            <td>
+                                            <td>
 
-                <button type="button" class="btn editbtn" data-toggle="modal" data-target="#exampleModal"><i class="fa-solid fa-upload"></i></button>
+                                                <button type="button" class="btn editbtn" data-toggle="modal" data-target="#exampleModal"><i class="fa-solid fa-upload"></i></button>
 
-            </td>-->
+                                            </td>-->
                                                     </tr>
                                                 <?php endforeach ?>
                                             </tbody>
@@ -213,29 +217,6 @@ require_once('../Controller/controladorListar.php'); ?>
                                 </div>
 
                                 <!-- </div> TABLA ADMIN -->
-
-                                                <table id="tabla-container" class="table table_ table-borderless mb-3" style="width: 100%;">
-
-                                                    <thead class="">
-                                                        <tr>
-                                                            <th>ID</th>
-                                                            <th>Dni</th>
-                                                            <th>Cliente</th>
-                                                            <th>Direccion</th>
-                                                            <th>Tipo Propiedad</th>
-                                                            <th>Tipo</th>
-                                                            <th>Estado</th>
-                                                            <th>Detalles</th>
-                                                        </tr>
-                                                    </thead>
-
-                                                    <!--Agregar la tabla cortada en el notepad aca-->
-
-                                                </table>
-                                            </div>
-                                        </div>
-                                        <!-- </div> TABLA ADMIN -->
-
 
                                     <?php
                                     } else {

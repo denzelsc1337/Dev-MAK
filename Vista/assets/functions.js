@@ -26,7 +26,7 @@ $(document).ready(function () {
   //--------------------------------------------EN USO-------------------------------------------------------------------//
   //--------------------------------------------EN USO-------------------------------------------------------------------//
 
-const socket = new WebSocket('ws://localhost:8080'); // Cambia la URL según tu configuración
+  /*const socket = new WebSocket('ws://localhost:8080'); // Cambia la URL según tu configuración
 
   socket.addEventListener('message', (event) => {
     const mensaje = JSON.parse(event.data);
@@ -34,13 +34,12 @@ const socket = new WebSocket('ws://localhost:8080'); // Cambia la URL según tu 
     if (mensaje.tipo === 'nuevo_registro') {
       cargarTabla(); // Carga la tabla actualizada cuando se recibe la notificación
     }
-  });
+  });*/
 
   $("#btnValo_casa").click(function (e) {
     e.preventDefault();
     $("#loader").show();
     var formData = new FormData($("#form_valor")[0]);
-
     $.ajax({
       type: "POST",
       url: "../Controller/Add_valorizacion_casa.php",
@@ -52,10 +51,10 @@ const socket = new WebSocket('ws://localhost:8080'); // Cambia la URL según tu 
         if (r) {
           //alert("Solicitud enviada correctamente.");
           console.log(r);
-          const mensaje = JSON.stringify({ tipo: 'nuevo_registro', mensaje: 'Nuevo registro insertado' });
-          socket.send(mensaje);
+          /*const mensaje = JSON.stringify({ tipo: 'nuevo_registro', mensaje: 'Nuevo registro insertado' });
+          socket.send(mensaje);*/
           // No es necesario cambiar event.returnValue a false
-          //window.location.href = "../Valorizacion/";
+          window.location.href = "../Valorizacion/";
         } else {
           alert(
             "Error al registrar, Verifique que los campos esten correctamente completos."
@@ -71,10 +70,10 @@ const socket = new WebSocket('ws://localhost:8080'); // Cambia la URL según tu 
       },
     });
     // No es necesario cambiar event.returnValue a false
-    //return false;
+    return false;
   });
 
-  cargarTabla(); // Carga la tabla cuando se carga la página por primera vez
+  /*cargarTabla(); // Carga la tabla cuando se carga la página por primera vez
 
   function cargarTabla() {
     $.ajax({
@@ -85,7 +84,7 @@ const socket = new WebSocket('ws://localhost:8080'); // Cambia la URL según tu 
         $('#tabla-container').html(data);
       }
     });
-  }
+  }*/
 
 
 
