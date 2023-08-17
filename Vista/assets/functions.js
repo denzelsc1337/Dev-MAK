@@ -26,7 +26,7 @@ $(document).ready(function () {
   //--------------------------------------------EN USO-------------------------------------------------------------------//
   //--------------------------------------------EN USO-------------------------------------------------------------------//
 
-  const socket = new WebSocket('ws://localhost:8080'); // Cambia la URL según tu configuración
+const socket = new WebSocket('ws://localhost:8080'); // Cambia la URL según tu configuración
 
   socket.addEventListener('message', (event) => {
     const mensaje = JSON.parse(event.data);
