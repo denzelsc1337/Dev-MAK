@@ -1622,12 +1622,12 @@
                                                                 <label class="col-sm-3 col-form-label">Predio Urbano:</label>
                                                                 <div class="section-input col-sm-6">
                                                                     <div class="upload-file">
-                                                                        <label for="" class="upld-file pu">Seleccionar archivos.</label>
-                                                                        <input type="file" id="fls_pu" name="fls_pu[]" multiple hidden>
+                                                                        <label for="" class="upld-file pu" data-type="pu">Seleccionar archivos.</label>
+                                                                        <input type="file" id="fls_pu" name="fls_pu[]" multiple>
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                            <div class="row archives_pu" style="display: ;"></div>
+                                                            <div class="row archives_pu" style="display: none;"></div>
                                                         </div>
                                                         <br>
                                                         <div>
@@ -1635,13 +1635,13 @@
                                                                 <label class="col-sm-3 col-form-label">Copia Literal:</label>
                                                                 <div class="section-input col-sm-6">
                                                                     <div class="upload-file">
-                                                                        <label for="fls_cl" class="upld-file cl">Seleccionar archivos.</label>
-                                                                        <input type="file" id="fls_cl" name="fls_cl[]" multiple hidden>
+                                                                        <label for="" class="upld-file cl" data-type="cl">Seleccionar archivos.</label>
+                                                                        <input type="file" id="fls_cl" name="fls_cl[]" multiple>
 
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                            <div class="row archives_cl" style="display: ;"></div>
+                                                            <div class="row archives_cl" style="display: none;"></div>
                                                         </div>
 
                                                     </div>

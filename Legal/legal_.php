@@ -1157,7 +1157,6 @@ require_once('../Controller/controladorListar.php');
 
 
     <script>
-
         $(document).ready(function() {
 
             $('.btn_subir_1').on('click', function() {
@@ -1389,14 +1388,14 @@ require_once('../Controller/controladorListar.php');
                         id_tipo_doc: id_tipo_doc
 
                     },
-                    beforeSend:function(){
-                    $("#loader_uhd").show();
-                    $("#lst_docs_lgl").hide();
-                    //$("#docs_val").hide();
-                    
+                    beforeSend: function() {
+                        $("#loader_uhd").show();
+                        $("#lst_docs_lgl").hide();
+                        //$("#docs_val").hide();
+
                     },
                     success: function(response) {
-                        
+
 
                         var data = JSON.parse(response);
 
@@ -1413,22 +1412,22 @@ require_once('../Controller/controladorListar.php');
                             $("#loader_uhd").hide();
                             $("#lst_docs_lgl").show();
                             if (archivos && archivos.length > 0) {
-                            var enlaceHtml = '';
+                                var enlaceHtml = '';
 
-                            archivos.forEach(function(archivo) {
-                                var ruta = archivo.ruta;
-                                var nombreArchivo = archivo.archivo;
-                                var estado = archivo.estado;
-                                var id_doc_ = archivo.id_doc;
-                                var status_r = '';
+                                archivos.forEach(function(archivo) {
+                                    var ruta = archivo.ruta;
+                                    var nombreArchivo = archivo.archivo;
+                                    var estado = archivo.estado;
+                                    var id_doc_ = archivo.id_doc;
+                                    var status_r = '';
 
 
-                                var delete_btn = $('<button>').text('Eliminar').attr('class', 'btn btn-block btn-danger');
-                                var estadoHtml = estado === 'estado_desconocido' ? '' : `<span class="estado-archivo">${estado}</span>`;
-                                var estadoDbHtml = estado_db ? `<span class="estado-db">${estado_db}</span>` : '';
+                                    var delete_btn = $('<button>').text('Eliminar').attr('class', 'btn btn-block btn-danger');
+                                    var estadoHtml = estado === 'estado_desconocido' ? '' : `<span class="estado-archivo">${estado}</span>`;
+                                    var estadoDbHtml = estado_db ? `<span class="estado-db">${estado_db}</span>` : '';
 
-                                //arroshi recontra tarao
-                                enlaceHtml += `
+                                    //arroshi recontra tarao
+                                    enlaceHtml += `
 
                                             <div class="row d-flex justify-content-between align-center mb-4">
                                                 <div class="col-sm-2">
@@ -1491,21 +1490,21 @@ require_once('../Controller/controladorListar.php');
                                             </div>
                                             `;
 
-                            });
+                                });
 
-                            document.getElementById('descarga_archivo_p').innerHTML = enlaceHtml;
+                                document.getElementById('descarga_archivo_p').innerHTML = enlaceHtml;
 
-                        } else {
+                            } else {
 
-                            document.getElementById('descarga_archivo_p').textContent = 'Archivo no encontrado';
-                        }
+                                document.getElementById('descarga_archivo_p').textContent = 'Archivo no encontrado';
+                            }
 
-                        console.log('Estado de archivos:', estado_doc);
-                        console.log('Estado de la base de datos:', estado_db);
+                            console.log('Estado de archivos:', estado_doc);
+                            console.log('Estado de la base de datos:', estado_db);
 
                         }, 480);
 
-                        
+
 
                     },
                     error: function(xhr, status, error) {
@@ -1832,149 +1831,9 @@ require_once('../Controller/controladorListar.php');
 
 
     <script>
-        /*function load_documents_legal(ID_cli) {
-
-                $.ajax({
-                    type: 'POST',
-                    url: '../Controller/Get_files_solic_legal.php',
-                    data: {
-                        id_client: ID_cli,
-                    },
-                    success: function(response) {
-                        var data = JSON.parse(response);
-
-                        var archivos = data.archivos;
-
-                        if (archivos && archivos.length > 0) {
-                            var enlaceHtml = '';
-                            var cod_usu = '<?php echo $_SESSION['dni'] ?>';
-
-                            var ruta_1 = '../Documentos Legal/' + cod_usu + '/H_R';
-                            var ruta_2 = '../Documentos Legal/' + cod_usu + '/C_L';
-                            var ruta_3 = '../Documentos Legal/' + cod_usu + '/P_U';
-                            var ruta_4 = '../Documentos Legal/' + cod_usu + '/DNI';
-
-                            // Definir las rutas a validar
-                            var lista_ = [ruta_1, ruta_2, ruta_3, ruta_4];
-
-                            archivos.forEach(function(archivo) {
-                                var ruta = archivo.ruta;
-                                var nombreArchivo = archivo.archivo;
-                                var estado = archivo.estado;
-                                var id_doc_ = archivo.id_doc;
-                                var status_r = '';
-
-                                var delete_btn = $('<button>').text('Eliminar').attr('class', 'btn btn-block btn-danger');
-
-                                // Dividir las rutas entregadas por el servidor
-                                var carpetas_ = ruta.split('\r\n');
-
-                                var enlaceHtmlCard = '';
-
-                                carpetas_.forEach(function(carpetasRuta) {
-                                    // Comparar las rutas utilizando .includes() y .startsWith()
-                                    if (lista_.some(function(item) { return carpetasRuta.startsWith(item); })) {
-                                        enlaceHtmlCard += `
-                                            <div class="row card-resume">
-                                                <div class="col-sm-2">
-                                                    <div class="lgl-modal-num">
-                                                        1
-                                                    </div>
-                                                </div>
-                                                <div class="col-sm-8 brd-rght-blue d-flex align-items-center">
-                                                    <span class="mak-txt bld">${carpetasRuta}</span>
-                                                </div>
-                                                <div class="col-sm-2 justify-content-center options">
-                                                    <div class="options">
-                                                        <i class="fa-solid fa-eye"></i>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        `;
-                                    }
-                                });
-
-                                if (enlaceHtmlCard !== '') {
-                                    enlaceHtml += enlaceHtmlCard;
-                                } else {
-                                    document.getElementById('carpeta_l').textContent = 'Archivo no encontrado';
-                                }
-                            });
-
-                            document.getElementById('carpeta_l').innerHTML = enlaceHtml;
-                        } else {
-                            // No se encontraron archivos
-                        }
-                    },
-                    error: function(xhr, status, error) {
-                        console.log(error);
-                    }
-            });
-        }*/
-
-        // function send_file_upld(drop_id, file_input_id, btn_id) {
-
-        //     const dropArea = document.getElementById(drop_id);
-        //     const fileInput = document.getElementById(file_input_id);
-
-        //     // Prevenir el comportamiento predeterminado para los eventos de arrastrar para permitir soltar archivos
-        //     dropArea.addEventListener("dragover", (event) => {
-        //         event.preventDefault();
-        //     });
-
-        //     // Manejar el evento de soltar archivos
-        //     dropArea.addEventListener("drop", (event) => {
-        //         event.preventDefault();
-        //         const files = event.dataTransfer.files;
-        //         //actualizarListaArchivos(files);
-        //         fileInput.files = files;
-        //         habilitarBotonRegistrar(files.length > 0);
-        //     });
-
-        //     // Manejar el evento de cambio en el input de archivos
-        //     fileInput.addEventListener("change", (event) => {
-        //         const files = event.target.files;
-        //         //actualizarListaArchivos(files);
-        //         habilitarBotonRegistrar(files.length > 0);
-        //     });
-
-        //     // Actualizar la lista de archivos en el área de arrastre
-        //     //function actualizarListaArchivos(files) {
-        //     //const fileArchives = dropArea.querySelector(".file-archives");
-        //     //fileArchives.innerHTML = "";
-
-        //     //for (const file of files) {
-        //     //const fileDiv = document.createElement("div");
-        //     //fileDiv.textContent = file.name;
-        //     //fileArchives.appendChild(fileDiv);
-        //     //}
-        //     //}
-
-        //     // Habilitar o deshabilitar el botón de registrar según la cantidad de archivos seleccionados
-        //     function habilitarBotonRegistrar(habilitar) {
-        //         const submitButton = document.getElementById(btn_id);
-        //         submitButton.disabled = !habilitar;
-        //     }
-        // }
-
-        // document.addEventListener("DOMContentLoaded", () => {
-        //     send_file_upld("dropArea", "hr_s", "btn_save_hr");
-        //     send_file_upld("dropArea_2", "pu_s", "btn_save_pu");
-        //     send_file_upld("dropArea_3", "cl_s", "btn_save_cl");
-        //     send_file_upld("dropArea_4", "dni_s", "btn_save_dni");
-        // });
-
-
-
         // ----------------------------
 
         document.querySelectorAll(".body-mak").forEach(element => {
-
-            document.addEventListener("keydown", function(event) {
-                if (event.key === "Tab") {
-                    event.preventDefault(); // Evita el comportamiento predeterminado de TAB
-                }
-            });
 
             const contenedor = document.querySelector(".overflow-hidden");
             const contenido = contenedor.scrollWidth;
@@ -2180,7 +2039,7 @@ require_once('../Controller/controladorListar.php');
                         element.addEventListener("click", () => {
                             /////
                             var contenido = document.querySelectorAll(".content-file").forEach(element => {
-                                 var cod_l = $('#cod_reg_l').val();
+                                var cod_l = $('#cod_reg_l').val();
 
 
                                 // var buttons = element.querySelectorAll("button");

@@ -29,62 +29,62 @@ $(document).ready(function () {
   const socket = new WebSocket('ws://localhost:8080'); // Cambia la URL según tu configuración
 
   socket.addEventListener('message', (event) => {
-      const mensaje = JSON.parse(event.data);
-      console.log('Mensaje recibido:', mensaje);
-      if (mensaje.tipo === 'nuevo_registro') {
-          cargarTabla(); // Carga la tabla actualizada cuando se recibe la notificación
-      }
+    const mensaje = JSON.parse(event.data);
+    console.log('Mensaje recibido:', mensaje);
+    if (mensaje.tipo === 'nuevo_registro') {
+      cargarTabla(); // Carga la tabla actualizada cuando se recibe la notificación
+    }
   });
 
-$("#btnValo_casa").click(function (e) {
-  e.preventDefault();
-  $("#loader").show();
-  var formData = new FormData($("#form_valor")[0]);
+  $("#btnValo_casa").click(function (e) {
+    e.preventDefault();
+    $("#loader").show();
+    var formData = new FormData($("#form_valor")[0]);
 
-  $.ajax({
-    type: "POST",
-    url: "../Controller/Add_valorizacion_casa.php",
-    data: formData,
-    processData: false,
-    contentType: false,
-    success: function (r) {
-      $("#loader").hide();
-      if (r) {
-        //alert("Solicitud enviada correctamente.");
-        console.log(r);
-        const mensaje = JSON.stringify({ tipo: 'nuevo_registro', mensaje: 'Nuevo registro insertado' });
-        socket.send(mensaje);
-        // No es necesario cambiar event.returnValue a false
-        //window.location.href = "../Valorizacion/";
-      } else {
-        alert(
-          "Error al registrar, Verifique que los campos esten correctamente completos."
-        );
-        console.log(r);
-        console.log(data);
-      }
-    },
-    error: function (xhr, status, error) {
-      $("#loader").hide()
-      console.error(error);
-      console.log(xhr.responseText);
-    },
+    $.ajax({
+      type: "POST",
+      url: "../Controller/Add_valorizacion_casa.php",
+      data: formData,
+      processData: false,
+      contentType: false,
+      success: function (r) {
+        $("#loader").hide();
+        if (r) {
+          //alert("Solicitud enviada correctamente.");
+          console.log(r);
+          const mensaje = JSON.stringify({ tipo: 'nuevo_registro', mensaje: 'Nuevo registro insertado' });
+          socket.send(mensaje);
+          // No es necesario cambiar event.returnValue a false
+          //window.location.href = "../Valorizacion/";
+        } else {
+          alert(
+            "Error al registrar, Verifique que los campos esten correctamente completos."
+          );
+          console.log(r);
+          console.log(data);
+        }
+      },
+      error: function (xhr, status, error) {
+        $("#loader").hide()
+        console.error(error);
+        console.log(xhr.responseText);
+      },
+    });
+    // No es necesario cambiar event.returnValue a false
+    //return false;
   });
-  // No es necesario cambiar event.returnValue a false
-  //return false;
-});
 
   cargarTabla(); // Carga la tabla cuando se carga la página por primera vez
 
   function cargarTabla() {
-      $.ajax({
-          url: '../Controller/Get_Data_Total.php', // Cambia la ruta según tu estructura
-          success: function (data) {
-            console.log('Tabla cargada:', data);
-              // Actualiza el contenido de la tabla con la nueva lista
-            $('#tabla-container').html(data);
-          }
-      });
+    $.ajax({
+      url: '../Controller/Get_Data_Total.php', // Cambia la ruta según tu estructura
+      success: function (data) {
+        console.log('Tabla cargada:', data);
+        // Actualiza el contenido de la tabla con la nueva lista
+        $('#tabla-container').html(data);
+      }
+    });
   }
 
 
@@ -532,6 +532,163 @@ $("#btnValo_casa").click(function (e) {
 
   });
   // DRAG AND DROP FILES
+
+
+  // APARTADO SUBIR DOCUMENTOS
+  var upldFiles = document.querySelectorAll(".upld-file");
+
+  // var puFile = document.querySelector(".pu");
+  // var inputPU_file = document.querySelector("#fls_pu");
+
+  // puFile.addEventListener("click", () => {
+  //   inputPU_file.click();
+  // });
+
+  // inputPU_file.addEventListener("change", (e) => {
+  //   files = inputPU_file.files;
+  //   showArchives(files, "pu");
+  // });
+
+  // var clFile = document.querySelector(".cl");
+
+  // var inputCl_file = document.querySelector("#fls_cl");
+
+  // clFile.addEventListener("click", () => {
+  //   inputCl_file.click();
+  // });
+
+  // inputCl_file.addEventListener("change", (e) => {
+  //   files = inputCl_file.files;
+  //   showArchives(files, "cl");
+  // });
+
+
+  upldFiles.forEach((element, type) => {
+    element.addEventListener("click", () => {
+      console.log(element);
+      console.log(type);
+
+      if (type === 0) {
+        var inputPU_file = document.querySelector("#fls_pu");
+        inputPU_file.click();
+
+        inputPU_file.addEventListener("change", (e) => {
+          files = inputPU_file.files;
+          showArchives(files, "pu");
+        });
+      }
+      if (type === 1) {
+        var inputCl_file = document.querySelector("#fls_cl");
+        inputCl_file.click();
+
+        inputCl_file.addEventListener("change", (e) => {
+          files = inputCl_file.files;
+          showArchives(files, "cl");
+        });
+      }
+    });
+  });
+
+  /////////
+  function showArchives(files, type) {
+    if (files.length === undefined) {
+      processDataArchives(files);
+    } else {
+      for (const file of files) {
+        processDataArchives(file, type);
+      }
+    }
+  }
+  /////////
+  function processDataArchives(file, type) {
+    const docType = file.type;
+    const validExtensions = [
+      "application/pdf",
+      "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+      "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+      "application/vnd.openxmlformats-officedocument.presentationml.presentation",
+      "text/plain",
+    ];
+
+
+    if (validExtensions.includes(docType)) {
+      // archivo valido
+      const fileReader = new FileReader();
+      const id = `upld-${Math.random().toString(32).substring(5)}`;
+
+      fileReader.addEventListener("load", (e) => {
+        // const fileUrl = fileReader.result;
+        // const fileExtension = getFileExtension(file.name);
+        // let upldArchive = "";
+
+        let upldArchive = `
+            <div id="${id}" class="upld-valo" title="${file.name}">
+              <span class="drop-upld bg-danger"><i class="fa-solid fa-xmark"></i></span>
+              <div class="upld-file">
+                <img src="../Vista/images/document.svg" alt="">
+              </div>
+              <div class="upld-name">
+                <span class="mak-txt">${file.name}</span>
+              </div>
+            </div>
+        `;
+
+        const archives_pu = document.querySelector(".archives_pu");
+        const archives_cl = document.querySelector(".archives_cl");
+
+        if (type === "pu") {
+          archives_pu.innerHTML += upldArchive;
+        } else if (type === "cl") {
+          archives_cl.innerHTML += upldArchive;
+        } else {
+          alert("Ocurrío un error inesperado.")
+        }
+
+
+        // cantFilesValor();
+
+        // ELIMINAR
+        const dropUpld = document.querySelectorAll(".drop-upld");
+        dropUpld.forEach((dropUpld) => {
+          dropUpld.addEventListener("click", (e) => {
+            let Object = document.querySelectorAll(".upld-valo");
+            Object.forEach((element) => {
+              element.addEventListener("click", (e) => {
+                element.remove();
+                cantFilesValor();
+              });
+            });
+          });
+        });
+
+      });
+
+      fileReader.readAsDataURL(file);
+    } else {
+      // archivo no valido
+      alert("Archivo no válido: " + file.name);
+    }
+  }
+  /////////
+  function cantFilesValor() {
+    const upldValo = document.querySelectorAll(".upld-valo").length;
+    const archivesPU = document.querySelector(".archives_pu");
+    const archivesCL = document.querySelector(".archives_cl");
+
+    // console.log(upldValo);
+
+    // archivesDocs.forEach(element => {
+    if (upldValo > 0) {
+      archivesPU.style.display = "flex"
+      archivesCL.style.display = "flex"
+    } else {
+      archivesPU.style.display = "none"
+      archivesCL.style.display = "none"
+    }
+    // });
+  }
+  /////////
+  // APARTADO SUBIR DOCUMENTOS
 
   // DRAG AND DROP FILES VALORIZACION
   var dragValo = document.querySelector(".up-archive");
