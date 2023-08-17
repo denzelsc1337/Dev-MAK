@@ -28,7 +28,7 @@
   <!-- LOGIN -->
   <div class="content display-center">
     <div class="container">
-      <div class="row card-login" style="border-radius: 20px;">
+      <div class="row col-md-10 m-auto w-100 card-login" style="border-radius: 20px; padding: 0;">
         <div class="col-md-6 bor-rght-20 mak-bg">
           <div class="header-login">
             <div>
@@ -60,7 +60,7 @@
           <div class="mak row justify-content-center">
             <div class="col-md-9">
               <div class="mt-5 mb-5">
-                <h1>Inicio de Sesión</h1>
+                <h1>Inicio Sesión</h1>
               </div>
               <form action="Controller/login.php" method="post">
 
@@ -98,8 +98,8 @@
   <!-- FORGOT PASS -->
   <div class="content display-center hide forgot">
     <div class="container">
-      <div class="row card-login forgot" style="border-radius: 20px;">
-        <div class="col-md-12 bor-rght-20">
+      <div class="row col-md-10 m-auto w-100 card-login forgot" style="border-radius: 20px;">
+        <div class="m-auto w-100 bor-rght-20">
           <div class="header-login">
             <div>
               <img src="Vista/images/mak_2.png" alt="MAK" height="70" width="80%">

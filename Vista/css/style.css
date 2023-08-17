@@ -44,20 +44,15 @@ strong {
   font-weight: 600 !important;
 }
 
-/* h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-.h1,
-.h2,
-.h3,
-.h4,
-.h5,
-.h6 {
-  font-family: "Roboto", sans-serif;
-} */
+.fs-1 {}
+
+.fs-50 {
+  font-size: 50px !important;
+}
+
+.fs-70 {
+  font-size: 70px !important;
+}
 
 .bor-rght-20 {
   /* border-radius: var(--radius-20); */
@@ -197,7 +192,7 @@ a:hover {
 .content-wrapper .content {
   padding: 0 !important;
   margin: 0 !important;
-  height: calc(100vh - 153px);
+  /* height: calc(100vh - 20vh); */
 }
 
 .content {
@@ -268,15 +263,18 @@ h2 {
 .body-login {
   margin: 0 auto;
   text-align: center;
+  padding-bottom: 1.5rem;
 }
 
 .card-login h1 {
-  font-size: 50px;
+  font-size: 48px;
+  font-weight: 700;
+  font-family: 'Poppins';
 }
 
 .card-login p {
-  font-size: 20px;
-  margin-bottom: 2rem;
+  font-size: 15px;
+  margin-bottom: 1rem;
 }
 
 .forgot .card-login p {
@@ -290,7 +288,7 @@ h2 {
 .footer-login {
   display: flex;
   justify-content: space-evenly;
-  padding: 3rem 0;
+  padding-bottom: 2rem;
 }
 
 .footer-login .footer-social {
@@ -496,6 +494,11 @@ h2 {
   padding-left: 40px;
 }
 
+.forgot .card-login .form-mak {
+  padding-left: 15px;
+
+}
+
 .card-login .form-mak,
 .form-mak.sect {
   border: transparent !important;
@@ -561,7 +564,8 @@ h2 {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
-  height: 20%;
+  height: 20vh;
+  /* height: 20%; */
 }
 
 .body-mak {
@@ -983,6 +987,10 @@ textarea::-webkit-scrollbar {
 /* INPUT PERSONALIZADO */
 
 /* CSS PERSONALIZADO */
+
+.window {
+  height: calc(100vh - 15vh);
+}
 
 .section {
   padding-bottom: 5rem;
@@ -1479,7 +1487,7 @@ form .form-content {
   border-radius: 8px;
   background-color: var(--blue-mak);
   color: var(--white-mak);
-
+  font-size: 13px;
 }
 
 
@@ -1513,6 +1521,53 @@ form .form-content {
   cursor: pointer;
   border-radius: 50%;
   background-color: var(--white-mak);
+}
+
+.archives_pu,
+.archives_cl {
+  gap: 10px;
+  border: 1px dashed var(--blue-mak);
+  border-radius: 10px;
+  padding: 1rem 0.5rem;
+}
+
+.upld-valo {
+  width: 80px;
+  height: 70px;
+  position: relative;
+  user-select: none;
+}
+
+.upld-valo .drop-upld {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  border: 1px solid;
+  top: -10px;
+  right: 5px;
+  margin: 0;
+  font-size: 11px;
+  cursor: pointer;
+}
+
+.upld-valo .upld-file {
+  text-align: center;
+}
+
+.upld-valo .upld-name {
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.upld-valo .upld-name span {
+  margin: 1rem 0;
+  font-weight: 900;
 }
 
 .loader-styla {

@@ -1,15 +1,9 @@
 (() => {
   // inputs checkbox de los formularios
   var inputsID_chk = [];
-  // inputs checkbox de los formularios locales
-  var inputsID_chk_lcl = [];
-  // selects de los formularios
-  var selectsID = [];
   // all
   var arrayNames = [];
   var arrayValues = [];
-  var inputs = [];
-
   //
   var sections = document.querySelectorAll(".section");
   var section_Array = [];
@@ -102,10 +96,6 @@
                 // console.log(arrayNames);
                 // console.log(arrayValues);
               })
-
-
-
-
             }
 
           });
@@ -168,8 +158,8 @@
             });
           });
 
-          console.log(arrayNames);
-          console.log(arrayValues);
+          // console.log(arrayNames);
+          // console.log(arrayValues);
         })
 
       }
@@ -223,9 +213,9 @@
     console.log(cards);
 
     cards.forEach((element) => {
-      console.log(element);
+      // console.log(element);
       var dataResume = element.classList.contains("data-resume");
-      console.log(dataResume);
+      // console.log(dataResume);
 
 
       if (dataResume === true) {

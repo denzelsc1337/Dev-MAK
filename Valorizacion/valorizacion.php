@@ -1617,26 +1617,33 @@
                                                     <br><br>
                                                     <div>
                                                         <h3><b>Subir Documentos</b></h3>
-                                                        <div class="row">
-                                                            <label class="col-sm-3 col-form-label">Previo Urbano:</label>
-                                                            <div class="section-input col-sm-6">
-                                                                <div class="upload-file">
-                                                                    <label for="fls_pu" class="upld-file" data-bs-toggle="modal" data-bs-target="#modal_archive_PU">Seleccionar archivos.</label>
-                                                                    <input type="file" id="fls_pu" name="fls_pu[]" multiple hidden>
+                                                        <div>
+                                                            <div class="row">
+                                                                <label class="col-sm-3 col-form-label">Predio Urbano:</label>
+                                                                <div class="section-input col-sm-6">
+                                                                    <div class="upload-file">
+                                                                        <label for="" class="upld-file pu">Seleccionar archivos.</label>
+                                                                        <input type="file" id="fls_pu" name="fls_pu[]" multiple hidden>
+                                                                    </div>
                                                                 </div>
                                                             </div>
+                                                            <div class="row archives_pu" style="display: ;"></div>
                                                         </div>
                                                         <br>
-                                                        <div class="row">
-                                                            <label class="col-sm-3 col-form-label">Copia Literal:</label>
-                                                            <div class="section-input col-sm-6">
-                                                                <div class="upload-file">
-                                                                    <label for="fls_cl" class="upld-file" data-bs-toggle="modal" data-bs-target="#modal_archive_PU">Seleccionar archivos.</label>
-                                                                    <input type="file" id="fls_cl" name="fls_cl[]" multiple hidden>
+                                                        <div>
+                                                            <div class="row">
+                                                                <label class="col-sm-3 col-form-label">Copia Literal:</label>
+                                                                <div class="section-input col-sm-6">
+                                                                    <div class="upload-file">
+                                                                        <label for="fls_cl" class="upld-file cl">Seleccionar archivos.</label>
+                                                                        <input type="file" id="fls_cl" name="fls_cl[]" multiple hidden>
 
+                                                                    </div>
                                                                 </div>
                                                             </div>
+                                                            <div class="row archives_cl" style="display: ;"></div>
                                                         </div>
+
                                                     </div>
                                                 </div>
                                             </div>

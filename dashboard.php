@@ -156,59 +156,6 @@ require_once('config/security.php');
         </header>
 
         <section class="body-mak">
-          <!-- <div class="row">
-            <div class="col-md-4">
-              <div class="card">
-                <div class="card-header">
-                  <h3 class="card-title">
-                    <i class="fas fa-text-width"></i>
-                    BUSQUEDA
-                  </h3>
-                </div>
-                <div class="card mb-2 bg-gradient-dark">
-                  <img class="card-img-top" src="Vista/images/search.jpg" alt="Dist Photo 1">
-                  <div class="card-img-overlay d-flex flex-column justify-content-end">
-                    <a href="Search/Busqueda.php" class="btn btn-block btn-primary">INICIAR</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div class="card">
-                <div class="card-header">
-                  <h3 class="card-title">
-                    <i class="fas fa-text-width"></i>
-                    VALORIZACION
-                  </h3>
-                </div>
-                <div class="card mb-2 bg-gradient-dark">
-                  <img class="card-img-top" src="Vista/images/money.jpg" alt="Dist Photo 1">
-                  <div class="card-img-overlay d-flex flex-column justify-content-end">
-                    <a href="Valorizacion/valorizacion.php" class="btn btn-block btn-primary">INICIAR</a>
-
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div class="card">
-                <div class="card-header">
-                  <h3 class="card-title">
-                    <i class="fas fa-text-width"></i>
-                    INFORME LEGAL
-                  </h3>
-                </div>
-                <div class="card mb-2 bg-gradient-dark">
-                  <img class="card-img-top" src="Vista/images/finance.jpg" alt="Dist Photo 1">
-                  <div class="card-img-overlay d-flex flex-column justify-content-end">
-                    <a href="Legal/InfoLegal.php" class="btn btn-block btn-primary">INICIAR</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div> -->
-
-
           <div class="row justify-content-center pt-5 pb-5" style="gap:20px;">
             <div class="card-mak col-md-4">
               <img class="card-img-top" src="Vista/images/search.jpg" alt="Dist Photo 1">
@@ -256,6 +203,8 @@ require_once('config/security.php');
               </div>
             </div>
           </div>
+
+          <br><br>
 
         </section>
 
