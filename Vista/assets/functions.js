@@ -645,7 +645,7 @@ $(document).ready(function () {
         }
 
 
-        // cantFilesValor();
+        cantFilesValor();
 
         // ELIMINAR
         const dropUpld = document.querySelectorAll(".drop-upld");
@@ -675,7 +675,7 @@ $(document).ready(function () {
     const archivesPU = document.querySelector(".archives_pu");
     const archivesCL = document.querySelector(".archives_cl");
 
-    // console.log(upldValo);
+    console.log(upldValo);
 
     // archivesDocs.forEach(element => {
     if (upldValo > 0) {

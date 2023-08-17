@@ -2612,6 +2612,7 @@
     </script>
 
     <script src="../Vista/assets/selection_types.js"></script>
+
 </body>
 
 </html>
