@@ -294,8 +294,8 @@ require_once('../Controller/controladorListar.php'); ?>
                                                                         <i class="fa-solid fa-eye"></i>
                                                                     </button> -->
 
-                                                                    <button type="button" class="btn btn-rounded scroll-toggle">
-                                                                        <i class="fa-solid fa-eye"></i> eh?
+                                                                    <button type="button" class="btn btn-rounded scroll-toggle" data-id_solic_val="<?php echo $lst_vlzn_[0] ?>" data-id_cli="<?php echo $lst_vlzn_[8] ?>" data-dni_cli="<?php echo $lst_vlzn_[9] ?>">
+                                                                        <i class="fa-solid fa-eye"></i>
                                                                     </button>
                                                                 </td>
                                                                 <!--
@@ -333,9 +333,6 @@ require_once('../Controller/controladorListar.php'); ?>
                                 </div>
 
                                 <div class="row">
-                                    <div class="arrow-left">
-                                        <i class="fa-solid fa-angle-left"></i>
-                                    </div>
 
                                     <div class="card-body mt-4">
                                         <table class="table table-borderless">
@@ -412,7 +409,7 @@ require_once('../Controller/controladorListar.php'); ?>
                                 </div>
 
                                 <div class="form-flex">
-                                    <button type="button" class="btn btn-mak mak-bg-sec antPag">Retroceder</button>
+                                    <button type="button" class="btn btn-mak mak-bg-sec antPag avanza_pa_atras">Retroceder</button>
                                     <button type="button" class="btn btn-mak mak-bg btn_finalizar" id="btn_finalizar" name="btn_finalizar">
                                         Finalizar
                                     </button>
@@ -1610,7 +1607,7 @@ require_once('../Controller/controladorListar.php'); ?>
 
                 });
 
-                document.querySelectorAll(".arrow-left").forEach((element) => {
+                document.querySelectorAll(".avanza_pa_atras").forEach((element) => {
 
                     element.addEventListener("click", function() {
 
