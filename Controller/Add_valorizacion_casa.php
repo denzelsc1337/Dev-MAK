@@ -116,15 +116,6 @@ if ($r) {
 
     echo "total files " . $archivos_total . " archivos.";
 
-    // Enviar una notificación al servidor WebSocket
-    $socket = fsockopen("localhost", 8080);
-    fwrite($socket, "nuevo_registro");
-    fclose($socket);
-
-    /*// Redirige al usuario a la página deseada
-    header("Location: ../Valorizacion/");
-    exit();*/
-
 } else {
     echo "Error al insertar el registro.";
 }

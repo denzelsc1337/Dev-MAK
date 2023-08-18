@@ -1408,6 +1408,7 @@ require_once('../Controller/controladorListar.php');
                         console.log(dbInfo)
                         var cod_doc_, ruta_doc, nom_file;
                         var cont = 1;
+
                         setTimeout(function() {
                             $("#loader_uhd").hide();
                             $("#lst_docs_lgl").show();

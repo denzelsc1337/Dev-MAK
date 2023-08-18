@@ -198,7 +198,7 @@ require_once('../Controller/controladorListar.php'); ?>
                                                                 <i class="fa-solid fa-eye"></i>
                                                             </button> -->
 
-                                                            <button type="button" class="btn btn-rounded scroll-toggle" data-id_solic_val="<?php echo $lst_vlzn[0] ?>" data-id_cli="<?php echo $lst_vlzn[0] ?>" data-dni_cli="<?php echo $lst_vlzn[1] ?>">
+                                                            <button type="button" class="btn btn-rounded scroll-toggle" data-id_solic_val="<?php echo $lst_vlzn[0] ?>" data-id_cli="<?php echo $lst_vlzn[64] ?>" data-dni_cli="<?php echo $lst_vlzn[1] ?>">
                                                                 <i class="fa-solid fa-eye"></i>
                                                             </button>
                                                         </td>
@@ -325,92 +325,99 @@ require_once('../Controller/controladorListar.php'); ?>
 
                         <!-- Denzel cpp -->
                         <section class="content body-mak mak-txt position-relative">
+                            <div class="container">
 
-                            <div class="row">
-                                <div class="arrow-left">
-                                    <i class="fa-solid fa-angle-left"></i>
+                                <div id="loader_uhd" style="display: none;" class="loader-styla">
+                                    <strong>Espere por favor.</strong>
+                                    <img src="../Vista/assets/loading_uhd.gif">
                                 </div>
 
-                                <div class="card-body mt-4">
-                                    <table class="table table-borderless">
-                                        <thead class="">
-                                            <tr>
-                                                <th>DISTRITO</th>
-                                                <th>DIRECCIÓN</th>
-                                                <th>TIPO</th>
-                                                <th>PROMOCIÓN</th>
-                                                <th>AT</th>
-                                                <th>AC</th>
-                                                <th>AO</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <!-- <td>MIRAFLORES</td> -->
-                                                <td id="dir__dist"></td>
-                                                <!-- <td>AV AREQUIPA 4960</td> -->
-                                                <td id="dir__"></td>
-                                                <!-- <td>CASA</td> -->
-                                                <td id="tip__"></td>
-                                                <!-- <td>VENTA</td> -->
-                                                <td id="pro__"></td>
-                                                <td id="at__"></td>
-                                                <td id="ac__"></td>
-                                                <td id="ao__"></td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
+                                <div class="row">
+                                    <div class="arrow-left">
+                                        <i class="fa-solid fa-angle-left"></i>
+                                    </div>
+
+                                    <div class="card-body mt-4">
+                                        <table class="table table-borderless">
+                                            <thead class="">
+                                                <tr>
+                                                    <th>DISTRITO</th>
+                                                    <th>DIRECCIÓN</th>
+                                                    <th>TIPO</th>
+                                                    <th>PROMOCIÓN</th>
+                                                    <th>AT</th>
+                                                    <th>AC</th>
+                                                    <th>AO</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <!-- <td>MIRAFLORES</td> -->
+                                                    <td id="dir__dist"></td>
+                                                    <!-- <td>AV AREQUIPA 4960</td> -->
+                                                    <td id="dir__"></td>
+                                                    <!-- <td>CASA</td> -->
+                                                    <td id="tip__"></td>
+                                                    <!-- <td>VENTA</td> -->
+                                                    <td id="pro__"></td>
+                                                    <td id="at__"></td>
+                                                    <td id="ac__"></td>
+                                                    <td id="ao__"></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <br>
+
+                                    <div class="d-flex w-100 justify-content-between mt-3 resumen">
+                                        <div class="blaa">
+                                            <div class="card-body">
+                                                <div>
+                                                    <label class="mak-txt">Comentario</label>
+                                                    <textarea id="coment_valr_r" placeholder="Escribe un comentario..."></textarea>
+                                                </div>
+                                                <div class="row justify-content-between">
+                                                    <div class="btn btn-mak mak-bg" data-bs-toggle="modal" data-bs-target="#verFotos">Ver Fotos</div>
+                                                    <div class="btn btn-mak mak-bg" data-bs-toggle="modal" data-bs-target="#verDocs">Ver Documentos</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="blaa" style="width:33%;">
+                                            <div class="card-box">
+                                                <div id="mapa_2" style="height: 250px;"></div>
+                                            </div>
+                                        </div>
+                                        <div class="blaa">
+                                            <div class="card-box card-body data-resume">
+
+                                                <figcaption class="d-flex flex-column pl-2">
+                                                    <p class="b-text"><b>Resumen</b></p>
+                                                    <small class="">Datos de contacto:</small>
+                                                </figcaption>
+
+                                                <ul>
+                                                    <li><b>Nombre: </b><?php echo $_SESSION['nom_usu']; ?></li>
+                                                    <li><b>Email: </b><?php echo $_SESSION['email_usu']; ?></li>
+                                                    <li><b>Teléfono: </b><?php echo $_SESSION['telef_usu']; ?></li>
+                                                </ul>
+
+                                                <div>
+                                                    <p><strong>Información de la propiedad:</strong></p>
+                                                    <ul class="lst-resume" data-resume></ul>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
                                 </div>
-                                <br>
 
-                                <div class="d-flex w-100 justify-content-between mt-3 resumen">
-                                    <div class="blaa">
-                                        <div class="card-body">
-                                            <div>
-                                                <label class="mak-txt">Comentario</label>
-                                                <textarea id="coment_valr_" placeholder="Escribe un comentario..."></textarea>
-                                            </div>
-                                            <div class="row justify-content-between">
-                                                <div class="btn btn-mak mak-bg" data-bs-toggle="modal" data-bs-target="#verFotos">Ver Fotos</div>
-                                                <div class="btn btn-mak mak-bg" data-bs-toggle="modal" data-bs-target="#verDocs">Ver Documentos</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="blaa" style="width:33%;">
-                                        <div class="card-box">
-                                            <div id="mapa_2" style="height: 250px;"></div>
-                                        </div>
-                                    </div>
-                                    <div class="blaa">
-                                        <div class="card-box card-body data-resume">
-
-                                            <figcaption class="d-flex flex-column pl-2">
-                                                <p class="b-text"><b>Resumen</b></p>
-                                                <small class="">Datos de contacto:</small>
-                                            </figcaption>
-
-                                            <ul>
-                                                <li><b>Nombre: </b><?php echo $_SESSION['nom_usu']; ?></li>
-                                                <li><b>Email: </b><?php echo $_SESSION['email_usu']; ?></li>
-                                                <li><b>Teléfono: </b><?php echo $_SESSION['telef_usu']; ?></li>
-                                            </ul>
-
-                                            <div>
-                                                <p><strong>Información de la propiedad:</strong></p>
-                                                <ul class="lst-resume" data-resume></ul>
-                                            </div>
-                                        </div>
-                                    </div>
-
+                                <div class="form-flex">
+                                    <button type="button" class="btn btn-mak mak-bg-sec antPag">Retroceder</button>
+                                    <button type="button" class="btn btn-mak mak-bg btn_finalizar" id="btn_finalizar" name="btn_finalizar">
+                                        Finalizar
+                                    </button>
                                 </div>
 
-
-                            </div>
-                            <div class="form-flex">
-                                <button type="button" class="btn btn-mak mak-bg-sec antPag">Retroceder</button>
-                                <button type="button" class="btn btn-mak mak-bg btn_finalizar" id="btn_finalizar" name="btn_finalizar">
-                                    Finalizar
-                                </button>
                             </div>
 
                         </section>
@@ -462,7 +469,7 @@ require_once('../Controller/controladorListar.php'); ?>
                                     </div>
                                     <div class="col-sm-12">
                                         <ul id="detalles_valor" style="display:none"></ul>
-                                        <img src="../Vista/assets/loading_uhd.gif" id="loader_uhd" style="display:none; margin: 0 16rem 5rem">
+
                                     </div>
                                     <div id="docs_val" style="display:none">
                                         <?php
@@ -845,52 +852,60 @@ require_once('../Controller/controladorListar.php'); ?>
         });
 
 
-        function get_details_solic(idsolicitud /*, idclient, dniclient*/ ) {
+        function get_details_solic(idsolicitud, idclient, dniclient ) {
             $.ajax({
                 type: 'POST',
                 url: '../Controller/Get_Details_Valorizacion.php',
                 data: {
                     id_solic_l: idsolicitud,
-                    /*id_client: idclient,
-                    dni_client: dniclient,*/
+                    id_client: idclient,
+                    dni_client: dniclient,
                 },
 
                 beforeSend: function() {
                     $("#loader_uhd").show();
 
-                    $("#detalles_valor").hide();
-                    $("#docs_val").hide();
+                    /*$("#detalles_valor").hide();
+                    $("#docs_val").hide();*/
 
                 },
 
                 success: function(response) {
                     console.log(response);
 
-                    var detalles = JSON.parse(response);
-                    var detalles_valor = detalles.detalles_valor;
+                        try {
+                            var detalles = JSON.parse(response);
+
+                            console.log(detalles);
+
+                            var id_valor = detalles[0][0];
+                            var nom_client = detalles[0][1];
+                            var direccion = detalles[0][2];
+                            var tipo_inmb = detalles[0][3];
+                            var estado = detalles[0][61];
+                            var coment = detalles[0][62];
+
+                        } catch (error) {
+                            console.error("Error al analizar la respuesta JSON: " + error);
+                        }
 
                     setTimeout(function() {
 
                         $("#loader_uhd").hide();
-                        $("#detalles_valor").show();
-                        $("#docs_val").show();
 
-                        var container = document.getElementById('detalles_valor');
+                        console.log("ID Valor: " + id_valor);
+                        console.log("Nombre Cliente: " + nom_client);
+                        console.log("Dirección: " + direccion);
+                        console.log("Tipo Inmueble: " + tipo_inmb);
+                        console.log("Estado: " + coment);
 
-                        container.innerHTML = '';
+                        $("#coment_valr_r").val(coment)
 
-                        for (var prop in detalles) {
-                            if (detalles.hasOwnProperty(prop)) {
-                                var valor = detalles[prop];
-                                var li = document.createElement('li');
-                                li.textContent = valor;
-                                container.appendChild(li);
-                            }
-                        }
-                    }, 480);
+                    }, 900);
                 },
                 error: function(xhr, status, error) {
                     console.log("Error en la solicitud ajax ", error)
+                    console.log("Mensaje de error:", error);
                 }
             });
         }
@@ -1559,13 +1574,20 @@ require_once('../Controller/controladorListar.php'); ?>
 
                     element.addEventListener("click", function() {
 
-                        $tr = $(this).closest('tr');
+                        var id_valo_soli = $(this).data('id_solic_val');
+                        var id_valo_cli= $(this).data('id_cli');
+                        var dni_cli= $(this).data('dni_cli');
+
+                        console.log(dni_cli)
+
+                        /*$tr = $(this).closest('tr');
 
                         var data = $tr.children("td").map(function() {
                             return $(this).text();
                         }).get();
 
                         console.log(data);
+
                         $('#id_legal_solic').val(data[0]);
 
                         $('#data_names_').val(data[1]);
@@ -1573,7 +1595,9 @@ require_once('../Controller/controladorListar.php'); ?>
 
                         $('#coment_').val(data[9]);
 
-                        $('#id_client_l').val(data[7]);
+                        $('#id_client_l').val(data[7]);*/
+
+                        get_details_solic(id_valo_soli, id_valo_cli, dni_cli );
 
                         //load_documents_legal('<?php echo $_SESSION['id_usu'] ?>');
 
@@ -1620,6 +1644,8 @@ require_once('../Controller/controladorListar.php'); ?>
                         // Realizar la transición al final del scroll horizontal con animación
                         contenedor.style.scrollBehavior = "smooth"; // Activar la animación
                         contenedor.scrollLeft = 0; // Ir al final
+
+                        $("#coment_valr_r").val('')
 
                     });
 
