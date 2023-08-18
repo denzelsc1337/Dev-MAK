@@ -210,7 +210,7 @@
 
   buttonLstPag.addEventListener("click", function () {
     const cards = document.querySelectorAll(".card-body");
-    console.log(cards);
+    // console.log(cards);
 
     cards.forEach((element) => {
       // console.log(element);

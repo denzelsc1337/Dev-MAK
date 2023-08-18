@@ -533,72 +533,85 @@ $(document).ready(function () {
   // DRAG AND DROP FILES
 
 
-  // APARTADO SUBIR DOCUMENTOS
-  var upldFiles = document.querySelectorAll(".upld-file");
+  // APARTADO SUBIR DOCUMENTOS  
+  // var upldFiles = document.querySelectorAll(".upload-file");
 
-  // var puFile = document.querySelector(".pu");
-  // var inputPU_file = document.querySelector("#fls_pu");
+  // console.log(upldFiles);
+  // upldFiles.forEach(element => {
 
-  // puFile.addEventListener("click", () => {
+  // element.addEventListener("click", () => {
+
+  // let attr = element.getAttribute("data-type");
+  // console.log(attr);
+
+  // if (attr === "pu") {
+  //   var inputPU_file = document.querySelector("#fls_pu");
   //   inputPU_file.click();
-  // });
 
-  // inputPU_file.addEventListener("change", (e) => {
-  //   files = inputPU_file.files;
-  //   showArchives(files, "pu");
-  // });
+  //   var contentPU_file = document.querySelector(".archives_pu");
+  //   inputPU_file.addEventListener("change", (e) => {
+  //     files = this.files;
+  //     files = inputPU_file.files;
+  //     showArchives(files);
+  //   });
+  // }
+  // if (attr === "cl") {
+  //   var inputCL_file = document.querySelector("#fls_cl");
+  //   inputCL_file.click();
 
-  // var clFile = document.querySelector(".cl");
-
-  // var inputCl_file = document.querySelector("#fls_cl");
-
-  // clFile.addEventListener("click", () => {
-  //   inputCl_file.click();
-  // });
-
-  // inputCl_file.addEventListener("change", (e) => {
-  //   files = inputCl_file.files;
-  //   showArchives(files, "cl");
-  // });
+  // }
 
 
-  upldFiles.forEach((element, type) => {
-    element.addEventListener("click", () => {
-      console.log(element);
-      console.log(type);
+  // })
 
-      if (type === 0) {
-        var inputPU_file = document.querySelector("#fls_pu");
-        inputPU_file.click();
+  // console.log(element);
+  // ---------------------------------
+  var buttonPu = document.querySelector(".pu");
+  var buttonCl = document.querySelector(".cl");
 
-        inputPU_file.addEventListener("change", (e) => {
-          files = inputPU_file.files;
-          showArchives(files, "pu");
-        });
-      }
-      if (type === 1) {
-        var inputCl_file = document.querySelector("#fls_cl");
-        inputCl_file.click();
+  var inputPU_file = document.querySelector("#fls_pu");
+  var inputCL_file = document.querySelector("#fls_cl");
 
-        inputCl_file.addEventListener("change", (e) => {
-          files = inputCl_file.files;
-          showArchives(files, "cl");
-        });
-      }
-    });
+
+  var uploadedFiles = [];
+  // console.log(buttonPu);
+  // console.log(buttonCl);
+  // console.log(inputPU_file);
+  // console.log(inputCL_file);
+
+  buttonPu.addEventListener("click", (e) => {
+    inputPU_file.click();
   });
 
-  /////////
+  inputPU_file.addEventListener("change", (e) => {
+    files = inputPU_file.files;
+    showArchives(files, "pu")
+  });
+
+  // ---------------------------------
+
+  buttonCl.addEventListener("click", () => {
+    inputCL_file.click();
+  });
+
+  inputCL_file.addEventListener("change", (e) => {
+    files = inputCL_file.files;
+    showArchives(files, "cl")
+  });
+  // ---------------------------------
+
+  // });
+
   function showArchives(files, type) {
     if (files.length === undefined) {
-      processDataArchives(files);
+      processDataArchives(files, type);
     } else {
       for (const file of files) {
         processDataArchives(file, type);
       }
     }
   }
-  /////////
+
   function processDataArchives(file, type) {
     const docType = file.type;
     const validExtensions = [
@@ -609,85 +622,182 @@ $(document).ready(function () {
       "text/plain",
     ];
 
-
     if (validExtensions.includes(docType)) {
       // archivo valido
       const fileReader = new FileReader();
       const id = `upld-${Math.random().toString(32).substring(5)}`;
-
+      const innerFiles = type === 'pu' ? document.querySelector(".archives_pu") : document.querySelector(".archives_cl");
       fileReader.addEventListener("load", (e) => {
         // const fileUrl = fileReader.result;
         // const fileExtension = getFileExtension(file.name);
-        // let upldArchive = "";
+        let upldArchive = "";
 
-        let upldArchive = `
-            <div id="${id}" class="upld-valo" title="${file.name}">
-              <span class="drop-upld bg-danger"><i class="fa-solid fa-xmark"></i></span>
-              <div class="upld-file">
-                <img src="../Vista/images/document.svg" alt="">
-              </div>
-              <div class="upld-name">
-                <span class="mak-txt">${file.name}</span>
-              </div>
+        upldArchive += `
+          <div id="${id}" class="upld-valo" title="${file.name}">
+            <span class="drop-upld bg-danger"><i class="fa-solid fa-xmark"></i></span>
+            <div class="upld-file">
+              <img src="../Vista/images/document.svg" alt="">
             </div>
-        `;
+            <div class="upld-name">
+              <span class="mak-txt">${file.name}</span>
+            </div>
+          </div>
+      `;
 
-        const archives_pu = document.querySelector(".archives_pu");
-        const archives_cl = document.querySelector(".archives_cl");
+        // console.log(index);
 
-        if (type === "pu") {
-          archives_pu.innerHTML += upldArchive;
-        } else if (type === "cl") {
-          archives_cl.innerHTML += upldArchive;
-        } else {
-          alert("Ocurrío un error inesperado.")
-        }
-
+        innerFiles.innerHTML += upldArchive;
 
         cantFilesValor();
+        // if (type === "pu") {
+        //   const archivesPU = document.querySelector(".archives_pu");
+        //   archivesPU.innerHTML += upldArchive;
+        // } else if (type === "cl") {
+        //   const archivesCL = document.querySelector(".archives_cl");
+        //   archivesCL.innerHTML += upldArchive;
+        // }
+
+        const currentArchive = document.getElementById(id);
+        // console.log(currentArchive);
 
         // ELIMINAR
         const dropUpld = document.querySelectorAll(".drop-upld");
-        dropUpld.forEach((dropUpld) => {
-          dropUpld.addEventListener("click", (e) => {
+        dropUpld.forEach(dropupld => {
+          dropupld.addEventListener("click", (e) => {
             let Object = document.querySelectorAll(".upld-valo");
             Object.forEach((element) => {
               element.addEventListener("click", (e) => {
                 element.remove();
+                removeFileFromList(id);
                 cantFilesValor();
               });
             });
           });
         });
 
-      });
 
+        // Agregar el archivo al array de archivos subidos
+        uploadedFiles.push({ id, file });
+
+      });
+      // console.log(uploadedFiles);
       fileReader.readAsDataURL(file);
     } else {
       // archivo no valido
       alert("Archivo no válido: " + file.name);
     }
   }
-  /////////
-  function cantFilesValor() {
-    const upldValo = document.querySelectorAll(".upld-valo").length;
-    const archivesPU = document.querySelector(".archives_pu");
-    const archivesCL = document.querySelector(".archives_cl");
 
-    console.log(upldValo);
-
-    // archivesDocs.forEach(element => {
-    if (upldValo > 0) {
-      archivesPU.style.display = "flex"
-      archivesCL.style.display = "flex"
-    } else {
-      archivesPU.style.display = "none"
-      archivesCL.style.display = "none"
+  function removeFileFromList(id) {
+    const indexToRemove = uploadedFiles.findIndex(item => item.id === id);
+    if (indexToRemove !== -1) {
+      uploadedFiles.splice(indexToRemove, 1);
+      inputPU_file.value = '';
+      inputCL_file.value = '';
     }
-    // });
+
   }
-  /////////
+
+
+
+  function cantFilesValor() {
+    const archivesPU = document.querySelector(".archives_pu");
+    const upldValoPU = archivesPU.children.length;
+    const archivesCL = document.querySelector(".archives_cl");
+    const upldValoCL = archivesCL.children.length;
+
+
+    if (upldValoPU > 0) {
+      archivesPU.style.display = "flex";
+    } else {
+      archivesPU.style.display = "none";
+    }
+
+    if (upldValoCL > 0) {
+      archivesCL.style.display = "flex";
+    } else {
+      archivesCL.style.display = "none";
+    }
+  }
+
+
   // APARTADO SUBIR DOCUMENTOS
+
+  // VER DOCUMENTOS
+  const verDocs = document.getElementById("verDocs_");
+  const modal = document.getElementById("verDocs");
+  const modalContent = modal.querySelector(".showDocuments");
+
+  verDocs.addEventListener("click", () => {
+    const docsPu = document.querySelector(".archives_pu");
+    const docsCl = document.querySelector(".archives_cl");
+
+    // Clona los elementos y elimina la etiqueta <span> de los clones
+    const clonedDocsPu = cloneAndRemoveSpan(docsPu);
+    const clonedDocsCl = cloneAndRemoveSpan(docsCl);
+
+    modalContent.innerHTML = ""; // Limpia el contenido actual
+    modalContent.appendChild(clonedDocsPu);
+    modalContent.appendChild(clonedDocsCl);
+
+
+    // removeSpanFromModalElements(docsPu);
+    // removeSpanFromModalElements(docsCl);
+
+    // const clonedDocsPu = docsPu.cloneNode(true);
+    // const clonedDocsCl = docsCl.cloneNode(true);
+
+
+
+    modalContent.innerHTML = ""; // Limpia el contenido actual
+    modalContent.appendChild(clonedDocsPu);
+    modalContent.appendChild(clonedDocsCl);
+
+
+    // Llama a la función que actualiza la visibilidad de los archivos (si es necesario)
+    cantFilesValor();
+  });
+
+  // function removeSpanFromModalElements(element) {
+  //   // console.log(element);
+  //   const modalElements = element.querySelectorAll(".upld-valo");
+  //   // console.log(modalElements);
+  //   var eraseSpan = [];
+  //   modalElements.forEach(element => {
+  //     eraseSpan.push(element.querySelectorAll(".drop-upld"));
+
+  //   });
+  //   console.log(eraseSpan);
+
+  //   // Elimina los elementos del array
+  //   eraseSpan.forEach(spanElements => {
+  //     console.log(spanElements);
+  //     spanElements.forEach(spanElement => {
+  //       console.log(spanElement);
+  //       spanElement.remove();
+  //     });
+  //   });
+  // }
+  function cloneAndRemoveSpan(element) {
+    const clonedElement = element.cloneNode(true);
+    const modalElements = clonedElement.querySelectorAll(".upld-valo");
+
+    modalElements.forEach(element => {
+      const spanElement = element.querySelector(".drop-upld");
+      if (spanElement) {
+        spanElement.remove();
+      }
+    });
+
+    return clonedElement;
+  }
+
+
+  // VER DOCUMENTOS
+
+
+
+
 
   // DRAG AND DROP FILES VALORIZACION
   var dragValo = document.querySelector(".up-archive");

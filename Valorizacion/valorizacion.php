@@ -1623,11 +1623,11 @@
                                                                 <div class="section-input col-sm-6">
                                                                     <div class="upload-file">
                                                                         <label for="" class="upld-file pu" data-type="pu">Seleccionar archivos.</label>
-                                                                        <input type="file" id="fls_pu" name="fls_pu[]" multiple>
+                                                                        <input type="file" id="fls_pu" name="fls_pu[]" multiple hidden>
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                            <div class="row archives_pu" style="display: none;"></div>
+                                                            <div class="row archives_pu mt-3" style="display: none;"></div>
                                                         </div>
                                                         <br>
                                                         <div>
@@ -1636,12 +1636,11 @@
                                                                 <div class="section-input col-sm-6">
                                                                     <div class="upload-file">
                                                                         <label for="" class="upld-file cl" data-type="cl">Seleccionar archivos.</label>
-                                                                        <input type="file" id="fls_cl" name="fls_cl[]" multiple>
-
+                                                                        <input type="file" id="fls_cl" name="fls_cl[]" multiple hidden>
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                            <div class="row archives_cl" style="display: none;"></div>
+                                                            <div class="row archives_cl mt-3" style="display: none;"></div>
                                                         </div>
 
                                                     </div>
@@ -1725,8 +1724,8 @@
                                                             <textarea id="coment_valr_" placeholder="Escribe un comentario..."></textarea>
                                                         </div>
                                                         <div class="row justify-content-between">
-                                                            <div class="btn btn-mak mak-bg" data-bs-toggle="modal" data-bs-target="#verFotos">Ver Fotos</div>
-                                                            <div class="btn btn-mak mak-bg" data-bs-toggle="modal" data-bs-target="#verDocs">Ver Documentos</div>
+                                                            <div id="verFotos_" class="btn btn-mak mak-bg" data-bs-toggle="modal" data-bs-target="#verFotos">Ver Fotos</div>
+                                                            <div id="verDocs_" class="btn btn-mak mak-bg" data-bs-toggle="modal" data-bs-target="#verDocs">Ver Documentos</div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -1911,27 +1910,11 @@
                                             <div class="content-file flex flex-column">
 
                                                 <label>H.R</label>
-                                                <div hidden>
-                                                    <input type="text" class="form-control" id="dni_usu_0" name="dni_usu_0" value="<?php echo $_SESSION['dni']; ?>">
-                                                    <input type="text" class="form-control" id="id_cli_0" name="id_cli_0" value="<?php echo $_SESSION['id_usu']; ?>">
-                                                    <input type="text" class="form-control" id="tipo_doc_0" name="tipo_doc_0" value="1">
-                                                    <input type="text" name="cod_reg_" id="cod_reg_">
+
+                                                <div class="showDocuments">
+
                                                 </div>
 
-                                                <div class="input-file" id="dropArea">
-                                                    <div class="file-message">
-                                                        <img src="../Vista/images/document-text-svgrepo-com 1.svg" alt="doc">
-                                                        <span>Arrastre los archivos aquí para subirlos.</span>
-                                                    </div>
-                                                    <div class="file-archives"></div>
-                                                </div>
-
-                                                <span>O</span>
-
-                                                <!-- <div>
-                                            <label id="buttonFile" class="btn btn-mak mak-bg buton-file">Seleccionar archivos</label>
-                                            <input class="upload" type="file" id="hr_s" name="hr_s[]" multiple hidden>
-                                        </div> -->
                                                 <div class="card-footer">
                                                     <div class="form-flex">
                                                         <button type="submit" class="btn btn-mak mak-bg buton-file" id="btn_updt_hr" name="btn_updt_hr" style="display: none;">Actualizar</button>

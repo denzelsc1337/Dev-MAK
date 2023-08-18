@@ -1615,3 +1615,18 @@ form .form-content {
   flex: 0 0 37%;
   max-width: 37%;
 }
+
+.showDocuments {
+  display: flex;
+  gap: 10px;
+}
+
+.showDocuments .archives_pu,
+.showDocuments .archives_cl {
+  border: none;
+}
+
+.showDocuments .archives_pu.mt-3,
+.showDocuments .archives_cl.mt-3 {
+  margin: 0 !important; 
+}
