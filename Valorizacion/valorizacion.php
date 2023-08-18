@@ -1830,57 +1830,18 @@
             <div class="modal fade" id="verFotos" tabindex="-1" aria-labelledby="verFotosLabel" aria-hidden="true">
                 <div class="modal-dialog modal-xl">
                     <div class="modal-content">
-                        <div class="modal-header">
+                        <!-- <div class="modal-header">
                             <h5 class="modal-title" id="verFotosLabel">Carga archivos máximo de 2MB.</h5>
                             <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">×</span>
                             </button>
-                        </div>
+                        </div> -->
                         <div class="modal-body">
                             <div class="row">
                                 <div class="col-sm-12">
                                     <div class="container">
 
-                                        <form method="POST" action="../Controller/Upload_Legal_Docs.php" enctype="multipart/form-data">
-
-                                            <div class="content-file flex flex-column">
-
-                                                <label>H.R</label>
-                                                <div hidden>
-                                                    <input type="text" class="form-control" id="dni_usu_0" name="dni_usu_0" value="<?php echo $_SESSION['dni']; ?>">
-                                                    <input type="text" class="form-control" id="id_cli_0" name="id_cli_0" value="<?php echo $_SESSION['id_usu']; ?>">
-                                                    <input type="text" class="form-control" id="tipo_doc_0" name="tipo_doc_0" value="1">
-                                                    <input type="text" name="cod_reg_" id="cod_reg_">
-                                                </div>
-
-                                                <div class="input-file" id="dropArea">
-                                                    <div class="file-message">
-                                                        <img src="../Vista/images/document-text-svgrepo-com 1.svg" alt="doc">
-                                                        <span>Arrastre los archivos aquí para subirlos.</span>
-                                                    </div>
-                                                    <div class="file-archives"></div>
-                                                </div>
-
-                                                <span>O</span>
-
-                                                <!-- <div>
-                                            <label id="buttonFile" class="btn btn-mak mak-bg buton-file">Seleccionar archivos</label>
-                                            <input class="upload" type="file" id="hr_s" name="hr_s[]" multiple hidden>
-                                        </div> -->
-                                                <div class="card-footer">
-                                                    <div class="form-flex">
-                                                        <button type="submit" class="btn btn-mak mak-bg buton-file" id="btn_updt_hr" name="btn_updt_hr" style="display: none;">Actualizar</button>
-                                                        <button type="submit" class="btn btn-mak mak-bg buton-file" id="btn_save_hr" name="btn_save_hr" disabled>Registrar</button>
-
-                                                        <label id="buttonFile" class="btn btn-mak mak-bg buton-file">Seleccionar archivos</label>
-                                                        <input class="upload" type="file" id="hr_s" name="hr_s[]" multiple hidden>
-                                                    </div>
-                                                </div>
-
-                                            </div>
-
-
-                                        </form>
+                                        <div class="showPictures"></div>
 
                                     </div>
                                 </div>
@@ -1892,43 +1853,24 @@
             <!-- MODAL VER FOTOS -->
             <!-- MODAL VER DOCS -->
             <div class="modal fade" id="verDocs" tabindex="-1" aria-labelledby="verDocsLabel" aria-hidden="true">
-                <div class="modal-dialog modal-xl">
+                <div class="modal-dialog modal-lg">
                     <div class="modal-content">
-                        <div class="modal-header">
+                        <!-- <div class="modal-header">
                             <h5 class="modal-title" id="verDocsLabel">eh?.</h5>
                             <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">×</span>
                             </button>
-                        </div>
+                        </div> -->
                         <div class="modal-body">
+                            <h5 class="title-m fs-60">Documentos subidos</h5>
                             <div class="row">
                                 <div class="col-sm-12">
                                     <div class="container">
 
-                                        <form method="POST" action="../Controller/Upload_Legal_Docs.php" enctype="multipart/form-data">
-
-                                            <div class="content-file flex flex-column">
-
-                                                <label>H.R</label>
-
-                                                <div class="showDocuments">
-
-                                                </div>
-
-                                                <div class="card-footer">
-                                                    <div class="form-flex">
-                                                        <button type="submit" class="btn btn-mak mak-bg buton-file" id="btn_updt_hr" name="btn_updt_hr" style="display: none;">Actualizar</button>
-                                                        <button type="submit" class="btn btn-mak mak-bg buton-file" id="btn_save_hr" name="btn_save_hr" disabled>Registrar</button>
-
-                                                        <label id="buttonFile" class="btn btn-mak mak-bg buton-file">Seleccionar archivos</label>
-                                                        <input class="upload" type="file" id="hr_s" name="hr_s[]" multiple hidden>
-                                                    </div>
-                                                </div>
-
-                                            </div>
 
 
-                                        </form>
+                                        <div class="showDocuments"></div>
+
 
                                     </div>
                                 </div>

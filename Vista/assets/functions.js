@@ -723,62 +723,47 @@ $(document).ready(function () {
 
   // APARTADO SUBIR DOCUMENTOS
 
+  // VER FOTOS
+  const verFotos = document.getElementById("verFotos_");
+  const modalFotos = document.getElementById("verFotos");
+  const modalContentFotos = modalFotos.querySelector(".showPictures");
+
+  verFotos.addEventListener("click", () => {
+    const pictures = document.getElementById("fileValorArchives");
+
+    // Clona los elementos y elimina la etiqueta <span> de los clones
+    const clonedPictures = removeDropPictures(pictures);
+
+    modalContentFotos.innerHTML = ""; // Limpia el contenido actual
+    modalContentFotos.appendChild(clonedPictures);
+
+    // Llama a la función que actualiza la visibilidad de los archivos (si es necesario)
+    cantFilesValor();
+  });
+  // VER FOTOS
+
   // VER DOCUMENTOS
   const verDocs = document.getElementById("verDocs_");
   const modal = document.getElementById("verDocs");
-  const modalContent = modal.querySelector(".showDocuments");
+  const modalContentDocuments = modal.querySelector(".showDocuments");
 
   verDocs.addEventListener("click", () => {
     const docsPu = document.querySelector(".archives_pu");
     const docsCl = document.querySelector(".archives_cl");
 
     // Clona los elementos y elimina la etiqueta <span> de los clones
-    const clonedDocsPu = cloneAndRemoveSpan(docsPu);
-    const clonedDocsCl = cloneAndRemoveSpan(docsCl);
+    const clonedDocsPu = removeDropDocs(docsPu);
+    const clonedDocsCl = removeDropDocs(docsCl);
 
-    modalContent.innerHTML = ""; // Limpia el contenido actual
-    modalContent.appendChild(clonedDocsPu);
-    modalContent.appendChild(clonedDocsCl);
-
-
-    // removeSpanFromModalElements(docsPu);
-    // removeSpanFromModalElements(docsCl);
-
-    // const clonedDocsPu = docsPu.cloneNode(true);
-    // const clonedDocsCl = docsCl.cloneNode(true);
-
-
-
-    modalContent.innerHTML = ""; // Limpia el contenido actual
-    modalContent.appendChild(clonedDocsPu);
-    modalContent.appendChild(clonedDocsCl);
-
+    modalContentDocuments.innerHTML = ""; // Limpia el contenido actual
+    modalContentDocuments.appendChild(clonedDocsPu);
+    modalContentDocuments.appendChild(clonedDocsCl);
 
     // Llama a la función que actualiza la visibilidad de los archivos (si es necesario)
     cantFilesValor();
   });
 
-  // function removeSpanFromModalElements(element) {
-  //   // console.log(element);
-  //   const modalElements = element.querySelectorAll(".upld-valo");
-  //   // console.log(modalElements);
-  //   var eraseSpan = [];
-  //   modalElements.forEach(element => {
-  //     eraseSpan.push(element.querySelectorAll(".drop-upld"));
-
-  //   });
-  //   console.log(eraseSpan);
-
-  //   // Elimina los elementos del array
-  //   eraseSpan.forEach(spanElements => {
-  //     console.log(spanElements);
-  //     spanElements.forEach(spanElement => {
-  //       console.log(spanElement);
-  //       spanElement.remove();
-  //     });
-  //   });
-  // }
-  function cloneAndRemoveSpan(element) {
+  function removeDropDocs(element) {
     const clonedElement = element.cloneNode(true);
     const modalElements = clonedElement.querySelectorAll(".upld-valo");
 
@@ -789,6 +774,29 @@ $(document).ready(function () {
       }
     });
 
+    return clonedElement;
+  }
+
+  function removeDropPictures(element) {
+    const clonedElement = element.cloneNode(true);
+    const modalElements = clonedElement.querySelectorAll(".file-item");
+
+
+
+
+    // Elimina solo el primer elemento clonado
+    if (modalElements.length > 0) {
+      const firstClonedElement = modalElements[0];
+      firstClonedElement.remove();
+    }
+
+    modalElements.forEach(element => {
+      const clearElement = element.querySelector(".btn-clear");
+      if (clearElement) {
+        clearElement.remove();
+      }
+    });
+    
     return clonedElement;
   }
 
@@ -809,7 +817,7 @@ $(document).ready(function () {
     inputDragValo.click();
   })
 
-  dragValo.addEventListener("change", (e) => {
+  inputDragValo.addEventListener("change", (e) => {
     files = this.files;
     files = inputDragValo.files;
     showValoFiles(files);
@@ -896,6 +904,7 @@ $(document).ready(function () {
             Object.forEach(element => {
               element.addEventListener("click", () => {
                 element.remove();
+                inputDragValo.value = '';
               })
             });
           })

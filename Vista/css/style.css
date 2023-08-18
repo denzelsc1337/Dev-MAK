@@ -50,6 +50,10 @@ strong {
   font-size: 50px !important;
 }
 
+.fs-60 {
+  font-size: 60px !important;
+}
+
 .fs-70 {
   font-size: 70px !important;
 }
@@ -1628,5 +1632,15 @@ form .form-content {
 
 .showDocuments .archives_pu.mt-3,
 .showDocuments .archives_cl.mt-3 {
-  margin: 0 !important; 
+  margin: 0 !important;
+}
+
+.showPictures .file-content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.showPictures img {
+  width: 100%;
 }
