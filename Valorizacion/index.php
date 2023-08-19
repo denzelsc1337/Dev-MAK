@@ -195,13 +195,18 @@ require_once('../Controller/controladorListar.php'); ?>
                                                                 <?php mostrarData($lst_vlzn[63]) ?>
 
                                                                 <td>
-                                                                    <!-- <button type="button" class="btn btn-rounded btn_get_details scroll-toggle" data-id_solic_val="<?php echo $lst_vlzn[0] ?>" data-id_cli="<?php echo $lst_vlzn[0] ?>" data-dni_cli="<?php echo $lst_vlzn[1] ?>" data-toggle="modal" data-target="#details_v">
-                                                                <i class="fa-solid fa-eye"></i>
-                                                            </button> -->
 
-                                                                    <button type="button" class="btn btn-rounded scroll-toggle" data-id_solic_val="<?php echo $lst_vlzn[0] ?>" data-id_cli="<?php echo $lst_vlzn[64] ?>" data-dni_cli="<?php echo $lst_vlzn[1] ?>">
+                                                                    <?php if ($lst_vlzn[63] == 400){?>
+                                                                        <button type="button" class="btn btn-rounded scroll-toggle" data-id_solic_val="<?php echo $lst_vlzn[0] ?>" data-id_cli="<?php echo $lst_vlzn[64] ?>" data-dni_cli="<?php echo $lst_vlzn[1] ?>">
+                                                                        <i class="fa-solid fa-pencil"></i>
+                                                                        </button>
+
+                                                                    <?php }else{?>
+                                                                        <button type="button" class="btn btn-rounded scroll-toggle" data-id_solic_val="<?php echo $lst_vlzn[0] ?>" data-id_cli="<?php echo $lst_vlzn[64] ?>" data-dni_cli="<?php echo $lst_vlzn[1] ?>">
                                                                         <i class="fa-solid fa-eye"></i>
-                                                                    </button>
+                                                                        </button>
+                                                                    <?php } ?>
+
                                                                 </td>
 
                                                                 <!--
@@ -295,7 +300,7 @@ require_once('../Controller/controladorListar.php'); ?>
                                                                         <i class="fa-solid fa-eye"></i>
                                                                     </button> -->
 
-                                                                    <button type="button" class="btn btn-rounded scroll-toggle" data-id_solic_val="<?php echo $lst_vlzn_[0] ?>" data-id_cli="<?php echo $lst_vlzn_[8] ?>" data-dni_cli="<?php echo $lst_vlzn_[9] ?>">
+                                                                    <button type="button" class="btn btn-rounded " data-id_solic_val="<?php echo $lst_vlzn_[0] ?>" data-id_cli="<?php echo $lst_vlzn_[8] ?>" data-dni_cli="<?php echo $lst_vlzn_[9] ?>">
                                                                         <i class="fa-solid fa-eye"></i>
                                                                     </button>
                                                                 </td>
