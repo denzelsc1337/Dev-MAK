@@ -40,6 +40,9 @@ $(document).ready(function () {
     e.preventDefault();
     $("#loader").show();
     var formData = new FormData($("#form_valor")[0]);
+    // --
+    formData.append('uploadedFiles', JSON.stringify(uploadedFiles));
+    // --
     $.ajax({
       type: "POST",
       url: "../Controller/Add_valorizacion_casa.php",
@@ -47,6 +50,7 @@ $(document).ready(function () {
       processData: false,
       contentType: false,
       success: function (r) {
+        console.log(r);
         $("#loader").hide();
         if (r) {
           //alert("Solicitud enviada correctamente.");
@@ -54,7 +58,7 @@ $(document).ready(function () {
           /*const mensaje = JSON.stringify({ tipo: 'nuevo_registro', mensaje: 'Nuevo registro insertado' });
           socket.send(mensaje);*/
           // No es necesario cambiar event.returnValue a false
-          window.location.href = "../Valorizacion/";
+          // window.location.href = "../Valorizacion/";
         } else {
           alert(
             "Error al registrar, Verifique que los campos esten correctamente completos."
@@ -62,6 +66,8 @@ $(document).ready(function () {
           console.log(r);
           console.log(data);
         }
+        console.log(r);
+        console.log(data);
       },
       error: function (xhr, status, error) {
         $("#loader").hide()
@@ -680,7 +686,7 @@ $(document).ready(function () {
         uploadedFiles.push({ id, file });
 
       });
-      // console.log(uploadedFiles);
+      console.log(uploadedFiles);
       fileReader.readAsDataURL(file);
     } else {
       // archivo no valido
@@ -692,8 +698,8 @@ $(document).ready(function () {
     const indexToRemove = uploadedFiles.findIndex(item => item.id === id);
     if (indexToRemove !== -1) {
       uploadedFiles.splice(indexToRemove, 1);
-      inputPU_file.value = '';
-      inputCL_file.value = '';
+      // inputPU_file.value = '';
+      // inputCL_file.value = '';
     }
 
   }
@@ -796,7 +802,7 @@ $(document).ready(function () {
         clearElement.remove();
       }
     });
-    
+
     return clonedElement;
   }
 
