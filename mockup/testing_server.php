@@ -9,7 +9,7 @@
 
 <script>
     // Crear una instancia del objeto WebSocket y especificar la URL del servidor
-    const socket = new WebSocket('ws://localhost:8080'); // Cambia la URL según la ubicación de tu servidor
+    const socket = new WebSocket('ws://localhost:8081'); // Cambia la URL según la ubicación de tu servidor
 
     // Escuchar el evento de conexión exitosa
     socket.addEventListener('open', (event) => {
