@@ -395,20 +395,20 @@ h2 {
   vertical-align: middle !important;
 }
 
-.table thead tr {
+.table thead .t-head {
   background-color: var(--blue-mak);
   color: var(--white-mak);
 }
 
-.table thead tr th:first-child {
+.table thead .t-head th:first-child {
   border-radius: 20px 0 0 0;
 }
 
-.table thead tr th:last-child {
+.table thead .t-head th:last-child {
   border-radius: 0 20px 0 0;
 }
 
-.table tbody tr td:not(:last-child) {
+.table tbody .t-head td:not(:last-child) {
   /* border-right: 3px solid var(--blue-mak); */
   border-top: 10px solid transparent;
   border-right: 2px solid var(--blue-mak);

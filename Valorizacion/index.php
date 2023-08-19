@@ -59,40 +59,41 @@ require_once('../Controller/controladorListar.php'); ?>
                 <?php include '../Vista/head-form.php' ?>
 
 
-                <section class="content body-mak mak-txt">
+                <section class="content mak-forms body-mak mak-txt">
                     <div class="container">
-                        <div class="b-title txt-center">VALORIZACIONES</div>
-                        <p class="mak-txt b-text">¡Bienvenido <strong><?php echo $_SESSION['nom_usu'] . " " . $_SESSION['ape_usu'] ?></strong>! Para realizar un correcto proceso de valorización, es necesario tener en cuenta los siguientes puntos clave:</p>
-                        <label class="mak-txt b-text">1. Documentos requeridos:</label>
-                        <ul>
-                            <li>Adjunta una Copia Literal o Partida Registral.</li>
-                            <li>Incluye un Predio Urbano (PU).</li>
-                            <li>Asegúrate de proporcionar la Hoja de Resumen (HR).</li>
-                        </ul>
-                        <label class="mak-txt b-text">2. Importante: Los documentos no deben ser mayores a 3 meses del presente año.</label>
-                        <p class="mak-txt b-text">Además, tienes la opción de adjuntar documentos opcionales, que pueden enriquecer el proceso de valorización:</p>
-                        <ul>
-                            <li>Certificado de Parámetros. </li>
-                            <li>Planos.</li>
-                            <li>Tasación Anterior. </li>
-                            <li>Recibo de Agua o Luz.</li>
-                        </ul>
-                        <p class="mak-txt b-text">Recuerda que tu colaboración es esencial para garantizar la calidad de la información. ¡Agradecemos tu participación en este proceso!</p>
-                    </div>
+                        <div class="card-body p-0 ml-5 mr-5">
+                            <div class="b-title txt-center">VALORIZACIONES</div>
+                            <p class="mak-txt b-text">¡Bienvenido <strong><?php echo $_SESSION['nom_usu'] . " " . $_SESSION['ape_usu'] ?></strong>! Para realizar un correcto proceso de valorización, es necesario tener en cuenta los siguientes puntos clave:</p>
+                            <label class="mak-txt b-text">1. Documentos requeridos:</label>
+                            <ul>
+                                <li>Adjunta una Copia Literal o Partida Registral.</li>
+                                <li>Incluye un Predio Urbano (PU).</li>
+                                <li>Asegúrate de proporcionar la Hoja de Resumen (HR).</li>
+                            </ul>
+                            <label class="mak-txt b-text">2. Importante: Los documentos no deben ser mayores a 3 meses del presente año.</label>
+                            <p class="mak-txt b-text">Además, tienes la opción de adjuntar documentos opcionales, que pueden enriquecer el proceso de valorización:</p>
+                            <ul>
+                                <li>Certificado de Parámetros. </li>
+                                <li>Planos.</li>
+                                <li>Tasación Anterior. </li>
+                                <li>Recibo de Agua o Luz.</li>
+                            </ul>
+                            <p class="mak-txt b-text">Recuerda que tu colaboración es esencial para garantizar la calidad de la información. ¡Agradecemos tu participación en este proceso!</p>
 
-                    <?php
-                    if ($_SESSION['tipo_usu'] == 1) {
-                    } else { ?>
-                        <div class="footer-mak">
-                            <div class="container">
-                                <div class="flex">
-                                    <a href="valorizacion.php" class="btn btn-mak mak-bg ml-auto">Continuar</a>
+                        </div>
+                        <?php
+                        if ($_SESSION['tipo_usu'] == 1) {
+                        } else { ?>
+                            <div class="card-footer">
+                                <div class="form-flex">
+                                    <a href="/" class="btn btn-mak mak-bg-sec">Retroceder</a>
+                                    <a href="valorizacion.php" class="btn btn-mak mak-bg">Nueva solicitud</a>
                                 </div>
                             </div>
-                        </div>
 
-                    <?php } ?>
+                        <?php } ?>
 
+                    </div>
                 </section>
 
 
@@ -133,90 +134,90 @@ require_once('../Controller/controladorListar.php'); ?>
                                             <div class="col-sm-12">
 
 
-                                        <table id="tabla" class="table table-borderless mb-3" style="width: 100%;">
+                                                <table id="tabla" class="table table-borderless mb-3" style="width: 100%;">
 
-                                            <thead class="">
-                                                <tr>
-                                                    <th>ID</th>
-                                                    <th>Dni</th>
-                                                    <th>Cliente</th>
-                                                    <th>Direccion</th>
-                                                    <th>Tipo Propiedad</th>
-                                                    <th>Tipo</th>
-                                                    <th>Estado</th>
-                                                    <th>Detalles</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <?php
+                                                    <thead class="">
+                                                        <tr>
+                                                            <th>ID</th>
+                                                            <th>Dni</th>
+                                                            <th>Cliente</th>
+                                                            <th>Direccion</th>
+                                                            <th>Tipo Propiedad</th>
+                                                            <th>Tipo</th>
+                                                            <th>Estado</th>
+                                                            <th>Detalles</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <?php
 
 
-                                                function mostrarData($data)
-                                                {
-                                                    switch ($data) {
-                                                        case "1":
-                                                            echo "<td>Si</td>";
-                                                            break;
-                                                        case "0":
-                                                            echo "<td>No</td>";
-                                                            break;
-                                                        case "500":
-                                                            echo "<td><span class='badge rounded-pill bg-secondary'>Pendiente</span></td>";
-                                                            break;
-                                                        case "400":
-                                                            echo "<td><span class='badge rounded-pill bg-warning text-dark'>En revision</span></td>";
-                                                            break;
-                                                        case "200":
-                                                            echo "<td><span class='badge rounded-pill bg-success'> Finalizado</span></td>";
-                                                            break;
-                                                        default:
-                                                            // echo "<td>$data</td>";
-                                                            if ($data !== null) {
-                                                                echo  "<td>$data</td>";
-                                                            } else {
-                                                                echo "<td>-</td>";
+                                                        function mostrarData($data)
+                                                        {
+                                                            switch ($data) {
+                                                                case "1":
+                                                                    echo "<td>Si</td>";
+                                                                    break;
+                                                                case "0":
+                                                                    echo "<td>No</td>";
+                                                                    break;
+                                                                case "500":
+                                                                    echo "<td><span class='badge rounded-pill bg-secondary'>Pendiente</span></td>";
+                                                                    break;
+                                                                case "400":
+                                                                    echo "<td><span class='badge rounded-pill bg-warning text-dark'>En revision</span></td>";
+                                                                    break;
+                                                                case "200":
+                                                                    echo "<td><span class='badge rounded-pill bg-success'> Finalizado</span></td>";
+                                                                    break;
+                                                                default:
+                                                                    // echo "<td>$data</td>";
+                                                                    if ($data !== null) {
+                                                                        echo  "<td>$data</td>";
+                                                                    } else {
+                                                                        echo "<td>-</td>";
+                                                                    }
+                                                                    break;
                                                             }
-                                                            break;
-                                                    }
-                                                }
+                                                        }
 
-                                                foreach ($list_valo as $lst_vlzn) : ?>
-                                                    <tr>
-                                                        <td>
-                                                            <?php echo $lst_vlzn[0] ?>
-                                                        </td>
-                                                        <?php mostrarData($lst_vlzn[1]) ?>
-                                                        <?php mostrarData($lst_vlzn[2]) ?>
-                                                        <?php mostrarData($lst_vlzn[3]) ?>
-                                                        <?php mostrarData($lst_vlzn[4] . ' (' . $lst_vlzn[5] . ')') ?>
+                                                        foreach ($list_valo as $lst_vlzn) : ?>
+                                                            <tr>
+                                                                <td>
+                                                                    <?php echo $lst_vlzn[0] ?>
+                                                                </td>
+                                                                <?php mostrarData($lst_vlzn[1]) ?>
+                                                                <?php mostrarData($lst_vlzn[2]) ?>
+                                                                <?php mostrarData($lst_vlzn[3]) ?>
+                                                                <?php mostrarData($lst_vlzn[4] . ' (' . $lst_vlzn[5] . ')') ?>
 
-                                                        <?php mostrarData($lst_vlzn[6]) ?>
-                                                        <?php mostrarData($lst_vlzn[63]) ?>
+                                                                <?php mostrarData($lst_vlzn[6]) ?>
+                                                                <?php mostrarData($lst_vlzn[63]) ?>
 
-                                                        <td>
-                                                            <!-- <button type="button" class="btn btn-rounded btn_get_details scroll-toggle" data-id_solic_val="<?php echo $lst_vlzn[0] ?>" data-id_cli="<?php echo $lst_vlzn[0] ?>" data-dni_cli="<?php echo $lst_vlzn[1] ?>" data-toggle="modal" data-target="#details_v">
+                                                                <td>
+                                                                    <!-- <button type="button" class="btn btn-rounded btn_get_details scroll-toggle" data-id_solic_val="<?php echo $lst_vlzn[0] ?>" data-id_cli="<?php echo $lst_vlzn[0] ?>" data-dni_cli="<?php echo $lst_vlzn[1] ?>" data-toggle="modal" data-target="#details_v">
                                                                 <i class="fa-solid fa-eye"></i>
                                                             </button> -->
 
-                                                            <button type="button" class="btn btn-rounded scroll-toggle" data-id_solic_val="<?php echo $lst_vlzn[0] ?>" data-id_cli="<?php echo $lst_vlzn[64] ?>" data-dni_cli="<?php echo $lst_vlzn[1] ?>">
-                                                                <i class="fa-solid fa-eye"></i>
-                                                            </button>
-                                                        </td>
+                                                                    <button type="button" class="btn btn-rounded scroll-toggle" data-id_solic_val="<?php echo $lst_vlzn[0] ?>" data-id_cli="<?php echo $lst_vlzn[64] ?>" data-dni_cli="<?php echo $lst_vlzn[1] ?>">
+                                                                        <i class="fa-solid fa-eye"></i>
+                                                                    </button>
+                                                                </td>
 
-                                                        <!--
+                                                                <!--
                                             <td>
 
                                                 <button type="button" class="btn editbtn" data-toggle="modal" data-target="#exampleModal"><i class="fa-solid fa-upload"></i></button>
 
                                             </td>-->
-                                                    </tr>
-                                                <?php endforeach ?>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
+                                                            </tr>
+                                                        <?php endforeach ?>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
 
-                                <!-- </div> TABLA ADMIN -->
+                                        <!-- </div> TABLA ADMIN -->
 
                                     <?php
                                     } else {
@@ -849,7 +850,7 @@ require_once('../Controller/controladorListar.php'); ?>
         });
 
 
-        function get_details_solic(idsolicitud, idclient, dniclient ) {
+        function get_details_solic(idsolicitud, idclient, dniclient) {
             $.ajax({
                 type: 'POST',
                 url: '../Controller/Get_Details_Valorizacion.php',
@@ -870,21 +871,21 @@ require_once('../Controller/controladorListar.php'); ?>
                 success: function(response) {
                     console.log(response);
 
-                        try {
-                            var detalles = JSON.parse(response);
+                    try {
+                        var detalles = JSON.parse(response);
 
-                            console.log(detalles);
+                        console.log(detalles);
 
-                            var id_valor = detalles[0][0];
-                            var nom_client = detalles[0][1];
-                            var direccion = detalles[0][2];
-                            var tipo_inmb = detalles[0][3];
-                            var estado = detalles[0][61];
-                            var coment = detalles[0][62];
+                        var id_valor = detalles[0][0];
+                        var nom_client = detalles[0][1];
+                        var direccion = detalles[0][2];
+                        var tipo_inmb = detalles[0][3];
+                        var estado = detalles[0][61];
+                        var coment = detalles[0][62];
 
-                        } catch (error) {
-                            console.error("Error al analizar la respuesta JSON: " + error);
-                        }
+                    } catch (error) {
+                        console.error("Error al analizar la respuesta JSON: " + error);
+                    }
 
                     setTimeout(function() {
 
@@ -1572,8 +1573,8 @@ require_once('../Controller/controladorListar.php'); ?>
                     element.addEventListener("click", function() {
 
                         var id_valo_soli = $(this).data('id_solic_val');
-                        var id_valo_cli= $(this).data('id_cli');
-                        var dni_cli= $(this).data('dni_cli');
+                        var id_valo_cli = $(this).data('id_cli');
+                        var dni_cli = $(this).data('dni_cli');
 
                         console.log(dni_cli)
 
@@ -1594,7 +1595,7 @@ require_once('../Controller/controladorListar.php'); ?>
 
                         $('#id_client_l').val(data[7]);*/
 
-                        get_details_solic(id_valo_soli, id_valo_cli, dni_cli );
+                        get_details_solic(id_valo_soli, id_valo_cli, dni_cli);
 
                         //load_documents_legal('<?php echo $_SESSION['id_usu'] ?>');
 

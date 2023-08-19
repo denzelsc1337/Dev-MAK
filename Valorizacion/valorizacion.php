@@ -1687,7 +1687,7 @@
 
                                                 <table class="table table-borderless">
                                                     <thead class="">
-                                                        <tr>
+                                                        <tr class="t-head">
                                                             <th>DISTRITO</th>
                                                             <th>DIRECCIÓN</th>
                                                             <th>TIPO</th>
