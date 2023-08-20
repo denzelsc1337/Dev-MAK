@@ -165,7 +165,7 @@ require_once('../Controller/controladorListar.php'); ?>
                                                                     echo "<td><span class='badge rounded-pill bg-secondary'>Pendiente</span></td>";
                                                                     break;
                                                                 case "400":
-                                                                    echo "<td><span class='badge rounded-pill bg-warning text-dark'>En revision</span></td>";
+                                                                    echo "<td><span class='badge rounded-pill bg-warning text-dark'>Observado</span></td>";
                                                                     break;
                                                                 case "200":
                                                                     echo "<td><span class='badge rounded-pill bg-success'> Finalizado</span></td>";
@@ -356,16 +356,16 @@ require_once('../Controller/controladorListar.php'); ?>
                                             <tbody>
                                                 <tr>
                                                     <!-- <td>MIRAFLORES</td> -->
-                                                    <td id="dir__dist"></td>
+                                                    <td id="dir_dist_rsm"></td>
                                                     <!-- <td>AV AREQUIPA 4960</td> -->
-                                                    <td id="dir__"></td>
+                                                    <td id="dir_rsm"></td>
                                                     <!-- <td>CASA</td> -->
-                                                    <td id="tip__"></td>
+                                                    <td id="tip_rsm"></td>
                                                     <!-- <td>VENTA</td> -->
-                                                    <td id="pro__"></td>
-                                                    <td id="at__"></td>
-                                                    <td id="ac__"></td>
-                                                    <td id="ao__"></td>
+                                                    <td id="pro_rsm"></td>
+                                                    <td id="at_rsm"></td>
+                                                    <td id="ac_rsm"></td>
+                                                    <td id="ao_rsm"></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -395,7 +395,11 @@ require_once('../Controller/controladorListar.php'); ?>
 
                                                 <figcaption class="d-flex flex-column pl-2">
                                                     <p class="b-text"><b>Resumen</b></p>
-                                                    <input type="text" name="status_solic_val" id="status_solic_val">
+                                                    <select id="status_solic_val_cbo" name="status_solic_val_cbo">
+                                                        <option value="500">Pendiente</option>
+                                                        <option value="400">Observado</option>
+                                                        <option value="200">Finalizado</option>
+                                                    </select>
                                                     <small class="">Datos de contacto:</small>
                                                 </figcaption>
 
@@ -910,17 +914,22 @@ require_once('../Controller/controladorListar.php'); ?>
 
                         switch (estado) {
                           case '400':
-                            $("#status_solic_val").val("Observado");
+                            $("#status_solic_val_cbo").val("400");
                             break;
                           case '200':
-                            $("#status_solic_val").val("Finalizado");
+                            $("#status_solic_val_cbo").val("200");
                             break;
                           default:
-                            $("#status_solic_val").val("Pendiente")
+                            $("#status_solic_val_cbo").val("500");
                         }
-                        
-                        
 
+                        $("#dir_rsm").text(detalles[0][2]);
+                        $("#tip_rsm").text(detalles[0][3]);
+                        $("#pro_rsm").text(detalles[0][5]);
+                        $("#at_rsm").text(detalles[0][6]);
+                        $("#ac_rsm").text(detalles[0][7]);
+                        $("#ao_rsm").text(detalles[0][8]);
+                        
                     }, 900);
                 },
                 error: function(xhr, status, error) {
@@ -1666,6 +1675,11 @@ require_once('../Controller/controladorListar.php'); ?>
                         contenedor.scrollLeft = 0; // Ir al final
 
                         $("#coment_valr_r").val('')
+                        $("#tip_rsm").text('');
+                        $("#pro_rsm").text('');
+                        $("#at_rsm").text('');
+                        $("#ac_rsm").text('');
+                        $("#ao_rsm").text('');
 
                     });
 
