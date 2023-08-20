@@ -395,6 +395,7 @@ require_once('../Controller/controladorListar.php'); ?>
 
                                                 <figcaption class="d-flex flex-column pl-2">
                                                     <p class="b-text"><b>Resumen</b></p>
+                                                    <input type="text" name="status_solic_val" id="status_solic_val">
                                                     <small class="">Datos de contacto:</small>
                                                 </figcaption>
 
@@ -416,6 +417,9 @@ require_once('../Controller/controladorListar.php'); ?>
 
                                 <div class="form-flex">
                                     <button type="button" class="btn btn-mak mak-bg-sec antPag avanza_pa_atras">Retroceder</button>
+
+                                    <button type="button" class="btn btn-mak mak-bg-sec subir_valor">Subir Valorizacion</button>
+
                                     <button type="button" class="btn btn-mak mak-bg btn_finalizar" id="btn_finalizar" name="btn_finalizar">
                                         Finalizar
                                     </button>
@@ -903,6 +907,19 @@ require_once('../Controller/controladorListar.php'); ?>
                         console.log("Estado: " + coment);
 
                         $("#coment_valr_r").val(coment)
+
+                        switch (estado) {
+                          case '400':
+                            $("#status_solic_val").val("Observado");
+                            break;
+                          case '200':
+                            $("#status_solic_val").val("Finalizado");
+                            break;
+                          default:
+                            $("#status_solic_val").val("Pendiente")
+                        }
+                        
+                        
 
                     }, 900);
                 },
