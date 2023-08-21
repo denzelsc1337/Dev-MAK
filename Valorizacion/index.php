@@ -1985,6 +1985,7 @@ require_once('../Controller/controladorListar.php'); ?>
 
         inputSelect.addEventListener("click", function() {
             inputSelect.classList.toggle("active");
+            textBox.classList.toggle("radius");
         });
 
         selectOptions.forEach(option => {
