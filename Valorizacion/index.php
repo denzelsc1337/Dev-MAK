@@ -333,6 +333,7 @@ require_once('../Controller/controladorListar.php'); ?>
                             <form id="add_data_val" method="POST">
 
                                 <input type="text" name="cod_solic_v" id="cod_solic_v">
+                                <input type="text" name="dni_usu_v" id="dni_usu_v">
                                 <div class="container">
 
                                     <div id="loader_uhd" style="display: none;" class="loader-styla">
@@ -430,7 +431,7 @@ require_once('../Controller/controladorListar.php'); ?>
                                     <div class="form-flex">
                                         <button type="button" class="btn btn-mak mak-bg-sec antPag avanza_pa_atras">Retroceder</button>
 
-                                        <button type="button" class="btn btn-mak mak-bg-sec upld_file_valo" id="subir_valor">Subir Valorizacion</button>
+                                        <button type="button" class="btn btn-mak mak-bg-sec upld_file_valo" id="subir_valor">Subir Valorizacion</button>º
 
                                         <button type="button" class="btn btn-mak mak-bg-sec add_obs" id="add_obsv_v" data-id_solic>obs</button>
 
@@ -459,6 +460,7 @@ require_once('../Controller/controladorListar.php'); ?>
                             <form action="../Controller/upload_doc_valorizacion.php" method="POST" enctype="multipart/form-data">
                                 <div class="modal-body">
                                     <input type="text" name="id_reg_valor" id="id_reg_valor">
+                                    <input type="text" name="dni_solic_valor" id="dni_solic_valor">
                                     <div class="form-group">
                                         <label>Archivo de Valorizacion</label>
                                         <br>
@@ -841,13 +843,21 @@ require_once('../Controller/controladorListar.php'); ?>
 
             $('.upld_file_valo').on('click', function() {
                 console.log("test");
+
                 $('#upload_valorizacion').modal('show');
-                $tr = $(this).closest('tr');
+
+                /*$tr = $(this).closest('tr');
                 var data = $tr.children("td").map(function() {
                     return $(this).text();
                 }).get();
-                console.log(data);
-                $('#id_reg_valor').val(data[0].trim());
+                console.log(data);*/
+
+                var __id_solic_v = $("#cod_solic_v").val();
+                var cd_solic_v = $("#id_reg_valor").val(__id_solic_v);
+
+                var __dni__solic_v = $("#dni_usu_v").val();
+                var dni_solic_v = $("#dni_solic_valor").val (__dni__solic_v);
+
             });
 
             $('.add_obs').on('click', function() {
@@ -855,7 +865,6 @@ require_once('../Controller/controladorListar.php'); ?>
                 $('#add_obs_valr').modal('show');
 
                 var __id_solic_v = $("#cod_solic_v").val();
-
                 var cd_solic_v = $("#id__cod_valor").val(__id_solic_v);
 
             });
@@ -979,10 +988,10 @@ require_once('../Controller/controladorListar.php'); ?>
                                 $(".textBox").removeClass("bg-success");
 
                                 add_obs_1.classList.remove("hidden");
-                                add_file_val_1.classList.add("hidden");
+                                //add_file_val_1.classList.add("hidden");
 
 
-                                add_file_val_1.style.display = "none";
+                                //add_file_val_1.style.display = "none";
                                 add_obs_1.style.display = "block";
                                 break;
                             case '200':
@@ -994,9 +1003,9 @@ require_once('../Controller/controladorListar.php'); ?>
 
 
                                 add_obs_1.classList.add("hidden");
-                                add_file_val_1.classList.remove("hidden");
+                                //add_file_val_1.classList.remove("hidden");
 
-                                add_file_val_1.style.display = "block";
+                                //add_file_val_1.style.display = "block";
                                 add_obs_1.style.display = "none";
                                 break;
                             default:
@@ -1008,9 +1017,9 @@ require_once('../Controller/controladorListar.php'); ?>
 
 
                                 add_obs_1.classList.add("hidden");
-                                add_file_val_1.classList.add("hidden");
+                                //add_file_val_1.classList.add("hidden");
 
-                                add_file_val_1.style.display = "none";
+                                //add_file_val_1.style.display = "none";
                                 add_obs_1.style.display = "none";
                         }
 
@@ -1031,22 +1040,22 @@ require_once('../Controller/controladorListar.php'); ?>
                                     add_obs_1.classList.remove("hidden");
                                     add_obs_1.style.display = "block";
 
-                                    add_file_val_1.classList.add("hidden");
-                                    add_file_val_1.style.display = "none";
+                                    //add_file_val_1.classList.add("hidden");
+                                    //add_file_val_1.style.display = "none";
                                     break;
                                 case "200":
                                     add_obs_1.classList.add("hidden");
                                     add_obs_1.style.display = "none";
 
-                                    add_file_val_1.classList.remove("hidden");
-                                    add_file_val_1.style.display = "block";
+                                    //add_file_val_1.classList.remove("hidden");
+                                    //add_file_val_1.style.display = "block";
                                     break;
                                 default:
                                     add_obs_1.classList.add("hidden");
-                                    add_file_val_1.classList.add("hidden");
+                                    //add_file_val_1.classList.add("hidden");
 
                                     add_obs_1.style.display = "none";
-                                    add_file_val_1.style.display = "none";
+                                    //add_file_val_1.style.display = "none";
                                     break;
                             }
 
@@ -1729,7 +1738,7 @@ require_once('../Controller/controladorListar.php'); ?>
                         var id_valo_cli = $(this).data('id_cli');
                         var dni_cli = $(this).data('dni_cli');
 
-                        console.log(dni_cli)
+                        //console.log(dni_cli)
 
                         /*$tr = $(this).closest('tr');
 
@@ -1751,7 +1760,7 @@ require_once('../Controller/controladorListar.php'); ?>
                         get_details_solic(id_valo_soli, id_valo_cli, dni_cli);
 
                         $('#cod_solic_v').val(id_valo_soli);
-
+                        $('#dni_usu_v').val(dni_cli);
 
                         //load_documents_legal('<?php echo $_SESSION['id_usu'] ?>');
 
