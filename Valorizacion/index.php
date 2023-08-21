@@ -195,14 +195,14 @@ require_once('../Controller/controladorListar.php'); ?>
 
                                                                 <td>
 
-                                                                    <?php if ($lst_vlzn[63] == 400){?>
+                                                                    <?php if ($lst_vlzn[63] == 400) { ?>
                                                                         <button type="button" class="btn btn-rounded scroll-toggle" data-id_solic_val="<?php echo $lst_vlzn[0] ?>" data-id_cli="<?php echo $lst_vlzn[64] ?>" data-dni_cli="<?php echo $lst_vlzn[1] ?>">
-                                                                        <i class="fa-solid fa-pencil"></i>
+                                                                            <i class="fa-solid fa-pencil"></i>
                                                                         </button>
 
-                                                                    <?php }else{?>
+                                                                    <?php } else { ?>
                                                                         <button type="button" class="btn btn-rounded scroll-toggle" data-id_solic_val="<?php echo $lst_vlzn[0] ?>" data-id_cli="<?php echo $lst_vlzn[64] ?>" data-dni_cli="<?php echo $lst_vlzn[1] ?>">
-                                                                        <i class="fa-solid fa-eye"></i>
+                                                                            <i class="fa-solid fa-eye"></i>
                                                                         </button>
                                                                     <?php } ?>
 
@@ -332,108 +332,114 @@ require_once('../Controller/controladorListar.php'); ?>
                         <section class="content body-mak mak-txt position-relative">
                             <form id="add_data_val" method="POST">
 
-                            <input type="text" name="cod_solic_v" id="cod_solic_v">
-                            <div class="container">
+                                <input type="text" name="cod_solic_v" id="cod_solic_v">
+                                <div class="container">
 
-                                <div id="loader_uhd" style="display: none;" class="loader-styla">
-                                    <strong>Espere por favor.</strong>
-                                    <img src="../Vista/assets/loading_uhd.gif">
-                                </div>
-
-                                <div class="row">
-
-                                    <div class="card-body mt-4">
-                                        <table class="table table-borderless">
-                                            <thead class="">
-                                                <tr>
-                                                    <th>DISTRITO</th>
-                                                    <th>DIRECCIÓN</th>
-                                                    <th>TIPO</th>
-                                                    <th>PROMOCIÓN</th>
-                                                    <th>AT</th>
-                                                    <th>AC</th>
-                                                    <th>AO</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <!-- <td>MIRAFLORES</td> -->
-                                                    <td id="dir_dist_rsm"></td>
-                                                    <!-- <td>AV AREQUIPA 4960</td> -->
-                                                    <td id="dir_rsm"></td>
-                                                    <!-- <td>CASA</td> -->
-                                                    <td id="tip_rsm"></td>
-                                                    <!-- <td>VENTA</td> -->
-                                                    <td id="pro_rsm"></td>
-                                                    <td id="at_rsm"></td>
-                                                    <td id="ac_rsm"></td>
-                                                    <td id="ao_rsm"></td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
+                                    <div id="loader_uhd" style="display: none;" class="loader-styla">
+                                        <strong>Espere por favor.</strong>
+                                        <img src="../Vista/assets/loading_uhd.gif">
                                     </div>
-                                    <br>
 
-                                    <div class="d-flex w-100 justify-content-between mt-3 resumen">
-                                        <div class="blaa">
-                                            <div class="card-body">
-                                                <div>
-                                                    <label class="mak-txt">Comentario</label>
-                                                    <textarea id="coment_valr_r" placeholder="Escribe un comentario..."></textarea>
-                                                </div>
-                                                <div class="row justify-content-between">
-                                                    <div class="btn btn-mak mak-bg" data-bs-toggle="modal" data-bs-target="#verFotos">Ver Fotos</div>
-                                                    <div class="btn btn-mak mak-bg" data-bs-toggle="modal" data-bs-target="#verDocs">Ver Documentos</div>
+                                    <div class="row">
+
+                                        <div class="card-body mt-4">
+                                            <table class="table table-borderless">
+                                                <thead class="">
+                                                    <tr>
+                                                        <th>DISTRITO</th>
+                                                        <th>DIRECCIÓN</th>
+                                                        <th>TIPO</th>
+                                                        <th>PROMOCIÓN</th>
+                                                        <th>AT</th>
+                                                        <th>AC</th>
+                                                        <th>AO</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <!-- <td>MIRAFLORES</td> -->
+                                                        <td id="dir_dist_rsm"></td>
+                                                        <!-- <td>AV AREQUIPA 4960</td> -->
+                                                        <td id="dir_rsm"></td>
+                                                        <!-- <td>CASA</td> -->
+                                                        <td id="tip_rsm"></td>
+                                                        <!-- <td>VENTA</td> -->
+                                                        <td id="pro_rsm"></td>
+                                                        <td id="at_rsm"></td>
+                                                        <td id="ac_rsm"></td>
+                                                        <td id="ao_rsm"></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <br>
+
+                                        <div class="d-flex w-100 justify-content-between mt-3 resumen">
+                                            <div class="blaa">
+                                                <div class="card-body">
+                                                    <div>
+                                                        <label class="mak-txt">Comentario</label>
+                                                        <textarea id="coment_valr_r" placeholder="Escribe un comentario..."></textarea>
+                                                    </div>
+                                                    <div class="row justify-content-between">
+                                                        <div class="btn btn-mak mak-bg" data-bs-toggle="modal" data-bs-target="#verFotos">Ver Fotos</div>
+                                                        <div class="btn btn-mak mak-bg" data-bs-toggle="modal" data-bs-target="#verDocs">Ver Documentos</div>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="blaa" style="width:33%;">
-                                            <div class="card-box">
-                                                <div id="mapa_2" style="height: 250px;"></div>
-                                            </div>
-                                        </div>
-                                        <div class="blaa">
-                                            <div class="card-box card-body data-resume">
-
-                                                <figcaption class="d-flex flex-column pl-2">
-                                                    <p class="b-text"><b>Resumen</b></p>
-                                                    <select id="status_solic_val_cbo" name="status_solic_val_cbo">
-                                                        <option value="500">Pendiente</option>
-                                                        <option value="400">Observado</option>
-                                                        <option value="200">Finalizado</option>
-                                                    </select>
-                                                    <small class="">Datos de contacto:</small>
-                                                </figcaption>
-
-                                                <ul>
-                                                    <li><b>Nombre: </b><?php echo $_SESSION['nom_usu']; ?></li>
-                                                    <li><b>Email: </b><?php echo $_SESSION['email_usu']; ?></li>
-                                                    <li><b>Teléfono: </b><?php echo $_SESSION['telef_usu']; ?></li>
-                                                </ul>
-
-                                                <div>
-                                                    <p><strong>Información de la propiedad:</strong></p>
-                                                    <ul class="lst-resume" data-resume></ul>
+                                            <div class="blaa" style="width:33%;">
+                                                <div class="card-box">
+                                                    <div id="mapa_2" style="height: 250px;"></div>
                                                 </div>
                                             </div>
-                                        </div>
+                                            <div class="blaa">
+                                                <div class="card-box card-body data-resume">
 
+                                                    <figcaption class="d-flex flex-column pl-2">
+                                                        <p class="b-text"><b>Resumen</b></p>
+
+                                                        <div class="input-select">
+                                                            <input type="text" id="" name="" class="textBox" readonly>
+                                                            <input type="text" id="status_solic_val_cbo" name="status_solic_val_cbo" hidden readonly>
+                                                            <div class="select-options">
+                                                                <div class="bg-secondary" data-value="500">Pendiente</div>
+                                                                <div class="bg-warning" data-value="400">Observado</div>
+                                                                <div class="bg-success" data-value="200">Finalizado</div>
+                                                            </div>
+                                                        </div>
+
+                                                        <small class="">Datos de contacto:</small>
+                                                    </figcaption>
+
+                                                    <ul>
+                                                        <li><b>Nombre: </b><?php echo $_SESSION['nom_usu']; ?></li>
+                                                        <li><b>Email: </b><?php echo $_SESSION['email_usu']; ?></li>
+                                                        <li><b>Teléfono: </b><?php echo $_SESSION['telef_usu']; ?></li>
+                                                    </ul>
+
+                                                    <div>
+                                                        <p><strong>Información de la propiedad:</strong></p>
+                                                        <ul class="lst-resume" data-resume></ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
                                     </div>
+
+                                    <div class="form-flex">
+                                        <button type="button" class="btn btn-mak mak-bg-sec antPag avanza_pa_atras">Retroceder</button>
+
+                                        <button type="button" class="btn btn-mak mak-bg-sec upld_file_valo" id="subir_valor">Subir Valorizacion</button>
+
+                                        <button type="button" class="btn btn-mak mak-bg-sec add_obs" id="add_obsv_v" data-id_solic>obs</button>
+
+                                        <button type="button" class="btn btn-mak mak-bg btn_finalizar" id="btnValo_obs_save" name="btnValo_obs_save">
+                                            Guardar
+                                        </button>
+                                    </div>
+
                                 </div>
-
-                                <div class="form-flex">
-                                    <button type="button" class="btn btn-mak mak-bg-sec antPag avanza_pa_atras">Retroceder</button>
-
-                                    <button type="button" class="btn btn-mak mak-bg-sec upld_file_valo" id="subir_valor">Subir Valorizacion</button>
-
-                                    <button type="button" class="btn btn-mak mak-bg-sec add_obs" id="add_obsv_v" data-id_solic>obs</button>
-
-                                    <button type="button" class="btn btn-mak mak-bg btn_finalizar" id="btnValo_obs_save" name="btnValo_obs_save">
-                                        Guardar
-                                    </button>
-                                </div>
-
-                            </div>
                             </form>
                         </section>
                     </div>
@@ -854,9 +860,8 @@ require_once('../Controller/controladorListar.php'); ?>
 
             });
 
-            
-        });
 
+        });
     </script>
 
 
@@ -966,30 +971,47 @@ require_once('../Controller/controladorListar.php'); ?>
                         $("#coment_valr_r").val(coment)
 
                         switch (estado) {
-                          case '400':
-                            $("#status_solic_val_cbo").val("400");
-                            add_obs_1.classList.remove("hidden");
-                            add_file_val_1.classList.add("hidden");
+                            case '400':
+                                $("#status_solic_val_cbo").val("400");
+                                $(".textBox").val("Observado");
+                                $(".textBox").addClass("bg-warning");
+                                $(".textBox").removeClass("bg-secondary");
+                                $(".textBox").removeClass("bg-success");
+
+                                add_obs_1.classList.remove("hidden");
+                                add_file_val_1.classList.add("hidden");
 
 
-                            add_file_val_1.style.display = "none";
-                            add_obs_1.style.display = "block";
-                            break;
-                          case '200':
-                            $("#status_solic_val_cbo").val("200");
-                            add_obs_1.classList.add("hidden");
-                            add_file_val_1.classList.remove("hidden");
+                                add_file_val_1.style.display = "none";
+                                add_obs_1.style.display = "block";
+                                break;
+                            case '200':
+                                $("#status_solic_val_cbo").val("200");
+                                $(".textBox").val("Finalizado");
+                                $(".textBox").addClass("bg-success");
+                                $(".textBox").removeClass("bg-warnings");
+                                $(".textBox").removeClass("bg-secondarys");
 
-                            add_file_val_1.style.display = "block";
-                            add_obs_1.style.display = "none";
-                            break;
-                          default:
-                            $("#status_solic_val_cbo").val("500");
-                            add_obs_1.classList.add("hidden");
-                            add_file_val_1.classList.add("hidden");
 
-                            add_file_val_1.style.display = "none";
-                            add_obs_1.style.display = "none";
+                                add_obs_1.classList.add("hidden");
+                                add_file_val_1.classList.remove("hidden");
+
+                                add_file_val_1.style.display = "block";
+                                add_obs_1.style.display = "none";
+                                break;
+                            default:
+                                $("#status_solic_val_cbo").val("500");
+                                $(".textBox").val("Pendiente");
+                                $(".textBox").addClass("bg-secondary");
+                                $(".textBox").removeClass("bg-success");
+                                $(".textBox").removeClass("bg-warning");
+
+
+                                add_obs_1.classList.add("hidden");
+                                add_file_val_1.classList.add("hidden");
+
+                                add_file_val_1.style.display = "none";
+                                add_obs_1.style.display = "none";
                         }
 
                         $("#dir_rsm").text(detalles[0][2]);
@@ -999,7 +1021,7 @@ require_once('../Controller/controladorListar.php'); ?>
                         $("#ac_rsm").text(detalles[0][7]);
                         $("#ao_rsm").text(detalles[0][8]);
 
-                        
+
 
                         tipo_status.addEventListener("change", function() {
 
@@ -1029,7 +1051,7 @@ require_once('../Controller/controladorListar.php'); ?>
                             }
 
                         });
-                        
+
                     }, 900);
                 },
                 error: function(xhr, status, error) {
@@ -1951,6 +1973,49 @@ require_once('../Controller/controladorListar.php'); ?>
         });
 
         // ----------------------------F
+    </script>
+
+    <script>
+        const inputSelect = document.querySelector(".input-select");
+        const textBox = document.querySelector(".textBox");
+        const textBoxValue = document.querySelector("#status_solic_val_cbo");
+        const selectOptions = document.querySelectorAll(".select-options div");
+
+
+
+        inputSelect.addEventListener("click", function() {
+            inputSelect.classList.toggle("active");
+        });
+
+        selectOptions.forEach(option => {
+            option.addEventListener("click", function() {
+                const dataValue = option.getAttribute("data-value");
+                textBoxValue.value = dataValue; // Cambia el valor de textBoxValue
+
+                if (dataValue === "200") {
+                    textBox.value = "Finalizado";
+                    textBox.classList.add("bg-success");
+                    textBox.classList.remove("bg-warning");
+                    textBox.classList.remove("bg-secondary");
+
+                } else if (dataValue === "400") {
+                    textBox.value = "Observado";
+                    textBox.classList.add("bg-warning");
+                    textBox.classList.remove("bg-secondary");
+                    textBox.classList.remove("bg-success");
+
+                } else {
+                    textBox.value = "Pendiente";
+                    textBox.classList.add("bg-secondary");
+                    textBox.classList.remove("bg-success");
+                    textBox.classList.remove("bg-warning");
+
+                }
+
+            });
+        });
+        // Cierra el menú desplegable
+        inputSelect.classList.remove("active");
     </script>
 
     <!-- REQUIRED SCRIPTS -->
