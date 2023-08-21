@@ -422,7 +422,9 @@ require_once('../Controller/controladorListar.php'); ?>
                                 <div class="form-flex">
                                     <button type="button" class="btn btn-mak mak-bg-sec antPag avanza_pa_atras">Retroceder</button>
 
-                                    <button type="button" class="btn btn-mak mak-bg-sec subir_valor">Subir Valorizacion</button>
+                                    <button type="button" class="btn btn-mak mak-bg-sec upld_file_valo" id="subir_valor">Subir Valorizacion</button>
+
+                                    <button type="button" class="btn btn-mak mak-bg-sec add_obs" id="add_obsv_v">obs</button>
 
                                     <button type="button" class="btn btn-mak mak-bg btn_finalizar" id="btn_finalizar" name="btn_finalizar">
                                         Finalizar
@@ -546,6 +548,37 @@ require_once('../Controller/controladorListar.php'); ?>
                                     </div>
                                 </div>
                             </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="modal fade" id="add_obs_valr" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Subir Valorizacion</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <form action="../Controller/upload_doc_valorizacion.php" method="POST" enctype="multipart/form-data">
+                                <div class="modal-body">
+                                    <input type="text" name="id_reg_valor" id="id_reg_valor">
+                                    <div class="form-group">
+                                        <label>Observacion</label>
+                                        <br>
+                                        <textarea placeholder="Añade una Observacion">
+                                        </textarea>
+                                    </div>
+
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-primary" data-dismiss="modal">Cancelar</button>
+                                        <button type="button" class="btn btn-primary" data-dismiss="modal">Listo</button>
+                                    </div>
+                                </div>
+                            </form>
+
                         </div>
                     </div>
                 </div>
@@ -798,7 +831,7 @@ require_once('../Controller/controladorListar.php'); ?>
     <script>
         $(document).ready(function() {
 
-            $('.editbtn').on('click', function() {
+            $('.upld_file_valo').on('click', function() {
                 console.log("test");
                 $('#upload_valorizacion').modal('show');
                 $tr = $(this).closest('tr');
@@ -808,7 +841,15 @@ require_once('../Controller/controladorListar.php'); ?>
                 console.log(data);
                 $('#id_reg_valor').val(data[0].trim());
             });
+
+            $('.add_obs').on('click', function() {
+                console.log("test");
+                $('#add_obs_valr').modal('show');
+            });
+
+            
         });
+
     </script>
 
 
@@ -902,6 +943,11 @@ require_once('../Controller/controladorListar.php'); ?>
 
                     setTimeout(function() {
 
+                        const tipo_status = document.getElementById("status_solic_val_cbo");
+
+                        const add_obs_1 = document.getElementById("add_obsv_v");
+                        const add_file_val_1 = document.getElementById("subir_valor");
+
                         $("#loader_uhd").hide();
 
                         console.log("ID Valor: " + id_valor);
@@ -915,12 +961,18 @@ require_once('../Controller/controladorListar.php'); ?>
                         switch (estado) {
                           case '400':
                             $("#status_solic_val_cbo").val("400");
+                            add_obs_1.classList.remove("hidden");
+                            add_file_val_1.classList.add("hidden");
                             break;
                           case '200':
                             $("#status_solic_val_cbo").val("200");
+                            add_obs_1.classList.add("hidden");
+                            add_file_val_1.classList.remove("hidden");
                             break;
                           default:
                             $("#status_solic_val_cbo").val("500");
+                            add_obs_1.classList.add("hidden");
+                            add_file_val_1.classList.add("hidden");
                         }
 
                         $("#dir_rsm").text(detalles[0][2]);
@@ -929,6 +981,27 @@ require_once('../Controller/controladorListar.php'); ?>
                         $("#at_rsm").text(detalles[0][6]);
                         $("#ac_rsm").text(detalles[0][7]);
                         $("#ao_rsm").text(detalles[0][8]);
+
+                        
+
+                        tipo_status.addEventListener("change", function() {
+                            switch (tipo_status.value) {
+                                case "400":
+                                    console.log("uwu")
+                                    add_obs_1.classList.remove("hidden");
+                                    add_file_val_1.classList.add("hidden");
+                                    break;
+                                case "200":
+                                    add_obs_1.classList.add("hidden");
+                                    add_file_val_1.classList.remove("hidden");
+                                    break;
+                                default:
+                                    add_obs_1.classList.add("hidden");
+                                    add_file_val_1.classList.add("hidden");
+                                    break;
+                            }
+
+                        });
                         
                     }, 900);
                 },

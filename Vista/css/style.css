@@ -1644,3 +1644,19 @@ form .form-content {
 .showPictures img {
   width: 100%;
 }
+
+
+#add_obsv_v,
+#subir_valor{
+    opacity: 1;
+    height: 100%;
+    margin-bottom: 3px;
+    transition: opacity 0.3s ease-out, height 0.3s ease-out, margin-bottom 0.3s ease-out;
+}
+
+#add_obsv_v.hidden,
+#subir_valor.hidden {
+    opacity: 0;
+    height: 0;
+    margin-bottom: 0;
+}
