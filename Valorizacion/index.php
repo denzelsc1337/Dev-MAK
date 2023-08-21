@@ -331,6 +331,7 @@ require_once('../Controller/controladorListar.php'); ?>
 
                         <!-- Denzel cpp -->
                         <section class="content body-mak mak-txt position-relative">
+                            <input type="text" name="cod_solic_v" id="cod_solic_v">
                             <div class="container">
 
                                 <div id="loader_uhd" style="display: none;" class="loader-styla">
@@ -424,7 +425,7 @@ require_once('../Controller/controladorListar.php'); ?>
 
                                     <button type="button" class="btn btn-mak mak-bg-sec upld_file_valo" id="subir_valor">Subir Valorizacion</button>
 
-                                    <button type="button" class="btn btn-mak mak-bg-sec add_obs" id="add_obsv_v">obs</button>
+                                    <button type="button" class="btn btn-mak mak-bg-sec add_obs" id="add_obsv_v" data-id_solic>obs</button>
 
                                     <button type="button" class="btn btn-mak mak-bg btn_finalizar" id="btn_finalizar" name="btn_finalizar">
                                         Finalizar
@@ -564,7 +565,7 @@ require_once('../Controller/controladorListar.php'); ?>
                             </div>
                             <form action="../Controller/upload_doc_valorizacion.php" method="POST" enctype="multipart/form-data">
                                 <div class="modal-body">
-                                    <input type="text" name="id_reg_valor" id="id_reg_valor">
+                                    <input type="text" name="id__cod_valor" id="id__cod_valor">
                                     <div class="form-group">
                                         <label>Observacion</label>
                                         <br>
@@ -845,6 +846,11 @@ require_once('../Controller/controladorListar.php'); ?>
             $('.add_obs').on('click', function() {
                 console.log("test");
                 $('#add_obs_valr').modal('show');
+
+                var __id_solic_v = $("#cod_solic_v").val();
+
+                var cd_solic_v = $("#id__cod_valor").val(__id_solic_v);
+
             });
 
             
@@ -963,16 +969,26 @@ require_once('../Controller/controladorListar.php'); ?>
                             $("#status_solic_val_cbo").val("400");
                             add_obs_1.classList.remove("hidden");
                             add_file_val_1.classList.add("hidden");
+
+
+                            add_file_val_1.style.display = "none";
+                            add_obs_1.style.display = "block";
                             break;
                           case '200':
                             $("#status_solic_val_cbo").val("200");
                             add_obs_1.classList.add("hidden");
                             add_file_val_1.classList.remove("hidden");
+
+                            add_file_val_1.style.display = "block";
+                            add_obs_1.style.display = "none";
                             break;
                           default:
                             $("#status_solic_val_cbo").val("500");
                             add_obs_1.classList.add("hidden");
                             add_file_val_1.classList.add("hidden");
+
+                            add_file_val_1.style.display = "none";
+                            add_obs_1.style.display = "none";
                         }
 
                         $("#dir_rsm").text(detalles[0][2]);
@@ -985,11 +1001,15 @@ require_once('../Controller/controladorListar.php'); ?>
                         
 
                         tipo_status.addEventListener("change", function() {
+
                             switch (tipo_status.value) {
                                 case "400":
                                     console.log("uwu")
                                     add_obs_1.classList.remove("hidden");
+                                    add_obs_1.style.display = "block";
+
                                     add_file_val_1.classList.add("hidden");
+                                    add_file_val_1.style.display = "none";
                                     break;
                                 case "200":
                                     add_obs_1.classList.add("hidden");
@@ -1700,6 +1720,9 @@ require_once('../Controller/controladorListar.php'); ?>
                         $('#id_client_l').val(data[7]);*/
 
                         get_details_solic(id_valo_soli, id_valo_cli, dni_cli);
+
+                        $('#cod_solic_v').val(id_valo_soli);
+
 
                         //load_documents_legal('<?php echo $_SESSION['id_usu'] ?>');
 

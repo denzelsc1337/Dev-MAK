@@ -441,6 +441,7 @@ create table valorizacion(
 );
 ALTER TABLE `valorizacion` ADD `nom_doc_valor` VARCHAR(255) NULL DEFAULT NULL AFTER `estado_solicitud`;
 ALTER TABLE `valorizacion` ADD `comentario` VARCHAR(500) NULL AFTER `nom_doc_valor`;
+ALTER TABLE `valorizacion` ADD `obs` VARCHAR(500) NULL AFTER `comentario`;
 -- 502 = Pendiente
 -- 402 = En revision
 -- 200 = Finalizado
