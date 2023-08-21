@@ -292,6 +292,44 @@ $(document).ready(function () {
     return false;
   });
 
+    $("#btnValo_obs_set").click(function (e) {
+      e.preventDefault();
+
+      var data = $("#add_obs_val_0").serialize();
+
+      $.ajax({
+        type: "POST",
+        url: "../Controller/update_obs_solic.php",
+        data: data,
+        success: function (response) {
+          console.log(response);
+        },
+        error: function (xhr, status, error) {
+          console.error(error);
+        },
+      });
+    });
+
+    $("#btnValo_obs_save").click(function (e) {
+      e.preventDefault();
+
+      var data = $("#add_data_val").serialize();
+      $.ajax({
+        type: "POST",
+        url: "../Controller/update_status_solic.php",
+        data: data,
+        success: function (response) {
+          console.log(response);
+
+          event.returnValue = false;
+          window.location.href = "../Valorizacion/";
+        },
+        error: function (xhr, status, error) {
+          console.error(error);
+        },
+      });
+    });
+
 
   // INPUT WITH LIST
   $(document).ready(function () {

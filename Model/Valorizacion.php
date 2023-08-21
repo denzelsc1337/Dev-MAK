@@ -366,6 +366,63 @@ class Valorizacion
 
 	}
 
+	public function updt_valoc_obs($id_valo,$obs){
+		include_once('../config/Conexion.php');
+		$cnx = new Conexion();
+		$cadena = $cnx->abrirConexion();
+
+		$query = "UPDATE valorizacion
+				  set obs = '$obs'
+				  WHERE id_valor = '$id_valo'";
+
+		$result = mysqli_query($cadena, $query);
+		$cnx->cerrarConexion($cadena);
+		return $result;
+
+		/*$result = mysqli_query($cadena, $query);
+
+
+        if ($result) {
+            $num_rows = mysqli_affected_rows($cadena);
+            echo "Se han insertado $num_rows filas correctamente";
+        } else {
+            echo "Error al ejecutar la consulta: " . mysqli_error($cadena);
+        }*/
+
+		/*echo mysqli_query($cadena, $query);
+		$cnx->cerrarConexion($cadena);*/
+
+	}
+
+	public function updt_valoc_status($id_valo,$status){
+		include_once('../config/Conexion.php');
+		$cnx = new Conexion();
+		$cadena = $cnx->abrirConexion();
+
+		$query = "UPDATE valorizacion
+				  set estado_solicitud = '$status'
+				  WHERE id_valor = '$id_valo'";
+
+		$result = mysqli_query($cadena, $query);
+		$cnx->cerrarConexion($cadena);
+		return $result;
+
+		/*$result = mysqli_query($cadena, $query);
+
+
+        if ($result) {
+            $num_rows = mysqli_affected_rows($cadena);
+            echo "Se han insertado $num_rows filas correctamente";
+        } else {
+            echo "Error al ejecutar la consulta: " . mysqli_error($cadena);
+        }*/
+
+		/*echo mysqli_query($cadena, $query);
+		$cnx->cerrarConexion($cadena);*/
+
+	}
+
+
 
 
 	public function selectorType_props()

@@ -96,7 +96,6 @@ require_once('../Controller/controladorListar.php'); ?>
                     </div>
                 </section>
 
-
                 <div class="overflow-hidden">
                     <div class="d-flex scroll">
 
@@ -331,6 +330,8 @@ require_once('../Controller/controladorListar.php'); ?>
 
                         <!-- Denzel cpp -->
                         <section class="content body-mak mak-txt position-relative">
+                            <form id="add_data_val" method="POST">
+
                             <input type="text" name="cod_solic_v" id="cod_solic_v">
                             <div class="container">
 
@@ -427,13 +428,13 @@ require_once('../Controller/controladorListar.php'); ?>
 
                                     <button type="button" class="btn btn-mak mak-bg-sec add_obs" id="add_obsv_v" data-id_solic>obs</button>
 
-                                    <button type="button" class="btn btn-mak mak-bg btn_finalizar" id="btn_finalizar" name="btn_finalizar">
-                                        Finalizar
+                                    <button type="button" class="btn btn-mak mak-bg btn_finalizar" id="btnValo_obs_save" name="btnValo_obs_save">
+                                        Guardar
                                     </button>
                                 </div>
 
                             </div>
-
+                            </form>
                         </section>
                     </div>
                 </div>
@@ -563,19 +564,19 @@ require_once('../Controller/controladorListar.php'); ?>
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
-                            <form action="../Controller/upload_doc_valorizacion.php" method="POST" enctype="multipart/form-data">
+                            <form id="add_obs_val_0" method="POST">
                                 <div class="modal-body">
                                     <input type="text" name="id__cod_valor" id="id__cod_valor">
                                     <div class="form-group">
                                         <label>Observacion</label>
                                         <br>
-                                        <textarea placeholder="Añade una Observacion">
+                                        <textarea placeholder="Añade una Observacion" id="obs_send_" name="obs_send_">
                                         </textarea>
                                     </div>
 
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-primary" data-dismiss="modal">Cancelar</button>
-                                        <button type="button" class="btn btn-primary" data-dismiss="modal">Listo</button>
+                                        <button type="button" class="btn btn-primary" data-dismiss="modal" id="btnValo_obs_set" name="btnValo_obs_set">Listo</button>
                                     </div>
                                 </div>
                             </form>
@@ -1013,11 +1014,17 @@ require_once('../Controller/controladorListar.php'); ?>
                                     break;
                                 case "200":
                                     add_obs_1.classList.add("hidden");
+                                    add_obs_1.style.display = "none";
+
                                     add_file_val_1.classList.remove("hidden");
+                                    add_file_val_1.style.display = "block";
                                     break;
                                 default:
                                     add_obs_1.classList.add("hidden");
                                     add_file_val_1.classList.add("hidden");
+
+                                    add_obs_1.style.display = "none";
+                                    add_file_val_1.style.display = "none";
                                     break;
                             }
 
