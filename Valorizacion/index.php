@@ -302,6 +302,7 @@ require_once('../Controller/controladorListar.php'); ?>
                                                                     <button type="button" class="btn btn-rounded " data-id_solic_val="<?php echo $lst_vlzn_[0] ?>" data-id_cli="<?php echo $lst_vlzn_[8] ?>" data-dni_cli="<?php echo $lst_vlzn_[9] ?>">
                                                                         <i class="fa-solid fa-eye"></i>
                                                                     </button>
+                                                                    <a href="../Valorizaciones/<?php echo $lst_vlzn_[0].'/'. $lst_vlzn_[9]?>/docs_val/">flechita descarga</a>
                                                                 </td>
                                                                 <!--
                                     <td>
