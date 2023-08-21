@@ -1830,20 +1830,17 @@
             <div class="modal fade" id="verFotos" tabindex="-1" aria-labelledby="verFotosLabel" aria-hidden="true">
                 <div class="modal-dialog modal-xl">
                     <div class="modal-content">
-                        <!-- <div class="modal-header">
-                            <h5 class="modal-title" id="verFotosLabel">Carga archivos máximo de 2MB.</h5>
+                        <div class="modal-header">
                             <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">×</span>
                             </button>
-                        </div> -->
+                        </div>
                         <div class="modal-body">
                             <div class="row">
-                                <div class="col-sm-12">
-                                    <div class="container">
+                                <div class="container">
 
-                                        <div class="showPictures"></div>
+                                    <div class="showPictures"></div>
 
-                                    </div>
                                 </div>
                             </div>
                         </div>
