@@ -90,27 +90,54 @@ if ($r) {
 
     $archivos_total = 0;
 
-    var_dump($uploadedFiles_PU);
-    echo "-----------------------------------------------------";
-    var_dump($uploadedFiles_CL);
+    //var_dump($uploadedFiles_PU);
+    echo "-";
+    //var_dump($uploadedFiles_CL);
+
+
+
+
 
 
     foreach ($uploadedFiles_PU as $key => $fileInfo) {
+
         $nombreArchivo = $fileInfo['name'];
+        $archivos_cont = count($fileInfo['name']);
+        $archivos_total = 0;
+
         $rutaTemporal = $fileInfo['tmp_name'];
-        echo $nombreArchivo;
-        echo $rutaTemporal;
+
+        $rutaArchivoDestino = $ruta_pu . $nombreArchivo;
+
+
+        for ($i=0; $i < $archivos_cont ; $i++) {
+            echo $fileInfo['name'][$i];
+            echo $ubicacion_save = $ruta_pu . basename($archivos_selecc["name"][$i]);
+
+        }
+        if (move_uploaded_file($rutaTemporal, $rutaArchivoDestino)) {
+             echo "El archivo $nombreArchivo se ha subido exitosamente.";
+         } else {
+             echo "Error al subir el archivo $nombreArchivo. <br>";
+         }
     }
 
-    // foreach ($_FILES['fls_pu']['tmp_name'] as $key => $rutaTemporal) {
-    //     $nombreArchivo = $uploadedFiles_PU['name'][$key];
-    //     $rutaArchivoDestino =  $ruta_pu . $nombreArchivo;
 
-    //     if (move_uploaded_file($rutaTemporal, $rutaArchivoDestino)) {
-    //         // El archivo se ha movido exitosamente al directorio destino
+    // foreach ($uploadedFiles_PU as $key => $fileInfo) {
+    //     $nombreArchivo = $fileInfo['name'];
+    //     $rutaTemporal = $fileInfo['tmp_name'];
+    //     echo $nombreArchivo;
+    //     echo $rutaTemporal;
+    // }
+
+    // foreach ($uploadedFiles_PU['tmp_name'] as $key => $rutaTemporal) {
+    //     $nombreArchivo = $uploadedFiles_PU['name'][$key];
+    //     //$rutaArchivoDestino = ruta_pu . $nombreArchivo;
+
+    //     if (move_uploaded_file($rutaTemporal, $ruta_pu)) {
+    //         echo "El archivo $nombreArchivo se ha subido exitosamente.<br>";
     //     } else {
-    //         // Error al mover el archivo
-    //         error_log("Error al mover el archivo: $nombreArchivo");
+    //         echo "Error al subir el archivo $nombreArchivo.<br>";
     //     }
     // }
 
@@ -127,10 +154,10 @@ if ($r) {
     // }
 
 
-    $response["success"] = true;
+    // $response["success"] = true;
     // $response["message"] = "Total files uploaded: " . $archivos_total;
 
-    echo json_encode($response);
+    //echo json_encode($response);
 } else {
     echo "Error al insertar el registro.";
 }

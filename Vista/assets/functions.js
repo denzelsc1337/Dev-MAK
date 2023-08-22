@@ -693,7 +693,7 @@ $(document).ready(function () {
 
         // Agregar el archivo al array de archivos subidos
         const uploadedArray = type === 'pu' ? uploadedFiles_PU : uploadedFiles_CL;
-        uploadedArray.push({ id, name: file.name, type: file.type, size: file.size, lastModified: file.lastModified, tmp_name: file.tmp_name });
+        uploadedArray.push({ id, name: file.name, type: file.type, size: file.size, lastModified: file.lastModified, tmp_name: fileReader.result});
 
         cantFilesValor();
 
@@ -701,19 +701,6 @@ $(document).ready(function () {
         // console.log(currentArchive);
 
         // ELIMINAR
-        // const dropUpld = document.querySelectorAll(".drop-upld");
-        // dropUpld.forEach(dropupld => {
-        //   dropupld.addEventListener("click", (e) => {
-        //     let Object = document.querySelectorAll(".upld-valo");
-        //     Object.forEach((element) => {
-        //       element.addEventListener("click", (e) => {
-        //         element.remove();
-        //         removeFileFromList(id);
-        //         cantFilesValor();
-        //       });
-        //     });
-        //   });
-        // });
         const dropUpld = document.querySelectorAll(".drop-upld");
         dropUpld.forEach(dropupld => {
           dropupld.addEventListener("click", (e) => {
@@ -745,6 +732,7 @@ $(document).ready(function () {
   function removeFileFromList(id, type) {
 
     // console.log(type === "pu");
+  console.log(id)
 
     if (type === "pu") {
       const indexToRemovePU = uploadedFiles_PU.findIndex(item => item.id === id);
