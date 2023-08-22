@@ -292,43 +292,43 @@ $(document).ready(function () {
     return false;
   });
 
-    $("#btnValo_obs_set").click(function (e) {
-      e.preventDefault();
+  $("#btnValo_obs_set").click(function (e) {
+    e.preventDefault();
 
-      var data = $("#add_obs_val_0").serialize();
+    var data = $("#add_obs_val_0").serialize();
 
-      $.ajax({
-        type: "POST",
-        url: "../Controller/update_obs_solic.php",
-        data: data,
-        success: function (response) {
-          console.log(response);
-        },
-        error: function (xhr, status, error) {
-          console.error(error);
-        },
-      });
+    $.ajax({
+      type: "POST",
+      url: "../Controller/update_obs_solic.php",
+      data: data,
+      success: function (response) {
+        console.log(response);
+      },
+      error: function (xhr, status, error) {
+        console.error(error);
+      },
     });
+  });
 
-    $("#btnValo_obs_save").click(function (e) {
-      e.preventDefault();
+  $("#btnValo_obs_save").click(function (e) {
+    e.preventDefault();
 
-      var data = $("#add_data_val").serialize();
-      $.ajax({
-        type: "POST",
-        url: "../Controller/update_status_solic.php",
-        data: data,
-        success: function (response) {
-          console.log(response);
+    var data = $("#add_data_val").serialize();
+    $.ajax({
+      type: "POST",
+      url: "../Controller/update_status_solic.php",
+      data: data,
+      success: function (response) {
+        console.log(response);
 
-          event.returnValue = false;
-          window.location.href = "../Valorizacion/";
-        },
-        error: function (xhr, status, error) {
-          console.error(error);
-        },
-      });
+        event.returnValue = false;
+        window.location.href = "../Valorizacion/";
+      },
+      error: function (xhr, status, error) {
+        console.error(error);
+      },
     });
+  });
 
 
   // INPUT WITH LIST
@@ -618,10 +618,6 @@ $(document).ready(function () {
 
 
   var uploadedFiles = [];
-  // console.log(buttonPu);
-  // console.log(buttonCl);
-  // console.log(inputPU_file);
-  // console.log(inputCL_file);
 
   buttonPu.addEventListener("click", (e) => {
     inputPU_file.click();
@@ -688,18 +684,11 @@ $(document).ready(function () {
           </div>
       `;
 
-        // console.log(index);
 
         innerFiles.innerHTML += upldArchive;
 
         cantFilesValor();
-        // if (type === "pu") {
-        //   const archivesPU = document.querySelector(".archives_pu");
-        //   archivesPU.innerHTML += upldArchive;
-        // } else if (type === "cl") {
-        //   const archivesCL = document.querySelector(".archives_cl");
-        //   archivesCL.innerHTML += upldArchive;
-        // }
+
 
         const currentArchive = document.getElementById(id);
         // console.log(currentArchive);
@@ -739,6 +728,7 @@ $(document).ready(function () {
       // inputPU_file.value = '';
       // inputCL_file.value = '';
     }
+    console.log(uploadedFiles);
 
   }
 
