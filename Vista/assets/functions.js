@@ -41,7 +41,8 @@ $(document).ready(function () {
     $("#loader").show();
     var formData = new FormData($("#form_valor")[0]);
     // --
-    formData.append('uploadedFiles', JSON.stringify(uploadedFiles));
+    formData.append('uploadedFiles_PU', JSON.stringify(uploadedFiles_PU));
+    formData.append('uploadedFiles_CL', JSON.stringify(uploadedFiles_CL));
     // --
     $.ajax({
       type: "POST",
@@ -617,7 +618,9 @@ $(document).ready(function () {
   var inputCL_file = document.querySelector("#fls_cl");
 
 
-  var uploadedFiles = [];
+  var uploadedFiles_PU = [];
+  var uploadedFiles_CL = [];
+  var uploadedArray = [];
 
   buttonPu.addEventListener("click", (e) => {
     inputPU_file.click();
@@ -666,7 +669,8 @@ $(document).ready(function () {
       // archivo valido
       const fileReader = new FileReader();
       const id = `upld-${Math.random().toString(32).substring(5)}`;
-      const innerFiles = type === 'pu' ? document.querySelector(".archives_pu") : document.querySelector(".archives_cl");
+      // const innerFiles = type === 'pu' ? document.querySelector(".archives_pu") : document.querySelector(".archives_cl");
+      const archiveContainer = type === 'pu' ? document.querySelector(".archives_pu") : document.querySelector(".archives_cl");
       fileReader.addEventListener("load", (e) => {
         // const fileUrl = fileReader.result;
         // const fileExtension = getFileExtension(file.name);
@@ -682,60 +686,85 @@ $(document).ready(function () {
               <span class="mak-txt">${file.name}</span>
             </div>
           </div>
-      `;
+        `;
 
+        // innerFiles.innerHTML += upldArchive;
+        archiveContainer.innerHTML += upldArchive;
 
-        innerFiles.innerHTML += upldArchive;
+        // Agregar el archivo al array de archivos subidos
+        const uploadedArray = type === 'pu' ? uploadedFiles_PU : uploadedFiles_CL;
+        uploadedArray.push({ id, name: file.name, type: file.type, size: file.size, lastModified: file.lastModified, tmp_name: file.tmp_name });
 
         cantFilesValor();
-
 
         const currentArchive = document.getElementById(id);
         // console.log(currentArchive);
 
         // ELIMINAR
+        // const dropUpld = document.querySelectorAll(".drop-upld");
+        // dropUpld.forEach(dropupld => {
+        //   dropupld.addEventListener("click", (e) => {
+        //     let Object = document.querySelectorAll(".upld-valo");
+        //     Object.forEach((element) => {
+        //       element.addEventListener("click", (e) => {
+        //         element.remove();
+        //         removeFileFromList(id);
+        //         cantFilesValor();
+        //       });
+        //     });
+        //   });
+        // });
         const dropUpld = document.querySelectorAll(".drop-upld");
         dropUpld.forEach(dropupld => {
           dropupld.addEventListener("click", (e) => {
-            let Object = document.querySelectorAll(".upld-valo");
-            Object.forEach((element) => {
-              element.addEventListener("click", (e) => {
-                element.remove();
-                removeFileFromList(id);
-                cantFilesValor();
-              });
-            });
+            const upldValo = dropupld.closest(".upld-valo");
+            if (upldValo) {
+              const id = upldValo.id;
+              upldValo.remove();
+              removeFileFromList(id, type);
+              cantFilesValor();
+            }
           });
         });
 
 
-        // Agregar el archivo al array de archivos subidos
-        let name = file.name;
-        let type = file.type;
-        let size = file.size;
-        let lastModified = file.lastModified;
-        // uploadedFiles.push({ id, file });
-        uploadedFiles.push({ id, name, type, size, lastModified });
-
       });
-      console.log(uploadedFiles);
+
+
       fileReader.readAsDataURL(file);
     } else {
       // archivo no valido
       alert("Archivo no válido: " + file.name);
     }
+
+
+    console.log(uploadedFiles_PU);
+    console.log(uploadedFiles_CL);
   }
 
-  function removeFileFromList(id) {
-    const indexToRemove = uploadedFiles.findIndex(item => item.id === id);
-    if (indexToRemove !== -1) {
-      uploadedFiles.splice(indexToRemove, 1);
-      // inputPU_file.value = '';
-      // inputCL_file.value = '';
+  function removeFileFromList(id, type) {
+
+    // console.log(type === "pu");
+
+    if (type === "pu") {
+      const indexToRemovePU = uploadedFiles_PU.findIndex(item => item.id === id);
+      if (indexToRemovePU !== -1) {
+        uploadedFiles_PU.splice(indexToRemovePU, 1);
+      }
+      console.log(uploadedFiles_PU);
     }
-    console.log(uploadedFiles);
 
-  }
+
+    if (type === "cl") {
+      const indexToRemoveCL = uploadedFiles_CL.findIndex(item => item.id === id);
+
+      if (indexToRemoveCL !== -1) {
+        uploadedFiles_CL.splice(indexToRemoveCL, 1);
+      }
+      console.log(uploadedFiles_CL);
+    }
+
+  };
 
 
 
@@ -757,9 +786,7 @@ $(document).ready(function () {
     } else {
       archivesCL.style.display = "none";
     }
-  }
-
-
+  };
   // APARTADO SUBIR DOCUMENTOS
 
   // VER FOTOS
