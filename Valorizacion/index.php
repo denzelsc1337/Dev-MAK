@@ -129,97 +129,97 @@ require_once('../Controller/controladorListar.php'); ?>
 
                                         <!-- </div> TABLA ADMIN -->
 
-                                        <div class="table-responsive">
-                                            <div class="col-sm-12">
+                                        <!-- <div class="table-responsive"> -->
+                                        <div class="col-sm-12">
 
 
-                                                <table id="tabla" class="table table-borderless mb-3" style="width: 100%;">
+                                            <table id="tabla" class="table table_ table-borderless mb-3 ml-3 mr-3" style="width: 100%;">
 
-                                                    <thead class="">
-                                                        <tr>
-                                                            <th>ID</th>
-                                                            <th>Dni</th>
-                                                            <th>Cliente</th>
-                                                            <th>Direccion</th>
-                                                            <th>Tipo Propiedad</th>
-                                                            <th>Tipo</th>
-                                                            <th>Estado</th>
-                                                            <th>Detalles</th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                        <?php
+                                                <thead class="">
+                                                    <tr>
+                                                        <th>ID</th>
+                                                        <th>Dni</th>
+                                                        <th>Cliente</th>
+                                                        <th>Direccion</th>
+                                                        <th>Tipo Propiedad</th>
+                                                        <th>Tipo</th>
+                                                        <th>Estado</th>
+                                                        <th>Detalles</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <?php
 
 
-                                                        function mostrarData($data)
-                                                        {
-                                                            switch ($data) {
-                                                                case "1":
-                                                                    echo "<td>Si</td>";
-                                                                    break;
-                                                                case "0":
-                                                                    echo "<td>No</td>";
-                                                                    break;
-                                                                case "500":
-                                                                    echo "<td><span class='badge rounded-pill bg-secondary'>Pendiente</span></td>";
-                                                                    break;
-                                                                case "400":
-                                                                    echo "<td><span class='badge rounded-pill bg-warning text-dark'>Observado</span></td>";
-                                                                    break;
-                                                                case "200":
-                                                                    echo "<td><span class='badge rounded-pill bg-success'> Finalizado</span></td>";
-                                                                    break;
-                                                                default:
-                                                                    // echo "<td>$data</td>";
-                                                                    if ($data !== null) {
-                                                                        echo  "<td>$data</td>";
-                                                                    } else {
-                                                                        echo "<td>-</td>";
-                                                                    }
-                                                                    break;
-                                                            }
+                                                    function mostrarData($data)
+                                                    {
+                                                        switch ($data) {
+                                                            case "1":
+                                                                echo "<td>Si</td>";
+                                                                break;
+                                                            case "0":
+                                                                echo "<td>No</td>";
+                                                                break;
+                                                            case "500":
+                                                                echo "<td><span class='badge rounded-pill bg-secondary'>Pendiente</span></td>";
+                                                                break;
+                                                            case "400":
+                                                                echo "<td><span class='badge rounded-pill bg-warning text-dark'>Observado</span></td>";
+                                                                break;
+                                                            case "200":
+                                                                echo "<td><span class='badge rounded-pill bg-success'> Finalizado</span></td>";
+                                                                break;
+                                                            default:
+                                                                // echo "<td>$data</td>";
+                                                                if ($data !== null) {
+                                                                    echo  "<td>$data</td>";
+                                                                } else {
+                                                                    echo "<td>-</td>";
+                                                                }
+                                                                break;
                                                         }
+                                                    }
 
-                                                        foreach ($list_valo as $lst_vlzn) : ?>
-                                                            <tr>
-                                                                <td>
-                                                                    <?php echo $lst_vlzn[0] ?>
-                                                                </td>
-                                                                <?php mostrarData($lst_vlzn[1]) ?>
-                                                                <?php mostrarData($lst_vlzn[2]) ?>
-                                                                <?php mostrarData($lst_vlzn[3]) ?>
-                                                                <?php mostrarData($lst_vlzn[4] . ' (' . $lst_vlzn[5] . ')') ?>
+                                                    foreach ($list_valo as $lst_vlzn) : ?>
+                                                        <tr>
+                                                            <td>
+                                                                <?php echo $lst_vlzn[0] ?>
+                                                            </td>
+                                                            <?php mostrarData($lst_vlzn[1]) ?>
+                                                            <?php mostrarData($lst_vlzn[2]) ?>
+                                                            <?php mostrarData($lst_vlzn[3]) ?>
+                                                            <?php mostrarData($lst_vlzn[4] . ' (' . $lst_vlzn[5] . ')') ?>
 
-                                                                <?php mostrarData($lst_vlzn[6]) ?>
-                                                                <?php mostrarData($lst_vlzn[63]) ?>
+                                                            <?php mostrarData($lst_vlzn[6]) ?>
+                                                            <?php mostrarData($lst_vlzn[63]) ?>
 
-                                                                <td>
+                                                            <td>
 
-                                                                    <?php if ($lst_vlzn[63] == 400) { ?>
-                                                                        <button type="button" class="btn btn-rounded scroll-toggle" data-id_solic_val="<?php echo $lst_vlzn[0] ?>" data-id_cli="<?php echo $lst_vlzn[64] ?>" data-dni_cli="<?php echo $lst_vlzn[1] ?>">
-                                                                            <i class="fa-solid fa-pencil"></i>
-                                                                        </button>
+                                                                <?php if ($lst_vlzn[63] == 400) { ?>
+                                                                    <button type="button" class="btn btn-rounded scroll-toggle" data-id_solic_val="<?php echo $lst_vlzn[0] ?>" data-id_cli="<?php echo $lst_vlzn[64] ?>" data-dni_cli="<?php echo $lst_vlzn[1] ?>">
+                                                                        <i class="fa-solid fa-pencil"></i>
+                                                                    </button>
 
-                                                                    <?php } else { ?>
-                                                                        <button type="button" class="btn btn-rounded scroll-toggle" data-id_solic_val="<?php echo $lst_vlzn[0] ?>" data-id_cli="<?php echo $lst_vlzn[64] ?>" data-dni_cli="<?php echo $lst_vlzn[1] ?>">
-                                                                            <i class="fa-solid fa-eye"></i>
-                                                                        </button>
-                                                                    <?php } ?>
+                                                                <?php } else { ?>
+                                                                    <button type="button" class="btn btn-rounded scroll-toggle" data-id_solic_val="<?php echo $lst_vlzn[0] ?>" data-id_cli="<?php echo $lst_vlzn[64] ?>" data-dni_cli="<?php echo $lst_vlzn[1] ?>">
+                                                                        <i class="fa-solid fa-eye"></i>
+                                                                    </button>
+                                                                <?php } ?>
 
-                                                                </td>
+                                                            </td>
 
-                                                                <!--
+                                                            <!--
                                             <td>
 
                                                 <button type="button" class="btn editbtn" data-toggle="modal" data-target="#exampleModal"><i class="fa-solid fa-upload"></i></button>
 
                                             </td>-->
-                                                            </tr>
-                                                        <?php endforeach ?>
-                                                    </tbody>
-                                                </table>
-                                            </div>
+                                                        </tr>
+                                                    <?php endforeach ?>
+                                                </tbody>
+                                            </table>
                                         </div>
+                                        <!-- </div> -->
 
                                         <!-- </div> TABLA ADMIN -->
 
@@ -229,92 +229,92 @@ require_once('../Controller/controladorListar.php'); ?>
 
                                         <!-- </div> TABLA USER -->
 
+                                        <!-- <div class="table-responsive "> -->
                                         <div class="col-sm-12">
-                                            <div class="table-responsive pl-2 pr-2">
-                                                <table class="table table_ table-borderless mb-3" style="width: 100%;">
-                                                    <thead class="">
-                                                        <tr>
-                                                            <th>ID</th>
-                                                            <th>Cliente</th>
-                                                            <th>Direccion</th>
-                                                            <th>Tipo Propiedad</th>
-                                                            <th>Tipo</th>
-                                                            <th>Estado</th>
-                                                            <th>Detalles</th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                        <?php
-                                                        function mostrarDataUser($data)
-                                                        {
-                                                            switch ($data) {
-                                                                case "1":
-                                                                    echo "<td>Si</td>";
-                                                                    break;
-                                                                case "0":
-                                                                    echo "<td>No</td>";
-                                                                    break;
-                                                                case "500":
-                                                                    echo "<td><span class='badge rounded-pill bg-secondary'>Pendiente</span></td>";
-                                                                    break;
-                                                                case "400":
-                                                                    echo "<td><span class='badge rounded-pill bg-warning text-dark'>En revision</span></td>";
-                                                                    break;
-                                                                case "200":
-                                                                    echo "<td><span class='badge rounded-pill bg-success'> Finalizado</span></td>";
-                                                                    break;
+                                            <table class="table table_ table-borderless mb-3 pl-3 pr-3" style="width: 100%;">
+                                                <thead class="">
+                                                    <tr>
+                                                        <th>ID</th>
+                                                        <th>Cliente</th>
+                                                        <th>Direccion</th>
+                                                        <th>Tipo Propiedad</th>
+                                                        <th>Tipo</th>
+                                                        <th>Estado</th>
+                                                        <th>Detalles</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <?php
+                                                    function mostrarDataUser($data)
+                                                    {
+                                                        switch ($data) {
+                                                            case "1":
+                                                                echo "<td>Si</td>";
+                                                                break;
+                                                            case "0":
+                                                                echo "<td>No</td>";
+                                                                break;
+                                                            case "500":
+                                                                echo "<td><span class='badge rounded-pill bg-secondary'>Pendiente</span></td>";
+                                                                break;
+                                                            case "400":
+                                                                echo "<td><span class='badge rounded-pill bg-warning text-dark'>En revision</span></td>";
+                                                                break;
+                                                            case "200":
+                                                                echo "<td><span class='badge rounded-pill bg-success'> Finalizado</span></td>";
+                                                                break;
 
-                                                                default:
-                                                                    // echo "<td>$data</td>";
-                                                                    if ($data !== null) {
-                                                                        echo  "<td>$data</td>";
-                                                                    } else {
-                                                                        echo "<td>-</td>";
-                                                                    }
-                                                                    break;
-                                                            }
+                                                            default:
+                                                                // echo "<td>$data</td>";
+                                                                if ($data !== null) {
+                                                                    echo  "<td>$data</td>";
+                                                                } else {
+                                                                    echo "<td>-</td>";
+                                                                }
+                                                                break;
                                                         }
+                                                    }
 
 
-                                                        $list_valo_user = $oValor->list_Valo_Historico_User($_SESSION['id_usu'], $_SESSION['dni']);
+                                                    $list_valo_user = $oValor->list_Valo_Historico_User($_SESSION['id_usu'], $_SESSION['dni']);
 
-                                                        foreach ($list_valo_user as $lst_vlzn_) :
-                                                            $cont = 0;
-                                                        ?>
-                                                            <tr>
-                                                                <td>
-                                                                    <?php echo $lst_vlzn_[0] ?>
-                                                                </td>
+                                                    foreach ($list_valo_user as $lst_vlzn_) :
+                                                        $cont = 0;
+                                                    ?>
+                                                        <tr>
+                                                            <td>
+                                                                <?php echo $lst_vlzn_[0] ?>
+                                                            </td>
 
-                                                                <?php mostrarDataUser($lst_vlzn_[1]) ?>
-                                                                <?php mostrarDataUser($lst_vlzn_[2]) ?>
-                                                                <?php mostrarDataUser($lst_vlzn_[3] . ' (' . $lst_vlzn_[4] . ')') ?>
+                                                            <?php mostrarDataUser($lst_vlzn_[1]) ?>
+                                                            <?php mostrarDataUser($lst_vlzn_[2]) ?>
+                                                            <?php mostrarDataUser($lst_vlzn_[3] . ' (' . $lst_vlzn_[4] . ')') ?>
 
-                                                                <?php mostrarDataUser($lst_vlzn_[5]) ?>
-                                                                <?php mostrarDataUser($lst_vlzn_[6]) ?>
+                                                            <?php mostrarDataUser($lst_vlzn_[5]) ?>
+                                                            <?php mostrarDataUser($lst_vlzn_[6]) ?>
 
 
-                                                                <td>
-                                                                    <!-- <button type="button" class="btn btn-rounded btn_get_details scroll-toggle" data-id_solic_val="<?php echo $lst_vlzn_[0] ?>" data-id_cli="<?php echo $lst_vlzn_[8] ?>" data-dni_cli="<?php echo $lst_vlzn_[9] ?>" data-toggle="modal" data-target="#details_v">
+                                                            <td>
+                                                                <!-- <button type="button" class="btn btn-rounded btn_get_details scroll-toggle" data-id_solic_val="<?php echo $lst_vlzn_[0] ?>" data-id_cli="<?php echo $lst_vlzn_[8] ?>" data-dni_cli="<?php echo $lst_vlzn_[9] ?>" data-toggle="modal" data-target="#details_v">
                                                                         <i class="fa-solid fa-eye"></i>
                                                                     </button> -->
 
-                                                                    <button type="button" class="btn btn-rounded " data-id_solic_val="<?php echo $lst_vlzn_[0] ?>" data-id_cli="<?php echo $lst_vlzn_[8] ?>" data-dni_cli="<?php echo $lst_vlzn_[9] ?>">
-                                                                        <i class="fa-solid fa-eye"></i>
-                                                                    </button>
-                                                                    <a href="../Valorizaciones/<?php echo $lst_vlzn_[0].'/'. $lst_vlzn_[9]?>/docs_val/">flechita descarga</a>
-                                                                </td>
-                                                                <!--
+                                                                <button type="button" class="btn btn-rounded " data-id_solic_val="<?php echo $lst_vlzn_[0] ?>" data-id_cli="<?php echo $lst_vlzn_[8] ?>" data-dni_cli="<?php echo $lst_vlzn_[9] ?>">
+                                                                    <i class="fa-solid fa-eye"></i>
+                                                                </button>
+                                                                <a href="../Valorizaciones/<?php echo $lst_vlzn_[0] . '/' . $lst_vlzn_[9] ?>/docs_val/">flechita descarga</a>
+                                                            </td>
+                                                            <!--
                                     <td>
                                         <a href="../Valorizaciones/<?php echo $lst_vlzn_[0] ?>/<?php echo $lst_vlzn_[7] ?>"><i class="fa-solid fa-download"></i></a>
                                     </td>
                                     -->
-                                                            </tr>
-                                                        <?php endforeach ?>
-                                                    </tbody>
-                                                </table>
-                                            </div>
+                                                        </tr>
+                                                    <?php endforeach ?>
+                                                </tbody>
+                                            </table>
                                         </div>
+                                        <!-- </div> -->
 
                                         <!-- </div> TABLA USER -->
                                     <?php
@@ -857,7 +857,7 @@ require_once('../Controller/controladorListar.php'); ?>
                 var cd_solic_v = $("#id_reg_valor").val(__id_solic_v);
 
                 var __dni__solic_v = $("#dni_usu_v").val();
-                var dni_solic_v = $("#dni_solic_valor").val (__dni__solic_v);
+                var dni_solic_v = $("#dni_solic_valor").val(__dni__solic_v);
 
             });
 

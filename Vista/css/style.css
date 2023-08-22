@@ -1880,3 +1880,8 @@ figcaption {
   cursor: pointer;
   padding: 5px 10px;
 }
+
+.page-item.active .page-link {
+  background-color: var(--blue-mak) !important;
+  border: 1px solid var(--blue-mak) !important;
+}
