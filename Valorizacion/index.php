@@ -432,13 +432,11 @@ require_once('../Controller/controladorListar.php'); ?>
                                     <div class="form-flex">
                                         <button type="button" class="btn btn-mak mak-bg-sec antPag avanza_pa_atras">Retroceder</button>
 
-                                        <button type="button" class="btn btn-mak mak-bg-sec upld_file_valo" id="subir_valor">Subir Valorizacion</button>º
+                                        <button type="button" class="btn btn-mak mak-bg-sec upld_file_valo" id="subir_valor">Subir Valorizacion</button>
 
                                         <button type="button" class="btn btn-mak mak-bg-sec add_obs" id="add_obsv_v" data-id_solic>obs</button>
 
-                                        <button type="button" class="btn btn-mak mak-bg btn_finalizar" id="btnValo_obs_save" name="btnValo_obs_save">
-                                            Guardar
-                                        </button>
+                                        <button type="button" class="btn btn-mak mak-bg btn_finalizar" id="btnValo_obs_save" name="btnValo_obs_save">Guardar</button>
                                     </div>
 
                                 </div>
@@ -1039,11 +1037,10 @@ require_once('../Controller/controladorListar.php'); ?>
                                 $(".textBox").removeClass("bg-secondary");
                                 $(".textBox").removeClass("bg-success");
 
+                                add_file_val_1.classList.add("hidden");
+                                add_file_val_1.style.display = "none";
+
                                 add_obs_1.classList.remove("hidden");
-                                //add_file_val_1.classList.add("hidden");
-
-
-                                //add_file_val_1.style.display = "none";
                                 add_obs_1.style.display = "block";
                                 break;
                             case '200':
@@ -1055,10 +1052,10 @@ require_once('../Controller/controladorListar.php'); ?>
 
 
                                 add_obs_1.classList.add("hidden");
-                                //add_file_val_1.classList.remove("hidden");
-
-                                //add_file_val_1.style.display = "block";
                                 add_obs_1.style.display = "none";
+
+                                add_file_val_1.classList.remove("hidden");
+                                add_file_val_1.style.display = "block";
                                 break;
                             default:
                                 $("#status_solic_val_cbo").val("500");
@@ -1069,10 +1066,10 @@ require_once('../Controller/controladorListar.php'); ?>
 
 
                                 add_obs_1.classList.add("hidden");
-                                //add_file_val_1.classList.add("hidden");
-
-                                //add_file_val_1.style.display = "none";
                                 add_obs_1.style.display = "none";
+
+                                add_file_val_1.classList.add("hidden");
+                                add_file_val_1.style.display = "none";
                         }
 
                         $("#dir_rsm").text(detalles[0][2]);
@@ -2041,6 +2038,8 @@ require_once('../Controller/controladorListar.php'); ?>
         const textBox = document.querySelector(".textBox");
         const textBoxValue = document.querySelector("#status_solic_val_cbo");
         const selectOptions = document.querySelectorAll(".select-options div");
+        const btnUpValo = document.querySelector("#subir_valor"),
+            btnAddObs = document.querySelector("#add_obsv_v");
 
 
 
@@ -2056,22 +2055,38 @@ require_once('../Controller/controladorListar.php'); ?>
 
                 if (dataValue === "200") {
                     textBox.value = "Finalizado";
+                    //----
                     textBox.classList.add("bg-success");
                     textBox.classList.remove("bg-warning");
                     textBox.classList.remove("bg-secondary");
+                    //----
+                    btnUpValo.classList.remove("hidden");
+                    btnUpValo.style.display = "block";
+                    btnAddObs.classList.add("hidden");
+                    btnAddObs.style.display = "none";
 
                 } else if (dataValue === "400") {
                     textBox.value = "Observado";
+                    //----
                     textBox.classList.add("bg-warning");
                     textBox.classList.remove("bg-secondary");
                     textBox.classList.remove("bg-success");
-
+                    //----
+                    btnUpValo.classList.add("hidden");
+                    btnUpValo.style.display = "none";
+                    btnAddObs.classList.remove("hidden");
+                    btnAddObs.style.display = "block";
                 } else {
                     textBox.value = "Pendiente";
+                    //----
                     textBox.classList.add("bg-secondary");
                     textBox.classList.remove("bg-success");
                     textBox.classList.remove("bg-warning");
-
+                    //----
+                    btnUpValo.classList.add("hidden");
+                    btnUpValo.style.display = "none";
+                    btnAddObs.classList.add("hidden");
+                    btnAddObs.style.display = "none";
                 }
 
             });

@@ -66,8 +66,8 @@ $(document).ready(function () {
           console.log(r);
           console.log(data);
         }
-        console.log(r);
-        console.log(data);
+        // console.log(r);
+        // console.log(data);
       },
       error: function (xhr, status, error) {
         $("#loader").hide()
@@ -710,7 +710,12 @@ $(document).ready(function () {
 
 
         // Agregar el archivo al array de archivos subidos
-        uploadedFiles.push({ id, file });
+        let name = file.name;
+        let type = file.type;
+        let size = file.size;
+        let lastModified = file.lastModified;
+        // uploadedFiles.push({ id, file });
+        uploadedFiles.push({ id, name, type, size, lastModified });
 
       });
       console.log(uploadedFiles);
