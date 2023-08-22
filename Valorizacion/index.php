@@ -563,8 +563,7 @@ require_once('../Controller/controladorListar.php'); ?>
                                     <div class="form-group">
                                         <label>Observacion</label>
                                         <br>
-                                        <textarea placeholder="Añade una Observacion" id="obs_send_" name="obs_send_">
-                                        </textarea>
+                                        <textarea placeholder="Añadir Observacion" id="obs_send_" name="obs_send_"></textarea>
                                     </div>
 
                                     <div class="modal-footer">
