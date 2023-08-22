@@ -1016,6 +1016,8 @@ require_once('../Controller/controladorListar.php'); ?>
 
                         const tipo_status = document.getElementById("status_solic_val_cbo");
 
+                        var btnDisable = $("#btnValo_obs_save");
+
                         const add_obs_1 = document.getElementById("add_obsv_v");
                         const add_file_val_1 = document.getElementById("subir_valor");
 
@@ -1042,6 +1044,8 @@ require_once('../Controller/controladorListar.php'); ?>
 
                                 add_obs_1.classList.remove("hidden");
                                 add_obs_1.style.display = "block";
+
+                                btnDisable.prop("disabled", true);
                                 break;
                             case '200':
                                 $("#status_solic_val_cbo").val("200");
@@ -1056,6 +1060,8 @@ require_once('../Controller/controladorListar.php'); ?>
 
                                 add_file_val_1.classList.remove("hidden");
                                 add_file_val_1.style.display = "block";
+
+                                btnDisable.prop("disabled", true);
                                 break;
                             default:
                                 $("#status_solic_val_cbo").val("500");
@@ -1078,6 +1084,8 @@ require_once('../Controller/controladorListar.php'); ?>
                         $("#at_rsm").text(detalles[0][6]);
                         $("#ac_rsm").text(detalles[0][7]);
                         $("#ao_rsm").text(detalles[0][8]);
+
+                        btnDisable.prop("disabled", true);
 
 
 
@@ -2040,6 +2048,8 @@ require_once('../Controller/controladorListar.php'); ?>
         const selectOptions = document.querySelectorAll(".select-options div");
         const btnUpValo = document.querySelector("#subir_valor"),
             btnAddObs = document.querySelector("#add_obsv_v");
+        //const btnDisble = document.querySelector("#bnValo_obs_save");
+        var btnDisble_ = document.getElementById("btnValo_obs_save");
 
 
 
@@ -2065,6 +2075,8 @@ require_once('../Controller/controladorListar.php'); ?>
                     btnAddObs.classList.add("hidden");
                     btnAddObs.style.display = "none";
 
+                    btnDisble_.disabled = false;
+
                 } else if (dataValue === "400") {
                     textBox.value = "Observado";
                     //----
@@ -2076,6 +2088,9 @@ require_once('../Controller/controladorListar.php'); ?>
                     btnUpValo.style.display = "none";
                     btnAddObs.classList.remove("hidden");
                     btnAddObs.style.display = "block";
+
+                    btnDisble_.disabled = false;
+
                 } else {
                     textBox.value = "Pendiente";
                     //----
@@ -2087,6 +2102,8 @@ require_once('../Controller/controladorListar.php'); ?>
                     btnUpValo.style.display = "none";
                     btnAddObs.classList.add("hidden");
                     btnAddObs.style.display = "none";
+
+                    btnDisble_.disabled = true;
                 }
 
             });
