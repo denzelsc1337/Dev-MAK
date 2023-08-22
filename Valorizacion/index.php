@@ -384,8 +384,8 @@ require_once('../Controller/controladorListar.php'); ?>
                                                         <textarea id="coment_valr_r" placeholder="Escribe un comentario..."></textarea>
                                                     </div>
                                                     <div class="row justify-content-between">
-                                                        <div class="btn btn-mak mak-bg" data-bs-toggle="modal" data-bs-target="#verFotos">Ver Fotos</div>
-                                                        <div class="btn btn-mak mak-bg" data-bs-toggle="modal" data-bs-target="#verDocs">Ver Documentos</div>
+                                                        <div class="btn btn-mak mak-bg btn_get_fotos" data-bs-toggle="modal" data-bs-target="#verFotos">Ver Fotos</div>
+                                                        <div class="btn btn-mak mak-bg btn_get_details" data-bs-toggle="modal" data-bs-target="#verDocs">Ver Documentos</div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -495,73 +495,59 @@ require_once('../Controller/controladorListar.php'); ?>
                                         <ul id="detalles_valor" style="display:none"></ul>
 
                                     </div>
-                                    <div id="docs_val" style="display:none">
-                                        <?php
-
-                                        if ($_SESSION['tipo_usu'] == 1) {
-
-                                        ?>
-                                            <form action="../Controller/upload_doc_valorizacion.php" method="POST" enctype="multipart/form-data">
-
-                                                <div class="modal-body">
-                                                    <div hidden>
-                                                        <input type="text" name="id_solic_arch" id="id_solic_arch">
-                                                        <input type="text" name="dni_cli_arch" id="dni_cli_arch">
-                                                    </div>
-                                                    <div class="form-group">
-
-                                                        <label>Archivos Subidos</label>
-                                                        <div>
-                                                            <div id="fotos_val">
-                                                                <ul id="lst_fotos"></ul>
-                                                            </div>
-                                                        </div>
-
-                                                        <label>Archivos de esta valorizacion:</label>
-                                                        <div>
-                                                            <div id="descarga_archivo_m">
-                                                                <ul id="archivos_lista"></ul>
-                                                            </div>
-                                                        </div>
-
-                                                        <br>
-                                                        <input type="file" name="valorizacion_files[]" id="valorizacion_files" multiple>
-
-                                                        <select name="status_doc" id="status_doc">
-                                                            <option value="500">Pendiente</option>
-                                                            <option value="400">En revision</option>
-                                                            <option value="200">Finalizado</option>
-                                                        </select>
-                                                    </div>
-
-                                                    <div class="modal-footer">
-                                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                                                        <button type="submit" name="upload_valor_" class="btn btn-primary">Subir</button>
-                                                    </div>
-                                                </div>
-                                            </form>
-
-                                        <?php } else { ?>
-                                            <label>Fotos Subidas</label>
-                                            <div>
-                                                <div id="fotos_val">
-                                                    <ul id="lst_fotos"></ul>
-                                                </div>
+                                    <div id="docs_val">
+                                        <label>Descargar Archivos</label>
+                                        <div>
+                                            <div id="descarga_archivo_m">
+                                                <ul id="archivos_lista"></ul>
                                             </div>
-
-                                            <label>Descargar Archivos</label>
-                                            <div>
-                                                <div id="descarga_archivo_m">
-                                                    <ul id="archivos_lista"></ul>
-                                                </div>
-                                            </div>
-                                        <?php   } ?>
+                                        </div>
                                     </div>
+
+
+                                </div>
+
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+
+                <div class="modal fade" id="details_fotos" tabindex="-1" role="dialog" aria-labelledby="details_fotos" aria-hidden="true">
+                    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                            <div class="modal-body">
+                                <h1 class="title-m" id="titulo_docs">Detalles</h1>
+                                <div class="row margin">
+                                    <div hidden>
+                                        <input type="text" name="txt_solic" id="txt_solic">
+                                        <input type="text" name="txt_id_cli" id="txt_id_cli">
+                                        <input type="text" name="txt_dni" id="txt_dni">
+                                    </div>
+                                    <div class="col-sm-12">
+                                        <ul id="detalles_valor" style="display:none"></ul>
+
+                                    </div>
+                                    <div id="docs_val">
+                                        <label>Fotos Subidas</label>
+                                        <div>
+                                            <div id="fotos_val">
+                                                <ul id="lst_fotos"></ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
 
 
                 <div class="modal fade" id="add_obs_valr" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -880,7 +866,7 @@ require_once('../Controller/controladorListar.php'); ?>
 
             $('#details_v').modal('show');
 
-            var id_solic_v = $(this).data('id_solic_val');
+            /*var id_solic_v = $(this).data('id_solic_val');
             var id_cli_v = $(this).data('id_cli');
             var dni_cli_v = $(this).data('dni_cli');
 
@@ -893,9 +879,9 @@ require_once('../Controller/controladorListar.php'); ?>
 
             //console.log(inpt_solic_v)
 
-            /*var id_solic_v = data[0].trim();
+            var id_solic_v = data[0].trim();
             var id_cli_v = data[1].trim();
-            var dni_cli_v = data[2].trim();*/
+            var dni_cli_v = data[2].trim();
 
             var rol = '<?php echo $_SESSION['tipo_usu'] ?>'
 
@@ -920,7 +906,72 @@ require_once('../Controller/controladorListar.php'); ?>
                 get_files_valor(id_solic_v, dni_cli_v)
                 get_imgs_valor(id_solic_v, dni_cli_v)
                 console.log("uwu?");
-            }
+            }*/
+
+
+            var id_solic_v = $("#cod_solic_v").val();
+            var dni_cli_v = $("#dni_usu_v").val();
+
+            console.log(dni_cli_v)
+
+            get_files_valor(id_solic_v, dni_cli_v)
+
+
+        });
+
+        $('.btn_get_fotos').on('click', function() {
+
+            $('#details_fotos').modal('show');
+
+            /*var id_solic_v = $(this).data('id_solic_val');
+            var id_cli_v = $(this).data('id_cli');
+            var dni_cli_v = $(this).data('dni_cli');
+
+
+            //var inpt_solic_v = id_solic_v;
+            var inpt_solic_v = $("#txt_solic").val(id_solic_v);
+            var inpt_cli_v = $("#txt_id_cli").val(id_cli_v);
+            var inpt_dni_v = $("#txt_dni").val(dni_cli_v);
+
+
+            //console.log(inpt_solic_v)
+
+            var id_solic_v = data[0].trim();
+            var id_cli_v = data[1].trim();
+            var dni_cli_v = data[2].trim();
+
+            var rol = '<?php echo $_SESSION['tipo_usu'] ?>'
+
+            console.log(rol);
+
+            $tr = $(this).closest('tr');
+            var data = $tr.children("td").map(function() {
+                return $(this).text();
+            }).get();
+
+            $("#id_solic_arch").val(data[0].trim());
+            $("#dni_cli_arch").val(data[1].trim());
+
+            console.log(id_solic_v, id_cli_v, dni_cli_v);
+
+            if (rol == 1) {
+                get_details_solic(id_solic_v, id_cli_v, dni_cli_v)
+                get_imgs_valor(id_solic_v, dni_cli_v)
+                get_files_valor(id_solic_v, dni_cli_v)
+            } else {
+                get_details_solic(id_solic_v, id_cli_v, dni_cli_v)
+                get_files_valor(id_solic_v, dni_cli_v)
+                get_imgs_valor(id_solic_v, dni_cli_v)
+                console.log("uwu?");
+            }*/
+
+
+            var id_solic_v = $("#cod_solic_v").val();
+            var dni_cli_v = $("#dni_usu_v").val();
+
+            console.log(dni_cli_v)
+
+            get_imgs_valor(id_solic_v, dni_cli_v)
 
 
         });
