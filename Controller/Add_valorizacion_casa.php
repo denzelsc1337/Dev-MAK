@@ -1,7 +1,7 @@
 <?php
 require_once('../Model/Valorizacion.php');
 
-$data[1] = $_POST["direccion"];
+$data[1] = $_POST["direccion_"];
 
 $data[2] = $_POST["tipo_prop"];
 $data[3] = $_POST["sub_tipo_prop"];
@@ -21,7 +21,7 @@ $data[12] = isset($_POST['amoblado']) ? true : false;
 $data[13] = isset($_POST['piscina_d']) ? true : false;
 
 $data[14] = $_POST["cant_dorm"];
-$data[15] = $_POST["cant_dorm_b"];
+$data[15] = $_POST["cant_dorm_b_"];
 
 $data[16] =  $_POST["cant_banho"];
 $data[17] = isset($_POST['banho_vis']) ? true : false;
