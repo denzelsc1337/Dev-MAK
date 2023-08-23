@@ -25,6 +25,8 @@ class Valorizacion
 		$this->lst_valo_hist_user=array();
 
 		$this->details_valo=array();
+
+		$this->excel_data = array();
 	}
 
 	public function add_valorizacion_casa($data,$cadena)
@@ -765,5 +767,23 @@ class Valorizacion
 		$cnx->cerrarConexion($cadena);
 
 		return $this->lst_zonificacion;
+	}
+
+	public function data_excel_val($id){
+		include_once('../config/Conexion.php');
+		$cnx = new conexion();
+		$cadena = $cnx->abrirConexion();
+
+		$query = "SELECT * FROM valorizacion WHERE id_valor = $id";
+
+		$resultado = mysqli_query($cadena, $query);
+
+		while ($fila = mysqli_fetch_row($resultado)) {
+			$this->excel_data[] = $fila;
+		}
+
+		$cnx->cerrarConexion($cadena);
+
+		return $this->excel_data;
 	}
 }

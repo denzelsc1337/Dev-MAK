@@ -302,7 +302,15 @@ require_once('../Controller/controladorListar.php'); ?>
                                                                 <button type="button" class="btn btn-rounded " data-id_solic_val="<?php echo $lst_vlzn_[0] ?>" data-id_cli="<?php echo $lst_vlzn_[8] ?>" data-dni_cli="<?php echo $lst_vlzn_[9] ?>">
                                                                     <i class="fa-solid fa-eye"></i>
                                                                 </button>
-                                                                <a href="../Valorizaciones/<?php echo $lst_vlzn_[0] . '/' . $lst_vlzn_[9] ?>/docs_val/">flechita descarga</a>
+
+                                                                <?php if ($lst_vlzn_[6] == 200): ?>
+                                                                    <a href="../Valorizaciones/<?php echo $lst_vlzn_[0] . '/' . $lst_vlzn_[9] ?>/docs_val/">
+                                                                        <i class="fa-regular fa-circle-down"></i>
+                                                                    </a>
+                                                                <?php else: ?>
+                                                                    <strong>-</strong>
+                                                                <?php endif ?>
+                                                                
                                                             </td>
                                                             <!--
                                     <td>
@@ -386,6 +394,7 @@ require_once('../Controller/controladorListar.php'); ?>
                                                     <div class="row justify-content-between">
                                                         <div class="btn btn-mak mak-bg btn_get_fotos" data-bs-toggle="modal" data-bs-target="#verFotos">Ver Fotos</div>
                                                         <div class="btn btn-mak mak-bg btn_get_details" data-bs-toggle="modal" data-bs-target="#verDocs">Ver Documentos</div>
+
                                                     </div>
                                                 </div>
                                             </div>
@@ -437,6 +446,8 @@ require_once('../Controller/controladorListar.php'); ?>
                                         <button type="button" class="btn btn-mak mak-bg-sec add_obs" id="add_obsv_v" data-id_solic>obs</button>
 
                                         <button type="button" class="btn btn-mak mak-bg btn_finalizar" id="btnValo_obs_save" name="btnValo_obs_save">Guardar</button>
+
+                                        <button type="button" class="btn btn-mak mak-bg dwnld_valo" id="btn_dwnld_valo" name="btn_dwnld_valo">Descargar Informacion</button>
                                     </div>
 
                                 </div>
@@ -859,6 +870,16 @@ require_once('../Controller/controladorListar.php'); ?>
 
 
     <script type="text/javascript">
+        $('.dwnld_valo').on('click', function() {
+
+            var id_solic_v = $("#cod_solic_v").val();
+
+            console.log(id_solic_v);
+
+            download_excel(id_solic_v);
+
+        });
+
         $('.btn_get_details').on('click', function() {
 
             $('#details_v').modal('show');
@@ -973,6 +994,35 @@ require_once('../Controller/controladorListar.php'); ?>
 
         });
 
+        function download_excel(id_valor_soli){
+
+            $.ajax({
+
+                type: 'POST',
+                url: '../Controller/Valor_Excel.php',
+                data: {
+                    id_solc_v: id_valor_soli,
+                },
+
+                xhrFields: {
+                    responseType: 'blob'
+                },
+
+                success: function(response) {
+                    // Crear un enlace y simular clic para descargar el archivo
+                    var blob = new Blob([response], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' });
+                    var link = document.createElement('a');
+                    link.href = URL.createObjectURL(blob);
+                    link.download = 'valorizacion_' + id_valor_soli + '.xlsx';
+                    document.body.appendChild(link);
+                    link.click();
+                    document.body.removeChild(link);
+                },
+                error: function(xhr, status, error) {
+                    console.log(error);
+                }
+            });
+          }
 
         function get_details_solic(idsolicitud, idclient, dniclient) {
             $.ajax({
