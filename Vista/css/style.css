@@ -1838,6 +1838,8 @@ figcaption {
 .input-select {
   position: absolute;
   right: 15px;
+  border-radius: 10px;
+  overflow: hidden;
 }
 
 .input-select .textBox {

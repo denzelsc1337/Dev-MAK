@@ -43,6 +43,7 @@ $(document).ready(function () {
     // --
     formData.append('uploadedFiles_PU', JSON.stringify(uploadedFiles_PU));
     formData.append('uploadedFiles_CL', JSON.stringify(uploadedFiles_CL));
+    formData.append('uploadedPictures', JSON.stringify(uploadedPictures));
     // --
     $.ajax({
       type: "POST",
@@ -51,7 +52,7 @@ $(document).ready(function () {
       processData: false,
       contentType: false,
       success: function (r) {
-        console.log(r);
+        // console.log(r);
         $("#loader").hide();
         if (r) {
           //alert("Solicitud enviada correctamente.");
@@ -64,8 +65,8 @@ $(document).ready(function () {
           alert(
             "Error al registrar, Verifique que los campos esten correctamente completos."
           );
-          console.log(r);
-          console.log(data);
+          // console.log(r);
+          // console.log(data);
         }
         // console.log(r);
         // console.log(data);
@@ -579,38 +580,6 @@ $(document).ready(function () {
 
 
   // APARTADO SUBIR DOCUMENTOS  
-  // var upldFiles = document.querySelectorAll(".upload-file");
-
-  // console.log(upldFiles);
-  // upldFiles.forEach(element => {
-
-  // element.addEventListener("click", () => {
-
-  // let attr = element.getAttribute("data-type");
-  // console.log(attr);
-
-  // if (attr === "pu") {
-  //   var inputPU_file = document.querySelector("#fls_pu");
-  //   inputPU_file.click();
-
-  //   var contentPU_file = document.querySelector(".archives_pu");
-  //   inputPU_file.addEventListener("change", (e) => {
-  //     files = this.files;
-  //     files = inputPU_file.files;
-  //     showArchives(files);
-  //   });
-  // }
-  // if (attr === "cl") {
-  //   var inputCL_file = document.querySelector("#fls_cl");
-  //   inputCL_file.click();
-
-  // }
-
-
-  // })
-
-  // console.log(element);
-  // ---------------------------------
   var buttonPu = document.querySelector(".pu");
   var buttonCl = document.querySelector(".cl");
 
@@ -693,12 +662,10 @@ $(document).ready(function () {
 
         // Agregar el archivo al array de archivos subidos
         const uploadedArray = type === 'pu' ? uploadedFiles_PU : uploadedFiles_CL;
-        uploadedArray.push({ id, name: file.name, type: file.type, size: file.size, lastModified: file.lastModified, tmp_name: fileReader.result});
+        uploadedArray.push({ id, name: file.name, type: file.type, size: file.size, lastModified: file.lastModified, tmp_name: fileReader.result });
 
         cantFilesValor();
 
-        const currentArchive = document.getElementById(id);
-        // console.log(currentArchive);
 
         // ELIMINAR
         const dropUpld = document.querySelectorAll(".drop-upld");
@@ -730,9 +697,6 @@ $(document).ready(function () {
   }
 
   function removeFileFromList(id, type) {
-
-    // console.log(type === "pu");
-  console.log(id)
 
     if (type === "pu") {
       const indexToRemovePU = uploadedFiles_PU.findIndex(item => item.id === id);
@@ -853,12 +817,7 @@ $(document).ready(function () {
 
     return clonedElement;
   }
-
-
   // VER DOCUMENTOS
-
-
-
 
 
   // DRAG AND DROP FILES VALORIZACION
@@ -866,6 +825,8 @@ $(document).ready(function () {
   var inputBox = dragValo.querySelector("#btnFile");
   var inputDragValo = dragValo.querySelector("#inpt-file-valo");
   var texto = dragValo.querySelector(".item-box");
+
+  var uploadedPictures = [];
 
   inputBox.addEventListener("click", (e) => {
     inputDragValo.click();
@@ -909,12 +870,6 @@ $(document).ready(function () {
       "image/jpeg",
       "image/jpg",
       "image/png",
-      // "image/gif",
-      // "application/pdf",
-      // "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
-      // "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
-      // "application/vnd.openxmlformats-officedocument.presentationml.presentation",
-      // "text/plain",
     ];
 
     if (validExtensions.includes(docType)) {
@@ -951,32 +906,47 @@ $(document).ready(function () {
 
         targetElement.appendChild(newFileItem);
 
+        // Agregar el archivo al array de archivos subidos
+        uploadedPictures.push({ id, name: file.name, type: file.type, size: file.size, lastModified: file.lastModified, tmp_name: fileReader.result });
 
-        document.querySelectorAll(".btn-clear").forEach(btnClear => {
-          btnClear.addEventListener("click", (e) => {
-            let Object = document.querySelectorAll(".file-item:not(:first-child)");
-            Object.forEach(element => {
-              element.addEventListener("click", () => {
-                element.remove();
-                inputDragValo.value = '';
-              })
-            });
+
+        const dropPict = document.querySelectorAll(".btn-clear");
+        dropPict.forEach(droppict => {
+          droppict.addEventListener("click", (e) => {
+            // let Object = document.querySelectorAll(".file-item:not(:first-child)");
+            // Object.forEach(element => {
+            //   element.addEventListener("click", () => {
+            //     element.remove();
+            //     removePictureFromList(id);
+            //     // inputDragValo.value = '';
+            //   })
+            // });
+            const upldValoPict = droppict.closest(".file-item");
+            if (upldValoPict) {
+              const id = upldValoPict.id;
+              upldValoPict.remove();
+              removePictureFromList(id);
+            }
           })
         });
 
       });
-
-
-
-
 
       fileReader.readAsDataURL(file);
     } else {
       // archivo no valido
       alert("Archivo no válido: " + file.name);
     }
+    console.log(uploadedPictures);
   }
 
+  function removePictureFromList(id) {
+    const indexToRemove = uploadedPictures.findIndex(item => item.id === id);
+    if (indexToRemove !== -1) {
+      uploadedPictures.splice(indexToRemove, 1);
+      console.log(uploadedPictures);
+    }
+  }
   // DRAG AND DROP FILES VALORIZACION
 
   //--------------------------------------------EN USO-------------------------------------------------------------------//

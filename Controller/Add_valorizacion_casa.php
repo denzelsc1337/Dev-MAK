@@ -75,6 +75,9 @@ if ($r) {
     $uploadedFilesJson_CL = $_POST['uploadedFiles_CL'];
     $uploadedFiles_CL = json_decode($uploadedFilesJson_CL, true);
 
+    $uploadedPicturesJson = $_POST['uploadedPictures'];
+    $uploadedPictures = json_decode($uploadedPicturesJson, true);
+
 
     if (!file_exists($fotos_ruta)) {
         mkdir($fotos_ruta, 0777, true);
@@ -90,15 +93,25 @@ if ($r) {
 
     set_time_limit(0);
 
+    $archivos_total = 0;
+    $fotos_total = 0;
     //envio de las fotos a la carpeta
     $archivos_cont = count($archivos_selecc['name']);
-    $archivos_total = 0;
 
 
-    for ($i = 0; $i < $archivos_cont; $i++) {
-        $ubicacion_save = $fotos_ruta . basename($archivos_selecc["name"][$i]);
-        if (move_uploaded_file($archivos_selecc["tmp_name"][$i], $ubicacion_save)) {
-            $archivos_total++;
+    foreach ($uploadedPictures as $key => $filePic) {
+        $nombresFotos = $filePic['name'];
+        $picture = explode(",", $nombresFotos);
+
+        for ($i = 0; $i < $archivos_cont; $i++) {
+            $nombreFoto = $archivos_selecc["name"][$i];
+            $ubicacion_save = $fotos_ruta . basename($archivos_selecc["name"][$i]);
+
+            if (in_array($nombreFoto, $picture)) {
+                if (move_uploaded_file($archivos_selecc["tmp_name"][$i], $ubicacion_save)) {
+                    $fotos_total++;
+                }
+            }
         }
     }
 
@@ -142,6 +155,7 @@ if ($r) {
     }
 
     echo " -> total files " . $archivos_total . " archivos.";
+    echo " -> total pictures " . $fotos_total . " archivos.";
 } else {
     echo "Error al insertar el registro.";
 }

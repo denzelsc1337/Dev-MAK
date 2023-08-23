@@ -303,14 +303,14 @@ require_once('../Controller/controladorListar.php'); ?>
                                                                     <i class="fa-solid fa-eye"></i>
                                                                 </button>
 
-                                                                <?php if ($lst_vlzn_[6] == 200): ?>
+                                                                <?php if ($lst_vlzn_[6] == 200) : ?>
                                                                     <a href="../Valorizaciones/<?php echo $lst_vlzn_[0] . '/' . $lst_vlzn_[9] ?>/docs_val/">
                                                                         <i class="fa-regular fa-circle-down"></i>
                                                                     </a>
-                                                                <?php else: ?>
+                                                                <?php else : ?>
                                                                     <strong>-</strong>
                                                                 <?php endif ?>
-                                                                
+
                                                             </td>
                                                             <!--
                                     <td>
@@ -994,7 +994,7 @@ require_once('../Controller/controladorListar.php'); ?>
 
         });
 
-        function download_excel(id_valor_soli){
+        function download_excel(id_valor_soli) {
 
             $.ajax({
 
@@ -1010,7 +1010,9 @@ require_once('../Controller/controladorListar.php'); ?>
 
                 success: function(response) {
                     // Crear un enlace y simular clic para descargar el archivo
-                    var blob = new Blob([response], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' });
+                    var blob = new Blob([response], {
+                        type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
+                    });
                     var link = document.createElement('a');
                     link.href = URL.createObjectURL(blob);
                     link.download = 'valorizacion_' + id_valor_soli + '.xlsx';
@@ -1022,7 +1024,7 @@ require_once('../Controller/controladorListar.php'); ?>
                     console.log(error);
                 }
             });
-          }
+        }
 
         function get_details_solic(idsolicitud, idclient, dniclient) {
             $.ajax({
@@ -1920,6 +1922,8 @@ require_once('../Controller/controladorListar.php'); ?>
                         $("#at_rsm").text('');
                         $("#ac_rsm").text('');
                         $("#ao_rsm").text('');
+
+                        $(".input-select").removeClass("active");
 
                     });
 
