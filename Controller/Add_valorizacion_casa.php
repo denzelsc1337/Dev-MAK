@@ -69,6 +69,12 @@ if ($r) {
     $ruta_pu = $main_ruta . "Documentos/PU/";
     $ruta_cl = $main_ruta . "Documentos/CL/";
 
+    $uploadedFilesJson_PU = $_POST['uploadedFiles_PU'];
+    $uploadedFiles_PU = json_decode($uploadedFilesJson_PU, true);
+
+    $uploadedFilesJson_CL = $_POST['uploadedFiles_CL'];
+    $uploadedFiles_CL = json_decode($uploadedFilesJson_CL, true);
+
 
     if (!file_exists($fotos_ruta)) {
         mkdir($fotos_ruta, 0777, true);
@@ -96,31 +102,46 @@ if ($r) {
         }
     }
 
+
     //envio de los pu a la carpeta
     $pu_archivos_cont = count($pu_s['name']);
 
-    for ($i = 0; $i < $pu_archivos_cont; $i++) {
-        $ubicacion_save = $ruta_pu . basename($pu_s["name"][$i]);
-        // if (in_array($nombreArchivo, $uploadedFiles_PU)) {
-        if (move_uploaded_file($pu_s["tmp_name"][$i], $ubicacion_save)) {
-            $archivos_total++;
+    foreach ($uploadedFiles_PU as $key => $fileInfo_PU) {
+        $nombresArchivos = $fileInfo_PU['name'];
+        $filePU = explode(",", $nombresArchivos);
+
+        for ($i = 0; $i < $pu_archivos_cont; $i++) {
+            $nombreArchivo = $pu_s["name"][$i];
+            $ubicacion_save = $ruta_pu . basename($pu_s["name"][$i]);
+
+            if (in_array($nombreArchivo, $filePU)) {
+                if (move_uploaded_file($pu_s["tmp_name"][$i], $ubicacion_save)) {
+                    $archivos_total++;
+                }
+            }
         }
-        // } else{
-        //     echo "Archivo $nombreArchivo no está permitido o no coincide con la lista de archivos subidos.  |  ";
-        // }
     }
 
     //envio de las cl a la carpeta
     $cl_archivos_cont = count($cl_s['name']);
 
-    for ($i = 0; $i < $cl_archivos_cont; $i++) {
-        $ubicacion_save = $ruta_cl . basename($cl_s["name"][$i]);
-        if (move_uploaded_file($cl_s["tmp_name"][$i], $ubicacion_save)) {
-            $archivos_total++;
+    foreach ($uploadedFiles_CL as $key => $fileInfo_CL) {
+        $nombresArchivos = $fileInfo_CL['name'];
+        $filesCL = explode(",", $nombresArchivos);
+
+        for ($i = 0; $i < $cl_archivos_cont; $i++) {
+            $nombreArchivo = $cl_s["name"][$i];
+            $ubicacion_save = $ruta_cl . basename($cl_s["name"][$i]);
+
+            if (in_array($nombreArchivo, $filesCL)) {
+                if (move_uploaded_file($cl_s["tmp_name"][$i], $ubicacion_save)) {
+                    $archivos_total++;
+                }
+            }
         }
     }
 
-    echo "total files " . $archivos_total . " archivos.";
+    echo " -> total files " . $archivos_total . " archivos.";
 } else {
     echo "Error al insertar el registro.";
 }
