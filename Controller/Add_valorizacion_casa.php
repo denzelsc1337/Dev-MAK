@@ -1,7 +1,7 @@
 <?php
 require_once('../Model/Valorizacion.php');
 
-$data[1] = $_POST["direccion_"];
+$data[1] = $_POST["direccion"];
 
 $data[2] = $_POST["tipo_prop"];
 $data[3] = $_POST["sub_tipo_prop"];
@@ -14,14 +14,14 @@ $data[7] = $_POST["antig"];
 
 //form casa
 $data[8] =  isset($_POST['sala_com']) ? true : false;
-$data[9] = isset($_POST['sala_']) ? true : false;
-$data[10] = isset($_POST['comedor_']) ? true : false;
-$data[11] = isset($_POST['cocina_']) ? true : false;
-$data[12] = isset($_POST['amoblado_']) ? true : false;
+$data[9] =  isset($_POST['sala']) ? true : false;
+$data[10] = isset($_POST['comedor']) ? true : false;
+$data[11] = isset($_POST['cocina']) ? true : false;
+$data[12] = isset($_POST['amoblado']) ? true : false;
 $data[13] = isset($_POST['piscina_d']) ? true : false;
 
 $data[14] = $_POST["cant_dorm"];
-$data[15] = $_POST["cant_dorm_b_"];
+$data[15] = $_POST["cant_dorm_b"];
 
 $data[16] =  $_POST["cant_banho"];
 $data[17] = isset($_POST['banho_vis']) ? true : false;
@@ -30,7 +30,7 @@ $data[18] = isset($_POST['cuarto_serv']) ? true : false;
 $data[19] = isset($_POST['banho_serv']) ? true : false;
 
 $data[20] = $_POST["cant_estac"];
-$data[21] = isset($_POST['deposito_']) ? true : false;
+$data[21] = isset($_POST['deposito']) ? true : false;
 
 $data[22] = $_POST["ubic_casa"];
 $data[23] = $_POST["vista_casa"];
@@ -56,17 +56,10 @@ if ($r) {
     $id_registro = mysqli_insert_id($cadena);
 
     $archivos_selecc = $_FILES["inpt-file-valo"];
-    // $pu_s = $_FILES["fls_pu"];
-    // $cl_s = $_FILES["fls_cl"];
-
-    $uploadedFilesJson_PU = $_POST['uploadedFiles_PU'];
-    $uploadedFiles_PU = json_decode($uploadedFilesJson_PU, true);
-
-    $uploadedFilesJson_CL = $_POST['uploadedFiles_CL'];
-    $uploadedFiles_CL = json_decode($uploadedFilesJson_CL, true);
+    $pu_s = $_FILES["fls_pu"];
+    $cl_s = $_FILES["fls_cl"];
 
 
-    $response = [];
 
     //ruta fptps
     $main_ruta = "../Valorizaciones/" . $id_registro . "/" . $dni_cli . "/";
@@ -77,8 +70,9 @@ if ($r) {
     $ruta_cl = $main_ruta . "Documentos/CL/";
 
 
-    // //envio de las fotos a la carpeta
-    // $archivos_cont = count($archivos_selecc['name']);
+    if (!file_exists($fotos_ruta)) {
+        mkdir($fotos_ruta, 0777, true);
+    }
 
     if (!file_exists($ruta_pu)) {
         mkdir($ruta_pu, 0777, true);
@@ -88,76 +82,45 @@ if ($r) {
         mkdir($ruta_cl, 0777, true);
     }
 
+    set_time_limit(0);
+
+    //envio de las fotos a la carpeta
+    $archivos_cont = count($archivos_selecc['name']);
     $archivos_total = 0;
 
-    //var_dump($uploadedFiles_PU);
-    echo "-";
-    //var_dump($uploadedFiles_CL);
 
-
-
-
-
-
-    foreach ($uploadedFiles_PU as $key => $fileInfo) {
-
-        $nombreArchivo = $fileInfo['name'];
-        $archivos_cont = count($fileInfo['name']);
-        $archivos_total = 0;
-
-        $rutaTemporal = $fileInfo['tmp_name'];
-
-        $rutaArchivoDestino = $ruta_pu . $nombreArchivo;
-
-
-        for ($i=0; $i < $archivos_cont ; $i++) {
-            echo $fileInfo['name'][$i];
-            echo $ubicacion_save = $ruta_pu . basename($archivos_selecc["name"][$i]);
-
+    for ($i = 0; $i < $archivos_cont; $i++) {
+        $ubicacion_save = $fotos_ruta . basename($archivos_selecc["name"][$i]);
+        if (move_uploaded_file($archivos_selecc["tmp_name"][$i], $ubicacion_save)) {
+            $archivos_total++;
         }
-        if (move_uploaded_file($rutaTemporal, $rutaArchivoDestino)) {
-             echo "El archivo $nombreArchivo se ha subido exitosamente.";
-         } else {
-             echo "Error al subir el archivo $nombreArchivo. <br>";
-         }
     }
 
+    //envio de los pu a la carpeta
+    $pu_archivos_cont = count($pu_s['name']);
 
-    // foreach ($uploadedFiles_PU as $key => $fileInfo) {
-    //     $nombreArchivo = $fileInfo['name'];
-    //     $rutaTemporal = $fileInfo['tmp_name'];
-    //     echo $nombreArchivo;
-    //     echo $rutaTemporal;
-    // }
+    for ($i = 0; $i < $pu_archivos_cont; $i++) {
+        $ubicacion_save = $ruta_pu . basename($pu_s["name"][$i]);
+        // if (in_array($nombreArchivo, $uploadedFiles_PU)) {
+        if (move_uploaded_file($pu_s["tmp_name"][$i], $ubicacion_save)) {
+            $archivos_total++;
+        }
+        // } else{
+        //     echo "Archivo $nombreArchivo no está permitido o no coincide con la lista de archivos subidos.  |  ";
+        // }
+    }
 
-    // foreach ($uploadedFiles_PU['tmp_name'] as $key => $rutaTemporal) {
-    //     $nombreArchivo = $uploadedFiles_PU['name'][$key];
-    //     //$rutaArchivoDestino = ruta_pu . $nombreArchivo;
+    //envio de las cl a la carpeta
+    $cl_archivos_cont = count($cl_s['name']);
 
-    //     if (move_uploaded_file($rutaTemporal, $ruta_pu)) {
-    //         echo "El archivo $nombreArchivo se ha subido exitosamente.<br>";
-    //     } else {
-    //         echo "Error al subir el archivo $nombreArchivo.<br>";
-    //     }
-    // }
+    for ($i = 0; $i < $cl_archivos_cont; $i++) {
+        $ubicacion_save = $ruta_cl . basename($cl_s["name"][$i]);
+        if (move_uploaded_file($cl_s["tmp_name"][$i], $ubicacion_save)) {
+            $archivos_total++;
+        }
+    }
 
-    // foreach ($_FILES['fls_cl']['tmp_name'] as $key => $rutaTemporal) {
-    //     $nombreArchivo = $uploadedFiles_CL['name'][$key];
-    //     $rutaArchivoDestino =  $ruta_pu . $nombreArchivo;
-
-    //     if (move_uploaded_file($rutaTemporal, $rutaArchivoDestino)) {
-    //         // El archivo se ha movido exitosamente al directorio destino
-    //     } else {
-    //         // Error al mover el archivo
-    //         error_log("Error al mover el archivo: $nombreArchivo");
-    //     }
-    // }
-
-
-    // $response["success"] = true;
-    // $response["message"] = "Total files uploaded: " . $archivos_total;
-
-    //echo json_encode($response);
+    echo "total files " . $archivos_total . " archivos.";
 } else {
     echo "Error al insertar el registro.";
 }
