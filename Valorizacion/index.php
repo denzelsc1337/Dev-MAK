@@ -1295,7 +1295,7 @@ require_once('../Controller/controladorListar.php'); ?>
             });
         }
 
-        function get_files_valor(id_sol_v, dni) {
+        /*function get_files_valor(id_sol_v, dni) {
             $.ajax({
                 type: 'POST',
                 url: '../Controller/Get_Valorizacion_files.php',
@@ -1347,6 +1347,65 @@ require_once('../Controller/controladorListar.php'); ?>
                     //$('#descarga_archivo_m').html(link_);
 
                     //console.log(response);
+                },
+                error: function(xhr, status, error) {
+                    console.log(error);
+                }
+            });
+        }*/
+
+        function get_files_valor(id_sol_v, dni) {
+            $.ajax({
+                type: 'POST',
+                url: '../Controller/Get_Valorizacion_files.php',
+                data: {
+                    id_solic_v: id_sol_v,
+                    dni_cli_v: dni,
+                },
+                success: function(response) {
+                    var archivosLista = $('#archivos_lista');
+                    archivosLista.empty();
+
+                    // Manejar rutas individuales
+                    $.each(response, function(ruta, rutaResponse) {
+                        var listaRuta = $('<ul>').addClass('ruta-list');
+
+                        if (rutaResponse.status === 'error') {
+                            var errorMessage = $('<strong>').text(rutaResponse.mensaje);
+                            listaRuta.append($('<li>').append(errorMessage));
+                        } else if (rutaResponse.status === 'empty') {
+                            var noFilesMessage = $('<strong>').text(rutaResponse.mensaje);
+                            listaRuta.append($('<li>').append(noFilesMessage));
+                        } else {
+                            var archivos = rutaResponse.files;
+
+                            archivos.forEach(function(archivo) {
+                                if (archivo.trim() !== '') {
+                                    var link_ = $('<a>')
+                                        .attr('href', archivo.url)
+                                        .attr('download', archivo.name)
+                                        .text(archivo.name);
+
+                                    var btn_dlt = $('<button type="button" class="btn btn-danger dlt_file"><i class="fa-solid fa-trash"></i>')
+                                        .attr('data-ruta', archivo.url);
+
+                                    var rol = '<?php echo $_SESSION['tipo_usu'] ?>';
+
+                                    var listItem;
+
+                                    if (rol == 1) {
+                                        listItem = $('<li>').append(link_, ' - ', btn_dlt);
+                                    } else {
+                                        listItem = $('<li>').append(link_);
+                                    }
+
+                                    listaRuta.append(listItem);
+                                }
+                            });
+                        }
+
+                        archivosLista.append(listaRuta);
+                    });
                 },
                 error: function(xhr, status, error) {
                     console.log(error);
