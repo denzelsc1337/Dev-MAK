@@ -81,25 +81,17 @@ $(document).ready(function () {
     return false;
   });
 
-  /*cargarTabla(); // Carga la tabla cuando se carga la página por primera vez
-
-  function cargarTabla() {
-    $.ajax({
-      url: '../Controller/Get_Data_Total.php', // Cambia la ruta según tu estructura
-      success: function (data) {
-        console.log('Tabla cargada:', data);
-        // Actualiza el contenido de la tabla con la nueva lista
-        $('#tabla-container').html(data);
-      }
-    });
-  }*/
-
 
 
   $("#btnValo_depa").click(function (e) {
     e.preventDefault();
     //var data = $("#form_valor").serialize();
     var formData = new FormData($("#form_valor")[0]);
+
+    formData.append('uploadedFiles_PU', JSON.stringify(uploadedFiles_PU));
+    formData.append('uploadedFiles_CL', JSON.stringify(uploadedFiles_CL));
+    formData.append('uploadedPictures', JSON.stringify(uploadedPictures));
+
     $.ajax({
       type: "POST",
       url: "../Controller/Add_valorizacion_depa.php",
@@ -107,6 +99,52 @@ $(document).ready(function () {
       processData: false,
       contentType: false,
       success: function (r) {
+        $("#loader").hide();
+        if (r) {
+          //alert("Solicitud enviada correctamente.");
+          console.log(r);
+          //event.returnValue = false;
+          //window.location.href = "../Valorizacion/";
+        } else {
+          alert(
+            "Error al registrar, Verifique que los campos esten correctamente completos."
+          );
+          console.log(r);
+          //console.log(formData);
+        }
+      },
+      error: function (xhr, status, error) {
+        $("#loader").hide()
+        console.error(error);
+        console.log(xhr.responseText);
+      },
+    });
+    return false;
+  });
+
+
+  $("#btnValo_terren").click(function (e) {
+    e.preventDefault();
+    //var data = $("#form_valor").serialize();
+    var formData = new FormData($("#form_valor")[0]);
+    //var id_zoni_t = 20;
+    //console.log(id_zoni_t);
+
+    formData.append('uploadedFiles_PU', JSON.stringify(uploadedFiles_PU));
+    formData.append('uploadedFiles_CL', JSON.stringify(uploadedFiles_CL));
+    formData.append('uploadedPictures', JSON.stringify(uploadedPictures));
+
+
+    console.log(formData);
+    $.ajax({
+      type: "POST",
+      url: "../Controller/Add_valorizacion_terreno.php",
+      data: formData,
+      processData: false,
+      contentType: false,
+
+      success: function (r) {
+        $("#loader").hide();
         if (r) {
           //alert("Solicitud enviada correctamente.");
           console.log(r);
@@ -117,46 +155,11 @@ $(document).ready(function () {
             "Error al registrar, Verifique que los campos esten correctamente completos."
           );
           console.log(r);
-          console.log(formData);
+          //console.log(data);
         }
       },
       error: function (xhr, status, error) {
-        console.error(error);
-        console.log(xhr.responseText);
-      },
-    });
-    return false;
-  });
-
-  $("#btnValo_terren").click(function (e) {
-    e.preventDefault();
-    //var data = $("#form_valor").serialize();
-    var formData = new FormData($("#form_valor")[0]);
-    //var id_zoni_t = 20;
-    //console.log(id_zoni_t);
-    console.log(formData);
-    $.ajax({
-      type: "POST",
-      url: "../Controller/Add_valorizacion_terreno.php",
-      data: formData,
-      processData: false,
-      contentType: false,
-
-      success: function (r) {
-        if (r) {
-          //alert("Solicitud enviada correctamente.");
-          console.log(r);
-          event.returnValue = false;
-          window.location.href = "../Valorizacion/";
-        } else {
-          alert(
-            "Error al registrar, Verifique que los campos esten correctamente completos."
-          );
-          console.log(r);
-          console.log(data);
-        }
-      },
-      error: function (xhr, status, error) {
+        $("#loader").hide();
         console.error(error);
       },
     });
