@@ -193,18 +193,18 @@ a:hover {
   background-color: white !important;
 }
 
-.content-wrapper .content {
+.content-wrapper .overflow-hidden .content {
   /* padding: 0 !important; */
   margin: 0 !important;
   /* height: calc(100vh - 20vh); */
   height: 100%;
-  padding-bottom: 1.5rem;
+  padding-bottom: 1.5rem !important;
 }
 
 .content {
-  /* padding: 0 !important; */
+  padding: 0 !important;
   margin: 0 !important;
-  height: 100vh;
+  /* height: 100vh; */
 }
 
 .content.mak {
