@@ -292,7 +292,7 @@
 
 
   function InputsErase() {
-    const allInputsTxt = document.querySelectorAll("input[type='text']");
+    const allInputsTxt = document.querySelectorAll("input:not([hidden])");
     const allInputsNum = document.querySelectorAll("input[type='number']");
     const allCheckBox = document.querySelectorAll("input[type='checkbox']:checked");
 

@@ -128,8 +128,8 @@
                                 <!--<form method="POST" id="form_valor" action="../Controller/Add_Valorizacion.php">-->
                                 <form method="POST" id="form_valor" enctype="multipart/form-data">
 
-                                    <input type="text" id="id_client_v" name="id_client_v" value="<?php echo $_SESSION['id_usu'] ?>" >
-                                    <input type="text" id="dni_client_v" name="dni_client_v" value="<?php echo $_SESSION['dni'] ?>" >
+                                    <input type="text" id="id_client_v" name="id_client_v" value="<?php echo $_SESSION['id_usu'] ?>" hidden>
+                                    <input type="text" id="dni_client_v" name="dni_client_v" value="<?php echo $_SESSION['dni'] ?>" hidden>
                                     <!-- SELECCION TIPO -->
                                     <div id="0" class="section col-md-12 movPag show" role="tabpanel" aria-labelledby="logins-part-trigger" data-target="first_step">
                                         <div class="row mt-3">
