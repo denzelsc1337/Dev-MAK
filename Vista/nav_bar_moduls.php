@@ -41,59 +41,78 @@
 
 
     <!-- Sidebar Menu -->
-    <nav class="mt-2">
-      <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-        <!-- Add icons to the links using the .nav-icon class
+    <section>
+      <div>
+        <nav class="mt-2">
+          <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+            <!-- Add icons to the links using the .nav-icon class
               with font-awesome or any other icon font library -->
-        <!--MAK MODULOS-->
-        <li class="nav-header">SERVICIOS</li>
-        <li class="nav-item">
-          <a href="../Search/Busqueda.php" class="nav-link">
-            <i class="nav-icon fas fa-search"></i>
-            <p>Busqueda</p>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a href="../Valorizacion/" class="nav-link">
-            <i class="nav-icon fas fa-edit"></i>
-            <p>Valorización</p>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a href="../Legal/" class="nav-link">
-            <i class="nav-icon fas fa-copy"></i>
-            <p>Informe Legal</p>
-          </a>
-        </li>
-        <!--FIN MAK MODULOS-->
-
-      </ul>
-    </nav>
-
-    <nav class="mt-2">
-      <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-        <!-- Add icons to the links using the .nav-icon class
-              with font-awesome or any other icon font library -->
-        <!--MAK MODULOS PARA EL ADMIN-->
-          <?php if ($_SESSION['tipo_usu'] == 1): ?>
-            <li class="nav-header">Mis Pendientes</li>
-
+            <!--MAK MODULOS-->
+            <li class="nav-header">SERVICIOS</li>
             <li class="nav-item">
-              <a href="../Valorizacion" class="nav-link">
-                <i class="nav-icon fas fa-sharp fa-regular fa-check"></i>
-                <p>Revision de Valorizaciones</p>
+              <a href="../Search/Busqueda.php" class="nav-link">
+                <i class="nav-icon fas fa-search"></i>
+                <p>Busqueda</p>
               </a>
             </li>
-          <?php endif ?>
+            <li class="nav-item">
+              <a href="../Valorizacion/" class="nav-link">
+                <i class="nav-icon fas fa-edit"></i>
+                <p>Valorización</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="../Legal/" class="nav-link">
+                <i class="nav-icon fas fa-copy"></i>
+                <p>Informe Legal</p>
+              </a>
+            </li>
+            <!--FIN MAK MODULOS-->
 
-          <li class="nav-item">
-            <a href="../Config/logout.php" class="nav-link">
+          </ul>
+        </nav>
+
+        <?php if ($_SESSION['tipo_usu'] == 1) : ?>
+          <nav class="mt-2">
+            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+              <!-- Add icons to the links using the .nav-icon class
+              with font-awesome or any other icon font library -->
+              <!--MAK MODULOS PARA EL ADMIN-->
+              <li class="nav-header">Mis Pendientes</li>
+
+              <li class="nav-item">
+                <a href="../Valorizacion" class="nav-link">
+                  <i class="nav-icon fas fa-sharp fa-regular fa-check"></i>
+                  <p>Revision de Valorizaciones</p>
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a href="../Config/logout.php" class="nav-link">
+                  <i class="nav-icon fas fa-sharp fa-regular fa-power-off"></i>
+                  <p>Cerrar Sesion</p>
+                </a>
+              </li>
+            </ul>
+          </nav>
+        <?php endif ?>
+      </div>
+
+      <div>
+        <nav class="mt-2">
+          <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+
+            <li class="nav-item">
+              <a href="Config/logout.php" class="nav-link">
                 <i class="nav-icon fas fa-sharp fa-regular fa-power-off"></i>
                 <p>Cerrar Sesion</p>
-            </a>
-          </li>
-      </ul>
-    </nav>
+              </a>
+            </li>
+
+          </ul>
+        </nav>
+      </div>
+    </section>
     <!-- /.sidebar-menu -->
   </div>
   <!-- /.sidebar -->

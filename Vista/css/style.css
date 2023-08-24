@@ -1831,6 +1831,15 @@ form .form-content {
 }
 
 
+.sidebar {
+  & section {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: calc(100% - 90px);
+  }
+}
+
 figcaption {
   position: relative;
 }
