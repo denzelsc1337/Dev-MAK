@@ -6,7 +6,7 @@
 <nav class="main-header navbar navbar-expand navbar-dark mak-bg">
   <!-- Left navbar links -->
   <ul class="navbar-nav">
-    <a href="dashboard.php" class="d-flex align-items-center mak-bg pl-4">
+    <a href="../dashboard.php" class="d-flex align-items-center mak-bg pl-4">
       <img src="../Vista/images/LOGO.png" alt="AdminLTE Logo" class="brand-image">
     </a>
     <li class="nav-item">

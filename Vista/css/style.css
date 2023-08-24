@@ -194,13 +194,15 @@ a:hover {
 }
 
 .content-wrapper .content {
-  padding: 0 !important;
+  /* padding: 0 !important; */
   margin: 0 !important;
   /* height: calc(100vh - 20vh); */
+  height: 100%;
+  padding-bottom: 1.5rem;
 }
 
 .content {
-  padding: 0 !important;
+  /* padding: 0 !important; */
   margin: 0 !important;
   height: 100vh;
 }
@@ -398,6 +400,10 @@ h2 {
 .table thead .t-head {
   background-color: var(--blue-mak);
   color: var(--white-mak);
+}
+
+.table thead tr th {
+  text-align: center !important;
 }
 
 .table thead .t-head th:first-child {
