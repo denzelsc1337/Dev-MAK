@@ -47,7 +47,26 @@
 </head>
 
 <body class="hold-transition sidebar-mini  sidebar-collapse layout-fixed layout-navbar-fixed layout-footer-fixed" onload="initAutocomplete()">
-
+    <div id="loader" class="loader-styla" style="display: none;">
+        <div class="d-flex flex-column align-items-center">
+            <!-- <img src="../Vista/assets/loading_uhd.gif"> -->
+            <div class="lds-spinner mb-4">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+            <strong>Enviando Solicitud. Por favor espere</strong>
+        </div>
+    </div>
     <div class="wrapper">
 
         <?php include '../Vista/nav_bar_moduls.php' ?>
@@ -1785,10 +1804,7 @@
                     <div class="modal-content">
                         <div class="modal-body">
                             <h5 class="title-m" id="titulo_docs">¿Estas seguro que quieres enviar la solicitud?</h5>
-                            <div id="loader" style="display: none; margin: 0 22rem 5rem" class="loader-styla">
-                                <strong>Enviando Solicitud. Por favor espere</strong>
-                                <img src="../Vista/assets/loading_uhd.gif">
-                            </div>
+
                             <div class="d-flex margin justify-content-around">
 
                                 <button type="button" class="btn btn-mak btn-danger" data-dismiss="modal">Cancelar</button>
