@@ -51,7 +51,7 @@ require_once('../Controller/controladorListar.php'); ?>
 
         <div class="content-wrapper">
 
-            <section class="content">
+            <section class="content" style="margin: 0;">
                 <!-- <header class="header-mak">
                     <h1 class="title">¿Más de 2,000 propiedades <br> esperan por ti!</h1>
                 </header> -->
@@ -59,7 +59,7 @@ require_once('../Controller/controladorListar.php'); ?>
                 <?php include '../Vista/head-form.php' ?>
 
 
-                <section class="content mak-forms body-mak mak-txt">
+                <section class="content body-mak mak-txt">
                     <div class="container">
                         <div class="card-body p-0 ml-5 mr-5">
                             <div class="b-title txt-center">VALORIZACIONES</div>
