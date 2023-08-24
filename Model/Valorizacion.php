@@ -617,7 +617,8 @@ class Valorizacion
 					LEFT JOIN tipo_promocion tp ON vl.cod_tipo_prom = tp.id_promo
 					LEFT JOIN tipo_acabado ta ON vl.cod_acabado = ta.id_acabado
 					LEFT JOIN tipo_vista tv ON vl.cod_vista = tv.id_vista
-					LEFT JOIN ubicacion ub ON vl.cod_ubi = ub.id_ubicacion;";
+					LEFT JOIN ubicacion ub ON vl.cod_ubi = ub.id_ubicacion
+					order by vl.id_valor desc;";
 
 		$resultado = mysqli_query($cadena, $query);
 

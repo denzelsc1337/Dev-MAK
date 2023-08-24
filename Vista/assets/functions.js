@@ -170,6 +170,11 @@ $(document).ready(function () {
     e.preventDefault();
     //var data = $("#form_valor").serialize();
     var formData = new FormData($("#form_valor")[0]);
+
+    formData.append('uploadedFiles_PU', JSON.stringify(uploadedFiles_PU));
+    formData.append('uploadedFiles_CL', JSON.stringify(uploadedFiles_CL));
+    formData.append('uploadedPictures', JSON.stringify(uploadedPictures));
+
     $.ajax({
       type: "POST",
       url: "../Controller/Add_valorizacion_oficina.php",
@@ -178,11 +183,12 @@ $(document).ready(function () {
       contentType: false,
 
       success: function (r) {
+        $("#loader").hide();
         if (r) {
           //alert("Solicitud enviada correctamente.");
           console.log(r);
           event.returnValue = false;
-          window.location.href = "../Valorizacion/";
+          //window.location.href = "../Valorizacion/";
         } else {
           alert(
             "Error al registrar, Verifique que los campos esten correctamente completos."
@@ -192,6 +198,7 @@ $(document).ready(function () {
         }
       },
       error: function (xhr, status, error) {
+        $("#loader").hide();
         console.error(error);
       },
     });
@@ -202,6 +209,11 @@ $(document).ready(function () {
     e.preventDefault();
     //var data = $("#form_valor").serialize();
     var formData = new FormData($("#form_valor")[0]);
+
+    formData.append('uploadedFiles_PU', JSON.stringify(uploadedFiles_PU));
+    formData.append('uploadedFiles_CL', JSON.stringify(uploadedFiles_CL));
+    formData.append('uploadedPictures', JSON.stringify(uploadedPictures));
+
     $.ajax({
       type: "POST",
       url: "../Controller/Add_valorizacion_localComercial.php",
@@ -210,20 +222,22 @@ $(document).ready(function () {
       contentType: false,
 
       success: function (r) {
+        $("#loader").hide();
         if (r) {
           //alert("Solicitud enviada correctamente.");
           console.log(r);
           event.returnValue = false;
-          window.location.href = "../Valorizacion/";
+          //window.location.href = "../Valorizacion/";
         } else {
           alert(
             "Error al registrar, Verifique que los campos esten correctamente completos."
           );
           console.log(r);
-          console.log(data);
+          //console.log(data);
         }
       },
       error: function (xhr, status, error) {
+        $("#loader").hide();
         console.error(error);
       },
     });
@@ -234,6 +248,11 @@ $(document).ready(function () {
     e.preventDefault();
     //var data = $("#form_valor").serialize();
     var formData = new FormData($("#form_valor")[0]);
+
+    formData.append('uploadedFiles_PU', JSON.stringify(uploadedFiles_PU));
+    formData.append('uploadedFiles_CL', JSON.stringify(uploadedFiles_CL));
+    formData.append('uploadedPictures', JSON.stringify(uploadedPictures));
+
     $.ajax({
       type: "POST",
       url: "../Controller/Add_valorizacion_localComercial_Comun.php",
@@ -242,20 +261,22 @@ $(document).ready(function () {
       contentType: false,
 
       success: function (r) {
+        $("#loader").hide();
         if (r) {
           //alert("Solicitud enviada correctamente.");
           console.log(r);
           event.returnValue = false;
-          window.location.href = "../Valorizacion/";
+          //window.location.href = "../Valorizacion/";
         } else {
           alert(
             "Error al registrar, Verifique que los campos esten correctamente completos."
           );
           console.log(r);
-          console.log(data);
+          //console.log(data);
         }
       },
       error: function (xhr, status, error) {
+        $("#loader").hide();
         console.error(error);
       },
     });
@@ -269,6 +290,12 @@ $(document).ready(function () {
     e.preventDefault();
     //var data = $("#form_valor").serialize();
     var formData = new FormData($("#form_valor")[0]);
+
+    formData.append('uploadedFiles_PU', JSON.stringify(uploadedFiles_PU));
+    formData.append('uploadedFiles_CL', JSON.stringify(uploadedFiles_CL));
+    formData.append('uploadedPictures', JSON.stringify(uploadedPictures));
+
+
     $.ajax({
       type: "POST",
       url: "../Controller/Add_valorizacion_localIndustrial.php",
@@ -277,20 +304,22 @@ $(document).ready(function () {
       contentType: false,
 
       success: function (r) {
+        $("#loader").hide();
         if (r) {
           //alert("Solicitud enviada correctamente.");
           console.log(r);
           event.returnValue = false;
-          window.location.href = "../Valorizacion/";
+          //window.location.href = "../Valorizacion/";
         } else {
           alert(
             "Error al registrar, Verifique que los campos esten correctamente completos."
           );
           console.log(r);
-          console.log(data);
+          //console.log(data);
         }
       },
       error: function (xhr, status, error) {
+        $("#loader").hide();
         console.error(error);
       },
     });
