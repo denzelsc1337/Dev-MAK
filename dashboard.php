@@ -34,20 +34,19 @@ require_once('config/security.php');
     <nav class="main-header navbar navbar-expand navbar-dark mak-bg">
       <!-- Left navbar links -->
       <ul class="navbar-nav">
-        <a href="../dashboard.php" class="d-flex align-items-center mak-bg">
-          <img src="Vista/images/mak.png" alt="AdminLTE Logo" class="brand-image" style="width: 70px;">
+        <a href="dashboard.php" class="d-flex align-items-center mak-bg pl-4">
+          <img src="Vista/images/LOGO.png" alt="AdminLTE Logo" class="brand-image">
         </a>
         <li class="nav-item">
           <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
         </li>
-        <li class="nav-item d-none d-sm-inline-block">
+        <!-- <li class="nav-item d-none d-sm-inline-block">
           <a href="dashboard.php" class="nav-link">Inicio</a>
-        </li>
+        </li> -->
       </ul>
 
       <!-- Right navbar links -->
-      <ul class="navbar-nav ml-auto">
-
+      <ul class="navbar-nav ml-auto"> 
 
         <li class="nav-item">
           <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button">
