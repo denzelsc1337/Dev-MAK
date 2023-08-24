@@ -1228,19 +1228,19 @@ require_once('../Controller/controladorListar.php'); ?>
                         });
                         
 
-                        var iconSize = new google.maps.Size(32, 32); 
+                        var iconSize = new google.maps.Size(45, 45);
 
                         var marker = new google.maps.Marker({
                             position: districtLocation,
                             map: map,
                             title: district,
                             icon:{
-                                url:'../Vista/images/marcador_2.jpg',
+                                url:'../Vista/images/GLOBO MAK 2.svg',
                                 scaledSize:iconSize
                             } 
                         });
 
-                        var circle = new google.maps.Circle({
+                        /*var circle = new google.maps.Circle({
                             strokeColor: '#00f',//azulito
                             strokeOpacity: 0.8,
                             strokeWeight: 2,
@@ -1249,7 +1249,7 @@ require_once('../Controller/controladorListar.php'); ?>
                             map: map,
                             center: marker.getPosition(),
                             radius: 15
-                        });
+                        });*/
 
                     } else {
                         $("#dir_dist_rsm").text('-');
