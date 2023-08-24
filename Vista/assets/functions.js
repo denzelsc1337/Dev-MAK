@@ -360,6 +360,40 @@ $(document).ready(function () {
 
 
 
+  $("#btn_save_valo_file").click(function (e) {
+    e.preventDefault();
+
+    var formData = new FormData($("#adding_valo_file")[0]);
+
+    $.ajax({
+      type: "POST",
+      url: "../Controller/upload_doc_valorizacion.php",
+      data: formData,
+      processData: false,
+      contentType: false,
+
+      success: function (response) {
+
+        if (response) {
+          $("#message_aprob").text("Archivos cargados exitosamente.");
+          console.log("e?"+response);
+        } else if (response.error) {
+          $("#message_aprob").text(response.error);
+          console.log("uwu"+response);
+        } else {
+          $("#message_aprob").text("Error desconocido al cargar archivos.");
+          console.log("p"+response);
+        }
+
+      },
+      error: function (xhr, status, error) {
+        console.error(error);
+      },
+    });
+  });
+
+
+
 
   // INPUT WITH LIST
   $(document).ready(function () {

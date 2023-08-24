@@ -3,26 +3,66 @@
 $cod_solic = $_POST['id_solic_v'];
 $dni_u = $_POST['dni_cli_v'];
 
-$directorio = "../Valorizaciones/".$cod_solic."/".$dni_u."/docs_val/";
+$directorio_PU = "../Valorizaciones/".$cod_solic."/".$dni_u."/Documentos/PU/";
 
-$response = array(); 
+$directorio_CL = "../Valorizaciones/".$cod_solic."/".$dni_u."/Documentos/CL/";
 
-if (!is_dir($directorio)) {
-    $response['status'] = "error";
-    $response['mensaje'] = "Sin archivos";
+$response = array();
+
+
+//busqueda para el pu
+
+$response_pu = array();
+
+if (!is_dir($directorio_PU)) {
+    $response_pu['status'] = "error";
+    $response_pu['mensaje'] = "Sin archivos";
 } else {
-    $archivos = scandir($directorio);
+    $archivos_pu = scandir($directorio_PU);
 
-    $archivos = array_diff($archivos, array('.', '..'));
+    $archivos_pu = array_diff($archivos_pu, array('.', '..'));
 
     if (count($archivos) == 0) {
-        $response['status'] = "empty";
-        $response['mensaje'] = "Sin archivos";
+        $response_pu['status'] = "empty";
+        $response_pu['mensaje'] = "Sin archivos";
     } else {
-        $response['status'] = "success";
-        $response['files'] = array_values($archivos);
+        $response_pu['status'] = "success";
+        $response_pu['files'] = array_values($archivos_pu);
     }
 }
+
+$response['pu'] = $response_pu;
+
+//fin busqueda para el pu
+
+
+//busqueda para el cl
+
+$response_cl = array();
+
+if (!is_dir($directorio_CL)) {
+    $response_cl['status'] = "error";
+    $response_cl['mensaje'] = "Sin archivos";
+} else {
+    $archivos_cl  = scandir($directorio_CL);
+
+    $archivos_cl  = array_diff($archivos_cl , array('.', '..'));
+
+    if (count($archivos) == 0) {
+        $response_cl['status'] = "empty";
+        $response_cl['mensaje'] = "Sin archivos";
+    } else {
+        $response_cl['status'] = "success";
+        $response_cl['files'] = array_values($archivos_cl );
+    }
+}
+
+$response['cl'] = $response_cl;
+
+//fin busqueda para el cl
+
+
+
 
 header('Content-Type: application/json');
 echo json_encode($response);

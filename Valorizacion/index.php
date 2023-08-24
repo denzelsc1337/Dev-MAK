@@ -341,8 +341,8 @@ require_once('../Controller/controladorListar.php'); ?>
                         <section class="content body-mak mak-txt position-relative">
                             <form id="add_data_val" method="POST">
 
-                                <input type="text" name="cod_solic_v" id="cod_solic_v">
-                                <input type="text" name="dni_usu_v" id="dni_usu_v">
+                                <input type="text" name="cod_solic_v" id="cod_solic_v" hidden>
+                                <input type="text" name="dni_usu_v" id="dni_usu_v" hidden>
                                 <div class="container">
 
                                     <div id="loader_uhd" class="loader-styla" style="display: none;">
@@ -489,7 +489,8 @@ require_once('../Controller/controladorListar.php'); ?>
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
-                            <form action="../Controller/upload_doc_valorizacion.php" method="POST" enctype="multipart/form-data">
+
+                            <form id="adding_valo_file" method="POST" enctype="multipart/form-data">
                                 <div class="modal-body">
                                     <input type="text" name="id_reg_valor" id="id_reg_valor">
                                     <input type="text" name="dni_solic_valor" id="dni_solic_valor">
@@ -501,9 +502,11 @@ require_once('../Controller/controladorListar.php'); ?>
 
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                                        <button type="submit" name="upload_valor_" class="btn btn-primary">Subir</button>
+                                        <button type="submit" name="btn_save_valo_file" id="btn_save_valo_file" class="btn btn-primary">Subir</button>
                                     </div>
                                 </div>
+
+                                <div id="message_aprob"></div>
                             </form>
 
                         </div>
