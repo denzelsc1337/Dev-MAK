@@ -86,7 +86,7 @@ require_once('../Controller/controladorListar.php'); ?>
                         } else { ?>
                             <div class="card-footer">
                                 <div class="form-flex">
-                                    <a href="/" class="btn btn-mak mak-bg-sec">Retroceder</a>
+                                    <a href="../Dashboard.php" class="btn btn-mak mak-bg-sec">Retroceder</a>
                                     <a href="valorizacion.php" class="btn btn-mak mak-bg">Nueva solicitud</a>
                                 </div>
                             </div>
