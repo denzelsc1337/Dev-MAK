@@ -362,7 +362,7 @@ require_once('../Controller/controladorListar.php'); ?>
                                                 <div></div>
                                                 <div></div>
                                             </div>
-                                            <strong>Enviando Solicitud. Por favor espere</strong>
+                                            <strong>Comprobando Informacion. Por favor espere</strong>
                                         </div>
                                     </div>
 
@@ -1209,7 +1209,7 @@ require_once('../Controller/controladorListar.php'); ?>
 
                         });
 
-                    }, 900);
+                    }, 1600);
                 },
                 error: function(xhr, status, error) {
                     console.log("Error en la solicitud ajax ", error)
