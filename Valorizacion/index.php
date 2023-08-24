@@ -345,9 +345,25 @@ require_once('../Controller/controladorListar.php'); ?>
                                 <input type="text" name="dni_usu_v" id="dni_usu_v">
                                 <div class="container">
 
-                                    <div id="loader_uhd" style="display: none;" class="loader-styla">
-                                        <strong>Espere por favor.</strong>
-                                        <img src="../Vista/assets/loading_uhd.gif">
+                                    <div id="loader_uhd" class="loader-styla" style="display: none;">
+                                        <div class="d-flex flex-column align-items-center">
+                                            <!-- <img src="../Vista/assets/loading_uhd.gif"> -->
+                                            <div class="lds-spinner mb-4">
+                                                <div></div>
+                                                <div></div>
+                                                <div></div>
+                                                <div></div>
+                                                <div></div>
+                                                <div></div>
+                                                <div></div>
+                                                <div></div>
+                                                <div></div>
+                                                <div></div>
+                                                <div></div>
+                                                <div></div>
+                                            </div>
+                                            <strong>Enviando Solicitud. Por favor espere</strong>
+                                        </div>
                                     </div>
 
                                     <div class="row">
@@ -440,18 +456,20 @@ require_once('../Controller/controladorListar.php'); ?>
                                         </div>
                                     </div>
 
-                                    <div class="form-flex">
-                                        <button type="button" class="btn btn-mak mak-bg-sec antPag avanza_pa_atras">Retroceder</button>
+                                    <div class="card-footer pt-5">
+                                        <div class="form-flex">
+                                            <button type="button" class="btn btn-mak mak-bg-sec antPag avanza_pa_atras">Retroceder</button>
 
-                                        <button type="button" class="btn btn-mak mak-bg-sec upld_file_valo" id="subir_valor">Subir Valorizacion</button>
+                                            <button type="button" class="btn btn-mak mak-bg-sec upld_file_valo" id="subir_valor">Subir Valorizacion</button>
 
-                                        <button type="button" class="btn btn-mak mak-bg-sec add_obs" id="add_obsv_v" data-id_solic>obs</button>
+                                            <button type="button" class="btn btn-mak mak-bg-sec add_obs" id="add_obsv_v" data-id_solic>obs</button>
 
-                                        <button type="button" class="btn btn-mak mak-bg dwnld_valo" id="btn_dwnld_valo" name="btn_dwnld_valo" style="display:none;">Descargar Informacion</button>
+                                            <button type="button" class="btn btn-mak mak-bg dwnld_valo" id="btn_dwnld_valo" name="btn_dwnld_valo" style="display:none;">Descargar Informacion</button>
 
-                                        <button type="button" class="btn btn-mak mak-bg btn_finalizar" id="btnValo_obs_save" name="btnValo_obs_save">Guardar</button>
+                                            <button type="button" class="btn btn-mak mak-bg btn_finalizar" id="btnValo_obs_save" name="btnValo_obs_save">Guardar</button>
 
-                                        
+
+                                        </div>
                                     </div>
 
                                 </div>
@@ -1078,7 +1096,7 @@ require_once('../Controller/controladorListar.php'); ?>
                         const add_file_val_1 = document.getElementById("subir_valor");
 
                         const dwnld_info = document.getElementById("btn_dwnld_valo");
-                        
+
                         $("#loader_uhd").hide();
 
                         console.log("ID Valor: " + id_valor);
@@ -1199,8 +1217,10 @@ require_once('../Controller/controladorListar.php'); ?>
 
         function get_distrito_x_direccion(direccion) {
             var geocoder = new google.maps.Geocoder();
-            
-            geocoder.geocode({ address: direccion }, function(results, status) {
+
+            geocoder.geocode({
+                address: direccion
+            }, function(results, status) {
                 if (status === google.maps.GeocoderStatus.OK) {
                     var district = null;
                     for (var i = 0; i < results.length; i++) {
@@ -1229,7 +1249,7 @@ require_once('../Controller/controladorListar.php'); ?>
                             zoom: 18,
                             disableDefaultUI: true
                         });
-                        
+
 
                         var iconSize = new google.maps.Size(45, 45);
 
@@ -1237,10 +1257,10 @@ require_once('../Controller/controladorListar.php'); ?>
                             position: districtLocation,
                             map: map,
                             title: district,
-                            icon:{
-                                url:'../Vista/images/GLOBO MAK 2.svg',
-                                scaledSize:iconSize
-                            } 
+                            icon: {
+                                url: '../Vista/images/GLOBO MAK 2.svg',
+                                scaledSize: iconSize
+                            }
                         });
 
                         /*var circle = new google.maps.Circle({

@@ -1578,6 +1578,10 @@ form .form-content {
   z-index: 998 !important;
 }
 
+.layout-footer-fixed .wrapper .main-footer {
+  z-index: 997 !important;
+}
+
 .loader-styla {
   position: fixed;
   top: 0;
@@ -1587,7 +1591,7 @@ form .form-content {
   justify-content: center;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.747);
   z-index: 9999;
   color: white;
   text-align: center;
@@ -1691,7 +1695,6 @@ form .form-content {
 
 .resumen {
   gap: 10px;
-  padding: 0 15px;
 }
 
 .resumen ul {
@@ -1711,7 +1714,7 @@ form .form-content {
   margin: 0;
 }
 
-.bla {
+.blaa {
   flex: 0 0 29%;
   max-width: 29%;
 }
