@@ -16,15 +16,15 @@ $response_pu = array();
 
 if (!is_dir($directorio_PU)) {
     $response_pu['status'] = "error";
-    $response_pu['mensaje'] = "Sin archivos";
+    $response_pu['mensaje'] = "No se Encontraron Predios Urbanos";
 } else {
     $archivos_pu = scandir($directorio_PU);
 
     $archivos_pu = array_diff($archivos_pu, array('.', '..'));
 
-    if (count($archivos) == 0) {
+    if (count($archivos_pu) == 0) {
         $response_pu['status'] = "empty";
-        $response_pu['mensaje'] = "Sin archivos";
+        $response_pu['mensaje'] = "No se Encontraron Predios Urbanos";
     } else {
         $response_pu['status'] = "success";
         $response_pu['files'] = array_values($archivos_pu);
@@ -42,15 +42,15 @@ $response_cl = array();
 
 if (!is_dir($directorio_CL)) {
     $response_cl['status'] = "error";
-    $response_cl['mensaje'] = "Sin archivos";
+    $response_cl['mensaje'] = "No se Encontraron Copias Literales";
 } else {
     $archivos_cl  = scandir($directorio_CL);
 
     $archivos_cl  = array_diff($archivos_cl , array('.', '..'));
 
-    if (count($archivos) == 0) {
+    if (count($archivos_cl) == 0) {
         $response_cl['status'] = "empty";
-        $response_cl['mensaje'] = "Sin archivos";
+        $response_cl['mensaje'] = "No se Encontraron Copias Literales";
     } else {
         $response_cl['status'] = "success";
         $response_cl['files'] = array_values($archivos_cl );

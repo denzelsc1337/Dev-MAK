@@ -1377,14 +1377,15 @@ require_once('../Controller/controladorListar.php'); ?>
                             var noFilesMessage = $('<strong>').text(rutaResponse.mensaje);
                             listaRuta.append($('<li>').append(noFilesMessage));
                         } else {
+
                             var archivos = rutaResponse.files;
 
                             archivos.forEach(function(archivo) {
                                 if (archivo.trim() !== '') {
                                     var link_ = $('<a>')
-                                        .attr('href', archivo.url)
-                                        .attr('download', archivo.name)
-                                        .text(archivo.name);
+                                        .attr('href', archivo)
+                                        .attr('download', archivo)
+                                        .text(archivo);
 
                                     var btn_dlt = $('<button type="button" class="btn btn-danger dlt_file"><i class="fa-solid fa-trash"></i>')
                                         .attr('data-ruta', archivo.url);
