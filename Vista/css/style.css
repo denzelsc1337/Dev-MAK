@@ -1711,6 +1711,7 @@ form .form-content {
 
 .resumen {
   gap: 10px;
+  padding: 0 15px;
 }
 
 .resumen ul {
