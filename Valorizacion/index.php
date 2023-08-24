@@ -1104,13 +1104,15 @@ require_once('../Controller/controladorListar.php'); ?>
                                 add_obs_1.style.display = "block";
 
                                 btnDisable.prop("disabled", true);
+                                dwnld_info.style.display = "none";
 
                                 break;
                             case '200':
                                 $("#status_solic_val_cbo").val("200");
+
                                 $(".textBox").val("Finalizado");
                                 $(".textBox").addClass("bg-success");
-                                $(".textBox").removeClass("bg-warnings");
+                                $(".textBox").removeClass("bg-warning");
                                 $(".textBox").removeClass("bg-secondarys");
 
 
@@ -1124,6 +1126,7 @@ require_once('../Controller/controladorListar.php'); ?>
 
                                 dwnld_info.style.display = "block";
                                 break;
+
                             default:
                                 $("#status_solic_val_cbo").val("500");
                                 $(".textBox").val("Pendiente");
