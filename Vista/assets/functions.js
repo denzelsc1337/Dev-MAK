@@ -393,6 +393,37 @@ $(document).ready(function () {
   });
 
 
+  $("#loginButton").click(function(e) {
+    e.preventDefault();
+
+    var data = $("#loginForm").serialize();
+
+    $.ajax({
+        type: "POST",
+        url: "Controller/login.php",
+        data: data,
+        success: function(response) {
+            if (response === 'empty_fields') {
+                $("#message").text("Please fill in all fields.");
+
+            } else if (response === 'incorrect_auth') {
+
+                $("#message").text("Incorrect authentication. Please try again.");
+
+            } else if (response === 'success') {
+
+                window.location.href = 'dashboard.php';
+            } else {
+                $("#message").text("Unknown error while logging in.");
+            }
+        },
+        error: function(xhr, status, error) {
+            console.error(error);
+        }
+    });
+  });
+
+
 
 
   // INPUT WITH LIST

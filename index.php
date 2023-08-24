@@ -62,7 +62,7 @@
               <div class="mt-5 mb-5">
                 <h1>Inicio Sesión</h1>
               </div>
-              <form action="Controller/login.php" method="post">
+              <form id="loginForm" method="post">
 
                 <div class="body-login">
 
@@ -82,7 +82,7 @@
 
 
                 <div class="footer-login">
-                  <button type="submit" class="btn btn-mak mak-bg">Ingresar</button>
+                  <button id="loginButton" name="loginButton" type="button" class="btn btn-mak mak-bg">Ingresar</button>
                   <!-- <span><a href="http://" class="mak-txt">¿Olvidaste tu<br> contraseña?</a></span> -->
                   <span id="toForgot" class="mak-txt">¿Olvidaste tu<br> contraseña?</span>
                 </div>
@@ -154,6 +154,8 @@
       }
     })
   </script>
+
+  <script src="Vista/assets/functions.js"></script>
 </body>
 
 </html>

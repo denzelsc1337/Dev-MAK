@@ -21,13 +21,8 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
 		$datos = $sentencia->fetch(PDO::FETCH_OBJ);
 
 		if ($datos === FALSE) {
-		?>
-			<script>
-				alert("Autenticacion incorrecta. Vuelve e ingresar Datos")
-			</script>;
-			<META http-equiv='Refresh' content='0.2; URL = ../index.php'>;
+			echo "incorrect_auth";
 
-		<?php
 		} elseif ($sentencia->rowCount() == 1) {
 
 			$_SESSION['id_usu'] = $datos->id_client;
@@ -40,9 +35,7 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
 
 			$_SESSION['autenticado'] = 1;
 
-		?>
-			<META http-equiv="Refresh" content="0.3 ; URL =../dashboard.php">
-		<?php
+			echo "success";
 
 		}
 	}
