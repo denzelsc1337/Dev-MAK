@@ -337,17 +337,20 @@ require_once('../Controller/controladorListar.php'); ?>
                     </section>
 
 
-                    <!-- Denzel cpp -->
+                    <div id="loader_uhd" class="mak_overlay hidden">
+                        <img src="../Vista/images/MAK_logo.png" alt="" class="fading-element">
+                    </div>
                     <section class="content body-mak mak-txt position-relative">
+
                         <form id="add_data_val" method="POST">
 
                             <input type="text" name="cod_solic_v" id="cod_solic_v" hidden>
                             <input type="text" name="dni_usu_v" id="dni_usu_v" hidden>
                             <div class="container">
 
-                                <div id="loader_uhd" class="loader-styla" style="display: none;">
+                                <!-- <div id="loader_uhd" class="loader-styla" style="display: none;">
                                     <div class="d-flex flex-column align-items-center">
-                                        <!-- <img src="../Vista/assets/loading_uhd.gif"> -->
+                                        <img src="../Vista/assets/loading_uhd.gif">
                                         <div class="lds-spinner mb-4">
                                             <div></div>
                                             <div></div>
@@ -364,7 +367,7 @@ require_once('../Controller/controladorListar.php'); ?>
                                         </div>
                                         <strong>Comprobando Informacion. Por favor espere</strong>
                                     </div>
-                                </div>
+                                </div> -->
 
                                 <div class="row">
 
@@ -1063,10 +1066,15 @@ require_once('../Controller/controladorListar.php'); ?>
                 },
 
                 beforeSend: function() {
-                    $("#loader_uhd").show();
+                    // $("#loader_uhd").show();
+                    $("#loader_uhd").removeClass("hidden");
 
                     /*$("#detalles_valor").hide();
                     $("#docs_val").hide();*/
+
+                    // if ($(".mak_overlay").hasClass("hidden")) {
+                    $("#add_data_val").addClass("hide");
+                    // }
 
                 },
 
@@ -1089,6 +1097,8 @@ require_once('../Controller/controladorListar.php'); ?>
                         console.error("Error al analizar la respuesta JSON: " + error);
                     }
 
+                    const startTime = new Date().getTime();
+
                     setTimeout(function() {
 
                         const tipo_status = document.getElementById("status_solic_val_cbo");
@@ -1100,7 +1110,13 @@ require_once('../Controller/controladorListar.php'); ?>
 
                         const dwnld_info = document.getElementById("btn_dwnld_valo");
 
-                        $("#loader_uhd").hide();
+                        // $("#loader_uhd").hide();
+                        $("#loader_uhd").addClass("hidden");
+
+
+                        // if (!$(".mak_overlay").hasClass("hidden")) {
+                        $("#add_data_val").removeClass("hide");
+                        // }
 
                         console.log("ID Valor: " + id_valor);
                         console.log("Nombre Cliente: " + nom_client);
@@ -1209,7 +1225,11 @@ require_once('../Controller/controladorListar.php'); ?>
 
                         });
 
-                    }, 1600);
+                        const endTime = new Date().getTime();
+                        const elapsedTime = endTime - startTime;
+                        console.log(`Tiempo transcurrido: ${elapsedTime} ms`);
+                    }, 54000000);
+
                 },
                 error: function(xhr, status, error) {
                     console.log("Error en la solicitud ajax ", error)
