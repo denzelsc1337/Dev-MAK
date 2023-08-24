@@ -400,8 +400,10 @@ require_once('../Controller/controladorListar.php'); ?>
                                             </div>
                                             <div class="blaa" style="width:33%;">
                                                 <div class="card-box">
-                                                    <div id="mapa_2" style="height: 250px;"></div>
+                                                    <div id="map_resumen" style="height: 250px;">
+                                                    </div>
                                                 </div>
+                                                <small id="mensaje_error"></small>
                                             </div>
                                             <div class="blaa">
                                                 <div class="card-box card-body data-resume">
@@ -445,9 +447,11 @@ require_once('../Controller/controladorListar.php'); ?>
 
                                         <button type="button" class="btn btn-mak mak-bg-sec add_obs" id="add_obsv_v" data-id_solic>obs</button>
 
+                                        <button type="button" class="btn btn-mak mak-bg dwnld_valo" id="btn_dwnld_valo" name="btn_dwnld_valo" style="display:none;">Descargar Informacion</button>
+
                                         <button type="button" class="btn btn-mak mak-bg btn_finalizar" id="btnValo_obs_save" name="btnValo_obs_save">Guardar</button>
 
-                                        <button type="button" class="btn btn-mak mak-bg dwnld_valo" id="btn_dwnld_valo" name="btn_dwnld_valo">Descargar Informacion</button>
+                                        
                                     </div>
 
                                 </div>
@@ -681,6 +685,7 @@ require_once('../Controller/controladorListar.php'); ?>
 
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCNO5GraIm8rWrrLbWt-Gv9GxsenRng-8o&callback=initmap&libraries=places" onload="onGoogleMapsLoaded()" async defer>
     </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCNO5GraIm8rWrrLbWt-Gv9GxsenRng-8o&libraries=places"></script>
 
 
     <script type="text/javascript">
@@ -1015,7 +1020,7 @@ require_once('../Controller/controladorListar.php'); ?>
                     });
                     var link = document.createElement('a');
                     link.href = URL.createObjectURL(blob);
-                    link.download = 'valorizacion_' + id_valor_soli + '.xlsx';
+                    link.download = 'Informacion_Valorizacion_' + id_valor_soli + '.xlsx';
                     document.body.appendChild(link);
                     link.click();
                     document.body.removeChild(link);
@@ -1072,6 +1077,8 @@ require_once('../Controller/controladorListar.php'); ?>
                         const add_obs_1 = document.getElementById("add_obsv_v");
                         const add_file_val_1 = document.getElementById("subir_valor");
 
+                        const dwnld_info = document.getElementById("btn_dwnld_valo");
+                        
                         $("#loader_uhd").hide();
 
                         console.log("ID Valor: " + id_valor);
@@ -1097,6 +1104,7 @@ require_once('../Controller/controladorListar.php'); ?>
                                 add_obs_1.style.display = "block";
 
                                 btnDisable.prop("disabled", true);
+
                                 break;
                             case '200':
                                 $("#status_solic_val_cbo").val("200");
@@ -1110,9 +1118,11 @@ require_once('../Controller/controladorListar.php'); ?>
                                 add_obs_1.style.display = "none";
 
                                 add_file_val_1.classList.remove("hidden");
-                                add_file_val_1.style.display = "block";
+                                add_file_val_1.style.display = "none";
 
                                 btnDisable.prop("disabled", true);
+
+                                dwnld_info.style.display = "block";
                                 break;
                             default:
                                 $("#status_solic_val_cbo").val("500");
@@ -1127,6 +1137,8 @@ require_once('../Controller/controladorListar.php'); ?>
 
                                 add_file_val_1.classList.add("hidden");
                                 add_file_val_1.style.display = "none";
+
+                                dwnld_info.style.display = "none";
                         }
 
                         $("#dir_rsm").text(detalles[0][2]);
@@ -1135,6 +1147,10 @@ require_once('../Controller/controladorListar.php'); ?>
                         $("#at_rsm").text(detalles[0][6]);
                         $("#ac_rsm").text(detalles[0][7]);
                         $("#ao_rsm").text(detalles[0][8]);
+
+
+                        var direccion_val = $("#dir_rsm").text();
+                        get_distrito_x_direccion(direccion_val);
 
                         btnDisable.prop("disabled", true);
 
@@ -1174,6 +1190,81 @@ require_once('../Controller/controladorListar.php'); ?>
                 error: function(xhr, status, error) {
                     console.log("Error en la solicitud ajax ", error)
                     console.log("Mensaje de error:", error);
+                }
+            });
+        }
+
+        function get_distrito_x_direccion(direccion) {
+            var geocoder = new google.maps.Geocoder();
+            
+            geocoder.geocode({ address: direccion }, function(results, status) {
+                if (status === google.maps.GeocoderStatus.OK) {
+                    var district = null;
+                    for (var i = 0; i < results.length; i++) {
+                        var components = results[i].address_components;
+                        for (var j = 0; j < components.length; j++) {
+                            if (components[j].types.includes("locality")) {
+                                district = components[j].long_name;
+                                break;
+                            }
+                        }
+                        if (district) {
+                            break;
+                        }
+                    }
+                    if (district) {
+                        console.log("distrito", district);
+                        $("#dir_dist_rsm").text(district);
+
+                        var districtLocation = results[0].geometry.location;
+
+
+                        $("#map_resumen").show();
+                        $("#mensaje_error").hide();
+                        var map = new google.maps.Map(document.getElementById('map_resumen'), {
+                            center: districtLocation,
+                            zoom: 18,
+                            disableDefaultUI: true
+                        });
+                        
+
+                        var iconSize = new google.maps.Size(32, 32); 
+
+                        var marker = new google.maps.Marker({
+                            position: districtLocation,
+                            map: map,
+                            title: district,
+                            icon:{
+                                url:'../Vista/images/marcador_2.jpg',
+                                scaledSize:iconSize
+                            } 
+                        });
+
+                        var circle = new google.maps.Circle({
+                            strokeColor: '#00f',//azulito
+                            strokeOpacity: 0.8,
+                            strokeWeight: 2,
+                            fillColor: '#00f',
+                            fillOpacity: 0.35,
+                            map: map,
+                            center: marker.getPosition(),
+                            radius: 15
+                        });
+
+                    } else {
+                        $("#dir_dist_rsm").text('-');
+                        $("#mensaje_error").show();
+                        $("#mensaje_error").text("No se pudo encontrar la dirección.");
+
+                        $("#map_resumen").hide();
+                        console.log("no se encontro el distrito");
+                    }
+                } else {
+                    $("#dir_dist_rsm").text('- - - -');
+                    $("#mensaje_error").show();
+                    $("#mensaje_error").text("No se pudo encontrar la dirección.");
+                    $("#map_resumen").hide();
+                    console.log("Error al geocodificar la dirección:", status);
                 }
             });
         }

@@ -58,8 +58,10 @@ foreach ($list_valo_details as $data) {
 
 $writer = new Xlsx($excel);
 
-$filename = 'valorizacion_' . $id_solic_v . '.xlsx';
+$filename = 'valorizacion_' . $id_solic_v .'-'. time() . '.xlsx';
 
+
+var_dump($filename);
 header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
 header('Content-Disposition: attachment;filename="' . $filename . '"');
 header('Cache-Control: max-age=0');
