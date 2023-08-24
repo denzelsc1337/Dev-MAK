@@ -1613,6 +1613,21 @@ form .form-content {
   text-align: center;
 }
 
+.loader-styla img {
+  width: 150px;
+  animation: rotate 2s linear infinite;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 .lds-spinner {
   color: official;
   display: inline-block;
@@ -1707,7 +1722,6 @@ form .form-content {
     opacity: 0;
   }
 }
-
 
 .resumen {
   gap: 10px;

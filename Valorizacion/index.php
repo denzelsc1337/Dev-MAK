@@ -96,387 +96,387 @@ require_once('../Controller/controladorListar.php'); ?>
                     </div>
                 </section>
 
-                <div class="overflow-hidden">
-                    <div class="d-flex scroll">
+                <!-- <div class=""> -->
+                <div class="overflow-hidden d-flex scroll">
 
-                        <section class="content body-mak mak-txt position-relative" data-content="historico">
+                    <section class="content body-mak mak-txt position-relative" data-content="historico">
 
 
-                            <div class="container">
-                                <h1 class="text-center">HISTORICO</h1>
-                                <div class="row">
+                        <div class="container">
+                            <h1 class="text-center">HISTORICO</h1>
+                            <div class="row">
 
-                                    <div class="menu-filter">
-                                        <div class="filter-drop shadow ml-auto">
-                                            <div class="dropdown">
-                                                Filtros &nbsp;
-                                                <i class="fa-solid fa-sliders"></i>
-                                            </div>
-                                            <div class="optn-filter">
-                                                <div class="list-group-item">1</div>
-                                                <div class="list-group-item">2</div>
-                                                <div class="list-group-item">3</div>
-                                            </div>
+                                <div class="menu-filter">
+                                    <div class="filter-drop shadow ml-auto">
+                                        <div class="dropdown">
+                                            Filtros &nbsp;
+                                            <i class="fa-solid fa-sliders"></i>
+                                        </div>
+                                        <div class="optn-filter">
+                                            <div class="list-group-item">1</div>
+                                            <div class="list-group-item">2</div>
+                                            <div class="list-group-item">3</div>
                                         </div>
                                     </div>
+                                </div>
 
-                                    <?php
-
-
-                                    if ($_SESSION['tipo_usu'] == 1) {
-                                        //ocultar el del user y mostrar el del admin
-                                    ?>
-
-                                        <!-- </div> TABLA ADMIN -->
-
-                                        <!-- <div class="table-responsive"> -->
-                                        <div class="col-sm-12">
+                                <?php
 
 
-                                            <table id="tabla" class="table table_ table-borderless mb-3 ml-3 mr-3" style="width: 100%;">
+                                if ($_SESSION['tipo_usu'] == 1) {
+                                    //ocultar el del user y mostrar el del admin
+                                ?>
 
-                                                <thead class="">
-                                                    <tr>
-                                                        <th>ID</th>
-                                                        <th>Dni</th>
-                                                        <th>Cliente</th>
-                                                        <th>Direccion</th>
-                                                        <th>Tipo Propiedad</th>
-                                                        <th>Tipo</th>
-                                                        <th>Estado</th>
-                                                        <th>Detalles</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <?php
+                                    <!-- </div> TABLA ADMIN -->
+
+                                    <!-- <div class="table-responsive"> -->
+                                    <div class="col-sm-12">
 
 
-                                                    function mostrarData($data)
-                                                    {
-                                                        switch ($data) {
-                                                            case "1":
-                                                                echo "<td>Si</td>";
-                                                                break;
-                                                            case "0":
-                                                                echo "<td>No</td>";
-                                                                break;
-                                                            case "500":
-                                                                echo "<td><span class='badge rounded-pill bg-secondary'>Pendiente</span></td>";
-                                                                break;
-                                                            case "400":
-                                                                echo "<td><span class='badge rounded-pill bg-warning text-dark'>Observado</span></td>";
-                                                                break;
-                                                            case "200":
-                                                                echo "<td><span class='badge rounded-pill bg-success'> Finalizado</span></td>";
-                                                                break;
-                                                            default:
-                                                                // echo "<td>$data</td>";
-                                                                if ($data !== null) {
-                                                                    echo  "<td>$data</td>";
-                                                                } else {
-                                                                    echo "<td>-</td>";
-                                                                }
-                                                                break;
-                                                        }
+                                        <table id="tabla" class="table table_ table-borderless mb-3 ml-3 mr-3" style="width: 100%;">
+
+                                            <thead class="">
+                                                <tr>
+                                                    <th>ID</th>
+                                                    <th>Dni</th>
+                                                    <th>Cliente</th>
+                                                    <th>Direccion</th>
+                                                    <th>Tipo Propiedad</th>
+                                                    <th>Tipo</th>
+                                                    <th>Estado</th>
+                                                    <th>Detalles</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <?php
+
+
+                                                function mostrarData($data)
+                                                {
+                                                    switch ($data) {
+                                                        case "1":
+                                                            echo "<td>Si</td>";
+                                                            break;
+                                                        case "0":
+                                                            echo "<td>No</td>";
+                                                            break;
+                                                        case "500":
+                                                            echo "<td><span class='badge rounded-pill bg-secondary'>Pendiente</span></td>";
+                                                            break;
+                                                        case "400":
+                                                            echo "<td><span class='badge rounded-pill bg-warning text-dark'>Observado</span></td>";
+                                                            break;
+                                                        case "200":
+                                                            echo "<td><span class='badge rounded-pill bg-success'> Finalizado</span></td>";
+                                                            break;
+                                                        default:
+                                                            // echo "<td>$data</td>";
+                                                            if ($data !== null) {
+                                                                echo  "<td>$data</td>";
+                                                            } else {
+                                                                echo "<td>-</td>";
+                                                            }
+                                                            break;
                                                     }
+                                                }
 
-                                                    foreach ($list_valo as $lst_vlzn) : ?>
-                                                        <tr>
-                                                            <td>
-                                                                <?php echo $lst_vlzn[0] ?>
-                                                            </td>
-                                                            <?php mostrarData($lst_vlzn[1]) ?>
-                                                            <?php mostrarData($lst_vlzn[2]) ?>
-                                                            <?php mostrarData($lst_vlzn[3]) ?>
-                                                            <?php mostrarData($lst_vlzn[4] . ' (' . $lst_vlzn[5] . ')') ?>
+                                                foreach ($list_valo as $lst_vlzn) : ?>
+                                                    <tr>
+                                                        <td>
+                                                            <?php echo $lst_vlzn[0] ?>
+                                                        </td>
+                                                        <?php mostrarData($lst_vlzn[1]) ?>
+                                                        <?php mostrarData($lst_vlzn[2]) ?>
+                                                        <?php mostrarData($lst_vlzn[3]) ?>
+                                                        <?php mostrarData($lst_vlzn[4] . ' (' . $lst_vlzn[5] . ')') ?>
 
-                                                            <?php mostrarData($lst_vlzn[6]) ?>
-                                                            <?php mostrarData($lst_vlzn[63]) ?>
+                                                        <?php mostrarData($lst_vlzn[6]) ?>
+                                                        <?php mostrarData($lst_vlzn[63]) ?>
 
-                                                            <td>
+                                                        <td>
 
-                                                                <?php if ($lst_vlzn[63] == 400) { ?>
-                                                                    <button type="button" class="btn btn-rounded scroll-toggle" data-id_solic_val="<?php echo $lst_vlzn[0] ?>" data-id_cli="<?php echo $lst_vlzn[64] ?>" data-dni_cli="<?php echo $lst_vlzn[1] ?>">
-                                                                        <i class="fa-solid fa-pencil"></i>
-                                                                    </button>
+                                                            <?php if ($lst_vlzn[63] == 400) { ?>
+                                                                <button type="button" class="btn btn-rounded scroll-toggle" data-id_solic_val="<?php echo $lst_vlzn[0] ?>" data-id_cli="<?php echo $lst_vlzn[64] ?>" data-dni_cli="<?php echo $lst_vlzn[1] ?>">
+                                                                    <i class="fa-solid fa-pencil"></i>
+                                                                </button>
 
-                                                                <?php } else { ?>
-                                                                    <button type="button" class="btn btn-rounded scroll-toggle" data-id_solic_val="<?php echo $lst_vlzn[0] ?>" data-id_cli="<?php echo $lst_vlzn[64] ?>" data-dni_cli="<?php echo $lst_vlzn[1] ?>">
-                                                                        <i class="fa-solid fa-eye"></i>
-                                                                    </button>
-                                                                <?php } ?>
+                                                            <?php } else { ?>
+                                                                <button type="button" class="btn btn-rounded scroll-toggle" data-id_solic_val="<?php echo $lst_vlzn[0] ?>" data-id_cli="<?php echo $lst_vlzn[64] ?>" data-dni_cli="<?php echo $lst_vlzn[1] ?>">
+                                                                    <i class="fa-solid fa-eye"></i>
+                                                                </button>
+                                                            <?php } ?>
 
-                                                            </td>
+                                                        </td>
 
-                                                            <!--
+                                                        <!--
                                             <td>
 
                                                 <button type="button" class="btn editbtn" data-toggle="modal" data-target="#exampleModal"><i class="fa-solid fa-upload"></i></button>
 
                                             </td>-->
-                                                        </tr>
-                                                    <?php endforeach ?>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                        <!-- </div> -->
-
-                                        <!-- </div> TABLA ADMIN -->
-
-                                    <?php
-                                    } else {
-                                    ?>
-
-                                        <!-- </div> TABLA USER -->
-
-                                        <!-- <div class="table-responsive "> -->
-                                        <div class="col-sm-12">
-                                            <table class="table table_ table-borderless mb-3 pl-3 pr-3" style="width: 100%;">
-                                                <thead class="">
-                                                    <tr>
-                                                        <th>ID</th>
-                                                        <th>Cliente</th>
-                                                        <th>Direccion</th>
-                                                        <th>Tipo Propiedad</th>
-                                                        <th>Tipo</th>
-                                                        <th>Estado</th>
-                                                        <th>Detalles</th>
                                                     </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <?php
-                                                    function mostrarDataUser($data)
-                                                    {
-                                                        switch ($data) {
-                                                            case "1":
-                                                                echo "<td>Si</td>";
-                                                                break;
-                                                            case "0":
-                                                                echo "<td>No</td>";
-                                                                break;
-                                                            case "500":
-                                                                echo "<td><span class='badge rounded-pill bg-secondary'>Pendiente</span></td>";
-                                                                break;
-                                                            case "400":
-                                                                echo "<td><span class='badge rounded-pill bg-warning text-dark'>En revision</span></td>";
-                                                                break;
-                                                            case "200":
-                                                                echo "<td><span class='badge rounded-pill bg-success'> Finalizado</span></td>";
-                                                                break;
+                                                <?php endforeach ?>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <!-- </div> -->
 
-                                                            default:
-                                                                // echo "<td>$data</td>";
-                                                                if ($data !== null) {
-                                                                    echo  "<td>$data</td>";
-                                                                } else {
-                                                                    echo "<td>-</td>";
-                                                                }
-                                                                break;
-                                                        }
+                                    <!-- </div> TABLA ADMIN -->
+
+                                <?php
+                                } else {
+                                ?>
+
+                                    <!-- </div> TABLA USER -->
+
+                                    <!-- <div class="table-responsive "> -->
+                                    <div class="col-sm-12">
+                                        <table class="table table_ table-borderless mb-3 pl-3 pr-3" style="width: 100%;">
+                                            <thead class="">
+                                                <tr>
+                                                    <th>ID</th>
+                                                    <th>Cliente</th>
+                                                    <th>Direccion</th>
+                                                    <th>Tipo Propiedad</th>
+                                                    <th>Tipo</th>
+                                                    <th>Estado</th>
+                                                    <th>Detalles</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <?php
+                                                function mostrarDataUser($data)
+                                                {
+                                                    switch ($data) {
+                                                        case "1":
+                                                            echo "<td>Si</td>";
+                                                            break;
+                                                        case "0":
+                                                            echo "<td>No</td>";
+                                                            break;
+                                                        case "500":
+                                                            echo "<td><span class='badge rounded-pill bg-secondary'>Pendiente</span></td>";
+                                                            break;
+                                                        case "400":
+                                                            echo "<td><span class='badge rounded-pill bg-warning text-dark'>En revision</span></td>";
+                                                            break;
+                                                        case "200":
+                                                            echo "<td><span class='badge rounded-pill bg-success'> Finalizado</span></td>";
+                                                            break;
+
+                                                        default:
+                                                            // echo "<td>$data</td>";
+                                                            if ($data !== null) {
+                                                                echo  "<td>$data</td>";
+                                                            } else {
+                                                                echo "<td>-</td>";
+                                                            }
+                                                            break;
                                                     }
+                                                }
 
 
-                                                    $list_valo_user = $oValor->list_Valo_Historico_User($_SESSION['id_usu'], $_SESSION['dni']);
+                                                $list_valo_user = $oValor->list_Valo_Historico_User($_SESSION['id_usu'], $_SESSION['dni']);
 
-                                                    foreach ($list_valo_user as $lst_vlzn_) :
-                                                        $cont = 0;
-                                                    ?>
-                                                        <tr>
-                                                            <td>
-                                                                <?php echo $lst_vlzn_[0] ?>
-                                                            </td>
+                                                foreach ($list_valo_user as $lst_vlzn_) :
+                                                    $cont = 0;
+                                                ?>
+                                                    <tr>
+                                                        <td>
+                                                            <?php echo $lst_vlzn_[0] ?>
+                                                        </td>
 
-                                                            <?php mostrarDataUser($lst_vlzn_[1]) ?>
-                                                            <?php mostrarDataUser($lst_vlzn_[2]) ?>
-                                                            <?php mostrarDataUser($lst_vlzn_[3] . ' (' . $lst_vlzn_[4] . ')') ?>
+                                                        <?php mostrarDataUser($lst_vlzn_[1]) ?>
+                                                        <?php mostrarDataUser($lst_vlzn_[2]) ?>
+                                                        <?php mostrarDataUser($lst_vlzn_[3] . ' (' . $lst_vlzn_[4] . ')') ?>
 
-                                                            <?php mostrarDataUser($lst_vlzn_[5]) ?>
-                                                            <?php mostrarDataUser($lst_vlzn_[6]) ?>
+                                                        <?php mostrarDataUser($lst_vlzn_[5]) ?>
+                                                        <?php mostrarDataUser($lst_vlzn_[6]) ?>
 
 
-                                                            <td>
-                                                                <!-- <button type="button" class="btn btn-rounded btn_get_details scroll-toggle" data-id_solic_val="<?php echo $lst_vlzn_[0] ?>" data-id_cli="<?php echo $lst_vlzn_[8] ?>" data-dni_cli="<?php echo $lst_vlzn_[9] ?>" data-toggle="modal" data-target="#details_v">
+                                                        <td>
+                                                            <!-- <button type="button" class="btn btn-rounded btn_get_details scroll-toggle" data-id_solic_val="<?php echo $lst_vlzn_[0] ?>" data-id_cli="<?php echo $lst_vlzn_[8] ?>" data-dni_cli="<?php echo $lst_vlzn_[9] ?>" data-toggle="modal" data-target="#details_v">
                                                                         <i class="fa-solid fa-eye"></i>
                                                                     </button> -->
 
-                                                                <button type="button" class="btn btn-rounded " data-id_solic_val="<?php echo $lst_vlzn_[0] ?>" data-id_cli="<?php echo $lst_vlzn_[8] ?>" data-dni_cli="<?php echo $lst_vlzn_[9] ?>">
-                                                                    <i class="fa-solid fa-eye"></i>
-                                                                </button>
+                                                            <button type="button" class="btn btn-rounded " data-id_solic_val="<?php echo $lst_vlzn_[0] ?>" data-id_cli="<?php echo $lst_vlzn_[8] ?>" data-dni_cli="<?php echo $lst_vlzn_[9] ?>">
+                                                                <i class="fa-solid fa-eye"></i>
+                                                            </button>
 
-                                                                <?php if ($lst_vlzn_[6] == 200) : ?>
-                                                                    <a href="../Valorizaciones/<?php echo $lst_vlzn_[0] . '/' . $lst_vlzn_[9] ?>/docs_val/">
-                                                                        <i class="fa-regular fa-circle-down"></i>
-                                                                    </a>
-                                                                <?php else : ?>
-                                                                    <strong>-</strong>
-                                                                <?php endif ?>
+                                                            <?php if ($lst_vlzn_[6] == 200) : ?>
+                                                                <a href="../Valorizaciones/<?php echo $lst_vlzn_[0] . '/' . $lst_vlzn_[9] ?>/docs_val/">
+                                                                    <i class="fa-regular fa-circle-down"></i>
+                                                                </a>
+                                                            <?php else : ?>
+                                                                <strong>-</strong>
+                                                            <?php endif ?>
 
-                                                            </td>
-                                                            <!--
+                                                        </td>
+                                                        <!--
                                     <td>
                                         <a href="../Valorizaciones/<?php echo $lst_vlzn_[0] ?>/<?php echo $lst_vlzn_[7] ?>"><i class="fa-solid fa-download"></i></a>
                                     </td>
                                     -->
-                                                        </tr>
-                                                    <?php endforeach ?>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                        <!-- </div> -->
+                                                    </tr>
+                                                <?php endforeach ?>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <!-- </div> -->
 
-                                        <!-- </div> TABLA USER -->
-                                    <?php
-                                        //ocultar el del admin y mostrar el del user
-                                    }
-                                    ?>
-
-                                </div>
+                                    <!-- </div> TABLA USER -->
+                                <?php
+                                    //ocultar el del admin y mostrar el del user
+                                }
+                                ?>
 
                             </div>
 
-                        </section>
+                        </div>
+
+                    </section>
 
 
-                        <!-- Denzel cpp -->
-                        <section class="content body-mak mak-txt position-relative">
-                            <form id="add_data_val" method="POST">
+                    <!-- Denzel cpp -->
+                    <section class="content body-mak mak-txt position-relative">
+                        <form id="add_data_val" method="POST">
 
-                                <input type="text" name="cod_solic_v" id="cod_solic_v" hidden>
-                                <input type="text" name="dni_usu_v" id="dni_usu_v" hidden>
-                                <div class="container">
+                            <input type="text" name="cod_solic_v" id="cod_solic_v" hidden>
+                            <input type="text" name="dni_usu_v" id="dni_usu_v" hidden>
+                            <div class="container">
 
-                                    <div id="loader_uhd" class="loader-styla" style="display: none;">
-                                        <div class="d-flex flex-column align-items-center">
-                                            <!-- <img src="../Vista/assets/loading_uhd.gif"> -->
-                                            <div class="lds-spinner mb-4">
-                                                <div></div>
-                                                <div></div>
-                                                <div></div>
-                                                <div></div>
-                                                <div></div>
-                                                <div></div>
-                                                <div></div>
-                                                <div></div>
-                                                <div></div>
-                                                <div></div>
-                                                <div></div>
-                                                <div></div>
-                                            </div>
-                                            <strong>Comprobando Informacion. Por favor espere</strong>
+                                <div id="loader_uhd" class="loader-styla" style="display: none;">
+                                    <div class="d-flex flex-column align-items-center">
+                                        <!-- <img src="../Vista/assets/loading_uhd.gif"> -->
+                                        <div class="lds-spinner mb-4">
+                                            <div></div>
+                                            <div></div>
+                                            <div></div>
+                                            <div></div>
+                                            <div></div>
+                                            <div></div>
+                                            <div></div>
+                                            <div></div>
+                                            <div></div>
+                                            <div></div>
+                                            <div></div>
+                                            <div></div>
                                         </div>
+                                        <strong>Comprobando Informacion. Por favor espere</strong>
                                     </div>
-
-                                    <div class="row">
-
-                                        <div class="card-body mt-4">
-                                            <table class="table table-borderless">
-                                                <thead class="">
-                                                    <tr>
-                                                        <th>DISTRITO</th>
-                                                        <th>DIRECCIÓN</th>
-                                                        <th>TIPO</th>
-                                                        <th>PROMOCIÓN</th>
-                                                        <th>AT</th>
-                                                        <th>AC</th>
-                                                        <th>AO</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr>
-                                                        <!-- <td>MIRAFLORES</td> -->
-                                                        <td id="dir_dist_rsm"></td>
-                                                        <!-- <td>AV AREQUIPA 4960</td> -->
-                                                        <td id="dir_rsm"></td>
-                                                        <!-- <td>CASA</td> -->
-                                                        <td id="tip_rsm"></td>
-                                                        <!-- <td>VENTA</td> -->
-                                                        <td id="pro_rsm"></td>
-                                                        <td id="at_rsm"></td>
-                                                        <td id="ac_rsm"></td>
-                                                        <td id="ao_rsm"></td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                        <br>
-
-                                        <div class="d-flex w-100 justify-content-between mt-3 resumen">
-                                            <div class="blaa">
-                                                <div class="card-body">
-                                                    <div>
-                                                        <label class="mak-txt">Comentario</label>
-                                                        <textarea id="coment_valr_r" placeholder="Escribe un comentario..."></textarea>
-                                                    </div>
-                                                    <div class="row justify-content-between">
-                                                        <div class="btn btn-mak mak-bg btn_get_fotos" data-bs-toggle="modal" data-bs-target="#verFotos">Ver Fotos</div>
-                                                        <div class="btn btn-mak mak-bg btn_get_details" data-bs-toggle="modal" data-bs-target="#verDocs">Ver Documentos</div>
-
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="blaa" style="width:33%;">
-                                                <div class="card-box">
-                                                    <div id="map_resumen" style="height: 250px;">
-                                                    </div>
-                                                </div>
-                                                <small id="mensaje_error"></small>
-                                            </div>
-                                            <div class="blaa">
-                                                <div class="card-box card-body data-resume">
-
-                                                    <figcaption class="d-flex flex-column pl-2">
-                                                        <p class="b-text"><b>Resumen</b></p>
-
-                                                        <div class="input-select">
-                                                            <input type="text" id="" name="" class="textBox" readonly>
-                                                            <input type="text" id="status_solic_val_cbo" name="status_solic_val_cbo" hidden readonly>
-                                                            <div class="select-options">
-                                                                <div class="bg-secondary" data-value="500">Pendiente</div>
-                                                                <div class="bg-warning" data-value="400">Observado</div>
-                                                                <div class="bg-success" data-value="200">Finalizado</div>
-                                                            </div>
-                                                        </div>
-
-                                                        <small class="">Datos de contacto:</small>
-                                                    </figcaption>
-
-                                                    <ul>
-                                                        <li><b>Nombre: </b><?php echo $_SESSION['nom_usu']; ?></li>
-                                                        <li><b>Email: </b><?php echo $_SESSION['email_usu']; ?></li>
-                                                        <li><b>Teléfono: </b><?php echo $_SESSION['telef_usu']; ?></li>
-                                                    </ul>
-
-                                                    <div>
-                                                        <p><strong>Información de la propiedad:</strong></p>
-                                                        <ul class="lst-resume" data-resume></ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                    </div>
-
-                                    <div class="card-footer pt-5">
-                                        <div class="form-flex">
-                                            <button type="button" class="btn btn-mak mak-bg-sec antPag avanza_pa_atras">Retroceder</button>
-
-                                            <button type="button" class="btn btn-mak mak-bg-sec upld_file_valo" id="subir_valor">Subir Valorizacion</button>
-
-                                            <button type="button" class="btn btn-mak mak-bg-sec add_obs" id="add_obsv_v" data-id_solic>obs</button>
-
-                                            <button type="button" class="btn btn-mak mak-bg dwnld_valo" id="btn_dwnld_valo" name="btn_dwnld_valo" style="display:none;">Descargar Informacion</button>
-
-                                            <button type="button" class="btn btn-mak mak-bg btn_finalizar" id="btnValo_obs_save" name="btnValo_obs_save">Guardar</button>
-
-
-                                        </div>
-                                    </div>
-
                                 </div>
-                            </form>
-                        </section>
-                    </div>
+
+                                <div class="row">
+
+                                    <div class="card-body mt-4">
+                                        <table class="table table-borderless">
+                                            <thead class="">
+                                                <tr>
+                                                    <th>DISTRITO</th>
+                                                    <th>DIRECCIÓN</th>
+                                                    <th>TIPO</th>
+                                                    <th>PROMOCIÓN</th>
+                                                    <th>AT</th>
+                                                    <th>AC</th>
+                                                    <th>AO</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <!-- <td>MIRAFLORES</td> -->
+                                                    <td id="dir_dist_rsm"></td>
+                                                    <!-- <td>AV AREQUIPA 4960</td> -->
+                                                    <td id="dir_rsm"></td>
+                                                    <!-- <td>CASA</td> -->
+                                                    <td id="tip_rsm"></td>
+                                                    <!-- <td>VENTA</td> -->
+                                                    <td id="pro_rsm"></td>
+                                                    <td id="at_rsm"></td>
+                                                    <td id="ac_rsm"></td>
+                                                    <td id="ao_rsm"></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <br>
+
+                                    <div class="d-flex w-100 justify-content-between mt-3 resumen">
+                                        <div class="blaa">
+                                            <div class="card-body">
+                                                <div>
+                                                    <label class="mak-txt">Comentario</label>
+                                                    <textarea id="coment_valr_r" placeholder="Escribe un comentario..."></textarea>
+                                                </div>
+                                                <div class="row justify-content-between">
+                                                    <div class="btn btn-mak mak-bg btn_get_fotos" data-bs-toggle="modal" data-bs-target="#verFotos">Ver Fotos</div>
+                                                    <div class="btn btn-mak mak-bg btn_get_details" data-bs-toggle="modal" data-bs-target="#verDocs">Ver Documentos</div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="blaa" style="width:33%;">
+                                            <div class="card-box">
+                                                <div id="map_resumen" style="height: 250px;">
+                                                </div>
+                                            </div>
+                                            <small id="mensaje_error"></small>
+                                        </div>
+                                        <div class="blaa">
+                                            <div class="card-box card-body data-resume">
+
+                                                <figcaption class="d-flex flex-column pl-2">
+                                                    <p class="b-text"><b>Resumen</b></p>
+
+                                                    <div class="input-select">
+                                                        <input type="text" id="" name="" class="textBox" readonly>
+                                                        <input type="text" id="status_solic_val_cbo" name="status_solic_val_cbo" hidden readonly>
+                                                        <div class="select-options">
+                                                            <div class="bg-secondary" data-value="500">Pendiente</div>
+                                                            <div class="bg-warning" data-value="400">Observado</div>
+                                                            <div class="bg-success" data-value="200">Finalizado</div>
+                                                        </div>
+                                                    </div>
+
+                                                    <small class="">Datos de contacto:</small>
+                                                </figcaption>
+
+                                                <ul>
+                                                    <li><b>Nombre: </b><?php echo $_SESSION['nom_usu']; ?></li>
+                                                    <li><b>Email: </b><?php echo $_SESSION['email_usu']; ?></li>
+                                                    <li><b>Teléfono: </b><?php echo $_SESSION['telef_usu']; ?></li>
+                                                </ul>
+
+                                                <div>
+                                                    <p><strong>Información de la propiedad:</strong></p>
+                                                    <ul class="lst-resume" data-resume></ul>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                                <div class="card-footer pt-5">
+                                    <div class="form-flex">
+                                        <button type="button" class="btn btn-mak mak-bg-sec antPag avanza_pa_atras">Retroceder</button>
+
+                                        <button type="button" class="btn btn-mak mak-bg-sec upld_file_valo" id="subir_valor">Subir Valorizacion</button>
+
+                                        <button type="button" class="btn btn-mak mak-bg-sec add_obs" id="add_obsv_v" data-id_solic>obs</button>
+
+                                        <button type="button" class="btn btn-mak mak-bg dwnld_valo" id="btn_dwnld_valo" name="btn_dwnld_valo" style="display:none;">Descargar Informacion</button>
+
+                                        <button type="button" class="btn btn-mak mak-bg btn_finalizar" id="btnValo_obs_save" name="btnValo_obs_save">Guardar</button>
+
+
+                                    </div>
+                                </div>
+
+                            </div>
+                        </form>
+                    </section>
                 </div>
+                <!-- </div> -->
 
 
 
@@ -1988,6 +1988,7 @@ require_once('../Controller/controladorListar.php'); ?>
 
     <script>
         // ----------------------------
+
 
         document.querySelectorAll(".body-mak").forEach(element => {
 
