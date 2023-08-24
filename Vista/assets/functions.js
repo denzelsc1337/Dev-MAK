@@ -81,8 +81,6 @@ $(document).ready(function () {
     return false;
   });
 
-
-
   $("#btnValo_depa").click(function (e) {
     e.preventDefault();
     //var data = $("#form_valor").serialize();
@@ -121,7 +119,6 @@ $(document).ready(function () {
     });
     return false;
   });
-
 
   $("#btnValo_terren").click(function (e) {
     e.preventDefault();
@@ -283,9 +280,6 @@ $(document).ready(function () {
     return false;
   });
 
-
-
-
   $("#btnValo_lc_ind").click(function (e) {
     e.preventDefault();
     //var data = $("#form_valor").serialize();
@@ -363,6 +357,8 @@ $(document).ready(function () {
       },
     });
   });
+
+
 
 
   // INPUT WITH LIST
