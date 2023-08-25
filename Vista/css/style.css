@@ -1796,6 +1796,10 @@ form .form-content {
   border: none;
 }
 
+#verFotos .modal-body {
+  padding: 0 !important;
+}
+
 .showDocuments {
   display: flex;
 }
@@ -1838,6 +1842,10 @@ form .form-content {
 .showPictures .file-content .file-item:nth-child(22) {
   grid-column: span 2;
   max-height: 500px;
+}
+
+.close span {
+  font-size: 35px;
 }
 
 
