@@ -51,25 +51,34 @@ $(document).ready(function () {
       data: formData,
       processData: false,
       contentType: false,
+
+      beforeSend: function () {
+        $("#loader").show();
+      },
+
       success: function (r) {
         // console.log(r);
-        $("#loader").hide();
-        if (r) {
-          //alert("Solicitud enviada correctamente.");
-          console.log(r);
-          /*const mensaje = JSON.stringify({ tipo: 'nuevo_registro', mensaje: 'Nuevo registro insertado' });
-          socket.send(mensaje);*/
-          // No es necesario cambiar event.returnValue a false
-          // window.location.href = "../Valorizacion/";
-        } else {
-          alert(
-            "Error al registrar, Verifique que los campos esten correctamente completos."
-          );
+
+        setTimeout(function () {
+          $("#loader").hide();
+
+          if (r) {
+            //alert("Solicitud enviada correctamente.");
+            console.log(r);
+            /*const mensaje = JSON.stringify({ tipo: 'nuevo_registro', mensaje: 'Nuevo registro insertado' });
+            socket.send(mensaje);*/
+            // No es necesario cambiar event.returnValue a false
+            window.location.href = "../Valorizacion/";
+          } else {
+            alert(
+              "Error al registrar, Verifique que los campos esten correctamente completos."
+            );
+            // console.log(r);
+            // console.log(data);
+          }
           // console.log(r);
           // console.log(data);
-        }
-        // console.log(r);
-        // console.log(data);
+        }, 2000);
       },
       error: function (xhr, status, error) {
         $("#loader").hide()
