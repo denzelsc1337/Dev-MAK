@@ -336,10 +336,10 @@ h2 {
 /* LOGIN */
 
 /* VALORIZACION */
-.mak-forms .container {
+/* .mak-forms .container {
   max-width: 90%;
   margin: auto;
-}
+} */
 
 #pantalla-SA .column-card .column {
   justify-content: flex-start;
@@ -1551,6 +1551,8 @@ form .form-content {
   padding: 1rem 0.5rem;
 }
 
+
+
 .upld-valo {
   width: 80px;
   height: 70px;
@@ -1783,8 +1785,13 @@ form .form-content {
 }
 
 .blaa {
-  flex: 0 0 29%;
-  max-width: 29%;
+  flex: 0 0 33.33%;
+  max-width: 33.33%;
+}
+
+.blaa:first-child {
+  flex: 0 0 25%;
+  max-width: 25%;
 }
 
 .blaa:last-child {
@@ -1802,6 +1809,15 @@ form .form-content {
 
 .showDocuments {
   display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.showDocuments .PU_docs,
+.showDocuments .CL_docs {
+  padding-left: 10px;
+  font-size: 20px;
+  font-weight: bold;
 }
 
 .showPictures {
@@ -1812,6 +1828,19 @@ form .form-content {
 .showDocuments .archives_cl {
   border: none;
 }
+
+/* .showDocuments .archives_pu::after,
+.showDocuments .archives_cl::after {
+  content: attr(data-heading);
+  display: block;
+  position: relative;
+  top: -40px;
+  left: -35%;
+  padding-bottom: 21px;
+  font-size: 20px;
+  font-weight: 900;
+  color: var(--blue-mak);
+} */
 
 .showDocuments .archives_pu.mt-3,
 .showDocuments .archives_cl.mt-3 {

@@ -1646,7 +1646,7 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                            <div class="row archives_pu mt-3" style="display: none;"></div>
+                                                            <div class="row archives_pu mt-3" data-heading="Archivos PU" style="display: none;"></div>
                                                         </div>
                                                         <br>
                                                         <div>
@@ -1659,7 +1659,7 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                            <div class="row archives_cl mt-3" style="display: none;"></div>
+                                                            <div class="row archives_cl mt-3" data-heading="Archivos CL" style="display: none;"></div>
                                                         </div>
 
                                                     </div>
@@ -1886,7 +1886,15 @@
 
 
 
-                                        <div class="showDocuments"></div>
+                                        <div class="showDocuments">
+                                            <div class="PU_docs">
+                                                <span>Archivos PU</span>
+                                            </div>
+                                            <div class="CL_docs">
+                                                <span>Archivos CL</span>
+                                            </div>
+
+                                        </div>
 
 
                                     </div>

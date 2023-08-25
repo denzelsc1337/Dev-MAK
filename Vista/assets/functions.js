@@ -376,13 +376,13 @@ $(document).ready(function () {
 
         if (response) {
           $("#message_aprob").text("Archivos cargados exitosamente.");
-          console.log("e?"+response);
+          console.log("e?" + response);
         } else if (response.error) {
           $("#message_aprob").text(response.error);
-          console.log("uwu"+response);
+          console.log("uwu" + response);
         } else {
           $("#message_aprob").text("Error desconocido al cargar archivos.");
-          console.log("p"+response);
+          console.log("p" + response);
         }
 
       },
@@ -393,33 +393,33 @@ $(document).ready(function () {
   });
 
 
-  $("#loginButton").click(function(e) {
+  $("#loginButton").click(function (e) {
     e.preventDefault();
 
     var data = $("#loginForm").serialize();
 
     $.ajax({
-        type: "POST",
-        url: "Controller/login.php",
-        data: data,
-        success: function(response) {
-            if (response === 'empty_fields') {
-                $("#message").text("Please fill in all fields.");
+      type: "POST",
+      url: "Controller/login.php",
+      data: data,
+      success: function (response) {
+        if (response === 'empty_fields') {
+          $("#message").text("Please fill in all fields.");
 
-            } else if (response === 'incorrect_auth') {
+        } else if (response === 'incorrect_auth') {
 
-                $("#message").text("Incorrect authentication. Please try again.");
+          $("#message").text("Incorrect authentication. Please try again.");
 
-            } else if (response === 'success') {
+        } else if (response === 'success') {
 
-                window.location.href = 'dashboard.php';
-            } else {
-                $("#message").text("Unknown error while logging in.");
-            }
-        },
-        error: function(xhr, status, error) {
-            console.error(error);
+          window.location.href = 'dashboard.php';
+        } else {
+          $("#message").text("Unknown error while logging in.");
         }
+      },
+      error: function (xhr, status, error) {
+        console.error(error);
+      }
     });
   });
 
@@ -857,18 +857,32 @@ $(document).ready(function () {
   const verDocs = document.getElementById("verDocs_");
   const modal = document.getElementById("verDocs");
   const modalContentDocuments = modal.querySelector(".showDocuments");
+  // --
+  const PU_docs = modalContentDocuments.querySelector(".PU_docs");
+  const CL_docs = modalContentDocuments.querySelector(".CL_docs");
+
+  // console.log(PU_docs);
+  // console.log(CL_docs);
 
   verDocs.addEventListener("click", () => {
     const docsPu = document.querySelector(".archives_pu");
     const docsCl = document.querySelector(".archives_cl");
 
+
+
     // Clona los elementos y elimina la etiqueta <span> de los clones
     const clonedDocsPu = removeDropDocs(docsPu);
     const clonedDocsCl = removeDropDocs(docsCl);
+    // ----
+    PU_docs.appendChild(clonedDocsPu);
+    CL_docs.appendChild(clonedDocsCl);
+
 
     modalContentDocuments.innerHTML = ""; // Limpia el contenido actual
-    modalContentDocuments.appendChild(clonedDocsPu);
-    modalContentDocuments.appendChild(clonedDocsCl);
+    modalContentDocuments.appendChild(PU_docs);
+    modalContentDocuments.appendChild(CL_docs);
+    // ----
+
 
     // Llama a la función que actualiza la visibilidad de los archivos (si es necesario)
     cantFilesValor();
