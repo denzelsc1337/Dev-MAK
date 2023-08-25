@@ -1097,7 +1097,6 @@ require_once('../Controller/controladorListar.php'); ?>
                         console.error("Error al analizar la respuesta JSON: " + error);
                     }
 
-                    const startTime = new Date().getTime();
 
                     setTimeout(function() {
 
@@ -1225,10 +1224,7 @@ require_once('../Controller/controladorListar.php'); ?>
 
                         });
 
-                        const endTime = new Date().getTime();
-                        const elapsedTime = endTime - startTime;
-                        console.log(`Tiempo transcurrido: ${elapsedTime} ms`);
-                    }, 54000000);
+                    }, 2000);
 
                 },
                 error: function(xhr, status, error) {
