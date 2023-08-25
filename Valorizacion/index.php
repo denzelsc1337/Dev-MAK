@@ -1266,7 +1266,7 @@ require_once('../Controller/controladorListar.php'); ?>
                         var map = new google.maps.Map(document.getElementById('map_resumen'), {
                             center: districtLocation,
                             zoom: 18,
-                            disableDefaultUI: true
+                            //disableDefaultUI: true
                         });
 
 
