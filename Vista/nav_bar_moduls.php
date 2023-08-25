@@ -12,9 +12,9 @@
     <li class="nav-item">
       <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
     </li>
-    <li class="nav-item d-none d-sm-inline-block">
+    <!-- <li class="nav-item d-none d-sm-inline-block">
       <a href="../dashboard.php" class="nav-link">Inicio</a>
-    </li>
+    </li> -->
   </ul>
 
 
@@ -83,13 +83,13 @@
                   <p>Revision de Valorizaciones</p>
                 </a>
               </li>
-
+<!-- 
               <li class="nav-item">
                 <a href="../Config/logout.php" class="nav-link">
                   <i class="nav-icon fas fa-sharp fa-regular fa-power-off"></i>
                   <p>Cerrar Sesion</p>
                 </a>
-              </li>
+              </li> -->
             </ul>
           </nav>
         <?php endif ?>

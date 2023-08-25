@@ -1807,7 +1807,11 @@
 
                             <div class="d-flex margin justify-content-around">
 
-                                <button type="button" class="btn btn-mak btn-danger" data-dismiss="modal">Cancelar</button>
+                                <!-- <button type="button" class="btn btn-mak btn-danger" data-dismiss="modal">Cancelar</button> -->
+                                <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> -->
+                                <button type="button" class="btn btn-mak bg-danger btn-close" data-bs-dismiss="modal" aria-label="Close">Cancelar</button>
+
+
 
                                 <button type="button" class="btn btn-mak mak-bg " id="btnValo_casa" name="btnValo_casa" style="display:none">
                                     Finalizar
