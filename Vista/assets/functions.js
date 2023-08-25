@@ -821,13 +821,13 @@ $(document).ready(function () {
 
 
     if (upldValoPU > 0) {
-      archivesPU.style.display = "flex";
+      archivesPU.style.display = "inline-flex";
     } else {
       archivesPU.style.display = "none";
     }
 
     if (upldValoCL > 0) {
-      archivesCL.style.display = "flex";
+      archivesCL.style.display = "inline-flex";
     } else {
       archivesCL.style.display = "none";
     }
