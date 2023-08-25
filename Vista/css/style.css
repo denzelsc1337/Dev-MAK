@@ -1798,7 +1798,10 @@ form .form-content {
 
 .showDocuments {
   display: flex;
-  gap: 10px;
+}
+
+.showPictures {
+  padding: 0 40px 25px;
 }
 
 .showDocuments .archives_pu,
