@@ -1888,10 +1888,10 @@
 
                                         <div class="showDocuments">
                                             <div class="PU_docs">
-                                                <span>Archivos PU</span>
+                                                <span class="docs-title">Archivos PU</span>
                                             </div>
                                             <div class="CL_docs">
-                                                <span>Archivos CL</span>
+                                                <span class="docs-title">Archivos CL</span>
                                             </div>
 
                                         </div>

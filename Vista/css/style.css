@@ -26,6 +26,11 @@ body {
   font-family: var(--Text) !important;
   background-color: #f8fafb;
   color: var(--blue-mak) !important;
+
+  & i {
+    font-size: 20px;
+    color: var(--blue-mak);
+  }
 }
 
 select.form-mak option {
@@ -88,6 +93,10 @@ strong {
 #toLogin:hover {
   text-decoration: underline;
   cursor: pointer;
+}
+
+.justify-content-evenly {
+  justify-content: space-evenly !important;
 }
 
 a {
@@ -432,18 +441,26 @@ h2 {
 }
 
 .options {
-  width: 40px;
+  min-width: 40px;
   height: 40px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.options .options {
+.options {
   cursor: pointer;
 }
 
-.options .options:hover {
+.options button {
+  padding: 0 !important;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.options:hover {
   border-radius: 5px;
   background-color: rgba(0, 0, 0, 0.1);
 }
@@ -1818,6 +1835,11 @@ form .form-content {
   padding-left: 10px;
   font-size: 20px;
   font-weight: bold;
+}
+
+.showDocuments .PU_docs .docs-title,
+.showDocuments .CL_docs .docs-title {
+  display: flex;
 }
 
 .showPictures {
