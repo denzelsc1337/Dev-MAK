@@ -303,7 +303,7 @@ require_once('../Controller/controladorListar.php'); ?>
                                                                 <i class="fa-solid fa-eye"></i>
                                                             </button>
 
-                                                            <?php if ($lst_vlzn_[6] == 200 && !$lst_vlzn_[7] == null) : ?>
+                                                            <?php if ($lst_vlzn_[6] == 200 && !$lst_vlzn_[7] == null) :?>
                                                                 <a href="../Valorizaciones/<?php echo $lst_vlzn_[0] . '/' . $lst_vlzn_[9].'/docs_val/'.$lst_vlzn_[7] ?>">
                                                                     <i class="fa-regular fa-circle-down"></i>
                                                                 </a>
