@@ -14,11 +14,18 @@ require_once('../Model/Valorizacion.php');
 
   $archivos_cont = count($archivos_selecc['name']);
 
+
   $archivos_total = 0;
 
   for ($i=0; $i < $archivos_cont ; $i++) { 
     $ubicacion_save = $target_dir . basename($archivos_selecc["name"][$i]);
     if (move_uploaded_file($archivos_selecc["tmp_name"][$i], $ubicacion_save)) {
+
+        require_once('../Model/Valorizacion.php');
+        $oValor = new Valorizacion();
+
+        // Modificar la llamada a la función del modelo con los nuevos parámetros
+        $oValor->update_doc_nom_valor($id_reg, $dni_cli,$archivos_selecc["name"][$i]);
 
         $archivos_total++;
     }
