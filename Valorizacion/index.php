@@ -106,7 +106,7 @@ require_once('../Controller/controladorListar.php'); ?>
                             <h1 class="text-center">HISTORICO</h1>
                             <div class="row">
 
-                                <div class="menu-filter">
+                                <!-- <div class="menu-filter">
                                     <div class="filter-drop shadow ml-auto">
                                         <div class="dropdown">
                                             Filtros &nbsp;
@@ -118,7 +118,7 @@ require_once('../Controller/controladorListar.php'); ?>
                                             <div class="list-group-item">3</div>
                                         </div>
                                     </div>
-                                </div>
+                                </div> -->
 
                                 <?php
 
