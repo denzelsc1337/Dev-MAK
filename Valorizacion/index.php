@@ -2100,7 +2100,8 @@ require_once('../Controller/controladorListar.php'); ?>
                 "drawCallback": function(settings) {
                     $('.dataTables_length select').addClass('form-mak sect tableLenght');
                     $('.dataTables_filter input').addClass('form-mak sect');
-                }
+                },
+                "order": [[0, "desc"]],
             });
         });
     </script>
