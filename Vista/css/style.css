@@ -2103,6 +2103,7 @@ figcaption {
 }
 
 .input-select .textBox {
+  color: var(--white-mak);
   border: 0;
   width: 130px;
   text-align: center;
@@ -2137,6 +2138,7 @@ figcaption {
 }
 
 .input-select .select-options div {
+  color: var(--white-mak);
   text-align: center;
   cursor: pointer;
   padding: 5px 10px;
