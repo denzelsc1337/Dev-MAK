@@ -2066,12 +2066,24 @@ form .form-content {
 
 
 .sidebar {
+
+  & nav-sidebar {
+
+    & nav-item a i {
+      color: var(--white-mak) !important;
+    }
+  }
+
   & section {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     height: calc(100% - 90px);
   }
+}
+
+.sidebar .nav-sidebar .nav-item a i {
+  color: var(--white-mak) !important;
 }
 
 .sidebar-mini.sidebar-collapse .content-wrapper,
