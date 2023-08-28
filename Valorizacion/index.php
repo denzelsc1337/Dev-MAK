@@ -135,7 +135,7 @@ require_once('../Controller/controladorListar.php'); ?>
 
                                         <table id="tabla" class="table table_ table-borderless mb-3 ml-3 mr-3" style="width: 100%;">
 
-                                            <thead class="">
+                                            <thead>
                                                 <tr>
                                                     <th>ID</th>
                                                     <th>Dni</th>
@@ -232,7 +232,7 @@ require_once('../Controller/controladorListar.php'); ?>
                                     <!-- <div class="table-responsive "> -->
                                     <div class="col-sm-12">
                                         <table class="table table_ table-borderless mb-3 pl-3 pr-3" style="width: 100%;">
-                                            <thead class="">
+                                            <thead>
                                                 <tr>
                                                     <th>ID</th>
                                                     <th>Cliente</th>
@@ -377,8 +377,8 @@ require_once('../Controller/controladorListar.php'); ?>
 
                                     <div class="card-body mt-4">
                                         <table class="table table-borderless">
-                                            <thead class="">
-                                                <tr>
+                                            <thead>
+                                                <tr class="t-head">
                                                     <th>DISTRITO</th>
                                                     <th>DIRECCIÓN</th>
                                                     <th>TIPO</th>
@@ -455,7 +455,7 @@ require_once('../Controller/controladorListar.php'); ?>
 
                                                 <div>
                                                     <p><strong>Información de la propiedad:</strong></p>
-                                                    <ul class="lst-resume" data-resume></ul>
+                                                    
                                                 </div>
                                             </div>
                                         </div>
@@ -499,8 +499,8 @@ require_once('../Controller/controladorListar.php'); ?>
 
                             <form id="adding_valo_file" method="POST" enctype="multipart/form-data">
                                 <div class="modal-body">
-                                    <input type="text" name="id_reg_valor" id="id_reg_valor">
-                                    <input type="text" name="dni_solic_valor" id="dni_solic_valor">
+                                    <input type="text" name="id_reg_valor" id="id_reg_valor" hidden>
+                                    <input type="text" name="dni_solic_valor" id="dni_solic_valor" hidden>
                                     <div class="form-group">
                                         <label>Archivo de Valorizacion</label>
                                         <br>
@@ -621,10 +621,10 @@ require_once('../Controller/controladorListar.php'); ?>
                 </div>
 
                 <div class="modal fade" id="get_obs_valr" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                     <div id="loader_uhd_2" class="mak_overlay hidden">
+                    <div id="loader_uhd_2" class="mak_overlay hidden">
                         <img src="../Vista/images/MAK_logo.png" alt="" class="fading-element">
                     </div>
-                    <div class="modal-dialog modal-dialog-centered" role="document" >
+                    <div class="modal-dialog modal-dialog-centered" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
                                 <h5 class="modal-title" id="exampleModalLabel">Observaciones</h5>
@@ -1143,7 +1143,7 @@ require_once('../Controller/controladorListar.php'); ?>
 
                         if (obs == null) {
                             $("#obs_sent_").val('Sin Observaciones')
-                        }else{
+                        } else {
                             $("#obs_sent_").val(obs)
                         }
 
@@ -1327,7 +1327,7 @@ require_once('../Controller/controladorListar.php'); ?>
 
                         });
 
-                    }, 2000);
+                    }, 900);
 
                 },
                 error: function(xhr, status, error) {
@@ -2101,7 +2101,9 @@ require_once('../Controller/controladorListar.php'); ?>
                     $('.dataTables_length select').addClass('form-mak sect tableLenght');
                     $('.dataTables_filter input').addClass('form-mak sect');
                 },
-                "order": [[0, "desc"]],
+                "order": [
+                    [0, "desc"]
+                ],
             });
         });
     </script>
