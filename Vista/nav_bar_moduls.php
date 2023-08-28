@@ -1,6 +1,6 @@
 <!-- Preloader -->
 <div class="preloader flex-column justify-content-center align-items-center">
-  <img src="../Vista/images/mak_2.png" alt="AdminLTELogo" height="90" width="15%">
+  <img src="../Vista/images/mak_2.png" alt="MakLogo" width="25%">
 </div>
 <!-- Navbar -->
 <nav class="main-header navbar navbar-expand navbar-dark mak-bg">
