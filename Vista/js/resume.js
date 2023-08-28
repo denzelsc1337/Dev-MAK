@@ -118,6 +118,11 @@
           checkbox.addEventListener("change", function () {
             if (this.checked) {
               this.value = "true";
+              // ----
+              if (checkbox.id.includes("sala_com")) {
+                console.log(checkbox);
+              }
+              // ----
             } else {
               this.value = "false";
             }

@@ -536,7 +536,7 @@ require_once('../Controller/controladorListar.php'); ?>
                         <div class="modal-content">
                             <div class="modal-body">
                                 <h1 class="title-m" id="titulo_docs">Detalles</h1>
-                                <div class="row margin">
+                                <div class="row">
                                     <div hidden>
                                         <input type="text" name="txt_solic" id="txt_solic">
                                         <input type="text" name="txt_id_cli" id="txt_id_cli">
@@ -571,7 +571,7 @@ require_once('../Controller/controladorListar.php'); ?>
                         <div class="modal-content">
                             <div class="modal-body">
                                 <h1 class="title-m" id="titulo_docs">Detalles</h1>
-                                <div class="row margin">
+                                <div class="row">
                                     <div hidden>
                                         <input type="text" name="txt_solic" id="txt_solic">
                                         <input type="text" name="txt_id_cli" id="txt_id_cli">
@@ -1620,13 +1620,19 @@ require_once('../Controller/controladorListar.php'); ?>
 
                         archivos.forEach(function(archivo) {
                             if (archivo.trim() !== '') {
-                                var link_ = $('<a>')
-                                    .attr('href', '../Valorizaciones/' + id_sol_v + '/' + dni + '/fotos_val/' + archivo)
-                                    .attr('download', archivo)
-                                    .text(archivo);
+                                // var link_ = $('<a>')
+                                //     .attr('href', '../Valorizaciones/' + id_sol_v + '/' + dni + '/fotos_val/' + archivo)
+                                //     .attr('download', archivo)
+                                //     .text(archivo);
 
-                                var listItem = $('<li>').append(link_);
-                                archivosLista.append(listItem);
+                                // var listItem = $('<li>').append(link_);
+                                // archivosLista.append(listItem);
+                                var img = $('<img>')
+                                    .attr('src', '../Valorizaciones/' + id_sol_v + '/' + dni + '/fotos_val/' + archivo)
+                                    .attr('alt', archivo);
+                                // .addClass('imagen-valorizacion'); // Clase para aplicar estilos si es necesario
+
+                                archivosLista.append(img);
                             }
                         });
 
