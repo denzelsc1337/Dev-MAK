@@ -57,8 +57,6 @@ $(document).ready(function () {
       },
 
       success: function (r) {
-        // console.log(r);
-
         setTimeout(function () {
           $("#loader").hide();
 
@@ -78,7 +76,7 @@ $(document).ready(function () {
           }
           // console.log(r);
           // console.log(data);
-        }, 2000);
+        }, 900);
       },
       error: function (xhr, status, error) {
         $("#loader").hide()
@@ -92,6 +90,7 @@ $(document).ready(function () {
 
   $("#btnValo_depa").click(function (e) {
     e.preventDefault();
+    $("#loader").show();
     //var data = $("#form_valor").serialize();
     var formData = new FormData($("#form_valor")[0]);
 
@@ -105,20 +104,28 @@ $(document).ready(function () {
       data: formData,
       processData: false,
       contentType: false,
+
+      beforeSend: function () {
+        $("#loader").show();
+      },
+
       success: function (r) {
-        $("#loader").hide();
-        if (r) {
-          //alert("Solicitud enviada correctamente.");
-          console.log(r);
-          //event.returnValue = false;
-          //window.location.href = "../Valorizacion/";
-        } else {
-          alert(
-            "Error al registrar, Verifique que los campos esten correctamente completos."
-          );
-          console.log(r);
-          //console.log(formData);
-        }
+        setTimeout(function () {
+
+          $("#loader").hide();
+          if (r) {
+            //alert("Solicitud enviada correctamente.");
+            console.log(r);
+            //event.returnValue = false;
+            window.location.href = "../Valorizacion/";
+          } else {
+            alert(
+              "Error al registrar, Verifique que los campos esten correctamente completos."
+            );
+            console.log(r);
+            //console.log(formData);
+          }
+        },900);
       },
       error: function (xhr, status, error) {
         $("#loader").hide()
@@ -130,6 +137,7 @@ $(document).ready(function () {
   });
 
   $("#btnValo_terren").click(function (e) {
+    $("#loader").show();
     e.preventDefault();
     //var data = $("#form_valor").serialize();
     var formData = new FormData($("#form_valor")[0]);
@@ -149,21 +157,29 @@ $(document).ready(function () {
       processData: false,
       contentType: false,
 
-      success: function (r) {
-        $("#loader").hide();
-        if (r) {
-          //alert("Solicitud enviada correctamente.");
-          console.log(r);
-          event.returnValue = false;
-          //window.location.href = "../Valorizacion/";
-        } else {
-          alert(
-            "Error al registrar, Verifique que los campos esten correctamente completos."
-          );
-          console.log(r);
-          //console.log(data);
-        }
+      beforeSend: function () {
+        $("#loader").show();
       },
+
+      success: function (r) {
+        setTimeout(function () {
+
+          $("#loader").hide();
+          if (r) {
+            //alert("Solicitud enviada correctamente.");
+            console.log(r);
+            //event.returnValue = false;
+            window.location.href = "../Valorizacion/";
+          } else {
+            alert(
+              "Error al registrar, Verifique que los campos esten correctamente completos."
+            );
+            console.log(r);
+            //console.log(formData);
+          }
+        },900);
+      },
+
       error: function (xhr, status, error) {
         $("#loader").hide();
         console.error(error);
@@ -173,6 +189,7 @@ $(document).ready(function () {
   });
 
   $("#btnValo_ofi").click(function (e) {
+    $("#loader").show();
     e.preventDefault();
     //var data = $("#form_valor").serialize();
     var formData = new FormData($("#form_valor")[0]);
@@ -188,20 +205,27 @@ $(document).ready(function () {
       processData: false,
       contentType: false,
 
+      beforeSend: function () {
+        $("#loader").show();
+      },
+
       success: function (r) {
-        $("#loader").hide();
-        if (r) {
-          //alert("Solicitud enviada correctamente.");
-          console.log(r);
-          event.returnValue = false;
-          //window.location.href = "../Valorizacion/";
-        } else {
-          alert(
-            "Error al registrar, Verifique que los campos esten correctamente completos."
-          );
-          console.log(r);
-          console.log(data);
-        }
+        setTimeout(function () {
+
+          $("#loader").hide();
+          if (r) {
+            //alert("Solicitud enviada correctamente.");
+            console.log(r);
+            //event.returnValue = false;
+            window.location.href = "../Valorizacion/";
+          } else {
+            alert(
+              "Error al registrar, Verifique que los campos esten correctamente completos."
+            );
+            console.log(r);
+            //console.log(formData);
+          }
+        },900);
       },
       error: function (xhr, status, error) {
         $("#loader").hide();
@@ -212,6 +236,7 @@ $(document).ready(function () {
   });
 
   $("#btnValo_lc_ex").click(function (e) {
+    $("#loader").show();
     e.preventDefault();
     //var data = $("#form_valor").serialize();
     var formData = new FormData($("#form_valor")[0]);
@@ -227,21 +252,29 @@ $(document).ready(function () {
       processData: false,
       contentType: false,
 
-      success: function (r) {
-        $("#loader").hide();
-        if (r) {
-          //alert("Solicitud enviada correctamente.");
-          console.log(r);
-          event.returnValue = false;
-          //window.location.href = "../Valorizacion/";
-        } else {
-          alert(
-            "Error al registrar, Verifique que los campos esten correctamente completos."
-          );
-          console.log(r);
-          //console.log(data);
-        }
+      beforeSend: function () {
+        $("#loader").show();
       },
+
+      success: function (r) {
+        setTimeout(function () {
+
+          $("#loader").hide();
+          if (r) {
+            //alert("Solicitud enviada correctamente.");
+            console.log(r);
+            //event.returnValue = false;
+            window.location.href = "../Valorizacion/";
+          } else {
+            alert(
+              "Error al registrar, Verifique que los campos esten correctamente completos."
+            );
+            console.log(r);
+            //console.log(formData);
+          }
+        },900);
+      },
+
       error: function (xhr, status, error) {
         $("#loader").hide();
         console.error(error);
@@ -251,6 +284,7 @@ $(document).ready(function () {
   });
 
   $("#btnValo_lc_com").click(function (e) {
+    $("#loader").show();
     e.preventDefault();
     //var data = $("#form_valor").serialize();
     var formData = new FormData($("#form_valor")[0]);
@@ -266,20 +300,27 @@ $(document).ready(function () {
       processData: false,
       contentType: false,
 
+      beforeSend: function () {
+        $("#loader").show();
+      },
+
       success: function (r) {
-        $("#loader").hide();
-        if (r) {
-          //alert("Solicitud enviada correctamente.");
-          console.log(r);
-          event.returnValue = false;
-          //window.location.href = "../Valorizacion/";
-        } else {
-          alert(
-            "Error al registrar, Verifique que los campos esten correctamente completos."
-          );
-          console.log(r);
-          //console.log(data);
-        }
+        setTimeout(function () {
+
+          $("#loader").hide();
+          if (r) {
+            //alert("Solicitud enviada correctamente.");
+            console.log(r);
+            //event.returnValue = false;
+            window.location.href = "../Valorizacion/";
+          } else {
+            alert(
+              "Error al registrar, Verifique que los campos esten correctamente completos."
+            );
+            console.log(r);
+            //console.log(formData);
+          }
+        },900);
       },
       error: function (xhr, status, error) {
         $("#loader").hide();
@@ -290,6 +331,7 @@ $(document).ready(function () {
   });
 
   $("#btnValo_lc_ind").click(function (e) {
+    $("#loader").show();
     e.preventDefault();
     //var data = $("#form_valor").serialize();
     var formData = new FormData($("#form_valor")[0]);
@@ -306,20 +348,27 @@ $(document).ready(function () {
       processData: false,
       contentType: false,
 
+      beforeSend: function () {
+        $("#loader").show();
+      },
+
       success: function (r) {
-        $("#loader").hide();
-        if (r) {
-          //alert("Solicitud enviada correctamente.");
-          console.log(r);
-          event.returnValue = false;
-          //window.location.href = "../Valorizacion/";
-        } else {
-          alert(
-            "Error al registrar, Verifique que los campos esten correctamente completos."
-          );
-          console.log(r);
-          //console.log(data);
-        }
+        setTimeout(function () {
+
+          $("#loader").hide();
+          if (r) {
+            //alert("Solicitud enviada correctamente.");
+            console.log(r);
+            //event.returnValue = false;
+            window.location.href = "../Valorizacion/";
+          } else {
+            alert(
+              "Error al registrar, Verifique que los campos esten correctamente completos."
+            );
+            console.log(r);
+            //console.log(formData);
+          }
+        },900);
       },
       error: function (xhr, status, error) {
         $("#loader").hide();

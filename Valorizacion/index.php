@@ -297,8 +297,8 @@ require_once('../Controller/controladorListar.php'); ?>
                                                         <td>
                                                             <div class="row justify-content-evenly">
                                                                 <div class="col-sm-6 d-flex justify-content-center">
-                                                                    <div class="options">
-                                                                        <button type="button" class="btn btn-rounded btn_get_obs_0" data-id_solic_val="<?php echo $lst_vlzn_[0] ?>" data-id_cli="<?php echo $lst_vlzn_[8] ?>" data-dni_cli="<?php echo $lst_vlzn_[9] ?>">
+                                                                    <div class="options btn_get_obs_0" data-id_solic_val="<?php echo $lst_vlzn_[0] ?>" data-id_cli="<?php echo $lst_vlzn_[8] ?>" data-dni_cli="<?php echo $lst_vlzn_[9] ?>">
+                                                                        <button type="button" class="btn btn-rounded " >
                                                                             <i class="fa-solid fa-eye"></i>
                                                                         </button>
                                                                     </div>
@@ -624,7 +624,7 @@ require_once('../Controller/controladorListar.php'); ?>
                     <div id="loader_uhd_2" class="mak_overlay hidden">
                         <img src="../Vista/images/MAK_logo.png" alt="" class="fading-element">
                     </div>
-                    <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-dialog modal-dialog-centered" role="document" >
                         <div class="modal-content">
                             <div class="modal-header">
                                 <h5 class="modal-title" id="exampleModalLabel">Observaciones</h5>

@@ -801,7 +801,17 @@ class Valorizacion
 		$cnx = new conexion();
 		$cadena = $cnx->abrirConexion();
 
-		$query = "SELECT * FROM valorizacion WHERE id_valor = $id";
+		$query = "SELECT id_valor, cs.nom_client, direccion, ti.tipo_inmb, sti.sub_tipo_inmb, tp.tipo_promo, area_terreno, area_construida, area_ocupada, antiguedad, sala_comedor, sala, comedor, cocina, amoblado, piscina_prop, cant_dorm, dormitorio_banho, cant_banho, banho_visita, cuarto_serv, banho_serv, estacionamiento, deposito, ub.tipo_ubic, tv.tipo_vista, ta.tipo_acabado, sala_comedor_dep, sala_dep, comedor_dep, cocina_dep, amob_dep, cant_dorm_dep, dormitorio_banho_dep, cant_banho_dep, banho_visita_dep, cuarto_serv_dep, banho_serv_dep, estac_dep, deposito_dep, ascensor_dep, ascensor_dir_dep, pisos_edif_dep, piso_dep
+		cod_zonificacion, cod_tipo_suelo, param_terreno, frent_terreno, izq_terreno, fondo_terreno, der_terreno, piso_ofi, cochera_ofi, ascensor_ofi, aire_ofi, frente_lcl_com, cochera_lcl_com, piso_lcl_com, ascensor_lcl_com, aire_lcl_com, frente_lcl_ind, nave_lcl_ind, estado_solicitud, comentario,obs
+		FROM valorizacion vl
+		 LEFT JOIN clientes_servicios cs ON vl.cod_client = cs.id_client
+					LEFT JOIN tipo_inmuebles ti ON vl.cod_tipo_inmue = ti.id_tipo_inmb
+					LEFT JOIN sub_tipo_inmuebles sti ON vl.cod_sub_tipo_inmue = sti.id_sub_tipo_inmb
+					LEFT JOIN tipo_promocion tp ON vl.cod_tipo_prom = tp.id_promo
+					LEFT JOIN tipo_acabado ta ON vl.cod_acabado = ta.id_acabado
+					LEFT JOIN tipo_vista tv ON vl.cod_vista = tv.id_vista
+					LEFT JOIN ubicacion ub ON vl.cod_ubi = ub.id_ubicacion
+		WHERE vl.id_valor = $id";
 
 		$resultado = mysqli_query($cadena, $query);
 
