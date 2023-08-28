@@ -547,6 +547,7 @@ h2 {
 }
 
 .badge {
+  color: var(--white-mak) !important;
   padding: 10px 15px !important;
   font-size: 15px !important;
 }
@@ -2103,7 +2104,7 @@ figcaption {
 }
 
 .input-select .textBox {
-  color: var(--white-mak);
+  color: var(--white-mak) !important;
   border: 0;
   width: 130px;
   text-align: center;
@@ -2138,7 +2139,7 @@ figcaption {
 }
 
 .input-select .select-options div {
-  color: var(--white-mak);
+  color: var(--white-mak) !important;
   text-align: center;
   cursor: pointer;
   padding: 5px 10px;
