@@ -1638,7 +1638,7 @@
                                                         <h3><b>Subir Documentos</b></h3>
                                                         <div>
                                                             <div class="row">
-                                                                <label class="col-sm-3 col-form-label">Predio Urbano:</label>
+                                                                <label class="col-sm-3 col-form-label">PU o PR y HR:</label>
                                                                 <div class="section-input col-sm-6">
                                                                     <div class="upload-file">
                                                                         <label for="" class="upld-file pu" data-type="pu">Seleccionar archivos.</label>
@@ -1778,11 +1778,13 @@
 
 
                                         </div>
-                                        <div class="form-flex">
-                                            <button type="button" class="btn btn-mak mak-bg-sec antPag">Retroceder</button>
-                                            <button type="button" class="btn btn-mak mak-bg btn_finalizar" id="btn_finalizar" name="btn_finalizar">
-                                                Finalizar
-                                            </button>
+                                        <div class="card-footer">
+                                            <div class="form-flex">
+                                                <button type="button" class="btn btn-mak mak-bg-sec antPag">Retroceder</button>
+                                                <button type="button" class="btn btn-mak mak-bg btn_finalizar" id="btn_finalizar" name="btn_finalizar">
+                                                    Finalizar
+                                                </button>
+                                            </div>
                                         </div>
 
                                     </div>

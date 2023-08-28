@@ -58,43 +58,53 @@ require_once('../Controller/controladorListar.php'); ?>
 
                 <?php include '../Vista/head-form.php' ?>
 
+                <?php
 
-                <section class="content body-mak mak-txt">
-                    <div class="container">
-                        <div class="card-body p-0 ml-5 mr-5">
-                            <div class="b-title txt-center">VALORIZACIONES</div>
-                            <p class="mak-txt b-text">¡Bienvenido <strong><?php echo $_SESSION['nom_usu'] . " " . $_SESSION['ape_usu'] ?></strong>! Para realizar un correcto proceso de valorización, es necesario tener en cuenta los siguientes puntos clave:</p>
-                            <label class="mak-txt b-text">1. Documentos requeridos:</label>
-                            <ul>
-                                <li>Adjunta una Copia Literal o Partida Registral.</li>
-                                <li>Incluye un Predio Urbano (PU).</li>
-                                <li>Asegúrate de proporcionar la Hoja de Resumen (HR).</li>
-                            </ul>
-                            <label class="mak-txt b-text">2. Importante: Los documentos no deben ser mayores a 3 meses del presente año.</label>
-                            <p class="mak-txt b-text">Además, tienes la opción de adjuntar documentos opcionales, que pueden enriquecer el proceso de valorización:</p>
-                            <ul>
-                                <li>Certificado de Parámetros. </li>
-                                <li>Planos.</li>
-                                <li>Tasación Anterior. </li>
-                                <li>Recibo de Agua o Luz.</li>
-                            </ul>
-                            <p class="mak-txt b-text">Recuerda que tu colaboración es esencial para garantizar la calidad de la información. ¡Agradecemos tu participación en este proceso!</p>
+
+                if ($_SESSION['tipo_usu'] != 1) {
+                    //ocultar el del user y mostrar el del admin
+                ?>
+
+                    <section class="content body-mak mak-txt">
+                        <div class="container">
+                            <div class="card-body p-0 ml-5 mr-5">
+                                <div class="b-title txt-center">VALORIZACIONES</div>
+                                <p class="mak-txt b-text">¡Bienvenido <strong><?php echo $_SESSION['nom_usu'] . " " . $_SESSION['ape_usu'] ?></strong>! Para realizar un correcto proceso de valorización, es necesario tener en cuenta los siguientes puntos clave:</p>
+                                <label class="mak-txt b-text">1. Documentos requeridos:</label>
+                                <ul>
+                                    <li>Adjunta una Copia Literal o Partida Registral.</li>
+                                    <li>Incluye un Predio Urbano (PU).</li>
+                                    <li>Asegúrate de proporcionar la Hoja de Resumen (HR).</li>
+                                </ul>
+                                <label class="mak-txt b-text">2. Importante: Los documentos no deben ser mayores a 3 meses del presente año.</label>
+                                <p class="mak-txt b-text">Además, tienes la opción de adjuntar documentos opcionales, que pueden enriquecer el proceso de valorización:</p>
+                                <ul>
+                                    <li>Certificado de Parámetros. </li>
+                                    <li>Planos.</li>
+                                    <li>Tasación Anterior. </li>
+                                    <li>Recibo de Agua o Luz.</li>
+                                </ul>
+                                <p class="mak-txt b-text">Recuerda que tu colaboración es esencial para garantizar la calidad de la información. ¡Agradecemos tu participación en este proceso!</p>
+
+                            </div>
+                            <?php
+                            if ($_SESSION['tipo_usu'] == 1) {
+                            } else { ?>
+                                <div class="card-footer">
+                                    <div class="form-flex">
+                                        <a href="../Dashboard.php" class="btn btn-mak mak-bg-sec">Retroceder</a>
+                                        <a href="valorizacion.php" class="btn btn-mak mak-bg">Nueva solicitud</a>
+                                    </div>
+                                </div>
+
+                            <?php } ?>
 
                         </div>
-                        <?php
-                        if ($_SESSION['tipo_usu'] == 1) {
-                        } else { ?>
-                            <div class="card-footer">
-                                <div class="form-flex">
-                                    <a href="../Dashboard.php" class="btn btn-mak mak-bg-sec">Retroceder</a>
-                                    <a href="valorizacion.php" class="btn btn-mak mak-bg">Nueva solicitud</a>
-                                </div>
-                            </div>
+                    </section>
 
-                        <?php } ?>
-
-                    </div>
-                </section>
+                <?php
+                }
+                ?>
 
                 <!-- <div class=""> -->
                 <div class="overflow-hidden d-flex scroll">
@@ -103,7 +113,7 @@ require_once('../Controller/controladorListar.php'); ?>
 
 
                         <div class="container">
-                            <h1 class="text-center">HISTORICO</h1>
+                            <h1 class="text-center mt-5">HISTORICO</h1>
                             <div class="row">
 
                                 <!-- <div class="menu-filter">
@@ -298,7 +308,7 @@ require_once('../Controller/controladorListar.php'); ?>
                                                             <div class="row justify-content-evenly">
                                                                 <div class="col-sm-6 d-flex justify-content-center">
                                                                     <div class="options btn_get_obs_0" data-id_solic_val="<?php echo $lst_vlzn_[0] ?>" data-id_cli="<?php echo $lst_vlzn_[8] ?>" data-dni_cli="<?php echo $lst_vlzn_[9] ?>">
-                                                                        <button type="button" class="btn btn-rounded " >
+                                                                        <button type="button" class="btn btn-rounded ">
                                                                             <i class="fa-solid fa-eye"></i>
                                                                         </button>
                                                                     </div>
@@ -412,7 +422,7 @@ require_once('../Controller/controladorListar.php'); ?>
                                             <div class="card-body">
                                                 <div>
                                                     <label class="mak-txt">Comentario</label>
-                                                    <textarea id="coment_valr_r" placeholder="Escribe un comentario..."></textarea>
+                                                    <textarea id="coment_valr_r" placeholder="Escribe un comentario..." readonly></textarea>
                                                 </div>
                                                 <div class="row justify-content-between">
                                                     <div class="btn btn-mak mak-bg btn_get_fotos" data-bs-toggle="modal" data-bs-target="#verFotos">Ver Fotos</div>
@@ -455,7 +465,7 @@ require_once('../Controller/controladorListar.php'); ?>
 
                                                 <div>
                                                     <p><strong>Información de la propiedad:</strong></p>
-                                                    
+
                                                 </div>
                                             </div>
                                         </div>
@@ -624,7 +634,7 @@ require_once('../Controller/controladorListar.php'); ?>
                     <div id="loader_uhd_2" class="mak_overlay hidden">
                         <img src="../Vista/images/MAK_logo.png" alt="" class="fading-element">
                     </div>
-                    <div class="modal-dialog modal-dialog-centered" role="document" >
+                    <div class="modal-dialog modal-dialog-centered" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
                                 <h5 class="modal-title" id="exampleModalLabel">Observaciones</h5>

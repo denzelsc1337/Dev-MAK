@@ -214,7 +214,7 @@ a:hover {
   padding: 0 !important;
   /* margin: 0 !important; */
   height: 100vh;
-  margin-bottom: 3rem;
+  /* margin-bottom: 3rem; */
 }
 
 /* .content.display-center {
@@ -332,9 +332,7 @@ h2 {
 }
 
 .footer-login .footer-social span a {
-  font-size: 30px;
-  position: relative;
-  bottom: 3px;
+  font-size: 25px;
 }
 
 /* LOGIN */
@@ -608,7 +606,7 @@ h2 {
 }
 
 .header-mak {
-  background-image: url("https://www.xtrafondos.com/wallpapers/nueva-york-3316.jpg");
+  background-image: url("../../Vista/images/header.png");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
