@@ -2066,14 +2066,6 @@ form .form-content {
 
 
 .sidebar {
-
-  & nav-sidebar {
-
-    & nav-item a i {
-      color: var(--white-mak) !important;
-    }
-  }
-
   & section {
     display: flex;
     flex-direction: column;
