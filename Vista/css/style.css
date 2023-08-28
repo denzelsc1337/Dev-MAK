@@ -339,7 +339,7 @@ h2 {
 .footer-login .footer-social span a {
   font-size: 30px;
   position: relative;
-  top: 2px;
+  bottom: 3px;
 }
 
 /* LOGIN */
