@@ -552,6 +552,11 @@ h2 {
   font-size: 15px !important;
 }
 
+.bg-warning,
+.bg-warning>a {
+  color: var(--white-mak) !important;
+}
+
 .form-group select option {
   height: 50px;
 }
