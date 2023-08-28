@@ -26,11 +26,6 @@ body {
   font-family: var(--Text) !important;
   background-color: #f8fafb;
   color: var(--blue-mak) !important;
-
-  & i {
-    font-size: 20px;
-    color: var(--blue-mak);
-  }
 }
 
 select.form-mak option {
@@ -345,6 +340,11 @@ h2 {
 /* LOGIN */
 
 /* VALORIZACION */
+
+.navbar-nav .nav-item .nav-link i {
+  color: var(--white-mak) !important;
+}
+
 /* .mak-forms .container {
   max-width: 90%;
   margin: auto;
@@ -409,6 +409,11 @@ h2 {
   transition: all 0.5s ease;
   border-radius: var(--radius-20);
   box-shadow: -7px 8px 15px 7px #0000001A;
+
+  & i {
+    font-size: 20px;
+    color: var(--blue-mak);
+  }
 }
 
 
