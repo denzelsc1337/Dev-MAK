@@ -422,7 +422,7 @@ require_once('../Controller/controladorListar.php'); ?>
                                             <div class="card-body">
                                                 <div>
                                                     <label class="mak-txt">Comentario</label>
-                                                    <textarea id="coment_valr_r" placeholder="Escribe un comentario..." readonly></textarea>
+                                                    <textarea id="coment_valr_r" placeholder="Escribe un comentario..." style="resize: none;" readonly></textarea>
                                                 </div>
                                                 <div class="row justify-content-between">
                                                     <div class="btn btn-mak mak-bg btn_get_fotos" data-bs-toggle="modal" data-bs-target="#verFotos">Ver Fotos</div>
