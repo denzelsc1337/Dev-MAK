@@ -298,7 +298,7 @@ require_once('../Controller/controladorListar.php'); ?>
                                                             <div class="row justify-content-evenly">
                                                                 <div class="col-sm-6 d-flex justify-content-center">
                                                                     <div class="options">
-                                                                        <button type="button" class="btn btn-rounded " data-id_solic_val="<?php echo $lst_vlzn_[0] ?>" data-id_cli="<?php echo $lst_vlzn_[8] ?>" data-dni_cli="<?php echo $lst_vlzn_[9] ?>">
+                                                                        <button type="button" class="btn btn-rounded btn_get_obs_0" data-id_solic_val="<?php echo $lst_vlzn_[0] ?>" data-id_cli="<?php echo $lst_vlzn_[8] ?>" data-dni_cli="<?php echo $lst_vlzn_[9] ?>">
                                                                             <i class="fa-solid fa-eye"></i>
                                                                         </button>
                                                                     </div>
@@ -620,6 +620,22 @@ require_once('../Controller/controladorListar.php'); ?>
                     </div>
                 </div>
 
+                <div class="modal fade" id="get_obs_valr" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                     <div id="loader_uhd_2" class="mak_overlay hidden">
+                        <img src="../Vista/images/MAK_logo.png" alt="" class="fading-element">
+                    </div>
+                    <div class="modal-dialog modal-dialog-centered" role="document" >
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Observaciones</h5>
+                            </div>
+                            <div class="modal-body" id="modal_obs">
+                                <textarea id="obs_sent_" name="obs_sent_" readonly disabled></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </section>
         </div>
 
@@ -913,6 +929,25 @@ require_once('../Controller/controladorListar.php'); ?>
 
         });
 
+
+        $('.btn_get_obs_0').on('click', function() {
+
+            var id_ = $(this).data('id_solic_val');
+            var id_cli__ = $(this).data('id_cli');
+            var dni_cli__ = $(this).data('dni_cli');
+
+            console.log(id_);
+
+
+            $('#get_obs_valr').modal('show');
+
+            get_obs_solic(id_, id_cli__, dni_cli__)
+
+        });
+
+
+
+
         $('.btn_get_details').on('click', function() {
 
             $('#details_v').modal('show');
@@ -1055,6 +1090,70 @@ require_once('../Controller/controladorListar.php'); ?>
                 },
                 error: function(xhr, status, error) {
                     console.log(error);
+                }
+            });
+        }
+
+        function get_obs_solic(idsolicitud, idclient, dniclient) {
+            $.ajax({
+                type: 'POST',
+                url: '../Controller/Get_Details_Valorizacion.php',
+                data: {
+                    id_solic_l: idsolicitud,
+                    id_client: idclient,
+                    dni_client: dniclient,
+                },
+
+                beforeSend: function() {
+                    // $("#loader_uhd").show();
+                    $("#loader_uhd_2").removeClass("hidden");
+
+
+                    $("#obs_sent_").hide();
+
+                },
+
+                success: function(response) {
+                    console.log(response);
+
+                    try {
+                        var detalles = JSON.parse(response);
+
+                        console.log(detalles);
+
+                        var id_valor = detalles[0][0];
+                        var nom_client = detalles[0][1];
+                        var obs = detalles[0][63];
+
+                    } catch (error) {
+                        console.error("Error al analizar la respuesta JSON: " + error);
+                    }
+
+
+                    setTimeout(function() {
+
+                        // $("#loader_uhd").hide();
+                        $("#loader_uhd_2").addClass("hidden");
+
+                        $("#obs_sent_").show();
+
+                        console.log("ID Valor: " + id_valor);
+                        console.log("Nombre Cliente: " + nom_client);
+                        console.log("Observacion: " + obs);
+
+                        if (obs == null) {
+                            $("#obs_sent_").val('Sin Observaciones')
+                        }else{
+                            $("#obs_sent_").val(obs)
+                        }
+
+
+                    }, 2000);
+
+                },
+                error: function(xhr, status, error) {
+                    console.log("Error en la solicitud ajax ", error)
+                    console.log("Mensaje de error:", error);
                 }
             });
         }
