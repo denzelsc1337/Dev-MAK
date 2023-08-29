@@ -110,12 +110,13 @@ require_once('../Controller/controladorListar.php');
 
                         <section class="body-mak mak-txt position-relative" data-content="legal">
 
-                            <div class="arrow-right">
-                                <i class="fa-solid fa-angle-right"></i>
-                            </div>
 
                             <form method="POST" action="../Controller/Add_Solic_Legal.php">
                                 <div class="container mt-5">
+
+                                    <div class="arrow-right">
+                                        <i class="fa-solid fa-angle-right"></i>
+                                    </div>
                                     <div class="card-body">
                                         <div class="row">
                                             <div class="row" hidden>
@@ -248,15 +249,17 @@ require_once('../Controller/controladorListar.php');
 
                         <section class="body-mak mak-txt position-relative" data-content="historico">
 
-                            <div class="arrow-left">
-                                <i class="fa-solid fa-angle-left"></i>
-                            </div>
 
-                            <div class="container">
+                            <div class="container mt-5">
+
+                                <div class="arrow-left">
+                                    <i class="fa-solid fa-angle-left"></i>
+                                </div>
+
                                 <h1 class="text-center">HISTORICO</h1>
                                 <div class="row">
 
-                                    <div class="menu-filter">
+                                    <!-- <div class="menu-filter">
                                         <div class="filter-drop shadow ml-auto">
                                             <div class="dropdown">
                                                 Filtros &nbsp;
@@ -268,7 +271,7 @@ require_once('../Controller/controladorListar.php');
                                                 <div class="list-group-item">3</div>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> -->
 
                                     <?php
 
@@ -492,12 +495,12 @@ require_once('../Controller/controladorListar.php');
 
                         <section class="body-mak mak-txt position-relative" data-content="files">
 
-                            <div class="arrow-left">
-                                <i class="fa-solid fa-angle-left"></i>
-                            </div>
                             <form method="POST" action="../Controller/update_solic_docs_legal.php">
 
                                 <div class="container">
+                                    <div class="arrow-left">
+                                        <i class="fa-solid fa-angle-left"></i>
+                                    </div>
                                     <div class="card-body">
                                         <div class="row">
 
