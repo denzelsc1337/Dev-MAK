@@ -125,7 +125,7 @@ $(document).ready(function () {
             console.log(r);
             //console.log(formData);
           }
-        },900);
+        }, 900);
       },
       error: function (xhr, status, error) {
         $("#loader").hide()
@@ -177,7 +177,7 @@ $(document).ready(function () {
             console.log(r);
             //console.log(formData);
           }
-        },900);
+        }, 900);
       },
 
       error: function (xhr, status, error) {
@@ -225,7 +225,7 @@ $(document).ready(function () {
             console.log(r);
             //console.log(formData);
           }
-        },900);
+        }, 900);
       },
       error: function (xhr, status, error) {
         $("#loader").hide();
@@ -272,7 +272,7 @@ $(document).ready(function () {
             console.log(r);
             //console.log(formData);
           }
-        },900);
+        }, 900);
       },
 
       error: function (xhr, status, error) {
@@ -320,7 +320,7 @@ $(document).ready(function () {
             console.log(r);
             //console.log(formData);
           }
-        },900);
+        }, 900);
       },
       error: function (xhr, status, error) {
         $("#loader").hide();
@@ -368,7 +368,7 @@ $(document).ready(function () {
             console.log(r);
             //console.log(formData);
           }
-        },900);
+        }, 900);
       },
       error: function (xhr, status, error) {
         $("#loader").hide();
@@ -878,6 +878,8 @@ $(document).ready(function () {
     const upldValoCL = archivesCL.children.length;
 
 
+
+
     if (upldValoPU > 0) {
       archivesPU.style.display = "inline-flex";
     } else {
@@ -889,6 +891,7 @@ $(document).ready(function () {
     } else {
       archivesCL.style.display = "none";
     }
+
   };
   // APARTADO SUBIR DOCUMENTOS
 

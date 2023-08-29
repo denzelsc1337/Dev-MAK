@@ -193,43 +193,6 @@
 
       }
 
-
-      // const buttonSigPag = section.querySelector(".sigPag");
-
-      // buttonSigPag.addEventListener("click", function () {
-      //   arrayNames.splice(0);
-      //   arrayValues.splice(0);
-      //   const cardPrimary = section.querySelectorAll(".card");
-
-      //   cardPrimary.forEach((card) => {
-      //     //
-      //     const cardBodys = card.querySelectorAll(".card-body");
-      //     cardBodys.forEach((element) => {
-      //       const lbl = element.querySelectorAll("label");
-      //       lbl.forEach((label) => {
-      //         arrayNames.push(label.textContent);
-      //       });
-      //     });
-      //     //
-      //     cardBodys.forEach((element) => {
-      //       const input = element.querySelectorAll("input");
-      //       input.forEach((ele) => {
-      //         arrayValues.push(ele.value);
-      //       });
-      //       //
-      //       const select = element.querySelectorAll("select");
-      //       select.forEach((ele) => {
-
-      //         const textValue_ = ele.options[ele.selectedIndex].innerText;
-      //         arrayValues.push(textValue_);
-      //       });
-      //     });
-      //   });
-
-      //   console.log(arrayNames);
-      //   console.log(arrayValues);
-      // })
-
     }
   });
 
@@ -238,6 +201,34 @@
   const buttonLstPag = document.querySelector(".lstPag");
 
   buttonLstPag.addEventListener("click", function () {
+
+    const contFotos = document.getElementById("fileValorArchives"),
+      cantFotos = contFotos.children.length,
+      verFotos = document.getElementById("verFotos_");
+
+    const contDocs_pu = document.querySelector(".archives_pu"),
+      cantDocs_pu = contDocs_pu.children.length,
+      verDocs = document.getElementById("verDocs_");
+
+    const contDocs_cl = document.querySelector(".archives_cl"),
+      cantDocs_cl = contDocs_cl.children.length,
+      verDocs_cl = document.getElementById("verDocs_");
+
+
+    if (cantFotos > 1) {
+      verFotos.disabled = false;
+    } else {
+      verFotos.disabled = true;
+    }
+
+    if (cantDocs > 0) {
+      verDocs.disabled = false;
+    } else {
+      verDocs.disabled = true;
+    }
+
+
+
     const cards = document.querySelectorAll(".card-body");
     // console.log(cards);
 

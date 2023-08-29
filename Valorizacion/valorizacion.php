@@ -1740,10 +1740,10 @@
                                                     <div class="card-body">
                                                         <div>
                                                             <label class="mak-txt">Comentario</label>
-                                                            <textarea id="coment_valr_" placeholder="Escribe un comentario..."></textarea>
+                                                            <textarea id="coment_valr_" placeholder="Escribe un comentario..." readonly></textarea>
                                                         </div>
                                                         <div class="row justify-content-between">
-                                                            <div id="verFotos_" class="btn btn-mak mak-bg" data-bs-toggle="modal" data-bs-target="#verFotos">Ver Fotos</div>
+                                                            <button id="verFotos_" class="btn btn-mak mak-bg" data-bs-toggle="modal" data-bs-target="#verFotos">Ver Fotos</button>
                                                             <div id="verDocs_" class="btn btn-mak mak-bg" data-bs-toggle="modal" data-bs-target="#verDocs">Ver Documentos</div>
                                                         </div>
                                                     </div>
