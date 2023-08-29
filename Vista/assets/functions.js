@@ -877,9 +877,6 @@ $(document).ready(function () {
     const archivesCL = document.querySelector(".archives_cl");
     const upldValoCL = archivesCL.children.length;
 
-
-
-
     if (upldValoPU > 0) {
       archivesPU.style.display = "inline-flex";
     } else {

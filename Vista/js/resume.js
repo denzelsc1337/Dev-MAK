@@ -207,12 +207,12 @@
       verFotos = document.getElementById("verFotos_");
 
     const contDocs_pu = document.querySelector(".archives_pu"),
-      cantDocs_pu = contDocs_pu.children.length,
-      verDocs = document.getElementById("verDocs_");
+      cantDocs_pu = contDocs_pu.children.length;
 
     const contDocs_cl = document.querySelector(".archives_cl"),
-      cantDocs_cl = contDocs_cl.children.length,
-      verDocs_cl = document.getElementById("verDocs_");
+      cantDocs_cl = contDocs_cl.children.length;
+
+    const verDocs = document.getElementById("verDocs_");
 
 
     if (cantFotos > 1) {
@@ -221,10 +221,30 @@
       verFotos.disabled = true;
     }
 
-    if (cantDocs > 0) {
+    if (cantDocs_pu > 0 || cantDocs_cl > 0) {
       verDocs.disabled = false;
     } else {
       verDocs.disabled = true;
+    }
+
+    const modal = document.getElementById("verDocs");
+    const modalContentDocuments = modal.querySelector(".showDocuments");
+    const PU_docs = modalContentDocuments.querySelector(".PU_docs");
+    const CL_docs = modalContentDocuments.querySelector(".CL_docs");
+
+    console.log(PU_docs);
+    console.log(CL_docs);
+
+    if (cantDocs_pu > 0) {
+      PU_docs.style.display = "block";
+    } else {
+      PU_docs.style.display = "none";
+    }
+
+    if (cantDocs_cl > 0) {
+      CL_docs.style.display = "block";
+    } else {
+      CL_docs.style.display = "none";
     }
 
 

@@ -1646,7 +1646,7 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                            <div class="row archives_pu mt-3" data-heading="Archivos PU" style="display: none;"></div>
+                                                            <div class="row archives_pu mt-3" data-heading="Archivos (PU - HR- PR)" style="display: none;"></div>
                                                         </div>
                                                         <br>
                                                         <div>
@@ -1659,7 +1659,7 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                            <div class="row archives_cl mt-3" data-heading="Archivos CL" style="display: none;"></div>
+                                                            <div class="row archives_cl mt-3" data-heading="Archivos (CL)" style="display: none;"></div>
                                                         </div>
 
                                                     </div>
@@ -1744,7 +1744,7 @@
                                                         </div>
                                                         <div class="row justify-content-between">
                                                             <button id="verFotos_" class="btn btn-mak mak-bg" data-bs-toggle="modal" data-bs-target="#verFotos">Ver Fotos</button>
-                                                            <div id="verDocs_" class="btn btn-mak mak-bg" data-bs-toggle="modal" data-bs-target="#verDocs">Ver Documentos</div>
+                                                            <button id="verDocs_" class="btn btn-mak mak-bg" data-bs-toggle="modal" data-bs-target="#verDocs">Ver Documentos</button>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -1889,11 +1889,11 @@
 
 
                                         <div class="showDocuments">
-                                            <div class="PU_docs">
-                                                <span class="docs-title">Archivos PU</span>
+                                            <div class="PU_docs" style="display: none;">
+                                                <span class="docs-title">Archivos (PU - HR - PR)</span>
                                             </div>
-                                            <div class="CL_docs">
-                                                <span class="docs-title">Archivos CL</span>
+                                            <div class="CL_docs" style="display: none;">
+                                                <span class="docs-title">Archivos (CL)</span>
                                             </div>
 
                                         </div>
