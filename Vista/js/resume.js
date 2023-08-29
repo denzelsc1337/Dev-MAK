@@ -116,15 +116,39 @@
           var checkbox = document.getElementById(checkboxID);
           // console.log(checkbox);
           checkbox.addEventListener("change", function () {
+
+            let chk_c_1 = document.querySelector("#sala_");
+            let chk_c_2 = document.querySelector("#comedor_");
+            let chk_d_1 = document.querySelector("#sala_d");
+            let chk_d_2 = document.querySelector("#comedor_d");
+
             if (this.checked) {
               this.value = "true";
               // ----
-              if (checkbox.id.includes("sala_com")) {
-                console.log(checkbox);
+
+              if (checkbox.id === "sala_com") {
+                chk_c_1.disabled = true;
+                chk_c_2.disabled = true;
+              }
+
+              if (checkbox.id === "sala_com_d") {
+                chk_d_1.disabled = true;
+                chk_d_2.disabled = true;
               }
               // ----
             } else {
               this.value = "false";
+
+              if (checkbox.id === "sala_com") {
+                chk_c_1.disabled = false;
+                chk_c_2.disabled = false;
+              }
+
+              if (checkbox.id === "sala_com_d") {
+                chk_d_1.disabled = false;
+                chk_d_2.disabled = false;
+              }
+
             }
           });
         });
@@ -297,22 +321,35 @@
 
 
   function InputsErase() {
-    const allInputsTxt = document.querySelectorAll("input:not([hidden])");
-    const allInputsNum = document.querySelectorAll("input[type='number']");
-    const allCheckBox = document.querySelectorAll("input[type='checkbox']:checked");
+    const allSections = document.querySelectorAll(".section.card-default");
+    // const allSections_ = document.querySelectorAll((".section"));
+    allSections.forEach(element => {
+      const allInputsTxt = element.querySelectorAll("input:not([hidden])");
+      const allInputsNum = element.querySelectorAll("input[type='number']");
+      const allCheckBox = element.querySelectorAll("input[type='checkbox']:checked");
 
 
-    for (var i = 0; i < allInputsTxt.length; i++) {
-      allInputsTxt[i].value = "";
-    }
+      // const allInputsTxt = document.querySelectorAll("input:not([hidden])");
+      // const allInputsNum = document.querySelectorAll("input[type='number']");
+      // const allCheckBox = document.querySelectorAll("input[type='checkbox']:checked");
+      console.log(allSections);
+      // console.log(allSections_);
+      // console.log(allInputsTxt);
 
-    for (var i = 0; i < allInputsNum.length; i++) {
-      allInputsNum[i].value = "";
-    }
 
-    for (var i = 0; i < allCheckBox.length; i++) {
-      allCheckBox[i].checked = false;
-    }
+      for (var i = 0; i < allInputsTxt.length; i++) {
+        allInputsTxt[i].value = "";
+        allInputsTxt[i].disabled = false;
+      }
+
+      for (var i = 0; i < allInputsNum.length; i++) {
+        allInputsNum[i].value = "";
+      }
+
+      for (var i = 0; i < allCheckBox.length; i++) {
+        allCheckBox[i].checked = false;
+      }
+    });
   }
 
 
