@@ -427,6 +427,11 @@ h2 {
   }
 }
 
+.input-group-append button i {
+  font-size: 20px;
+  color: var(--blue-mak);
+}
+
 
 .table td {
   vertical-align: middle !important;

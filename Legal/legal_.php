@@ -286,7 +286,7 @@ require_once('../Controller/controladorListar.php');
 
                                             <table class="table table-borderless" style="width: 100%;">
                                                 <thead class="">
-                                                    <tr>
+                                                    <tr class="t-head">
                                                         <th>ID</th>
                                                         <th>nom</th>
                                                         <th>DIRECCIÓN</th>
@@ -375,7 +375,7 @@ require_once('../Controller/controladorListar.php');
                                         <div class="col-sm-12">
                                             <table class="table table-borderless" style="width: 100%;">
                                                 <thead class="">
-                                                    <tr>
+                                                    <tr class="t-head">
                                                         <th>ID</th>
                                                         <th>nom</th>
                                                         <th>ape</th>

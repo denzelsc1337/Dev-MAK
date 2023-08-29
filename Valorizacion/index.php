@@ -67,7 +67,7 @@ require_once('../Controller/controladorListar.php'); ?>
 
                     <section class="content body-mak mak-txt">
                         <div class="container">
-                            <div class="card-body p-0 ml-5 mr-5">
+                            <div class="card-body p-0 ml-5 mr-5 mb-5">
                                 <div class="b-title txt-center">VALORIZACIONES</div>
                                 <p class="mak-txt b-text">¡Bienvenido <strong><?php echo $_SESSION['nom_usu'] . " " . $_SESSION['ape_usu'] ?></strong>! Para realizar un correcto proceso de valorización, es necesario tener en cuenta los siguientes puntos clave:</p>
                                 <label class="mak-txt b-text">1. Documentos requeridos:</label>
@@ -1939,65 +1939,6 @@ require_once('../Controller/controladorListar.php'); ?>
                 $('.my-colorpicker2 .fa-square').css('color', event.color.toString());
             })
         })
-        // BS-Stepper Init
-        // document.addEventListener('DOMContentLoaded', function() {
-        //     window.stepper = new Stepper(document.querySelector('.bs-stepper'))
-        // })
-
-        // // DropzoneJS Demo Code Start
-        // Dropzone.autoDiscover = false
-
-        // // Get the template HTML and remove it from the doumenthe template HTML and remove it from the doument
-        // var previewNode = document.querySelector("#template");
-        // // previewNode.id = "";
-        // var previewTemplate = previewNode.parentNode.innerHTML
-        // previewNode.parentNode.removeChild(previewNode)
-
-        // var myDropzone = new Dropzone(document.body, { // Make the whole body a dropzone
-        //     url: "/target-url", // Set the url
-        //     thumbnailWidth: 80,
-        //     thumbnailHeight: 80,
-        //     parallelUploads: 20,
-        //     previewTemplate: previewTemplate,
-        //     autoQueue: false, // Make sure the files aren't queued until manually added
-        //     previewsContainer: "#previews", // Define the container to display the previews
-        //     clickable: ".fileinput-button" // Define the element that should be used as click trigger to select files.
-        // })
-
-        // myDropzone.on("addedfile", function(file) {
-        //     // Hookup the start button
-        //     file.previewElement.querySelector(".start").onclick = function() {
-        //         myDropzone.enqueueFile(file)
-        //     }
-        // })
-
-        // // Update the total progress bar
-        // myDropzone.on("totaluploadprogress", function(progress) {
-        //     document.querySelector("#total-progress .progress-bar").style.width = progress + "%"
-        // })
-
-        // myDropzone.on("sending", function(file) {
-        //     // Show the total progress bar when upload starts
-        //     document.querySelector("#total-progress").style.opacity = "1"
-        //     // And disable the start button
-        //     file.previewElement.querySelector(".start").setAttribute("disabled", "disabled")
-        // })
-
-        // // Hide the total progress bar when nothing's uploading anymore
-        // myDropzone.on("queuecomplete", function(progress) {
-        //     document.querySelector("#total-progress").style.opacity = "0"
-        // })
-
-        // // Setup the buttons for all transfers
-        // // The "add files" button doesn't need to be setup because the config
-        // // `clickable` has already been specified.
-        // document.querySelector("#actions .start").onclick = function() {
-        //     myDropzone.enqueueFiles(myDropzone.getFilesWithStatus(Dropzone.ADDED))
-        // }
-        // document.querySelector("#actions .cancel").onclick = function() {
-        //     myDropzone.removeAllFiles(true)
-        // }
-        // // DropzoneJS Demo Code End
     </script>
 
     <script>
@@ -2039,69 +1980,6 @@ require_once('../Controller/controladorListar.php'); ?>
     </script>
 
     <script>
-        // $(document).ready(function() {
-        //     $('.table').DataTable({
-        //         // NO LOADING
-        //         //stateSave: true,
-        //         // scrollX: true,
-        //         // scrollY: 650,
-        //         //deferRender:    true,
-        //         //scroller:       true,
-        //         //scrollY:        650,
-        //         // dom: `<"row"
-        //         //         <"col-sm-6"f>
-        //         //         <"col-sm-6"l>
-        //         //         >t
-        //         //     <"row"
-        //         //         <"col-sm-6"i>
-        //         //         <"col-sm-6"p>
-        //         //         >`,
-
-        //         language: {
-
-        //             //
-        //             processing: "Traitement en cours...",
-        //             search: "Buscar:",
-        //             pageLenght: 5,
-        //             // lengthMenu: "Mostrar" + `
-        //             //                 <select class="form-select form-select-sm">
-        //             //                     <option value="10">10</option>
-        //             //                     <option value="25">25</option>
-        //             //                     <option value="50">50</option>
-        //             //                     <option value="100">100</option>
-        //             //                     <option value="-1">Todos</option>
-        //             //                 </select>
-        //             //             ` + "por página.",
-        //             lengthMenu: [
-        //                 [5, 10, 25, 50, -1],
-        //                 [5, 10, 25, 50, "Todos"]
-        //             ],
-        //             columnDefs: [{
-        //                 orderable: false,
-        //                 target: [1, 2, 3]
-        //             }],
-        //             info: "Mostrando del _START_ al _END_ de _TOTAL_ elementos.",
-        //             infoEmpty: "No se encontraron resultados.",
-        //             infoFiltered: "(Filtrado de _MAX_ elementos totales)",
-        //             infoPostFix: "",
-        //             loadingRecords: "Cargando datos...",
-        //             zeroRecords: "No se encontro resultados.",
-        //             emptyTable: "No hay datos disponibles en la tabla.",
-        //             paginate: {
-        //                 first: "Primero",
-        //                 previous: "Anterior",
-        //                 next: "Siguiente",
-        //                 last: "Último"
-        //             },
-        //             aria: {
-        //                 sortAscending: ": activer pour trier la colonne par ordre croissant",
-        //                 sortDescending: ": activer pour trier la colonne par ordre décroissant"
-        //             }
-        //         }
-        //     });
-        // });
-
-
         $(document).ready(function() {
             $('.table_').DataTable({
                 "language": {

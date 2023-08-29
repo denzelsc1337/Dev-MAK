@@ -42,6 +42,9 @@ require_once('../Controller/controladorListar.php');
     <!-- Theme style -->
     <link rel="stylesheet" href="../Vista/dist/css/adminlte.min.css">
     <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+    <!-- Data Tables Pluggin -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.4.1/css/responsive.bootstrap4.min.css">
 
 </head>
 
@@ -53,7 +56,7 @@ require_once('../Controller/controladorListar.php');
 
         <div class="content-wrapper">
 
-            <section class="content">
+            <section class="content" style="margin: 0;">
                 <!-- <header class="header-mak">
                     <h1 class="title">¿Más de 2,000 propiedades <br> esperan por ti!</h1>
                 </header> -->
@@ -61,16 +64,28 @@ require_once('../Controller/controladorListar.php');
                 <?php include '../Vista/head-form.php' ?>
 
 
-                <section class="content body-mak txt-center mak-txt">
+                <section class="content body-mak mak-txt">
                     <div class="container">
-                        <div class="b-title">Resumen Legal</div>
-                        <p class="b-text mak-txt">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora culpa iste, facere veniam aperiam corporis placeat pariatur, dignissimos, nostrum illum ex adipisci officiis necessitatibus obcaecati doloribus velit sint omnis ipsum!</p>
-                    </div>
+                        <div class="card-body p-0 ml-5 mr-5 mb-5">
+                            <div class="b-title txt-center">Resumen Legal</div>
+                            <p class="mak-txt b-text">¡Bienvenido <strong><?php echo $_SESSION['nom_usu'] . " " . $_SESSION['ape_usu'] ?></strong>! Para tener una buena experiencia con nuestro servicio legal es necesario brindar lo siguiente:</p>
+                            <ul>
+                                <li><strong>Hoja de Resumen (HR): </strong>Asegúrate de contar con la Hoja de Resumen actualizada.</li>
+                                <li><strong>Predio Urbano (PU): </strong>Proporciona el Predio Urbano vigente para que podamos evaluar aspectos importantes de la ubicación y las regulaciones urbanas.</li>
+                                <li><strong>Copia Literal: </strong>Adjunta una Copia Literal actualizada o Partida Registral de la propiedad.</li>
+                                <li><strong>DNI: </strong>Para validar tu identidad y garantizar la seguridad, necesitamos una copia de tu Documento Nacional de Identidad (DNI).</li>
+                            </ul>
+                            <p class="mak-txt b-text">Estos documentos son esenciales para ofrecerte un servicio legal personalizado y eficiente.</p>
 
-                    <div class="footer-mak">
-                        <div class="container">
-                            <div class="flex">
-                                <a href="legal_.php" class="btn btn-mak mak-bg ml-auto">Continuar</a>
+
+
+                        </div>
+
+
+                        <div class="card-footer">
+                            <div class="form-flex">
+                                <a href="../Dashboard.php" class="btn btn-mak mak-bg-sec">Retroceder</a>
+                                <a href="legal_.php" class="btn btn-mak mak-bg">Nueva solicitud</a>
                             </div>
                         </div>
                     </div>
@@ -82,129 +97,6 @@ require_once('../Controller/controladorListar.php');
                 <div class="overflow-hidden">
                     <div class="d-flex scroll">
 
-                        <!-- <section class="content body-mak mak-txt position-relative" data-content="legal">
-
-                            <div class="btn btn-mak bg-lightblue arrow-right">
-                                <div class="">Historico</div>
-                            </div>
-
-                            <form method="POST" action="../Controller/Add_Solic_Legal.php">
-                                <div class="container mt-5">
-                                    <div class="card-body">
-                                        <div class="row">
-
-                                            <input type="text" class="form-control" id="id_user" name="id_user" value="<?php echo $_SESSION['id_usu']; ?>" hidden>
-
-                                            <div class="col-sm-6">
-                                                <div class="row">
-                                                    <div class="col-sm-6">
-                                                        <div class="form-group">
-                                                            <label class="mak-txt">Nombre</label>
-                                                            <input type="text" class="form-mak" id="nom_cli_solic" name="nom_cli_solic">
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-sm-6">
-                                                        <div class="form-group">
-                                                            <label class="mak-txt">Apellidos</label>
-                                                            <input type="text" class="form-mak" id="ape_cli_solic" name="ape_cli_solic">
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-sm-6">
-                                                        <div class="form-group">
-                                                            <label class="mak-txt">Dirección</label>
-                                                            <input type="text" class="form-mak" id="dir_cli_solic" name="dir_cli_solic">
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                                <textarea id="rutas_doscs" name="rutas_doscs" rows="5" cols="50" hidden><?php echo $rutas; ?></textarea>
-                                            </div>
-                                            <div class="col-sm-6">
-                                                <div class="row">
-                                                    <div class="col-sm-10">
-                                                        <div class="form-group row">
-                                                            <label class="col-sm-5 col-form-label">HR:</label>
-                                                            <div class="section-input col-sm-6">
-                                                                <div class="upload-file">
-                                                                    <label data-bs-toggle="modal" data-bs-target="#modal_archive_HR">Seleccionar archivos.</label>
-                                                                </div>
-                                                            </div>
-                                                            <div class="input-group-append">
-                                                                <button type="button" class="btn btn-rounded  btn_lst_hr btn_lst_hr_0" data-toggle="modal" data-target="#lst_hr_0" data-valor="H_R" data-titulo="Hoja de Resumen" data-id_doc_="1"><i class="cursor fa-solid fa-eye"></i></button>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <br>
-                                                <div class="row">
-                                                    <div class="col-sm-10">
-                                                        <div class="form-group row">
-                                                            <label class="col-sm-5 col-form-label">PU:</label>
-                                                            <div class="section-input col-sm-6">
-                                                                <div class="upload-file">
-                                                                    <label data-bs-toggle="modal" data-bs-target="#modal_archive_PU">Seleccionar archivos.</label>
-                                                                </div>
-                                                            </div>
-                                                            <div class="input-group-append">
-
-                                                                <button type="button" class="btn btn-rounded btn_lst_hr btn_lst_hr_0" data-toggle="modal" data-target="#lst_hr_0" data-valor="P_U" data-titulo="Predio Urbano" data-id_doc_="2"><i class="cursor fa-solid fa-eye"></i></button>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <br>
-                                                <div class="row">
-                                                    <div class="col-sm-10">
-                                                        <div class="form-group row">
-                                                            <label class="col-sm-5 col-form-label">COPIA LITERAL:</label>
-                                                            <div class="section-input col-sm-6">
-                                                                <div class="upload-file">
-                                                                    <label data-bs-toggle="modal" data-bs-target="#modal_archive_CL">Seleccionar archivos.</label>
-                                                                </div>
-                                                            </div>
-                                                            <div class="input-group-append">
-
-                                                                <button type="button" class="btn btn-rounded btn_lst_hr btn_lst_hr_0" data-toggle="modal" data-target="#lst_hr_0" data-valor="C_L" data-titulo="Copia Literal" data-id_doc_="3"><i class="cursor fa-solid fa-eye"></i></button>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <br>
-                                                <div class="row">
-                                                    <div class="col-sm-10">
-                                                        <div class="form-group row">
-                                                            <label class="col-sm-5 col-form-label">DNI:</label>
-                                                            <div class="section-input col-sm-6">
-                                                                <div class="upload-file">
-                                                                    <label data-bs-toggle="modal" data-bs-target="#modal_archive_DNI">Seleccionar archivos.</label>
-                                                                </div>
-                                                            </div>
-                                                            <div class="input-group-append">
-                                                                <button type="button" class="btn btn-rounded btn_lst_hr btn_lst_hr_0" data-toggle="modal" data-target="#lst_hr_0" data-valor="DNI" data-titulo="DNI" data-id_doc_="4"><i class="cursor fa-solid fa-eye"></i></button>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-
-                                    </div>
-
-                                    <div class="card-footer">
-                                        <div class="form-flex">
-                                            <button type="button" class="btn btn-mak mak-bg-sec">Guardar</button>
-                                            <button type="submit" class="btn btn-mak mak-bg" id="btn_save_solic" name="btn_save_solic">Enviar</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </form>
-                        </section> -->
-
                         <section class="content body-mak mak-txt position-relative" data-content="historico">
 
                             <!-- <div class="arrow-left">
@@ -212,10 +104,10 @@ require_once('../Controller/controladorListar.php');
                             </div> -->
 
                             <div class="container">
-                                <h1 class="text-center">HISTORICO</h1>
+                                <h1 class="text-center mt-5">HISTORICO</h1>
                                 <div class="row">
 
-                                    <div class="menu-filter">
+                                    <!-- <div class="menu-filter">
                                         <div class="filter-drop shadow ml-auto">
                                             <div class="dropdown">
                                                 Filtros &nbsp;
@@ -227,7 +119,7 @@ require_once('../Controller/controladorListar.php');
                                                 <div class="list-group-item">3</div>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> -->
 
                                     <?php
 
@@ -240,7 +132,7 @@ require_once('../Controller/controladorListar.php');
 
                                         <div class="col-sm-12">
 
-                                            <table class="table table-borderless" style="width: 100%;">
+                                            <table class="table table_ table-borderless" style="width: 100%;">
                                                 Admin
                                                 <thead class="">
                                                     <tr>
@@ -331,8 +223,7 @@ require_once('../Controller/controladorListar.php');
                                         <!-- </div> TABLA USER -->
 
                                         <div class="col-sm-12">
-                                            User
-                                            <table class="table table-borderless" style="width: 100%;">
+                                            <table class="table table_ table-borderless" style="width: 100%;">
                                                 <thead class="">
                                                     <tr>
                                                         <th>ID</th>
@@ -427,13 +318,7 @@ require_once('../Controller/controladorListar.php');
                                 </div>
 
                             </div>
-                            <div class="footer-mak">
-                                <div class="container">
-                                    <div class="flex">
-                                        <a href="legal_.php" class="btn btn-mak mak-bg ml-auto">Continuar</a>
-                                    </div>
-                                </div>
-                            </div>
+
                         </section>
 
                         <section class="body-mak mak-txt position-relative" data-content="files">
@@ -1248,9 +1133,37 @@ require_once('../Controller/controladorListar.php');
         // DROPDOWN
     </script>
 
+    <script>
+        $(document).ready(function() {
+            $('.table_').DataTable({
+                "language": {
+                    "url": "//cdn.datatables.net/plug-ins/1.10.25/i18n/Spanish.json", // URL del archivo de localización
+                    "searchPlaceholder": "Buscar en la tabla..." // placeholder del Buscar.
+                },
+                "lengthMenu": [
+                    [5, 10, 25, 50, -1],
+                    [5, 10, 25, 50, "Todos"]
+                ],
+                // Otras opciones de DataTables
+                "drawCallback": function(settings) {
+                    $('.dataTables_length select').addClass('form-mak sect tableLenght');
+                    $('.dataTables_filter input').addClass('form-mak sect');
+                },
+                "order": [
+                    [0, "desc"]
+                ],
+            });
+        });
+    </script>
+
     <script src="../Vista/assets/selection_types.js"></script>
     <!-- REQUIRED SCRIPTS -->
     <script src="../Vista/assets/functions.js"></script>
+    <!-- Data Tables Pluggin -->
+    <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap5.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.4.1/js/dataTables.responsive.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.4.1/js/responsive.bootstrap4.min.js"></script>
 </body>
 
 </html>
