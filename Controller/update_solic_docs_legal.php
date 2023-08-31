@@ -12,7 +12,7 @@ if (isset($_POST['btn_save_solic_l'])) {
 	if ($r == 1) {
 	?>
 	<script type="text/javascript"> alert("Comentario Agregado") </script>
-	<META http-equiv='Refresh' content = '0.2; URL =../Legal/legal_.php'>
+	<META http-equiv='Refresh' content = '0.2; URL =../Legal/'>
 	<?php
 	  }else{
 	?>
