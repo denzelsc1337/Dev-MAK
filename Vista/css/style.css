@@ -2173,3 +2173,8 @@ figcaption {
   background-color: var(--blue-mak) !important;
   border: 1px solid var(--blue-mak) !important;
 }
+
+#lst_fotos {
+    width: 80%;
+    margin: 0 auto;
+}

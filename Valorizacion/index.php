@@ -37,6 +37,9 @@ require_once('../Controller/controladorListar.php'); ?>
     <!-- Theme style -->
     <link rel="stylesheet" href="../Vista/dist/css/adminlte.min.css">
     <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+
+    <!--<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>-->
+
     <!-- Data Tables Pluggin -->
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/dataTables.bootstrap4.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.4.1/css/responsive.bootstrap4.min.css">
@@ -570,7 +573,7 @@ require_once('../Controller/controladorListar.php'); ?>
                     <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
                         <div class="modal-content">
                             <div class="modal-body">
-                                <h1 class="title-m" id="titulo_docs">Detalles</h1>
+                                <h1 class="title-m" id="titulo_docs">Fotos</h1>
                                 <div class="row">
                                     <div hidden>
                                         <input type="text" name="txt_solic" id="txt_solic">
@@ -585,7 +588,7 @@ require_once('../Controller/controladorListar.php'); ?>
                                         <label>Fotos Subidas</label>
                                         <div>
                                             <div id="fotos_val">
-                                                <ul id="lst_fotos"></ul>
+                                                <div id="lst_fotos"></div>
                                             </div>
                                         </div>
                                     </div>
@@ -640,7 +643,7 @@ require_once('../Controller/controladorListar.php'); ?>
                                 <h5 class="modal-title" id="exampleModalLabel">Observaciones</h5>
                             </div>
                             <div class="modal-body" id="modal_obs">
-                                <textarea id="obs_sent_" name="obs_sent_" readonly disabled></textarea>
+                                <textarea id="obs_sent_" name="obs_sent_" readonly disabled style="resize: none;"></textarea>
                             </div>
                         </div>
                     </div>
@@ -927,7 +930,6 @@ require_once('../Controller/controladorListar.php'); ?>
         });
     </script>
 
-
     <script type="text/javascript">
         $('.dwnld_valo').on('click', function() {
 
@@ -1015,62 +1017,7 @@ require_once('../Controller/controladorListar.php'); ?>
 
         });
 
-        $('.btn_get_fotos').on('click', function() {
-
-            $('#details_fotos').modal('show');
-
-            /*var id_solic_v = $(this).data('id_solic_val');
-            var id_cli_v = $(this).data('id_cli');
-            var dni_cli_v = $(this).data('dni_cli');
-
-
-            //var inpt_solic_v = id_solic_v;
-            var inpt_solic_v = $("#txt_solic").val(id_solic_v);
-            var inpt_cli_v = $("#txt_id_cli").val(id_cli_v);
-            var inpt_dni_v = $("#txt_dni").val(dni_cli_v);
-
-
-            //console.log(inpt_solic_v)
-
-            var id_solic_v = data[0].trim();
-            var id_cli_v = data[1].trim();
-            var dni_cli_v = data[2].trim();
-
-            var rol = '<?php echo $_SESSION['tipo_usu'] ?>'
-
-            console.log(rol);
-
-            $tr = $(this).closest('tr');
-            var data = $tr.children("td").map(function() {
-                return $(this).text();
-            }).get();
-
-            $("#id_solic_arch").val(data[0].trim());
-            $("#dni_cli_arch").val(data[1].trim());
-
-            console.log(id_solic_v, id_cli_v, dni_cli_v);
-
-            if (rol == 1) {
-                get_details_solic(id_solic_v, id_cli_v, dni_cli_v)
-                get_imgs_valor(id_solic_v, dni_cli_v)
-                get_files_valor(id_solic_v, dni_cli_v)
-            } else {
-                get_details_solic(id_solic_v, id_cli_v, dni_cli_v)
-                get_files_valor(id_solic_v, dni_cli_v)
-                get_imgs_valor(id_solic_v, dni_cli_v)
-                console.log("uwu?");
-            }*/
-
-
-            var id_solic_v = $("#cod_solic_v").val();
-            var dni_cli_v = $("#dni_usu_v").val();
-
-            console.log(dni_cli_v)
-
-            get_imgs_valor(id_solic_v, dni_cli_v)
-
-
-        });
+        
 
         function download_excel(id_valor_soli) {
 
@@ -1596,56 +1543,93 @@ require_once('../Controller/controladorListar.php'); ?>
             });
         }
 
-        function get_imgs_valor(id_sol_v, dni) {
-            $.ajax({
-                type: 'POST',
-                url: '../Controller/Get_Valorizacion_fotos.php',
-                data: {
-                    id_solic_v: id_sol_v,
-                    dni_cli_v: dni,
-                },
-                success: function(response) {
+$(document).ready(function() {
+    $('.btn_get_fotos').on('click', function() {
 
-                    if (response.status === 'error') {
-                        var errorMessage = $('<strong>').text(response.mensaje);
-                        $('#lst_fotos').empty().append(errorMessage);
-                    } else if (response.status === 'empty') {
-                        var noFilesMessage = $('<strong>').text(response.mensaje);
-                        $('#lst_fotos').empty().append(noFilesMessage);
-                    } else {
-                        var archivos = response.files;
-                        var archivosLista = $('#lst_fotos');
+        $('#details_fotos').modal('show');
 
-                        archivosLista.empty();
+        var id_solic_v = $("#cod_solic_v").val();
+        var dni_cli_v = $("#dni_usu_v").val();
 
-                        archivos.forEach(function(archivo) {
-                            if (archivo.trim() !== '') {
-                                // var link_ = $('<a>')
-                                //     .attr('href', '../Valorizaciones/' + id_sol_v + '/' + dni + '/fotos_val/' + archivo)
-                                //     .attr('download', archivo)
-                                //     .text(archivo);
+        console.log(dni_cli_v)
 
-                                // var listItem = $('<li>').append(link_);
-                                // archivosLista.append(listItem);
-                                var img = $('<img>')
-                                    .attr('src', '../Valorizaciones/' + id_sol_v + '/' + dni + '/fotos_val/' + archivo)
-                                    .attr('alt', archivo);
-                                // .addClass('imagen-valorizacion'); // Clase para aplicar estilos si es necesario
+        get_imgs_valor(id_solic_v, dni_cli_v)          
+    });
 
-                                archivosLista.append(img);
-                            }
-                        });
+    function get_imgs_valor(id_sol_v, dni) {
+        $.ajax({
+            type: 'POST',
+            url: '../Controller/Get_Valorizacion_fotos.php',
+            data: {
+                id_solic_v: id_sol_v,
+                dni_cli_v: dni,
+            },
+            success: function(response) {
 
-                    }
-                    //$('#descarga_archivo_m').html(link_);
+                if (response.status === 'error') {
+                    var errorMessage = $('<strong>').text(response.mensaje);
+                    $('#lst_fotos').empty().append(errorMessage);
+                } else if (response.status === 'empty') {
+                    var noFilesMessage = $('<strong>').text(response.mensaje);
+                    $('#lst_fotos').empty().append(noFilesMessage);
+                } else {
+                    var archivos = response.files;
+                    var archivosLista = $('#lst_fotos');
 
-                    //console.log(response);
-                },
-                error: function(xhr, status, error) {
-                    console.log(error);
+                    archivosLista.empty();
+
+                    archivos.forEach(function(archivo) {
+                        if (archivo.trim() !== '') {
+                            // var link_ = $('<a>')
+                            //     .attr('href', '../Valorizaciones/' + id_sol_v + '/' + dni + '/fotos_val/' + archivo)
+                            //     .attr('download', archivo)
+                            //     .text(archivo);
+
+                            // var listItem = $('<li>').append(link_);
+                            // archivosLista.append(listItem);
+
+                            var imgContainer = $('<div class="imagen-slide">');
+                            var img = $('<img>')
+                                .attr('src', '../Valorizaciones/' + id_sol_v + '/' + dni + '/fotos_val/' + archivo)
+                                .attr('alt', archivo);
+                            // .addClass('imagen-valorizacion'); // Clase para aplicar estilos si es necesario
+
+                            imgContainer.append(img);
+                            archivosLista.append(imgContainer);
+
+
+                        }
+                    });
+
                 }
-            });
-        }
+
+                //$('#descarga_archivo_m').html(link_);
+                //console.log(response);
+            },
+            /* complete: function() {
+                initializeSlider();
+            },*/
+            error: function(xhr, status, error) {
+                console.log(error);
+            }
+        });
+    }
+
+    function initializeSlider() {
+        var fotos_ = $('#lst_fotos');
+        console.log(fotos_);
+
+        $('#lst_fotos').slick({
+            infinite: true,
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            prevArrow: '<button type="button" class="slick-prev">Anterior</button>',
+            nextArrow: '<button type="button" class="slick-next">Siguiente</button>',
+        });
+    }
+
+});
+        
     </script>
 
     <style type="text/css">
@@ -2071,6 +2055,8 @@ require_once('../Controller/controladorListar.php'); ?>
                         contenedor.style.scrollBehavior = "smooth"; // Activar la animación
                         contenedor.scrollLeft = totalScroll; // Ir al final
 
+                        //initializeSlider()
+
                     });
 
                 });
@@ -2366,6 +2352,11 @@ require_once('../Controller/controladorListar.php'); ?>
     <script src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap5.min.js"></script>
     <script src="https://cdn.datatables.net/responsive/2.4.1/js/dataTables.responsive.min.js"></script>
     <script src="https://cdn.datatables.net/responsive/2.4.1/js/responsive.bootstrap4.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
 </body>
 
 </html>
