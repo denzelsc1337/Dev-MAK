@@ -286,7 +286,7 @@ require_once('../Controller/controladorListar.php');
 
                                             <table class="table table-borderless" style="width: 100%;">
                                                 <thead class="">
-                                                    <tr class="t-head">
+                                                    <tr>
                                                         <th>ID</th>
                                                         <th>nom</th>
                                                         <th>DIRECCIÓN</th>
@@ -375,7 +375,7 @@ require_once('../Controller/controladorListar.php');
                                         <div class="col-sm-12">
                                             <table class="table table-borderless" style="width: 100%;">
                                                 <thead class="">
-                                                    <tr class="t-head">
+                                                    <tr>
                                                         <th>ID</th>
                                                         <th>nom</th>
                                                         <th>ape</th>
@@ -706,6 +706,7 @@ require_once('../Controller/controladorListar.php');
                                 </div>
                             </form>
                         </section>
+
                     </div>
                 </div>
 
@@ -1637,8 +1638,6 @@ require_once('../Controller/controladorListar.php');
                 var id_reg = $('#id_legal_solic').val();
                 var id_cli = $(this).data('id_user_');
 
-
-                var _id_cli_lgl = $('#id_client_l').val();
                 var _id_cli_lgl = $('#id_client_l').val();
 
                 $('#lst_docs_legal').modal('show');
@@ -2130,6 +2129,15 @@ require_once('../Controller/controladorListar.php');
                     table.style.width = "100%";
                     filter.style.height = "50px";
                 }
+            }
+        });
+
+        // DROPDOWN
+    </script>
+
+</body>
+
+</html>         }
             }
         });
 
