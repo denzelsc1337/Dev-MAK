@@ -1,51 +1,95 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-    <!-- ... Tu código HTML ... -->
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
 </head>
+
+<style>
+    .bla {
+        width: 500px;
+        background-color: lightcoral;
+    }
+
+    .blaa {
+        display: flex;
+        overflow: hidden;
+        width: 500px;
+        background-color: yellowgreen;
+    }
+
+    .blaaa {
+        min-width: 100%;
+        background-color: rosybrown;
+
+    }
+</style>
+
 <body>
+    <div class="bla">
+        <div class="blaa">
 
-    <table id="tabla-container" class="table table-borderless mb-3" style="width: 100%;">
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Dni</th>
-                <th>Cliente</th>
-                <th>Direccion</th>
-                <th>Tipo Propiedad</th>
-                <th>Tipo</th>
-                <th>Estado</th>
-                <th>Detalles</th>
-            </tr>
-        </thead>
-        <!-- Agregar el contenido de la tabla aquí -->
-    </table>
+            <div class="blaaa">
+                <div>your content</div>
+            </div>
+            <div class="blaaa">
+                <div>your content</div>
+            </div>
+            <div class="blaaa">
+                <div>your content</div>
+            </div>
+        </div>
+    </div>
 
+
+    <div id="lst_fotos">
+        <div class="imagen-slide"><img src="../Valorizaciones/143/75481104/fotos_val/WhatsApp Image 2023-08-08 at 00.16.35.jpeg" alt="WhatsApp Image 2023-08-08 at 00.16.35.jpeg"></div>
+        <div class="imagen-slide"><img src="../Valorizaciones/143/75481104/fotos_val/WhatsApp Image 2023-08-22 at 20.51.31.jpeg" alt="WhatsApp Image 2023-08-22 at 20.51.31.jpeg"></div>
+        <div class="imagen-slide"><img src="../Valorizaciones/143/75481104/fotos_val/WhatsApp Image 2023-08-22 at 20.51.40.jpeg" alt="WhatsApp Image 2023-08-22 at 20.51.40.jpeg"></div>
+    </div>
     <script>
-        const socket = new WebSocket('ws://localhost:8080'); // Cambia la URL según tu configuración
+        const carousel = document.querySelector('#fotos_val');
 
-        socket.addEventListener('message', (event) => {
-            const mensaje = JSON.parse(event.data);
-            console.log('Mensaje recibido:', mensaje);
-            if (mensaje.tipo === 'nuevo_registro') {
-                cargarTabla(); // Carga la tabla actualizada cuando se recibe la notificación
-            }
-        });
+        let isDragStart = false,
+            prevPageX, prevScrollLeft;
 
-        function cargarTabla() {
-            $.ajax({
-                url: '../Controller/Get_Data_Total.php', // Cambia la ruta según tu estructura
-                success: function (data) {
-                    $('#tabla-container').html(data);
-                }
-            });
+        const dragStart = (e) => {
+            isDragStart = true;
+            prevPageX = e.pageX;
+            prevScrollLeft = carousel.scrollLeft;
         }
 
-        $(document).ready(function () {
-            cargarTabla();
-        });
+        const dragGing = (e) => {
+            if (!isDragStart) return;
+            e.preventDefault();
+            let positionDiff = e.pageX - prevPageX;
+            carousel.scrollLeft = prevScrollLeft - positionDiff;
+        }
+
+        const dragStop = () => {
+            isDragStart = false;
+        }
+
+        carousel.addEventListener("mousedown", dragStart);
+        carousel.addEventListener("mousemove", dragGing);
+        carousel.addEventListener("mouseup", dragStop);
     </script>
-    <script src="../Vista/assets/functions.js"></script>
+
+
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
+
+    <script>
+        $('.your-class').slick();
+    </script>
 </body>
+
+
+
 </html>

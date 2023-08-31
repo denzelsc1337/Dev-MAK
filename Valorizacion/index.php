@@ -44,6 +44,14 @@ require_once('../Controller/controladorListar.php'); ?>
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/dataTables.bootstrap4.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.4.1/css/responsive.bootstrap4.min.css">
 
+
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
+
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
+
 </head>
 
 <body class="hold-transition sidebar-mini  sidebar-collapse layout-fixed layout-navbar-fixed layout-footer-fixed" onload="initAutocomplete()">
@@ -588,7 +596,21 @@ require_once('../Controller/controladorListar.php'); ?>
                                         <label>Fotos Subidas</label>
                                         <div>
                                             <div id="fotos_val">
-                                                <div id="lst_fotos"></div>
+                                                <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                                                    <div id="lst_fotos" class="carousel-inner">
+                                                        <!-- <i id="left" class="fa-solid fa-chevron-left"></i> -->
+                                                        <!-- <div id="lst_fotos"></div> -->
+                                                        <!-- <i id="right" class="fa-solid fa-chevron-right"></i> -->
+                                                    </div>
+                                                    <button class="carousel-control-prev" type="button" data-target="#carouselExampleControls" data-slide="prev">
+                                                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                                        <span class="sr-only">Previous</span>
+                                                    </button>
+                                                    <button class="carousel-control-next" type="button" data-target="#carouselExampleControls" data-slide="next">
+                                                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                                        <span class="sr-only">Next</span>
+                                                    </button>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -665,38 +687,7 @@ require_once('../Controller/controladorListar.php'); ?>
 
     </div>
 
-    <!-- REQUIRED SCRIPTS -->
-    <script src="../Vista/js/stepper.js"></script>
-    <script src="../Vista/js/resume.js"></script>
-    <script src="../Vista/assets/functions.js"></script>
 
-
-    <!-- jQuery -->
-    <script src="../Vista/plugins/jquery/jquery.min.js"></script>
-    <!-- Bootstrap 4 -->
-    <script src="../Vista/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <!-- Select2 -->
-    <script src="../Vista/plugins/select2/js/select2.full.min.js"></script>
-    <!-- Bootstrap4 Duallistbox -->
-    <script src="../Vista/plugins/bootstrap4-duallistbox/jquery.bootstrap-duallistbox.min.js"></script>
-    <!-- InputMask -->
-    <script src="../Vista/plugins/moment/moment.min.js"></script>
-    <script src="../Vista/plugins/inputmask/jquery.inputmask.min.js"></script>
-    <!-- date-range-picker -->
-    <script src="../Vista/plugins/daterangepicker/daterangepicker.js"></script>
-    <!-- bootstrap color picker -->
-    <script src="../Vista/plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.min.js"></script>
-    <!-- Tempusdominus Bootstrap 4 -->
-    <script src="../Vista/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
-    <!-- BS-Stepper -->
-    <script src="../Vista/plugins/bs-stepper/js/bs-stepper.min.js"></script>
-    <!-- dropzonejs -->
-    <script src="../Vista/plugins/dropzone/min/dropzone.min.js"></script>
-    <!-- AdminLTE App -->
-    <script src="../Vista/dist/js/adminlte.min.js"></script>
-    <!-- AdminLTE for demo purposes -->
-    <script src="../Vista/dist/js/demo.js"></script>
-    <!-- Page specific script -->
 
     <!--GOOGLE MAPS TESTING-->
     <script type="text/javascript">
@@ -1017,7 +1008,7 @@ require_once('../Controller/controladorListar.php'); ?>
 
         });
 
-        
+
 
         function download_excel(id_valor_soli) {
 
@@ -1543,93 +1534,214 @@ require_once('../Controller/controladorListar.php'); ?>
             });
         }
 
-$(document).ready(function() {
-    $('.btn_get_fotos').on('click', function() {
+        $(document).ready(function() {
+            $('.btn_get_fotos').on('click', function() {
 
-        $('#details_fotos').modal('show');
+                $('#details_fotos').modal('show');
 
-        var id_solic_v = $("#cod_solic_v").val();
-        var dni_cli_v = $("#dni_usu_v").val();
+                var id_solic_v = $("#cod_solic_v").val();
+                var dni_cli_v = $("#dni_usu_v").val();
 
-        console.log(dni_cli_v)
+                console.log(dni_cli_v)
 
-        get_imgs_valor(id_solic_v, dni_cli_v)          
-    });
+                get_imgs_valor(id_solic_v, dni_cli_v)
 
-    function get_imgs_valor(id_sol_v, dni) {
-        $.ajax({
-            type: 'POST',
-            url: '../Controller/Get_Valorizacion_fotos.php',
-            data: {
-                id_solic_v: id_sol_v,
-                dni_cli_v: dni,
-            },
-            success: function(response) {
 
-                if (response.status === 'error') {
-                    var errorMessage = $('<strong>').text(response.mensaje);
-                    $('#lst_fotos').empty().append(errorMessage);
-                } else if (response.status === 'empty') {
-                    var noFilesMessage = $('<strong>').text(response.mensaje);
-                    $('#lst_fotos').empty().append(noFilesMessage);
-                } else {
-                    var archivos = response.files;
-                    var archivosLista = $('#lst_fotos');
+            });
 
-                    archivosLista.empty();
+            function get_imgs_valor(id_sol_v, dni) {
+                $.ajax({
+                    type: 'POST',
+                    url: '../Controller/Get_Valorizacion_fotos.php',
+                    data: {
+                        id_solic_v: id_sol_v,
+                        dni_cli_v: dni,
+                    },
+                    success: function(response) {
 
-                    archivos.forEach(function(archivo) {
-                        if (archivo.trim() !== '') {
-                            // var link_ = $('<a>')
-                            //     .attr('href', '../Valorizaciones/' + id_sol_v + '/' + dni + '/fotos_val/' + archivo)
-                            //     .attr('download', archivo)
-                            //     .text(archivo);
+                        if (response.status === 'error') {
+                            var errorMessage = $('<strong>').text(response.mensaje);
+                            $('#lst_fotos').empty().append(errorMessage);
+                        } else if (response.status === 'empty') {
+                            var noFilesMessage = $('<strong>').text(response.mensaje);
+                            $('#lst_fotos').empty().append(noFilesMessage);
+                        } else {
+                            var archivos = response.files;
+                            var archivosLista = $('#lst_fotos');
 
-                            // var listItem = $('<li>').append(link_);
-                            // archivosLista.append(listItem);
+                            archivosLista.empty();
 
-                            var imgContainer = $('<div class="imagen-slide">');
-                            var img = $('<img>')
-                                .attr('src', '../Valorizaciones/' + id_sol_v + '/' + dni + '/fotos_val/' + archivo)
-                                .attr('alt', archivo);
-                            // .addClass('imagen-valorizacion'); // Clase para aplicar estilos si es necesario
+                            console.log(archivos.length);
 
-                            imgContainer.append(img);
-                            archivosLista.append(imgContainer);
+                            archivos.forEach(function(archivo) {
+                                if (archivo.trim() !== '') {
 
+                                    console.log(archivo);
+                                    // -------------
+                                    // var link_ = $('<a>')
+                                    //     .attr('href', '../Valorizaciones/' + id_sol_v + '/' + dni + '/fotos_val/' + archivo)
+                                    //     .attr('download', archivo)
+                                    //     .text(archivo);
+
+                                    // var listItem = $('<li>').append(link_);
+                                    // archivosLista.append(listItem);
+                                    // -------------
+
+                                    // -------------
+                                    // var imgContainer = $('<div class="imagen-slide">');
+                                    // var img = $('<img>')
+                                    //     .attr('src', '../Valorizaciones/' + id_sol_v + '/' + dni + '/fotos_val/' + archivo)
+                                    //     .attr('alt', archivo);
+                                    // // .addClass('imagen-valorizacion'); // Clase para aplicar estilos si es necesario
+                                    // -------------
+
+                                    // -------------
+                                    for (var i = 0; i < archivos.length; i++) {
+
+                                        if (archivo[0]) {
+                                            var carouselItemActive = $('<div class="carousel-item active">');
+
+                                        }
+                                        var img = $('<img>')
+                                            .addClass('d-block w-100')
+                                            .attr('src', '../Valorizaciones/' + id_sol_v + '/' + dni + '/fotos_val/' + archivo)
+                                            .attr('alt', archivo);
+                                        // -------------
+
+                                        // imgContainer.append(img);
+                                        // archivosLista.append(imgContainer);
+
+                                        carouselItemActive.append(img);
+                                        archivosLista.append(carouselItemActive);
+                                    }
+
+
+
+
+                                    // var carouselItemActive = $('<div class="carousel-item active">'); // Agregamos la clase 'active' al primer elemento
+                                    // var imgActive = $('<img>')
+                                    //     .addClass('d-block w-100')
+                                    //     .attr('src', '../Valorizaciones/' + id_sol_v + '/' + dni + '/fotos_val/' + archivos[0])
+                                    //     .attr('alt', archivos[0]);
+
+                                    // var carouselItemActive = $('<div class="carousel-item active">');
+                                    // var img = $('<img>')
+                                    //     .addClass('d-block w-100')
+                                    //     .attr('src', '../Valorizaciones/' + id_sol_v + '/' + dni + '/fotos_val/' + archivos[0])
+                                    //     .attr('alt', archivos[0]);
+
+                                    // carouselItemActive.append(img);
+                                    // archivosLista.append(carouselItemActive);
+
+                                    // // Crear el elemento de carrusel activo
+                                    // var carouselItemActive = $('<div class="carousel-item active">');
+                                    // var imgActive = $('<img>')
+                                    //     .addClass('d-block w-100')
+                                    //     .attr('src', '../Valorizaciones/' + id_sol_v + '/' + dni + '/fotos_val/' + archivo)
+                                    //     .attr('alt', archivo);
+
+                                    // carouselItemActive.append(imgActive);
+                                    // archivosLista.append(carouselItemActive);
+
+                                    // // Generar elementos para los archivos restantes
+                                    // for (var i = 1; i < archivo.length; i++) {
+                                    //     var carouselItem = $('<div class="carousel-item">');
+                                    //     var img = $('<img>')
+                                    //         .addClass('d-block w-100')
+                                    //         .attr('src', '../Valorizaciones/' + id_sol_v + '/' + dni + '/fotos_val/' + archivo[i])
+                                    //         .attr('alt', archivo[i]);
+
+                                    //     carouselItem.append(img);
+                                    //     archivosLista.append(carouselItem);
+                                    // }
+
+                                }
+                            });
 
                         }
-                    });
 
-                }
+                        //$('#descarga_archivo_m').html(link_);
+                        //console.log(response);
+                        // initializeSlider();
+                        // $('#lst_fotos').slick();
 
-                //$('#descarga_archivo_m').html(link_);
-                //console.log(response);
-            },
-            /* complete: function() {
-                initializeSlider();
-            },*/
-            error: function(xhr, status, error) {
-                console.log(error);
+                        document.addEventListener("DOMContentLoaded", function() {
+                            const carousel = document.querySelector('#lst_fotos');
+                            const firstImg = carousel.firstElementChild;
+                            console.log(carousel.querySelectorAll(".imagen-slide img")[0]);
+                            // const carousel = document.querySelector('#lst_fotos'),
+                            //     firstImg = carousel.querySelectorAll(".imagen-slide img")[0];
+                            const arrowIcons = document.querySelectorAll('#fotos_val i');
+
+
+                            let isDragStart = false,
+                                prevPageX, prevScrollLeft;
+
+                            let firstImgWidth = firstImg.clientWidth + 15;
+
+                            arrowIcons.forEach(icon => {
+                                icon.addEventListener("click", () => {
+                                    console.log(firstImgWidth);
+                                    carousel.scrollLeft += icon.id == "left" ? -firstImgWidth : firstImgWidth;
+                                })
+
+                            });
+
+                            const dragStart = (e) => {
+                                isDragStart = true;
+                                prevPageX = e.pageX;
+                                prevScrollLeft = carousel.scrollLeft;
+                            }
+
+                            const dragGing = (e) => {
+                                if (!isDragStart) return;
+                                e.preventDefault();
+                                let positionDiff = e.pageX - prevPageX;
+                                carousel.scrollLeft = prevScrollLeft - positionDiff;
+                            }
+
+                            const dragStop = () => {
+                                isDragStart = false;
+                            }
+
+                            carousel.addEventListener("mousedown", dragStart);
+                            carousel.addEventListener("mousemove", dragGing);
+                            carousel.addEventListener("mouseup", dragStop);
+                        });
+                    },
+
+
+                    /* complete: function() {
+                        initializeSlider();
+                    },*/
+                    error: function(xhr, status, error) {
+                        console.log(error);
+                    }
+                });
+
+
             }
+
+
+
+            // function initializeSlider() {
+            //     var fotos_ = $('#lst_fotos');
+            //     console.log(fotos_);
+
+            //     $('#lst_fotos').slick({
+            //         infinite: true,
+            //         slidesToShow: 1,
+            //         slidesToScroll: 1,
+            //         prevArrow: '<button type="button" class="slick-prev">Anterior</button>',
+            //         nextArrow: '<button type="button" class="slick-next">Siguiente</button>',
+            //     });
+            // }
+
         });
-    }
 
-    function initializeSlider() {
-        var fotos_ = $('#lst_fotos');
-        console.log(fotos_);
 
-        $('#lst_fotos').slick({
-            infinite: true,
-            slidesToShow: 1,
-            slidesToScroll: 1,
-            prevArrow: '<button type="button" class="slick-prev">Anterior</button>',
-            nextArrow: '<button type="button" class="slick-next">Siguiente</button>',
-        });
-    }
-
-});
-        
+        // $('#fotos_val').slick();
+        // $('#lst_fotos').slick();
     </script>
 
     <style type="text/css">
@@ -2057,6 +2169,9 @@ $(document).ready(function() {
 
                         //initializeSlider()
 
+
+
+
                     });
 
                 });
@@ -2345,17 +2460,88 @@ $(document).ready(function() {
         inputSelect.classList.remove("active");
     </script>
 
+    <script>
+        // const carousel = document.querySelector('#lst_fotos'),
+        //     firstImg = carousel.querySelectorAll(".imagen-slide")[0];
+        // const arrowIcons = document.querySelectorAll('#fotos_val i');
+
+        // console.log(carousel);
+        // console.log(firstImg);
+
+        // let isDragStart = false,
+        //     prevPageX, prevScrollLeft;
+
+        // let firstImgWidth = firstImg.clientWidth + 15;
+
+        // arrowIcons.forEach(icon => {
+        //     icon.addEventListener("click", () => {
+        //         console.log(icon);
+        //         // console.log(firstImgWidth);
+        //         // carousel.scrollLeft += icon.id == "left" ? -firstImgWidth : firstImgWidth;
+        //     })
+
+        // });
+
+        // const dragStart = (e) => {
+        //     isDragStart = true;
+        //     prevPageX = e.pageX;
+        //     prevScrollLeft = carousel.scrollLeft;
+        // }
+
+        // const dragGing = (e) => {
+        //     if (!isDragStart) return;
+        //     e.preventDefault();
+        //     let positionDiff = e.pageX - prevPageX;
+        //     carousel.scrollLeft = prevScrollLeft - positionDiff;
+        // }
+
+        // const dragStop = () => {
+        //     isDragStart = false;
+        // }
+
+        // carousel.addEventListener("mousedown", dragStart);
+        // carousel.addEventListener("mousemove", dragGing);
+        // carousel.addEventListener("mouseup", dragStop);
+    </script>
+
     <!-- REQUIRED SCRIPTS -->
+    <script src="../Vista/js/stepper.js"></script>
+    <script src="../Vista/js/resume.js"></script>
+    <script src="../Vista/assets/functions.js"></script>
     <script src="../Vista/assets/selection_types.js"></script>
+
+    <!-- jQuery -->
+    <script src="../Vista/plugins/jquery/jquery.min.js"></script>
+    <!-- Bootstrap 4 -->
+    <script src="../Vista/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- Select2 -->
+    <script src="../Vista/plugins/select2/js/select2.full.min.js"></script>
+    <!-- Bootstrap4 Duallistbox -->
+    <script src="../Vista/plugins/bootstrap4-duallistbox/jquery.bootstrap-duallistbox.min.js"></script>
+    <!-- InputMask -->
+    <script src="../Vista/plugins/moment/moment.min.js"></script>
+    <script src="../Vista/plugins/inputmask/jquery.inputmask.min.js"></script>
+    <!-- date-range-picker -->
+    <script src="../Vista/plugins/daterangepicker/daterangepicker.js"></script>
+    <!-- bootstrap color picker -->
+    <script src="../Vista/plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.min.js"></script>
+    <!-- Tempusdominus Bootstrap 4 -->
+    <script src="../Vista/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
+    <!-- BS-Stepper -->
+    <script src="../Vista/plugins/bs-stepper/js/bs-stepper.min.js"></script>
+    <!-- dropzonejs -->
+    <script src="../Vista/plugins/dropzone/min/dropzone.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="../Vista/dist/js/adminlte.min.js"></script>
+    <!-- AdminLTE for demo purposes -->
+    <script src="../Vista/dist/js/demo.js"></script>
+
+
     <!-- Data Tables Pluggin -->
     <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap5.min.js"></script>
     <script src="https://cdn.datatables.net/responsive/2.4.1/js/dataTables.responsive.min.js"></script>
     <script src="https://cdn.datatables.net/responsive/2.4.1/js/responsive.bootstrap4.min.js"></script>
-
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 
 </body>
 
