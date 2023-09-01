@@ -62,10 +62,17 @@ var btn_li = document.getElementById("btnValo_lc_ind");
     let steps = document.querySelectorAll(".step");
 
     let lines = document.querySelectorAll(".line");
-    // console.log(line);
+
+    console.log(dash);
+    console.log(dashTarget);
+    console.log(steps);
+    console.log(lines);
 
     lines.forEach((lns) => {
+      console.log(lns);
       var line = lns.getAttribute("data-target");
+      console.log(line);
+
 
       if (dashTarget !== line) {
         lns.style.display = "none";
@@ -86,6 +93,7 @@ var btn_li = document.getElementById("btnValo_lc_ind");
   }
 
   nextPag.addEventListener("click", () => {
+
     // Obtener el valor seleccionado del combobox
     const pantallaSeleccionada = document.getElementById("tipo_prop").value;
 
@@ -149,7 +157,7 @@ var btn_li = document.getElementById("btnValo_lc_ind");
           btn_li.style.display = "none";
           break;
       }
-
+      Pasos();
       pantallaActual();
       hideScreen();
 
@@ -158,7 +166,7 @@ var btn_li = document.getElementById("btnValo_lc_ind");
       siguientePantalla.classList.remove("hide");
       siguientePantalla.classList.add("show");
 
-      Pasos();
+
     } else if (pantallaSeleccionada === "5") {
       const sub_tipo_prop = document.querySelector("#sub_tipo_prop").value;
 

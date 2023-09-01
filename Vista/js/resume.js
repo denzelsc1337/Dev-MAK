@@ -343,7 +343,7 @@
       // const allInputsTxt = document.querySelectorAll("input:not([hidden])");
       // const allInputsNum = document.querySelectorAll("input[type='number']");
       // const allCheckBox = document.querySelectorAll("input[type='checkbox']:checked");
-      console.log(allSections);
+      // console.log(allSections);  
       // console.log(allSections_);
       // console.log(allInputsTxt);
 

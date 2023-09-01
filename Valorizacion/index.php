@@ -1573,90 +1573,112 @@ require_once('../Controller/controladorListar.php'); ?>
 
                             console.log(archivos.length);
 
-                            archivos.forEach(function(archivo) {
-                                if (archivo.trim() !== '') {
+                            // Crear el elemento de carrusel activo
+                            var carouselItemActive = $('<div class="carousel-item active">');
+                            var imgActive = $('<img>')
+                                .addClass('d-block w-100')
+                                .attr('src', '../Valorizaciones/' + id_sol_v + '/' + dni + '/fotos_val/' + archivos[0])
+                                .attr('alt', archivos[0]);
+                            carouselItemActive.append(imgActive);
+                            archivosLista.append(carouselItemActive);
 
-                                    console.log(archivo);
-                                    // -------------
-                                    // var link_ = $('<a>')
-                                    //     .attr('href', '../Valorizaciones/' + id_sol_v + '/' + dni + '/fotos_val/' + archivo)
-                                    //     .attr('download', archivo)
-                                    //     .text(archivo);
+                            // Generar elementos para los archivos restantes
+                            for (var i = 1; i < archivos.length; i++) {
+                                var carouselItem = $('<div class="carousel-item">');
+                                var img = $('<img>')
+                                    .addClass('d-block w-100')
+                                    .attr('src', '../Valorizaciones/' + id_sol_v + '/' + dni + '/fotos_val/' + archivos[i])
+                                    .attr('alt', archivos[i]);
+                                carouselItem.append(img);
+                                archivosLista.append(carouselItem);
+                            }
 
-                                    // var listItem = $('<li>').append(link_);
-                                    // archivosLista.append(listItem);
-                                    // -------------
+                            // archivos.forEach(function(archivo) {
+                            //     console.log(archivo);
+                            //     // if (archivo.trim() !== '') {
 
-                                    // -------------
-                                    // var imgContainer = $('<div class="imagen-slide">');
-                                    // var img = $('<img>')
-                                    //     .attr('src', '../Valorizaciones/' + id_sol_v + '/' + dni + '/fotos_val/' + archivo)
-                                    //     .attr('alt', archivo);
-                                    // // .addClass('imagen-valorizacion'); // Clase para aplicar estilos si es necesario
-                                    // -------------
+                            //     //     // -------------
+                            //     //     // var link_ = $('<a>')
+                            //     //     //     .attr('href', '../Valorizaciones/' + id_sol_v + '/' + dni + '/fotos_val/' + archivo)
+                            //     //     //     .attr('download', archivo)
+                            //     //     //     .text(archivo);
 
-                                    // -------------
-                                    for (var i = 0; i < archivos.length; i++) {
+                            //     //     // var listItem = $('<li>').append(link_);
+                            //     //     // archivosLista.append(listItem);
+                            //     //     // -------------
 
-                                        if (archivo[0]) {
-                                            var carouselItemActive = $('<div class="carousel-item active">');
+                            //     //     // -------------
+                            //     //     // var imgContainer = $('<div class="imagen-slide">');
+                            //     //     // var img = $('<img>')
+                            //     //     //     .attr('src', '../Valorizaciones/' + id_sol_v + '/' + dni + '/fotos_val/' + archivo)
+                            //     //     //     .attr('alt', archivo);
+                            //     //     // // .addClass('imagen-valorizacion'); // Clase para aplicar estilos si es necesario
+                            //     //     // -------------
 
-                                        }
-                                        var img = $('<img>')
-                                            .addClass('d-block w-100')
-                                            .attr('src', '../Valorizaciones/' + id_sol_v + '/' + dni + '/fotos_val/' + archivo)
-                                            .attr('alt', archivo);
-                                        // -------------
+                            //     //     // -------------
+                            //     //     for (var i = 0; i < archivo.length; i++) {
 
-                                        // imgContainer.append(img);
-                                        // archivosLista.append(imgContainer);
+                            //     //         if (archivo[0]) {
+                            //     //             var carouselItemActive = $('<div class="carousel-item active">');
 
-                                        carouselItemActive.append(img);
-                                        archivosLista.append(carouselItemActive);
-                                    }
+                            //     //         }
+                            //     //         var img = $('<img>')
+                            //     //             .addClass('d-block w-100')
+                            //     //             .attr('src', '../Valorizaciones/' + id_sol_v + '/' + dni + '/fotos_val/' + archivo)
+                            //     //             .attr('alt', archivo);
+                            //     //         // -------------
+
+                            //     //         // imgContainer.append(img);
+                            //     //         // archivosLista.append(imgContainer);
+
+                            //     //         carouselItemActive.append(img);
+                            //     //         archivosLista.append(carouselItemActive);
+                            //     //     }
 
 
 
 
-                                    // var carouselItemActive = $('<div class="carousel-item active">'); // Agregamos la clase 'active' al primer elemento
-                                    // var imgActive = $('<img>')
-                                    //     .addClass('d-block w-100')
-                                    //     .attr('src', '../Valorizaciones/' + id_sol_v + '/' + dni + '/fotos_val/' + archivos[0])
-                                    //     .attr('alt', archivos[0]);
+                            //     //     // var carouselItemActive = $('<div class="carousel-item active">'); // Agregamos la clase 'active' al primer elemento
+                            //     //     // var imgActive = $('<img>')
+                            //     //     //     .addClass('d-block w-100')
+                            //     //     //     .attr('src', '../Valorizaciones/' + id_sol_v + '/' + dni + '/fotos_val/' + archivos[0])
+                            //     //     //     .attr('alt', archivos[0]);
 
-                                    // var carouselItemActive = $('<div class="carousel-item active">');
-                                    // var img = $('<img>')
-                                    //     .addClass('d-block w-100')
-                                    //     .attr('src', '../Valorizaciones/' + id_sol_v + '/' + dni + '/fotos_val/' + archivos[0])
-                                    //     .attr('alt', archivos[0]);
+                            //     //     // var carouselItemActive = $('<div class="carousel-item active">');
+                            //     //     // var img = $('<img>')
+                            //     //     //     .addClass('d-block w-100')
+                            //     //     //     .attr('src', '../Valorizaciones/' + id_sol_v + '/' + dni + '/fotos_val/' + archivos[0])
+                            //     //     //     .attr('alt', archivos[0]);
 
-                                    // carouselItemActive.append(img);
-                                    // archivosLista.append(carouselItemActive);
+                            //     //     // carouselItemActive.append(img);
+                            //     //     // archivosLista.append(carouselItemActive);
 
-                                    // // Crear el elemento de carrusel activo
-                                    // var carouselItemActive = $('<div class="carousel-item active">');
-                                    // var imgActive = $('<img>')
-                                    //     .addClass('d-block w-100')
-                                    //     .attr('src', '../Valorizaciones/' + id_sol_v + '/' + dni + '/fotos_val/' + archivo)
-                                    //     .attr('alt', archivo);
+                            //     //     // // Crear el elemento de carrusel activo
+                            //     //     // var carouselItemActive = $('<div class="carousel-item active">');
+                            //     //     // var imgActive = $('<img>')
+                            //     //     //     .addClass('d-block w-100')
+                            //     //     //     .attr('src', '../Valorizaciones/' + id_sol_v + '/' + dni + '/fotos_val/' + archivo)
+                            //     //     //     .attr('alt', archivo);
 
-                                    // carouselItemActive.append(imgActive);
-                                    // archivosLista.append(carouselItemActive);
+                            //     //     // carouselItemActive.append(imgActive);
+                            //     //     // archivosLista.append(carouselItemActive);
 
-                                    // // Generar elementos para los archivos restantes
-                                    // for (var i = 1; i < archivo.length; i++) {
-                                    //     var carouselItem = $('<div class="carousel-item">');
-                                    //     var img = $('<img>')
-                                    //         .addClass('d-block w-100')
-                                    //         .attr('src', '../Valorizaciones/' + id_sol_v + '/' + dni + '/fotos_val/' + archivo[i])
-                                    //         .attr('alt', archivo[i]);
+                            //     //     // // Generar elementos para los archivos restantes
+                            //     //     // for (var i = 1; i < archivo.length; i++) {
+                            //     //     //     var carouselItem = $('<div class="carousel-item">');
+                            //     //     //     var img = $('<img>')
+                            //     //     //         .addClass('d-block w-100')
+                            //     //     //         .attr('src', '../Valorizaciones/' + id_sol_v + '/' + dni + '/fotos_val/' + archivo[i])
+                            //     //     //         .attr('alt', archivo[i]);
 
-                                    //     carouselItem.append(img);
-                                    //     archivosLista.append(carouselItem);
-                                    // }
+                            //     //     //     carouselItem.append(img);
+                            //     //     //     archivosLista.append(carouselItem);
+                            //     //     // }
 
-                                }
-                            });
+                            //     // }
+                            // });
+
+
 
                         }
 

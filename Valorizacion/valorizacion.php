@@ -2303,10 +2303,10 @@
             switch (sub_tipo_prop.value) {
                 case "13":
                     area_c.classList.remove("hidden");
-                    area_o.classList.remove("hidden");
-                    antig.classList.remove("hidden");
+                    area_o.classList.add("hidden");
+                    antig.classList.add("hidden");
 
-                    area_t.classList.add("hidden");
+                    area_t.classList.remove("hidden");
                     break;
                 case "14":
                     area_c.classList.remove("hidden");
