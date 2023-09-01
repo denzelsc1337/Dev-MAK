@@ -463,12 +463,12 @@
                                                                     </div>
 
 
-                                                                    <div class="col-sm-6 pdd-left align-center">
+                                                                    <!-- <div class="col-sm-6 pdd-left align-center">
                                                                         <div class="custom-control custom-checkbox">
                                                                             <input class="right custom-control-input" type="checkbox" id="deposito_" name="deposito_">
                                                                             <label for="deposito_" class="right custom-control-label">Depósito:</label>
                                                                         </div>
-                                                                    </div>
+                                                                    </div> -->
                                                                 </div>
                                                             </div>
                                                         </div>
