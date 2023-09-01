@@ -82,17 +82,158 @@ require_once('../Controller/controladorListar.php');
                 <div class="overflow-hidden">
                     <div class="d-flex scroll">
 
-                        <section class="content body-mak mak-txt position-relative" data-content="historico">
+                        <section class="body-mak mak-txt position-relative" data-content="legal">
 
-                            <!-- <div class="arrow-left">
-                                <i class="fa-solid fa-angle-left"></i>
-                            </div> -->
 
-                            <div class="container">
+                            <form method="POST" action="../Controller/Add_Solic_Legal.php">
+                                <div class="container mt-5">
+
+                                    <div class="arrow-right">
+                                        <i class="fa-solid fa-angle-right"></i>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="row" hidden>
+                                                <input type="text" class="form-control" id="id_user" name="id_user" value="<?php echo $_SESSION['id_usu']; ?>">
+                                                <input type="text" class="form-control" id="dni_user_l" name="dni_user_l" value="<?php echo $_SESSION['dni']; ?>">
+                                                <input type="text" class="form-control" id="cod_reg_l" name="cod_reg_l">
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <div class="row">
+                                                    <div class="col-sm-6">
+                                                        <div class="form-group">
+                                                            <label class="mak-txt">Nombre</label>
+                                                            <input type="text" class="form-mak" id="nom_cli_solic" name="nom_cli_solic" required>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-sm-6">
+                                                        <div class="form-group">
+                                                            <label class="mak-txt">Apellidos</label>
+                                                            <input type="text" class="form-mak" id="ape_cli_solic" name="ape_cli_solic" required>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-sm-6">
+                                                        <div class="form-group">
+                                                            <label class="mak-txt">Dirección</label>
+                                                            <input type="text" class="form-mak" id="dir_cli_solic" name="dir_cli_solic" required>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <textarea id="rutas_doscs" name="rutas_doscs" rows="5" cols="50" hidden><?php echo $rutas; ?></textarea>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <div class="row">
+                                                    <div class="col-sm-10">
+                                                        <div class="form-group row">
+                                                            <label class="col-sm-5 col-form-label">HR:</label>
+                                                            <div class="section-input col-sm-6">
+                                                                <div class="upload-file">
+                                                                    <label class="upld-file" data-bs-toggle="modal" data-bs-target="#modal_archive_HR">Seleccionar archivos.</label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="input-group-append">
+
+                                                                <button type="button" class="btn btn-rounded
+                                                                btn_lst_hr btn_lst_hr_0" data-toggle="modal" data-target="#lst_hr_0" data-valor="H_R" data-titulo="Hoja de Resumen" data-id_doc_="1"><i class="cursor fa-solid fa-eye"></i></button>
+
+                                                                <button type="button" class="btn btn-rounded  btn_lst_lyts btn_lst_lyts_0" data-toggle="modal" data-target="#lst_lyts" data-valor="H_R" data-titulo="Hoja de Resumen" data-id_doc_="1" style="display:none"><i class="cursor fa-solid fa-pencil"></i></button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <br>
+                                                <div class="row">
+                                                    <div class="col-sm-10">
+                                                        <div class="form-group row">
+                                                            <label class="col-sm-5 col-form-label">PU:</label>
+                                                            <div class="section-input col-sm-6">
+                                                                <div class="upload-file">
+                                                                    <label class="upld-file" data-bs-toggle="modal" data-bs-target="#modal_archive_PU">Seleccionar archivos.</label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="input-group-append">
+
+                                                                <button type="button" class="btn btn-rounded btn_lst_hr btn_lst_hr_0" data-toggle="modal" data-target="#lst_hr_0" data-valor="P_U" data-titulo="Predio Urbano" data-id_doc_="2"><i class="cursor fa-solid fa-eye"></i></button>
+
+                                                                <button type="button" class="btn btn-rounded  btn_lst_lyts btn_lst_lyts_0" data-toggle="modal" data-target="#lst_lyts" data-valor="P_U" data-titulo="Predio Urbano" data-id_doc_="2" style="display:none"><i class="cursor fa-solid fa-pencil"></i></button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <br>
+                                                <div class="row">
+                                                    <div class="col-sm-10">
+                                                        <div class="form-group row">
+                                                            <label class="col-sm-5 col-form-label">COPIA LITERAL:</label>
+                                                            <div class="section-input col-sm-6">
+                                                                <div class="upload-file">
+                                                                    <label class="upld-file" data-bs-toggle="modal" data-bs-target="#modal_archive_CL">Seleccionar archivos.</label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="input-group-append">
+
+                                                                <button type="button" class="btn btn-rounded btn_lst_hr btn_lst_hr_0" data-toggle="modal" data-target="#lst_hr_0" data-valor="C_L" data-titulo="Copia Literal" data-id_doc_="3"><i class="cursor fa-solid fa-eye"></i></button>
+
+
+                                                                <button type="button" class="btn btn-rounded  btn_lst_lyts btn_lst_lyts_0" data-toggle="modal" data-target="#lst_lyts" data-valor="C_L" data-titulo="Copia Literal" data-id_doc_="3" style="display:none"><i class="cursor fa-solid fa-pencil"></i></button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <br>
+                                                <div class="row">
+                                                    <div class="col-sm-10">
+                                                        <div class="form-group row">
+                                                            <label class="col-sm-5 col-form-label">DNI:</label>
+                                                            <div class="section-input col-sm-6">
+                                                                <div class="upload-file">
+                                                                    <label class="upld-file" data-bs-toggle="modal" data-bs-target="#modal_archive_DNI">Seleccionar archivos.</label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="input-group-append">
+                                                                <button type="button" class="btn btn-rounded btn_lst_hr btn_lst_hr_0" data-toggle="modal" data-target="#lst_hr_0" data-valor="DNI" data-titulo="DNI" data-id_doc_="4"><i class="cursor fa-solid fa-eye"></i></button>
+
+                                                                <button type="button" class="btn btn-rounded  btn_lst_lyts btn_lst_lyts_0" data-toggle="modal" data-target="#lst_lyts" data-valor="DNI" data-titulo="DNI" data-id_doc_="4" style="display:none"><i class="cursor fa-solid fa-pencil"></i></button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+
+                                    <div class="card-footer">
+                                        <div class="form-flex">
+                                            <button type="submit" class="btn btn-mak mak-bg-sec" id="btn_save_borrador" name="btn_save_borrador">Guardar</button>
+                                            <button type="submit" class="btn btn-mak mak-bg-sec" id="btn_updt_borrador" name="btn_updt_borrador" style="display: none;">Actualizar</button>
+                                            <button type="submit" class="btn btn-mak mak-bg" id="btn_save_solic" name="btn_save_solic">Enviar</button>
+                                            <button type="submit" class="btn btn-mak mak-bg" id="btn_updt_solic" name="btn_updt_solic" style="display: none;">Enviar</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </section>
+
+                        <section class="body-mak mak-txt position-relative" data-content="historico">
+
+
+                            <div class="container mt-5">
+
+                                <div class="arrow-left">
+                                    <i class="fa-solid fa-angle-left"></i>
+                                </div>
+
                                 <h1 class="text-center">HISTORICO</h1>
                                 <div class="row">
 
-                                    <div class="menu-filter">
+                                    <!-- <div class="menu-filter">
                                         <div class="filter-drop shadow ml-auto">
                                             <div class="dropdown">
                                                 Filtros &nbsp;
@@ -104,7 +245,7 @@ require_once('../Controller/controladorListar.php');
                                                 <div class="list-group-item">3</div>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> -->
 
                                     <?php
 
@@ -118,7 +259,6 @@ require_once('../Controller/controladorListar.php');
                                         <div class="col-sm-12">
 
                                             <table class="table table-borderless" style="width: 100%;">
-                                                Admin
                                                 <thead class="">
                                                     <tr>
                                                         <th>ID</th>
@@ -142,7 +282,6 @@ require_once('../Controller/controladorListar.php');
                                                             <td>
                                                                 <?php
                                                                 $estado = $lst_legal_d[4];
-                                                                //echo $estado;
                                                                 switch ($estado) {
                                                                     case '10':
                                                                         echo '<span class="badge rounded-pill bg-secondary">Pendiente</span>';
@@ -208,12 +347,13 @@ require_once('../Controller/controladorListar.php');
                                         <!-- </div> TABLA USER -->
 
                                         <div class="col-sm-12">
-                                            User
                                             <table class="table table-borderless" style="width: 100%;">
                                                 <thead class="">
                                                     <tr>
                                                         <th>ID</th>
                                                         <th>nom</th>
+                                                        <th>ape</th>
+                                                        <th>nom completo</th>
                                                         <th>DIRECCIÓN</th>
                                                         <th>FECHA</th>
                                                         <th>ESTADO</th>
@@ -226,16 +366,20 @@ require_once('../Controller/controladorListar.php');
                                                 <tbody>
                                                     <?php
                                                     $list_solic_legal_client = $oLegal->listadoSolicDocsLegal_clients($_SESSION['id_usu'], $_SESSION['dni']);
+
                                                     foreach ($list_solic_legal_client as $lst_legal_d) :
+                                                        //print_r($lst_legal_d)
                                                     ?>
                                                         <tr>
                                                             <td><?php echo $lst_legal_d[0] ?></td>
                                                             <td><?php echo $lst_legal_d[1] ?></td>
                                                             <td><?php echo $lst_legal_d[2] ?></td>
                                                             <td><?php echo $lst_legal_d[3] ?></td>
+                                                            <td><?php echo $lst_legal_d[4] ?></td>
+                                                            <td><?php echo $lst_legal_d[5] ?></td>
                                                             <td>
                                                                 <?php
-                                                                $estado = $lst_legal_d[4];
+                                                                $estado = $lst_legal_d[6];
                                                                 //echo $estado;
                                                                 switch ($estado) {
                                                                     case '10':
@@ -256,8 +400,6 @@ require_once('../Controller/controladorListar.php');
                                                                 }
                                                                 ?>
                                                             </td>
-                                                            <td><?php echo $lst_legal_d[5] ?></td>
-                                                            <td><?php echo $lst_legal_d[6] ?></td>
                                                             <td><?php echo $lst_legal_d[7] ?></td>
                                                             <td><?php echo $lst_legal_d[8] ?></td>
                                                             <td><?php echo $lst_legal_d[9] ?></td>
@@ -287,6 +429,18 @@ require_once('../Controller/controladorListar.php');
                                                                             </button>
                                                                         </div>
                                                                     </div>
+
+                                                                    <?php if ($lst_legal_d[6] == 30) { ?>
+                                                                        <div class="col-sm-4 justify-content-center options">
+                                                                            <div class="options">
+                                                                                <button type="button" class="btn btn-rounded arrow-left_1" id="">
+                                                                                    <i class="fa-solid fa-pencil"></i>
+                                                                                </button>
+                                                                            </div>
+                                                                        </div>
+                                                                    <?php  } ?>
+
+
                                                                 </div>
                                                             </td>
                                                         </tr>
@@ -304,7 +458,7 @@ require_once('../Controller/controladorListar.php');
                                 </div>
 
                             </div>
-                            <div class="footer-mak">
+                            <div class="footer-mak" hidden>
                                 <div class="container">
                                     <div class="flex">
                                         <a href="legal_.php" class="btn btn-mak mak-bg ml-auto">Continuar</a>
@@ -312,6 +466,7 @@ require_once('../Controller/controladorListar.php');
                                 </div>
                             </div>
                         </section>
+
 
                         <section class="body-mak mak-txt position-relative" data-content="files">
 

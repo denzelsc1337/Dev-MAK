@@ -641,7 +641,7 @@ require_once('../Controller/controladorListar.php'); ?>
                                     <div class="form-group">
                                         <label>Observacion</label>
                                         <br>
-                                        <textarea placeholder="Añadir Observacion" id="obs_send_" name="obs_send_"></textarea>
+                                        <textarea placeholder="Añadir Observacion" id="obs_send_" name="obs_send_" onkeyup="habilitarBoton()"></textarea>
                                     </div>
 
                                     <div class="modal-footer">
@@ -687,7 +687,22 @@ require_once('../Controller/controladorListar.php'); ?>
 
     </div>
 
+<script>
+    function habilitarBoton() {
+        const boton = document.getElementById("btnValo_obs_set");
+        const boton_ = document.getElementById("btnValo_obs_save");
 
+        const obs = document.getElementById("obs_send_");
+
+        if (obs.value.trim() !== '') {
+            boton.disabled = false;
+            boton_.disabled = false;
+        } else {
+            boton.disabled = true;
+            boton_.disabled = true;
+        }
+    }
+</script>
 
     <!--GOOGLE MAPS TESTING-->
     <script type="text/javascript">
