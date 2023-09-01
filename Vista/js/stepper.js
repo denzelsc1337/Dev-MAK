@@ -63,15 +63,8 @@ var btn_li = document.getElementById("btnValo_lc_ind");
 
     let lines = document.querySelectorAll(".line");
 
-    console.log(dash);
-    console.log(dashTarget);
-    console.log(steps);
-    console.log(lines);
-
     lines.forEach((lns) => {
-      console.log(lns);
       var line = lns.getAttribute("data-target");
-      console.log(line);
 
 
       if (dashTarget !== line) {
@@ -157,9 +150,10 @@ var btn_li = document.getElementById("btnValo_lc_ind");
           btn_li.style.display = "none";
           break;
       }
-      Pasos();
+
       pantallaActual();
       hideScreen();
+
 
       const siguientePantalla = document.getElementById(pantallaSeleccionada);
 
@@ -221,6 +215,7 @@ var btn_li = document.getElementById("btnValo_lc_ind");
     } else {
       alert("Seleccione un tipo de Inmueble.");
     }
+    Pasos();
   });
 
   backPag.forEach((element) => {
