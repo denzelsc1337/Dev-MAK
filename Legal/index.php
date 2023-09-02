@@ -131,7 +131,6 @@ require_once('../Controller/controladorListar.php');
                                                         </div>
                                                     </div>
                                                 </div>
-
                                                 <textarea id="rutas_doscs" name="rutas_doscs" rows="5" cols="50" hidden><?php echo $rutas; ?></textarea>
                                             </div>
                                             <div class="col-sm-6">
@@ -1827,7 +1826,7 @@ require_once('../Controller/controladorListar.php');
 
             //
             if (element.getAttribute("data-content") === "legal") {
-
+                contenedor.scrollLeft = mitadScroll;
                 element.querySelector(".arrow-right").addEventListener("click", (e) => {
 
                     // Realizar la transición a la mitad del scroll horizontal con animación
