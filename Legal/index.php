@@ -41,11 +41,13 @@ require_once('../Controller/controladorListar.php');
     <link rel="stylesheet" href="../Vista/plugins/dropzone/min/dropzone.min.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="../Vista/dist/css/adminlte.min.css">
+    <!-- Modal -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer">
     <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
 
 </head>
 
-<body class="hold-transition sidebar-mini  sidebar-collapse layout-fixed layout-navbar-fixed layout-footer-fixed" onload="initAutocomplete()">
+<body class="hold-transition sidebar-mini  sidebar-collapse layout-fixed layout-navbar-fixed layout-footer-fixed">
 
     <div class="wrapper">
 
@@ -60,23 +62,29 @@ require_once('../Controller/controladorListar.php');
 
                 <?php include '../Vista/head-form.php' ?>
 
+                <?php
+                if ($_SESSION['tipo_usu'] != 1) {
+                    //ocultar el del user y mostrar el del admin
+                ?>
 
-                <section class="content body-mak txt-center mak-txt">
-                    <div class="container">
-                        <div class="b-title">Resumen Legal</div>
-                        <p class="b-text mak-txt">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora culpa iste, facere veniam aperiam corporis placeat pariatur, dignissimos, nostrum illum ex adipisci officiis necessitatibus obcaecati doloribus velit sint omnis ipsum!</p>
-                    </div>
 
-                    <div class="footer-mak">
+                    <section class="content body-mak txt-center mak-txt">
                         <div class="container">
-                            <div class="flex">
-                                <a href="legal_.php" class="btn btn-mak mak-bg ml-auto">Continuar</a>
+                            <div class="b-title">Resumen Legal</div>
+                            <p class="b-text mak-txt">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora culpa iste, facere veniam aperiam corporis placeat pariatur, dignissimos, nostrum illum ex adipisci officiis necessitatibus obcaecati doloribus velit sint omnis ipsum!</p>
+                        </div>
+
+                        <div class="footer-mak">
+                            <div class="container">
+                                <div class="flex">
+                                    <a href="legal_.php" class="btn btn-mak mak-bg ml-auto">Continuar</a>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </section>
-
-
+                    </section>
+                <?php
+                }
+                ?>
 
 
                 <div class="overflow-hidden">
@@ -133,7 +141,7 @@ require_once('../Controller/controladorListar.php');
                                                             <label class="col-sm-5 col-form-label">HR:</label>
                                                             <div class="section-input col-sm-6">
                                                                 <div class="upload-file">
-                                                                    <label class="upld-file" data-bs-toggle="modal" data-bs-target="#modal_archive_HR">Seleccionar archivos.</label>
+                                                                    <label class="upld-file" data-valor="HR" data-bs-toggle="modal" data-bs-target="#modal_archive_HR">Seleccionar archivos.</label>
                                                                 </div>
                                                             </div>
                                                             <div class="input-group-append">
@@ -232,20 +240,6 @@ require_once('../Controller/controladorListar.php');
 
                                 <h1 class="text-center">HISTORICO</h1>
                                 <div class="row">
-
-                                    <!-- <div class="menu-filter">
-                                        <div class="filter-drop shadow ml-auto">
-                                            <div class="dropdown">
-                                                Filtros &nbsp;
-                                                <i class="fa-solid fa-sliders"></i>
-                                            </div>
-                                            <div class="optn-filter">
-                                                <div class="list-group-item">1</div>
-                                                <div class="list-group-item">2</div>
-                                                <div class="list-group-item">3</div>
-                                            </div>
-                                        </div>
-                                    </div> -->
 
                                     <?php
 
@@ -458,13 +452,13 @@ require_once('../Controller/controladorListar.php');
                                 </div>
 
                             </div>
-                            <div class="footer-mak" hidden>
+                            <!-- <div class="footer-mak" hidden>
                                 <div class="container">
                                     <div class="flex">
                                         <a href="legal_.php" class="btn btn-mak mak-bg ml-auto">Continuar</a>
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
                         </section>
 
 
@@ -696,7 +690,7 @@ require_once('../Controller/controladorListar.php');
     </div>
 
 
-        <!-- MODALES -->
+    <!-- MODALES -->
 
 
     <!-- Modal_HR -->
@@ -1101,13 +1095,14 @@ require_once('../Controller/controladorListar.php');
     <!-- MODALES -->
 
     <!-- REQUIRED SCRIPTS -->
-    <script src="../Vista/js/stepper.js"></script>
-    <script src="../Vista/js/resume.js"></script>
     <script src="../Vista/assets/functions.js"></script>
 
 
     <!-- jQuery -->
     <script src="../Vista/plugins/jquery/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <!-- Bootstrap 4 -->
     <script src="../Vista/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
     <!-- Select2 -->
@@ -1132,12 +1127,19 @@ require_once('../Controller/controladorListar.php');
     <!-- AdminLTE for demo purposes -->
     <script src="../Vista/dist/js/demo.js"></script>
     <!-- Page specific script -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
 
-    <!-- REQUIRED SCRIPTS -->
-    <script src="../Vista/assets/functions.js"></script>
 
     <script>
         $(document).ready(function() {
+
+            // $('.upld-file').on('click', function() {
+            //     $('#modal_archive_HR').modal('show');
+            //     // var qwe = $(this).data('valor');
+            //     // console.log(qwe);
+            // });
+
 
             $('.btn_subir_1').on('click', function() {
                 console.log("test");
@@ -2076,43 +2078,6 @@ require_once('../Controller/controladorListar.php');
         // ----------------------------
     </script>
 
-    <script>
-        // DROPDOWN
-        const dropDown = document.querySelector(".dropdown");
-
-        const drops = document.querySelector(".position-absolute");
-
-        dropDown.addEventListener("click", () => {
-            const filter = document.querySelector(".filter-drop");
-            const table = document.querySelector(".table");
-            const optnFilter = document.querySelector(".optn-filter");
-            const listGroupItem = optnFilter.querySelectorAll(".list-group-item");
-
-
-            if (drops) {
-                if (filter.style.height === "50px") {
-                    let items = listGroupItem.length + 1;
-                    let dropHeight = items * "49.33" + "50";
-                    filter.style.height = dropHeight + "px";
-                } else {
-                    filter.style.height = "50px";
-                }
-            } else {
-                if (table.style.width === "100%") {
-                    let items = listGroupItem.length + 1;
-                    let dropHeight = items * "49.33" + "50";
-
-                    table.style.width = "85%";
-                    filter.style.height = dropHeight + "px";
-                } else {
-                    table.style.width = "100%";
-                    filter.style.height = "50px";
-                }
-            }
-        });
-
-        // DROPDOWN
-    </script>
 </body>
 
 </html>
