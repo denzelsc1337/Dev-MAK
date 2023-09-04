@@ -1105,6 +1105,19 @@ textarea::-webkit-scrollbar {
 
 .section {
   padding-bottom: 5rem;
+  min-width: 0;
+}
+
+.body-slide {
+  min-width: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: all 1s ease;
+}
+
+.body-slide.active {
+  min-width: 100%;
+  opacity: 1;
 }
 
 .section.hide {

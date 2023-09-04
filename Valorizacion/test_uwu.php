@@ -10,86 +10,149 @@
 </head>
 
 <style>
-    .bla {
-        width: 500px;
-        background-color: lightcoral;
+    body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
-    .blaa {
+    .buton-icon {
+        width: 50px;
+        height: 50px;
+        border: 2px solid;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        cursor: pointer;
+    }
+
+    .contenedor {
+        max-width: 300px;
         display: flex;
         overflow: hidden;
-        width: 500px;
-        background-color: yellowgreen;
     }
 
-    .blaaa {
-        min-width: 100%;
-        background-color: rosybrown;
+    .section {
+        /* display: none; */
+        min-width: 0;
+        height: 300px;
+        transition: all 1s ease;
+    }
 
+    .section div {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+    }
+
+    .section.active {
+        min-width: 300px;
+    }
+
+    .red {
+        background-color: red;
+    }
+
+    .blue {
+        background-color: blue;
+    }
+
+    .green {
+        background-color: green;
     }
 </style>
 
 <body>
-    <div class="bla">
-        <div class="blaa">
 
-            <div class="blaaa">
-                <div>your content</div>
-            </div>
-            <div class="blaaa">
-                <div>your content</div>
-            </div>
-            <div class="blaaa">
-                <div>your content</div>
+
+    <div class="buton-icon left"> left </div>
+
+    <div class="contenedor">
+
+        <div class="red section" data-position="first" data-number="1">
+            <div>
+                red
             </div>
         </div>
+
+        <div class="blue section active" data-position="second" data-number="2">
+            <div>
+                blue
+            </div>
+        </div>
+
+        <div class="green section" data-position="third" data-number="3">
+            <div>
+                green
+            </div>
+        </div>
+
     </div>
 
-
-    <div id="lst_fotos">
-        <div class="imagen-slide"><img src="../Valorizaciones/143/75481104/fotos_val/WhatsApp Image 2023-08-08 at 00.16.35.jpeg" alt="WhatsApp Image 2023-08-08 at 00.16.35.jpeg"></div>
-        <div class="imagen-slide"><img src="../Valorizaciones/143/75481104/fotos_val/WhatsApp Image 2023-08-22 at 20.51.31.jpeg" alt="WhatsApp Image 2023-08-22 at 20.51.31.jpeg"></div>
-        <div class="imagen-slide"><img src="../Valorizaciones/143/75481104/fotos_val/WhatsApp Image 2023-08-22 at 20.51.40.jpeg" alt="WhatsApp Image 2023-08-22 at 20.51.40.jpeg"></div>
-    </div>
-    <script>
-        const carousel = document.querySelector('#fotos_val');
-
-        let isDragStart = false,
-            prevPageX, prevScrollLeft;
-
-        const dragStart = (e) => {
-            isDragStart = true;
-            prevPageX = e.pageX;
-            prevScrollLeft = carousel.scrollLeft;
-        }
-
-        const dragGing = (e) => {
-            if (!isDragStart) return;
-            e.preventDefault();
-            let positionDiff = e.pageX - prevPageX;
-            carousel.scrollLeft = prevScrollLeft - positionDiff;
-        }
-
-        const dragStop = () => {
-            isDragStart = false;
-        }
-
-        carousel.addEventListener("mousedown", dragStart);
-        carousel.addEventListener("mousemove", dragGing);
-        carousel.addEventListener("mouseup", dragStop);
-    </script>
+    <div class="buton-icon right"> right </div>
 
 
-    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
-    <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-
-
-    <script>
-        $('.your-class').slick();
-    </script>
 </body>
 
+<script>
+    const butonIconLeft = document.querySelector('.arrow-left');
+    const butonIconRight = document.querySelector('.arrow-right');
+
+    butonIconRight.addEventListener("click", () => {
+        dondeEstoy("right");
+    });
+
+    butonIconLeft.addEventListener("click", () => {
+        dondeEstoy("left");
+    });
+
+    function dondeEstoy(direction) {
+        // Obtener todas las secciones
+        var sections = document.querySelectorAll('.section');
+
+        // Encontrar la sección activa actual
+        var currentSection;
+        sections.forEach(function(section) {
+            if (section.classList.contains('active')) {
+                currentSection = section;
+            }
+        });
+
+        // Determinar la dirección y encontrar la siguiente sección
+        var nextSection;
+        if (direction === 'left') {
+            nextSection = currentSection.previousElementSibling;
+            if (!nextSection) {
+                // Si no hay una siguiente sección a la izquierda, selecciona la última
+                nextSection = sections[sections.length - 1];
+            }
+        } else if (direction === 'right') {
+            nextSection = currentSection.nextElementSibling;
+            if (!nextSection) {
+                // Si no hay una siguiente sección a la derecha, selecciona la primera
+                nextSection = sections[0];
+            }
+        }
+
+        // Evitar la transición de verde a rojo y viceversa
+        if (currentSection.classList.contains('green') && nextSection.classList.contains('red')) {
+            return;
+        }
+
+        if (currentSection.classList.contains('red') && nextSection.classList.contains('green')) {
+            return;
+        }
+
+        // Cambiar las clases 'active' para la sección actual y la siguiente
+        if (currentSection && nextSection) {
+            currentSection.classList.remove('active');
+            nextSection.classList.add('active');
+        }
+    }
+</script>
 
 
 </html>
