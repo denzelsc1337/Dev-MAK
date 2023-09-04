@@ -12,14 +12,34 @@ require_once('config/security.php');
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-  <!-- Font Awesome Icons -->
+  <!-- Font Awesome -->
   <link rel="stylesheet" href="Vista/plugins/fontawesome-free/css/all.min.css">
-  <!-- overlayScrollbars -->
-  <link rel="stylesheet" href="Vista/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer">
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Material+Icons+Outlined" crossorigin="anonymous" referrerpolicy="no-referrer">
+
+  <!-- daterange picker -->
+  <!-- <link rel="stylesheet" href="Vista/plugins/daterangepicker/daterangepicker.css"> -->
+  <!-- iCheck for checkboxes and radio inputs -->
+  <!-- <link rel="stylesheet" href="Vista/plugins/icheck-bootstrap/icheck-bootstrap.min.css"> -->
+  <!-- Bootstrap Color Picker -->
+  <!-- <link rel="stylesheet" href="Vista/plugins/bootstrap-colorpicker/css/bootstrap-colorpicker.min.css"> -->
+  <!-- Tempusdominus Bootstrap 4 -->
+  <!-- <link rel="stylesheet" href="Vista/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css"> -->
+  <!-- Select2 -->
+  <link rel="stylesheet" href="Vista/plugins/select2/css/select2.min.css">
+  <link rel="stylesheet" href="Vista/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
+  <!-- Bootstrap4 Duallistbox -->
+  <link rel="stylesheet" href="Vista/plugins/bootstrap4-duallistbox/bootstrap-duallistbox.min.css">
+  <!-- BS Stepper -->
+  <link rel="stylesheet" href="Vista/plugins/bs-stepper/css/bs-stepper.min.css">
+  <link rel="stylesheet" type="text/css" href="Vista/css/style.css">
+  <!-- dropzonejs -->
+  <link rel="stylesheet" href="Vista/plugins/dropzone/min/dropzone.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="Vista/dist/css/adminlte.min.css">
-  <!-- Style -->
-  <link rel="stylesheet" href="Vista/css/style.css">
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+
 </head>
 
 <body class="hold-transition sidebar-mini sidebar-collapse layout-fixed layout-navbar-fixed layout-footer-fixed">
@@ -70,18 +90,6 @@ require_once('config/security.php');
             <a href="#" class="d-block"><?php echo $_SESSION['nom_usu'] ?></a>
           </div>
         </div>
-
-        <!-- SidebarSearch Form -->
-        <!-- <div class="form-inline">
-          <div class="input-group" data-widget="sidebar-search">
-            <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
-            <div class="input-group-append">
-              <button class="btn btn-sidebar">
-                <i class="fas fa-search fa-fw"></i>
-              </button>
-            </div>
-          </div>
-        </div> -->
 
         <!-- Sidebar Menu -->
         <section>
@@ -163,51 +171,58 @@ require_once('config/security.php');
         </header>
 
         <section class="body-mak">
-          <div class="row justify-content-center pt-5 pb-5" style="gap:20px;">
-            <div class="card-mak col-md-4">
-              <img class="card-img-top" src="Vista/images/search.jpg" alt="Dist Photo 1">
-              <div class="image-overlay"></div>
-              <div class="card-intro">
-                <div class="card-intro-txt">
-                  <h1>Búsqueda</h1>
-                  <p class="mak-txt b-text">Contamos con más de 2000 inmuebles disponibles para ti.</p>
+          <div class="container">
+            <div class="row justify-content-center pt-5 pb-5" style="gap:20px;">
+
+              <div class="card-mak col-md-4 p-0">
+                <img class="card-img-top" src="Vista/images/search.jpg" alt="Dist Photo 1">
+                <div class="image-overlay"></div>
+                <div class="card-intro">
+                  <div class="card-intro-txt">
+                    <h1>Búsqueda</h1>
+                    <p class="mak-txt b-text">Contamos con más de 2000 inmuebles disponibles para ti.</p>
+                  </div>
+                  <a href="Search/Busqueda.php" class="btn btn-mak mak-bg-sec">INICIAR</a>
                 </div>
-                <a href="Search/Busqueda.php" class="btn btn-mak mak-bg-sec">INICIAR</a>
               </div>
-            </div>
-            <div class="card-mak col-md-4">
-              <img class="card-img-top" src="Vista/images/money.jpg" alt="Dist Photo 2">
-              <div class="image-overlay"></div>
-              <div class="card-intro">
-                <div class="card-intro-txt">
-                  <h1>Valorizaciones</h1>
-                  <p class="mak-txt b-text">Analizamos la propiedad y te brindamos el valor exacto de dicha propiedad.</p>
+
+              <div class="card-mak col-md-4 p-0">
+                <img class="card-img-top" src="Vista/images/money.jpg" alt="Dist Photo 2">
+                <div class="image-overlay"></div>
+                <div class="card-intro">
+                  <div class="card-intro-txt">
+                    <h1>Valorizaciones</h1>
+                    <p class="mak-txt b-text">Analizamos la propiedad y te brindamos el valor exacto de dicha propiedad.</p>
+                  </div>
+                  <a href="Valorizacion/" class="btn btn-mak mak-bg-sec">INICIAR</a>
+                  <!-- <a href="Valorizacion/valorizacion.php" class="btn btn-mak mak-bg">INICIAR</a> -->
                 </div>
-                <a href="Valorizacion/" class="btn btn-mak mak-bg-sec">INICIAR</a>
-                <!-- <a href="Valorizacion/valorizacion.php" class="btn btn-mak mak-bg">INICIAR</a> -->
               </div>
-            </div>
-            <div class="card-mak col-md-4">
-              <img class="card-img-top" src="Vista/images/finance.jpg" alt="Dist Photo 3">
-              <div class="image-overlay"></div>
-              <div class="card-intro">
-                <div class="card-intro-txt">
-                  <h1>Informe Legal</h1>
-                  <p class="mak-txt b-text">Te brindamos el apoyo y la orientación legal necesaria.</p>
+
+              <div class="card-mak col-md-4 p-0">
+                <img class="card-img-top" src="Vista/images/finance.jpg" alt="Dist Photo 3">
+                <div class="image-overlay"></div>
+                <div class="card-intro">
+                  <div class="card-intro-txt">
+                    <h1>Informe Legal</h1>
+                    <p class="mak-txt b-text">Te brindamos el apoyo y la orientación legal necesaria.</p>
+                  </div>
+                  <a href="Legal/" class="btn btn-mak mak-bg-sec">INICIAR</a>
                 </div>
-                <a href="Legal/" class="btn btn-mak mak-bg-sec">INICIAR</a>
               </div>
-            </div>
-            <div class="card-mak col-md-4">
-              <img class="card-img-top" src="Vista/images/search.jpg" alt="Dist Photo 4">
-              <div class="image-overlay"></div>
-              <div class="card-intro">
-                <div class="card-intro-txt">
-                  <h1>Beneficios</h1>
-                  <p class="mak-txt b-text">-</p>
+
+              <div class="card-mak col-md-4 p-0">
+                <img class="card-img-top" src="Vista/images/search.jpg" alt="Dist Photo 4">
+                <div class="image-overlay"></div>
+                <div class="card-intro">
+                  <div class="card-intro-txt">
+                    <h1>Beneficios</h1>
+                    <p class="mak-txt b-text">-</p>
+                  </div>
+                  <a href="" class="btn btn-mak mak-bg-sec">INICIAR</a>
                 </div>
-                <a href="" class="btn btn-mak mak-bg-sec">INICIAR</a>
               </div>
+
             </div>
           </div>
 
@@ -235,26 +250,13 @@ require_once('config/security.php');
   <!-- REQUIRED SCRIPTS -->
   <!-- jQuery -->
   <script src="Vista/plugins/jquery/jquery.min.js"></script>
-  <!-- Bootstrap -->
+  <!-- Bootstrap 4 -->
   <script src="Vista/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <!-- overlayScrollbars -->
-  <script src="Vista/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
   <!-- AdminLTE App -->
-  <script src="Vista/dist/js/adminlte.js"></script>
-
-  <!-- PAGE PLUGINS -->
-  <!-- jQuery Mapael -->
-  <script src="Vista/plugins/jquery-mousewheel/jquery.mousewheel.js"></script>
-  <script src="Vista/plugins/raphael/raphael.min.js"></script>
-  <script src="Vista/plugins/jquery-mapael/jquery.mapael.min.js"></script>
-  <script src="Vista/plugins/jquery-mapael/maps/usa_states.min.js"></script>
-  <!-- ChartJS -->
-  <script src="Vista/plugins/chart.js/Chart.min.js"></script>
-
+  <script src="Vista/dist/js/adminlte.min.js"></script>
   <!-- AdminLTE for demo purposes -->
   <script src="Vista/dist/js/demo.js"></script>
-  <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-  <script src="Vista/dist/js/pages/dashboard2.js"></script>
+
 </body>
 
 </html>
