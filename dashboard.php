@@ -27,7 +27,7 @@ require_once('config/security.php');
 
     <!-- Preloader -->
     <div class="preloader flex-column justify-content-center align-items-center">
-      <img src="Vista/images/mak_2.png" alt="AdminLTELogo" height="90" width="15%">
+      <img src="Vista/images/mak_2.png" alt="MakLogo" width="25%">
     </div>
 
     <!-- Navbar -->
@@ -46,7 +46,7 @@ require_once('config/security.php');
       </ul>
 
       <!-- Right navbar links -->
-      <ul class="navbar-nav ml-auto"> 
+      <ul class="navbar-nav ml-auto">
 
         <!-- <li class="nav-item">
           <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button">
