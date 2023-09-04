@@ -497,76 +497,72 @@ require_once('../Controller/controladorListar.php');
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <textarea id="rutas_doscs" name="rutas_doscs" rows="5" cols="50" hidden><?php echo $rutas; ?></textarea>
-                                        </div>
-                                        <div class="col-sm-6">
-
-                                            <div class="row">
-                                                <div class="col-sm-6">
-                                                    <div class="form-group">
-                                                        <label class="mak-txt">Distrito</label>
-                                                        <select name="" id="" class="form-mak">
-                                                            <option value="-1" disabled>Seleccione distrito</option>
-                                                        </select>
+                                                <div class="row">
+                                                    <div class="col-sm-6">
+                                                        <div class="form-group">
+                                                            <label class="mak-txt">Distrito</label>
+                                                            <select name="" id="" class="form-mak">
+                                                                <option value="-1" disabled>Seleccione distrito</option>
+                                                            </select>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-sm-6">
-                                                    <div class="form-group">
-                                                        <label class="mak-txt">Comentario</label>
-                                                        <textarea name="coment_" id="coment_"></textarea>
+                                                <div class="row">
+                                                    <div class="col-sm-6">
+                                                        <div class="form-group">
+                                                            <label class="mak-txt">Comentario</label>
+                                                            <textarea name="coment_" id="coment_"></textarea>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                            </div>
 
 
-                                        <?php
+                                            <?php
                                             } else {
                                                 //deshabilitar al user
-                                        ?>
+                                            ?>
 
-                                            <input type="text" class="form-mak" id="id_legal_solic" name="id_legal_solic" readonly hidden>
-                                            <input type="text" class="form-mak" id="id_client_l" readonly hidden>
+                                                <input type="text" class="form-mak" id="id_legal_solic" name="id_legal_solic" readonly hidden>
+                                                <input type="text" class="form-mak" id="id_client_l" readonly hidden>
 
-                                            <div class="row">
-                                                <div class="col-sm-6">
-                                                    <div class="form-group">
-                                                        <label class="mak-txt">Nombres y Apellidos</label>
-                                                        <input type="text" class="form-mak" id="data_names_" readonly>
+                                                <div class="row">
+                                                    <div class="col-sm-6">
+                                                        <div class="form-group">
+                                                            <label class="mak-txt">Nombres y Apellidos</label>
+                                                            <input type="text" class="form-mak" id="data_names_" readonly>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-sm-6">
-                                                    <div class="form-group">
-                                                        <label class="mak-txt">Dirección</label>
-                                                        <input type="text" class="form-mak" id="data_direcion_" readonly>
+                                                <div class="row">
+                                                    <div class="col-sm-6">
+                                                        <div class="form-group">
+                                                            <label class="mak-txt">Dirección</label>
+                                                            <input type="text" class="form-mak" id="data_direcion_" readonly>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-sm-6">
-                                                    <div class="form-group">
-                                                        <label class="mak-txt">Distrito</label>
-                                                        <select name="" id="" class="form-mak">
-                                                            <option value="-1" disabled>Seleccione distrito</option>
-                                                        </select>
+                                                <div class="row">
+                                                    <div class="col-sm-6">
+                                                        <div class="form-group">
+                                                            <label class="mak-txt">Distrito</label>
+                                                            <select name="" id="" class="form-mak">
+                                                                <option value="-1" disabled>Seleccione distrito</option>
+                                                            </select>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                            </div>
 
-                                            <div class="row">
-                                                <div class="col-sm-6">
-                                                    <div class="form-group">
-                                                        <label class="mak-txt">Comentario</label>
-                                                        <textarea name="coment_" id="coment_" readonly></textarea>
+                                                <div class="row">
+                                                    <div class="col-sm-6">
+                                                        <div class="form-group">
+                                                            <label class="mak-txt">Comentario</label>
+                                                            <textarea name="coment_" id="coment_" readonly></textarea>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                        <?php
+                                            <?php
                                             }
-                                        ?>
+                                            ?>
                                         </div>
 
                                         <div class="col-sm-6">
@@ -1836,11 +1832,6 @@ require_once('../Controller/controladorListar.php');
         //             // Realizar la transición a la mitad del scroll horizontal con animación
         //             contenedor.style.scrollBehavior = "smooth"; // Activar la animación
         //             contenedor.scrollLeft = mitadScroll; // Ir a la mitad
-        //
-        // if (element.getAttribute("data-content") === "legal") {
-        //     contenedor.scrollLeft = mitadScroll;
-        //     element.querySelector(".arrow-right").addEventListener("click", (e) => {
-
 
 
         //         })
