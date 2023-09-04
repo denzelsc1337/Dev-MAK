@@ -365,6 +365,7 @@ require_once('../Controller/controladorListar.php'); ?>
                     <div id="loader_uhd" class="mak_overlay hidden">
                         <img src="../Vista/images/MAK_logo.png" alt="" class="fading-element">
                     </div>
+
                     <section class="content body-mak mak-txt position-relative">
 
                         <form id="add_data_val" method="POST">
@@ -496,7 +497,9 @@ require_once('../Controller/controladorListar.php'); ?>
 
                                         <button type="button" class="btn btn-mak mak-bg btn_finalizar" id="btnValo_obs_save" name="btnValo_obs_save">Guardar</button>
 
-
+                                        <button type="button" class="btn btn-rounded  btn_lst_docs btn_lst_docs_0" data-toggle="modal" data-target="#lst_docs_legal" data-valor="DNI" data-titulo="DNI" data-id_doc_="4" data-id_user_="<?php echo $_SESSION['dni'] ?>">
+                                            <i class="cursor fa-solid fa-eye"></i>
+                                        </button>
                                     </div>
                                 </div>
 
@@ -646,7 +649,7 @@ require_once('../Controller/controladorListar.php'); ?>
 
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-primary" data-dismiss="modal">Cancelar</button>
-                                        <button type="button" class="btn btn-primary" data-dismiss="modal" id="btnValo_obs_set" name="btnValo_obs_set">Listo</button>
+                                        <button type="button" class="btn btn-primary" data-dismiss="modal" id="btnValo_obs_set" name="btnValo_obs_set" disabled>Listo</button>
                                     </div>
                                 </div>
                             </form>
@@ -671,6 +674,28 @@ require_once('../Controller/controladorListar.php'); ?>
                     </div>
                 </div>
 
+                <div class="modal fade" id="lst_docs_legal" tabindex="-1" role="dialog" aria-labelledby="lst_docs_legal" aria-hidden="true">
+                    <div id="loader_uhd_3" class="mak_overlay hidden">
+                        <img src="../Vista/images/MAK_logo.png" alt="" class="fading-element">
+                    </div>
+                    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                            <div class="modal-body">
+                                <h1 class="title-m" id="titulo_docs__"></h1>
+
+                                <div class="row margin" id="lst_docs_lgl" style="display:none">
+
+                                    <div class="col-sm-12" id="descarga_archivo_p">
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
             </section>
         </div>
 
@@ -687,22 +712,22 @@ require_once('../Controller/controladorListar.php'); ?>
 
     </div>
 
-<script>
-    function habilitarBoton() {
-        const boton = document.getElementById("btnValo_obs_set");
-        const boton_ = document.getElementById("btnValo_obs_save");
+    <script>
+        function habilitarBoton() {
+            const boton = document.getElementById("btnValo_obs_set");
+            const boton_ = document.getElementById("btnValo_obs_save");
 
-        const obs = document.getElementById("obs_send_");
+            const obs = document.getElementById("obs_send_");
 
-        if (obs.value.trim() !== '') {
-            boton.disabled = false;
-            boton_.disabled = false;
-        } else {
-            boton.disabled = true;
-            boton_.disabled = true;
+            if (obs.value.trim() !== '') {
+                boton.disabled = false;
+                boton_.disabled = false;
+            } else {
+                boton.disabled = true;
+                boton_.disabled = true;
+            }
         }
-    }
-</script>
+    </script>
 
     <!--GOOGLE MAPS TESTING-->
     <script type="text/javascript">
@@ -1020,6 +1045,21 @@ require_once('../Controller/controladorListar.php'); ?>
 
             get_files_valor(id_solic_v, dni_cli_v)
 
+
+        });
+
+
+        $('.btn_lst_docs').on('click', function() {
+
+            //var id_cli = $(this).data('id_user_');
+            var id_reg = $('#cod_solic_v').val();
+
+
+            $('#titulo_docs__').text('Mis Documentos: ');
+
+            load_valorizaciones_(id_reg)
+
+            $('#lst_docs_legal').modal('show');
 
         });
 
@@ -1373,6 +1413,94 @@ require_once('../Controller/controladorListar.php'); ?>
                     $("#mensaje_error").text("No se pudo encontrar la dirección.");
                     $("#map_resumen").hide();
                     console.log("Error al geocodificar la dirección:", status);
+                }
+            });
+        }
+
+        function load_valorizaciones_(id_reg) {
+
+            $.ajax({
+                type: 'POST',
+                url: '../Controller/Get_files_Valorizacion.php',
+                data: {
+                    id_solic_v: id_reg
+
+                },
+                beforeSend: function() {
+                    $("#loader_uhd_3").removeClass("hidden");
+                    $("#lst_docs_lgl").hide();
+                    //$("#docs_val").hide();
+                },
+                success: function(response) {
+
+                    //var data = JSON.parse(response);
+                    var archivos = response.archivos;
+
+                    console.info(archivos)
+                    var cont = 1;
+
+                    setTimeout(function() {
+
+                        $("#loader_uhd_3").addClass("hidden");
+                        $("#lst_docs_lgl").show();
+
+                        if (archivos && archivos.length > 0) {
+                            var enlaceHtml = '';
+
+                            archivos.forEach(function(archivo) {
+
+                                var ruta = archivo.ruta;
+                                var nombreArchivo = archivo.nombre;
+
+                                //arroshi recontra tarao
+                                enlaceHtml += `
+
+                                <div class="row d-flex justify-content-between align-center mb-4">
+                                    <div class="col-sm-2">
+                                        <div class="lgl-modal-num">
+                                            ${cont++}
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm-8 archive">
+                                        <img src="#" id="loader" style="display: none;">
+                                        <a href="${ruta}">${nombreArchivo}</a>
+                                    </div>
+
+                                    <div class="col-sm-2 tw-modal-ots">
+                                        <div class="row">
+
+                                            <div class="inputs brd-rght-blue">
+                                                <input id="ruta_doc_i" type="text" value="${ruta}" readonly hidden>
+                                                <input id="ruta_archivo_i" type="text" value="${nombreArchivo}" readonly hidden>
+
+                                                <div class="">
+                                                    <button id="dlt_file" type="button" class="btn dlt_file"><i class="cursor fa-solid fa-trash"></i></button>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <button id="dlt_file" type="button" class="btn dlt_file"> <i class="cursor fa-solid fa-download"></i></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                `;
+
+                            });
+
+                            document.getElementById('descarga_archivo_p').innerHTML = enlaceHtml;
+
+                        } else {
+
+                            document.getElementById('descarga_archivo_p').textContent = 'Archivo no encontrado';
+                        }
+
+
+
+                    }, 900);
+                },
+                error: function(xhr, status, error) {
+                    console.log(error);
                 }
             });
         }
