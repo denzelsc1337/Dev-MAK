@@ -2079,14 +2079,16 @@ require_once('../Controller/controladorListar.php');
         const butonIconLeft = document.querySelector('.arrow-left');
         const butonIconLeft_1 = document.querySelector('.arrow-left_1');
         const butonIconRight = document.querySelector('.arrow-right');
-        const butonIconRight_1 = document.querySelector('.arrow-right_1');
+        const butonIconRight_1 = document.querySelectorAll('.arrow-right_1');
 
         butonIconRight.addEventListener("click", () => {
             dondeEstoy("right");
         });
 
-        butonIconRight_1.addEventListener("click", () => {
-            dondeEstoy("right");
+        butonIconRight_1.forEach(element => {
+            element.addEventListener("click", () => {
+                dondeEstoy("right");
+            });
         });
 
         butonIconLeft.addEventListener("click", () => {
