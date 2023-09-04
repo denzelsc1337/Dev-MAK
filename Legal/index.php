@@ -44,6 +44,9 @@ require_once('../Controller/controladorListar.php');
     <!-- Modal -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer">
     <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+    <!-- Data Tables Pluggin -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.4.1/css/responsive.bootstrap4.min.css">
 
 </head>
 
@@ -90,7 +93,7 @@ require_once('../Controller/controladorListar.php');
                 <!-- <div class="overflow-hidden"> -->
                 <div class="d-flex overflow-hidden w-100 scroll">
 
-                    <section class="body-mak mak-txt position-relative body-slide" data-content="legal">
+                    <section class="mak-txt position-relative body-slide" data-content="legal">
 
 
                         <form method="POST" action="../Controller/Add_Solic_Legal.php">
@@ -229,7 +232,7 @@ require_once('../Controller/controladorListar.php');
                         </form>
                     </section>
 
-                    <section class="body-mak mak-txt position-relative body-slide active" data-content="historico">
+                    <section class="mak-txt position-relative body-slide active" data-content="historico">
 
 
                         <div class="container mt-5">
@@ -252,7 +255,7 @@ require_once('../Controller/controladorListar.php');
 
                                     <div class="col-sm-12">
 
-                                        <table class="table table-borderless" style="width: 100%;">
+                                        <table class="table table_ table-borderless" style="width: 100%;">
                                             <thead class="">
                                                 <tr>
                                                     <th>ID</th>
@@ -461,8 +464,7 @@ require_once('../Controller/controladorListar.php');
                             </div> -->
                     </section>
 
-                    <section class="body-mak mak-txt position-relative body-slide" data-content="files">
-
+                    <section class="mak-txt position-relative body-slide" data-content="files">
                         <div class="arrow-left arrow-left_1">
                             <i class="fa-solid fa-angle-left"></i>
                         </div>
@@ -1128,6 +1130,11 @@ require_once('../Controller/controladorListar.php');
     <!-- Page specific script -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+    <!-- Data Tables Pluggin -->
+    <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap5.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.4.1/js/dataTables.responsive.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.4.1/js/responsive.bootstrap4.min.js"></script>
 
 
     <script>
@@ -2176,6 +2183,29 @@ require_once('../Controller/controladorListar.php');
 
         });
         // ----------------------------
+    </script>
+
+    <script>
+        $(document).ready(function() {
+            $('.table_').DataTable({
+                "language": {
+                    "url": "//cdn.datatables.net/plug-ins/1.10.25/i18n/Spanish.json", // URL del archivo de localización
+                    "searchPlaceholder": "Buscar en la tabla..." // placeholder del Buscar.
+                },
+                "lengthMenu": [
+                    [5, 10, 25, 50, -1],
+                    [5, 10, 25, 50, "Todos"]
+                ],
+                // Otras opciones de DataTables
+                "drawCallback": function(settings) {
+                    $('.dataTables_length select').addClass('form-mak sect tableLenght');
+                    $('.dataTables_filter input').addClass('form-mak sect');
+                },
+                "order": [
+                    [0, "desc"]
+                ],
+            });
+        });
     </script>
 
 </body>
