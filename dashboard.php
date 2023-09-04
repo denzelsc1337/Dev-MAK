@@ -172,54 +172,61 @@ require_once('config/security.php');
 
         <section class="body-mak">
           <div class="container">
-            <div class="row justify-content-center pt-5 pb-5" style="gap:20px;">
+            <div class="row justify-content-center pt-5 pb-5">
 
-              <div class="card-mak col-md-4 p-0">
-                <img class="card-img-top" src="Vista/images/search.jpg" alt="Dist Photo 1">
-                <div class="image-overlay"></div>
-                <div class="card-intro">
-                  <div class="card-intro-txt">
-                    <h1>Búsqueda</h1>
-                    <p class="mak-txt b-text">Contamos con más de 2000 inmuebles disponibles para ti.</p>
+              <div class="card-mak col-md-6">
+                <div class="card-content">
+                  <img class="card-img-top" src="Vista/images/search.jpg" alt="Dist Photo 1">
+                  <!-- <div class="image-overlay"></div> -->
+                  <div class="card-intro">
+                    <div class="card-intro-txt">
+                      <h1>Búsqueda</h1>
+                      <p class="mak-txt b-text">Contamos con más de 2000 inmuebles disponibles para ti.</p>
+                    </div>
+                    <a href="Search/Busqueda.php" class="btn btn-mak mak-bg-sec">INICIAR</a>
                   </div>
-                  <a href="Search/Busqueda.php" class="btn btn-mak mak-bg-sec">INICIAR</a>
                 </div>
               </div>
 
-              <div class="card-mak col-md-4 p-0">
-                <img class="card-img-top" src="Vista/images/money.jpg" alt="Dist Photo 2">
-                <div class="image-overlay"></div>
-                <div class="card-intro">
-                  <div class="card-intro-txt">
-                    <h1>Valorizaciones</h1>
-                    <p class="mak-txt b-text">Analizamos la propiedad y te brindamos el valor exacto de dicha propiedad.</p>
+              <div class="card-mak col-md-6">
+                <div class="card-content">
+                  <img class="card-img-top" src="Vista/images/money.jpg" alt="Dist Photo 2">
+                  <!-- <div class="image-overlay"></div> -->
+                  <div class="card-intro">
+                    <div class="card-intro-txt">
+                      <h1>Valorizaciones</h1>
+                      <p class="mak-txt b-text">Analizamos la propiedad y te brindamos el valor exacto de dicha propiedad.</p>
+                    </div>
+                    <a href="Valorizacion/" class="btn btn-mak mak-bg-sec">INICIAR</a>
                   </div>
-                  <a href="Valorizacion/" class="btn btn-mak mak-bg-sec">INICIAR</a>
-                  <!-- <a href="Valorizacion/valorizacion.php" class="btn btn-mak mak-bg">INICIAR</a> -->
                 </div>
               </div>
 
-              <div class="card-mak col-md-4 p-0">
-                <img class="card-img-top" src="Vista/images/finance.jpg" alt="Dist Photo 3">
-                <div class="image-overlay"></div>
-                <div class="card-intro">
-                  <div class="card-intro-txt">
-                    <h1>Informe Legal</h1>
-                    <p class="mak-txt b-text">Te brindamos el apoyo y la orientación legal necesaria.</p>
+              <div class="card-mak col-md-6">
+                <div class="card-content">
+                  <img class="card-img-top" src="Vista/images/finance.jpg" alt="Dist Photo 3">
+                  <!-- <div class="image-overlay"></div> -->
+                  <div class="card-intro">
+                    <div class="card-intro-txt">
+                      <h1>Informe Legal</h1>
+                      <p class="mak-txt b-text">Te brindamos el apoyo y la orientación legal necesaria.</p>
+                    </div>
+                    <a href="Legal/" class="btn btn-mak mak-bg-sec">INICIAR</a>
                   </div>
-                  <a href="Legal/" class="btn btn-mak mak-bg-sec">INICIAR</a>
                 </div>
               </div>
 
-              <div class="card-mak col-md-4 p-0">
-                <img class="card-img-top" src="Vista/images/search.jpg" alt="Dist Photo 4">
-                <div class="image-overlay"></div>
-                <div class="card-intro">
-                  <div class="card-intro-txt">
-                    <h1>Beneficios</h1>
-                    <p class="mak-txt b-text">-</p>
+              <div class="card-mak col-md-6">
+                <div class="card-content">
+                  <img class="card-img-top" src="Vista/images/search.jpg" alt="Dist Photo 4">
+                  <!-- <div class="image-overlay"></div> -->
+                  <div class="card-intro">
+                    <div class="card-intro-txt">
+                      <h1>Beneficios</h1>
+                      <p class="mak-txt b-text">-</p>
+                    </div>
+                    <a href="" class="btn btn-mak mak-bg-sec">INICIAR</a>
                   </div>
-                  <a href="" class="btn btn-mak mak-bg-sec">INICIAR</a>
                 </div>
               </div>
 
