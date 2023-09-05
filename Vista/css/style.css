@@ -2256,11 +2256,22 @@ figcaption {
   border: 1px solid var(--blue-mak) !important;
 }
 
+.user-panel .info {
+  padding: 5px 5px 5px 20px !important;
+}
+
 /*  */
 /* RESPONSIVE */
 /*  */
 
 @media only screen and (max-width: 576px) {
+
+  body i,
+  body a {
+    font-size: 20px !important;
+  }
+
+
   body .sidebar-open {
     overflow: hidden !important;
   }
@@ -2358,6 +2369,10 @@ figcaption {
   .column-card {
     flex: 0 0 100%;
     max-width: 100%;
+  }
+
+  .body-mak .b-title {
+    font-size: 50px;
   }
 
 }
