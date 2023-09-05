@@ -150,7 +150,7 @@ require_once('../Controller/controladorListar.php'); ?>
 
                                     <!-- </div> TABLA ADMIN -->
 
-                                    <div class="table-responsive">
+                                    <!-- <div class=""> -->
                                         <div class="col-sm-12">
                                             <table id="tabla" class="table table_ table-responsive table-borderless mb-3 ml-3 mr-3" style="width: 100%;">
 
@@ -238,7 +238,7 @@ require_once('../Controller/controladorListar.php'); ?>
                                                 </tbody>
                                             </table>
                                         </div>
-                                    </div>
+                                    <!-- </div> -->
 
                                     <!-- </div> TABLA ADMIN -->
 
