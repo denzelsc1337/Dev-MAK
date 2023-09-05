@@ -440,7 +440,7 @@
                                                             </div>
                                                             <div class="card-body">
                                                                 <div class="col-sm-12 flex">
-                                                                    <div class="col-sm-6 ">
+                                                                    <div class="col-6 col-sm-6">
                                                                         <label>Estacionamiento(s):</label>
                                                                         <div class="section-input col-sm-8">
                                                                             <input class="form-control input-number" type="number" min="0" id="cant_estac" name="cant_estac">
@@ -1514,12 +1514,12 @@
                                         <div class="row">
                                             <div class="column-card">
                                                 <div class="column">
-                                                    <div>
+                                                    <div class="pt-5">
                                                         <label class="mak-txt">Comentario <small>(Opcional)</small></label>
                                                         <textarea id="coment_valr" name="coment_valr" placeholder="Escribe un comentario..."></textarea>
                                                     </div>
                                                     <br><br>
-                                                    <div>
+                                                    <div class="pt-5">
                                                         <h3><b>Subir Documentos</b></h3>
                                                         <div>
                                                             <div class="row">
@@ -1550,10 +1550,9 @@
                                                     </div>
                                                 </div>
                                             </div>
-
                                             <div class="column-card">
                                                 <div class="column">
-                                                    <div class="file-titled">
+                                                    <div class="file-titled pt-5">
                                                         <div>Imágenes principales</div>
                                                     </div>
                                                     <div class="valo-file">
@@ -1586,41 +1585,38 @@
                                     <!-- RESUMEN DE SOLICITUD -->
                                     <div id="pantalla-RS" class="section col-md-12" role="tabpanel" aria-labelledby="" data-target="fourth_step">
 
-                                        <div class="row">
-                                            <div class="card-body">
 
-                                                <table class="table table-borderless">
-                                                    <thead class="">
-                                                        <tr class="t-head">
-                                                            <th>DISTRITO</th>
-                                                            <th>DIRECCIÓN</th>
-                                                            <th>TIPO</th>
-                                                            <th>PROMOCIÓN</th>
-                                                            <th>AT</th>
-                                                            <th>AC</th>
-                                                            <th>AO</th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                        <tr>
-                                                            <!-- <td>MIRAFLORES</td> -->
-                                                            <td id="dir__dist"></td>
-                                                            <!-- <td>AV AREQUIPA 4960</td> -->
-                                                            <td id="dir__"></td>
-                                                            <!-- <td>CASA</td> -->
-                                                            <td id="tip__"></td>
-                                                            <!-- <td>VENTA</td> -->
-                                                            <td id="pro__"></td>
-                                                            <td id="at__"></td>
-                                                            <td id="ac__"></td>
-                                                            <td id="ao__"></td>
-                                                        </tr>
-                                                    </tbody>
-                                                </table>
-                                            </div>
-                                            <br>
+                                        <div class="card-body table-responsive pl-4 pd-4">
 
-                                            <div class="d-flex w-100 justify-content-between mt-3 resumen">
+                                            <table class="table table-borderless">
+                                                <thead>
+                                                    <tr class="t-head">
+                                                        <th>DISTRITO</th>
+                                                        <th>DIRECCIÓN</th>
+                                                        <th>TIPO</th>
+                                                        <th>PROMOCIÓN</th>
+                                                        <th>AT</th>
+                                                        <th>AC</th>
+                                                        <th>AO</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td id="dir__dist"></td>
+                                                        <td id="dir__"></td>
+                                                        <td id="tip__"></td>
+                                                        <td id="pro__"></td>
+                                                        <td id="at__"></td>
+                                                        <td id="ac__"></td>
+                                                        <td id="ao__"></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+
+                                        <br>
+
+                                        <!-- <div class="d-flex w-100 justify-content-between mt-3 resumen">
                                                 <div class="blaa">
                                                     <div class="card-body">
                                                         <div>
@@ -1659,8 +1655,48 @@
                                                     </div>
                                                 </div>
 
-                                            </div>
+                                            </div> -->
 
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="card-body">
+                                                    <div>
+                                                        <label class="mak-txt">Comentario</label>
+                                                        <textarea id="coment_valr_" placeholder="Escribe un comentario..." readonly></textarea>
+                                                    </div>
+                                                    <div class="row justify-content-between">
+                                                        <button id="verFotos_" class="btn btn-mak mak-bg" data-bs-toggle="modal" data-bs-target="#verFotos">Ver Fotos</button>
+                                                        <button id="verDocs_" class="btn btn-mak mak-bg" data-bs-toggle="modal" data-bs-target="#verDocs">Ver Documentos</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="card-box">
+                                                    <div id="mapa_2" style="height: 250px;"></div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="card-body">
+                                                    <div class="card-box card-body data-resume">
+
+                                                        <figcaption class="d-flex flex-column pl-2">
+                                                            <p class="b-text"><b>Resumen</b></p>
+                                                            <small class="">Datos de contacto:</small>
+                                                        </figcaption>
+
+                                                        <ul>
+                                                            <li><b>Nombre: </b><?php echo $_SESSION['nom_usu']; ?></li>
+                                                            <li><b>Email: </b><?php echo $_SESSION['email_usu']; ?></li>
+                                                            <li><b>Teléfono: </b><?php echo $_SESSION['telef_usu']; ?></li>
+                                                        </ul>
+
+                                                        <div>
+                                                            <p><strong>Información de la propiedad:</strong></p>
+                                                            <ul class="lst-resume" data-resume></ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
 
                                         </div>
                                         <div class="card-footer">
