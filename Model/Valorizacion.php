@@ -22,14 +22,14 @@ class Valorizacion
 
 		$this->lst_zonificacion = array();
 
-		$this->lst_valo_hist_user=array();
+		$this->lst_valo_hist_user = array();
 
-		$this->details_valo=array();
+		$this->details_valo = array();
 
 		$this->excel_data = array();
 	}
 
-	public function add_valorizacion_casa($data,$cadena)
+	public function add_valorizacion_casa($data, $cadena)
 	{
 		/*include_once('../config/Conexion.php');
 		$cnx = new Conexion();
@@ -83,16 +83,16 @@ class Valorizacion
 		$result = mysqli_query($cadena, $query);
 
 		if ($result) {
-        	echo "OK";
-    		return true;
-	    } else {
-	        echo "Error al insertar el registro: " . mysqli_error($cadena);
-	        return true;
-	    }
-	    //return $result;
+			echo "OK";
+			return true;
+		} else {
+			echo "Error al insertar el registro: " . mysqli_error($cadena);
+			return true;
+		}
+		//return $result;
 	}
 
-	public function add_valorizacion_depa($data,$cadena)
+	public function add_valorizacion_depa($data, $cadena)
 	{
 		/*include_once('../config/Conexion.php');
 		$cnx = new Conexion();
@@ -145,15 +145,16 @@ class Valorizacion
 		$result = mysqli_query($cadena, $query);
 
 		if ($result) {
-        	echo "OK";
-    		return true;
-	    } else {
-	        echo "Error al insertar el registro: " . mysqli_error($cadena);
-	        return true;
-	    }
+			echo "OK";
+			return true;
+		} else {
+			echo "Error al insertar el registro: " . mysqli_error($cadena);
+			return true;
+		}
 	}
 
-	public function add_valorizacion_terreno($data,$cadena){
+	public function add_valorizacion_terreno($data, $cadena)
+	{
 
 		/*include_once('../config/Conexion.php');
 		$cnx = new Conexion();
@@ -189,15 +190,15 @@ class Valorizacion
 		$result = mysqli_query($cadena, $query);
 
 		if ($result) {
-        	echo "OK";
-    		return true;
-	    } else {
-	        echo "Error al insertar el registro: " . mysqli_error($cadena);
-	        return true;
-	    }
+			echo "OK";
+			return true;
+		} else {
+			echo "Error al insertar el registro: " . mysqli_error($cadena);
+			return true;
+		}
 	}
 
-	public function add_valorizacion_oficina($data,$cadena)
+	public function add_valorizacion_oficina($data, $cadena)
 	{
 		/*include_once('../config/Conexion.php');
 		$cnx = new Conexion();
@@ -235,15 +236,15 @@ class Valorizacion
 		$result = mysqli_query($cadena, $query);
 
 		if ($result) {
-        	echo "OK";
-    		return true;
-	    } else {
-	        echo "Error al insertar el registro: " . mysqli_error($cadena);
-	        return true;
-	    }
+			echo "OK";
+			return true;
+		} else {
+			echo "Error al insertar el registro: " . mysqli_error($cadena);
+			return true;
+		}
 	}
 
-	public function add_valorizacion_local_comercial($data,$cadena)
+	public function add_valorizacion_local_comercial($data, $cadena)
 	{
 		/*include_once('../config/Conexion.php');
 		$cnx = new Conexion();
@@ -285,12 +286,12 @@ class Valorizacion
 		$result = mysqli_query($cadena, $query);
 
 		if ($result) {
-        	echo "OK";
-    		return true;
-	    } else {
-	        echo "Error al insertar el registro: " . mysqli_error($cadena);
-	        return true;
-	    }
+			echo "OK";
+			return true;
+		} else {
+			echo "Error al insertar el registro: " . mysqli_error($cadena);
+			return true;
+		}
 	}
 
 	public function add_valorizacion_local_industrial($data, $cadena)
@@ -331,15 +332,15 @@ class Valorizacion
 		$result = mysqli_query($cadena, $query);
 
 		if ($result) {
-        	echo "OK";
-    		return true;
-	    } else {
-	        echo "Error al insertar el registro: " . mysqli_error($cadena);
-	        return true;
-	    }
+			echo "OK";
+			return true;
+		} else {
+			echo "Error al insertar el registro: " . mysqli_error($cadena);
+			return true;
+		}
 	}
 
-	public function updt_valoc_doc($id_valo,$status)
+	public function updt_valoc_doc($id_valo, $status)
 	{
 		include_once('../config/Conexion.php');
 		$cnx = new Conexion();
@@ -365,10 +366,10 @@ class Valorizacion
 
 		/*echo mysqli_query($cadena, $query);
 		$cnx->cerrarConexion($cadena);*/
-
 	}
 
-	public function updt_valoc_obs($id_valo,$obs){
+	public function updt_valoc_obs($id_valo, $obs)
+	{
 		include_once('../config/Conexion.php');
 		$cnx = new Conexion();
 		$cadena = $cnx->abrirConexion();
@@ -393,10 +394,10 @@ class Valorizacion
 
 		/*echo mysqli_query($cadena, $query);
 		$cnx->cerrarConexion($cadena);*/
-
 	}
 
-	public function updt_valoc_status($id_valo,$status){
+	public function updt_valoc_status($id_valo, $status)
+	{
 		include_once('../config/Conexion.php');
 		$cnx = new Conexion();
 		$cadena = $cnx->abrirConexion();
@@ -421,10 +422,10 @@ class Valorizacion
 
 		/*echo mysqli_query($cadena, $query);
 		$cnx->cerrarConexion($cadena);*/
-
 	}
 
-	public function update_doc_nom_valor($id_valo, $dni_client, $file_name){
+	public function update_doc_nom_valor($id_valo, $dni_client, $file_name)
+	{
 		include_once('../config/Conexion.php');
 		$cnx = new Conexion();
 		$cadena = $cnx->abrirConexion();
@@ -449,7 +450,6 @@ class Valorizacion
 
 		/*echo mysqli_query($cadena, $query);
 		$cnx->cerrarConexion($cadena);*/
-
 	}
 
 
@@ -702,7 +702,7 @@ class Valorizacion
 	}
 
 
-	public function details_valorizacion($id_reg , $id_client, $dni_client)
+	public function details_valorizacion($id_reg, $id_client, $dni_client)
 	{
 		include_once('../config/Conexion.php');
 		$cnx = new conexion();
@@ -796,7 +796,8 @@ class Valorizacion
 		return $this->lst_zonificacion;
 	}
 
-	public function data_excel_val($id){
+	public function data_excel_val($id)
+	{
 		include_once('../config/Conexion.php');
 		$cnx = new conexion();
 		$cadena = $cnx->abrirConexion();

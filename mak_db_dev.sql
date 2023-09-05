@@ -749,5 +749,5 @@ SELECT id_document, id_legal, file_name, status_doc
 		where dl.user_cod = 1 and tipo_doc = 1 and id_legal = 9 and file_name = 'test_1 .jpg'
         
 select nom_client, ape_client, status_solic, comentario from docs_legal
-where id_legal = 1
+where id_legal = 5
 
