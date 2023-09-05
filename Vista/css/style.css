@@ -2266,8 +2266,7 @@ figcaption {
 
 @media only screen and (max-width: 576px) {
 
-  body i,
-  body a {
+  body i{
     font-size: 20px !important;
   }
 
