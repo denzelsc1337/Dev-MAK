@@ -294,10 +294,8 @@
 
                                     <!-- CASA - VIVIENDA -->
                                     <div id="1" class="section card card-default col-md-12" role="tabpanel" aria-labelledby="" data-target="second_step">
-                                        <!-- <div class="card-header mak-bg mak-wht">
-                                            <h1>Casa -</h1>
-                                        </div> -->
-                                        <div class="card-body">
+
+                                        <div class="pt-5">
 
                                             <div class="row">
 
@@ -309,7 +307,7 @@
                                                             </div>
                                                             <div class="card-body">
                                                                 <div class="form-group flex">
-                                                                    <div class="column-card">
+                                                                    <div class="column-card-content">
                                                                         <div class="custom-control custom-checkbox">
                                                                             <input class="right custom-control-input" type="checkbox" id="sala_com" name="sala_com" value="">
                                                                             <label for="sala_com" class="right custom-control-label">Sala Comedor:</label>
@@ -326,16 +324,12 @@
                                                                         </div>
                                                                     </div>
                                                                     <br>
-                                                                    <div class="column-card">
+                                                                    <div class="column-card-content">
                                                                         <div class="custom-control custom-checkbox">
                                                                             <input class="right custom-control-input" type="checkbox" id="cocina_" name="cocina_" value="">
                                                                             <label for="cocina_" class="right custom-control-label">Cocina:</label>
                                                                         </div>
                                                                         <br>
-                                                                        <!-- <div class="custom-control custom-checkbox">
-                                                                                                    <input class="right custom-control-input" type="checkbox" id="jardin_t" name="jardin_t" value="true">
-                                                                                                    <label for="jardin_t" class="right custom-control-label">Jardín Trasero:</label>
-                                                                                                </div> -->
                                                                         <div class="custom-control custom-checkbox">
                                                                             <input class="right custom-control-input" type="checkbox" id="amoblado_" name="amoblado_" value="">
                                                                             <label for="amoblado_" class="right custom-control-label">Amoblado:</label>
@@ -365,21 +359,15 @@
                                                             </div>
                                                             <div class="card-body">
                                                                 <div class="col-sm-12 flex">
-                                                                    <div class="col-sm-6 pdd-left">
+                                                                    <div class="col-sm-6 ">
                                                                         <label>Dormitorio(s):</label>
                                                                         <div class="section-input col-sm-8">
-                                                                            <!-- <span class="icon-input">
-                                                                                <img src="https://cdn-icons-png.flaticon.com/512/7118/7118098.png" alt="">
-                                                                            </span> -->
                                                                             <input class="form-control input-number" type="number" min="0" id="cant_dorm" name="cant_dorm">
                                                                         </div>
                                                                     </div>
-                                                                    <div class="col-sm-6 pdd-left">
+                                                                    <div class="col-sm-6 ">
                                                                         <label>Dormitorio con baño:</label>
                                                                         <div class="section-input col-sm-8">
-                                                                            <!-- <span class="icon-input">
-                                                                                <img src="https://cdn-icons-png.flaticon.com/512/5697/5697404.png" alt="">
-                                                                            </span> -->
                                                                             <input class="form-control input-number" type="number" min="0" id="cant_dorm_b_" name="cant_dorm_b_">
                                                                         </div>
                                                                     </div>
@@ -402,16 +390,13 @@
                                                             </div>
                                                             <div class="card-body">
                                                                 <div class="col-sm-12 flex">
-                                                                    <div class="col-sm-6 pdd-left">
+                                                                    <div class="col-sm-6 ">
                                                                         <label>Baño(s):</label>
                                                                         <div class="section-input col-sm-8">
-                                                                            <!-- <span class="icon-input">
-                                                                                <img src="https://cdn-icons-png.flaticon.com/512/456/456365.png" alt="">
-                                                                            </span> -->
                                                                             <input class="form-control input-number" type="number" min="0" id="cant_banho" name="cant_banho">
                                                                         </div>
                                                                     </div>
-                                                                    <div class="col-sm-6 pdd-left align-center">
+                                                                    <div class="col-sm-6  align-center">
                                                                         <div class="custom-control custom-checkbox">
                                                                             <input class="right custom-control-input" type="checkbox" id="banho_vis" name="banho_vis">
                                                                             <label for="banho_vis" class="right custom-control-label">Baño(s) de visita:</label>
@@ -431,13 +416,13 @@
                                                             </div>
                                                             <div class="card-body">
                                                                 <div class="col-sm-12 flex">
-                                                                    <div class="col-sm-6 pdd-left align-center">
+                                                                    <div class="col-sm-6  align-center">
                                                                         <div class="custom-control custom-checkbox">
                                                                             <input class="right custom-control-input" type="checkbox" id="cuarto_serv" name="cuarto_serv">
                                                                             <label for="cuarto_serv" class="right custom-control-label">Cuarto de servicio:</label>
                                                                         </div>
                                                                     </div>
-                                                                    <div class="col-sm-6 pdd-left align-center">
+                                                                    <div class="col-sm-6  align-center">
                                                                         <div class="custom-control custom-checkbox">
                                                                             <input class="right custom-control-input" type="checkbox" id="banho_serv" name="banho_serv">
                                                                             <label for="banho_serv" class="right custom-control-label">Baño de servicio:</label>
@@ -455,21 +440,12 @@
                                                             </div>
                                                             <div class="card-body">
                                                                 <div class="col-sm-12 flex">
-                                                                    <div class="col-sm-6 pdd-left">
+                                                                    <div class="col-sm-6 ">
                                                                         <label>Estacionamiento(s):</label>
                                                                         <div class="section-input col-sm-8">
-                                                                            <!-- <span class="icon-input"><i class="fa-solid fa-warehouse"></i></span> -->
                                                                             <input class="form-control input-number" type="number" min="0" id="cant_estac" name="cant_estac">
                                                                         </div>
                                                                     </div>
-
-
-                                                                    <!-- <div class="col-sm-6 pdd-left align-center">
-                                                                        <div class="custom-control custom-checkbox">
-                                                                            <input class="right custom-control-input" type="checkbox" id="deposito_" name="deposito_">
-                                                                            <label for="deposito_" class="right custom-control-label">Depósito:</label>
-                                                                        </div>
-                                                                    </div> -->
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -482,21 +458,22 @@
                                                                 <div class="col-sm-12">
                                                                     <div class="form-group row">
                                                                         <label class="col-sm-3 col-form-label">Localización:</label>
-                                                                        <div class="section-input col-sm-8">
-                                                                            <!-- <span class="icon-input"><i class="fa-solid fa-location-dot"></i></span> -->
-                                                                            <select class="form-mak" id="ubic_casa" name="ubic_casa">
-                                                                                <option value="-1">Seleccione</option>
-                                                                                <?php foreach ($selector_types_ubi as $cod_type_u) : ?>
-                                                                                    <option value="<?php echo $cod_type_u[0]; ?>"><?php echo $cod_type_u[1]; ?></option>
-                                                                                <?php endforeach ?>
-                                                                            </select>
-                                                                        </div>
-                                                                        <div class="input-group-append">
-                                                                            <i class="fa-solid fa-circle-info tooltipInfo tooltip-left">
-                                                                                <span class="tooltiptext">
-                                                                                    Info...
-                                                                                </span>
-                                                                            </i>
+                                                                        <div class="d-flex col-sm-9 p-0">
+                                                                            <div class="section-input">
+                                                                                <select class="form-mak" id="ubic_casa" name="ubic_casa">
+                                                                                    <option value="-1">Seleccione</option>
+                                                                                    <?php foreach ($selector_types_ubi as $cod_type_u) : ?>
+                                                                                        <option value="<?php echo $cod_type_u[0]; ?>"><?php echo $cod_type_u[1]; ?></option>
+                                                                                    <?php endforeach ?>
+                                                                                </select>
+                                                                            </div>
+                                                                            <div class="input-group-append">
+                                                                                <i class="fa-solid fa-circle-info tooltipInfo tooltip-left">
+                                                                                    <span class="tooltiptext">
+                                                                                        Info...
+                                                                                    </span>
+                                                                                </i>
+                                                                            </div>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -504,23 +481,23 @@
                                                                 <div class="col-sm-12">
                                                                     <div class="form-group row">
                                                                         <label class="col-sm-3 col-form-label">Vista:</label>
-                                                                        <div class="section-input col-sm-8">
-                                                                            <!-- <span class="icon-input">
-                                                                                <img src="https://cdn-icons-png.flaticon.com/512/3017/3017956.png" alt="">
-                                                                            </span> -->
-                                                                            <select class="form-mak" id="vista_casa" name="vista_casa">
-                                                                                <option value="-1">Seleccione</option>
-                                                                                <?php foreach ($selector_types_vis as $cod_type_v) : ?>
-                                                                                    <option value="<?php echo $cod_type_v[0]; ?>"><?php echo $cod_type_v[1]; ?></option>
-                                                                                <?php endforeach ?>
-                                                                            </select>
-                                                                        </div>
-                                                                        <div class="input-group-append">
-                                                                            <i class="fa-solid fa-circle-info tooltipInfo tooltip-left">
-                                                                                <span class="tooltiptext">
-                                                                                    Info...
-                                                                                </span>
-                                                                            </i>
+                                                                        <div class="d-flex col-sm-9 p-0">
+                                                                            <div class="section-input">
+
+                                                                                <select class="form-mak" id="vista_casa" name="vista_casa">
+                                                                                    <option value="-1">Seleccione</option>
+                                                                                    <?php foreach ($selector_types_vis as $cod_type_v) : ?>
+                                                                                        <option value="<?php echo $cod_type_v[0]; ?>"><?php echo $cod_type_v[1]; ?></option>
+                                                                                    <?php endforeach ?>
+                                                                                </select>
+                                                                            </div>
+                                                                            <div class="input-group-append">
+                                                                                <i class="fa-solid fa-circle-info tooltipInfo tooltip-left">
+                                                                                    <span class="tooltiptext">
+                                                                                        Info...
+                                                                                    </span>
+                                                                                </i>
+                                                                            </div>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -528,31 +505,29 @@
                                                                 <div class="col-sm-12">
                                                                     <div class="form-group row">
                                                                         <label class="col-sm-3 col-form-label">Acabado:</label>
-                                                                        <div class="section-input col-sm-8">
-                                                                            <!-- <span class="icon-input">
-                                                                                <img src="https://cdn-icons-png.flaticon.com/512/1249/1249293.png" alt="">
-                                                                            </span> -->
-                                                                            <select class="form-mak" id="acabado_casa" name="acabado_casa">
-                                                                                <option value="-1">Seleccione</option>
-                                                                                <?php foreach ($selector_types_acab as $cod_type_a) : ?>
-                                                                                    <option value="<?php echo $cod_type_a[0]; ?>"><?php echo $cod_type_a[1]; ?></option>
-                                                                                <?php endforeach ?>
-                                                                            </select>
-                                                                        </div>
-                                                                        <div class="input-group-append">
-
-                                                                            <i id="test" class="test fa-solid fa-circle-info tooltipInfo tooltip-left">
-                                                                                <span class="tooltiptext" style="width: 450px;">
-                                                                                    <ul>
-                                                                                        <li>
-                                                                                            <b>Edificación en casco</b> - Construcción sin terminar: Estructura básica de la construcción, sin acabados interiores ni instalaciones.
-                                                                                        </li>
-                                                                                        <li>
-                                                                                            <b>Edificación terminada</b> - Construcción completa y lista para su uso: Estructura completa de la construcción, con acabados interiores y exteriores, instalaciones y servicios.
-                                                                                        </li>
-                                                                                    </ul>
-                                                                                </span>
-                                                                            </i>
+                                                                        <div class="d-flex col-sm-9 p-0">
+                                                                            <div class="section-input">
+                                                                                <select class="form-mak" id="acabado_casa" name="acabado_casa">
+                                                                                    <option value="-1">Seleccione</option>
+                                                                                    <?php foreach ($selector_types_acab as $cod_type_a) : ?>
+                                                                                        <option value="<?php echo $cod_type_a[0]; ?>"><?php echo $cod_type_a[1]; ?></option>
+                                                                                    <?php endforeach ?>
+                                                                                </select>
+                                                                            </div>
+                                                                            <div class="input-group-append">
+                                                                                <i id="test" class="test fa-solid fa-circle-info tooltipInfo tooltip-left">
+                                                                                    <span class="tooltiptext" style="width: 450px;">
+                                                                                        <ul>
+                                                                                            <li>
+                                                                                                <b>Edificación en casco</b> - Construcción sin terminar: Estructura básica de la construcción, sin acabados interiores ni instalaciones.
+                                                                                            </li>
+                                                                                            <li>
+                                                                                                <b>Edificación terminada</b> - Construcción completa y lista para su uso: Estructura completa de la construcción, con acabados interiores y exteriores, instalaciones y servicios.
+                                                                                            </li>
+                                                                                        </ul>
+                                                                                    </span>
+                                                                                </i>
+                                                                            </div>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -587,7 +562,7 @@
                                                             </div>
                                                             <div class="card-body">
                                                                 <div class="flex">
-                                                                    <div class="col-sm-6 pdd-left">
+                                                                    <div class="col-sm-6 ">
                                                                         <div class="custom-control custom-checkbox">
                                                                             <input class="right custom-control-input" type="checkbox" id="sala_com_d" name="sala_com_d">
                                                                             <label for="sala_com_d" class="right custom-control-label">Sala Comedor:</label>
@@ -603,7 +578,7 @@
                                                                             <label for="comedor_d" class="right custom-control-label">Comedor:</label>
                                                                         </div>
                                                                     </div>
-                                                                    <div class="col-sm-6 pdd-left">
+                                                                    <div class="col-sm-6 ">
                                                                         <div class="custom-control custom-checkbox">
                                                                             <input class="right custom-control-input" type="checkbox" id="cocina_d" name="cocina_d">
                                                                             <label for="cocina_d" class="right custom-control-label">Cocina:</label>
@@ -633,21 +608,15 @@
                                                             </div>
                                                             <div class="card-body">
                                                                 <div class="col-sm-12 flex">
-                                                                    <div class="col-sm-6 pdd-left">
+                                                                    <div class="col-sm-6 ">
                                                                         <label>Dormitorio(s):</label>
                                                                         <div class="section-input col-sm-8">
-                                                                            <!-- <span class="icon-input">
-                                                                                <img src="https://cdn-icons-png.flaticon.com/512/7118/7118098.png" alt="">
-                                                                            </span> -->
                                                                             <input class="form-control input-number" type="number" min="0" id="cant_dorm_d" name="cant_dorm_d">
                                                                         </div>
                                                                     </div>
-                                                                    <div class="col-sm-6 pdd-left">
+                                                                    <div class="col-sm-6 ">
                                                                         <label>Dormitorio con baño:</label>
                                                                         <div class="section-input col-sm-8">
-                                                                            <!-- <span class="icon-input">
-                                                                                <img src="https://cdn-icons-png.flaticon.com/512/5697/5697404.png" alt="">
-                                                                            </span> -->
                                                                             <input class="form-control input-number" type="number" min="0" id="cant_dorm_b_d" name="cant_dorm_b_d">
                                                                         </div>
                                                                     </div>
@@ -669,16 +638,13 @@
                                                             </div>
                                                             <div class="card-body">
                                                                 <div class="col-sm-12 flex">
-                                                                    <div class="col-sm-6 pdd-left">
+                                                                    <div class="col-sm-6 ">
                                                                         <label>Baño(s):</label>
                                                                         <div class="section-input col-sm-8">
-                                                                            <!-- <span class="icon-input">
-                                                                                <img src="https://cdn-icons-png.flaticon.com/512/456/456365.png" alt="">
-                                                                            </span> -->
                                                                             <input class="form-control input-number" type="number" min="0" id="cant_banho_d" name="cant_banho_d">
                                                                         </div>
                                                                     </div>
-                                                                    <div class="col-sm-6 pdd-left align-center">
+                                                                    <div class="col-sm-6  align-center">
                                                                         <div class="custom-control custom-checkbox">
                                                                             <input class="right custom-control-input" type="checkbox" id="banho_vis_d" name="banho_vis_d">
                                                                             <label for="banho_vis_d" class="right custom-control-label">Baño de visita:</label>
@@ -693,13 +659,13 @@
                                                             </div>
                                                             <div class="card-body">
                                                                 <div class="col-sm-12 flex">
-                                                                    <div class="col-sm-6 pdd-left align-center">
+                                                                    <div class="col-sm-6  align-center">
                                                                         <div class="custom-control custom-checkbox">
                                                                             <input class="right custom-control-input" type="checkbox" id="cuarto_serv_d" name="cuarto_serv_d">
                                                                             <label for="cuarto_serv_d" class="right custom-control-label">Cuarto de servicio:</label>
                                                                         </div>
                                                                     </div>
-                                                                    <div class="col-sm-6 pdd-left align-center">
+                                                                    <div class="col-sm-6  align-center">
                                                                         <div class="custom-control custom-checkbox">
                                                                             <input class="right custom-control-input" type="checkbox" id="banho_serv_d" name="banho_serv_d">
                                                                             <label for="banho_serv_d" class="right custom-control-label">Baño de servicio:</label>
@@ -721,15 +687,14 @@
                                                             </div>
                                                             <div class="card-body">
                                                                 <div class="col-sm-12 flex">
-                                                                    <div class="col-sm-6 pdd-left">
+                                                                    <div class="col-sm-6 ">
                                                                         <label>Estacionamiento(s):</label>
                                                                         <div class="section-input col-sm-8">
-                                                                            <!-- <span class="icon-input"><i class="fa-solid fa-warehouse"></i></span> -->
                                                                             <input class="form-control input-number" type="number" min="0" id="cant_estac_d" name="cant_estac_d">
                                                                         </div>
                                                                     </div>
 
-                                                                    <div class="col-sm-6 pdd-left align-center">
+                                                                    <div class="col-sm-6  align-center">
                                                                         <div class="custom-control custom-checkbox">
                                                                             <input class="right custom-control-input" type="checkbox" id="deposito__d" name="deposito__d">
                                                                             <label for="deposito__d" class="right custom-control-label">Depósito:</label>
@@ -748,7 +713,6 @@
                                                                     <div class="form-group row">
                                                                         <label class="col-sm-3 col-form-label">Localización:</label>
                                                                         <div class="section-input col-sm-8">
-                                                                            <!-- <span class="icon-input"><i class="fa-solid fa-location-dot"></i></span> -->
                                                                             <select class="form-mak" id="ubic_depa" name="ubic_depa">
                                                                                 <option value="-1">Seleccione</option>
                                                                                 <?php foreach ($selector_types_ubi as $cod_type_u) : ?>
@@ -770,9 +734,6 @@
                                                                     <div class="form-group row">
                                                                         <label class="col-sm-3 col-form-label">Vista:</label>
                                                                         <div class="section-input col-sm-8">
-                                                                            <!-- <span class="icon-input">
-                                                                                <img src="https://cdn-icons-png.flaticon.com/512/3017/3017956.png" alt="">
-                                                                            </span> -->
                                                                             <select class="form-mak" id="vista_depa" name="vista_depa">
                                                                                 <option value="-1">Seleccione</option>
                                                                                 <?php foreach ($selector_types_vis as $cod_type_v) : ?>
@@ -794,9 +755,6 @@
                                                                     <div class="form-group row">
                                                                         <label class="col-sm-3 col-form-label">Acabado:</label>
                                                                         <div class="section-input col-sm-8">
-                                                                            <!-- <span class="icon-input">
-                                                                                <img src="https://cdn-icons-png.flaticon.com/512/1249/1249293.png" alt="">
-                                                                            </span> -->
                                                                             <select class="form-mak" id="acabado_depa" name="acabado_depa">
                                                                                 <option value="-1">Seleccione</option>
                                                                                 <?php foreach ($selector_types_acab as $cod_type_a) : ?>
@@ -823,14 +781,14 @@
 
                                                                 <br>
                                                                 <div class="col-sm-12 flex">
-                                                                    <div class="col-sm-6 pdd-left">
+                                                                    <div class="col-sm-6 ">
                                                                         <div class="custom-control custom-checkbox align-center">
                                                                             <input class="right custom-control-input" type="checkbox" id="ascensor_d" name="ascensor_d">
                                                                             <label for="ascensor_d" class="right custom-control-label">Ascensor:</label>
                                                                         </div>
                                                                     </div>
                                                                     <br>
-                                                                    <div class="col-sm-6 pdd-left">
+                                                                    <div class="col-sm-6 ">
                                                                         <div class="custom-control custom-checkbox align-center">
                                                                             <input class="right custom-control-input" type="checkbox" id="ascensor_directo_d" name="ascensor_directo_d">
                                                                             <label for="ascensor_directo_d" class="right custom-control-label">Ascensor directo:</label>
@@ -846,21 +804,15 @@
                                                             </div>
                                                             <div class="card-body">
                                                                 <div class="col-sm-12 flex">
-                                                                    <div class="col-sm-6 pdd-left">
+                                                                    <div class="col-sm-6 ">
                                                                         <label>Pisos del edificio:</label>
                                                                         <div class="section-input col-sm-8">
-                                                                            <!-- <span class="icon-input">
-                                                                                <img src="https://cdn-icons-png.flaticon.com/512/5697/5697404.png" alt="">
-                                                                            </span> -->
                                                                             <input class="form-control input-number" type="number" min="0" id="pisos_edif_d" name="pisos_edif_d">
                                                                         </div>
                                                                     </div>
-                                                                    <div class="col-sm-6 pdd-left">
+                                                                    <div class="col-sm-6 ">
                                                                         <label>Piso del dpto:</label>
                                                                         <div class="section-input col-sm-8">
-                                                                            <!-- <span class="icon-input">
-                                                                                <img src="https://cdn-icons-png.flaticon.com/512/5697/5697404.png" alt="">
-                                                                            </span> -->
                                                                             <input class="form-control input-number" type="number" min="0" id="piso_dpto_" name="piso_dpto_">
                                                                         </div>
                                                                     </div>
@@ -898,9 +850,6 @@
                                                                     <div class="form-group row">
                                                                         <label class="col-sm-3 col-form-label">Zonificación:</label>
                                                                         <div class="section-input col-sm-8">
-                                                                            <!-- <span class="icon-input"><i class="fa-solid fa-location-dot"></i></span> -->
-                                                                            <!-- <input type="text" id="tipo_zoni_ofi" name="tipo_zoni_ofi"> -->
-                                                                            <!-- <select id="opciones_zoni_ofi" name="opciones_zoni_ofi" class="opciones_zoni_ofi"></select> -->
                                                                             <div style="width: 100%">
                                                                                 <input type="text" class="form-mak auto-input" id="" name="" value="">
                                                                                 <ul class="lista">
@@ -924,9 +873,6 @@
                                                                     <div class="form-group row">
                                                                         <label class="col-sm-3 col-form-label">Tipo Suelo:</label>
                                                                         <div class="section-input col-sm-8">
-                                                                            <!-- <span class="icon-input">
-                                                                                <img src="https://cdn-icons-png.flaticon.com/512/1249/1249293.png" alt="">
-                                                                            </span> -->
                                                                             <select class="form-mak" id="tipo_suelo_tern" name="tipo_suelo_tern">
                                                                                 <option value="-1">Seleccione</option>
 
@@ -948,18 +894,12 @@
                                                                     <div class="col-sm-6 flex align-center" style="padding-right: 0px;padding-left: 0px;">
                                                                         <label class="col-sm-4 col-form-label" style="padding-right: 0px;padding-left: 0px;">Parámetros:</label>
                                                                         <div class=" section-input col-sm-6">
-                                                                            <!-- <span class="icon-input">
-                                                                                <img src="https://cdn-icons-png.flaticon.com/512/3017/3017956.png" alt="">
-                                                                            </span> -->
                                                                             <input class="form-control input-number" type="number" min="0" id="params_tern" name="params_tern">
                                                                         </div>
                                                                     </div>
-                                                                    <div class="col-sm-6 flex align-center pdd-left" style="padding-right: 0px;padding-left: 0px;">
+                                                                    <div class="col-sm-6 flex align-center " style="padding-right: 0px;padding-left: 0px;">
                                                                         <label class="col-sm-3 col-form-label" style="padding-right: 0px;padding-left: 0px;">Frente:</label>
                                                                         <div class=" section-input col-sm-6">
-                                                                            <!-- <span class="icon-input">
-                                                                                <img class="rotate-180" src="https://cdn-icons-png.flaticon.com/512/8264/8264013.png" alt="">
-                                                                            </span> -->
                                                                             <input class="form-control input-number" type="number" min="0" step="00.01" id="frnte_tern" name="frnte_tern">
                                                                         </div>
                                                                     </div>
@@ -1002,7 +942,6 @@
                                                                     <div class="form-group row">
                                                                         <label class="col-sm-3 col-form-label">Localización:</label>
                                                                         <div class="section-input col-sm-8">
-                                                                            <!-- <span class="icon-input"><i class="fa-solid fa-location-dot"></i></span> -->
                                                                             <select class="form-mak" id="ubic_ofi" name="ubic_ofi">
                                                                                 <option value="-1">Seleccione</option>
                                                                                 <?php foreach ($selector_types_ubi as $cod_type_u) : ?>
@@ -1025,9 +964,6 @@
                                                                     <div class="form-group row">
                                                                         <label class="col-sm-3 col-form-label">Acabado:</label>
                                                                         <div class="section-input col-sm-8">
-                                                                            <!-- <span class="icon-input">
-                                                                                <img src="https://cdn-icons-png.flaticon.com/512/1249/1249293.png" alt="">
-                                                                            </span> -->
                                                                             <select class="form-mak" id="acabado_ofi" name="acabado_ofi">
                                                                                 <option value="-1" selected>Seleccione</option>
                                                                                 <?php foreach ($selector_types_acab as $cod_type_a) : ?>
@@ -1055,9 +991,6 @@
                                                                     <div class="form-group row">
                                                                         <label class="col-sm-3 col-form-label">Zonificación:</label>
                                                                         <div class="section-input col-sm-8">
-                                                                            <!-- <span class="icon-input"><i class="fa-solid fa-location-dot"></i></span> -->
-                                                                            <!-- <input type="text" id="tipo_zoni_ofi" name="tipo_zoni_ofi"> -->
-                                                                            <!-- <select id="opciones_zoni_ofi" name="opciones_zoni_ofi" class="opciones_zoni_ofi"></select> -->
                                                                             <div style="width: 100%">
                                                                                 <input type="text" class="form-mak auto-input">
                                                                                 <ul class="lista">
@@ -1081,9 +1014,6 @@
                                                                     <div class="form-group row">
                                                                         <label class="col-sm-3 col-form-label">Vista:</label>
                                                                         <div class="section-input col-sm-8">
-                                                                            <!-- <span class="icon-input">
-                                                                                <img src="https://cdn-icons-png.flaticon.com/512/3017/3017956.png" alt="">
-                                                                            </span> -->
                                                                             <select class="form-mak" id="vista_ofi" name="vista_ofi">
                                                                                 <option value="-1">Seleccione</option>
                                                                                 <?php foreach ($selector_types_vis as $cod_type_v) : ?>
@@ -1111,16 +1041,12 @@
                                                                     <div class="col-sm-6">
                                                                         <label>Pisos de oficina:</label>
                                                                         <div class="section-input col-sm-8">
-                                                                            <!-- <span class="icon-input">
-                                                                                <img src="https://cdn-icons-png.flaticon.com/512/6080/6080750.png" alt="">
-                                                                            </span> -->
                                                                             <input class="form-control input-number" type="number" min="0" id="piso_ofi" name="piso_ofi">
                                                                         </div>
                                                                     </div>
                                                                     <div class="col-sm-6">
                                                                         <label>Cochera(s):</label>
                                                                         <div class="section-input col-sm-8">
-                                                                            <!-- <span class="icon-input"><i class="fa-solid fa-warehouse"></i></span> -->
                                                                             <input class="form-control input-number" type="number" min="0" id="coch_ofi" name="coch_ofi">
                                                                         </div>
                                                                     </div>
@@ -1128,14 +1054,14 @@
                                                                 <br>
                                                                 <div class="col-sm-12 flex">
                                                                     <br>
-                                                                    <div class="col-sm-6 pdd-left align-center">
+                                                                    <div class="col-sm-6  align-center">
                                                                         <div class="custom-control custom-checkbox">
                                                                             <input class="right custom-control-input" type="checkbox" id="ascen_ofi" name="ascen_ofi">
                                                                             <label for="ascen_ofi" class="right custom-control-label">Ascensor:</label>
                                                                         </div>
                                                                     </div>
                                                                     <br>
-                                                                    <div class="col-sm-6 pdd-left align-center">
+                                                                    <div class="col-sm-6  align-center">
                                                                         <div class="custom-control custom-checkbox">
                                                                             <input class="right custom-control-input" type="checkbox" id="aire_ofio" name="aire_ofio">
                                                                             <label for="aire_ofio" class="right custom-control-label">Aire acondicionado:</label>
@@ -1185,7 +1111,6 @@
                                                                             <div class="form-group row">
                                                                                 <label class="col-sm-3 col-form-label">Localización:</label>
                                                                                 <div class="section-input col-sm-8">
-                                                                                    <!-- <span class="icon-input"><i class="fa-solid fa-location-dot"></i></span> -->
                                                                                     <select id="tipo_lcl_ubi" name="tipo_lcl_ubi">
                                                                                         <option value="-1">Seleccione</option>
                                                                                         <?php foreach ($selector_types_ubi as $cod_type_u) : ?>
@@ -1207,9 +1132,6 @@
                                                                             <div class="form-group row">
                                                                                 <label class="col-sm-3 col-form-label">Acabado:</label>
                                                                                 <div class="section-input col-sm-8">
-                                                                                    <!-- <span class="icon-input">
-                                                                                        <img src="https://cdn-icons-png.flaticon.com/512/1249/1249293.png" alt="">
-                                                                                    </span> -->
                                                                                     <select class="form-mak" id="acabado_" name="acabado_">
                                                                                         <option value="-1" selected>Seleccione</option>
                                                                                         <?php foreach ($selector_types_acab as $cod_type_a) : ?>
@@ -1230,9 +1152,6 @@
                                                                             <div class="form-group row">
                                                                                 <label class="col-sm-3 col-form-label">Zonificación:</label>
                                                                                 <div class="section-input col-sm-8">
-                                                                                    <!-- <span class="icon-input"><i class="fa-solid fa-location-dot"></i></span> -->
-                                                                                    <!-- <input type="text" id="tipo_zoni_ofi" name="tipo_zoni_ofi"> -->
-                                                                                    <!-- <select id="opciones_zoni_ofi" name="opciones_zoni_ofi" class="opciones_zoni_ofi"></select> -->
                                                                                     <div style="width: 100%">
                                                                                         <input type="text" class="form-mak auto-input" id="zoni_lcl_exc" name="zoni_lcl_exc">
                                                                                         <ul class="lista">
@@ -1261,9 +1180,6 @@
                                                                             <div class="col-sm-6">
                                                                                 <label>Frente:</label>
                                                                                 <div class="section-input col-sm-8">
-                                                                                    <!-- <span class="icon-input">
-                                                                                        <img class="rotate-180" src="https://cdn-icons-png.flaticon.com/512/8264/8264013.png" alt="">
-                                                                                    </span> -->
                                                                                     <input class="form-control input-number" type="number" min="0" step="00.01" id="frnt_lcl_com" name="frnt_lcl_com">
                                                                                 </div>
                                                                             </div>
@@ -1271,7 +1187,6 @@
                                                                             <div class="col-sm-6">
                                                                                 <label>Cochera(s):</label>
                                                                                 <div class="section-input col-sm-8">
-                                                                                    <!-- <span class="icon-input"><i class="fa-solid fa-warehouse"></i></span> -->
                                                                                     <input class="form-control input-number" type="number" min="0" id="coch_lcl_com" name="coch_lcl_com">
                                                                                 </div>
                                                                             </div>
@@ -1291,12 +1206,9 @@
                                                                     </div>
                                                                     <div class="card-body">
                                                                         <div class="col-sm-12">
-                                                                            <div class="col-sm-6 pdd-left">
+                                                                            <div class="col-sm-6 ">
                                                                                 <label>Piso del local:</label>
                                                                                 <div class="section-input col-sm-8">
-                                                                                    <!-- <span class="icon-input">
-                                                                                        <img src="https://cdn-icons-png.flaticon.com/512/6080/6080750.png" alt="">
-                                                                                    </span> -->
                                                                                     <input class="form-control input-number" type="number" min="0" id="piso_lcl_com" name="piso_lcl_com">
                                                                                 </div>
                                                                             </div>
@@ -1304,13 +1216,13 @@
                                                                         <br>
                                                                         <div class="col-sm-12 flex">
 
-                                                                            <div class="col-sm-6 pdd-left align-center">
+                                                                            <div class="col-sm-6  align-center">
                                                                                 <div class="custom-control custom-checkbox">
                                                                                     <input class="right custom-control-input" type="checkbox" id="ascen_lcl_com" name="ascen_lcl_com">
                                                                                     <label for="ascen_lcl_com" class="right custom-control-label">Ascensor:</label>
                                                                                 </div>
                                                                             </div>
-                                                                            <div class="col-sm-6 pdd-left align-center">
+                                                                            <div class="col-sm-6  align-center">
                                                                                 <div class="custom-control custom-checkbox">
                                                                                     <input class="right custom-control-input" type="checkbox" id="aire_lcl_com" name="aire_lcl_com">
                                                                                     <label for="aire_lcl_com" class="right custom-control-label">Aire acondicionado:</label>
@@ -1351,7 +1263,6 @@
                                                                             <div class="form-group row">
                                                                                 <label class="col-sm-3 col-form-label">Localización:</label>
                                                                                 <div class="section-input col-sm-8">
-                                                                                    <!-- <span class="icon-input"><i class="fa-solid fa-location-dot"></i></span> -->
                                                                                     <select id="tipo_lcl_ubi" name="tipo_lcl_ubi">
                                                                                         <option value="-1">Seleccione</option>
                                                                                         <?php foreach ($selector_types_ubi as $cod_type_u) : ?>
@@ -1373,9 +1284,6 @@
                                                                             <div class="form-group row">
                                                                                 <label class="col-sm-3 col-form-label">Acabado:</label>
                                                                                 <div class="section-input col-sm-8">
-                                                                                    <!-- <span class="icon-input">
-                                                                                        <img src="https://cdn-icons-png.flaticon.com/512/1249/1249293.png" alt="">
-                                                                                    </span> -->
                                                                                     <select class="form-mak" id="acabado_" name="acabado_">
                                                                                         <option value="-1" selected>Seleccione</option>
                                                                                         <?php foreach ($selector_types_acab as $cod_type_a) : ?>
@@ -1396,9 +1304,6 @@
                                                                             <div class="form-group row">
                                                                                 <label class="col-sm-3 col-form-label">Zonificación:</label>
                                                                                 <div class="section-input col-sm-8">
-                                                                                    <!-- <span class="icon-input"><i class="fa-solid fa-location-dot"></i></span> -->
-                                                                                    <!-- <input type="text" id="tipo_zoni_ofi" name="tipo_zoni_ofi"> -->
-                                                                                    <!-- <select id="opciones_zoni_ofi" name="opciones_zoni_ofi" class="opciones_zoni_ofi"></select> -->
                                                                                     <div style="width: 100%">
                                                                                         <input type="text" class="form-mak auto-input" id="zoni_lcl_comun" name="zoni_lcl_comun">
                                                                                         <ul class="lista">
@@ -1427,9 +1332,6 @@
                                                                             <div class="col-sm-6">
                                                                                 <label>Pisos de oficina:</label>
                                                                                 <div class="section-input col-sm-8">
-                                                                                    <!-- <span class="icon-input">
-                                                                                        <img src="https://cdn-icons-png.flaticon.com/512/6080/6080750.png" alt="">
-                                                                                    </span> -->
                                                                                     <input class="form-control input-number" type="number" min="0" step="00.01" id="frnt_lcl_com_cmn" name="frnt_lcl_com_cmn">
                                                                                 </div>
                                                                             </div>
@@ -1437,7 +1339,6 @@
                                                                             <div class="col-sm-6">
                                                                                 <label>Cochera(s):</label>
                                                                                 <div class="section-input col-sm-8">
-                                                                                    <!-- <span class="icon-input"><i class="fa-solid fa-warehouse"></i></span> -->
                                                                                     <input class="form-control input-number" type="number" min="0" id="coch_lcl_com_cmn" name="coch_lcl_com_cmn">
                                                                                 </div>
                                                                             </div>
@@ -1457,12 +1358,9 @@
                                                                     </div>
                                                                     <div class="card-body">
                                                                         <div class="col-sm-12">
-                                                                            <div class="col-sm-6 pdd-left">
+                                                                            <div class="col-sm-6 ">
                                                                                 <label>Piso del local:</label>
                                                                                 <div class="section-input col-sm-8">
-                                                                                    <!-- <span class="icon-input">
-                                                                                        <img src="https://cdn-icons-png.flaticon.com/512/6080/6080750.png" alt="">
-                                                                                    </span> -->
                                                                                     <input class="form-control input-number" type="number" min="0" id="piso_lcl_com_cmn" name="piso_lcl_com_cmn">
                                                                                 </div>
                                                                             </div>
@@ -1470,13 +1368,13 @@
                                                                         <br>
                                                                         <div class="col-sm-12 flex">
 
-                                                                            <div class="col-sm-6 pdd-left align-center">
+                                                                            <div class="col-sm-6  align-center">
                                                                                 <div class="custom-control custom-checkbox">
                                                                                     <input class="right custom-control-input" type="checkbox" id="ascen_lcl_com_comun" name="ascen_lcl_com_comun">
                                                                                     <label for="ascen_lcl_com_comun" class="right custom-control-label">Ascensor:</label>
                                                                                 </div>
                                                                             </div>
-                                                                            <div class="col-sm-6 pdd-left align-center">
+                                                                            <div class="col-sm-6  align-center">
                                                                                 <div class="custom-control custom-checkbox">
                                                                                     <input class="right custom-control-input" type="checkbox" id="aire_lcl_com_comun" name="aire_lcl_com_comun">
                                                                                     <label for="aire_lcl_com_comun" class="right custom-control-label">Aire acondicionado:</label>
@@ -1522,7 +1420,6 @@
                                                                 <div class="form-group row">
                                                                     <label class="col-sm-3 col-form-label">Localización:</label>
                                                                     <div class="section-input col-sm-8">
-                                                                        <!-- <span class="icon-input"><i class="fa-solid fa-location-dot"></i></span> -->
                                                                         <select class="form-mak" id="ubic_lci" name="ubic_lci">
                                                                             <option value="-1">Seleccione</option>
                                                                             <?php foreach ($selector_types_ubi as $cod_type_u) : ?>
@@ -1546,9 +1443,6 @@
                                                                 <div class="form-group row">
                                                                     <label class="col-sm-3 col-form-label">Acabado:</label>
                                                                     <div class="section-input col-sm-8">
-                                                                        <!-- <span class="icon-input">
-                                                                            <img src="https://cdn-icons-png.flaticon.com/512/1249/1249293.png" alt="">
-                                                                        </span> -->
                                                                         <select class="form-mak" id="acabado_lci" name="acabado_lci">
                                                                             <option value="-1" selected>Seleccione</option>
                                                                             <?php foreach ($selector_types_acab as $cod_type_a) : ?>
@@ -1562,9 +1456,6 @@
                                                                 <div class="form-group row">
                                                                     <label class="col-sm-3 col-form-label">Tipo suelo:</label>
                                                                     <div class="section-input col-sm-8">
-                                                                        <!-- <span class="icon-input">
-                                                                            <img src="https://cdn-icons-png.flaticon.com/512/1249/1249293.png" alt="">
-                                                                        </span> -->
                                                                         <select class="form-mak" id="tipo_suelo_lci" name="tipo_suelo_lci">
                                                                             <option value="-1">Seleccione</option>
 
@@ -1579,9 +1470,6 @@
                                                                 <div class="form-group row">
                                                                     <label class="col-sm-3 col-form-label">Acceso:</label>
                                                                     <div class="section-input col-sm-8">
-                                                                        <!-- <span class="icon-input">
-                                                                            <img src="https://cdn-icons-png.flaticon.com/512/1249/1249293.png" alt="">
-                                                                        </span> -->
                                                                         <select class="form-mak" id="">
                                                                             <option selected disabled>Seleccione</option>
                                                                         </select>
@@ -1590,19 +1478,15 @@
                                                             </div>
 
                                                             <div class="col-sm-12 flex">
-                                                                <div class="col-sm-6 pdd-left">
+                                                                <div class="col-sm-6 ">
                                                                     <label>Frente:</label>
                                                                     <div class="section-input col-sm-8">
-                                                                        <!-- <span class="icon-input">
-                                                                            <img class="rotate-180" src="https://cdn-icons-png.flaticon.com/512/8264/8264013.png" alt="">
-                                                                        </span> -->
                                                                         <input class="form-control input-number" id="frente_lci" name="frente_lci" type="number" min="0" step="00.01" value="00.00">
                                                                     </div>
                                                                 </div>
-                                                                <div class="col-sm-6 pdd-left">
+                                                                <div class="col-sm-6 ">
                                                                     <label>Nave:</label>
                                                                     <div class="section-input col-sm-8">
-                                                                        <!-- <span class="icon-input"><i class="fa-solid fa-warehouse"></i></span> -->
                                                                         <input class="form-control input-number" id="nave_lci" name="nave_lci" type="number" min="0" step="0.01" min="0" value="00.00">
                                                                     </div>
                                                                 </div>

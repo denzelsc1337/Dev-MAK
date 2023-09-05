@@ -78,7 +78,7 @@ require_once('../Controller/controladorListar.php'); ?>
 
                     <section class="content body-mak mak-txt">
                         <div class="container">
-                            <div class="card-body p-0 ml-5 mr-5 mb-5">
+                            <div class="card-body p-0 mb-5">
                                 <div class="b-title txt-center">VALORIZACIONES</div>
                                 <p class="mak-txt b-text">¡Bienvenido <strong><?php echo $_SESSION['nom_usu'] . " " . $_SESSION['ape_usu'] ?></strong>! Para realizar un correcto proceso de valorización, es necesario tener en cuenta los siguientes puntos clave:</p>
                                 <label class="mak-txt b-text">1. Documentos requeridos:</label>
@@ -150,97 +150,95 @@ require_once('../Controller/controladorListar.php'); ?>
 
                                     <!-- </div> TABLA ADMIN -->
 
-                                    <!-- <div class="table-responsive"> -->
-                                    <div class="col-sm-12">
+                                    <div class="table-responsive">
+                                        <div class="col-sm-12">
+                                            <table id="tabla" class="table table_ table-responsive table-borderless mb-3 ml-3 mr-3" style="width: 100%;">
 
-
-                                        <table id="tabla" class="table table_ table-borderless mb-3 ml-3 mr-3" style="width: 100%;">
-
-                                            <thead>
-                                                <tr>
-                                                    <th>ID</th>
-                                                    <th>Dni</th>
-                                                    <th>Cliente</th>
-                                                    <th>Direccion</th>
-                                                    <th>Tipo Propiedad</th>
-                                                    <th>Tipo</th>
-                                                    <th>Estado</th>
-                                                    <th>Detalles</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <?php
-
-
-                                                function mostrarData($data)
-                                                {
-                                                    switch ($data) {
-                                                        case "1":
-                                                            echo "<td>Si</td>";
-                                                            break;
-                                                        case "0":
-                                                            echo "<td>No</td>";
-                                                            break;
-                                                        case "500":
-                                                            echo "<td><span class='badge rounded-pill bg-secondary'>Pendiente</span></td>";
-                                                            break;
-                                                        case "400":
-                                                            echo "<td><span class='badge rounded-pill bg-warning text-dark'>Observado</span></td>";
-                                                            break;
-                                                        case "200":
-                                                            echo "<td><span class='badge rounded-pill bg-success'> Finalizado</span></td>";
-                                                            break;
-                                                        default:
-                                                            // echo "<td>$data</td>";
-                                                            if ($data !== null) {
-                                                                echo  "<td>$data</td>";
-                                                            } else {
-                                                                echo "<td>-</td>";
-                                                            }
-                                                            break;
-                                                    }
-                                                }
-
-                                                foreach ($list_valo as $lst_vlzn) : ?>
+                                                <thead>
                                                     <tr>
-                                                        <td>
-                                                            <?php echo $lst_vlzn[0] ?>
-                                                        </td>
-                                                        <?php mostrarData($lst_vlzn[1]) ?>
-                                                        <?php mostrarData($lst_vlzn[2]) ?>
-                                                        <?php mostrarData($lst_vlzn[3]) ?>
-                                                        <?php mostrarData($lst_vlzn[4] . ' (' . $lst_vlzn[5] . ')') ?>
+                                                        <th>ID</th>
+                                                        <th>Dni</th>
+                                                        <th>Cliente</th>
+                                                        <th>Direccion</th>
+                                                        <th>Tipo Propiedad</th>
+                                                        <th>Tipo</th>
+                                                        <th>Estado</th>
+                                                        <th>Detalles</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <?php
 
-                                                        <?php mostrarData($lst_vlzn[6]) ?>
-                                                        <?php mostrarData($lst_vlzn[63]) ?>
 
-                                                        <td>
+                                                    function mostrarData($data)
+                                                    {
+                                                        switch ($data) {
+                                                            case "1":
+                                                                echo "<td>Si</td>";
+                                                                break;
+                                                            case "0":
+                                                                echo "<td>No</td>";
+                                                                break;
+                                                            case "500":
+                                                                echo "<td><span class='badge rounded-pill bg-secondary'>Pendiente</span></td>";
+                                                                break;
+                                                            case "400":
+                                                                echo "<td><span class='badge rounded-pill bg-warning text-dark'>Observado</span></td>";
+                                                                break;
+                                                            case "200":
+                                                                echo "<td><span class='badge rounded-pill bg-success'> Finalizado</span></td>";
+                                                                break;
+                                                            default:
+                                                                // echo "<td>$data</td>";
+                                                                if ($data !== null) {
+                                                                    echo  "<td>$data</td>";
+                                                                } else {
+                                                                    echo "<td>-</td>";
+                                                                }
+                                                                break;
+                                                        }
+                                                    }
 
-                                                            <?php if ($lst_vlzn[63] == 400) { ?>
-                                                                <button type="button" class="btn btn-rounded scroll-toggle" data-id_solic_val="<?php echo $lst_vlzn[0] ?>" data-id_cli="<?php echo $lst_vlzn[64] ?>" data-dni_cli="<?php echo $lst_vlzn[1] ?>">
-                                                                    <i class="fa-solid fa-pencil"></i>
-                                                                </button>
+                                                    foreach ($list_valo as $lst_vlzn) : ?>
+                                                        <tr>
+                                                            <td>
+                                                                <?php echo $lst_vlzn[0] ?>
+                                                            </td>
+                                                            <?php mostrarData($lst_vlzn[1]) ?>
+                                                            <?php mostrarData($lst_vlzn[2]) ?>
+                                                            <?php mostrarData($lst_vlzn[3]) ?>
+                                                            <?php mostrarData($lst_vlzn[4] . ' (' . $lst_vlzn[5] . ')') ?>
 
-                                                            <?php } else { ?>
-                                                                <button type="button" class="btn btn-rounded scroll-toggle" data-id_solic_val="<?php echo $lst_vlzn[0] ?>" data-id_cli="<?php echo $lst_vlzn[64] ?>" data-dni_cli="<?php echo $lst_vlzn[1] ?>">
-                                                                    <i class="fa-solid fa-eye"></i>
-                                                                </button>
-                                                            <?php } ?>
+                                                            <?php mostrarData($lst_vlzn[6]) ?>
+                                                            <?php mostrarData($lst_vlzn[63]) ?>
 
-                                                        </td>
+                                                            <td>
 
-                                                        <!--
+                                                                <?php if ($lst_vlzn[63] == 400) { ?>
+                                                                    <button type="button" class="btn btn-rounded scroll-toggle" data-id_solic_val="<?php echo $lst_vlzn[0] ?>" data-id_cli="<?php echo $lst_vlzn[64] ?>" data-dni_cli="<?php echo $lst_vlzn[1] ?>">
+                                                                        <i class="fa-solid fa-pencil"></i>
+                                                                    </button>
+
+                                                                <?php } else { ?>
+                                                                    <button type="button" class="btn btn-rounded scroll-toggle" data-id_solic_val="<?php echo $lst_vlzn[0] ?>" data-id_cli="<?php echo $lst_vlzn[64] ?>" data-dni_cli="<?php echo $lst_vlzn[1] ?>">
+                                                                        <i class="fa-solid fa-eye"></i>
+                                                                    </button>
+                                                                <?php } ?>
+
+                                                            </td>
+
+                                                            <!--
                                             <td>
 
                                                 <button type="button" class="btn editbtn" data-toggle="modal" data-target="#exampleModal"><i class="fa-solid fa-upload"></i></button>
 
                                             </td>-->
-                                                    </tr>
-                                                <?php endforeach ?>
-                                            </tbody>
-                                        </table>
+                                                        </tr>
+                                                    <?php endforeach ?>
+                                                </tbody>
+                                            </table>
+                                        </div>
                                     </div>
-                                    <!-- </div> -->
 
                                     <!-- </div> TABLA ADMIN -->
 
@@ -252,7 +250,7 @@ require_once('../Controller/controladorListar.php'); ?>
 
                                     <!-- <div class="table-responsive "> -->
                                     <div class="col-sm-12">
-                                        <table class="table table_ table-borderless mb-3 pl-3 pr-3" style="width: 100%;">
+                                        <table class="table table_ table-responsive table-borderless mb-3 pl-3 pr-3" style="width: 100%;">
                                             <thead>
                                                 <tr>
                                                     <th>ID</th>
@@ -2243,6 +2241,7 @@ require_once('../Controller/controladorListar.php'); ?>
     <script>
         $(document).ready(function() {
             $('.table_').DataTable({
+                // "dom": '<"row"<"col-sm-6"l><"col-sm-6"f>>t<"row"<"col-sm-6"i><"col-sm-6"p>>',
                 "language": {
                     "url": "//cdn.datatables.net/plug-ins/1.10.25/i18n/Spanish.json", // URL del archivo de localización
                     "searchPlaceholder": "Buscar en la tabla..." // placeholder del Buscar.

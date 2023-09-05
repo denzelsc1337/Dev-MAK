@@ -86,7 +86,7 @@ require_once('config/security.php');
           <div class="image">
             <img src="Vista/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
           </div>
-          <div class="info">
+          <div class="info d-flex align-items-center">
             <a href="#" class="d-block"><?php echo $_SESSION['nom_usu'] ?></a>
           </div>
         </div>
