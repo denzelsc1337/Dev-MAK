@@ -1473,7 +1473,7 @@ require_once('../Controller/controladorListar.php'); ?>
                                                 <input id="ruta_archivo_i" type="text" value="${nombreArchivo}" readonly hidden>
 
                                                 <div class="">
-                                                    <button id="dlt_file" type="button" class="btn dlt_file"><i class="cursor fa-solid fa-trash"></i></button>
+                                                    <button id="dlt_file" type="button" class="btn dlt_file" data-ruta="${ruta}"><i class="cursor fa-solid fa-trash"></i></button>
                                                 </div>
                                             </div>
                                             <div>
@@ -1647,28 +1647,26 @@ require_once('../Controller/controladorListar.php'); ?>
 
         function eliminarArchivo($deleteBtn, ruta_doc) {
 
-            var idsolicitud = $("#txt_solic").val();
+            var idsolicitud = $("#cod_solic_v").val();
             var dni_cli_t = $("#txt_dni").val();
 
             console.log(idsolicitud);
 
             $.ajax({
                 type: 'POST',
-                url: '../Controller/eliminarArchivos.php',
+                url: '../Controller/eliminarArchivos_Val.php',
                 data: {
                     ruta_doc: ruta_doc,
                 },
                 success: function(response) {
                     console.log("archivo eliminado de la ruta: " + ruta_doc);
                     $deleteBtn.closest('.modal').modal('hide');
-                    get_details_solic(idsolicitud);
-                    get_files_valor(idsolicitud, dni_cli_t)
+                    load_valorizaciones_(idsolicitud);
                 },
                 complete: function() {
-                    get_details_solic(idsolicitud);
-                    get_files_valor(idsolicitud, dni_cli_t)
+                    load_valorizaciones_(idsolicitud);
                     setTimeout(function() {
-                        $('#details_v').modal('show');
+                        $('#lst_docs_legal').modal('show');
                     }, 500);
 
                 }
