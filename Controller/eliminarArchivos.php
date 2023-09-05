@@ -45,4 +45,4 @@ if (unlink($archivo_eliminar)) {
     echo "error al eliminar del directorio";
 }
 
-//mysqli_close($conn);
+mysqli_close($conn);

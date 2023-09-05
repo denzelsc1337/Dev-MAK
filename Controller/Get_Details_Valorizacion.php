@@ -16,4 +16,3 @@ $list_valo_details = $oValor->details_valorizacion($id_solic_l, $id_clie,$dni_cl
 );*/
 
 echo json_encode($list_valo_details);
-?>
