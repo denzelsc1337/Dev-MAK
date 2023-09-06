@@ -11,6 +11,7 @@ class cLegal
 		$this->lst_solics_legal = array();
 		$this->lst_solics_legal_cli = array();
 		$this->data_legal = array();
+		$this->details_legal = array();
 	}
 
 
@@ -198,5 +199,28 @@ class cLegal
 
 		/*echo mysqli_query($cadena, $query);
 		$cnx->cerrarConexion($cadena);*/
+	}
+
+	public function details_legal_solic($id_reg, $id_client)
+	{
+		include_once('../config/Conexion.php');
+		$cnx = new conexion();
+		$cadena = $cnx->abrirConexion();
+
+		//$query = "SELECT * FROM valorizacion WHERE id_valor =$id_reg";
+
+		$query = "SELECT * FROM docs_legal 
+				  WHERE id_legal = $id_reg and user_cod = $id_client";
+
+		$resultado = mysqli_query($cadena, $query);
+
+		while ($fila = mysqli_fetch_row($resultado)) {
+			$this->details_legal[] = $fila;
+		}
+
+
+		$cnx->cerrarConexion($cadena);
+
+		return $this->details_legal;
 	}
 }
