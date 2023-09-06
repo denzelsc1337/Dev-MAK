@@ -318,7 +318,7 @@ require_once('../Controller/controladorListar.php');
                                                                             </button>
                                                                         </div>
                                                                     </div>
-                                                                    <div class="col-sm-4 justify-content-center arrow-right_1 get_data_soli_legl options" data-cod_solic="<?php echo $lst_legal_d[0] ?>" data-cod_client="<?php echo $lst_legal_d[5] ?>">
+                                                                    <div class="col-sm-4 justify-content-center arrow-right_1 get_data_soli_legl" data-cod_solic="<?php echo $lst_legal_d[0] ?>" data-cod_client="<?php echo $lst_legal_d[5] ?>">
                                                                         <div class="options">
                                                                             <button type="button" class="btn btn-rounded" id="">
                                                                                 <i class="fa-solid fa-eye"></i>
@@ -422,7 +422,7 @@ require_once('../Controller/controladorListar.php');
                                                                     </div>
 
                                                                     <?php if ($lst_legal_d[6] == 30) { ?>
-                                                                        <div class="col-sm-4 justify-content-center options">
+                                                                        <div class="col-sm-4 justify-content-center show_data_soli_legl">
                                                                             <div class="options">
                                                                                 <button type="button" class="btn btn-rounded arrow-left_1" id="">
                                                                                     <i class="fa-solid fa-pencil"></i>
@@ -1795,9 +1795,23 @@ require_once('../Controller/controladorListar.php');
         const goLeft_1 = document.querySelectorAll(".arrow-left_1");
         const goRight = document.querySelector(".arrow-right");
         const goDetails = document.querySelectorAll(".get_data_soli_legl");
+        const goUpdate = document.querySelectorAll(".show_data_soli_legl");
+
+
+        makContentSlide.addEventListener("keydown", function(event) {
+            if (event.keyCode === "Tab") {
+                // Previene la acción predeterminada de "Tab"
+                event.preventDefault();
+            }
+            if (event.keyCode === 9) {
+                // Previene la acción predeterminada de "Tab"
+                event.preventDefault();
+            }
+        })
         console.log(makContentSlide);
 
         document.addEventListener('DOMContentLoaded', function() {
+
             makContentSlide.style.transform = "translateX(-100%)";
 
             goLeft.addEventListener("click", () => {
@@ -1812,6 +1826,7 @@ require_once('../Controller/controladorListar.php');
                 element.addEventListener("click", () => {
                     makContentSlide.style.transform = "translateX(-200%)";
 
+                    //code
                     var _id_soli = $(element).data('cod_solic');
                     var _idcli = $(element).data('cod_client');
 
@@ -1823,6 +1838,14 @@ require_once('../Controller/controladorListar.php');
             goLeft_1.forEach(element => {
                 element.addEventListener("click", () => {
                     makContentSlide.style.transform = "translateX(-100%)";
+                });
+            });
+
+            goUpdate.forEach(element => {
+                element.addEventListener("click", () => {
+                    makContentSlide.style.transform = "translateX(0%)";
+                    // code
+
                 });
             });
         });
@@ -2283,105 +2306,105 @@ require_once('../Controller/controladorListar.php');
 
         // ----------------------------
         // ----------------------------
-        const butonIconLeft = document.querySelector('.arrow-left');
-        const butonIconLeft_1 = document.querySelector('.arrow-left_1');
-        const butonIconRight = document.querySelector('.arrow-right');
-        const butonIconRight_1 = document.querySelectorAll('.arrow-right_1');
+        // const butonIconLeft = document.querySelector('.arrow-left');
+        // const butonIconLeft_1 = document.querySelector('.arrow-left_1');
+        // const butonIconRight = document.querySelector('.arrow-right');
+        // const butonIconRight_1 = document.querySelectorAll('.arrow-right_1');
 
-        butonIconRight.addEventListener("click", () => {
-            dondeEstoy("right");
-        });
+        // butonIconRight.addEventListener("click", () => {
+        //     dondeEstoy("right");
+        // });
 
-        butonIconRight_1.forEach(element => {
-            element.addEventListener("click", () => {
-                dondeEstoy("right");
-            });
-        });
+        // butonIconRight_1.forEach(element => {
+        //     element.addEventListener("click", () => {
+        //         dondeEstoy("right");
+        //     });
+        // });
 
-        butonIconLeft.addEventListener("click", () => {
-            dondeEstoy("left");
-        });
+        // butonIconLeft.addEventListener("click", () => {
+        //     dondeEstoy("left");
+        // });
 
-        butonIconLeft_1.addEventListener("click", () => {
-            dondeEstoy("left");
-        });
+        // butonIconLeft_1.addEventListener("click", () => {
+        //     dondeEstoy("left");
+        // });
 
-        function dondeEstoy(direction) {
-            // Obtener todas las secciones
-            var sections = document.querySelectorAll('.body-slide');
+        // function dondeEstoy(direction) {
+        //     // Obtener todas las secciones
+        //     var sections = document.querySelectorAll('.body-slide');
 
-            // Encontrar la sección activa actual
-            var currentSection;
-            sections.forEach(function(section) {
-                if (section.classList.contains('active')) {
-                    currentSection = section;
-                }
-            });
+        //     // Encontrar la sección activa actual
+        //     var currentSection;
+        //     sections.forEach(function(section) {
+        //         if (section.classList.contains('active')) {
+        //             currentSection = section;
+        //         }
+        //     });
 
-            // Determinar la dirección y encontrar la siguiente sección
-            var nextSection;
-            if (direction === 'left') {
-                nextSection = currentSection.previousElementSibling;
-                if (!nextSection) {
-                    // Si no hay una siguiente sección a la izquierda, selecciona la última
-                    nextSection = sections[sections.length - 1];
-                }
-            } else if (direction === 'right') {
-                nextSection = currentSection.nextElementSibling;
-                if (!nextSection) {
-                    // Si no hay una siguiente sección a la derecha, selecciona la primera
-                    nextSection = sections[0];
-                }
-            }
+        //     // Determinar la dirección y encontrar la siguiente sección
+        //     var nextSection;
+        //     if (direction === 'left') {
+        //         nextSection = currentSection.previousElementSibling;
+        //         if (!nextSection) {
+        //             // Si no hay una siguiente sección a la izquierda, selecciona la última
+        //             nextSection = sections[sections.length - 1];
+        //         }
+        //     } else if (direction === 'right') {
+        //         nextSection = currentSection.nextElementSibling;
+        //         if (!nextSection) {
+        //             // Si no hay una siguiente sección a la derecha, selecciona la primera
+        //             nextSection = sections[0];
+        //         }
+        //     }
 
-            // Evitar la transición de verde a rojo y viceversa
-            if (currentSection.getAttribute("data-content") === "files" && currentSection.getAttribute("data-content") === "legal") {
-                return;
-            }
-            if (currentSection.getAttribute("data-content") === "legal" && currentSection.getAttribute("data-content") === "files") {
-                return;
-            }
+        //     // Evitar la transición de verde a rojo y viceversa
+        //     if (currentSection.getAttribute("data-content") === "files" && currentSection.getAttribute("data-content") === "legal") {
+        //         return;
+        //     }
+        //     if (currentSection.getAttribute("data-content") === "legal" && currentSection.getAttribute("data-content") === "files") {
+        //         return;
+        //     }
 
-            // Cambiar las clases 'active' para la sección actual y la siguiente
-            if (currentSection && nextSection) {
-                currentSection.classList.remove('active');
-                nextSection.classList.add('active');
-            }
-        }
+        //     // Cambiar las clases 'active' para la sección actual y la siguiente
+        //     if (currentSection && nextSection) {
+        //         currentSection.classList.remove('active');
+        //         nextSection.classList.add('active');
+        //     }
+        // }
 
-        document.querySelectorAll(".scroll-toggle").forEach((element) => {
+        // document.querySelectorAll(".scroll-toggle").forEach((element) => {
 
-            element.addEventListener("click", function() {
+        //     element.addEventListener("click", function() {
 
-                $tr = $(this).closest('tr');
+        //         $tr = $(this).closest('tr');
 
-                var data = $tr.children("td").map(function() {
-                    return $(this).text();
-                }).get();
+        //         var data = $tr.children("td").map(function() {
+        //             return $(this).text();
+        //         }).get();
 
-                // console.log(data);
-                $('#id_legal_solic').val(data[0]);
+        //         // console.log(data);
+        //         $('#id_legal_solic').val(data[0]);
 
-                $('#data_names_').val(data[1]);
-                $('#data_direcion_').val(data[2]);
+        //         $('#data_names_').val(data[1]);
+        //         $('#data_direcion_').val(data[2]);
 
-                $('#coment_').val(data[9]);
+        //         $('#coment_').val(data[9]);
 
-                $('#id_client_l').val(data[5]);
+        //         $('#id_client_l').val(data[5]);
 
-                $('#coment_').val(data[7]);
-
-
-                //load_documents_legal('<?php echo $_SESSION['id_usu'] ?>');
+        //         $('#coment_').val(data[7]);
 
 
-                // // Realizar la transición al final del scroll horizontal con animación
-                // contenedor.style.scrollBehavior = "smooth"; // Activar la animación
-                // contenedor.scrollLeft = totalScroll; // Ir al final
+        //         //load_documents_legal('<?php echo $_SESSION['id_usu'] ?>');
 
-            });
 
-        });
+        //         // // Realizar la transición al final del scroll horizontal con animación
+        //         // contenedor.style.scrollBehavior = "smooth"; // Activar la animación
+        //         // contenedor.scrollLeft = totalScroll; // Ir al final
+
+        //     });
+
+        // });
         // ----------------------------
     </script>
 
