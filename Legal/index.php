@@ -488,16 +488,6 @@ require_once('../Controller/controladorListar.php');
                                                     <div class="row">
                                                         <div class="col-sm-6">
                                                             <div class="form-group">
-                                                                <label class="mak-txt">Distrito</label>
-                                                                <select name="" id="" class="form-mak">
-                                                                    <option value="-1" disabled>Seleccione distrito</option>
-                                                                </select>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row">
-                                                        <div class="col-sm-6">
-                                                            <div class="form-group">
                                                                 <label class="mak-txt">Comentario</label>
                                                                 <textarea name="coment_" id="coment_"></textarea>
                                                             </div>
@@ -526,16 +516,6 @@ require_once('../Controller/controladorListar.php');
                                                             <div class="form-group">
                                                                 <label class="mak-txt">Dirección</label>
                                                                 <input type="text" class="form-mak" id="data_direcion_" readonly>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row">
-                                                        <div class="col-sm-6">
-                                                            <div class="form-group">
-                                                                <label class="mak-txt">Distrito</label>
-                                                                <select name="" id="" class="form-mak">
-                                                                    <option value="-1" disabled>Seleccione distrito</option>
-                                                                </select>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -568,7 +548,7 @@ require_once('../Controller/controladorListar.php');
                                                         <div class="col-sm-8 brd-rght-blue d-flex align-items-center">
                                                             <span class="mak-txt bld">Hoja de Resumen</span>
                                                         </div>
-                                                        <div class="col-sm-2 justify-content-center options">
+                                                        <div class="col-sm-2 justify-content-center">
                                                             <div class="options">
                                                                 <button type="button" class="btn btn-rounded  btn_lst_docs btn_lst_docs_0" data-toggle="modal" data-target="#lst_docs_legal" data-valor="H_R" data-titulo="Hoja de Resumen" data-id_doc_="1" data-id_user_="<?php echo $_SESSION['dni'] ?>">
                                                                     <i class="cursor fa-solid fa-eye"></i>
@@ -586,7 +566,7 @@ require_once('../Controller/controladorListar.php');
                                                         <div class="col-sm-8 brd-rght-blue d-flex align-items-center">
                                                             <span class="mak-txt bld">Predio Urbano</span>
                                                         </div>
-                                                        <div class="col-sm-2 justify-content-center options">
+                                                        <div class="col-sm-2 justify-content-center">
                                                             <div class="options">
                                                                 <button type="button" class="btn btn-rounded  btn_lst_docs btn_lst_docs_0" data-toggle="modal" data-target="#lst_docs_legal" data-valor="P_U" data-titulo="Predio Urbano" data-id_doc_="2" data-id_user_="<?php echo $_SESSION['dni'] ?>">
                                                                     <i class="cursor fa-solid fa-eye"></i>
@@ -604,7 +584,7 @@ require_once('../Controller/controladorListar.php');
                                                         <div class="col-sm-8 brd-rght-blue d-flex align-items-center">
                                                             <span class="mak-txt bld">Copia Literal</span>
                                                         </div>
-                                                        <div class="col-sm-2 justify-content-center options">
+                                                        <div class="col-sm-2 justify-content-center">
                                                             <div class="options">
                                                                 <button type="button" class="btn btn-rounded  btn_lst_docs btn_lst_docs_0" data-toggle="modal" data-target="#lst_docs_legal" data-valor="C_L" data-titulo="Copia Literal" data-id_doc_="3" data-id_user_="<?php echo $_SESSION['dni'] ?>">
                                                                     <i class="cursor fa-solid fa-eye"></i>
@@ -622,7 +602,7 @@ require_once('../Controller/controladorListar.php');
                                                         <div class="col-sm-8 brd-rght-blue d-flex align-items-center">
                                                             <span class="mak-txt bld">DNI</span>
                                                         </div>
-                                                        <div class="col-sm-2 justify-content-center options">
+                                                        <div class="col-sm-2 justify-content-center">
                                                             <div class="options">
                                                                 <button type="button" class="btn btn-rounded  btn_lst_docs btn_lst_docs_0" data-toggle="modal" data-target="#lst_docs_legal" data-valor="DNI" data-titulo="DNI" data-id_doc_="4" data-id_user_="<?php echo $_SESSION['dni'] ?>">
                                                                     <i class="cursor fa-solid fa-eye"></i>
@@ -1812,7 +1792,7 @@ require_once('../Controller/controladorListar.php');
     <script>
         const makContentSlide = document.querySelector(".mak-content-slide");
         const goLeft = document.querySelector(".arrow-left");
-        const goLeft_1 = document.querySelector(".arrow-left_1");
+        const goLeft_1 = document.querySelectorAll(".arrow-left_1");
         const goRight = document.querySelector(".arrow-right");
         const goDetails = document.querySelectorAll(".get_data_soli_legl");
         console.log(makContentSlide);
@@ -1840,8 +1820,10 @@ require_once('../Controller/controladorListar.php');
                     get_details_solic_legal(_id_soli, _idcli)
                 });
             });
-            goLeft_1.addEventListener("click", () => {
-                makContentSlide.style.transform = "translateX(-100%)";
+            goLeft_1.forEach(element => {
+                element.addEventListener("click", () => {
+                    makContentSlide.style.transform = "translateX(-100%)";
+                });
             });
         });
 
