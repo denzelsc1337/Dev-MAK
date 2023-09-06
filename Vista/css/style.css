@@ -1130,6 +1130,7 @@ textarea::-webkit-scrollbar {
   width: 100%;
   display: flex;
   transition: all 1s ease;
+  transform: translateX(-100%);
 }
 
 .body-slide {
