@@ -318,9 +318,9 @@ require_once('../Controller/controladorListar.php');
                                                                             </button>
                                                                         </div>
                                                                     </div>
-                                                                    <div class="col-sm-4 justify-content-center arrow-right_1 scroll-toggle options">
+                                                                    <div class="col-sm-4 justify-content-center arrow-right_1 get_data_soli_legl options" data-cod_solic="<?php echo $lst_legal_d[0] ?>" data-cod_client="<?php echo $lst_legal_d[5] ?>">
                                                                         <div class="options">
-                                                                            <button type="button" class="btn btn-rounded scroll-toggle">
+                                                                            <button type="button" class="btn btn-rounded" id="">
                                                                                 <i class="fa-solid fa-eye"></i>
                                                                             </button>
                                                                         </div>
@@ -413,9 +413,9 @@ require_once('../Controller/controladorListar.php');
                                                                             </button>
                                                                         </div>
                                                                     </div>
-                                                                    <div class="col-sm-4 justify-content-center scroll-toggle options">
-                                                                        <div class="options">
-                                                                            <button type="button" class="btn btn-rounded scroll-toggle get_details_lgl" data-cod_solic="<?php echo $lst_legal_d[0] ?>" data-cod_client="<?php echo $lst_legal_d[7] ?>" id="">
+                                                                    <div class="col-sm-4 justify-content-center get_data_soli_legl" data-cod_solic=" <?php echo $lst_legal_d[0] ?>" data-cod_client="<?php echo $lst_legal_d[7] ?>">
+                                                                        <div class=" options">
+                                                                            <button type="button" class="btn btn-rounded" id="">
                                                                                 <i class="fa-solid fa-eye"></i>
                                                                             </button>
                                                                         </div>
@@ -1793,7 +1793,7 @@ require_once('../Controller/controladorListar.php');
 
             //codigo para obtener los details de la solicitud legal
 
-            $('.get_details_lgl').on('click', function() {
+            /*$('.get_details_lgl').on('click', function() {
                 console.log("Botón seleccionado");
 
                 var _id_soli = $(this).data('cod_solic');
@@ -1801,187 +1801,10 @@ require_once('../Controller/controladorListar.php');
 
 
                 get_details_solic_legal(_id_soli, _idcli)
-            });
-
-
-            function get_details_solic_legal(idsolicitud, idclient) {
-                $.ajax({
-                    type: 'POST',
-                    url: '../Controller/Get_Details_Legal.php',
-                    data: {
-                        id_solic_l: idsolicitud,
-                        id_client: idclient
-                    },
-
-                    beforeSend: function() {
-                        // $("#loader_uhd").show();
-                        //$("#loader_uhd").removeClass("hidden");
-
-                        /*$("#detalles_valor").hide();
-                        $("#docs_val").hide();*/
-
-                        // if ($(".mak_overlay").hasClass("hidden")) {
-                        //$("#add_data_val").addClass("hide");
-                        // }
-
-                    },
-
-                    success: function(response) {
-                        console.log(response);
-
-                        try {
-                            var detalles = JSON.parse(response);
-
-                            console.log(detalles);
-
-                            var id_valor = detalles[0][0];
-                            var nom_client = detalles[0][2];
-                            var direccion = detalles[0][3];
-                            var correo = detalles[0][4];
-                            var id_client = detalles[0][6];
-                            var status_ = detalles[0][7];
-                            var coment = detalles[0][8];
-
-                        } catch (error) {
-                            console.error("Error al analizar la respuesta JSON: " + error);
-                        }
-
-
-                        /*setTimeout(function() {
-
-                            const tipo_status = document.getElementById("status_solic_val_cbo");
-
-                            var btnDisable = $("#btnValo_obs_save");
-
-                            const add_obs_1 = document.getElementById("add_obsv_v");
-                            const add_file_val_1 = document.getElementById("subir_valor");
-
-                            const dwnld_info = document.getElementById("btn_dwnld_valo");
-
-                            // $("#loader_uhd").hide();
-                            $("#loader_uhd").addClass("hidden");
-
-
-                            // if (!$(".mak_overlay").hasClass("hidden")) {
-                            $("#add_data_val").removeClass("hide");
-                            // }
-
-                            console.log("ID Valor: " + id_valor);
-                            console.log("Nombre Cliente: " + nom_client);
-                            console.log("Dirección: " + direccion);
-                            console.log("Tipo Inmueble: " + tipo_inmb);
-                            console.log("Estado: " + coment);
-
-                            $("#coment_valr_r").val(coment)
-
-                            switch (estado) {
-                                case '400':
-                                    $("#status_solic_val_cbo").val("400");
-                                    $(".textBox").val("Observado");
-                                    $(".textBox").addClass("bg-warning");
-                                    $(".textBox").removeClass("bg-secondary");
-                                    $(".textBox").removeClass("bg-success");
-
-                                    add_file_val_1.classList.add("hidden");
-                                    add_file_val_1.style.display = "none";
-
-                                    add_obs_1.classList.remove("hidden");
-                                    add_obs_1.style.display = "block";
-
-                                    btnDisable.prop("disabled", true);
-                                    dwnld_info.style.display = "none";
-
-                                    break;
-                                case '200':
-                                    $("#status_solic_val_cbo").val("200");
-
-                                    $(".textBox").val("Finalizado");
-                                    $(".textBox").addClass("bg-success");
-                                    $(".textBox").removeClass("bg-warning");
-                                    $(".textBox").removeClass("bg-secondarys");
-
-
-                                    add_obs_1.classList.add("hidden");
-                                    add_obs_1.style.display = "none";
-
-                                    add_file_val_1.classList.remove("hidden");
-                                    add_file_val_1.style.display = "none";
-
-                                    btnDisable.prop("disabled", true);
-
-                                    dwnld_info.style.display = "block";
-                                    break;
-
-                                default:
-                                    $("#status_solic_val_cbo").val("500");
-                                    $(".textBox").val("Pendiente");
-                                    $(".textBox").addClass("bg-secondary");
-                                    $(".textBox").removeClass("bg-success");
-                                    $(".textBox").removeClass("bg-warning");
-
-
-                                    add_obs_1.classList.add("hidden");
-                                    add_obs_1.style.display = "none";
-
-                                    add_file_val_1.classList.add("hidden");
-                                    add_file_val_1.style.display = "none";
-
-                                    dwnld_info.style.display = "none";
-                            }
-
-                            $("#dir_rsm").text(detalles[0][2]);
-                            $("#tip_rsm").text(detalles[0][3]);
-                            $("#pro_rsm").text(detalles[0][5]);
-                            $("#at_rsm").text(detalles[0][6]);
-                            $("#ac_rsm").text(detalles[0][7]);
-                            $("#ao_rsm").text(detalles[0][8]);
-
-
-                            var direccion_val = $("#dir_rsm").text();
-                            get_distrito_x_direccion(direccion_val);
-
-                            btnDisable.prop("disabled", true);
+            });*/
 
 
 
-                            tipo_status.addEventListener("change", function() {
-
-                                switch (tipo_status.value) {
-                                    case "400":
-                                        console.log("uwu")
-                                        add_obs_1.classList.remove("hidden");
-                                        add_obs_1.style.display = "block";
-
-                                        //add_file_val_1.classList.add("hidden");
-                                        //add_file_val_1.style.display = "none";
-                                        break;
-                                    case "200":
-                                        add_obs_1.classList.add("hidden");
-                                        add_obs_1.style.display = "none";
-
-                                        //add_file_val_1.classList.remove("hidden");
-                                        //add_file_val_1.style.display = "block";
-                                        break;
-                                    default:
-                                        add_obs_1.classList.add("hidden");
-                                        //add_file_val_1.classList.add("hidden");
-
-                                        add_obs_1.style.display = "none";
-                                        //add_file_val_1.style.display = "none";
-                                        break;
-                                }
-
-                            });
-
-                        }, 900);*/
-
-                    },
-                    error: function(xhr, status, error) {
-                        console.log("Error en la solicitud ajax ", error)
-                        console.log("Mensaje de error:", error);
-                    }
-                });
-            }
 
         });
     </script>
@@ -1991,7 +1814,7 @@ require_once('../Controller/controladorListar.php');
         const goLeft = document.querySelector(".arrow-left");
         const goLeft_1 = document.querySelector(".arrow-left_1");
         const goRight = document.querySelector(".arrow-right");
-        const goDetails = document.querySelectorAll(".scroll-toggle");
+        const goDetails = document.querySelectorAll(".get_data_soli_legl");
         console.log(makContentSlide);
 
         document.addEventListener('DOMContentLoaded', function() {
@@ -2008,13 +1831,207 @@ require_once('../Controller/controladorListar.php');
             goDetails.forEach(element => {
                 element.addEventListener("click", () => {
                     makContentSlide.style.transform = "translateX(-200%)";
-                    // code
+
+                    var _id_soli = $(element).data('cod_solic');
+                    var _idcli = $(element).data('cod_client');
+
+                    console.log(_id_soli)
+
+                    get_details_solic_legal(_id_soli, _idcli)
                 });
             });
             goLeft_1.addEventListener("click", () => {
                 makContentSlide.style.transform = "translateX(-100%)";
             });
         });
+
+
+        function get_details_solic_legal(idsolicitud, idclient) {
+            $.ajax({
+                type: 'POST',
+                url: '../Controller/Get_Details_Legal.php',
+                data: {
+                    id_solic_l: idsolicitud,
+                    id_client: idclient
+                },
+
+                beforeSend: function() {
+                    // $("#loader_uhd").show();
+                    $("#loader_uhd").removeClass("hidden");
+
+                    /*$("#detalles_valor").hide();
+                    $("#docs_val").hide();*/
+
+                    // if ($(".mak_overlay").hasClass("hidden")) {
+                    $("#add_data_val").addClass("hide");
+                    // }
+
+                },
+
+                success: function(response) {
+                    console.log(response);
+
+                    try {
+                        var detalles = JSON.parse(response);
+
+                        console.log(detalles);
+
+                        var id_valor = detalles[0][0];
+                        var nom_client = detalles[0][2];
+                        var apellido = detalles[0][3];
+                        var correo = detalles[0][4];
+                        var id_client = detalles[0][6];
+                        var status_ = detalles[0][7];
+                        var coment = detalles[0][8];
+
+                    } catch (error) {
+                        console.error("Error al analizar la respuesta JSON: " + error);
+                    }
+
+
+                    setTimeout(function() {
+
+                        /*const tipo_status = document.getElementById("status_solic_val_cbo");
+
+                        var btnDisable = $("#btnValo_obs_save");
+
+                        const add_obs_1 = document.getElementById("add_obsv_v");
+                        const add_file_val_1 = document.getElementById("subir_valor");
+
+                        const dwnld_info = document.getElementById("btn_dwnld_valo");*/
+
+                        // $("#loader_uhd").hide();
+                        $("#loader_uhd").addClass("hidden");
+
+
+                        // if (!$(".mak_overlay").hasClass("hidden")) {
+                        $("#add_data_val").removeClass("hide");
+                        // }
+
+                        console.log("ID Valor: " + id_valor);
+                        console.log("Nombre Cliente: " + nom_client);
+                        console.log("Apellido: " + apellido);
+                        console.log("email: " + correo);
+                        console.log("id cliente: " + id_client);
+                        console.log("comment: " + coment);
+                        console.log("estado: " + status_);
+
+                        $("#id_legal_solic").val(id_valor)
+                        $("#id_client_l").val(id_client)
+
+                        $("#data_names_").val(nom_client + ' ' + apellido)
+                        $("#data_direcion_").val(correo)
+                        $("#coment_").val(coment)
+
+
+                        /* switch (estado) {
+                             case '400':
+                                 $("#status_solic_val_cbo").val("400");
+                                 $(".textBox").val("Observado");
+                                 $(".textBox").addClass("bg-warning");
+                                 $(".textBox").removeClass("bg-secondary");
+                                 $(".textBox").removeClass("bg-success");
+
+                                 add_file_val_1.classList.add("hidden");
+                                 add_file_val_1.style.display = "none";
+
+                                 add_obs_1.classList.remove("hidden");
+                                 add_obs_1.style.display = "block";
+
+                                 btnDisable.prop("disabled", true);
+                                 dwnld_info.style.display = "none";
+
+                                 break;
+                             case '200':
+                                 $("#status_solic_val_cbo").val("200");
+
+                                 $(".textBox").val("Finalizado");
+                                 $(".textBox").addClass("bg-success");
+                                 $(".textBox").removeClass("bg-warning");
+                                 $(".textBox").removeClass("bg-secondarys");
+
+
+                                 add_obs_1.classList.add("hidden");
+                                 add_obs_1.style.display = "none";
+
+                                 add_file_val_1.classList.remove("hidden");
+                                 add_file_val_1.style.display = "none";
+
+                                 btnDisable.prop("disabled", true);
+
+                                 dwnld_info.style.display = "block";
+                                 break;
+
+                             default:
+                                 $("#status_solic_val_cbo").val("500");
+                                 $(".textBox").val("Pendiente");
+                                 $(".textBox").addClass("bg-secondary");
+                                 $(".textBox").removeClass("bg-success");
+                                 $(".textBox").removeClass("bg-warning");
+
+
+                                 add_obs_1.classList.add("hidden");
+                                 add_obs_1.style.display = "none";
+
+                                 add_file_val_1.classList.add("hidden");
+                                 add_file_val_1.style.display = "none";
+
+                                 dwnld_info.style.display = "none";
+                         }
+
+                         $("#dir_rsm").text(detalles[0][2]);
+                         $("#tip_rsm").text(detalles[0][3]);
+                         $("#pro_rsm").text(detalles[0][5]);
+                         $("#at_rsm").text(detalles[0][6]);
+                         $("#ac_rsm").text(detalles[0][7]);
+                         $("#ao_rsm").text(detalles[0][8]);
+
+
+                         var direccion_val = $("#dir_rsm").text();
+                         get_distrito_x_direccion(direccion_val);
+
+                         btnDisable.prop("disabled", true);
+
+
+
+                         tipo_status.addEventListener("change", function() {
+
+                             switch (tipo_status.value) {
+                                 case "400":
+                                     console.log("uwu")
+                                     add_obs_1.classList.remove("hidden");
+                                     add_obs_1.style.display = "block";
+
+                                     //add_file_val_1.classList.add("hidden");
+                                     //add_file_val_1.style.display = "none";
+                                     break;
+                                 case "200":
+                                     add_obs_1.classList.add("hidden");
+                                     add_obs_1.style.display = "none";
+
+                                     //add_file_val_1.classList.remove("hidden");
+                                     //add_file_val_1.style.display = "block";
+                                     break;
+                                 default:
+                                     add_obs_1.classList.add("hidden");
+                                     //add_file_val_1.classList.add("hidden");
+
+                                     add_obs_1.style.display = "none";
+                                     //add_file_val_1.style.display = "none";
+                                     break;
+                             }
+
+                         });*/
+
+                    }, 900);
+
+                },
+                error: function(xhr, status, error) {
+                    console.log("Error en la solicitud ajax ", error)
+                    console.log("Mensaje de error:", error);
+                }
+            });
+        }
     </script>
 
 
