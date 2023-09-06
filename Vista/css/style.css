@@ -1126,18 +1126,17 @@ textarea::-webkit-scrollbar {
   min-width: 0;
 }
 
-.body-slide {
-  width: 0;
-  height: 0;
-  opacity: 0;
+.mak-content-slide {
+  width: 100%;
+  display: flex;
   transition: all 1s ease;
-  overflow: hidden;
 }
 
-.body-slide.active {
+.body-slide {
+  flex: 0 0 100%;
   width: 100%;
-  height: 100%;
-  opacity: 1;
+  transition: all 1s ease;
+  overflow: hidden;
 }
 
 .section.hide {
@@ -2266,7 +2265,7 @@ figcaption {
 
 @media only screen and (max-width: 576px) {
 
-  body i{
+  body i {
     font-size: 20px !important;
   }
 

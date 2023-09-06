@@ -89,607 +89,580 @@ require_once('../Controller/controladorListar.php');
                 }
                 ?>
 
+                <div class="d-flex overflow-hidden w-100">
+                    <div class="mak-content-slide">
 
-                <!-- <div class="overflow-hidden"> -->
-                <div class="d-flex overflow-hidden w-100 scroll">
-
-                    <section class="mak-txt position-relative body-slide" data-content="legal">
+                        <section class="mak-txt position-relative body-slide" data-content="legal">
 
 
-                        <form method="POST" action="../Controller/Add_Solic_Legal.php">
-                            <div class="container mt-5">
+                            <form method="POST" action="../Controller/Add_Solic_Legal.php">
+                                <div class="container mt-5">
 
-                                <div class="arrow-right">
-                                    <i class="fa-solid fa-angle-right"></i>
-                                </div>
-                                <div class="card-body">
-                                    <div class="row">
-                                        <div class="row" hidden>
-                                            <input type="text" class="form-control" id="id_user" name="id_user" value="<?php echo $_SESSION['id_usu']; ?>">
-                                            <input type="text" class="form-control" id="dni_user_l" name="dni_user_l" value="<?php echo $_SESSION['dni']; ?>">
-                                            <input type="text" class="form-control" id="cod_reg_l" name="cod_reg_l">
-                                        </div>
-                                        <div class="col-sm-6">
-                                            <div class="row">
-                                                <div class="col-sm-6">
-                                                    <div class="form-group">
-                                                        <label class="mak-txt">Nombre</label>
-                                                        <input type="text" class="form-mak" id="nom_cli_solic" name="nom_cli_solic" required>
-                                                    </div>
-                                                </div>
+                                    <div class="arrow-right">
+                                        <i class="fa-solid fa-angle-right"></i>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="row" hidden>
+                                                <input type="text" class="form-control" id="id_user" name="id_user" value="<?php echo $_SESSION['id_usu']; ?>">
+                                                <input type="text" class="form-control" id="dni_user_l" name="dni_user_l" value="<?php echo $_SESSION['dni']; ?>">
+                                                <input type="text" class="form-control" id="cod_reg_l" name="cod_reg_l">
                                             </div>
-                                            <div class="row">
-                                                <div class="col-sm-6">
-                                                    <div class="form-group">
-                                                        <label class="mak-txt">Apellidos</label>
-                                                        <input type="text" class="form-mak" id="ape_cli_solic" name="ape_cli_solic" required>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-sm-6">
-                                                    <div class="form-group">
-                                                        <label class="mak-txt">Dirección</label>
-                                                        <input type="text" class="form-mak" id="dir_cli_solic" name="dir_cli_solic" required>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <textarea id="rutas_doscs" name="rutas_doscs" rows="5" cols="50" hidden><?php echo $rutas; ?></textarea>
-                                        </div>
-                                        <div class="col-sm-6">
-                                            <div class="row">
-                                                <div class="col-sm-10">
-                                                    <div class="form-group row">
-                                                        <label class="col-sm-5 col-form-label">HR:</label>
-                                                        <div class="section-input col-sm-6">
-                                                            <div class="upload-file">
-                                                                <label class="upld-file" data-valor="HR" data-bs-toggle="modal" data-bs-target="#modal_archive_HR">Seleccionar archivos.</label>
-                                                            </div>
+                                            <div class="col-sm-6">
+                                                <div class="row">
+                                                    <div class="col-sm-6">
+                                                        <div class="form-group">
+                                                            <label class="mak-txt">Nombre</label>
+                                                            <input type="text" class="form-mak" id="nom_cli_solic" name="nom_cli_solic" required>
                                                         </div>
-                                                        <div class="input-group-append">
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-sm-6">
+                                                        <div class="form-group">
+                                                            <label class="mak-txt">Apellidos</label>
+                                                            <input type="text" class="form-mak" id="ape_cli_solic" name="ape_cli_solic" required>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-sm-6">
+                                                        <div class="form-group">
+                                                            <label class="mak-txt">Dirección</label>
+                                                            <input type="text" class="form-mak" id="dir_cli_solic" name="dir_cli_solic" required>
+                                                        </div>
+                                                    </div>
+                                                </div>
 
-                                                            <button type="button" class="btn btn-rounded
+                                                <textarea id="rutas_doscs" name="rutas_doscs" rows="5" cols="50" hidden><?php echo $rutas; ?></textarea>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <div class="row">
+                                                    <div class="col-sm-10">
+                                                        <div class="form-group row">
+                                                            <label class="col-sm-5 col-form-label">HR:</label>
+                                                            <div class="section-input col-sm-6">
+                                                                <div class="upload-file">
+                                                                    <label class="upld-file" data-valor="HR" data-bs-toggle="modal" data-bs-target="#modal_archive_HR">Seleccionar archivos.</label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="input-group-append">
+
+                                                                <button type="button" class="btn btn-rounded
                                                                 btn_lst_hr btn_lst_hr_0" data-toggle="modal" data-target="#lst_hr_0" data-valor="H_R" data-titulo="Hoja de Resumen" data-id_doc_="1"><i class="cursor fa-solid fa-eye"></i></button>
 
-                                                            <button type="button" class="btn btn-rounded  btn_lst_lyts btn_lst_lyts_0" data-toggle="modal" data-target="#lst_lyts" data-valor="H_R" data-titulo="Hoja de Resumen" data-id_doc_="1" style="display:none"><i class="cursor fa-solid fa-pencil"></i></button>
+                                                                <button type="button" class="btn btn-rounded  btn_lst_lyts btn_lst_lyts_0" data-toggle="modal" data-target="#lst_lyts" data-valor="H_R" data-titulo="Hoja de Resumen" data-id_doc_="1" style="display:none"><i class="cursor fa-solid fa-pencil"></i></button>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                            <br>
-                                            <div class="row">
-                                                <div class="col-sm-10">
-                                                    <div class="form-group row">
-                                                        <label class="col-sm-5 col-form-label">PU:</label>
-                                                        <div class="section-input col-sm-6">
-                                                            <div class="upload-file">
-                                                                <label class="upld-file" data-bs-toggle="modal" data-bs-target="#modal_archive_PU">Seleccionar archivos.</label>
+                                                <br>
+                                                <div class="row">
+                                                    <div class="col-sm-10">
+                                                        <div class="form-group row">
+                                                            <label class="col-sm-5 col-form-label">PU:</label>
+                                                            <div class="section-input col-sm-6">
+                                                                <div class="upload-file">
+                                                                    <label class="upld-file" data-bs-toggle="modal" data-bs-target="#modal_archive_PU">Seleccionar archivos.</label>
+                                                                </div>
                                                             </div>
-                                                        </div>
-                                                        <div class="input-group-append">
+                                                            <div class="input-group-append">
 
-                                                            <button type="button" class="btn btn-rounded btn_lst_hr btn_lst_hr_0" data-toggle="modal" data-target="#lst_hr_0" data-valor="P_U" data-titulo="Predio Urbano" data-id_doc_="2"><i class="cursor fa-solid fa-eye"></i></button>
+                                                                <button type="button" class="btn btn-rounded btn_lst_hr btn_lst_hr_0" data-toggle="modal" data-target="#lst_hr_0" data-valor="P_U" data-titulo="Predio Urbano" data-id_doc_="2"><i class="cursor fa-solid fa-eye"></i></button>
 
-                                                            <button type="button" class="btn btn-rounded  btn_lst_lyts btn_lst_lyts_0" data-toggle="modal" data-target="#lst_lyts" data-valor="P_U" data-titulo="Predio Urbano" data-id_doc_="2" style="display:none"><i class="cursor fa-solid fa-pencil"></i></button>
+                                                                <button type="button" class="btn btn-rounded  btn_lst_lyts btn_lst_lyts_0" data-toggle="modal" data-target="#lst_lyts" data-valor="P_U" data-titulo="Predio Urbano" data-id_doc_="2" style="display:none"><i class="cursor fa-solid fa-pencil"></i></button>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                            <br>
-                                            <div class="row">
-                                                <div class="col-sm-10">
-                                                    <div class="form-group row">
-                                                        <label class="col-sm-5 col-form-label">COPIA LITERAL:</label>
-                                                        <div class="section-input col-sm-6">
-                                                            <div class="upload-file">
-                                                                <label class="upld-file" data-bs-toggle="modal" data-bs-target="#modal_archive_CL">Seleccionar archivos.</label>
+                                                <br>
+                                                <div class="row">
+                                                    <div class="col-sm-10">
+                                                        <div class="form-group row">
+                                                            <label class="col-sm-5 col-form-label">COPIA LITERAL:</label>
+                                                            <div class="section-input col-sm-6">
+                                                                <div class="upload-file">
+                                                                    <label class="upld-file" data-bs-toggle="modal" data-bs-target="#modal_archive_CL">Seleccionar archivos.</label>
+                                                                </div>
                                                             </div>
-                                                        </div>
-                                                        <div class="input-group-append">
+                                                            <div class="input-group-append">
 
-                                                            <button type="button" class="btn btn-rounded btn_lst_hr btn_lst_hr_0" data-toggle="modal" data-target="#lst_hr_0" data-valor="C_L" data-titulo="Copia Literal" data-id_doc_="3"><i class="cursor fa-solid fa-eye"></i></button>
+                                                                <button type="button" class="btn btn-rounded btn_lst_hr btn_lst_hr_0" data-toggle="modal" data-target="#lst_hr_0" data-valor="C_L" data-titulo="Copia Literal" data-id_doc_="3"><i class="cursor fa-solid fa-eye"></i></button>
 
 
-                                                            <button type="button" class="btn btn-rounded  btn_lst_lyts btn_lst_lyts_0" data-toggle="modal" data-target="#lst_lyts" data-valor="C_L" data-titulo="Copia Literal" data-id_doc_="3" style="display:none"><i class="cursor fa-solid fa-pencil"></i></button>
+                                                                <button type="button" class="btn btn-rounded  btn_lst_lyts btn_lst_lyts_0" data-toggle="modal" data-target="#lst_lyts" data-valor="C_L" data-titulo="Copia Literal" data-id_doc_="3" style="display:none"><i class="cursor fa-solid fa-pencil"></i></button>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                            <br>
-                                            <div class="row">
-                                                <div class="col-sm-10">
-                                                    <div class="form-group row">
-                                                        <label class="col-sm-5 col-form-label">DNI:</label>
-                                                        <div class="section-input col-sm-6">
-                                                            <div class="upload-file">
-                                                                <label class="upld-file" data-bs-toggle="modal" data-bs-target="#modal_archive_DNI">Seleccionar archivos.</label>
+                                                <br>
+                                                <div class="row">
+                                                    <div class="col-sm-10">
+                                                        <div class="form-group row">
+                                                            <label class="col-sm-5 col-form-label">DNI:</label>
+                                                            <div class="section-input col-sm-6">
+                                                                <div class="upload-file">
+                                                                    <label class="upld-file" data-bs-toggle="modal" data-bs-target="#modal_archive_DNI">Seleccionar archivos.</label>
+                                                                </div>
                                                             </div>
-                                                        </div>
-                                                        <div class="input-group-append">
-                                                            <button type="button" class="btn btn-rounded btn_lst_hr btn_lst_hr_0" data-toggle="modal" data-target="#lst_hr_0" data-valor="DNI" data-titulo="DNI" data-id_doc_="4"><i class="cursor fa-solid fa-eye"></i></button>
+                                                            <div class="input-group-append">
+                                                                <button type="button" class="btn btn-rounded btn_lst_hr btn_lst_hr_0" data-toggle="modal" data-target="#lst_hr_0" data-valor="DNI" data-titulo="DNI" data-id_doc_="4"><i class="cursor fa-solid fa-eye"></i></button>
 
-                                                            <button type="button" class="btn btn-rounded  btn_lst_lyts btn_lst_lyts_0" data-toggle="modal" data-target="#lst_lyts" data-valor="DNI" data-titulo="DNI" data-id_doc_="4" style="display:none"><i class="cursor fa-solid fa-pencil"></i></button>
+                                                                <button type="button" class="btn btn-rounded  btn_lst_lyts btn_lst_lyts_0" data-toggle="modal" data-target="#lst_lyts" data-valor="DNI" data-titulo="DNI" data-id_doc_="4" style="display:none"><i class="cursor fa-solid fa-pencil"></i></button>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
+
+
                                     </div>
 
-
-                                </div>
-
-                                <div class="card-footer">
-                                    <div class="form-flex">
-                                        <button type="submit" class="btn btn-mak mak-bg-sec" id="btn_save_borrador" name="btn_save_borrador">Guardar</button>
-                                        <button type="submit" class="btn btn-mak mak-bg-sec" id="btn_updt_borrador" name="btn_updt_borrador" style="display: none;">Actualizar</button>
-                                        <button type="submit" class="btn btn-mak mak-bg" id="btn_save_solic" name="btn_save_solic">Enviar</button>
-                                        <button type="submit" class="btn btn-mak mak-bg" id="btn_updt_solic" name="btn_updt_solic" style="display: none;">Enviar</button>
+                                    <div class="card-footer">
+                                        <div class="form-flex">
+                                            <button type="submit" class="btn btn-mak mak-bg-sec" id="btn_save_borrador" name="btn_save_borrador">Guardar</button>
+                                            <button type="submit" class="btn btn-mak mak-bg-sec" id="btn_updt_borrador" name="btn_updt_borrador" style="display: none;">Actualizar</button>
+                                            <button type="submit" class="btn btn-mak mak-bg" id="btn_save_solic" name="btn_save_solic">Enviar</button>
+                                            <button type="submit" class="btn btn-mak mak-bg" id="btn_updt_solic" name="btn_updt_solic" style="display: none;">Enviar</button>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </form>
-                    </section>
+                            </form>
+                        </section>
 
-                    <section class="mak-txt position-relative body-slide active" data-content="historico">
-
-
-                        <div class="container mt-5">
-
-                            <div class="arrow-left">
-                                <i class="fa-solid fa-angle-left"></i>
-                            </div>
-
-                            <h1 class="text-center">HISTORICO</h1>
-                            <div class="row">
-
-                                <?php
+                        <section class="mak-txt position-relative body-slide" data-content="historico">
 
 
-                                if ($_SESSION['tipo_usu'] == 1) {
-                                    //ocultar el del user y mostrar el del admin
-                                ?>
+                            <div class="container mt-5">
 
-                                    <!-- </div> TABLA ADMIN -->
+                                <div class="arrow-left">
+                                    <i class="fa-solid fa-angle-left"></i>
+                                </div>
 
-                                    <div class="col-sm-12">
+                                <h1 class="text-center">HISTORICO</h1>
+                                <div class="row">
 
-                                        <table class="table table_ table-borderless" style="width: 100%;">
-                                            <thead class="">
-                                                <tr>
-                                                    <th>ID</th>
-                                                    <th>nom</th>
-                                                    <th>DIRECCIÓN</th>
-                                                    <th>FECHA</th>
-                                                    <th>ESTADO</th>
-                                                    <th>id_user</th>
-                                                    <th>dni_user</th>
-                                                    <th>coment</th>
-                                                    <th>OPCIONES</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <?php foreach ($list_solic_legal as $lst_legal_d) : ?>
+                                    <?php
+
+
+                                    if ($_SESSION['tipo_usu'] == 1) {
+                                        //ocultar el del user y mostrar el del admin
+                                    ?>
+
+
+                                        <div class="col-sm-12">
+
+                                            <table class="table table_ table-borderless" style="width: 100%;">
+                                                <thead class="">
                                                     <tr>
-                                                        <td><?php echo $lst_legal_d[0] ?></td>
-                                                        <td><?php echo $lst_legal_d[1] ?></td>
-                                                        <td><?php echo $lst_legal_d[2] ?></td>
-                                                        <td><?php echo $lst_legal_d[3] ?></td>
-                                                        <td>
-                                                            <?php
-                                                            $estado = $lst_legal_d[4];
-                                                            switch ($estado) {
-                                                                case '10':
-                                                                    echo '<span class="badge rounded-pill bg-secondary">Pendiente</span>';
-                                                                    break;
-                                                                case '20':
-                                                                    echo '<span class="badge rounded-pill bg-warning text-dark">En revision</span>';
-                                                                    break;
-                                                                case '90':
-                                                                    echo '<span class="badge rounded-pill bg-success">Finalizado</span>';
-                                                                    break;
-                                                                case '30':
-                                                                    echo '<span class="badge rounded-pill bg-success">Borrador</span>';
-                                                                    break;
-                                                                default:
-                                                                    echo 'test';
-                                                                    break;
-                                                            }
-                                                            ?>
-                                                        </td>
-                                                        <td><?php echo $lst_legal_d[5] ?></td>
-                                                        <td><?php echo $lst_legal_d[6] ?></td>
-                                                        <td><?php echo $lst_legal_d[7] ?></td>
-                                                        <td>
-                                                            <div class="row justify-content-evenly">
-                                                                <div class="col-sm-4 justify-content-center options brd-rght-blue" hidden>
-                                                                    <div class="options">
-                                                                        <i class="fa-solid fa-trash"></i>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-sm-4 justify-content-center options brd-rght-blue" hidden>
-                                                                    <div class="options">
-                                                                        <i class="fa-solid fa-pencil"></i>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-sm-4 justify-content-center options" hidden>
-                                                                    <div class="options">
-                                                                        <button type="button" class="btn btn-rounded find_data" id="get_data">
-                                                                            <i class="fa-solid fa-eye"></i>
-                                                                        </button>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-sm-4 justify-content-center arrow-right_1 scroll-toggle options">
-                                                                    <div class="options">
-                                                                        <button type="button" class="btn btn-rounded scroll-toggle">
-                                                                            <i class="fa-solid fa-eye"></i>
-                                                                        </button>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </td>
+                                                        <th>ID</th>
+                                                        <th>nom</th>
+                                                        <th>DIRECCIÓN</th>
+                                                        <th>FECHA</th>
+                                                        <th>ESTADO</th>
+                                                        <th>id_user</th>
+                                                        <th>dni_user</th>
+                                                        <th>coment</th>
+                                                        <th>OPCIONES</th>
                                                     </tr>
-                                                <?php endforeach ?>
-                                            </tbody>
-                                        </table>
-                                    </div>
-
-                                    <!-- </div> TABLA ADMIN -->
-
-                                <?php
-                                } else {
-                                ?>
-
-                                    <!-- </div> TABLA USER -->
-
-                                    <div class="col-sm-12">
-                                        <table class="table table-borderless" style="width: 100%;">
-                                            <thead class="">
-                                                <tr>
-                                                    <th>ID</th>
-                                                    <th>nom</th>
-                                                    <th>ape</th>
-                                                    <th>nom completo</th>
-                                                    <th>DIRECCIÓN</th>
-                                                    <th>FECHA</th>
-                                                    <th>ESTADO</th>
-                                                    <th>id_user</th>
-                                                    <th>dni_user</th>
-                                                    <th>coment</th>
-                                                    <th>OPCIONES</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <?php
-                                                $list_solic_legal_client = $oLegal->listadoSolicDocsLegal_clients($_SESSION['id_usu'], $_SESSION['dni']);
-
-                                                foreach ($list_solic_legal_client as $lst_legal_d) :
-                                                    //print_r($lst_legal_d)
-                                                ?>
-                                                    <tr>
-                                                        <td><?php echo $lst_legal_d[0] ?></td>
-                                                        <td><?php echo $lst_legal_d[1] ?></td>
-                                                        <td><?php echo $lst_legal_d[2] ?></td>
-                                                        <td><?php echo $lst_legal_d[3] ?></td>
-                                                        <td><?php echo $lst_legal_d[4] ?></td>
-                                                        <td><?php echo $lst_legal_d[5] ?></td>
-                                                        <td>
-                                                            <?php
-                                                            $estado = $lst_legal_d[6];
-                                                            //echo $estado;
-                                                            switch ($estado) {
-                                                                case '10':
-                                                                    echo '<span class="badge rounded-pill bg-secondary">Pendiente</span>';
-                                                                    break;
-                                                                case '20':
-                                                                    echo '<span class="badge rounded-pill bg-warning text-dark">En revision</span>';
-                                                                    break;
-                                                                case '90':
-                                                                    echo '<span class="badge rounded-pill bg-success">Finalizado</span>';
-                                                                    break;
-                                                                case '30':
-                                                                    echo '<span class="badge rounded-pill bg-success">Borrador</span>';
-                                                                    break;
-                                                                default:
-                                                                    echo 'test';
-                                                                    break;
-                                                            }
-                                                            ?>
-                                                        </td>
-                                                        <td><?php echo $lst_legal_d[7] ?></td>
-                                                        <td><?php echo $lst_legal_d[8] ?></td>
-                                                        <td><?php echo $lst_legal_d[9] ?></td>
-                                                        <td>
-                                                            <div class="row justify-content-evenly">
-                                                                <div class="col-sm-4 justify-content-center options brd-rght-blue" hidden>
-                                                                    <div class="options">
-                                                                        <i class="fa-solid fa-trash"></i>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-sm-4 justify-content-center options brd-rght-blue" hidden>
-                                                                    <div class="options">
-                                                                        <i class="fa-solid fa-pencil"></i>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-sm-4 justify-content-center options" hidden>
-                                                                    <div class="options">
-                                                                        <button type="button" class="btn btn-rounded find_data" id="get_data">
-                                                                            <i class="fa-solid fa-eye"></i>
-                                                                        </button>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-sm-4 justify-content-center scroll-toggle options">
-                                                                    <div class="options">
-                                                                        <button type="button" class="btn btn-rounded scroll-toggle get_details_lgl" 
-                                                                            data-cod_solic="<?php echo $lst_legal_d[0] ?>"
-                                                                            data-cod_client="<?php echo $lst_legal_d[7] ?>"
-                                                                             id="">
-                                                                            <i class="fa-solid fa-eye"></i>
-                                                                        </button>
-                                                                    </div>
-                                                                </div>
-
-                                                                <?php if ($lst_legal_d[6] == 30) { ?>
-                                                                    <div class="col-sm-4 justify-content-center options">
+                                                </thead>
+                                                <tbody>
+                                                    <?php foreach ($list_solic_legal as $lst_legal_d) : ?>
+                                                        <tr>
+                                                            <td><?php echo $lst_legal_d[0] ?></td>
+                                                            <td><?php echo $lst_legal_d[1] ?></td>
+                                                            <td><?php echo $lst_legal_d[2] ?></td>
+                                                            <td><?php echo $lst_legal_d[3] ?></td>
+                                                            <td>
+                                                                <?php
+                                                                $estado = $lst_legal_d[4];
+                                                                switch ($estado) {
+                                                                    case '10':
+                                                                        echo '<span class="badge rounded-pill bg-secondary">Pendiente</span>';
+                                                                        break;
+                                                                    case '20':
+                                                                        echo '<span class="badge rounded-pill bg-warning text-dark">En revision</span>';
+                                                                        break;
+                                                                    case '90':
+                                                                        echo '<span class="badge rounded-pill bg-success">Finalizado</span>';
+                                                                        break;
+                                                                    case '30':
+                                                                        echo '<span class="badge rounded-pill bg-success">Borrador</span>';
+                                                                        break;
+                                                                    default:
+                                                                        echo 'test';
+                                                                        break;
+                                                                }
+                                                                ?>
+                                                            </td>
+                                                            <td><?php echo $lst_legal_d[5] ?></td>
+                                                            <td><?php echo $lst_legal_d[6] ?></td>
+                                                            <td><?php echo $lst_legal_d[7] ?></td>
+                                                            <td>
+                                                                <div class="row justify-content-evenly">
+                                                                    <div class="col-sm-4 justify-content-center options brd-rght-blue" hidden>
                                                                         <div class="options">
-                                                                            <button type="button" class="btn btn-rounded arrow-left_1" id="">
-                                                                                <i class="fa-solid fa-pencil"></i>
+                                                                            <i class="fa-solid fa-trash"></i>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-sm-4 justify-content-center options brd-rght-blue" hidden>
+                                                                        <div class="options">
+                                                                            <i class="fa-solid fa-pencil"></i>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-sm-4 justify-content-center options" hidden>
+                                                                        <div class="options">
+                                                                            <button type="button" class="btn btn-rounded find_data" id="get_data">
+                                                                                <i class="fa-solid fa-eye"></i>
                                                                             </button>
                                                                         </div>
                                                                     </div>
-                                                                <?php  } ?>
+                                                                    <div class="col-sm-4 justify-content-center arrow-right_1 scroll-toggle options">
+                                                                        <div class="options">
+                                                                            <button type="button" class="btn btn-rounded scroll-toggle">
+                                                                                <i class="fa-solid fa-eye"></i>
+                                                                            </button>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                    <?php endforeach ?>
+                                                </tbody>
+                                            </table>
+                                        </div>
 
+                                    <?php
+                                    } else {
+                                    ?>
 
-                                                            </div>
-                                                        </td>
+                                        <div class="col-sm-12">
+                                            <table class="table table-borderless" style="width: 100%;">
+                                                <thead class="">
+                                                    <tr>
+                                                        <th>ID</th>
+                                                        <th>nom</th>
+                                                        <th>ape</th>
+                                                        <th>nom completo</th>
+                                                        <th>DIRECCIÓN</th>
+                                                        <th>FECHA</th>
+                                                        <th>ESTADO</th>
+                                                        <th>id_user</th>
+                                                        <th>dni_user</th>
+                                                        <th>coment</th>
+                                                        <th>OPCIONES</th>
                                                     </tr>
-                                                <?php endforeach ?>
-                                            </tbody>
-                                        </table>
-                                    </div>
+                                                </thead>
+                                                <tbody>
+                                                    <?php
+                                                    $list_solic_legal_client = $oLegal->listadoSolicDocsLegal_clients($_SESSION['id_usu'], $_SESSION['dni']);
 
-                                    <!-- </div> TABLA USER -->
-                                <?php
-                                    //ocultar el del admin y mostrar el del user
-                                }
-                                ?>
+                                                    foreach ($list_solic_legal_client as $lst_legal_d) :
+                                                        //print_r($lst_legal_d)
+                                                    ?>
+                                                        <tr>
+                                                            <td><?php echo $lst_legal_d[0] ?></td>
+                                                            <td><?php echo $lst_legal_d[1] ?></td>
+                                                            <td><?php echo $lst_legal_d[2] ?></td>
+                                                            <td><?php echo $lst_legal_d[3] ?></td>
+                                                            <td><?php echo $lst_legal_d[4] ?></td>
+                                                            <td><?php echo $lst_legal_d[5] ?></td>
+                                                            <td>
+                                                                <?php
+                                                                $estado = $lst_legal_d[6];
+                                                                //echo $estado;
+                                                                switch ($estado) {
+                                                                    case '10':
+                                                                        echo '<span class="badge rounded-pill bg-secondary">Pendiente</span>';
+                                                                        break;
+                                                                    case '20':
+                                                                        echo '<span class="badge rounded-pill bg-warning text-dark">En revision</span>';
+                                                                        break;
+                                                                    case '90':
+                                                                        echo '<span class="badge rounded-pill bg-success">Finalizado</span>';
+                                                                        break;
+                                                                    case '30':
+                                                                        echo '<span class="badge rounded-pill bg-success">Borrador</span>';
+                                                                        break;
+                                                                    default:
+                                                                        echo 'test';
+                                                                        break;
+                                                                }
+                                                                ?>
+                                                            </td>
+                                                            <td><?php echo $lst_legal_d[7] ?></td>
+                                                            <td><?php echo $lst_legal_d[8] ?></td>
+                                                            <td><?php echo $lst_legal_d[9] ?></td>
+                                                            <td>
+                                                                <div class="row justify-content-evenly">
+                                                                    <div class="col-sm-4 justify-content-center options brd-rght-blue" hidden>
+                                                                        <div class="options">
+                                                                            <i class="fa-solid fa-trash"></i>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-sm-4 justify-content-center options brd-rght-blue" hidden>
+                                                                        <div class="options">
+                                                                            <i class="fa-solid fa-pencil"></i>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-sm-4 justify-content-center options" hidden>
+                                                                        <div class="options">
+                                                                            <button type="button" class="btn btn-rounded find_data" id="get_data">
+                                                                                <i class="fa-solid fa-eye"></i>
+                                                                            </button>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-sm-4 justify-content-center scroll-toggle options">
+                                                                        <div class="options">
+                                                                            <button type="button" class="btn btn-rounded scroll-toggle get_details_lgl" data-cod_solic="<?php echo $lst_legal_d[0] ?>" data-cod_client="<?php echo $lst_legal_d[7] ?>" id="">
+                                                                                <i class="fa-solid fa-eye"></i>
+                                                                            </button>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <?php if ($lst_legal_d[6] == 30) { ?>
+                                                                        <div class="col-sm-4 justify-content-center options">
+                                                                            <div class="options">
+                                                                                <button type="button" class="btn btn-rounded arrow-left_1" id="">
+                                                                                    <i class="fa-solid fa-pencil"></i>
+                                                                                </button>
+                                                                            </div>
+                                                                        </div>
+                                                                    <?php  } ?>
+
+
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                    <?php endforeach ?>
+                                                </tbody>
+                                            </table>
+                                        </div>
+
+                                    <?php
+                                        //ocultar el del admin y mostrar el del user
+                                    }
+                                    ?>
+
+                                </div>
 
                             </div>
+                        </section>
 
-                        </div>
-                        <!-- <div class="footer-mak" hidden>
+                        <section class="mak-txt position-relative body-slide" data-content="files">
+                            <div class="arrow-left arrow-left_1">
+                                <i class="fa-solid fa-angle-left"></i>
+                            </div>
+                            <form method="POST" action="../Controller/update_solic_docs_legal.php">
+
                                 <div class="container">
-                                    <div class="flex">
-                                        <a href="legal_.php" class="btn btn-mak mak-bg ml-auto">Continuar</a>
-                                    </div>
-                                </div>
-                            </div> -->
-                    </section>
+                                    <div class="card-body">
+                                        <div class="row">
 
-                    <section class="mak-txt position-relative body-slide" data-content="files">
-                        <div class="arrow-left arrow-left_1">
-                            <i class="fa-solid fa-angle-left"></i>
-                        </div>
-                        <form method="POST" action="../Controller/update_solic_docs_legal.php">
+                                            <div class="col-sm-6">
+                                                <?php
 
-                            <div class="container">
-                                <div class="card-body">
-                                    <div class="row">
+                                                if ($_SESSION['tipo_usu'] == 1) {
+                                                    //habilitar al admin
+                                                ?>
+                                                    <input type="text" class="form-mak" id="id_legal_solic" name="id_legal_solic" readonly>
+                                                    <input type="text" class="form-mak" id="id_client_l" readonly>
 
-                                        <div class="col-sm-6">
-                                            <?php
-
-                                            if ($_SESSION['tipo_usu'] == 1) {
-                                                //habilitar al admin
-                                            ?>
-                                                <input type="text" class="form-mak" id="id_legal_solic" name="id_legal_solic" readonly>
-                                                <input type="text" class="form-mak" id="id_client_l" readonly>
-
-                                                <div class="row">
-                                                    <div class="col-sm-6">
-                                                        <div class="form-group">
-                                                            <label class="mak-txt">Nombres y Apellidos</label>
-                                                            <input type="text" class="form-mak" id="data_names_" readonly>
+                                                    <div class="row">
+                                                        <div class="col-sm-6">
+                                                            <div class="form-group">
+                                                                <label class="mak-txt">Nombres y Apellidos</label>
+                                                                <input type="text" class="form-mak" id="data_names_" readonly>
+                                                            </div>
                                                         </div>
                                                     </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-sm-6">
-                                                        <div class="form-group">
-                                                            <label class="mak-txt">Dirección</label>
-                                                            <input type="text" class="form-mak" id="data_direcion_" readonly>
+                                                    <div class="row">
+                                                        <div class="col-sm-6">
+                                                            <div class="form-group">
+                                                                <label class="mak-txt">Dirección</label>
+                                                                <input type="text" class="form-mak" id="data_direcion_" readonly>
+                                                            </div>
                                                         </div>
                                                     </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-sm-6">
-                                                        <div class="form-group">
-                                                            <label class="mak-txt">Distrito</label>
-                                                            <select name="" id="" class="form-mak">
-                                                                <option value="-1" disabled>Seleccione distrito</option>
-                                                            </select>
+                                                    <div class="row">
+                                                        <div class="col-sm-6">
+                                                            <div class="form-group">
+                                                                <label class="mak-txt">Distrito</label>
+                                                                <select name="" id="" class="form-mak">
+                                                                    <option value="-1" disabled>Seleccione distrito</option>
+                                                                </select>
+                                                            </div>
                                                         </div>
                                                     </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-sm-6">
-                                                        <div class="form-group">
-                                                            <label class="mak-txt">Comentario</label>
-                                                            <textarea name="coment_" id="coment_"></textarea>
+                                                    <div class="row">
+                                                        <div class="col-sm-6">
+                                                            <div class="form-group">
+                                                                <label class="mak-txt">Comentario</label>
+                                                                <textarea name="coment_" id="coment_"></textarea>
+                                                            </div>
                                                         </div>
                                                     </div>
-                                                </div>
 
 
-                                            <?php
-                                            } else {
-                                                //deshabilitar al user
-                                            ?>
+                                                <?php
+                                                } else {
+                                                    //deshabilitar al user
+                                                ?>
 
-                                                <input type="text" class="form-mak" id="id_legal_solic" name="id_legal_solic" readonly hidden>
-                                                <input type="text" class="form-mak" id="id_client_l" readonly hidden>
+                                                    <input type="text" class="form-mak" id="id_legal_solic" name="id_legal_solic" readonly hidden>
+                                                    <input type="text" class="form-mak" id="id_client_l" readonly hidden>
 
-                                                <div class="row">
-                                                    <div class="col-sm-6">
-                                                        <div class="form-group">
-                                                            <label class="mak-txt">Nombres y Apellidos</label>
-                                                            <input type="text" class="form-mak" id="data_names_" readonly>
+                                                    <div class="row">
+                                                        <div class="col-sm-6">
+                                                            <div class="form-group">
+                                                                <label class="mak-txt">Nombres y Apellidos</label>
+                                                                <input type="text" class="form-mak" id="data_names_" readonly>
+                                                            </div>
                                                         </div>
                                                     </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-sm-6">
-                                                        <div class="form-group">
-                                                            <label class="mak-txt">Dirección</label>
-                                                            <input type="text" class="form-mak" id="data_direcion_" readonly>
+                                                    <div class="row">
+                                                        <div class="col-sm-6">
+                                                            <div class="form-group">
+                                                                <label class="mak-txt">Dirección</label>
+                                                                <input type="text" class="form-mak" id="data_direcion_" readonly>
+                                                            </div>
                                                         </div>
                                                     </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-sm-6">
-                                                        <div class="form-group">
-                                                            <label class="mak-txt">Distrito</label>
-                                                            <select name="" id="" class="form-mak">
-                                                                <option value="-1" disabled>Seleccione distrito</option>
-                                                            </select>
+                                                    <div class="row">
+                                                        <div class="col-sm-6">
+                                                            <div class="form-group">
+                                                                <label class="mak-txt">Distrito</label>
+                                                                <select name="" id="" class="form-mak">
+                                                                    <option value="-1" disabled>Seleccione distrito</option>
+                                                                </select>
+                                                            </div>
                                                         </div>
                                                     </div>
-                                                </div>
 
-                                                <div class="row">
-                                                    <div class="col-sm-6">
-                                                        <div class="form-group">
-                                                            <label class="mak-txt">Comentario</label>
-                                                            <textarea name="coment_" id="coment_" readonly></textarea>
+                                                    <div class="row">
+                                                        <div class="col-sm-6">
+                                                            <div class="form-group">
+                                                                <label class="mak-txt">Comentario</label>
+                                                                <textarea name="coment_" id="coment_" readonly></textarea>
+                                                            </div>
                                                         </div>
                                                     </div>
-                                                </div>
-                                            <?php
-                                            }
-                                            ?>
-                                        </div>
-
-                                        <div class="col-sm-6">
-                                            <div class=" d-flex justify-content-end">
-                                                <div class="btn btn-mak bg-success">Aprobado</div>
+                                                <?php
+                                                }
+                                                ?>
                                             </div>
 
-                                            <div class="card-body" id="carpeta_l">
-                                                <div class="row card-resume">
-                                                    <div class="col-sm-2">
-                                                        <div class="lgl-modal-num">
-                                                            1
+                                            <div class="col-sm-6">
+                                                <div class=" d-flex justify-content-end">
+                                                    <div class="btn btn-mak bg-success">Aprobado</div>
+                                                </div>
+
+                                                <div class="card-body" id="carpeta_l">
+                                                    <div class="row card-resume">
+                                                        <div class="col-sm-2">
+                                                            <div class="lgl-modal-num">
+                                                                1
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-sm-8 brd-rght-blue d-flex align-items-center">
+                                                            <span class="mak-txt bld">Hoja de Resumen</span>
+                                                        </div>
+                                                        <div class="col-sm-2 justify-content-center options">
+                                                            <div class="options">
+                                                                <button type="button" class="btn btn-rounded  btn_lst_docs btn_lst_docs_0" data-toggle="modal" data-target="#lst_docs_legal" data-valor="H_R" data-titulo="Hoja de Resumen" data-id_doc_="1" data-id_user_="<?php echo $_SESSION['dni'] ?>">
+                                                                    <i class="cursor fa-solid fa-eye"></i>
+                                                                </button>
+                                                            </div>
                                                         </div>
                                                     </div>
-                                                    <div class="col-sm-8 brd-rght-blue d-flex align-items-center">
-                                                        <span class="mak-txt bld">Hoja de Resumen</span>
+
+                                                    <div class="row card-resume">
+                                                        <div class="col-sm-2">
+                                                            <div class="lgl-modal-num">
+                                                                2
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-sm-8 brd-rght-blue d-flex align-items-center">
+                                                            <span class="mak-txt bld">Predio Urbano</span>
+                                                        </div>
+                                                        <div class="col-sm-2 justify-content-center options">
+                                                            <div class="options">
+                                                                <button type="button" class="btn btn-rounded  btn_lst_docs btn_lst_docs_0" data-toggle="modal" data-target="#lst_docs_legal" data-valor="P_U" data-titulo="Predio Urbano" data-id_doc_="2" data-id_user_="<?php echo $_SESSION['dni'] ?>">
+                                                                    <i class="cursor fa-solid fa-eye"></i>
+                                                                </button>
+                                                            </div>
+                                                        </div>
                                                     </div>
-                                                    <div class="col-sm-2 justify-content-center options">
-                                                        <div class="options">
-                                                            <button type="button" class="btn btn-rounded  btn_lst_docs btn_lst_docs_0" data-toggle="modal" data-target="#lst_docs_legal" data-valor="H_R" data-titulo="Hoja de Resumen" data-id_doc_="1" data-id_user_="<?php echo $_SESSION['dni'] ?>">
-                                                                <i class="cursor fa-solid fa-eye"></i>
-                                                            </button>
+
+                                                    <div class="row card-resume">
+                                                        <div class="col-sm-2">
+                                                            <div class="lgl-modal-num">
+                                                                3
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-sm-8 brd-rght-blue d-flex align-items-center">
+                                                            <span class="mak-txt bld">Copia Literal</span>
+                                                        </div>
+                                                        <div class="col-sm-2 justify-content-center options">
+                                                            <div class="options">
+                                                                <button type="button" class="btn btn-rounded  btn_lst_docs btn_lst_docs_0" data-toggle="modal" data-target="#lst_docs_legal" data-valor="C_L" data-titulo="Copia Literal" data-id_doc_="3" data-id_user_="<?php echo $_SESSION['dni'] ?>">
+                                                                    <i class="cursor fa-solid fa-eye"></i>
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="row card-resume">
+                                                        <div class="col-sm-2">
+                                                            <div class="lgl-modal-num">
+                                                                4
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-sm-8 brd-rght-blue d-flex align-items-center">
+                                                            <span class="mak-txt bld">DNI</span>
+                                                        </div>
+                                                        <div class="col-sm-2 justify-content-center options">
+                                                            <div class="options">
+                                                                <button type="button" class="btn btn-rounded  btn_lst_docs btn_lst_docs_0" data-toggle="modal" data-target="#lst_docs_legal" data-valor="DNI" data-titulo="DNI" data-id_doc_="4" data-id_user_="<?php echo $_SESSION['dni'] ?>">
+                                                                    <i class="cursor fa-solid fa-eye"></i>
+                                                                </button>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
 
-                                                <div class="row card-resume">
-                                                    <div class="col-sm-2">
-                                                        <div class="lgl-modal-num">
-                                                            2
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-sm-8 brd-rght-blue d-flex align-items-center">
-                                                        <span class="mak-txt bld">Predio Urbano</span>
-                                                    </div>
-                                                    <div class="col-sm-2 justify-content-center options">
-                                                        <div class="options">
-                                                            <button type="button" class="btn btn-rounded  btn_lst_docs btn_lst_docs_0" data-toggle="modal" data-target="#lst_docs_legal" data-valor="P_U" data-titulo="Predio Urbano" data-id_doc_="2" data-id_user_="<?php echo $_SESSION['dni'] ?>">
-                                                                <i class="cursor fa-solid fa-eye"></i>
-                                                            </button>
-                                                        </div>
-                                                    </div>
-                                                </div>
 
-                                                <div class="row card-resume">
-                                                    <div class="col-sm-2">
-                                                        <div class="lgl-modal-num">
-                                                            3
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-sm-8 brd-rght-blue d-flex align-items-center">
-                                                        <span class="mak-txt bld">Copia Literal</span>
-                                                    </div>
-                                                    <div class="col-sm-2 justify-content-center options">
-                                                        <div class="options">
-                                                            <button type="button" class="btn btn-rounded  btn_lst_docs btn_lst_docs_0" data-toggle="modal" data-target="#lst_docs_legal" data-valor="C_L" data-titulo="Copia Literal" data-id_doc_="3" data-id_user_="<?php echo $_SESSION['dni'] ?>">
-                                                                <i class="cursor fa-solid fa-eye"></i>
-                                                            </button>
-                                                        </div>
-                                                    </div>
-                                                </div>
 
-                                                <div class="row card-resume">
-                                                    <div class="col-sm-2">
-                                                        <div class="lgl-modal-num">
-                                                            4
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-sm-8 brd-rght-blue d-flex align-items-center">
-                                                        <span class="mak-txt bld">DNI</span>
-                                                    </div>
-                                                    <div class="col-sm-2 justify-content-center options">
-                                                        <div class="options">
-                                                            <button type="button" class="btn btn-rounded  btn_lst_docs btn_lst_docs_0" data-toggle="modal" data-target="#lst_docs_legal" data-valor="DNI" data-titulo="DNI" data-id_doc_="4" data-id_user_="<?php echo $_SESSION['dni'] ?>">
-                                                                <i class="cursor fa-solid fa-eye"></i>
-                                                            </button>
-                                                        </div>
-                                                    </div>
-                                                </div>
                                             </div>
-
-
-
                                         </div>
+
+
                                     </div>
 
+                                    <?php
 
+                                    if ($_SESSION['tipo_usu'] == 1) {
+                                        //habilitar al admin
+                                    ?>
+                                        <div class="card-footer">
+                                            <div class="form-flex">
+                                                <button type="button" class="btn btn-mak mak-bg-sec">Guardar</button>
+                                                <button type="submit" class="btn btn-mak mak-bg" id="btn_save_solic_l" name="btn_save_solic_l">Enviar</button>
+                                            </div>
+                                        </div>
+                                    <?php
+                                    }
+                                    ?>
                                 </div>
-
-                                <?php
-
-                                if ($_SESSION['tipo_usu'] == 1) {
-                                    //habilitar al admin
-                                ?>
-                                    <div class="card-footer">
-                                        <div class="form-flex">
-                                            <button type="button" class="btn btn-mak mak-bg-sec">Guardar</button>
-                                            <button type="submit" class="btn btn-mak mak-bg" id="btn_save_solic_l" name="btn_save_solic_l">Enviar</button>
-                                        </div>
-                                    </div>
-                                <?php
-                                }
-                                ?>
-                            </div>
-                        </form>
-                    </section>
+                            </form>
+                        </section>
+                    </div>
                 </div>
-                <!-- </div> -->
-
             </section>
         </div>
 
-
         <?php include '../Vista/foot-form.php' ?>
-        <!-- <footer class="main-footer">
-            <strong>Copyright © 1986-2023 <a href="https://mak.com.pe/">MAK S.A.C</a>.</strong>
-            All rights reserved.
-            <div class="float-right d-none d-sm-inline-block">
-                <b>Version</b> 1.0.0
-            </div>
-        </footer> -->
-
 
     </div>
 
@@ -1832,184 +1805,215 @@ require_once('../Controller/controladorListar.php');
 
 
             function get_details_solic_legal(idsolicitud, idclient) {
-            $.ajax({
-                type: 'POST',
-                url: '../Controller/Get_Details_Legal.php',
-                data: {
-                    id_solic_l: idsolicitud,
-                    id_client: idclient
-                },
+                $.ajax({
+                    type: 'POST',
+                    url: '../Controller/Get_Details_Legal.php',
+                    data: {
+                        id_solic_l: idsolicitud,
+                        id_client: idclient
+                    },
 
-                beforeSend: function() {
-                    // $("#loader_uhd").show();
-                    //$("#loader_uhd").removeClass("hidden");
+                    beforeSend: function() {
+                        // $("#loader_uhd").show();
+                        //$("#loader_uhd").removeClass("hidden");
 
-                    /*$("#detalles_valor").hide();
-                    $("#docs_val").hide();*/
+                        /*$("#detalles_valor").hide();
+                        $("#docs_val").hide();*/
 
-                    // if ($(".mak_overlay").hasClass("hidden")) {
-                    //$("#add_data_val").addClass("hide");
-                    // }
-
-                },
-
-                success: function(response) {
-                    console.log(response);
-
-                    try {
-                        var detalles = JSON.parse(response);
-
-                        console.log(detalles);
-
-                        var id_valor = detalles[0][0];
-                        var nom_client = detalles[0][2];
-                        var direccion = detalles[0][3];
-                        var correo = detalles[0][4];
-                        var id_client = detalles[0][6];
-                        var status_ = detalles[0][7];
-                        var coment = detalles[0][8];
-
-                    } catch (error) {
-                        console.error("Error al analizar la respuesta JSON: " + error);
-                    }
-
-
-                    /*setTimeout(function() {
-
-                        const tipo_status = document.getElementById("status_solic_val_cbo");
-
-                        var btnDisable = $("#btnValo_obs_save");
-
-                        const add_obs_1 = document.getElementById("add_obsv_v");
-                        const add_file_val_1 = document.getElementById("subir_valor");
-
-                        const dwnld_info = document.getElementById("btn_dwnld_valo");
-
-                        // $("#loader_uhd").hide();
-                        $("#loader_uhd").addClass("hidden");
-
-
-                        // if (!$(".mak_overlay").hasClass("hidden")) {
-                        $("#add_data_val").removeClass("hide");
+                        // if ($(".mak_overlay").hasClass("hidden")) {
+                        //$("#add_data_val").addClass("hide");
                         // }
 
-                        console.log("ID Valor: " + id_valor);
-                        console.log("Nombre Cliente: " + nom_client);
-                        console.log("Dirección: " + direccion);
-                        console.log("Tipo Inmueble: " + tipo_inmb);
-                        console.log("Estado: " + coment);
+                    },
 
-                        $("#coment_valr_r").val(coment)
+                    success: function(response) {
+                        console.log(response);
 
-                        switch (estado) {
-                            case '400':
-                                $("#status_solic_val_cbo").val("400");
-                                $(".textBox").val("Observado");
-                                $(".textBox").addClass("bg-warning");
-                                $(".textBox").removeClass("bg-secondary");
-                                $(".textBox").removeClass("bg-success");
+                        try {
+                            var detalles = JSON.parse(response);
 
-                                add_file_val_1.classList.add("hidden");
-                                add_file_val_1.style.display = "none";
+                            console.log(detalles);
 
-                                add_obs_1.classList.remove("hidden");
-                                add_obs_1.style.display = "block";
+                            var id_valor = detalles[0][0];
+                            var nom_client = detalles[0][2];
+                            var direccion = detalles[0][3];
+                            var correo = detalles[0][4];
+                            var id_client = detalles[0][6];
+                            var status_ = detalles[0][7];
+                            var coment = detalles[0][8];
 
-                                btnDisable.prop("disabled", true);
-                                dwnld_info.style.display = "none";
-
-                                break;
-                            case '200':
-                                $("#status_solic_val_cbo").val("200");
-
-                                $(".textBox").val("Finalizado");
-                                $(".textBox").addClass("bg-success");
-                                $(".textBox").removeClass("bg-warning");
-                                $(".textBox").removeClass("bg-secondarys");
-
-
-                                add_obs_1.classList.add("hidden");
-                                add_obs_1.style.display = "none";
-
-                                add_file_val_1.classList.remove("hidden");
-                                add_file_val_1.style.display = "none";
-
-                                btnDisable.prop("disabled", true);
-
-                                dwnld_info.style.display = "block";
-                                break;
-
-                            default:
-                                $("#status_solic_val_cbo").val("500");
-                                $(".textBox").val("Pendiente");
-                                $(".textBox").addClass("bg-secondary");
-                                $(".textBox").removeClass("bg-success");
-                                $(".textBox").removeClass("bg-warning");
-
-
-                                add_obs_1.classList.add("hidden");
-                                add_obs_1.style.display = "none";
-
-                                add_file_val_1.classList.add("hidden");
-                                add_file_val_1.style.display = "none";
-
-                                dwnld_info.style.display = "none";
+                        } catch (error) {
+                            console.error("Error al analizar la respuesta JSON: " + error);
                         }
 
-                        $("#dir_rsm").text(detalles[0][2]);
-                        $("#tip_rsm").text(detalles[0][3]);
-                        $("#pro_rsm").text(detalles[0][5]);
-                        $("#at_rsm").text(detalles[0][6]);
-                        $("#ac_rsm").text(detalles[0][7]);
-                        $("#ao_rsm").text(detalles[0][8]);
+
+                        /*setTimeout(function() {
+
+                            const tipo_status = document.getElementById("status_solic_val_cbo");
+
+                            var btnDisable = $("#btnValo_obs_save");
+
+                            const add_obs_1 = document.getElementById("add_obsv_v");
+                            const add_file_val_1 = document.getElementById("subir_valor");
+
+                            const dwnld_info = document.getElementById("btn_dwnld_valo");
+
+                            // $("#loader_uhd").hide();
+                            $("#loader_uhd").addClass("hidden");
 
 
-                        var direccion_val = $("#dir_rsm").text();
-                        get_distrito_x_direccion(direccion_val);
+                            // if (!$(".mak_overlay").hasClass("hidden")) {
+                            $("#add_data_val").removeClass("hide");
+                            // }
 
-                        btnDisable.prop("disabled", true);
+                            console.log("ID Valor: " + id_valor);
+                            console.log("Nombre Cliente: " + nom_client);
+                            console.log("Dirección: " + direccion);
+                            console.log("Tipo Inmueble: " + tipo_inmb);
+                            console.log("Estado: " + coment);
 
+                            $("#coment_valr_r").val(coment)
 
+                            switch (estado) {
+                                case '400':
+                                    $("#status_solic_val_cbo").val("400");
+                                    $(".textBox").val("Observado");
+                                    $(".textBox").addClass("bg-warning");
+                                    $(".textBox").removeClass("bg-secondary");
+                                    $(".textBox").removeClass("bg-success");
 
-                        tipo_status.addEventListener("change", function() {
+                                    add_file_val_1.classList.add("hidden");
+                                    add_file_val_1.style.display = "none";
 
-                            switch (tipo_status.value) {
-                                case "400":
-                                    console.log("uwu")
                                     add_obs_1.classList.remove("hidden");
                                     add_obs_1.style.display = "block";
 
-                                    //add_file_val_1.classList.add("hidden");
-                                    //add_file_val_1.style.display = "none";
+                                    btnDisable.prop("disabled", true);
+                                    dwnld_info.style.display = "none";
+
                                     break;
-                                case "200":
+                                case '200':
+                                    $("#status_solic_val_cbo").val("200");
+
+                                    $(".textBox").val("Finalizado");
+                                    $(".textBox").addClass("bg-success");
+                                    $(".textBox").removeClass("bg-warning");
+                                    $(".textBox").removeClass("bg-secondarys");
+
+
                                     add_obs_1.classList.add("hidden");
                                     add_obs_1.style.display = "none";
 
-                                    //add_file_val_1.classList.remove("hidden");
-                                    //add_file_val_1.style.display = "block";
+                                    add_file_val_1.classList.remove("hidden");
+                                    add_file_val_1.style.display = "none";
+
+                                    btnDisable.prop("disabled", true);
+
+                                    dwnld_info.style.display = "block";
                                     break;
+
                                 default:
-                                    add_obs_1.classList.add("hidden");
-                                    //add_file_val_1.classList.add("hidden");
+                                    $("#status_solic_val_cbo").val("500");
+                                    $(".textBox").val("Pendiente");
+                                    $(".textBox").addClass("bg-secondary");
+                                    $(".textBox").removeClass("bg-success");
+                                    $(".textBox").removeClass("bg-warning");
 
+
+                                    add_obs_1.classList.add("hidden");
                                     add_obs_1.style.display = "none";
-                                    //add_file_val_1.style.display = "none";
-                                    break;
+
+                                    add_file_val_1.classList.add("hidden");
+                                    add_file_val_1.style.display = "none";
+
+                                    dwnld_info.style.display = "none";
                             }
 
-                        });
+                            $("#dir_rsm").text(detalles[0][2]);
+                            $("#tip_rsm").text(detalles[0][3]);
+                            $("#pro_rsm").text(detalles[0][5]);
+                            $("#at_rsm").text(detalles[0][6]);
+                            $("#ac_rsm").text(detalles[0][7]);
+                            $("#ao_rsm").text(detalles[0][8]);
 
-                    }, 900);*/
 
-                },
-                error: function(xhr, status, error) {
-                    console.log("Error en la solicitud ajax ", error)
-                    console.log("Mensaje de error:", error);
-                }
+                            var direccion_val = $("#dir_rsm").text();
+                            get_distrito_x_direccion(direccion_val);
+
+                            btnDisable.prop("disabled", true);
+
+
+
+                            tipo_status.addEventListener("change", function() {
+
+                                switch (tipo_status.value) {
+                                    case "400":
+                                        console.log("uwu")
+                                        add_obs_1.classList.remove("hidden");
+                                        add_obs_1.style.display = "block";
+
+                                        //add_file_val_1.classList.add("hidden");
+                                        //add_file_val_1.style.display = "none";
+                                        break;
+                                    case "200":
+                                        add_obs_1.classList.add("hidden");
+                                        add_obs_1.style.display = "none";
+
+                                        //add_file_val_1.classList.remove("hidden");
+                                        //add_file_val_1.style.display = "block";
+                                        break;
+                                    default:
+                                        add_obs_1.classList.add("hidden");
+                                        //add_file_val_1.classList.add("hidden");
+
+                                        add_obs_1.style.display = "none";
+                                        //add_file_val_1.style.display = "none";
+                                        break;
+                                }
+
+                            });
+
+                        }, 900);*/
+
+                    },
+                    error: function(xhr, status, error) {
+                        console.log("Error en la solicitud ajax ", error)
+                        console.log("Mensaje de error:", error);
+                    }
+                });
+            }
+
+        });
+    </script>
+
+    <script>
+        const makContentSlide = document.querySelector(".mak-content-slide");
+        const goLeft = document.querySelector(".arrow-left");
+        const goLeft_1 = document.querySelector(".arrow-left_1");
+        const goRight = document.querySelector(".arrow-right");
+        const goDetails = document.querySelectorAll(".scroll-toggle");
+        console.log(makContentSlide);
+
+        document.addEventListener('DOMContentLoaded', function() {
+            makContentSlide.style.transform = "translateX(-100%)";
+
+            goLeft.addEventListener("click", () => {
+                makContentSlide.style.transform = "translateX(0%)";
             });
-        }
 
+            goRight.addEventListener("click", () => {
+                makContentSlide.style.transform = "translateX(-100%)";
+            });
+
+            goDetails.forEach(element => {
+                element.addEventListener("click", () => {
+                    makContentSlide.style.transform = "translateX(-200%)";
+                    // code
+                });
+            });
+            goLeft_1.addEventListener("click", () => {
+                makContentSlide.style.transform = "translateX(-100%)";
+            });
         });
     </script>
 
