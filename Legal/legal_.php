@@ -2136,13 +2136,4 @@ require_once('../Controller/controladorListar.php');
 
 </body>
 
-</html> }
-}
-});
-
-// DROPDOWN
-</script>
-
-</body>
-
 </html>

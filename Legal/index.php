@@ -125,14 +125,6 @@ require_once('../Controller/controladorListar.php');
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="row">
-                                                    <div class="col-sm-6">
-                                                        <div class="form-group">
-                                                            <label class="mak-txt">Dirección</label>
-                                                            <input type="text" class="form-mak" id="dir_cli_solic" name="dir_cli_solic" required>
-                                                        </div>
-                                                    </div>
-                                                </div>
 
                                                 <textarea id="rutas_doscs" name="rutas_doscs" rows="5" cols="50" hidden><?php echo $rutas; ?></textarea>
                                             </div>
@@ -480,14 +472,6 @@ require_once('../Controller/controladorListar.php');
                                                     <div class="row">
                                                         <div class="col-sm-6">
                                                             <div class="form-group">
-                                                                <label class="mak-txt">Dirección</label>
-                                                                <input type="text" class="form-mak" id="data_direcion_" readonly>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row">
-                                                        <div class="col-sm-6">
-                                                            <div class="form-group">
                                                                 <label class="mak-txt">Comentario</label>
                                                                 <textarea name="coment_" id="coment_"></textarea>
                                                             </div>
@@ -508,14 +492,6 @@ require_once('../Controller/controladorListar.php');
                                                             <div class="form-group">
                                                                 <label class="mak-txt">Nombres y Apellidos</label>
                                                                 <input type="text" class="form-mak" id="data_names_" readonly>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row">
-                                                        <div class="col-sm-6">
-                                                            <div class="form-group">
-                                                                <label class="mak-txt">Dirección</label>
-                                                                <input type="text" class="form-mak" id="data_direcion_" readonly>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -1816,6 +1792,8 @@ require_once('../Controller/controladorListar.php');
 
             goLeft.addEventListener("click", () => {
                 makContentSlide.style.transform = "translateX(0%)";
+
+                $('#nom_cli_solic').text('');
             });
 
             goRight.addEventListener("click", () => {
@@ -1842,9 +1820,20 @@ require_once('../Controller/controladorListar.php');
             });
 
             goUpdate.forEach(element => {
-                element.addEventListener("click", () => {
+                element.addEventListener("click", function() {
                     makContentSlide.style.transform = "translateX(0%)";
                     // code
+                    $tr = $(this).closest('tr');
+
+                    var data = $tr.children("td").map(function() {
+                        return $(this).text();
+                    }).get();
+
+                    console.log(data);
+
+                    // $('#nom_cli_solic').val(data[1] + " " + data[2]);
+                    $('#nom_cli_solic').val(data[1]);
+                    $('#ape_cli_solic').val(data[2]);
 
                 });
             });
