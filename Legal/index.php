@@ -221,7 +221,7 @@ require_once('../Controller/controladorListar.php');
 
                                     </div>
 
-                                    <div class="card-footer">
+                                    <div class="card-footer card-footer_">
                                         <div class="form-flex">
                                             <button type="submit" class="btn btn-mak mak-bg-sec" id="btn_save_borrador" name="btn_save_borrador">Guardar</button>
                                             <button type="submit" class="btn btn-mak mak-bg-sec" id="btn_updt_borrador" name="btn_updt_borrador" style="display: none;">Actualizar</button>
@@ -1878,10 +1878,11 @@ require_once('../Controller/controladorListar.php');
                     // el lapiz hace que salga el boton actualizar
                     var contenido = document.querySelectorAll(".content-file").forEach(element => {
                         var buttons = element.querySelectorAll("button");
+                        // console.log(buttons);
                         buttons.forEach((btns, indice) => {
                             if (indice % 2 === 1) { // Los índices pares tienen resto 1 al dividir por 2
                                 btns.style.display = "none";
-                                console.log(buttons)
+
                             } else {
                                 btns.style.display = "block";
 
@@ -1891,9 +1892,10 @@ require_once('../Controller/controladorListar.php');
                     // el lapiz hace que salga el boton actualizar
 
                     // el lapiz hace que se oculte y muestren los botones
-                    var cardFooter = document.querySelector(".card-footer");
+                    var cardFooter = document.querySelector(".card-footer_");
                     var botones = cardFooter.querySelectorAll("button");
-
+                    console.log(cardFooter);
+                    console.log(botones);
                     botones.forEach((botones, indice) => {
                         if (indice % 2 === 0) { // Los índices pares tienen resto 1 al dividir por 2
                             botones.style.display = "none";
