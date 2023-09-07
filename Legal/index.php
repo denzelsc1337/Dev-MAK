@@ -71,16 +71,26 @@ require_once('../Controller/controladorListar.php');
                 ?>
 
 
-                    <section class="content body-mak txt-center mak-txt">
+                    <section class="content body-mak mak-txt">
                         <div class="container">
-                            <div class="b-title">Resumen Legal</div>
-                            <p class="b-text mak-txt">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora culpa iste, facere veniam aperiam corporis placeat pariatur, dignissimos, nostrum illum ex adipisci officiis necessitatibus obcaecati doloribus velit sint omnis ipsum!</p>
-                        </div>
+                            <div class="b-title txt-center">Resumen Legal</div>
+                            <p class="mak-txt b-text">¡Bienvenido <strong><?php echo $_SESSION['nom_usu'] . " " . $_SESSION['ape_usu'] ?></strong>! Para tener una buena experiencia con nuestro servicio legal es necesario brindar lo siguiente:</p>
 
-                        <div class="footer-mak">
-                            <div class="container">
-                                <div class="flex">
-                                    <a href="legal_.php" class="btn btn-mak mak-bg ml-auto">Continuar</a>
+                            <ul>
+                                <li><strong>Hoja de Resumen (HR): </strong>Asegúrate de contar con la Hoja de Resumen actualizada.</li>
+                                <li><strong>Predio Urbano (PU): </strong>Proporciona el Predio Urbano vigente para que podamos evaluar aspectos importantes de la ubicación y las regulaciones urbanas.</li>
+                                <li><strong>Copia Literal: </strong>Adjunta una Copia Literal actualizada o Partida Registral de la propiedad.</li>
+                                <li><strong>DNI: </strong>Para validar tu identidad y garantizar la seguridad, necesitamos una copia de tu Documento Nacional de Identidad (DNI).</li>
+                            </ul>
+
+                            <p class="mak-txt b-text">Estos documentos son esenciales para ofrecerte un servicio legal personalizado y eficiente.</p>
+
+
+
+                            <div class="card-footer">
+                                <div class="form-flex">
+                                    <a href="../Dashboard.php" class="btn btn-mak mak-bg-sec">Retroceder</a>
+                                    <a href="legal_.php" class="btn btn-mak mak-bg">Continuar</a>
                                 </div>
                             </div>
                         </div>
