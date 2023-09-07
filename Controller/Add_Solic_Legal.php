@@ -33,7 +33,7 @@ if (isset($_POST['btn_save_solic'])) {
 
         $carpeta_destino = $carpeta_nueva . $dni_client; // Ruta completa de la carpeta de destino
 
-        echo $carpeta_dnis;
+        //echo $carpeta_dnis;
 
         $mover_carpeta = glob($carpeta_dnis . '/*');
 
@@ -52,7 +52,7 @@ if (isset($_POST['btn_save_solic'])) {
         <script type="text/javascript">
             alert("Solicitud guardada y carpeta creada")
         </script>
-        <META http-equiv='Refresh' content='0.2; URL =../Legal/'>
+        <!-- <META http-equiv='Refresh' content='0.2; URL =../Legal/'> -->
     <?php
         //echo $carpeta_nueva;
     } else {
@@ -110,7 +110,7 @@ if (isset($_POST['btn_updt_solic'])) {
         <script type="text/javascript">
             alert("Solicitud enviada")
         </script>
-        <META http-equiv='Refresh' content='0.2; URL =../Legal/'>
+        <!-- <META http-equiv='Refresh' content='0.2; URL =../Legal/'> -->
     <?php
         //echo $carpeta_nueva;
     } else {

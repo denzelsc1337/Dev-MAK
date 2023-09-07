@@ -1906,8 +1906,41 @@ require_once('../Controller/controladorListar.php');
                     });
                     // el lapiz hace que se oculte y muestren los botones
 
+
+
+
+                });
+
+                var upldFile = document.querySelectorAll(".upld-file").forEach(element => {
+                    element.addEventListener("click", () => {
+                        /////
+                        var contenido = document.querySelectorAll(".content-file").forEach(element => {
+                            var cod_l = $('#cod_reg_l').val();
+
+
+                            // var buttons = element.querySelectorAll("button");
+                            // buttons.forEach(btns => {
+                            //     console.log(btns);
+
+                            // });
+
+                            $('#cod_reg_').val(cod_l)
+                            $('#cod_reg_2').val(cod_l)
+                            $('#cod_reg_3').val(cod_l)
+                            $('#cod_reg_4').val(cod_l)
+
+                            //     // var buttons = element.querySelectorAll("button");
+                            //     // console.log(buttons);
+                            console.log("asdsadsadsda");
+                            console.log(cod_l);
+                            // console.log(element);
+                        });
+                        /////
+                    })
                 });
             });
+
+
         });
 
 
