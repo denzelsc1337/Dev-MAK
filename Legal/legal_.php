@@ -113,9 +113,9 @@ require_once('../Controller/controladorListar.php');
                             <form method="POST" action="../Controller/Add_Solic_Legal.php">
                                 <div class="container mt-5">
 
-                                    <!-- <div class="arrow-right">
+                                    <div class="arrow-right">
                                         <i class="fa-solid fa-angle-right"></i>
-                                    </div> -->
+                                    </div>
                                     <div class="card-body">
                                         <div class="row">
                                             <div class="row" hidden>
@@ -247,7 +247,7 @@ require_once('../Controller/controladorListar.php');
                             </form>
                         </section>
 
-                        <!-- <section class="body-mak mak-txt position-relative" data-content="historico">
+                        <section class="body-mak mak-txt position-relative" data-content="historico">
 
 
                             <div class="container mt-5">
@@ -682,8 +682,7 @@ require_once('../Controller/controladorListar.php');
                                     ?>
                                 </div>
                             </form>
-                        </section> -->
-
+                        </section>
                     </div>
                 </div>
 
@@ -2017,9 +2016,11 @@ require_once('../Controller/controladorListar.php');
 
                     var upldFile = document.querySelectorAll(".upld-file").forEach(element => {
                         element.addEventListener("click", () => {
+                            // console.log(element);
                             /////
                             var contenido = document.querySelectorAll(".content-file").forEach(element => {
                                 var cod_l = $('#cod_reg_l').val();
+                                console.log(element);
 
 
                                 // var buttons = element.querySelectorAll("button");
@@ -2027,17 +2028,17 @@ require_once('../Controller/controladorListar.php');
                                 //     console.log(btns);
 
                                 // });
-                                element.addEventListener("click", () => {
-                                    $('#cod_reg_').val(cod_l)
-                                    $('#cod_reg_2').val(cod_l)
-                                    $('#cod_reg_3').val(cod_l)
-                                    $('#cod_reg_4').val(cod_l)
+                                // element.addEventListener("click", () => {
+                                $('#cod_reg_').val(cod_l)
+                                $('#cod_reg_2').val(cod_l)
+                                $('#cod_reg_3').val(cod_l)
+                                $('#cod_reg_4').val(cod_l)
 
-                                    //     // var buttons = element.querySelectorAll("button");
-                                    //     // console.log(buttons);
-                                    console.log("asdsadsadsda");
-                                    console.log(cod_l);
-                                })
+                                //     // var buttons = element.querySelectorAll("button");
+                                //     // console.log(buttons);
+                                console.log("asdsadsadsda");
+                                console.log(cod_l);
+                                // })
                                 // console.log(element);
                             });
                             /////
