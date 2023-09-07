@@ -1793,9 +1793,7 @@ require_once('../Controller/controladorListar.php');
             goLeft.addEventListener("click", () => {
                 makContentSlide.style.transform = "translateX(0%)";
 
-                $('#nom_cli_solic').text('');
 
-                
             });
 
             goRight.addEventListener("click", () => {
@@ -1833,12 +1831,14 @@ require_once('../Controller/controladorListar.php');
 
                     console.log(data);
 
+                    $('#cod_reg_l').val(data[0]);
+
                     // $('#nom_cli_solic').val(data[1] + " " + data[2]);
                     $('#nom_cli_solic').val(data[1]);
                     $('#ape_cli_solic').val(data[2]);
 
                     var btnLstHr = $('.btn_lst_hr');
-                
+
                     if (btnLstHr.length > 0) {
                         btnLstHr.hide();
                     }
