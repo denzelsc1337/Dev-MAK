@@ -732,12 +732,13 @@ li {
   padding: 0;
   color: white;
   height: 250px;
+  margin-bottom: 15px;
 }
 
 .card-mak .card-content {
   width: 100%;
   height: 100%;
-  padding: 0 5px 10px;
+  position: relative;
 }
 
 .card-mak .card-intro {
@@ -2291,11 +2292,6 @@ figcaption {
   .card-mak {
     padding: 0 15px 20px;
   }
-
-  .card-mak .card-intro {
-    bottom: 30px;
-  }
-
 
   .sidebar-open .main-sidebar,
   .sidebar-open .main-sidebar::before {
