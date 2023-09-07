@@ -1794,6 +1794,8 @@ require_once('../Controller/controladorListar.php');
                 makContentSlide.style.transform = "translateX(0%)";
 
                 $('#nom_cli_solic').text('');
+
+                
             });
 
             goRight.addEventListener("click", () => {
@@ -1834,6 +1836,17 @@ require_once('../Controller/controladorListar.php');
                     // $('#nom_cli_solic').val(data[1] + " " + data[2]);
                     $('#nom_cli_solic').val(data[1]);
                     $('#ape_cli_solic').val(data[2]);
+
+                    var btnLstHr = $('.btn_lst_hr');
+                
+                    if (btnLstHr.length > 0) {
+                        btnLstHr.hide();
+                    }
+
+                    var btnLstLyts = $('.btn_lst_lyts');
+                    if (btnLstLyts.length > 0) {
+                        btnLstLyts.show();
+                    }
 
                 });
             });
