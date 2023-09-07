@@ -113,9 +113,9 @@ require_once('../Controller/controladorListar.php');
                             <form method="POST" action="../Controller/Add_Solic_Legal.php">
                                 <div class="container mt-5">
 
-                                    <div class="arrow-right">
+                                    <!-- <div class="arrow-right">
                                         <i class="fa-solid fa-angle-right"></i>
-                                    </div>
+                                    </div> -->
                                     <div class="card-body">
                                         <div class="row">
                                             <div class="row" hidden>
@@ -236,6 +236,7 @@ require_once('../Controller/controladorListar.php');
 
                                     <div class="card-footer">
                                         <div class="form-flex">
+                                            <a href="./" class="btn btn-mak mak-bg-sec">Retroceder</a>
                                             <button type="submit" class="btn btn-mak mak-bg-sec" id="btn_save_borrador" name="btn_save_borrador">Guardar</button>
                                             <button type="submit" class="btn btn-mak mak-bg-sec" id="btn_updt_borrador" name="btn_updt_borrador" style="display: none;">Actualizar</button>
                                             <button type="submit" class="btn btn-mak mak-bg" id="btn_save_solic" name="btn_save_solic">Enviar</button>
@@ -246,7 +247,7 @@ require_once('../Controller/controladorListar.php');
                             </form>
                         </section>
 
-                        <section class="body-mak mak-txt position-relative" data-content="historico">
+                        <!-- <section class="body-mak mak-txt position-relative" data-content="historico">
 
 
                             <div class="container mt-5">
@@ -258,29 +259,12 @@ require_once('../Controller/controladorListar.php');
                                 <h1 class="text-center">HISTORICO</h1>
                                 <div class="row">
 
-                                    <!-- <div class="menu-filter">
-                                        <div class="filter-drop shadow ml-auto">
-                                            <div class="dropdown">
-                                                Filtros &nbsp;
-                                                <i class="fa-solid fa-sliders"></i>
-                                            </div>
-                                            <div class="optn-filter">
-                                                <div class="list-group-item">1</div>
-                                                <div class="list-group-item">2</div>
-                                                <div class="list-group-item">3</div>
-                                            </div>
-                                        </div>
-                                    </div> -->
-
                                     <?php
 
 
                                     if ($_SESSION['tipo_usu'] == 1) {
                                         //ocultar el del user y mostrar el del admin
                                     ?>
-
-                                        <!-- </div> TABLA ADMIN -->
-
                                         <div class="col-sm-12">
 
                                             <table class="table table-borderless" style="width: 100%;">
@@ -363,13 +347,11 @@ require_once('../Controller/controladorListar.php');
                                             </table>
                                         </div>
 
-                                        <!-- </div> TABLA ADMIN -->
 
                                     <?php
                                     } else {
                                     ?>
 
-                                        <!-- </div> TABLA USER -->
 
                                         <div class="col-sm-12">
                                             <table class="table table-borderless" style="width: 100%;">
@@ -474,7 +456,6 @@ require_once('../Controller/controladorListar.php');
                                             </table>
                                         </div>
 
-                                        <!-- </div> TABLA USER -->
                                     <?php
                                         //ocultar el del admin y mostrar el del user
                                     }
@@ -679,9 +660,6 @@ require_once('../Controller/controladorListar.php');
                                                     </div>
                                                 </div>
 
-                                                <!--<div id="legal_docs">
-
-                                                </div>-->
                                             </div>
                                         </div>
 
@@ -704,7 +682,7 @@ require_once('../Controller/controladorListar.php');
                                     ?>
                                 </div>
                             </form>
-                        </section>
+                        </section> -->
 
                     </div>
                 </div>

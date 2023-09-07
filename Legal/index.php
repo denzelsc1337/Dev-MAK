@@ -238,9 +238,9 @@ require_once('../Controller/controladorListar.php');
 
                             <div class="container mt-5">
 
-                                <div class="arrow-left">
+                                <!-- <div class="arrow-left">
                                     <i class="fa-solid fa-angle-left"></i>
-                                </div>
+                                </div> -->
 
                                 <h1 class="text-center">HISTORICO</h1>
                                 <div class="row">
