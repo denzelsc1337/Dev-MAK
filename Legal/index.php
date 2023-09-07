@@ -424,7 +424,7 @@ require_once('../Controller/controladorListar.php');
                                                                     </div>
 
                                                                     <?php if ($lst_legal_d[6] == 30) { ?>
-                                                                        <div class="col-sm-4 justify-content-center show_data_soli_legl">
+                                                                        <div class="col-sm-4 justify-content-center show_data_soli_legl" data-cod_solic=" <?php echo $lst_legal_d[0] ?>" data-cod_client="<?php echo $lst_legal_d[7] ?>">
                                                                             <div class="options">
                                                                                 <button type="button" class="btn btn-rounded arrow-left_1" id="">
                                                                                     <i class="fa-solid fa-pencil"></i>
@@ -496,6 +496,8 @@ require_once('../Controller/controladorListar.php');
 
                                                     <input type="text" class="form-mak" id="id_legal_solic" name="id_legal_solic" readonly hidden>
                                                     <input type="text" class="form-mak" id="id_client_l" readonly hidden>
+
+                                                    <input type="text" class="form-mak" id="dni_client_l" readonly hidden>
 
                                                     <div class="row">
                                                         <div class="col-sm-6">
@@ -1562,6 +1564,7 @@ require_once('../Controller/controladorListar.php');
 
                 var id_reg = $('#id_legal_solic').val();
                 var _id_cli_lgl = $('#id_client_l').val();
+                var _dni_cli_lgl = $('#dni_client_l').val();
 
 
                 $('#titulo_docs__').text(titulo_);
@@ -1832,6 +1835,15 @@ require_once('../Controller/controladorListar.php');
             goUpdate.forEach(element => {
                 element.addEventListener("click", function() {
                     makContentSlide.style.transform = "translateX(0%)";
+
+                    //code
+                    var _id_soli = $(element).data('cod_solic');
+                    var _idcli = $(element).data('cod_client');
+
+                    console.log(_id_soli)
+
+                    get_details_solic_legal(_id_soli, _idcli)
+
                     // code
                     $tr = $(this).closest('tr');
 
@@ -1935,6 +1947,8 @@ require_once('../Controller/controladorListar.php');
 
                         $("#id_legal_solic").val(id_valor)
                         $("#id_client_l").val(id_client)
+
+                        $("#dni_client_l").val(id_valor)
 
                         $("#data_names_").val(nom_client + ' ' + apellido)
                         $("#data_direcion_").val(correo)
