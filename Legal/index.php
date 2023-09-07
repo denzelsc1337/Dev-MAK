@@ -136,7 +136,7 @@ require_once('../Controller/controladorListar.php');
                                                     </div>
                                                 </div>
 
-                                                <textarea id="rutas_doscs" name="rutas_doscs" rows="5" cols="50" hidden><?php echo $rutas; ?></textarea>
+                                                <textarea id="rutas_doscs" name="rutas_doscs" rows="5" cols="50"></textarea>
                                             </div>
                                             <div class="col-sm-6">
                                                 <div class="row">
@@ -1557,19 +1557,23 @@ require_once('../Controller/controladorListar.php');
 
             $('.btn_lst_docs').on('click', function() {
 
-                var tipo_doc = $(this).data('valor');
+
                 var titulo_ = $(this).data('titulo');
-                var _id_doc_lgl = $(this).data('id_doc_');
-                var id_cli = $(this).data('id_user_');
+
+
 
                 var id_reg = $('#id_legal_solic').val();
+                //var id_cli = $(this).data('id_user_');
+                var tipo_doc = $(this).data('valor');
                 var _id_cli_lgl = $('#id_client_l').val();
+                var _id_doc_lgl = $(this).data('id_doc_');
+
                 var _dni_cli_lgl = $('#dni_client_l').val();
 
 
                 $('#titulo_docs__').text(titulo_);
 
-                load_documents_legal_(id_reg, id_cli, tipo_doc, _id_cli_lgl, _id_doc_lgl)
+                load_documents_legal_(id_reg, _dni_cli_lgl, tipo_doc, _id_cli_lgl, _id_doc_lgl)
 
                 $('#lst_docs_legal').modal('show');
 
@@ -1870,6 +1874,36 @@ require_once('../Controller/controladorListar.php');
                         btnLstLyts.show();
                     }
 
+
+                    // el lapiz hace que salga el boton actualizar
+                    var contenido = document.querySelectorAll(".content-file").forEach(element => {
+                        var buttons = element.querySelectorAll("button");
+                        buttons.forEach((btns, indice) => {
+                            if (indice % 2 === 1) { // Los índices pares tienen resto 1 al dividir por 2
+                                btns.style.display = "none";
+                                console.log(buttons)
+                            } else {
+                                btns.style.display = "block";
+
+                            }
+                        });
+                    });
+                    // el lapiz hace que salga el boton actualizar
+
+                    // el lapiz hace que se oculte y muestren los botones
+                    var cardFooter = document.querySelector(".card-footer");
+                    var botones = cardFooter.querySelectorAll("button");
+
+                    botones.forEach((botones, indice) => {
+                        if (indice % 2 === 0) { // Los índices pares tienen resto 1 al dividir por 2
+                            botones.style.display = "none";
+                        } else {
+                            botones.style.display = "block";
+
+                        }
+                    });
+                    // el lapiz hace que se oculte y muestren los botones
+
                 });
             });
         });
@@ -1906,12 +1940,13 @@ require_once('../Controller/controladorListar.php');
                         console.log(detalles);
 
                         var id_valor = detalles[0][0];
-                        var nom_client = detalles[0][2];
-                        var apellido = detalles[0][3];
-                        var correo = detalles[0][4];
-                        var id_client = detalles[0][6];
-                        var status_ = detalles[0][7];
-                        var coment = detalles[0][8];
+                        var nom_client = detalles[0][1];
+                        var apellido = detalles[0][2];
+                        var correo = detalles[0][3];
+                        var id_client = detalles[0][4];
+                        var dni_client = detalles[0][5];
+                        var status_ = detalles[0][6];
+                        var coment = detalles[0][7];
 
                     } catch (error) {
                         console.error("Error al analizar la respuesta JSON: " + error);
@@ -1942,13 +1977,13 @@ require_once('../Controller/controladorListar.php');
                         console.log("Apellido: " + apellido);
                         console.log("email: " + correo);
                         console.log("id cliente: " + id_client);
+                        console.log("dni cliente: " + dni_client);
                         console.log("comment: " + coment);
                         console.log("estado: " + status_);
 
                         $("#id_legal_solic").val(id_valor)
                         $("#id_client_l").val(id_client)
-
-                        $("#dni_client_l").val(id_valor)
+                        $("#dni_client_l").val(dni_client)
 
                         $("#data_names_").val(nom_client + ' ' + apellido)
                         $("#data_direcion_").val(correo)

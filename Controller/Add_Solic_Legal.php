@@ -17,19 +17,19 @@ if (isset($_POST['btn_save_solic'])) {
     $cadena = $cnx->abrirConexion();
 
     $oLegal = new cLegal();
-    $r = $oLegal->save_solic_legal($data,$cadena);
+    $r = $oLegal->save_solic_legal($data, $cadena);
 
     if ($r) {
 
         $lastID = mysqli_insert_id($cadena);
 
-        $carpeta_nueva = "../Solicitudes/" . $lastID."/";
+        $carpeta_nueva = "../Solicitudes/" . $lastID . "/";
 
         if (!file_exists($carpeta_nueva)) {
             mkdir($carpeta_nueva, 0777, true);
         }
 
-        $carpeta_dnis = "../Documentos Legal/".$dni_client."/";
+        $carpeta_dnis = "../Documentos Legal/" . $dni_client . "/";
 
         $carpeta_destino = $carpeta_nueva . $dni_client; // Ruta completa de la carpeta de destino
 
@@ -48,15 +48,19 @@ if (isset($_POST['btn_save_solic'])) {
             }
         }
 
-        ?>
-        <script type="text/javascript"> alert("Solicitud guardada y carpeta creada") </script>
+?>
+        <script type="text/javascript">
+            alert("Solicitud guardada y carpeta creada")
+        </script>
         <META http-equiv='Refresh' content='0.2; URL =../Legal/'>
-        <?php
+    <?php
         //echo $carpeta_nueva;
     } else {
-        ?>
-        <script type="text/javascript"> alert("Error al guardar la solicitud") </script>
-        <?php
+    ?>
+        <script type="text/javascript">
+            alert("Error al guardar la solicitud")
+        </script>
+    <?php
     }
 }
 
@@ -75,7 +79,7 @@ if (isset($_POST['btn_updt_solic'])) {
     echo $r;
     if ($r) {
 
-        $carpeta_nueva = "../Solicitudes/".$id_solic."/";
+        $carpeta_nueva = "../Solicitudes/" . $id_solic . "/";
 
         echo $carpeta_nueva;
 
@@ -83,7 +87,7 @@ if (isset($_POST['btn_updt_solic'])) {
             mkdir($carpeta_nueva, 0777, true);
         }
 
-        $carpeta_lyts = "../borradores/".$id_solic.'/'.$dni."/";
+        $carpeta_lyts = "../borradores/" . $id_solic . '/' . $dni . "/";
 
         $carpeta_destino = $carpeta_nueva . $dni; // Ruta completa de la carpeta de destino
 
@@ -102,15 +106,19 @@ if (isset($_POST['btn_updt_solic'])) {
             }
         }
 
-        ?>
-        <script type="text/javascript"> alert("Solicitud enviada") </script>
+    ?>
+        <script type="text/javascript">
+            alert("Solicitud enviada")
+        </script>
         <META http-equiv='Refresh' content='0.2; URL =../Legal/'>
-        <?php
+    <?php
         //echo $carpeta_nueva;
     } else {
-        ?>
-        <script type="text/javascript"> alert("Error al guardar la solicitud") </script>
-        <?php
+    ?>
+        <script type="text/javascript">
+            alert("Error al guardar la solicitud")
+        </script>
+<?php
     }
 }
 
@@ -121,7 +129,7 @@ if (isset($_POST['btn_updt_solic'])) {
 
 
 
-if(isset($_POST["btn_save_borrador"])) {
+if (isset($_POST["btn_save_borrador"])) {
 
     $data[1] = $_POST["nom_cli_solic"];
     $data[2] = $_POST["ape_cli_solic"];
@@ -136,20 +144,20 @@ if(isset($_POST["btn_save_borrador"])) {
     $cadena = $cnx->abrirConexion();
 
     $oLegal = new cLegal();
-    $r = $oLegal->save_borrador_legal($data,$cadena);
+    $r = $oLegal->save_borrador_legal($data, $cadena);
 
     if ($r) {
 
         $lastID = mysqli_insert_id($cadena);
 
-        $carpeta_nueva = "../borradores/" . $lastID."/";
+        $carpeta_nueva = "../borradores/" . $lastID . "/";
 
         if (!file_exists($carpeta_nueva)) {
             mkdir($carpeta_nueva, 0777, true);
         }
 
 
-        $carpeta_dnis = "../Documentos Legal/".$dni_client."/";
+        $carpeta_dnis = "../Documentos Legal/" . $dni_client . "/";
 
         $carpeta_destino = $carpeta_nueva . $dni_client; // Ruta completa de la carpeta de destino
 
