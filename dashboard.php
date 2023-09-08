@@ -138,7 +138,7 @@ require_once('config/security.php');
                   </li>
                   <li class="nav-header">Gestion</li>
                   <li class="nav-item">
-                    <a href="../Gestion" class="nav-link">
+                    <a href="./Gestion" class="nav-link">
                       <i class="nav-icon fas fa-sharp fa-regular fa-users"></i>
                       <p>Personal</p>
                     </a>

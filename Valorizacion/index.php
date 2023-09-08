@@ -277,7 +277,7 @@ require_once('../Controller/controladorListar.php'); ?>
                                                             echo "<td><span class='badge rounded-pill bg-secondary'>Pendiente</span></td>";
                                                             break;
                                                         case "400":
-                                                            echo "<td><span class='badge rounded-pill bg-warning text-dark'>En revision</span></td>";
+                                                            echo "<td><span class='badge rounded-pill bg-warning text-dark'>Observado</span></td>";
                                                             break;
                                                         case "200":
                                                             echo "<td><span class='badge rounded-pill bg-success'> Finalizado</span></td>";
@@ -504,7 +504,7 @@ require_once('../Controller/controladorListar.php'); ?>
                             </div>
                         </form>
                     </section>
-                    
+
                 </div>
                 <!-- </div> -->
 
@@ -559,8 +559,8 @@ require_once('../Controller/controladorListar.php'); ?>
                                         <ul id="detalles_valor" style="display:none"></ul>
 
                                     </div>
-                                    <div id="docs_val">
-                                        <label>Descargar Archivos</label>
+                                    <div id="">
+                                        <label class="pdd-left">Descargar Archivos</label>
                                         <div>
                                             <div id="descarga_archivo_m">
                                                 <ul id="archivos_lista"></ul>
@@ -595,7 +595,7 @@ require_once('../Controller/controladorListar.php'); ?>
 
                                     </div>
                                     <div id="docs_val">
-                                        <label>Fotos Subidas</label>
+                                        <label class="pdd-left">Fotos Subidas</label>
                                         <div>
                                             <div id="fotos_val">
                                                 <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
