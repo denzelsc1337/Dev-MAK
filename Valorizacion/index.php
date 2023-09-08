@@ -504,6 +504,7 @@ require_once('../Controller/controladorListar.php'); ?>
                             </div>
                         </form>
                     </section>
+                    
                 </div>
                 <!-- </div> -->
 
@@ -623,7 +624,6 @@ require_once('../Controller/controladorListar.php'); ?>
                         </div>
                     </div>
                 </div>
-
 
 
 

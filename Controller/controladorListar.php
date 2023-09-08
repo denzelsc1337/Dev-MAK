@@ -4,6 +4,7 @@ require_once('../Model/Cliente_Servicios.php');
 $oCli_s = new Cliente_Servicio();
 //selector tipo cliente
 $selector_types = $oCli_s->selectorType_Client_Service();
+$data_users = $oCli_s->lst_users_gestion();
 
 //selector tipo propiedad
 require_once('../Model/Valorizacion.php');

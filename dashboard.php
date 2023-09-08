@@ -136,6 +136,13 @@ require_once('config/security.php');
                       <p>Valorizaciones</p>
                     </a>
                   </li>
+                  <li class="nav-header">Gestion</li>
+                  <li class="nav-item">
+                    <a href="../Gestion" class="nav-link">
+                      <i class="nav-icon fas fa-sharp fa-regular fa-users"></i>
+                      <p>Personal</p>
+                    </a>
+                  </li>
                 </ul>
               </nav>
             <?php endif ?>

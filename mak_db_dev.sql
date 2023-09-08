@@ -103,6 +103,11 @@ create table tipo_client_service (
     nombre_tipo_client varchar(255)
 );
 
+create table roles_usu (
+	id_rol int auto_increment primary key, 
+    nombre_rol varchar(255)
+);
+
 
 CREATE TABLE clientes_servicios (
   id_client 				INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -121,6 +126,11 @@ CREATE TABLE clientes_servicios (
   FOREIGN KEY (tipo_usu_cod) REFERENCES tipo_usuario (tipo_usu_id)
 );
 
+ALTER TABLE `clientes_servicios` ADD `rol_usu` INT AFTER `tipo_usu_cod`;
+
+alter table clientes_servicios
+add foreign key (rol_usu)
+references roles_usu (id_rol);
 
 create table clientes(
 	id_client INT auto_increment PRIMARY KEY NOT NULL,

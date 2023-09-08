@@ -9,7 +9,7 @@ class Cliente_Servicio
 	function __construct()
 	{
 		$this->selectorTypes_Cl = array();
-		
+		$this->data_users = array();
 		
 	}
 
@@ -48,6 +48,24 @@ class Cliente_Servicio
 		$cnx->cerrarConexion($cadena);
 
 		return $this->selectorTypes_Cl;
+	}
+
+	public function lst_users_gestion()
+	{
+		include_once('../config/Conexion.php');
+		$cnx = new conexion();
+		$cadena = $cnx->abrirConexion();
+
+		$query = "SELECT * from clientes_servicios";
+
+		$resultado = mysqli_query($cadena, $query);
+
+		while ($fila = mysqli_fetch_row($resultado)) {
+			$this->data_users[] = $fila;
+		}
+		$cnx->cerrarConexion($cadena);
+
+		return $this->data_users;
 	}
 
 
