@@ -136,7 +136,7 @@ require_once('../Controller/controladorListar.php');
                                                     </div>
                                                 </div>
 
-                                                <textarea id="rutas_doscs" name="rutas_doscs" rows="5" cols="50"></textarea>
+                                                <textarea id="rutas_doscs" name="rutas_doscs" rows="5" cols="50" hidden></textarea>
                                             </div>
                                             <div class="col-sm-6">
                                                 <div class="row">
