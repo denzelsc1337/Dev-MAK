@@ -58,6 +58,11 @@ require_once('../Controller/controladorListar.php');
 
         <div class="content-wrapper">
 
+
+            <div id="loader_uhd" class="mak_overlay hidden">
+                <img src="../Vista/images/MAK_logo.png" alt="" class="fading-element">
+            </div>
+
             <section class="content">
                 <!-- <header class="header-mak">
                     <h1 class="title">¿Más de 2,000 propiedades <br> esperan por ti!</h1>
@@ -98,6 +103,7 @@ require_once('../Controller/controladorListar.php');
                 <?php
                 }
                 ?>
+
 
                 <div class="d-flex overflow-hidden w-100">
                     <div class="mak-content-slide">
@@ -455,9 +461,7 @@ require_once('../Controller/controladorListar.php');
 
 
                         <section class="mak-txt position-relative body-slide" data-content="files">
-                            <div id="loader_uhd" class="mak_overlay hidden">
-                                <img src="../Vista/images/MAK_logo.png" alt="" class="fading-element">
-                            </div>
+
 
                             <form method="POST" id="form_files" action="../Controller/update_solic_docs_legal.php">
                                 <div class="arrow-left arrow-left_1">
