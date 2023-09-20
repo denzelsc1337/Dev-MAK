@@ -1340,7 +1340,7 @@ require_once('../Controller/controladorListar.php');
 
                     },
                     beforeSend: function() {
-                        $("#loader_uhd").show();
+                        // $("#loader_uhd").show();
                         $("#lst_docs_lgl").hide();
                         //$("#docs_val").hide();
 
