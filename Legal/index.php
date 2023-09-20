@@ -281,16 +281,16 @@ require_once('../Controller/controladorListar.php');
                                                                 $estado = $lst_legal_d[4];
                                                                 switch ($estado) {
                                                                     case '10':
-                                                                        echo '<span class="badge rounded-pill bg-secondary">Pendiente</span>';
+                                                                        echo '<span class="badge rounded-pill bg-info">Pendiente</span>';
                                                                         break;
                                                                     case '20':
-                                                                        echo '<span class="badge rounded-pill bg-warning text-dark">En revision</span>';
+                                                                        echo '<span class="badge rounded-pill bg-warning text-dark">En revisión</span>';
+                                                                        break;
+                                                                    case '30':
+                                                                        echo '<span class="badge rounded-pill bg-secondary">Borrador</span>';
                                                                         break;
                                                                     case '90':
                                                                         echo '<span class="badge rounded-pill bg-success">Finalizado</span>';
-                                                                        break;
-                                                                    case '30':
-                                                                        echo '<span class="badge rounded-pill bg-success">Borrador</span>';
                                                                         break;
                                                                     default:
                                                                         echo 'test';
@@ -376,16 +376,16 @@ require_once('../Controller/controladorListar.php');
                                                                 //echo $estado;
                                                                 switch ($estado) {
                                                                     case '10':
-                                                                        echo '<span class="badge rounded-pill bg-secondary">Pendiente</span>';
+                                                                        echo '<span class="badge rounded-pill bg-info">Pendiente</span>';
                                                                         break;
                                                                     case '20':
                                                                         echo '<span class="badge rounded-pill bg-warning text-dark">En revision</span>';
                                                                         break;
+                                                                    case '30':
+                                                                        echo '<span class="badge rounded-pill bg-secondary">Borrador</span>';
+                                                                        break;
                                                                     case '90':
                                                                         echo '<span class="badge rounded-pill bg-success">Finalizado</span>';
-                                                                        break;
-                                                                    case '30':
-                                                                        echo '<span class="badge rounded-pill bg-success">Borrador</span>';
                                                                         break;
                                                                     default:
                                                                         echo 'test';
@@ -523,7 +523,16 @@ require_once('../Controller/controladorListar.php');
 
                                             <div class="col-sm-6">
                                                 <div class=" d-flex justify-content-end">
-                                                    <div class="btn btn-mak bg-success">Aprobado</div>
+                                                    <div class="input-select">
+                                                        <input type="text" id="" name="" class="textBox" readonly>
+                                                        <input type="text" id="status_solic_val_cbo" name="status_solic_val_cbo" hidden readonly>
+                                                        <div class="select-options">
+                                                            <div class="bg-info" data-value="10">Pendiente</div>
+                                                            <div class="bg-warning" data-value="20">En revisión</div>
+                                                            <div class="bg-secondary" data-value="30">Borrador</div>
+                                                            <div class="bg-success" data-value="90">Finalizado</div>
+                                                        </div>
+                                                    </div>
                                                 </div>
 
                                                 <div class="card-body" id="carpeta_l">
@@ -1800,8 +1809,7 @@ require_once('../Controller/controladorListar.php');
                 // Previene la acción predeterminada de "Tab"
                 event.preventDefault();
             }
-        })
-        console.log(makContentSlide);
+        });
 
         document.addEventListener('DOMContentLoaded', function() {
 
@@ -2024,105 +2032,62 @@ require_once('../Controller/controladorListar.php');
                         $("#data_direcion_").val(correo)
                         $("#coment_").val(coment)
 
-
-                        /* switch (estado) {
-                             case '400':
-                                 $("#status_solic_val_cbo").val("400");
-                                 $(".textBox").val("Observado");
-                                 $(".textBox").addClass("bg-warning");
-                                 $(".textBox").removeClass("bg-secondary");
-                                 $(".textBox").removeClass("bg-success");
-
-                                 add_file_val_1.classList.add("hidden");
-                                 add_file_val_1.style.display = "none";
-
-                                 add_obs_1.classList.remove("hidden");
-                                 add_obs_1.style.display = "block";
-
-                                 btnDisable.prop("disabled", true);
-                                 dwnld_info.style.display = "none";
-
-                                 break;
-                             case '200':
-                                 $("#status_solic_val_cbo").val("200");
-
-                                 $(".textBox").val("Finalizado");
-                                 $(".textBox").addClass("bg-success");
-                                 $(".textBox").removeClass("bg-warning");
-                                 $(".textBox").removeClass("bg-secondarys");
+                        // $("#status_solic_val_cbo").val(status_);
 
 
-                                 add_obs_1.classList.add("hidden");
-                                 add_obs_1.style.display = "none";
+                        switch (status_) {
+                            case '10':
+                                $("#status_solic_val_cbo").val("10");
+                                //
+                                $(".textBox").val("Pendiente");
+                                $(".textBox").addClass("bg-info");
+                                $(".textBox").removeClass("bg-warning");
+                                $(".textBox").removeClass("bg-secondary");
+                                $(".textBox").removeClass("bg-success");
 
-                                 add_file_val_1.classList.remove("hidden");
-                                 add_file_val_1.style.display = "none";
+                                break;
+                            case '20':
+                                $("#status_solic_val_cbo").val("20");
+                                //
+                                $(".textBox").val("En revisión");
+                                $(".textBox").addClass("bg-warning");
+                                $(".textBox").removeClass("bg-secondary");
+                                $(".textBox").removeClass("bg-success");
+                                $(".textBox").removeClass("bg-info");
 
-                                 btnDisable.prop("disabled", true);
+                                break;
+                            case '30':
+                                $("#status_solic_val_cbo").val("30");
+                                //
+                                $(".textBox").val("Borrador");
+                                $(".textBox").addClass("bg-secondary");
+                                $(".textBox").removeClass("bg-success");
+                                $(".textBox").removeClass("bg-info");
+                                $(".textBox").removeClass("bg-warning");
+                                break;
+                            default:
+                                $("#status_solic_val_cbo").val("90");
+                                //
+                                $(".textBox").val("Finalizado");
+                                $(".textBox").addClass("bg-success");
+                                $(".textBox").removeClass("bg-info");
+                                $(".textBox").removeClass("bg-warning");
+                                $(".textBox").removeClass("bg-secondary");
+                                break;
+                        }
 
-                                 dwnld_info.style.display = "block";
-                                 break;
-
-                             default:
-                                 $("#status_solic_val_cbo").val("500");
-                                 $(".textBox").val("Pendiente");
-                                 $(".textBox").addClass("bg-secondary");
-                                 $(".textBox").removeClass("bg-success");
-                                 $(".textBox").removeClass("bg-warning");
-
-
-                                 add_obs_1.classList.add("hidden");
-                                 add_obs_1.style.display = "none";
-
-                                 add_file_val_1.classList.add("hidden");
-                                 add_file_val_1.style.display = "none";
-
-                                 dwnld_info.style.display = "none";
-                         }
-
-                         $("#dir_rsm").text(detalles[0][2]);
-                         $("#tip_rsm").text(detalles[0][3]);
-                         $("#pro_rsm").text(detalles[0][5]);
-                         $("#at_rsm").text(detalles[0][6]);
-                         $("#ac_rsm").text(detalles[0][7]);
-                         $("#ao_rsm").text(detalles[0][8]);
-
-
-                         var direccion_val = $("#dir_rsm").text();
-                         get_distrito_x_direccion(direccion_val);
-
-                         btnDisable.prop("disabled", true);
+                        $("#dir_rsm").text(detalles[0][2]);
+                        $("#tip_rsm").text(detalles[0][3]);
+                        $("#pro_rsm").text(detalles[0][5]);
+                        $("#at_rsm").text(detalles[0][6]);
+                        $("#ac_rsm").text(detalles[0][7]);
+                        $("#ao_rsm").text(detalles[0][8]);
 
 
+                        // var direccion_val = $("#dir_rsm").text();
+                        // get_distrito_x_direccion(direccion_val);
 
-                         tipo_status.addEventListener("change", function() {
-
-                             switch (tipo_status.value) {
-                                 case "400":
-                                     console.log("uwu")
-                                     add_obs_1.classList.remove("hidden");
-                                     add_obs_1.style.display = "block";
-
-                                     //add_file_val_1.classList.add("hidden");
-                                     //add_file_val_1.style.display = "none";
-                                     break;
-                                 case "200":
-                                     add_obs_1.classList.add("hidden");
-                                     add_obs_1.style.display = "none";
-
-                                     //add_file_val_1.classList.remove("hidden");
-                                     //add_file_val_1.style.display = "block";
-                                     break;
-                                 default:
-                                     add_obs_1.classList.add("hidden");
-                                     //add_file_val_1.classList.add("hidden");
-
-                                     add_obs_1.style.display = "none";
-                                     //add_file_val_1.style.display = "none";
-                                     break;
-                             }
-
-                         });*/
+                        // btnDisable.prop("disabled", true);
 
                     }, 900);
 
@@ -2133,375 +2098,6 @@ require_once('../Controller/controladorListar.php');
                 }
             });
         }
-    </script>
-
-
-    <script>
-        // ----------------------------
-
-        // document.querySelectorAll(".body-mak").forEach(element => {
-
-        //     const contenedor = document.querySelector(".overflow-hidden");
-        //     const contenido = contenedor.scrollWidth;
-        //     const anchoVisible = contenedor.clientWidth;
-
-
-        //     const totalScroll = contenido - anchoVisible;
-        //     const mitadScroll = totalScroll / 2;
-
-
-        //     //
-        //     if (element.getAttribute("data-content") === "legal") {
-        //         contenedor.scrollLeft = mitadScroll
-        //         element.querySelector(".arrow-right").addEventListener("click", (e) => {
-
-        //             // Realizar la transición a la mitad del scroll horizontal con animación
-        //             contenedor.style.scrollBehavior = "smooth"; // Activar la animación
-        //             contenedor.scrollLeft = mitadScroll; // Ir a la mitad
-
-
-        //         })
-
-
-        //     } else if (element.getAttribute("data-content") === "historico") {
-
-        // document.querySelectorAll(".scroll-toggle").forEach((element) => {
-
-        //     element.addEventListener("click", function() {
-
-        //         $tr = $(this).closest('tr');
-
-        //         var data = $tr.children("td").map(function() {
-        //             return $(this).text();
-        //         }).get();
-
-        //         console.log(data);
-        //         $('#id_legal_solic').val(data[0]);
-
-        //         $('#data_names_').val(data[1]);
-        //         $('#data_direcion_').val(data[2]);
-
-        //         $('#coment_').val(data[9]);
-
-        //         $('#id_client_l').val(data[5]);
-
-        //         $('#coment_').val(data[7]);
-
-
-        //         //load_documents_legal('<?php echo $_SESSION['id_usu'] ?>');
-
-
-        //         // Realizar la transición al final del scroll horizontal con animación
-        //         contenedor.style.scrollBehavior = "smooth"; // Activar la animación
-        //         contenedor.scrollLeft = totalScroll; // Ir al final
-
-        //     });
-
-        // });
-
-        //         document.querySelectorAll(".arrow-left").forEach((element) => {
-
-        //             element.addEventListener("click", function() {
-
-        //                 $tr = $(this).closest('tr');
-
-        //                 var data = $tr.children("td").map(function() {
-        //                     return $(this).text();
-        //                 }).get();
-
-        //                 console.log(data);
-        //                 $('#cod_reg_l').val(data[0]);
-
-        //                 $('#nom_cli_solic').val(data[1]);
-        //                 $('#ape_cli_solic').val(data[2]);
-
-        //                 $('#dir_cli_solic').val(data[4]);
-
-        //                 //load_documents_legal('<?php echo $_SESSION['id_usu'] ?>');
-
-        //                 var btnLstHr = $('.btn_lst_hr');
-        //                 if (btnLstHr.length > 0) {
-        //                     btnLstHr.show();
-        //                 }
-
-
-        //                 var btnLstLyts = $('.btn_lst_lyts');
-        //                 if (btnLstLyts.length > 0) {
-        //                     btnLstLyts.hide();
-        //                 }
-
-        //                 // Realizar la transición al final del scroll horizontal con animación
-        //                 contenedor.style.scrollBehavior = "smooth"; // Activar la animación
-        //                 contenedor.scrollLeft = 0; // Ir al final
-
-        //             });
-
-        //         });
-
-
-        //         document.querySelectorAll(".arrow-left_1").forEach((element) => {
-
-        //             element.addEventListener("click", function() {
-
-        //                 $tr = $(this).closest('tr');
-
-        //                 var data = $tr.children("td").map(function() {
-        //                     return $(this).text();
-        //                 }).get();
-
-        //                 console.log(data);
-        //                 $('#cod_reg_l').val(data[0]);
-
-        //                 $('#nom_cli_solic').val(data[1]);
-        //                 $('#ape_cli_solic').val(data[2]);
-
-        //                 $('#dir_cli_solic').val(data[4]);
-
-        //                 //load_documents_legal('<?php echo $_SESSION['id_usu'] ?>');
-
-        //                 var btnLstHr = $('.btn_lst_hr');
-        //                 if (btnLstHr.length > 0) {
-        //                     btnLstHr.hide();
-        //                 }
-
-        //                 var btnLstLyts = $('.btn_lst_lyts');
-        //                 if (btnLstLyts.length > 0) {
-        //                     btnLstLyts.show();
-        //                 }
-
-        //                 // Realizar la transición al final del scroll horizontal con animación
-        //                 contenedor.style.scrollBehavior = "smooth"; // Activar la animación
-        //                 contenedor.scrollLeft = 0; // Ir al final
-
-
-
-
-
-
-        //                 // el lapiz hace que salga el boton actualizar
-        //                 var contenido = document.querySelectorAll(".content-file").forEach(element => {
-        //                     var buttons = element.querySelectorAll("button");
-        //                     buttons.forEach((btns, indice) => {
-        //                         if (indice % 2 === 1) { // Los índices pares tienen resto 1 al dividir por 2
-        //                             btns.style.display = "none";
-
-        //                         } else {
-        //                             btns.style.display = "block";
-
-        //                         }
-        //                     });
-        //                 });
-        //                 // el lapiz hace que salga el boton actualizar
-
-        //                 // el lapiz hace que se oculte y muestren los botones
-        //                 var cardFooter = document.querySelector(".card-footer");
-        //                 var botones = cardFooter.querySelectorAll("button");
-
-        //                 botones.forEach((botones, indice) => {
-        //                     if (indice % 2 === 0) { // Los índices pares tienen resto 1 al dividir por 2
-        //                         botones.style.display = "none";
-        //                     } else {
-        //                         botones.style.display = "block";
-
-        //                     }
-        //                 });
-        //                 // el lapiz hace que se oculte y muestren los botones
-
-
-
-
-        //                 // el boton a historico hace que salga el registrar
-        //                 var arw_rght = document.querySelector(".arrow-right").addEventListener("click", () => {
-        //                     var contenido = document.querySelectorAll(".content-file").forEach(element => {
-        //                         // console.log(element);
-        //                         var buttons = element.querySelectorAll("button");
-        //                         buttons.forEach((btns, indice) => {
-        //                             if (indice % 2 === 0) { // Los índices pares tienen resto 1 al dividir por 2
-        //                                 btns.style.display = "none";
-        //                             } else {
-        //                                 btns.style.display = "block";
-
-        //                             }
-        //                         });
-        //                     });
-        //                     var cardFooter = document.querySelector(".card-footer");
-        //                     var botones = cardFooter.querySelectorAll("button");
-
-        //                     botones.forEach((botones, indice) => {
-        //                         if (indice % 2 === 1) { // Los índices pares tienen resto 1 al dividir por 2
-        //                             botones.style.display = "none";
-        //                         } else {
-        //                             botones.style.display = "block";
-
-        //                         }
-        //                     });
-        //                 });
-        //                 // el boton a historico hace que salga el registrar
-
-
-
-
-
-        //             });
-
-        //             var upldFile = document.querySelectorAll(".upld-file").forEach(element => {
-        //                 element.addEventListener("click", () => {
-        //                     /////
-        //                     var contenido = document.querySelectorAll(".content-file").forEach(element => {
-        //                         var cod_l = $('#cod_reg_l').val();
-
-
-        //                         // var buttons = element.querySelectorAll("button");
-        //                         // buttons.forEach(btns => {
-        //                         //     console.log(btns);
-
-        //                         // });
-        //                         element.addEventListener("click", () => {
-        //                             $('#cod_reg_').val(cod_l)
-        //                             $('#cod_reg_2').val(cod_l)
-        //                             $('#cod_reg_3').val(cod_l)
-        //                             $('#cod_reg_4').val(cod_l)
-
-        //                             //     // var buttons = element.querySelectorAll("button");
-        //                             //     // console.log(buttons);
-        //                             console.log("asdsadsadsda");
-        //                             console.log(cod_l);
-        //                         })
-        //                         // console.log(element);
-        //                     });
-        //                     /////
-        //                 })
-        //             });
-
-        //         });
-
-
-
-
-
-        //         element.querySelector(".arrow-left").addEventListener("click", () => {
-        //             // Realizar la transición de volver a la mitad del scroll horizontal con animación
-        //             contenedor.style.scrollBehavior = "smooth"; // Activar la animación
-        //             contenedor.scrollLeft = 0; // Volver al inicio
-        //         })
-
-        //     } else if (element.getAttribute("data-content") === "files") {
-
-        //         // document.querySelectorAll(".scroll-toggle").forEach((element) => {
-        //         element.querySelector(".arrow-left").addEventListener("click", () => {
-
-        //             // Realizar la transición de volver a la mitad del scroll horizontal con animación
-        //             contenedor.style.scrollBehavior = "smooth"; // Activar la animación
-        //             contenedor.scrollLeft = mitadScroll; // Volver a la mitad
-
-        //         })
-        //         // });
-        //     }
-
-        // });
-
-        // ----------------------------
-        // ----------------------------
-        // const butonIconLeft = document.querySelector('.arrow-left');
-        // const butonIconLeft_1 = document.querySelector('.arrow-left_1');
-        // const butonIconRight = document.querySelector('.arrow-right');
-        // const butonIconRight_1 = document.querySelectorAll('.arrow-right_1');
-
-        // butonIconRight.addEventListener("click", () => {
-        //     dondeEstoy("right");
-        // });
-
-        // butonIconRight_1.forEach(element => {
-        //     element.addEventListener("click", () => {
-        //         dondeEstoy("right");
-        //     });
-        // });
-
-        // butonIconLeft.addEventListener("click", () => {
-        //     dondeEstoy("left");
-        // });
-
-        // butonIconLeft_1.addEventListener("click", () => {
-        //     dondeEstoy("left");
-        // });
-
-        // function dondeEstoy(direction) {
-        //     // Obtener todas las secciones
-        //     var sections = document.querySelectorAll('.body-slide');
-
-        //     // Encontrar la sección activa actual
-        //     var currentSection;
-        //     sections.forEach(function(section) {
-        //         if (section.classList.contains('active')) {
-        //             currentSection = section;
-        //         }
-        //     });
-
-        //     // Determinar la dirección y encontrar la siguiente sección
-        //     var nextSection;
-        //     if (direction === 'left') {
-        //         nextSection = currentSection.previousElementSibling;
-        //         if (!nextSection) {
-        //             // Si no hay una siguiente sección a la izquierda, selecciona la última
-        //             nextSection = sections[sections.length - 1];
-        //         }
-        //     } else if (direction === 'right') {
-        //         nextSection = currentSection.nextElementSibling;
-        //         if (!nextSection) {
-        //             // Si no hay una siguiente sección a la derecha, selecciona la primera
-        //             nextSection = sections[0];
-        //         }
-        //     }
-
-        //     // Evitar la transición de verde a rojo y viceversa
-        //     if (currentSection.getAttribute("data-content") === "files" && currentSection.getAttribute("data-content") === "legal") {
-        //         return;
-        //     }
-        //     if (currentSection.getAttribute("data-content") === "legal" && currentSection.getAttribute("data-content") === "files") {
-        //         return;
-        //     }
-
-        //     // Cambiar las clases 'active' para la sección actual y la siguiente
-        //     if (currentSection && nextSection) {
-        //         currentSection.classList.remove('active');
-        //         nextSection.classList.add('active');
-        //     }
-        // }
-
-        // document.querySelectorAll(".scroll-toggle").forEach((element) => {
-
-        //     element.addEventListener("click", function() {
-
-        //         $tr = $(this).closest('tr');
-
-        //         var data = $tr.children("td").map(function() {
-        //             return $(this).text();
-        //         }).get();
-
-        //         // console.log(data);
-        //         $('#id_legal_solic').val(data[0]);
-
-        //         $('#data_names_').val(data[1]);
-        //         $('#data_direcion_').val(data[2]);
-
-        //         $('#coment_').val(data[9]);
-
-        //         $('#id_client_l').val(data[5]);
-
-        //         $('#coment_').val(data[7]);
-
-
-        //         //load_documents_legal('<?php echo $_SESSION['id_usu'] ?>');
-
-
-        //         // // Realizar la transición al final del scroll horizontal con animación
-        //         // contenedor.style.scrollBehavior = "smooth"; // Activar la animación
-        //         // contenedor.scrollLeft = totalScroll; // Ir al final
-
-        //     });
-
-        // });
-        // ----------------------------
     </script>
 
     <script>
@@ -2525,6 +2121,73 @@ require_once('../Controller/controladorListar.php');
                 ],
             });
         });
+    </script>
+
+    <script>
+        const inputSelect = document.querySelector(".input-select");
+        const textBox = document.querySelector(".textBox");
+        const textBoxValue = document.querySelector("#status_solic_val_cbo");
+        const selectOptions = document.querySelectorAll(".select-options div");
+
+
+        inputSelect.addEventListener("click", function() {
+            inputSelect.classList.toggle("active");
+            textBox.classList.toggle("radius");
+
+        });
+        document.addEventListener("click", function(event) {
+
+            if (!inputSelect.contains(event.target)) {
+                inputSelect.classList.remove("active");
+                textBox.classList.remove("radius");
+            }
+        });
+
+        selectOptions.forEach(option => {
+            option.addEventListener("click", function() {
+                const dataValue = option.getAttribute("data-value");
+                textBoxValue.value = dataValue; // Cambia el valor de textBoxValue
+
+                switch (dataValue) {
+                    case '10':
+                        textBox.value = "Pendiente";
+                        //----
+                        textBox.classList.add("bg-info");
+                        textBox.classList.remove("bg-warning");
+                        textBox.classList.remove("bg-secondary");
+                        textBox.classList.remove("bg-success");
+                        break;
+                    case '20':
+                        textBox.value = "En revisión";
+                        //----
+                        textBox.classList.add("bg-warning");
+                        textBox.classList.remove("bg-secondary");
+                        textBox.classList.remove("bg-success");
+                        textBox.classList.remove("bg-info");
+                        break;
+                    case '30':
+                        textBox.value = "Borrador";
+                        //----
+                        textBox.classList.add("bg-secondary");
+                        textBox.classList.remove("bg-success");
+                        textBox.classList.remove("bg-info");
+                        textBox.classList.remove("bg-warning");
+                        break;
+                    case '90':
+                        textBox.value = "Finalizado";
+                        textBox.classList.add("bg-success");
+                        textBox.classList.remove("bg-info");
+                        textBox.classList.remove("bg-warning");
+                        textBox.classList.remove("bg-secondary");
+                        break;
+                    default:
+                        break;
+                }
+
+            });
+        });
+        // Cierra el menú desplegable
+        inputSelect.classList.remove("active");
     </script>
 
 </body>

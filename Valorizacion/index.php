@@ -2561,11 +2561,17 @@ require_once('../Controller/controladorListar.php'); ?>
         //const btnDisble = document.querySelector("#bnValo_obs_save");
         var btnDisble_ = document.getElementById("btnValo_obs_save");
 
-
-
         inputSelect.addEventListener("click", function() {
             inputSelect.classList.toggle("active");
             textBox.classList.toggle("radius");
+
+        });
+        document.addEventListener("click", function(event) {
+
+            if (!inputSelect.contains(event.target)) {
+                inputSelect.classList.remove("active");
+                textBox.classList.remove("radius");
+            }
         });
 
         selectOptions.forEach(option => {
