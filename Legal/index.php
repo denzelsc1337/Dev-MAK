@@ -452,11 +452,17 @@ require_once('../Controller/controladorListar.php');
                             </div>
                         </section>
 
+
+
                         <section class="mak-txt position-relative body-slide" data-content="files">
-                            <div class="arrow-left arrow-left_1">
-                                <i class="fa-solid fa-angle-left"></i>
+                            <div id="loader_uhd" class="mak_overlay hidden">
+                                <img src="../Vista/images/MAK_logo.png" alt="" class="fading-element">
                             </div>
-                            <form method="POST" action="../Controller/update_solic_docs_legal.php">
+
+                            <form method="POST" id="form_files" action="../Controller/update_solic_docs_legal.php">
+                                <div class="arrow-left arrow-left_1">
+                                    <i class="fa-solid fa-angle-left"></i>
+                                </div>
 
                                 <div class="container">
                                     <div class="card-body">
@@ -1965,11 +1971,11 @@ require_once('../Controller/controladorListar.php');
                     // $("#loader_uhd").show();
                     $("#loader_uhd").removeClass("hidden");
 
-                    /*$("#detalles_valor").hide();
-                    $("#docs_val").hide();*/
+                    $("#form_files").hide();
+                    /*$("#docs_val").hide();*/
 
                     // if ($(".mak_overlay").hasClass("hidden")) {
-                    $("#add_data_val").addClass("hide");
+                    // $("#add_data_val").addClass("hide");
                     // }
 
                 },
@@ -2089,8 +2095,13 @@ require_once('../Controller/controladorListar.php');
 
                         // btnDisable.prop("disabled", true);
 
-                    }, 900);
+                    }, 1500);
 
+                },
+                complete: function() {
+                    setTimeout(function() {
+                        $("#form_files").show();
+                    }, 1500);
                 },
                 error: function(xhr, status, error) {
                     console.log("Error en la solicitud ajax ", error)

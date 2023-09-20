@@ -1718,9 +1718,10 @@ form .form-content {
 }
 
 .mak_overlay {
-  position: fixed;
+  /* position: fixed;
   top: 0;
-  left: 0;
+  left: 0; */
+  position: absolute;
   display: flex;
   align-items: center;
   justify-content: center;
