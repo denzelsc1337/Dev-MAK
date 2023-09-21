@@ -416,6 +416,26 @@ $(document).ready(function () {
     });
   });
 
+  $("#btn_updt_solic_l").click(function (e) {
+    e.preventDefault();
+
+    var data = $("#updt_status").serialize();
+    $.ajax({
+      type: "POST",
+      url: "../Controller/update_status_solic_legal.php",
+      data: data,
+      success: function (response) {
+        console.log(response);
+
+        event.returnValue = false;
+        //window.location.href = "../Legal/";
+      },
+      error: function (xhr, status, error) {
+        console.error(error);
+      },
+    });
+  });
+
 
 
   $("#btn_save_valo_file").click(function (e) {

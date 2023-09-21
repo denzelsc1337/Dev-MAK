@@ -463,7 +463,7 @@ require_once('../Controller/controladorListar.php');
                         <section class="mak-txt position-relative body-slide" data-content="files">
 
 
-                            <form method="POST" id="form_files" action="../Controller/update_solic_docs_legal.php">
+                            <form method="POST" id="updt_status">
                                 <div class="arrow-left arrow-left_1">
                                     <i class="fa-solid fa-angle-left"></i>
                                 </div>
@@ -535,7 +535,7 @@ require_once('../Controller/controladorListar.php');
                                                 <div class=" d-flex justify-content-end">
                                                     <div class="input-select">
                                                         <input type="text" id="" name="" class="textBox" readonly>
-                                                        <input type="text" id="status_solic_val_cbo" name="status_solic_val_cbo" hidden readonly>
+                                                        <input type="text" id="status_solic_legal_cbo" name="status_solic_legal_cbo" hidden readonly>
                                                         <div class="select-options">
                                                             <div class="bg-info" data-value="10">Pendiente</div>
                                                             <div class="bg-warning" data-value="20">En revisión</div>
@@ -635,7 +635,7 @@ require_once('../Controller/controladorListar.php');
                                         <div class="card-footer">
                                             <div class="form-flex">
                                                 <button type="button" class="btn btn-mak mak-bg-sec">Guardar</button>
-                                                <button type="submit" class="btn btn-mak mak-bg" id="btn_save_solic_l" name="btn_save_solic_l">Enviar</button>
+                                                <button type="submit" class="btn btn-mak mak-bg" id="btn_updt_solic_l" name="btn_updt_solic_l">Enviar</button>
                                             </div>
                                         </div>
                                     <?php
@@ -2008,7 +2008,7 @@ require_once('../Controller/controladorListar.php');
 
                     setTimeout(function() {
 
-                        /*const tipo_status = document.getElementById("status_solic_val_cbo");
+                        /*const tipo_status = document.getElementById("status_solic_legal_cbo");
 
                         var btnDisable = $("#btnValo_obs_save");
 
@@ -2042,12 +2042,12 @@ require_once('../Controller/controladorListar.php');
                         $("#data_direcion_").val(correo)
                         $("#coment_").val(coment)
 
-                        // $("#status_solic_val_cbo").val(status_);
+                        // $("#status_solic_legal_cbo").val(status_);
 
 
                         switch (status_) {
                             case '10':
-                                $("#status_solic_val_cbo").val("10");
+                                $("#status_solic_legal_cbo").val("10");
                                 //
                                 $(".textBox").val("Pendiente");
                                 $(".textBox").addClass("bg-info");
@@ -2057,7 +2057,7 @@ require_once('../Controller/controladorListar.php');
 
                                 break;
                             case '20':
-                                $("#status_solic_val_cbo").val("20");
+                                $("#status_solic_legal_cbo").val("20");
                                 //
                                 $(".textBox").val("En revisión");
                                 $(".textBox").addClass("bg-warning");
@@ -2067,7 +2067,7 @@ require_once('../Controller/controladorListar.php');
 
                                 break;
                             case '30':
-                                $("#status_solic_val_cbo").val("30");
+                                $("#status_solic_legal_cbo").val("30");
                                 //
                                 $(".textBox").val("Borrador");
                                 $(".textBox").addClass("bg-secondary");
@@ -2076,7 +2076,7 @@ require_once('../Controller/controladorListar.php');
                                 $(".textBox").removeClass("bg-warning");
                                 break;
                             default:
-                                $("#status_solic_val_cbo").val("90");
+                                $("#status_solic_legal_cbo").val("90");
                                 //
                                 $(".textBox").val("Finalizado");
                                 $(".textBox").addClass("bg-success");
@@ -2141,7 +2141,7 @@ require_once('../Controller/controladorListar.php');
     <script>
         const inputSelect = document.querySelector(".input-select");
         const textBox = document.querySelector(".textBox");
-        const textBoxValue = document.querySelector("#status_solic_val_cbo");
+        const textBoxValue = document.querySelector("#status_solic_legal_cbo");
         const selectOptions = document.querySelectorAll(".select-options div");
 
 

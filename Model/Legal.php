@@ -226,4 +226,32 @@ class cLegal
 
 		return $this->details_legal;
 	}
+
+	public function updt_legal_status($id_solic_l, $status)
+	{
+		include_once('../config/Conexion.php');
+		$cnx = new Conexion();
+		$cadena = $cnx->abrirConexion();
+
+		$query = "UPDATE docs_legal
+				  set status_solic = '$status'
+				  WHERE id_legal = '$id_solic_l'";
+
+		$result = mysqli_query($cadena, $query);
+		$cnx->cerrarConexion($cadena);
+		return $result;
+
+		/*$result = mysqli_query($cadena, $query);
+
+
+        if ($result) {
+            $num_rows = mysqli_affected_rows($cadena);
+            echo "Se han insertado $num_rows filas correctamente";
+        } else {
+            echo "Error al ejecutar la consulta: " . mysqli_error($cadena);
+        }*/
+
+		/*echo mysqli_query($cadena, $query);
+		$cnx->cerrarConexion($cadena);*/
+	}
 }
