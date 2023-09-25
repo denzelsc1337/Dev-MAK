@@ -422,7 +422,7 @@ require_once('../Controller/controladorListar.php');
                                                                         </div>
                                                                     </div>
                                                                     <div class="col-sm-4 justify-content-center get_data_soli_legl" data-cod_solic=" <?php echo $lst_legal_d[0] ?>" data-cod_client="<?php echo $lst_legal_d[7] ?>">
-                                                                        <div class=" options">
+                                                                        <div class="options">
                                                                             <button type="button" class="btn btn-rounded" id="">
                                                                                 <i class="fa-solid fa-eye"></i>
                                                                             </button>
@@ -469,17 +469,19 @@ require_once('../Controller/controladorListar.php');
                                 </div>
 
                                 <div class="container">
-                                    <div class="card-body">
+                                    <div class="card-body pt-5">
                                         <div class="row">
 
-                                            <div class="col-sm-6">
+                                            <div class="col-sm-6 pt-5">
                                                 <?php
 
                                                 if ($_SESSION['tipo_usu'] == 1) {
                                                     //habilitar al admin
                                                 ?>
-                                                    <input type="text" class="form-mak" id="id_legal_solic" name="id_legal_solic" readonly>
-                                                    <input type="text" class="form-mak" id="id_client_l" readonly>
+                                                    <div hidden>
+                                                        <input type="text" class="form-mak" id="id_legal_solic" name="id_legal_solic" readonly>
+                                                        <input type="text" class="form-mak" id="id_client_l" readonly>
+                                                    </div>
 
                                                     <div class="row">
                                                         <div class="col-sm-6">
@@ -493,7 +495,7 @@ require_once('../Controller/controladorListar.php');
                                                         <div class="col-sm-6">
                                                             <div class="form-group">
                                                                 <label class="mak-txt">Comentario</label>
-                                                                <textarea name="coment_" id="coment_"></textarea>
+                                                                <textarea name="coment_" id="coment_" readonly></textarea>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -504,10 +506,11 @@ require_once('../Controller/controladorListar.php');
                                                     //deshabilitar al user
                                                 ?>
 
-                                                    <input type="text" class="form-mak" id="id_legal_solic" name="id_legal_solic" readonly hidden>
-                                                    <input type="text" class="form-mak" id="id_client_l" readonly hidden>
-
-                                                    <input type="text" class="form-mak" id="dni_client_l" readonly hidden>
+                                                    <div hidden>
+                                                        <input type="text" class="form-mak" id="id_legal_solic" name="id_legal_solic" readonly>
+                                                        <input type="text" class="form-mak" id="id_client_l" readonly>
+                                                        <input type="text" class="form-mak" id="dni_client_l" readonly>
+                                                    </div>
 
                                                     <div class="row">
                                                         <div class="col-sm-6">
@@ -532,10 +535,11 @@ require_once('../Controller/controladorListar.php');
                                             </div>
 
                                             <div class="col-sm-6">
-                                                <div class=" d-flex justify-content-end">
+
+                                                <div class="d-flex justify-content-end pb-3">
                                                     <div class="input-select">
                                                         <input type="text" id="" name="" class="textBox" readonly>
-                                                        <input type="text" id="status_solic_legal_cbo" name="status_solic_legal_cbo" hidden readonly>
+                                                        <input type="text" id="status_solic_val_cbo" name="status_solic_val_cbo" hidden readonly>
                                                         <div class="select-options">
                                                             <div class="bg-info" data-value="10">Pendiente</div>
                                                             <div class="bg-warning" data-value="20">En revisión</div>
@@ -556,8 +560,8 @@ require_once('../Controller/controladorListar.php');
                                                             <span class="mak-txt bld">Hoja de Resumen</span>
                                                         </div>
                                                         <div class="col-sm-2 justify-content-center">
-                                                            <div class="options">
-                                                                <button type="button" class="btn btn-rounded  btn_lst_docs btn_lst_docs_0" data-toggle="modal" data-target="#lst_docs_legal" data-valor="H_R" data-titulo="Hoja de Resumen" data-id_doc_="1" data-id_user_="<?php echo $_SESSION['dni'] ?>">
+                                                            <div class="options btn-rounded  btn_lst_docs btn_lst_docs_0" data-valor="H_R" data-titulo="Hoja de Resumen" data-id_doc_="1" data-id_user_="<?php echo $_SESSION['dni'] ?>">
+                                                                <button type="button" class="btn">
                                                                     <i class="cursor fa-solid fa-eye"></i>
                                                                 </button>
                                                             </div>
@@ -574,8 +578,8 @@ require_once('../Controller/controladorListar.php');
                                                             <span class="mak-txt bld">Predio Urbano</span>
                                                         </div>
                                                         <div class="col-sm-2 justify-content-center">
-                                                            <div class="options">
-                                                                <button type="button" class="btn btn-rounded  btn_lst_docs btn_lst_docs_0" data-toggle="modal" data-target="#lst_docs_legal" data-valor="P_U" data-titulo="Predio Urbano" data-id_doc_="2" data-id_user_="<?php echo $_SESSION['dni'] ?>">
+                                                            <div class="options  btn-rounded  btn_lst_docs btn_lst_docs_0" data-toggle="modal" data-target="#lst_docs_legal" data-valor="P_U" data-titulo="Predio Urbano" data-id_doc_="2" data-id_user_="<?php echo $_SESSION['dni'] ?>">
+                                                                <button type="button" class="btn">
                                                                     <i class="cursor fa-solid fa-eye"></i>
                                                                 </button>
                                                             </div>
@@ -592,8 +596,8 @@ require_once('../Controller/controladorListar.php');
                                                             <span class="mak-txt bld">Copia Literal</span>
                                                         </div>
                                                         <div class="col-sm-2 justify-content-center">
-                                                            <div class="options">
-                                                                <button type="button" class="btn btn-rounded  btn_lst_docs btn_lst_docs_0" data-toggle="modal" data-target="#lst_docs_legal" data-valor="C_L" data-titulo="Copia Literal" data-id_doc_="3" data-id_user_="<?php echo $_SESSION['dni'] ?>">
+                                                            <div class="options btn-rounded  btn_lst_docs btn_lst_docs_0" data-toggle="modal" data-target="#lst_docs_legal" data-valor="C_L" data-titulo="Copia Literal" data-id_doc_="3" data-id_user_="<?php echo $_SESSION['dni'] ?>">
+                                                                <button type="button" class="btn">
                                                                     <i class="cursor fa-solid fa-eye"></i>
                                                                 </button>
                                                             </div>
@@ -610,8 +614,8 @@ require_once('../Controller/controladorListar.php');
                                                             <span class="mak-txt bld">DNI</span>
                                                         </div>
                                                         <div class="col-sm-2 justify-content-center">
-                                                            <div class="options">
-                                                                <button type="button" class="btn btn-rounded  btn_lst_docs btn_lst_docs_0" data-toggle="modal" data-target="#lst_docs_legal" data-valor="DNI" data-titulo="DNI" data-id_doc_="4" data-id_user_="<?php echo $_SESSION['dni'] ?>">
+                                                            <div class="options btn-rounded  btn_lst_docs btn_lst_docs_0" data-toggle="modal" data-target="#lst_docs_legal" data-valor="DNI" data-titulo="DNI" data-id_doc_="4" data-id_user_="<?php echo $_SESSION['dni'] ?>">
+                                                                <button type="button" class="btn">
                                                                     <i class="cursor fa-solid fa-eye"></i>
                                                                 </button>
                                                             </div>
