@@ -111,7 +111,7 @@ require_once('../Controller/controladorListar.php');
                         <section class="mak-txt position-relative body-slide" data-content="legal">
 
 
-                            <form method="POST" action="../Controller/Add_Solic_Legal.php">
+                            <form id="updt_files" method="POST" action="../Controller/Add_Solic_Legal.php">
                                 <div class="container mt-5">
 
                                     <div class="arrow-right">
@@ -458,8 +458,6 @@ require_once('../Controller/controladorListar.php');
                             </div>
                         </section>
 
-
-
                         <section class="mak-txt position-relative body-slide" data-content="files">
 
 
@@ -648,6 +646,7 @@ require_once('../Controller/controladorListar.php');
                                 </div>
                             </form>
                         </section>
+
                     </div>
                 </div>
             </section>
@@ -1978,6 +1977,8 @@ require_once('../Controller/controladorListar.php');
                 beforeSend: function() {
                     // $("#loader_uhd").show();
                     $("#loader_uhd").removeClass("hidden");
+                    $("#updt_files").hide();
+                    $("#updt_status").hide();
 
                     $("#form_files").hide();
                     /*$("#docs_val").hide();*/
@@ -2023,6 +2024,7 @@ require_once('../Controller/controladorListar.php');
 
                         // $("#loader_uhd").hide();
                         $("#loader_uhd").addClass("hidden");
+
 
 
                         // if (!$(".mak_overlay").hasClass("hidden")) {
@@ -2109,6 +2111,8 @@ require_once('../Controller/controladorListar.php');
                 complete: function() {
                     setTimeout(function() {
                         $("#form_files").show();
+                        $("#updt_files").show();
+                        $("#updt_status").show();
                     }, 1500);
                 },
                 error: function(xhr, status, error) {
