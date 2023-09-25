@@ -1343,7 +1343,7 @@ require_once('../Controller/controladorListar.php');
 
                     },
                     beforeSend: function() {
-                        // $("#loader_uhd").show();
+                        $("#loader_uhd").show();
                         $("#lst_docs_lgl").hide();
                         //$("#docs_val").hide();
 
@@ -1385,24 +1385,25 @@ require_once('../Controller/controladorListar.php');
                                     enlaceHtml += `
 
                                             <div class="row d-flex justify-content-between align-center mb-4">
-                                                <div class="col-sm-2">
+                                                <div class="col-sm-1 p-0">
                                                     <div class="lgl-modal-num">
                                                         ${cont++}
                                                     </div>
                                                 </div>
 
-                                                <div class="col-sm-8 archive">
+                                                <div class="col-sm-6 pl-3 pr-3 archive">
                                                     <img src="#" id="loader" style="display: none;">
                                                     <a href="${ruta}${nombreArchivo}">${nombreArchivo}</a>
                                                 </div>
 
-                                                <div class="col-sm-2 tw-modal-ots">
-                                                    <div class="row">
+                                                <div class="col-sm-5 p-0 tw-modal-ots">
+
+                                                    <div class="d-flex">
 
                                                         ${
                                                         estadoHtml === '500'
                                                             ? `
-                                                            <select>
+                                                            <select class="form-control">
                                                                 <option selected>Pendiente</option>
                                                                 <option>Revisado</option>
                                                                 <option>Rechazado</option>
@@ -1411,7 +1412,7 @@ require_once('../Controller/controladorListar.php');
                                                             `
                                                             : estadoHtml === '200'
                                                                 ? `
-                                                                <select>
+                                                                <select class="form-control">
                                                                     <option>Pendiente</option>
                                                                     <option selected>Revisado</option>
                                                                     <option>Rechazado</option>
@@ -1419,7 +1420,7 @@ require_once('../Controller/controladorListar.php');
                                                                 </select>
                                                                 `
                                                                 : `
-                                                                <select>
+                                                                <select class="form-control">
                                                                     <option>Pendiente</option>
                                                                     <option>Revisado</option>
                                                                     <option>Rechazado</option>
@@ -1428,17 +1429,21 @@ require_once('../Controller/controladorListar.php');
                                                                 `
                                                         }
 
-                                                        <div class="inputs brd-rght-blue">
-                                                            <input id="ruta_doc_i" type="text" value="${ruta}" readonly hidden>
-                                                            <input id="ruta_archivo_i" type="text" value="${nombreArchivo}" readonly hidden>
-                                                            <input id="cod_doc_i" type="text" value="${id_doc_}" readonly hidden>
+                                                        <div class="d-flex">
+                                                            <div class="inputs brd-rght-blue">
 
-                                                            <div class="">
+                                                                <div hidden>
+                                                                    <input id="ruta_doc_i" type="text" value="${ruta}" readonly>
+                                                                    <input id="ruta_archivo_i" type="text" value="${nombreArchivo}" readonly>
+                                                                    <input id="cod_doc_i" type="text" value="${id_doc_}" readonly>
+                                                                </div>
+
                                                                 <button id="dlt_file" type="button" class="btn dlt_file"><i class="cursor fa-solid fa-trash"></i></button>
+                                                                
                                                             </div>
-                                                        </div>
-                                                        <div>
-                                                            <button id="dlt_file" type="button" class="btn dlt_file"> <i class="cursor fa-solid fa-download"></i></button>
+                                                            <div>
+                                                                <button id="dlt_file" type="button" class="btn dlt_file"> <i class="cursor fa-solid fa-download"></i></button>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>

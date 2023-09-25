@@ -713,7 +713,8 @@ require_once('../Controller/controladorListar.php');
                         <div class="col-sm-12">
                             <div class="container">
 
-                                <form method="POST" action="../Controller/Upload_Legal_Docs.php" enctype="multipart/form-data">
+                                <form id="file_HR" method="POST" enctype="multipart/form-data">
+                                    <!-- <form method="POST" action="../Controller/Upload_Legal_Docs.php" enctype="multipart/form-data"> -->
 
                                     <div class="content-file flex flex-column">
 
@@ -2020,7 +2021,6 @@ require_once('../Controller/controladorListar.php');
                             /////
                             var contenido = document.querySelectorAll(".content-file").forEach(element => {
                                 var cod_l = $('#cod_reg_l').val();
-                                console.log(element);
 
 
                                 // var buttons = element.querySelectorAll("button");
@@ -2036,8 +2036,6 @@ require_once('../Controller/controladorListar.php');
 
                                 //     // var buttons = element.querySelectorAll("button");
                                 //     // console.log(buttons);
-                                console.log("asdsadsadsda");
-                                console.log(cod_l);
                                 // })
                                 // console.log(element);
                             });

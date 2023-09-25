@@ -41,9 +41,9 @@ $(document).ready(function () {
     $("#loader").show();
     var formData = new FormData($("#form_valor")[0]);
     // --
-    formData.append('uploadedFiles_PU', JSON.stringify(uploadedFiles_PU));
-    formData.append('uploadedFiles_CL', JSON.stringify(uploadedFiles_CL));
-    formData.append('uploadedPictures', JSON.stringify(uploadedPictures));
+    formData.append("uploadedFiles_PU", JSON.stringify(uploadedFiles_PU));
+    formData.append("uploadedFiles_CL", JSON.stringify(uploadedFiles_CL));
+    formData.append("uploadedPictures", JSON.stringify(uploadedPictures));
     // --
     $.ajax({
       type: "POST",
@@ -79,7 +79,7 @@ $(document).ready(function () {
         }, 900);
       },
       error: function (xhr, status, error) {
-        $("#loader").hide()
+        $("#loader").hide();
         console.error(error);
         console.log(xhr.responseText);
       },
@@ -94,9 +94,9 @@ $(document).ready(function () {
     //var data = $("#form_valor").serialize();
     var formData = new FormData($("#form_valor")[0]);
 
-    formData.append('uploadedFiles_PU', JSON.stringify(uploadedFiles_PU));
-    formData.append('uploadedFiles_CL', JSON.stringify(uploadedFiles_CL));
-    formData.append('uploadedPictures', JSON.stringify(uploadedPictures));
+    formData.append("uploadedFiles_PU", JSON.stringify(uploadedFiles_PU));
+    formData.append("uploadedFiles_CL", JSON.stringify(uploadedFiles_CL));
+    formData.append("uploadedPictures", JSON.stringify(uploadedPictures));
 
     $.ajax({
       type: "POST",
@@ -111,7 +111,6 @@ $(document).ready(function () {
 
       success: function (r) {
         setTimeout(function () {
-
           $("#loader").hide();
           if (r) {
             //alert("Solicitud enviada correctamente.");
@@ -128,7 +127,7 @@ $(document).ready(function () {
         }, 900);
       },
       error: function (xhr, status, error) {
-        $("#loader").hide()
+        $("#loader").hide();
         console.error(error);
         console.log(xhr.responseText);
       },
@@ -144,10 +143,9 @@ $(document).ready(function () {
     //var id_zoni_t = 20;
     //console.log(id_zoni_t);
 
-    formData.append('uploadedFiles_PU', JSON.stringify(uploadedFiles_PU));
-    formData.append('uploadedFiles_CL', JSON.stringify(uploadedFiles_CL));
-    formData.append('uploadedPictures', JSON.stringify(uploadedPictures));
-
+    formData.append("uploadedFiles_PU", JSON.stringify(uploadedFiles_PU));
+    formData.append("uploadedFiles_CL", JSON.stringify(uploadedFiles_CL));
+    formData.append("uploadedPictures", JSON.stringify(uploadedPictures));
 
     console.log(formData);
     $.ajax({
@@ -163,7 +161,6 @@ $(document).ready(function () {
 
       success: function (r) {
         setTimeout(function () {
-
           $("#loader").hide();
           if (r) {
             //alert("Solicitud enviada correctamente.");
@@ -194,9 +191,9 @@ $(document).ready(function () {
     //var data = $("#form_valor").serialize();
     var formData = new FormData($("#form_valor")[0]);
 
-    formData.append('uploadedFiles_PU', JSON.stringify(uploadedFiles_PU));
-    formData.append('uploadedFiles_CL', JSON.stringify(uploadedFiles_CL));
-    formData.append('uploadedPictures', JSON.stringify(uploadedPictures));
+    formData.append("uploadedFiles_PU", JSON.stringify(uploadedFiles_PU));
+    formData.append("uploadedFiles_CL", JSON.stringify(uploadedFiles_CL));
+    formData.append("uploadedPictures", JSON.stringify(uploadedPictures));
 
     $.ajax({
       type: "POST",
@@ -211,7 +208,6 @@ $(document).ready(function () {
 
       success: function (r) {
         setTimeout(function () {
-
           $("#loader").hide();
           if (r) {
             //alert("Solicitud enviada correctamente.");
@@ -241,9 +237,9 @@ $(document).ready(function () {
     //var data = $("#form_valor").serialize();
     var formData = new FormData($("#form_valor")[0]);
 
-    formData.append('uploadedFiles_PU', JSON.stringify(uploadedFiles_PU));
-    formData.append('uploadedFiles_CL', JSON.stringify(uploadedFiles_CL));
-    formData.append('uploadedPictures', JSON.stringify(uploadedPictures));
+    formData.append("uploadedFiles_PU", JSON.stringify(uploadedFiles_PU));
+    formData.append("uploadedFiles_CL", JSON.stringify(uploadedFiles_CL));
+    formData.append("uploadedPictures", JSON.stringify(uploadedPictures));
 
     $.ajax({
       type: "POST",
@@ -258,7 +254,6 @@ $(document).ready(function () {
 
       success: function (r) {
         setTimeout(function () {
-
           $("#loader").hide();
           if (r) {
             //alert("Solicitud enviada correctamente.");
@@ -289,9 +284,9 @@ $(document).ready(function () {
     //var data = $("#form_valor").serialize();
     var formData = new FormData($("#form_valor")[0]);
 
-    formData.append('uploadedFiles_PU', JSON.stringify(uploadedFiles_PU));
-    formData.append('uploadedFiles_CL', JSON.stringify(uploadedFiles_CL));
-    formData.append('uploadedPictures', JSON.stringify(uploadedPictures));
+    formData.append("uploadedFiles_PU", JSON.stringify(uploadedFiles_PU));
+    formData.append("uploadedFiles_CL", JSON.stringify(uploadedFiles_CL));
+    formData.append("uploadedPictures", JSON.stringify(uploadedPictures));
 
     $.ajax({
       type: "POST",
@@ -306,7 +301,6 @@ $(document).ready(function () {
 
       success: function (r) {
         setTimeout(function () {
-
           $("#loader").hide();
           if (r) {
             //alert("Solicitud enviada correctamente.");
@@ -336,10 +330,9 @@ $(document).ready(function () {
     //var data = $("#form_valor").serialize();
     var formData = new FormData($("#form_valor")[0]);
 
-    formData.append('uploadedFiles_PU', JSON.stringify(uploadedFiles_PU));
-    formData.append('uploadedFiles_CL', JSON.stringify(uploadedFiles_CL));
-    formData.append('uploadedPictures', JSON.stringify(uploadedPictures));
-
+    formData.append("uploadedFiles_PU", JSON.stringify(uploadedFiles_PU));
+    formData.append("uploadedFiles_CL", JSON.stringify(uploadedFiles_CL));
+    formData.append("uploadedPictures", JSON.stringify(uploadedPictures));
 
     $.ajax({
       type: "POST",
@@ -354,7 +347,6 @@ $(document).ready(function () {
 
       success: function (r) {
         setTimeout(function () {
-
           $("#loader").hide();
           if (r) {
             //alert("Solicitud enviada correctamente.");
@@ -436,8 +428,6 @@ $(document).ready(function () {
     });
   });
 
-
-
   $("#btn_save_valo_file").click(function (e) {
     e.preventDefault();
 
@@ -451,7 +441,6 @@ $(document).ready(function () {
       contentType: false,
 
       success: function (response) {
-
         if (response) {
           $("#message_aprob").text("Archivos cargados exitosamente.");
           console.log("e?" + response);
@@ -462,14 +451,12 @@ $(document).ready(function () {
           $("#message_aprob").text("Error desconocido al cargar archivos.");
           console.log("p" + response);
         }
-
       },
       error: function (xhr, status, error) {
         console.error(error);
       },
     });
   });
-
 
   $("#loginButton").click(function (e) {
     e.preventDefault();
@@ -481,28 +468,82 @@ $(document).ready(function () {
       url: "Controller/login.php",
       data: data,
       success: function (response) {
-        if (response === 'empty_fields') {
+        if (response === "empty_fields") {
           $("#message").text("Please fill in all fields.");
-
-        } else if (response === 'incorrect_auth') {
-
+        } else if (response === "incorrect_auth") {
           $("#message").text("Incorrect authentication. Please try again.");
-
-        } else if (response === 'success') {
-
-          window.location.href = 'dashboard.php';
+        } else if (response === "success") {
+          window.location.href = "dashboard.php";
         } else {
           $("#message").text("Unknown error while logging in.");
         }
       },
       error: function (xhr, status, error) {
         console.error(error);
-      }
+      },
     });
   });
 
+  $("#btn_save_hr").click(function (e) {
+    e.preventDefault();
+    // $("#loader").show();
 
+    // var formData = $("#file_HR").serialize();
+    var formData = new FormData($("#file_HR")[0]);
+    // console.log(formData);
 
+    // var formData = {
+    //   btn_save_hr: true,
+    //   dni_usu_0: $("#dni_usu_0").val(),
+    //   id_cli_0: $("#id_cli_0").val(),
+    //   tipo_doc_0: $("#tipo_doc_0").val(),
+    //   cod_reg_: $("#cod_reg_").val(),
+    //   hr_s: ("hr_s", JSON.stringify(hr_s)),
+    // };
+    formData.append("btn_save_hr", true);
+    formData.append("DataFiles", JSON.stringify(hr_s));
+    // formData.append("uploadFiles_PU", JSON.stringify(uploadFiles_PU));
+    // formData.append("uploadFiles_CL", JSON.stringify(uploadFiles_CL));
+    // formData.append("uploadFiles_DNI", JSON.stringify(uploadFiles_DNI));
+
+    $.ajax({
+      type: "POST",
+      url: "../Controller/Upload_Legal_Docs.php",
+      data: formData,
+      processData: false,
+      contentType: false,
+
+      beforeSend: function () {
+        $("#loader").show();
+      },
+
+      success: function (r) {
+        // console.log(r);
+
+        setTimeout(function () {
+          $("#loader").hide();
+          if (r) {
+            //alert("Solicitud enviada correctamente.");
+            console.log(r);
+            //event.returnValue = false;
+            window.location.href = "../Valorizacion/";
+          } else {
+            alert(
+              "Error al registrar, Verifique que los campos esten correctamente completos."
+            );
+            // console.log(r);
+            //console.log(formData);
+          }
+        }, 900);
+      },
+      error: function (xhr, status, error) {
+        $("#loader").hide();
+        console.error(error);
+        console.log(xhr.responseText);
+      },
+    });
+    return false;
+  });
 
   // INPUT WITH LIST
   $(document).ready(function () {
@@ -576,6 +617,8 @@ $(document).ready(function () {
     var buttonFile = element.querySelectorAll("#buttonFile");
     var inputFile = element.querySelector(".upload");
 
+    var DataFiles = [];
+
     buttonFile.forEach((buttonFile) => {
       buttonFile.addEventListener("click", (e) => {
         inputFile.click();
@@ -616,8 +659,6 @@ $(document).ready(function () {
         }
       }
     }
-
-
 
     function processFile(file) {
       const docType = file.type;
@@ -684,19 +725,36 @@ $(document).ready(function () {
           html.forEach((element) => {
             element.innerHTML += FaceArchive;
 
+            //
+            DataFiles.push({
+              id,
+              name: file.name,
+              type: file.type,
+              size: file.size,
+              lastModified: file.lastModified,
+              tmp_name: fileReader.result,
+            });
+            //
+
             // ACÁ LLAMAR FUNCTION
             contTagFiles();
 
             const dropItem = document.querySelectorAll(".drop-item");
             dropItem.forEach((dropItem) => {
               dropItem.addEventListener("click", (e) => {
-                let Object = document.querySelectorAll(".archive-item");
-                Object.forEach((element) => {
-                  element.addEventListener("click", (e) => {
-                    element.remove();
-                    contTagFiles();
-                  });
-                });
+                // let Object = document.querySelectorAll(".archive-item");
+                // Object.forEach((element) => {
+                //   element.addEventListener("click", (e) => {
+                //     element.remove();
+                //     contTagFiles();
+                //   });
+                // });
+                const itemdrop = dropItem.closest(".archive-item");
+                if (itemdrop) {
+                  const id = itemdrop.id;
+                  itemdrop.remove();
+                  removeFile(id);
+                }
               });
             });
           });
@@ -709,6 +767,15 @@ $(document).ready(function () {
         // archivo no valido
         alert("Archivo no válido: " + file.name);
       }
+      console.log(DataFiles);
+    }
+
+    function removeFile(id) {
+      const indexToRemove = DataFiles.findIndex((item) => item.id === id);
+      if (indexToRemove !== -1) {
+        DataFiles.splice(indexToRemove, 1);
+        console.log(DataFiles);
+      }
     }
 
     function contTagFiles() {
@@ -716,8 +783,6 @@ $(document).ready(function () {
       const fileArchives = element.querySelector(".file-archives");
       var cantFileMessage = element.querySelectorAll(".archive-item").length;
       var btnDisable = element.querySelectorAll("button");
-
-
 
       if (cantFileMessage > 0) {
         fileMessage.style.display = "none";
@@ -736,27 +801,20 @@ $(document).ready(function () {
         });
         // DISABLE BUTTON
       }
-
-
     }
 
     function getFileExtension(filename) {
       return filename.slice(((filename.lastIndexOf(".") - 1) >>> 0) + 2);
     }
-
-
-
   });
   // DRAG AND DROP FILES
 
-
-  // APARTADO SUBIR DOCUMENTOS  
+  // APARTADO SUBIR DOCUMENTOS
   var buttonPu = document.querySelector(".pu");
   var buttonCl = document.querySelector(".cl");
 
   var inputPU_file = document.querySelector("#fls_pu");
   var inputCL_file = document.querySelector("#fls_cl");
-
 
   var uploadedFiles_PU = [];
   var uploadedFiles_CL = [];
@@ -768,7 +826,7 @@ $(document).ready(function () {
 
   inputPU_file.addEventListener("change", (e) => {
     files = inputPU_file.files;
-    showArchives(files, "pu")
+    showArchives(files, "pu");
   });
 
   // ---------------------------------
@@ -779,7 +837,7 @@ $(document).ready(function () {
 
   inputCL_file.addEventListener("change", (e) => {
     files = inputCL_file.files;
-    showArchives(files, "cl")
+    showArchives(files, "cl");
   });
   // ---------------------------------
 
@@ -810,7 +868,10 @@ $(document).ready(function () {
       const fileReader = new FileReader();
       const id = `upld-${Math.random().toString(32).substring(5)}`;
       // const innerFiles = type === 'pu' ? document.querySelector(".archives_pu") : document.querySelector(".archives_cl");
-      const archiveContainer = type === 'pu' ? document.querySelector(".archives_pu") : document.querySelector(".archives_cl");
+      const archiveContainer =
+        type === "pu"
+          ? document.querySelector(".archives_pu")
+          : document.querySelector(".archives_cl");
       fileReader.addEventListener("load", (e) => {
         // const fileUrl = fileReader.result;
         // const fileExtension = getFileExtension(file.name);
@@ -832,15 +893,22 @@ $(document).ready(function () {
         archiveContainer.innerHTML += upldArchive;
 
         // Agregar el archivo al array de archivos subidos
-        const uploadedArray = type === 'pu' ? uploadedFiles_PU : uploadedFiles_CL;
-        uploadedArray.push({ id, name: file.name, type: file.type, size: file.size, lastModified: file.lastModified, tmp_name: fileReader.result });
+        const uploadedArray =
+          type === "pu" ? uploadedFiles_PU : uploadedFiles_CL;
+        uploadedArray.push({
+          id,
+          name: file.name,
+          type: file.type,
+          size: file.size,
+          lastModified: file.lastModified,
+          tmp_name: fileReader.result,
+        });
 
         cantFilesValor();
 
-
         // ELIMINAR
         const dropUpld = document.querySelectorAll(".drop-upld");
-        dropUpld.forEach(dropupld => {
+        dropUpld.forEach((dropupld) => {
           dropupld.addEventListener("click", (e) => {
             const upldValo = dropupld.closest(".upld-valo");
             if (upldValo) {
@@ -851,10 +919,7 @@ $(document).ready(function () {
             }
           });
         });
-
-
       });
-
 
       fileReader.readAsDataURL(file);
     } else {
@@ -862,34 +927,32 @@ $(document).ready(function () {
       alert("Archivo no válido: " + file.name);
     }
 
-
     console.log(uploadedFiles_PU);
     console.log(uploadedFiles_CL);
   }
 
   function removeFileFromList(id, type) {
-
     if (type === "pu") {
-      const indexToRemovePU = uploadedFiles_PU.findIndex(item => item.id === id);
+      const indexToRemovePU = uploadedFiles_PU.findIndex(
+        (item) => item.id === id
+      );
       if (indexToRemovePU !== -1) {
         uploadedFiles_PU.splice(indexToRemovePU, 1);
       }
       console.log(uploadedFiles_PU);
     }
 
-
     if (type === "cl") {
-      const indexToRemoveCL = uploadedFiles_CL.findIndex(item => item.id === id);
+      const indexToRemoveCL = uploadedFiles_CL.findIndex(
+        (item) => item.id === id
+      );
 
       if (indexToRemoveCL !== -1) {
         uploadedFiles_CL.splice(indexToRemoveCL, 1);
       }
       console.log(uploadedFiles_CL);
     }
-
-  };
-
-
+  }
 
   function cantFilesValor() {
     const archivesPU = document.querySelector(".archives_pu");
@@ -908,8 +971,7 @@ $(document).ready(function () {
     } else {
       archivesCL.style.display = "none";
     }
-
-  };
+  }
   // APARTADO SUBIR DOCUMENTOS
 
   // VER FOTOS
@@ -946,8 +1008,6 @@ $(document).ready(function () {
     const docsPu = document.querySelector(".archives_pu");
     const docsCl = document.querySelector(".archives_cl");
 
-
-
     // Clona los elementos y elimina la etiqueta <span> de los clones
     const clonedDocsPu = removeDropDocs(docsPu);
     const clonedDocsCl = removeDropDocs(docsCl);
@@ -955,12 +1015,10 @@ $(document).ready(function () {
     PU_docs.appendChild(clonedDocsPu);
     CL_docs.appendChild(clonedDocsCl);
 
-
     modalContentDocuments.innerHTML = ""; // Limpia el contenido actual
     modalContentDocuments.appendChild(PU_docs);
     modalContentDocuments.appendChild(CL_docs);
     // ----
-
 
     // Llama a la función que actualiza la visibilidad de los archivos (si es necesario)
     cantFilesValor();
@@ -970,7 +1028,7 @@ $(document).ready(function () {
     const clonedElement = element.cloneNode(true);
     const modalElements = clonedElement.querySelectorAll(".upld-valo");
 
-    modalElements.forEach(element => {
+    modalElements.forEach((element) => {
       const spanElement = element.querySelector(".drop-upld");
       if (spanElement) {
         spanElement.remove();
@@ -984,16 +1042,13 @@ $(document).ready(function () {
     const clonedElement = element.cloneNode(true);
     const modalElements = clonedElement.querySelectorAll(".file-item");
 
-
-
-
     // Elimina solo el primer elemento clonado
     if (modalElements.length > 0) {
       const firstClonedElement = modalElements[0];
       firstClonedElement.remove();
     }
 
-    modalElements.forEach(element => {
+    modalElements.forEach((element) => {
       const clearElement = element.querySelector(".btn-clear");
       if (clearElement) {
         clearElement.remove();
@@ -1003,7 +1058,6 @@ $(document).ready(function () {
     return clonedElement;
   }
   // VER DOCUMENTOS
-
 
   // DRAG AND DROP FILES VALORIZACION
   var dragValo = document.querySelector(".up-archive");
@@ -1015,7 +1069,7 @@ $(document).ready(function () {
 
   inputBox.addEventListener("click", (e) => {
     inputDragValo.click();
-  })
+  });
 
   inputDragValo.addEventListener("change", (e) => {
     files = this.files;
@@ -1051,11 +1105,7 @@ $(document).ready(function () {
 
   function processValoFile(file, targetElement) {
     const docType = file.type;
-    const validExtensions = [
-      "image/jpeg",
-      "image/jpg",
-      "image/png",
-    ];
+    const validExtensions = ["image/jpeg", "image/jpg", "image/png"];
 
     if (validExtensions.includes(docType)) {
       // archivo valido
@@ -1092,11 +1142,17 @@ $(document).ready(function () {
         targetElement.appendChild(newFileItem);
 
         // Agregar el archivo al array de archivos subidos
-        uploadedPictures.push({ id, name: file.name, type: file.type, size: file.size, lastModified: file.lastModified, tmp_name: fileReader.result });
-
+        uploadedPictures.push({
+          id,
+          name: file.name,
+          type: file.type,
+          size: file.size,
+          lastModified: file.lastModified,
+          tmp_name: fileReader.result,
+        });
 
         const dropPict = document.querySelectorAll(".btn-clear");
-        dropPict.forEach(droppict => {
+        dropPict.forEach((droppict) => {
           droppict.addEventListener("click", (e) => {
             // let Object = document.querySelectorAll(".file-item:not(:first-child)");
             // Object.forEach(element => {
@@ -1112,9 +1168,8 @@ $(document).ready(function () {
               upldValoPict.remove();
               removePictureFromList(id);
             }
-          })
+          });
         });
-
       });
 
       fileReader.readAsDataURL(file);
@@ -1126,7 +1181,7 @@ $(document).ready(function () {
   }
 
   function removePictureFromList(id) {
-    const indexToRemove = uploadedPictures.findIndex(item => item.id === id);
+    const indexToRemove = uploadedPictures.findIndex((item) => item.id === id);
     if (indexToRemove !== -1) {
       uploadedPictures.splice(indexToRemove, 1);
       console.log(uploadedPictures);
@@ -1199,10 +1254,4 @@ $(document).ready(function () {
   //--------------------------------------------FUERA DE USO-------------------------------------------------------------------//
   //--------------------------------------------FUERA DE USO-------------------------------------------------------------------//
   //--------------------------------------------FUERA DE USO-------------------------------------------------------------------//
-
-
 });
-
-
-
-

@@ -1,125 +1,156 @@
 <?php
 
-if(isset($_POST["btn_save_hr"])) {
-    $dni_client = $_POST["dni_usu_0"];
-    $id_client = $_POST["id_cli_0"];
-    $_tipo_doc_0 = $_POST["tipo_doc_0"];
+if (isset($_POST["btn_save_hr"])) {
 
-    $file_count = count($_FILES["hr_s"]["name"]);
+  print_r($_POST);
 
-    $archivos_total = 0;
+  // $dni_client = $_POST["dni_usu_0"];
+  // $id_client = $_POST["id_cli_0"];
+  // $_tipo_doc_0 = $_POST["tipo_doc_0"];
 
-    for ($i = 0; $i < $file_count; $i++) {
-        $file_name = $_FILES["hr_s"]["name"][$i];
-        $file_tmp = $_FILES["hr_s"]["tmp_name"][$i];
-        $file_size = $_FILES["hr_s"]["size"][$i];
-        $file_error = $_FILES["hr_s"]["error"][$i];
-        $file_type = $_FILES["hr_s"]["type"][$i];
+  // $file_count = count($_FILES["hr_s"]["name"]);
 
-        $file_ext = explode('.', $file_name);
-        $file_ext = strtolower(end($file_ext));
+  // $archivos_total = 0;
 
-        $file_desc = pathinfo(basename($_FILES["hr_s"]["name"][$i]), PATHINFO_FILENAME);
-        $file_ext = pathinfo(basename($_FILES["hr_s"]["name"][$i]), PATHINFO_EXTENSION);
+  // for ($i = 0; $i < $file_count; $i++) {
+  //   $file_name = $_FILES["hr_s"]["name"][$i];
+  //   $file_tmp = $_FILES["hr_s"]["tmp_name"][$i];
+  //   $file_size = $_FILES["hr_s"]["size"][$i];
+  //   $file_error = $_FILES["hr_s"]["error"][$i];
+  //   $file_type = $_FILES["hr_s"]["type"][$i];
 
-        $target_dir = "../Documentos Legal/".$dni_client."/H_R/";
+  //   $file_ext = explode('.', $file_name);
+  //   $file_ext = strtolower(end($file_ext));
 
-        if (!file_exists($target_dir)) {
-            mkdir($target_dir, 0777, true);
-        }
+  //   $file_desc = pathinfo(basename($_FILES["hr_s"]["name"][$i]), PATHINFO_FILENAME);
+  //   $file_ext = pathinfo(basename($_FILES["hr_s"]["name"][$i]), PATHINFO_EXTENSION);
 
-        $target_file = $target_dir . basename($_FILES["hr_s"]["name"][$i]);
+  //   $target_dir = "../Documentos Legal/" . $dni_client . "/H_R/";
 
-        if (move_uploaded_file($_FILES["hr_s"]["tmp_name"][$i], $target_file)) {
-            // Agregar código del modelo aquí
-            require_once('../Model/Legal.php');
-            $olegal = new cLegal();
+  //   $getFiles_HR = $_POST['files_HR'];
+  //   $Files_HR = json_decode($getFiles_HR, true);
 
-            // Modificar la llamada a la función del modelo con los nuevos parámetros
-            $olegal->upload_documents_clients($file_name, $file_type, $target_dir, $file_size, $file_ext, $_tipo_doc_0, $id_client, $dni_client);
+  //   if (!file_exists($target_dir)) {
+  //     mkdir($target_dir, 0777, true);
+  //   }
 
-            $archivos_total++;
-        }
-    }
+  //   $target_file = $target_dir . basename($_FILES["hr_s"]["name"][$i]);
 
 
-    if ($archivos_total>0) {
-    ?>
-    <META http-equiv='Refresh' content='0.2; URL =../Legal/legal_.php'>;
-    <script>
-        alert("Hoja Resumen correctamente cargada.");
-    </script>
+  //   // foreach ($Files_HR as $key => $Files_HR_info) {
+  //   //   $fileNames = $Files_HR_info['name'];
+  //   //   $file = explode(",", $fileNames);
 
-    <?php
-    }else{
-      echo '<script> alert("Error al cargar H.R");</script>';
-    }
+  //   //   echo $fileNames;
 
+  //   //   for ($i = 0; $i < $file_count; $i++) {
+
+
+  //   //     if (in_array($fileNames, $file)) {
+  //   //       if (move_uploaded_file($_FILES["hr_s"]["tmp_name"][$i], $target_file)) {
+  //   //         // Agregar código del modelo aquí
+  //   //         require_once('../Model/Legal.php');
+  //   //         $olegal = new cLegal();
+
+  //   //         // Modificar la llamada a la función del modelo con los nuevos parámetros
+  //   //         $olegal->upload_documents_clients($file_name, $file_type, $target_dir, $file_size, $file_ext, $_tipo_doc_0, $id_client, $dni_client);
+
+  //   //         $archivos_total++;
+  //   //       }
+  //   //     }
+  //   //   }
+  //   // }
+
+  //   if (move_uploaded_file($_FILES["hr_s"]["tmp_name"][$i], $target_file)) {
+  //     // Agregar código del modelo aquí
+  //     require_once('../Model/Legal.php');
+  //     $olegal = new cLegal();
+
+  //     // Modificar la llamada a la función del modelo con los nuevos parámetros
+  //     $olegal->upload_documents_clients($file_name, $file_type, $target_dir, $file_size, $file_ext, $_tipo_doc_0, $id_client, $dni_client);
+
+  //     $archivos_total++;
+  //   }
+  // }
+
+
+  // if ($archivos_total > 0) {
+  //   
+?>
+  <!-- <META http-equiv='Refresh' content='0.2; URL =../Legal/legal_.php'>; -->
+  <!-- <script> -->
+  <!-- alert("Hoja Resumen correctamente cargada."); -->
+
+  <!--  </script> -->
+
+  <?php
+  // } else {
+  //   echo '<script> alert("Error al cargar H.R");</script>';
+  // }
 }
 
 
-if(isset($_POST["btn_updt_hr"])) {
-    $dni_client = $_POST["dni_usu_0"];
-    $id_client = $_POST["id_cli_0"];
-    $_tipo_doc_0 = $_POST["tipo_doc_0"];
-    $id_solic = $_POST["cod_reg_"];
+if (isset($_POST["btn_updt_hr"])) {
+  $dni_client = $_POST["dni_usu_0"];
+  $id_client = $_POST["id_cli_0"];
+  $_tipo_doc_0 = $_POST["tipo_doc_0"];
+  $id_solic = $_POST["cod_reg_"];
 
-    $file_count = count($_FILES["hr_s"]["name"]);
+  $file_count = count($_FILES["hr_s"]["name"]);
 
-    $archivos_total = 0;
+  $archivos_total = 0;
 
-    for ($i = 0; $i < $file_count; $i++) {
-        $file_name = $_FILES["hr_s"]["name"][$i];
-        $file_tmp = $_FILES["hr_s"]["tmp_name"][$i];
-        $file_size = $_FILES["hr_s"]["size"][$i];
-        $file_error = $_FILES["hr_s"]["error"][$i];
-        $file_type = $_FILES["hr_s"]["type"][$i];
+  for ($i = 0; $i < $file_count; $i++) {
+    $file_name = $_FILES["hr_s"]["name"][$i];
+    $file_tmp = $_FILES["hr_s"]["tmp_name"][$i];
+    $file_size = $_FILES["hr_s"]["size"][$i];
+    $file_error = $_FILES["hr_s"]["error"][$i];
+    $file_type = $_FILES["hr_s"]["type"][$i];
 
-        $file_ext = explode('.', $file_name);
-        $file_ext = strtolower(end($file_ext));
+    $file_ext = explode('.', $file_name);
+    $file_ext = strtolower(end($file_ext));
 
-        $file_desc = pathinfo(basename($_FILES["hr_s"]["name"][$i]), PATHINFO_FILENAME);
-        $file_ext = pathinfo(basename($_FILES["hr_s"]["name"][$i]), PATHINFO_EXTENSION);
+    $file_desc = pathinfo(basename($_FILES["hr_s"]["name"][$i]), PATHINFO_FILENAME);
+    $file_ext = pathinfo(basename($_FILES["hr_s"]["name"][$i]), PATHINFO_EXTENSION);
 
-        $target_dir = "../borradores/".$id_solic.'/'.$dni_client."/H_R/";
+    $target_dir = "../borradores/" . $id_solic . '/' . $dni_client . "/H_R/";
 
-        echo $target_dir;
+    echo $target_dir;
 
-        if (!file_exists($target_dir)) {
-            mkdir($target_dir, 0777, true);
-        }
+    if (!file_exists($target_dir)) {
+      mkdir($target_dir, 0777, true);
+    }
 
-        $target_file = $target_dir . basename($_FILES["hr_s"]["name"][$i]);
+    $target_file = $target_dir . basename($_FILES["hr_s"]["name"][$i]);
 
-        if (move_uploaded_file($_FILES["hr_s"]["tmp_name"][$i], $target_file)) {
-            // Agregar código del modelo aquí
-            /*require_once('../Model/Legal.php');
+    if (move_uploaded_file($_FILES["hr_s"]["tmp_name"][$i], $target_file)) {
+      // Agregar código del modelo aquí
+      /*require_once('../Model/Legal.php');
             $olegal = new cLegal();
 
             // Modificar la llamada a la función del modelo con los nuevos parámetros
             $olegal->upload_documents_clients($file_name, $file_type, $target_dir, $file_size, $file_ext, $_tipo_doc_0, $id_client, $dni_client);*/
 
-            $archivos_total++;
-        }
+      $archivos_total++;
     }
+  }
 
 
-    if ($archivos_total>0) {
-    ?>
+  if ($archivos_total > 0) {
+  ?>
     <META http-equiv='Refresh' content='0.2; URL =../Legal/legal_.php'>;
     <script>
-        alert("Borrador Actualizado.");
+      alert("Borrador Actualizado.");
     </script>
 
-    <?php
-    }else{
-      echo '<script> alert("Error al actualizar borrador");</script>';
-    }
-
+  <?php
+  } else {
+    echo '<script> alert("Error al actualizar borrador");</script>';
+  }
 }
 
 
-if(isset($_POST["btn_save_pu"])) {
+if (isset($_POST["btn_save_pu"])) {
 
   $dni_client = $_POST["dni_usu_1"];
   $id_client = $_POST["id_cli_1"];
@@ -129,7 +160,7 @@ if(isset($_POST["btn_save_pu"])) {
 
   $archivos_total = 0;
 
-  for ($i=0;  $i < $file_count; $i++) {
+  for ($i = 0; $i < $file_count; $i++) {
     $file_name = $_FILES["pu_s"]["name"][$i];
     $file_tmp = $_FILES["pu_s"]["tmp_name"][$i];
     $file_size = $_FILES["pu_s"]["size"][$i];
@@ -143,7 +174,7 @@ if(isset($_POST["btn_save_pu"])) {
     $file_ext = pathinfo(basename($_FILES["pu_s"]["name"][$i]), PATHINFO_EXTENSION);
 
 
-    $target_dir = "../Documentos Legal/".$dni_client."/P_U/";
+    $target_dir = "../Documentos Legal/" . $dni_client . "/P_U/";
 
     if (!file_exists($target_dir)) {
       mkdir($target_dir, 0777, true);
@@ -157,93 +188,90 @@ if(isset($_POST["btn_save_pu"])) {
       $olegal = new cLegal();
 
       // Modificar la llamada a la función del modelo con los nuevos parámetros
-      $olegal->upload_documents_clients($file_name, $file_type, $target_dir, $file_size, $file_ext, $_tipo_doc_0,$id_client,$dni_client);
+      $olegal->upload_documents_clients($file_name, $file_type, $target_dir, $file_size, $file_ext, $_tipo_doc_0, $id_client, $dni_client);
       //agregar codigo del model aqui
 
       $archivos_total++;
     }
-
   }
 
-    if ($archivos_total>0) {
-    ?>
+  if ($archivos_total > 0) {
+  ?>
     <META http-equiv='Refresh' content='0.2; URL =../Legal/legal_.php'>;
     <script>
-        alert("Predio Urbano correctamente cargado.");
+      alert("Predio Urbano correctamente cargado.");
     </script>
 
-    <?php
-    }else{
-      echo '<script> alert("Error al cargar P.U");</script>';
-    }
-
+  <?php
+  } else {
+    echo '<script> alert("Error al cargar P.U");</script>';
+  }
 }
 
 
 
-if(isset($_POST["btn_updt_pu"])) {
-    $dni_client = $_POST["dni_usu_1"];
-    $id_client = $_POST["id_cli_1"];
-    $_tipo_doc_0 = $_POST["tipo_doc_1"];
-    $id_solic = $_POST["cod_reg_2"];
+if (isset($_POST["btn_updt_pu"])) {
+  $dni_client = $_POST["dni_usu_1"];
+  $id_client = $_POST["id_cli_1"];
+  $_tipo_doc_0 = $_POST["tipo_doc_1"];
+  $id_solic = $_POST["cod_reg_2"];
 
-    $file_count = count($_FILES["pu_s"]["name"]);
+  $file_count = count($_FILES["pu_s"]["name"]);
 
-    $archivos_total = 0;
+  $archivos_total = 0;
 
-    for ($i = 0; $i < $file_count; $i++) {
-        $file_name = $_FILES["pu_s"]["name"][$i];
-        $file_tmp = $_FILES["pu_s"]["tmp_name"][$i];
-        $file_size = $_FILES["pu_s"]["size"][$i];
-        $file_error = $_FILES["pu_s"]["error"][$i];
-        $file_type = $_FILES["pu_s"]["type"][$i];
+  for ($i = 0; $i < $file_count; $i++) {
+    $file_name = $_FILES["pu_s"]["name"][$i];
+    $file_tmp = $_FILES["pu_s"]["tmp_name"][$i];
+    $file_size = $_FILES["pu_s"]["size"][$i];
+    $file_error = $_FILES["pu_s"]["error"][$i];
+    $file_type = $_FILES["pu_s"]["type"][$i];
 
-        $file_ext = explode('.', $file_name);
-        $file_ext = strtolower(end($file_ext));
+    $file_ext = explode('.', $file_name);
+    $file_ext = strtolower(end($file_ext));
 
-        $file_desc = pathinfo(basename($_FILES["pu_s"]["name"][$i]), PATHINFO_FILENAME);
-        $file_ext = pathinfo(basename($_FILES["pu_s"]["name"][$i]), PATHINFO_EXTENSION);
+    $file_desc = pathinfo(basename($_FILES["pu_s"]["name"][$i]), PATHINFO_FILENAME);
+    $file_ext = pathinfo(basename($_FILES["pu_s"]["name"][$i]), PATHINFO_EXTENSION);
 
-        $target_dir = "../borradores/".$id_solic.'/'.$dni_client."/P_U/";
+    $target_dir = "../borradores/" . $id_solic . '/' . $dni_client . "/P_U/";
 
-        echo $target_dir;
+    echo $target_dir;
 
-        if (!file_exists($target_dir)) {
-            mkdir($target_dir, 0777, true);
-        }
+    if (!file_exists($target_dir)) {
+      mkdir($target_dir, 0777, true);
+    }
 
-        $target_file = $target_dir . basename($_FILES["pu_s"]["name"][$i]);
+    $target_file = $target_dir . basename($_FILES["pu_s"]["name"][$i]);
 
-        if (move_uploaded_file($_FILES["pu_s"]["tmp_name"][$i], $target_file)) {
-            // Agregar código del modelo aquí
-            /*require_once('../Model/Legal.php');
+    if (move_uploaded_file($_FILES["pu_s"]["tmp_name"][$i], $target_file)) {
+      // Agregar código del modelo aquí
+      /*require_once('../Model/Legal.php');
             $olegal = new cLegal();
 
             // Modificar la llamada a la función del modelo con los nuevos parámetros
             $olegal->upload_documents_clients($file_name, $file_type, $target_dir, $file_size, $file_ext, $_tipo_doc_0, $id_client, $dni_client);*/
 
-            $archivos_total++;
-        }
+      $archivos_total++;
     }
-    if ($archivos_total>0) {
-    ?>
+  }
+  if ($archivos_total > 0) {
+  ?>
     <META http-equiv='Refresh' content='0.2; URL =../Legal/legal_.php'>;
     <script>
-        alert("Borrador Actualizado.");
+      alert("Borrador Actualizado.");
     </script>
 
-    <?php
-    }else{
-      echo '<script> alert("Error al actualizar borrador");</script>';
-    }
-
+  <?php
+  } else {
+    echo '<script> alert("Error al actualizar borrador");</script>';
+  }
 }
 
 
 
 
 
-if(isset($_POST["btn_save_cl"])) {
+if (isset($_POST["btn_save_cl"])) {
 
   $dni_client = $_POST["dni_usu_2"];
   $id_client = $_POST["id_cli_2"];
@@ -253,7 +281,7 @@ if(isset($_POST["btn_save_cl"])) {
 
   $archivos_total = 0;
 
-  for ($i=0;  $i < $file_count; $i++) { 
+  for ($i = 0; $i < $file_count; $i++) {
     $file_name = $_FILES["cl_s"]["name"][$i];
     $file_tmp = $_FILES["cl_s"]["tmp_name"][$i];
     $file_size =  $_FILES["cl_s"]["size"][$i];
@@ -267,7 +295,7 @@ if(isset($_POST["btn_save_cl"])) {
     $file_ext = pathinfo(basename($_FILES["cl_s"]["name"][$i]), PATHINFO_EXTENSION);
 
 
-    $target_dir = "../Documentos Legal/".$dni_client."/C_L/";
+    $target_dir = "../Documentos Legal/" . $dni_client . "/C_L/";
 
     echo $target_dir;
 
@@ -282,86 +310,84 @@ if(isset($_POST["btn_save_cl"])) {
       $olegal = new cLegal();
 
       // Modificar la llamada a la función del modelo con los nuevos parámetros
-      $olegal->upload_documents_clients($file_name, $file_type, $target_dir, $file_size, $file_ext, $_tipo_doc_0,$id_client,$dni_client);
+      $olegal->upload_documents_clients($file_name, $file_type, $target_dir, $file_size, $file_ext, $_tipo_doc_0, $id_client, $dni_client);
       $archivos_total++;
-
     }
   }
 
-    if ($archivos_total>0) {
-    ?>
+  if ($archivos_total > 0) {
+  ?>
     <META http-equiv='Refresh' content='0.2; URL =../Legal/legal_.php'>;
     <script>
-        alert("Copia(s) Literal(es) subido(s).");
+      alert("Copia(s) Literal(es) subido(s).");
     </script>
 
-    <?php
-    }else{
-      echo '<script> alert("Error al cargar C.L");</script>';
-    }
+  <?php
+  } else {
+    echo '<script> alert("Error al cargar C.L");</script>';
+  }
 }
 
 
-if(isset($_POST["btn_updt_cl"])) {
-    $dni_client = $_POST["dni_usu_2"];
-    $id_client = $_POST["id_cli_2"];
-    $_tipo_doc_0 = $_POST["tipo_doc_2"];
-    $id_solic = $_POST["cod_reg_3"];
+if (isset($_POST["btn_updt_cl"])) {
+  $dni_client = $_POST["dni_usu_2"];
+  $id_client = $_POST["id_cli_2"];
+  $_tipo_doc_0 = $_POST["tipo_doc_2"];
+  $id_solic = $_POST["cod_reg_3"];
 
-    $file_count = count($_FILES["cl_s"]["name"]);
+  $file_count = count($_FILES["cl_s"]["name"]);
 
-    $archivos_total = 0;
+  $archivos_total = 0;
 
-    for ($i = 0; $i < $file_count; $i++) {
-        $file_name = $_FILES["cl_s"]["name"][$i];
-        $file_tmp = $_FILES["cl_s"]["tmp_name"][$i];
-        $file_size = $_FILES["cl_s"]["size"][$i];
-        $file_error = $_FILES["cl_s"]["error"][$i];
-        $file_type = $_FILES["cl_s"]["type"][$i];
+  for ($i = 0; $i < $file_count; $i++) {
+    $file_name = $_FILES["cl_s"]["name"][$i];
+    $file_tmp = $_FILES["cl_s"]["tmp_name"][$i];
+    $file_size = $_FILES["cl_s"]["size"][$i];
+    $file_error = $_FILES["cl_s"]["error"][$i];
+    $file_type = $_FILES["cl_s"]["type"][$i];
 
-        $file_ext = explode('.', $file_name);
-        $file_ext = strtolower(end($file_ext));
+    $file_ext = explode('.', $file_name);
+    $file_ext = strtolower(end($file_ext));
 
-        $file_desc = pathinfo(basename($_FILES["cl_s"]["name"][$i]), PATHINFO_FILENAME);
-        $file_ext = pathinfo(basename($_FILES["cl_s"]["name"][$i]), PATHINFO_EXTENSION);
+    $file_desc = pathinfo(basename($_FILES["cl_s"]["name"][$i]), PATHINFO_FILENAME);
+    $file_ext = pathinfo(basename($_FILES["cl_s"]["name"][$i]), PATHINFO_EXTENSION);
 
-        $target_dir = "../borradores/".$id_solic.'/'.$dni_client."/C_L/";
+    $target_dir = "../borradores/" . $id_solic . '/' . $dni_client . "/C_L/";
 
-        echo $target_dir;
+    echo $target_dir;
 
-        if (!file_exists($target_dir)) {
-            mkdir($target_dir, 0777, true);
-        }
+    if (!file_exists($target_dir)) {
+      mkdir($target_dir, 0777, true);
+    }
 
-        $target_file = $target_dir . basename($_FILES["cl_s"]["name"][$i]);
+    $target_file = $target_dir . basename($_FILES["cl_s"]["name"][$i]);
 
-        if (move_uploaded_file($_FILES["cl_s"]["tmp_name"][$i], $target_file)) {
-            // Agregar código del modelo aquí
-            /*require_once('../Model/Legal.php');
+    if (move_uploaded_file($_FILES["cl_s"]["tmp_name"][$i], $target_file)) {
+      // Agregar código del modelo aquí
+      /*require_once('../Model/Legal.php');
             $olegal = new cLegal();
 
             // Modificar la llamada a la función del modelo con los nuevos parámetros
             $olegal->upload_documents_clients($file_name, $file_type, $target_dir, $file_size, $file_ext, $_tipo_doc_0, $id_client, $dni_client);*/
 
-            $archivos_total++;
-        }
+      $archivos_total++;
     }
-    if ($archivos_total>0) {
-    ?>
+  }
+  if ($archivos_total > 0) {
+  ?>
     <META http-equiv='Refresh' content='0.2; URL =../Legal/legal_.php'>;
     <script>
-        alert("Borrador Actualizado.");
+      alert("Borrador Actualizado.");
     </script>
 
-    <?php
-    }else{
-      echo '<script> alert("Error al actualizar borrador");</script>';
-    }
-
+  <?php
+  } else {
+    echo '<script> alert("Error al actualizar borrador");</script>';
+  }
 }
 
 
-if(isset($_POST["btn_save_dni"])) {
+if (isset($_POST["btn_save_dni"])) {
 
   $dni_client = $_POST["dni_usu_3"];
   $id_client = $_POST["id_cli_3"];
@@ -371,13 +397,13 @@ if(isset($_POST["btn_save_dni"])) {
 
   $archivos_total = 0;
 
-  for ($i=0;  $i < $file_count; $i++) { 
-    
-    $file_name =$_FILES["dni_s"]["name"][$i];
-    $file_tmp =$_FILES["dni_s"]["tmp_name"][$i];
-    $file_size =$_FILES["dni_s"]["size"][$i];
-    $file_error =$_FILES["dni_s"]["error"][$i];
-    $file_type =$_FILES["dni_s"]["type"][$i];
+  for ($i = 0; $i < $file_count; $i++) {
+
+    $file_name = $_FILES["dni_s"]["name"][$i];
+    $file_tmp = $_FILES["dni_s"]["tmp_name"][$i];
+    $file_size = $_FILES["dni_s"]["size"][$i];
+    $file_error = $_FILES["dni_s"]["error"][$i];
+    $file_type = $_FILES["dni_s"]["type"][$i];
 
     $file_ext = explode('.', $file_name);
     $file_ext = strtolower(end($file_ext));
@@ -385,7 +411,7 @@ if(isset($_POST["btn_save_dni"])) {
     $file_desc = pathinfo(basename($_FILES["dni_s"]["name"][$i]), PATHINFO_FILENAME);
     $file_ext = pathinfo(basename($_FILES["dni_s"]["name"][$i]), PATHINFO_EXTENSION);
 
-    $target_dir = "../Documentos Legal/".$dni_client."/DNI/";
+    $target_dir = "../Documentos Legal/" . $dni_client . "/DNI/";
 
     //echo $target_dir;
 
@@ -401,83 +427,81 @@ if(isset($_POST["btn_save_dni"])) {
       $olegal = new cLegal();
 
       // Modificar la llamada a la función del modelo con los nuevos parámetros
-      $olegal->upload_documents_clients($file_name, $file_type, $target_dir, $file_size, $file_ext, $_tipo_doc_0,$id_client,$dni_client);
+      $olegal->upload_documents_clients($file_name, $file_type, $target_dir, $file_size, $file_ext, $_tipo_doc_0, $id_client, $dni_client);
       //agregar codigo del model aqui
       $archivos_total++;
     }
   }
 
-  if ($archivos_total>0) {
+  if ($archivos_total > 0) {
   ?>
-  <META http-equiv='Refresh' content='0.2; URL =../Legal/legal_.php'>;
-  <script>
+    <META http-equiv='Refresh' content='0.2; URL =../Legal/legal_.php'>;
+    <script>
       alert("DNI(s)subido(s) correctamente.");
-  </script>
+    </script>
 
   <?php
-  }else{
+  } else {
     echo '<script> alert("Error al cargar C.L");</script>';
   }
-
 }
 
 
-if(isset($_POST["btn_updt_dni"])) {
-    $dni_client = $_POST["dni_usu_3"];
-    $id_client = $_POST["id_cli_3"];
-    $_tipo_doc_0 = $_POST["tipo_doc_3"];
-    $id_solic = $_POST["cod_reg_4"];
+if (isset($_POST["btn_updt_dni"])) {
+  $dni_client = $_POST["dni_usu_3"];
+  $id_client = $_POST["id_cli_3"];
+  $_tipo_doc_0 = $_POST["tipo_doc_3"];
+  $id_solic = $_POST["cod_reg_4"];
 
-    $file_count = count($_FILES["dni_s"]["name"]);
+  $file_count = count($_FILES["dni_s"]["name"]);
 
-    $archivos_total = 0;
+  $archivos_total = 0;
 
-    for ($i = 0; $i < $file_count; $i++) {
-        $file_name = $_FILES["dni_s"]["name"][$i];
-        $file_tmp = $_FILES["dni_s"]["tmp_name"][$i];
-        $file_size = $_FILES["dni_s"]["size"][$i];
-        $file_error = $_FILES["dni_s"]["error"][$i];
-        $file_type = $_FILES["dni_s"]["type"][$i];
+  for ($i = 0; $i < $file_count; $i++) {
+    $file_name = $_FILES["dni_s"]["name"][$i];
+    $file_tmp = $_FILES["dni_s"]["tmp_name"][$i];
+    $file_size = $_FILES["dni_s"]["size"][$i];
+    $file_error = $_FILES["dni_s"]["error"][$i];
+    $file_type = $_FILES["dni_s"]["type"][$i];
 
-        $file_ext = explode('.', $file_name);
-        $file_ext = strtolower(end($file_ext));
+    $file_ext = explode('.', $file_name);
+    $file_ext = strtolower(end($file_ext));
 
-        $file_desc = pathinfo(basename($_FILES["dni_s"]["name"][$i]), PATHINFO_FILENAME);
-        $file_ext = pathinfo(basename($_FILES["dni_s"]["name"][$i]), PATHINFO_EXTENSION);
+    $file_desc = pathinfo(basename($_FILES["dni_s"]["name"][$i]), PATHINFO_FILENAME);
+    $file_ext = pathinfo(basename($_FILES["dni_s"]["name"][$i]), PATHINFO_EXTENSION);
 
-        $target_dir = "../borradores/".$id_solic.'/'.$dni_client."/DNI/";
+    $target_dir = "../borradores/" . $id_solic . '/' . $dni_client . "/DNI/";
 
-        echo $target_dir;
+    echo $target_dir;
 
-        if (!file_exists($target_dir)) {
-            mkdir($target_dir, 0777, true);
-        }
+    if (!file_exists($target_dir)) {
+      mkdir($target_dir, 0777, true);
+    }
 
-        $target_file = $target_dir . basename($_FILES["dni_s"]["name"][$i]);
+    $target_file = $target_dir . basename($_FILES["dni_s"]["name"][$i]);
 
-        if (move_uploaded_file($_FILES["dni_s"]["tmp_name"][$i], $target_file)) {
-            // Agregar código del modelo aquí
-            /*require_once('../Model/Legal.php');
+    if (move_uploaded_file($_FILES["dni_s"]["tmp_name"][$i], $target_file)) {
+      // Agregar código del modelo aquí
+      /*require_once('../Model/Legal.php');
             $olegal = new cLegal();
 
             // Modificar la llamada a la función del modelo con los nuevos parámetros
             $olegal->upload_documents_clients($file_name, $file_type, $target_dir, $file_size, $file_ext, $_tipo_doc_0, $id_client, $dni_client);*/
 
-            $archivos_total++;
-        }
+      $archivos_total++;
     }
-    if ($archivos_total>0) {
-    ?>
+  }
+  if ($archivos_total > 0) {
+  ?>
     <META http-equiv='Refresh' content='0.2; URL =../Legal/legal_.php'>;
     <script>
-        alert("Borrador Actualizado.");
+      alert("Borrador Actualizado.");
     </script>
 
-    <?php
-    }else{
-      echo '<script> alert("Error al actualizar borrador");</script>';
-    }
-
+<?php
+  } else {
+    echo '<script> alert("Error al actualizar borrador");</script>';
+  }
 }
 
 ?>
