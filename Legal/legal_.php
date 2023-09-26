@@ -163,7 +163,7 @@ require_once('../Controller/controladorListar.php');
                                                             </div>
                                                             <div class="input-group-append">
 
-                                                                <button type="button" class="btn btn-rounded  
+                                                                <button type="button" class="btn btn-rounded
                                                                 btn_lst_hr btn_lst_hr_0" data-toggle="modal" data-target="#lst_hr_0" data-valor="H_R" data-titulo="Hoja de Resumen" data-id_doc_="1"><i class="cursor fa-solid fa-eye"></i></button>
 
                                                                 <button type="button" class="btn btn-rounded  btn_lst_lyts btn_lst_lyts_0" data-toggle="modal" data-target="#lst_lyts" data-valor="H_R" data-titulo="Hoja de Resumen" data-id_doc_="1" style="display:none"><i class="cursor fa-solid fa-pencil"></i></button>
@@ -797,7 +797,7 @@ require_once('../Controller/controladorListar.php');
         <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-body">
-                    <h1 class="title-m" id="titulo_docs_2">victor la rctmre</h1>
+                    <h1 class="title-m" id="titulo_docs_2"></h1>
                     <div class="row margin">
 
                         <div class="form-group" hidden>
@@ -1198,6 +1198,8 @@ require_once('../Controller/controladorListar.php');
                         id_tipo_doc: valor1
                     },
                     success: function(response) {
+
+                        console.log(response);
                         var data = JSON.parse(response);
 
                         var archivos = data.archivos;
@@ -1215,6 +1217,8 @@ require_once('../Controller/controladorListar.php');
                                 var estado = archivo.estado;
                                 var id_doc_ = archivo.id_doc;
                                 var status_r = '';
+
+                                console.log(archivo);
 
 
                                 var delete_btn = $('<button>').text('Eliminar').attr('class', 'btn btn-block btn-danger');
