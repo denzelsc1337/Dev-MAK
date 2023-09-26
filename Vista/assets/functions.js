@@ -796,6 +796,55 @@ $(document).ready(function () {
     return false;
   });
 
+  $("#btn_save_pu").click(function (e) {
+    e.preventDefault();
+    // $("#loader").show();
+
+    // var formData = $("#file_HR").serialize();
+    var formData = new FormData($("#file_PU")[0]);
+
+    formData.append("btn_save_pu", true);
+    formData.append("DataFiles", JSON.stringify(DataFiles));
+
+    $.ajax({
+      type: "POST",
+      url: "../Controller/Upload_Legal_Docs.php",
+      data: formData,
+      processData: false,
+      contentType: false,
+
+      beforeSend: function () {
+        $("#loader").show();
+      },
+
+      success: function (r) {
+        // console.log(r);
+
+        setTimeout(function () {
+          $("#loader").hide();
+          if (r) {
+            alert("Solicitud enviada correctamente.");
+            console.log(r);
+            //event.returnValue = false;
+            // window.location.href = "../Legal/";
+          } else {
+            alert(
+              "Error al registrar, Verifique que los campos esten correctamente completos."
+            );
+            // console.log(r);
+            //console.log(formData);
+          }
+        }, 900);
+      },
+      error: function (xhr, status, error) {
+        $("#loader").hide();
+        console.error(error);
+        console.log(xhr.responseText);
+      },
+    });
+    return false;
+  });
+
   // APARTADO SUBIR DOCUMENTOS
   var buttonPu = document.querySelector(".pu");
   var buttonCl = document.querySelector(".cl");
