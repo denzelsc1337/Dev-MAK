@@ -258,50 +258,47 @@ if (isset($_POST["btn_save_cl"])) {
 
   $archivos_total = 0;
 
-  for ($i = 0; $i < $file_count; $i++) {
-    $file_name = $_FILES["cl_s"]["name"][$i];
-    $file_tmp = $_FILES["cl_s"]["tmp_name"][$i];
-    $file_size =  $_FILES["cl_s"]["size"][$i];
-    $file_error = $_FILES["cl_s"]["error"][$i];
-    $file_type = $_FILES["cl_s"]["type"][$i];
+  $archivos_selecc = $_FILES['cl_s'];
+  // print_r($archivos_selecc);
 
-    $file_ext = explode('.', $file_name);
-    $file_ext = strtolower(end($file_ext));
+  $target_dir = "../Documentos Legal/" . $dni_client . "/C_L/";
 
-    $file_desc = pathinfo(basename($_FILES["cl_s"]["name"][$i]), PATHINFO_FILENAME);
-    $file_ext = pathinfo(basename($_FILES["cl_s"]["name"][$i]), PATHINFO_EXTENSION);
+  $getFiles_CL = $_POST['DataFiles'];
+  $Files_CL = json_decode($getFiles_CL, true);
 
-
-    $target_dir = "../Documentos Legal/" . $dni_client . "/C_L/";
-
-    echo $target_dir;
-
-    if (!file_exists($target_dir)) {
-      mkdir($target_dir, 0777, true);
-    }
-
-    $target_file = $target_dir . basename($_FILES["cl_s"]["name"][$i]);
-
-    if (move_uploaded_file($_FILES["cl_s"]["tmp_name"][$i], $target_file)) {
-      require_once('../Model/Legal.php');
-      $olegal = new cLegal();
-
-      // Modificar la llamada a la función del modelo con los nuevos parámetros
-      $olegal->upload_documents_clients($file_name, $file_type, $target_dir, $file_size, $file_ext, $_tipo_doc_0, $id_client, $dni_client);
-      $archivos_total++;
-    }
+  if (!file_exists($target_dir)) {
+    mkdir($target_dir, 0777, true);
   }
 
-  if ($archivos_total > 0) {
-  ?>
-    <META http-equiv='Refresh' content='0.2; URL =../Legal/legal_.php'>;
-    <script>
-      alert("Copia(s) Literal(es) subido(s).");
-    </script>
+  foreach ($Files_CL as $key => $Files_CL_info) {
+    $fileNames = $Files_CL_info['name'];
+    $fileType = $Files_CL_info['type'];
+    $fileTmp_name = $Files_CL_info['tmp_name'];
+    $fileSize = $Files_CL_info['size'];
 
-  <?php
-  } else {
-    echo '<script> alert("Error al cargar C.L");</script>';
+    $file_ext = explode('.', $fileNames);
+    $file_ext = strtolower(end($file_ext));
+
+    $file = explode(",", $fileNames);
+
+    for ($i = 0; $i < $file_count; $i++) {
+
+      $fileName = $archivos_selecc["name"][$i];
+      $target_file = $target_dir . basename($archivos_selecc["name"][$i]);
+
+      if (in_array($fileName, $file)) {
+        if (move_uploaded_file($_FILES["cl_s"]["tmp_name"][$i], $target_file)) {
+          // Agregar código del modelo aquí
+          require_once('../Model/Legal.php');
+          $olegal = new cLegal();
+
+          // Modificar la llamada a la función del modelo con los nuevos parámetros
+          $olegal->upload_documents_clients($fileNames, $fileType, $target_dir, $fileSize, $file_ext, $_tipo_doc_0, $id_client, $dni_client);
+
+          $archivos_total++;
+        }
+      }
+    }
   }
 }
 
@@ -374,54 +371,62 @@ if (isset($_POST["btn_save_dni"])) {
 
   $archivos_total = 0;
 
-  for ($i = 0; $i < $file_count; $i++) {
+  $archivos_selecc = $_FILES['dni_s'];
+  // print_r($archivos_selecc);
 
-    $file_name = $_FILES["dni_s"]["name"][$i];
-    $file_tmp = $_FILES["dni_s"]["tmp_name"][$i];
-    $file_size = $_FILES["dni_s"]["size"][$i];
-    $file_error = $_FILES["dni_s"]["error"][$i];
-    $file_type = $_FILES["dni_s"]["type"][$i];
+  $target_dir = "../Documentos Legal/" . $dni_client . "/DNI/";
 
-    $file_ext = explode('.', $file_name);
+  $getFiles_DNI = $_POST['DataFiles'];
+  $Files_DNI = json_decode($getFiles_DNI, true);
+
+  if (!file_exists($target_dir)) {
+    mkdir($target_dir, 0777, true);
+  }
+
+  foreach ($Files_DNI as $key => $Files_DNI_info) {
+    $fileNames = $Files_DNI_info['name'];
+    $fileType = $Files_DNI_info['type'];
+    $fileTmp_name = $Files_DNI_info['tmp_name'];
+    $fileSize = $Files_DNI_info['size'];
+
+    $file_ext = explode('.', $fileNames);
     $file_ext = strtolower(end($file_ext));
 
-    $file_desc = pathinfo(basename($_FILES["dni_s"]["name"][$i]), PATHINFO_FILENAME);
-    $file_ext = pathinfo(basename($_FILES["dni_s"]["name"][$i]), PATHINFO_EXTENSION);
+    $file = explode(",", $fileNames);
 
-    $target_dir = "../Documentos Legal/" . $dni_client . "/DNI/";
+    for ($i = 0; $i < $file_count; $i++) {
 
-    //echo $target_dir;
+      $fileName = $archivos_selecc["name"][$i];
+      $target_file = $target_dir . basename($archivos_selecc["name"][$i]);
 
-    if (!file_exists($target_dir)) {
-      mkdir($target_dir, 0777, true);
+      if (in_array($fileName, $file)) {
+        if (move_uploaded_file($_FILES["dni_s"]["tmp_name"][$i], $target_file)) {
+          // Agregar código del modelo aquí
+          require_once('../Model/Legal.php');
+          $olegal = new cLegal();
+
+          // Modificar la llamada a la función del modelo con los nuevos parámetros
+          $olegal->upload_documents_clients($fileNames, $fileType, $target_dir, $fileSize, $file_ext, $_tipo_doc_0, $id_client, $dni_client);
+
+          $archivos_total++;
+        }
+      }
     }
-
-    $target_file = $target_dir . basename($_FILES["dni_s"]["name"][$i]);
-
-    if (move_uploaded_file($_FILES["dni_s"]["tmp_name"][$i], $target_file)) {
-      //agregar codigo del model aqui
-      require_once('../Model/Legal.php');
-      $olegal = new cLegal();
-
-      // Modificar la llamada a la función del modelo con los nuevos parámetros
-      $olegal->upload_documents_clients($file_name, $file_type, $target_dir, $file_size, $file_ext, $_tipo_doc_0, $id_client, $dni_client);
-      //agregar codigo del model aqui
-      $archivos_total++;
-    }
-  }
-
-  if ($archivos_total > 0) {
-  ?>
-    <META http-equiv='Refresh' content='0.2; URL =../Legal/legal_.php'>;
-    <script>
-      alert("DNI(s)subido(s) correctamente.");
-    </script>
-
-  <?php
-  } else {
-    echo '<script> alert("Error al cargar C.L");</script>';
   }
 }
+
+if ($archivos_total > 0) {
+  ?>
+  <META http-equiv='Refresh' content='0.2; URL =../Legal/legal_.php'>;
+  <script>
+    alert("DNI(s)subido(s) correctamente.");
+  </script>
+
+  <?php
+} else {
+  echo '<script> alert("Error al cargar C.L");</script>';
+}
+
 
 
 if (isset($_POST["btn_updt_dni"])) {

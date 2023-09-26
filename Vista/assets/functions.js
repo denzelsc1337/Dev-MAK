@@ -747,6 +747,7 @@ $(document).ready(function () {
   });
   // DRAG AND DROP FILES
 
+  //
   $("#btn_save_hr").click(function (e) {
     e.preventDefault();
     // $("#loader").show();
@@ -844,6 +845,105 @@ $(document).ready(function () {
     });
     return false;
   });
+
+  $("#btn_save_cl").click(function (e) {
+    e.preventDefault();
+    // $("#loader").show();
+
+    // var formData = $("#file_HR").serialize();
+    var formData = new FormData($("#file_CL")[0]);
+
+    formData.append("btn_save_cl", true);
+    formData.append("DataFiles", JSON.stringify(DataFiles));
+
+    $.ajax({
+      type: "POST",
+      url: "../Controller/Upload_Legal_Docs.php",
+      data: formData,
+      processData: false,
+      contentType: false,
+
+      beforeSend: function () {
+        $("#loader").show();
+      },
+
+      success: function (r) {
+        // console.log(r);
+
+        setTimeout(function () {
+          $("#loader").hide();
+          if (r) {
+            alert("Solicitud enviada correctamente.");
+            console.log(r);
+            //event.returnValue = false;
+            // window.location.href = "../Legal/";
+          } else {
+            alert(
+              "Error al registrar, Verifique que los campos esten correctamente completos."
+            );
+            // console.log(r);
+            //console.log(formData);
+          }
+        }, 900);
+      },
+      error: function (xhr, status, error) {
+        $("#loader").hide();
+        console.error(error);
+        console.log(xhr.responseText);
+      },
+    });
+    return false;
+  });
+
+  $("#btn_save_dni").click(function (e) {
+    e.preventDefault();
+    // $("#loader").show();
+
+    // var formData = $("#file_HR").serialize();
+    var formData = new FormData($("#file_DNI")[0]);
+
+    formData.append("btn_save_dni", true);
+    formData.append("DataFiles", JSON.stringify(DataFiles));
+
+    $.ajax({
+      type: "POST",
+      url: "../Controller/Upload_Legal_Docs.php",
+      data: formData,
+      processData: false,
+      contentType: false,
+
+      beforeSend: function () {
+        $("#loader").show();
+      },
+
+      success: function (r) {
+        // console.log(r);
+
+        setTimeout(function () {
+          $("#loader").hide();
+          if (r) {
+            alert("Solicitud enviada correctamente.");
+            console.log(r);
+            //event.returnValue = false;
+            // window.location.href = "../Legal/";
+          } else {
+            alert(
+              "Error al registrar, Verifique que los campos esten correctamente completos."
+            );
+            // console.log(r);
+            //console.log(formData);
+          }
+        }, 900);
+      },
+      error: function (xhr, status, error) {
+        $("#loader").hide();
+        console.error(error);
+        console.log(xhr.responseText);
+      },
+    });
+    return false;
+  });
+  //
 
   // APARTADO SUBIR DOCUMENTOS
   var buttonPu = document.querySelector(".pu");

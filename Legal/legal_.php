@@ -922,7 +922,8 @@ require_once('../Controller/controladorListar.php');
                     <div class="row">
                         <div class="col-sm-12">
                             <div class="container">
-                                <form method="POST" action="../Controller/Upload_Legal_Docs.php" enctype="multipart/form-data">
+                                <form id="file_CL" method="POST" enctype="multipart/form-data">
+                                    <!-- <form method="POST" action="../Controller/Upload_Legal_Docs.php" enctype="multipart/form-data"> -->
 
                                     <div class="content-file flex flex-column">
                                         <label>Copia Literal</label>
@@ -1016,7 +1017,8 @@ require_once('../Controller/controladorListar.php');
                     <div class="row">
                         <div class="col-sm-12">
                             <div class="container">
-                                <form method="POST" action="../Controller/Upload_Legal_Docs.php" enctype="multipart/form-data">
+                                <form id="file_DNI" method="POST" enctype="multipart/form-data">
+                                    <!-- <form method="POST" action="../Controller/Upload_Legal_Docs.php" enctype="multipart/form-data"> -->
                                     <div class="content-file flex flex-column">
                                         <label>DNI</label>
                                         <div hidden>
