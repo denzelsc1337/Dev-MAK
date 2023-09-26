@@ -66,7 +66,7 @@ class cLegal
         } else {
             echo "Error al ejecutar la consulta: " . mysqli_error($cadena);
         }*/
-		echo mysqli_query($cadena, $query);
+		mysqli_query($cadena, $query);
 
 
 		$cnx->cerrarConexion($cadena);

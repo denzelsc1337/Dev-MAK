@@ -1,14 +1,7 @@
 <?php
 
 if (isset($_POST["btn_save_hr"])) {
-
-  print_r($_POST);
-
-  $file_HR = $_POST['DataFiles'];
-  $hr_s = json_decode($file_HR, true);
-
-  echo $file_HR;
-  echo $hr_s;
+  // print_r($_POST);
 
   $dni_client = $_POST["dni_usu_0"];
   $id_client = $_POST["id_cli_0"];
@@ -18,81 +11,61 @@ if (isset($_POST["btn_save_hr"])) {
 
   $archivos_total = 0;
 
-  for ($i = 0; $i < $file_count; $i++) {
-    $file_name = $_FILES["hr_s"]["name"][$i];
-    $file_tmp = $_FILES["hr_s"]["tmp_name"][$i];
-    $file_size = $_FILES["hr_s"]["size"][$i];
-    $file_error = $_FILES["hr_s"]["error"][$i];
-    $file_type = $_FILES["hr_s"]["type"][$i];
+  $archivos_selecc = $_FILES['hr_s'];
+  // print_r($archivos_selecc);
 
-    $file_ext = explode('.', $file_name);
+  $target_dir = "../Documentos Legal/" . $dni_client . "/H_R/";
+
+  $getFiles_HR = $_POST['DataFiles'];
+  $Files_HR = json_decode($getFiles_HR, true);
+
+  if (!file_exists($target_dir)) {
+    mkdir($target_dir, 0777, true);
+  }
+
+  foreach ($Files_HR as $key => $Files_HR_info) {
+    $fileNames = $Files_HR_info['name'];
+    $fileType = $Files_HR_info['type'];
+    $fileTmp_name = $Files_HR_info['tmp_name'];
+    $fileSize = $Files_HR_info['size'];
+
+    $file_ext = explode('.', $fileNames);
     $file_ext = strtolower(end($file_ext));
 
-    $file_desc = pathinfo(basename($_FILES["hr_s"]["name"][$i]), PATHINFO_FILENAME);
-    $file_ext = pathinfo(basename($_FILES["hr_s"]["name"][$i]), PATHINFO_EXTENSION);
+    $file = explode(",", $fileNames);
 
-    $target_dir = "../Documentos Legal/" . $dni_client . "/H_R/";
+    for ($i = 0; $i < $file_count; $i++) {
 
-    $getFiles_HR = $_POST['files_HR'];
-    $Files_HR = json_decode($getFiles_HR, true);
+      $fileName = $archivos_selecc["name"][$i];
+      $target_file = $target_dir . basename($archivos_selecc["name"][$i]);
 
-    if (!file_exists($target_dir)) {
-      mkdir($target_dir, 0777, true);
-    }
+      if (in_array($fileName, $file)) {
+        if (move_uploaded_file($_FILES["hr_s"]["tmp_name"][$i], $target_file)) {
+          // Agregar código del modelo aquí
+          require_once('../Model/Legal.php');
+          $olegal = new cLegal();
 
-    $target_file = $target_dir . basename($_FILES["hr_s"]["name"][$i]);
+          // Modificar la llamada a la función del modelo con los nuevos parámetros
+          $olegal->upload_documents_clients($fileNames, $fileType, $target_dir, $fileSize, $file_ext, $_tipo_doc_0, $id_client, $dni_client);
 
-
-    foreach ($Files_HR as $key => $Files_HR_info) {
-      $fileNames = $Files_HR_info['name'];
-      $file = explode(",", $fileNames);
-
-      echo $fileNames;
-
-      for ($i = 0; $i < $file_count; $i++) {
-
-
-        if (in_array($fileNames, $file)) {
-          if (move_uploaded_file($_FILES["hr_s"]["tmp_name"][$i], $target_file)) {
-            // Agregar código del modelo aquí
-            require_once('../Model/Legal.php');
-            $olegal = new cLegal();
-
-            // Modificar la llamada a la función del modelo con los nuevos parámetros
-            $olegal->upload_documents_clients($file_name, $file_type, $target_dir, $file_size, $file_ext, $_tipo_doc_0, $id_client, $dni_client);
-
-            $archivos_total++;
-          }
+          $archivos_total++;
         }
       }
     }
-
-    if (move_uploaded_file($_FILES["hr_s"]["tmp_name"][$i], $target_file)) {
-      // Agregar código del modelo aquí
-      require_once('../Model/Legal.php');
-      $olegal = new cLegal();
-
-      // Modificar la llamada a la función del modelo con los nuevos parámetros
-      $olegal->upload_documents_clients($file_name, $file_type, $target_dir, $file_size, $file_ext, $_tipo_doc_0, $id_client, $dni_client);
-
-      $archivos_total++;
-    }
   }
 
+  // if (move_uploaded_file($_FILES["hr_s"]["tmp_name"][$i], $target_file)) {
+  //   // Agregar código del modelo aquí
+  //   require_once('../Model/Legal.php');
+  //   $olegal = new cLegal();
 
-  if ($archivos_total > 0) {
+  //   // Modificar la llamada a la función del modelo con los nuevos parámetros
+  //   $olegal->upload_documents_clients($file_name, $file_type, $target_dir, $file_size, $file_ext, $_tipo_doc_0, $id_client, $dni_client);
 
-?>
-    <!-- <META http-equiv='Refresh' content='0.2; URL =../Legal/legal_.php'>; -->
-    <!-- <script> -->
-    <!-- alert("Hoja Resumen correctamente cargada."); -->
+  //   $archivos_total++;
+  // }
+  // }
 
-    <!--  </script> -->
-
-  <?php
-  } else {
-    echo '<script> alert("Error al cargar H.R");</script>';
-  }
 }
 
 
@@ -143,7 +116,7 @@ if (isset($_POST["btn_updt_hr"])) {
 
 
   if ($archivos_total > 0) {
-  ?>
+?>
     <META http-equiv='Refresh' content='0.2; URL =../Legal/legal_.php'>;
     <script>
       alert("Borrador Actualizado.");

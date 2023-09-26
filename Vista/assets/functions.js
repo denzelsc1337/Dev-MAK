@@ -753,21 +753,9 @@ $(document).ready(function () {
 
     // var formData = $("#file_HR").serialize();
     var formData = new FormData($("#file_HR")[0]);
-    // console.log(formData);
 
-    // var formData = {
-    //   btn_save_hr: true,
-    //   dni_usu_0: $("#dni_usu_0").val(),
-    //   id_cli_0: $("#id_cli_0").val(),
-    //   tipo_doc_0: $("#tipo_doc_0").val(),
-    //   cod_reg_: $("#cod_reg_").val(),
-    //   // hr_s: ("DataFiles", JSON.stringify(DataFiles)),
-    // };
     formData.append("btn_save_hr", true);
     formData.append("DataFiles", JSON.stringify(DataFiles));
-    // formData.append("uploadFiles_PU", JSON.stringify(uploadFiles_PU));
-    // formData.append("uploadFiles_CL", JSON.stringify(uploadFiles_CL));
-    // formData.append("uploadFiles_DNI", JSON.stringify(uploadFiles_DNI));
 
     $.ajax({
       type: "POST",
@@ -786,10 +774,10 @@ $(document).ready(function () {
         setTimeout(function () {
           $("#loader").hide();
           if (r) {
-            //alert("Solicitud enviada correctamente.");
+            alert("Solicitud enviada correctamente.");
             console.log(r);
             //event.returnValue = false;
-            window.location.href = "../Legal/";
+            // window.location.href = "../Legal/";
           } else {
             alert(
               "Error al registrar, Verifique que los campos esten correctamente completos."
