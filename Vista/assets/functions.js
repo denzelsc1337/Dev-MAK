@@ -789,7 +789,7 @@ $(document).ready(function () {
             //alert("Solicitud enviada correctamente.");
             console.log(r);
             //event.returnValue = false;
-            window.location.href = "../Valorizacion/";
+            window.location.href = "../Legal/";
           } else {
             alert(
               "Error al registrar, Verifique que los campos esten correctamente completos."
