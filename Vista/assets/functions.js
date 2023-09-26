@@ -484,67 +484,6 @@ $(document).ready(function () {
     });
   });
 
-  $("#btn_save_hr").click(function (e) {
-    e.preventDefault();
-    // $("#loader").show();
-
-    // var formData = $("#file_HR").serialize();
-    var formData = new FormData($("#file_HR")[0]);
-    // console.log(formData);
-
-    // var formData = {
-    //   btn_save_hr: true,
-    //   dni_usu_0: $("#dni_usu_0").val(),
-    //   id_cli_0: $("#id_cli_0").val(),
-    //   tipo_doc_0: $("#tipo_doc_0").val(),
-    //   cod_reg_: $("#cod_reg_").val(),
-    //   hr_s: ("hr_s", JSON.stringify(hr_s)),
-    // };
-    formData.append("btn_save_hr", true);
-    formData.append("DataFiles", JSON.stringify(hr_s));
-    // formData.append("uploadFiles_PU", JSON.stringify(uploadFiles_PU));
-    // formData.append("uploadFiles_CL", JSON.stringify(uploadFiles_CL));
-    // formData.append("uploadFiles_DNI", JSON.stringify(uploadFiles_DNI));
-
-    $.ajax({
-      type: "POST",
-      url: "../Controller/Upload_Legal_Docs.php",
-      data: formData,
-      processData: false,
-      contentType: false,
-
-      beforeSend: function () {
-        $("#loader").show();
-      },
-
-      success: function (r) {
-        // console.log(r);
-
-        setTimeout(function () {
-          $("#loader").hide();
-          if (r) {
-            //alert("Solicitud enviada correctamente.");
-            console.log(r);
-            //event.returnValue = false;
-            window.location.href = "../Valorizacion/";
-          } else {
-            alert(
-              "Error al registrar, Verifique que los campos esten correctamente completos."
-            );
-            // console.log(r);
-            //console.log(formData);
-          }
-        }, 900);
-      },
-      error: function (xhr, status, error) {
-        $("#loader").hide();
-        console.error(error);
-        console.log(xhr.responseText);
-      },
-    });
-    return false;
-  });
-
   // INPUT WITH LIST
   $(document).ready(function () {
     $(".auto-input").on("keyup", function () {
@@ -611,13 +550,12 @@ $(document).ready(function () {
 
   // DRAG AND DROP FILES
   var dragArea = document.querySelectorAll(".content-file");
+  var DataFiles = [];
 
   dragArea.forEach((element) => {
     var dragText = element.querySelector("span");
     var buttonFile = element.querySelectorAll("#buttonFile");
     var inputFile = element.querySelector(".upload");
-
-    var DataFiles = [];
 
     buttonFile.forEach((buttonFile) => {
       buttonFile.addEventListener("click", (e) => {
@@ -808,6 +746,67 @@ $(document).ready(function () {
     }
   });
   // DRAG AND DROP FILES
+
+  $("#btn_save_hr").click(function (e) {
+    e.preventDefault();
+    // $("#loader").show();
+
+    // var formData = $("#file_HR").serialize();
+    var formData = new FormData($("#file_HR")[0]);
+    // console.log(formData);
+
+    // var formData = {
+    //   btn_save_hr: true,
+    //   dni_usu_0: $("#dni_usu_0").val(),
+    //   id_cli_0: $("#id_cli_0").val(),
+    //   tipo_doc_0: $("#tipo_doc_0").val(),
+    //   cod_reg_: $("#cod_reg_").val(),
+    //   // hr_s: ("DataFiles", JSON.stringify(DataFiles)),
+    // };
+    formData.append("btn_save_hr", true);
+    formData.append("DataFiles", JSON.stringify(DataFiles));
+    // formData.append("uploadFiles_PU", JSON.stringify(uploadFiles_PU));
+    // formData.append("uploadFiles_CL", JSON.stringify(uploadFiles_CL));
+    // formData.append("uploadFiles_DNI", JSON.stringify(uploadFiles_DNI));
+
+    $.ajax({
+      type: "POST",
+      url: "../Controller/Upload_Legal_Docs.php",
+      data: formData,
+      processData: false,
+      contentType: false,
+
+      beforeSend: function () {
+        $("#loader").show();
+      },
+
+      success: function (r) {
+        // console.log(r);
+
+        setTimeout(function () {
+          $("#loader").hide();
+          if (r) {
+            //alert("Solicitud enviada correctamente.");
+            console.log(r);
+            //event.returnValue = false;
+            window.location.href = "../Valorizacion/";
+          } else {
+            alert(
+              "Error al registrar, Verifique que los campos esten correctamente completos."
+            );
+            // console.log(r);
+            //console.log(formData);
+          }
+        }, 900);
+      },
+      error: function (xhr, status, error) {
+        $("#loader").hide();
+        console.error(error);
+        console.log(xhr.responseText);
+      },
+    });
+    return false;
+  });
 
   // APARTADO SUBIR DOCUMENTOS
   var buttonPu = document.querySelector(".pu");

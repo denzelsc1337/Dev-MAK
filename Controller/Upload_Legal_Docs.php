@@ -4,6 +4,12 @@ if (isset($_POST["btn_save_hr"])) {
 
   print_r($_POST);
 
+  $file_HR = $_POST['DataFiles'];
+  $hr_s = json_decode($file_HR, true);
+
+  echo $file_HR;
+  echo $hr_s;
+
   // $dni_client = $_POST["dni_usu_0"];
   // $id_client = $_POST["id_cli_0"];
   // $_tipo_doc_0 = $_POST["tipo_doc_0"];
