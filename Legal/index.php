@@ -693,7 +693,7 @@ require_once('../Controller/controladorListar.php');
                                                 <img src="../Vista/images/document-text-svgrepo-com 1.svg" alt="doc">
                                                 <span>Arrastre los archivos aquí para subirlos.</span>
                                             </div>
-                                            <div class="file-archives"></div>
+                                            <div class="file-archives" style="display: none;"></div>
                                         </div>
 
                                         <span>O</span>
@@ -835,7 +835,7 @@ require_once('../Controller/controladorListar.php');
                                                 <img src="../Vista/images/document-text-svgrepo-com 1.svg" alt="doc">
                                                 <span>Arrastre los archivos aquí para subirlos.</span>
                                             </div>
-                                            <div class="file-archives"></div>
+                                            <div class="file-archives" style="display: none;"></div>
                                         </div>
                                         <span>O</span>
 
@@ -898,7 +898,7 @@ require_once('../Controller/controladorListar.php');
                                                 <img src="../Vista/images/document-text-svgrepo-com 1.svg" alt="doc">
                                                 <span>Arrastre los archivos aquí para subirlos.</span>
                                             </div>
-                                            <div class="file-archives"></div>
+                                            <div class="file-archives" style="display: none;"></div>
                                         </div>
                                         <span>O</span>
                                         <!-- <div>
@@ -991,8 +991,7 @@ require_once('../Controller/controladorListar.php');
                                                 <img src="../Vista/images/document-text-svgrepo-com 1.svg" alt="doc">
                                                 <span>Arrastre los archivos aquí para subirlos.</span>
                                             </div>
-                                            <div class="file-archives">
-                                            </div>
+                                            <div class="file-archives" style="display: none;"></div>
                                         </div>
                                         <span>O</span>
 

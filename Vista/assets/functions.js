@@ -788,6 +788,9 @@ $(document).ready(function () {
           }
         }, 900);
       },
+      complete: function () {
+        $("modal_archive_HR").closest();
+      },
       error: function (xhr, status, error) {
         $("#loader").hide();
         console.error(error);
