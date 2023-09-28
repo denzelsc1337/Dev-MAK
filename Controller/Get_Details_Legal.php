@@ -4,6 +4,8 @@ require_once('../Model/Legal.php');
 
 $oLegal = new cLegal();
 
+// print_r($_POST);
+
 $id_solic_l = $_POST['id_solic_l'];
 $id_clie = $_POST['id_client'];
 

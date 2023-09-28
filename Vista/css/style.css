@@ -68,6 +68,10 @@ strong {
   border-radius: 0 20px 20px 0;
 }
 
+/* .container {
+  max-width: fit-content !important;
+} */
+
 .cursor {
   cursor: pointer;
 }
@@ -1715,6 +1719,9 @@ form .form-content {
 
 .layout-footer-fixed .wrapper .main-footer {
   z-index: 997 !important;
+}
+.layout-footer-fixed .wrapper .content-wrapper {
+  padding-bottom: calc(3.5rem + 40px) !important;
 }
 
 .mak_overlay {

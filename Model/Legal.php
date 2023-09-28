@@ -209,11 +209,17 @@ class cLegal
 
 		//$query = "SELECT * FROM valorizacion WHERE id_valor =$id_reg";
 
+		// $query = "SELECT dl.id_legal, dl.nom_client, dl.ape_client, dl.dir_client, dl.user_cod, cs.dni_client, dl.status_solic,dl.comentario
+		// FROM docs_legal dl
+		// INNER JOIN clientes_servicios cs
+		// on cs.id_client = dl.user_cod 
+		// WHERE id_legal = $id_reg and user_cod = $id_client";
+
 		$query = "SELECT dl.id_legal, dl.nom_client, dl.ape_client, dl.dir_client, dl.user_cod, cs.dni_client, dl.status_solic,dl.comentario
 		FROM docs_legal dl
 		INNER JOIN clientes_servicios cs
 		on cs.id_client = dl.user_cod 
-		WHERE id_legal = $id_reg and user_cod = $id_client";
+		WHERE id_legal = $id_reg and cs.dni_client = $id_client";
 
 		$resultado = mysqli_query($cadena, $query);
 

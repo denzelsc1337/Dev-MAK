@@ -9,12 +9,12 @@ $id_tipo_doc = $_POST['id_tipo_doc'];
 
 
 // Directorio donde se encuentran los archivos
-$directorio = "../Solicitudes/".$cod_solic."/".$dni_u."/".$tipo_doc_."/";
+$directorio = "../Solicitudes/" . $cod_solic . "/" . $dni_u . "/" . $tipo_doc_ . "/";
 //arroshi recontra imbecil
 $response = array();
 
-if (is_dir($directorio)){
-       
+if (is_dir($directorio)) {
+
     $archivos = scandir($directorio);
 
     foreach ($archivos as $archivo) {
@@ -25,50 +25,51 @@ if (is_dir($directorio)){
             $archivo_info = array();
             $archivo_info['ruta'] = $directorio;
             $archivo_info['archivo'] = $archivo;
-            
+
             $archivo_info['estado'] = 'estado_desconocido';
-            
+
             $servername = "localhost";
             $username = "root";
             $password = "";
             $dbname = "mak";
 
-            $id_client = $id_cli; 
-            $tipo_doc = $id_tipo_doc;  
-            $id_reg = $cod_solic;  
+            $id_client = $id_cli;
+            $tipo_doc = $id_tipo_doc;
+            $id_reg = $cod_solic;
 
-             
+
             $conn = new mysqli($servername, $username, $password, $dbname);
 
-            
+
             if ($conn->connect_error) {
                 die("Conexión fallida: " . $conn->connect_error);
             }
             //echo "id_client: $id_client, tipo_doc: $tipo_doc, id_reg: $id_reg, archivo: $archivo"; // Agregar esta línea
-            
+
             $sql = "SELECT id_document, id_legal, file_name, status_doc
                     FROM documents_clients dcl
                     INNER JOIN docs_legal dl ON dcl.id_client = dl.user_cod
-                    WHERE dl.user_cod = '$id_client' AND tipo_doc = '$tipo_doc' AND id_legal = '$id_reg' 
-                    AND file_name = '$archivo'";
+                    WHERE dcl.dni_client = '$id_client' AND tipo_doc = '$tipo_doc' AND id_legal = '$id_reg' 
+                    AND file_name = '$archivo'
+                    GROUP BY file_name";
 
             //echo "Consulta SQL: $sql<br>";
 
             $result = $conn->query($sql);
 
             if ($result->num_rows > 0) {
-                
+
                 $response['status_doc'] = "Archivos encontrados";
 
                 while ($row = $result->fetch_assoc()) {
-                    
+
                     $db_info = array();
                     $db_info['id_document'] = $row['id_document'];
                     $db_info['id_legal'] = $row['id_legal'];
                     $db_info['file_name'] = $row['file_name'];
                     $db_info['status_doc_'] = $row['status_doc'];
 
-                    
+
                     $archivo_info['estado'] = $row['status_doc'];
 
                     $response['base_de_datos'][] = $db_info;
@@ -78,19 +79,18 @@ if (is_dir($directorio)){
                 $response['status_doc_'] = "No se encontraron archivos en la base de datos";
             }
 
-            
+
             $conn->close();
 
             $response['archivos'][] = $archivo_info;
         }
     }
 
-    
+
     if (empty($response['archivos'])) {
         $response['status_doc'] = "Archivo no encontrado";
     }
-
-}else{
+} else {
     $response['status_doc'] = "Carpeta no encontrada";
 }
 

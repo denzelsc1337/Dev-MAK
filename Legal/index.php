@@ -1348,6 +1348,8 @@ require_once('../Controller/controladorListar.php');
                     },
                     success: function(response) {
 
+                        console.log("|--------------------------|");
+                        console.log(response);
 
                         var data = JSON.parse(response);
 
@@ -1849,7 +1851,7 @@ require_once('../Controller/controladorListar.php');
                     var _id_soli = $(element).data('cod_solic');
                     var _idcli = $(element).data('cod_client');
 
-                    console.log(_id_soli)
+                    // console.log(_id_soli)
 
                     get_details_solic_legal(_id_soli, _idcli)
                 });
@@ -1993,7 +1995,7 @@ require_once('../Controller/controladorListar.php');
                 },
 
                 success: function(response) {
-                    console.log(response);
+                    // console.log(response);
 
                     try {
                         var detalles = JSON.parse(response);
@@ -2001,8 +2003,8 @@ require_once('../Controller/controladorListar.php');
                         console.log(detalles);
 
                         var id_valor = detalles[0][0];
-                        var nom_client = detalles[0][1];
-                        var apellido = detalles[0][2];
+                        var nom_client = detalles[0][1] + " " + detalles[0][2];
+                        // var apellido = detalles[0][2];
                         var correo = detalles[0][3];
                         var id_client = detalles[0][4];
                         var dni_client = detalles[0][5];
@@ -2036,7 +2038,7 @@ require_once('../Controller/controladorListar.php');
 
                         console.log("ID Valor: " + id_valor);
                         console.log("Nombre Cliente: " + nom_client);
-                        console.log("Apellido: " + apellido);
+                        // console.log("Apellido: " + apellido);
                         console.log("email: " + correo);
                         console.log("id cliente: " + id_client);
                         console.log("dni cliente: " + dni_client);
@@ -2047,7 +2049,8 @@ require_once('../Controller/controladorListar.php');
                         $("#id_client_l").val(id_client)
                         $("#dni_client_l").val(dni_client)
 
-                        $("#data_names_").val(nom_client + ' ' + apellido)
+                        $("#data_names_").val(nom_client)
+                        // $("#data_names_").val(nom_client + ' ' + apellido)
                         $("#data_direcion_").val(correo)
                         $("#coment_").val(coment)
 
