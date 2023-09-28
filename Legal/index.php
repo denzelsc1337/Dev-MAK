@@ -432,12 +432,14 @@ require_once('../Controller/controladorListar.php');
 
 
                             <form method="POST" id="updt_status">
-                                <div class="arrow-left arrow-left_1">
-                                    <i class="fa-solid fa-angle-left"></i>
-                                </div>
 
                                 <div class="container">
                                     <div class="card-body pt-5">
+
+                                        <div class="arrow-left arrow-left_1">
+                                            <i class="fa-solid fa-angle-left"></i>
+                                        </div>
+
                                         <div class="row">
 
                                             <div class="col-sm-6 pt-5">
