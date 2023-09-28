@@ -1242,7 +1242,7 @@ require_once('../Controller/controladorListar.php');
                                                         <div class="inputs brd-rght-blue">
                                                             <input id="ruta_doc_i" type="text" value="${ruta}" readonly hidden>
                                                             <input id="ruta_archivo_i" type="text" value="${nombreArchivo}" readonly hidden>
-                                                            <input id="cod_doc_i" type="text" value="${id_doc_}" readonly >
+                                                            <input id="cod_doc_i" type="text" value="${id_doc_}" readonly hidden>
 
                                                             <div class="">
                                                                 <button id="dlt_file" type="button" class="btn dlt_file"><i class="cursor fa-solid fa-trash"></i></button>

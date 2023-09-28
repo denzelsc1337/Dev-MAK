@@ -776,7 +776,7 @@ $(document).ready(function () {
           
           if (r) {
             alert("Solicitud enviada correctamente.");
-            
+            $("#modal_archive_HR").modal('hide');
             console.log(r);
             //event.returnValue = false;
             // window.location.href = "../Legal/";
@@ -789,9 +789,9 @@ $(document).ready(function () {
           }
         }, 900);
       },
-      complete: function () {
-        $("#modal_archive_HR").modal('hide');
-      },
+      // complete: function () {
+        
+      // },
       error: function (xhr, status, error) {
         $("#loader").hide();
         console.error(error);
