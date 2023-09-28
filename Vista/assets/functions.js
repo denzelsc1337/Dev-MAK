@@ -829,6 +829,7 @@ $(document).ready(function () {
           $("#loader").hide();
           if (r) {
             alert("Solicitud enviada correctamente.");
+            $("#modal_archive_HR").modal('hide');
             console.log(r);
             //event.returnValue = false;
             // window.location.href = "../Legal/";
@@ -878,6 +879,7 @@ $(document).ready(function () {
           $("#loader").hide();
           if (r) {
             alert("Solicitud enviada correctamente.");
+            $("#modal_archive_HR").modal('hide');
             console.log(r);
             //event.returnValue = false;
             // window.location.href = "../Legal/";
@@ -927,6 +929,7 @@ $(document).ready(function () {
           $("#loader").hide();
           if (r) {
             alert("Solicitud enviada correctamente.");
+            $("#modal_archive_HR").modal('hide');
             console.log(r);
             //event.returnValue = false;
             // window.location.href = "../Legal/";

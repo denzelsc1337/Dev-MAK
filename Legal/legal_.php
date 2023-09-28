@@ -1273,7 +1273,6 @@ require_once('../Controller/controladorListar.php');
             }
 
 
-
             function load_documents_lyt(id_soli_l, id_tipo_doc_) {
 
                 var dni = '<?php echo $_SESSION['dni'] ?>';
@@ -1502,8 +1501,6 @@ require_once('../Controller/controladorListar.php');
             }
 
 
-
-
             function eliminarArchivo($deleteBtn, cod_doc_, ruta_doc, ruta_archivo) {
 
                 var dni = '<?php echo $_SESSION['dni'] ?>';
@@ -1521,13 +1518,25 @@ require_once('../Controller/controladorListar.php');
                     },
                     success: function(response) {
                         console.log("archivo eliminado con ID: " + ruta_doc + ruta_archivo);
+
                         $deleteBtn.closest('.modal').modal('hide');
-                        load_documents(_id_tipo_doc);
                     },
                     complete: function() {
-                        load_documents(_id_tipo_doc);
                         setTimeout(function() {
                             $('#lst_hr_0').modal('show');
+                            if (ruta_doc == "../Documentos Legal/" + dni + "/H_R/") {
+                                console.log("HR")
+                                load_documents('H_R');
+                            } else if (ruta_doc == "../Documentos Legal/" + dni + "/P_U/") {
+                                console.log("PU")
+                                load_documents('P_U');
+                            } else if (ruta_doc == "../Documentos Legal/" + dni + "/C_L/") {
+                                console.log("CL")
+                                load_documents('C_L');
+                            } else if (ruta_doc == "../Documentos Legal/" + dni + "/DNI/") {
+                                console.log("DNI")
+                                load_documents('DNI');
+                            }
                         }, 500);
 
                     }
@@ -1536,7 +1545,6 @@ require_once('../Controller/controladorListar.php');
 
             $(document).on('click', '.dlt_file', function() {
                 var $this = $(this);
-                console.log("probando botón");
 
                 var confirmar_ = window.confirm('¿Estás seguro de que deseas eliminar este archivo?');
 
