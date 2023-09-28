@@ -1242,7 +1242,7 @@ require_once('../Controller/controladorListar.php');
                                                         <div class="inputs brd-rght-blue">
                                                             <input id="ruta_doc_i" type="text" value="${ruta}" readonly hidden>
                                                             <input id="ruta_archivo_i" type="text" value="${nombreArchivo}" readonly hidden>
-                                                            <input id="cod_doc_i" type="text" value="${id_doc_}" readonly hidden>
+                                                            <input id="cod_doc_i" type="text" value="${id_doc_}" readonly >
 
                                                             <div class="">
                                                                 <button id="dlt_file" type="button" class="btn dlt_file"><i class="cursor fa-solid fa-trash"></i></button>
@@ -1516,17 +1516,16 @@ require_once('../Controller/controladorListar.php');
                     data: {
                         id_client: id_cli,
                         dni_client: dni,
-                        cod_doc_: cod_doc_,
                         ruta_doc: ruta_doc,
                         ruta_archivo: ruta_archivo,
                     },
                     success: function(response) {
-                        console.log("archivo eliminado con ID: " + cod_doc_);
+                        console.log("archivo eliminado con ID: " + ruta_doc + ruta_archivo);
                         $deleteBtn.closest('.modal').modal('hide');
-                        //load_documents();
+                        load_documents(_id_tipo_doc);
                     },
                     complete: function() {
-                        load_documents();
+                        load_documents(_id_tipo_doc);
                         setTimeout(function() {
                             $('#lst_hr_0').modal('show');
                         }, 500);

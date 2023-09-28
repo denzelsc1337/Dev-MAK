@@ -17,7 +17,7 @@ $dni_client = $_POST['dni_client'];*/
 
 $ruta_archivo = $_POST['ruta_doc'];
 
-//$nombre_archivo_input = $_POST['ruta_archivo'];
+$nombre_archivo_input = $_POST['ruta_archivo'];
 
 
 /*$id_document = mysqli_real_escape_string($conn, $id_document);
@@ -34,8 +34,8 @@ if (mysqli_query($conn, $sql)) {
 } else {
     echo "error al eliminar el registro: " . mysqli_error($conn) . "<br>";
 }*/
-$file_delete = $ruta_archivo;
-//$file_delete = $ruta_archivo . $nombre_archivo_input;
+// $file_delete = $ruta_archivo;
+$file_delete = $ruta_archivo . $nombre_archivo_input;
 
 $archivo_eliminar = urldecode($file_delete);
 
@@ -45,4 +45,4 @@ if (unlink($archivo_eliminar)) {
     echo "error al eliminar del directorio";
 }
 
-mysqli_close($conn);
+// mysqli_close($conn);
