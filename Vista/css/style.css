@@ -2225,7 +2225,8 @@ figcaption {
   outline: none;
 }
 
-#status_solic_val_cbo {
+#status_solic_val_cbo,
+#status_solic_legal_cbo {
   padding: 5px 10px;
   border-radius: 5px;
   outline: none;

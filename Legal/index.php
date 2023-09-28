@@ -326,7 +326,7 @@ require_once('../Controller/controladorListar.php');
                                                                             </button>
                                                                         </div>
                                                                     </div>
-                                                                    <div class="col-sm-4 justify-content-center arrow-right_1 get_data_soli_legl" data-cod_solic="<?php echo $lst_legal_d[0] ?>" data-cod_client="<?php echo $lst_legal_d[5] ?>">
+                                                                    <div class="col-sm-4 justify-content-center arrow-right_1 get_data_soli_legl" data-cod_solic="<?php echo $lst_legal_d[0] ?>" data-cod_client="<?php echo $lst_legal_d[6] ?>">
                                                                         <div class="options">
                                                                             <button type="button" class="btn btn-rounded" id="">
                                                                                 <i class="fa-solid fa-eye"></i>
@@ -377,7 +377,7 @@ require_once('../Controller/controladorListar.php');
                                                             <td>
                                                                 <?php
                                                                 $estado = $lst_legal_d[5];
-                                                                //echo $estado;
+                                                                //echo $estado; 
                                                                 switch ($estado) {
                                                                     case '10':
                                                                         echo '<span class="badge rounded-pill bg-info">Pendiente</span>';
@@ -520,18 +520,21 @@ require_once('../Controller/controladorListar.php');
 
                                             <div class="col-sm-6">
 
-                                                <div class="d-flex justify-content-end pb-3">
-                                                    <div class="input-select">
-                                                        <input type="text" id="" name="" class="textBox" readonly>
-                                                        <input type="text" id="status_solic_val_cbo" name="status_solic_val_cbo" hidden readonly>
-                                                        <div class="select-options">
-                                                            <div class="bg-info" data-value="10">Pendiente</div>
-                                                            <div class="bg-warning" data-value="20">En revisión</div>
-                                                            <div class="bg-secondary" data-value="30">Borrador</div>
-                                                            <div class="bg-success" data-value="90">Finalizado</div>
+                                                <?php if ($_SESSION['tipo_usu'] == 1) { ?>
+                                                    <div class="d-flex justify-content-end pb-3">
+                                                        <div class="input-select">
+                                                            <input type="text" id="" name="" class="textBox" readonly>
+                                                            <input type="text" id="status_solic_legal_cbo" name="status_solic_legal_cbo" hidden readonly>
+                                                            <div class="select-options">
+                                                                <div class="bg-info" data-value="10">Pendiente</div>
+                                                                <div class="bg-warning" data-value="20">En revisión</div>
+                                                                <div class="bg-secondary" data-value="30">Borrador</div>
+                                                                <div class="bg-success" data-value="90">Finalizado</div>
+                                                            </div>
                                                         </div>
+
                                                     </div>
-                                                </div>
+                                                <?php } ?>
 
                                                 <div class="card-body" id="carpeta_l">
                                                     <div class="row card-resume">
