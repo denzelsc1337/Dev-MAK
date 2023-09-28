@@ -773,11 +773,26 @@ $(document).ready(function () {
         // console.log(r);
 
         setTimeout(function () {
-          
           if (r) {
             alert("Solicitud enviada correctamente.");
-            $("#modal_archive_HR").modal('hide');
+            $("#modal_archive_HR").modal("hide");
             console.log(r);
+
+            var modal = document.querySelector("#modal_archive_HR"),
+              files = modal.querySelector(".input-file"),
+              fileMessage = files.querySelector(".file-message"),
+              fileArchives = files.querySelector(".file-archives");
+
+            setTimeout(() => {
+              // Oculta el contenedor estableciendo su estilo a "display: none"
+              fileArchives.style.display = "none";
+              fileMessage.style.display = "flex";
+              // Borra todos los elementos hijos del contenedor
+              while (fileArchives.firstChild) {
+                fileArchives.removeChild(fileArchives.firstChild);
+              }
+            }, 100);
+
             //event.returnValue = false;
             // window.location.href = "../Legal/";
           } else {
@@ -790,7 +805,7 @@ $(document).ready(function () {
         }, 900);
       },
       // complete: function () {
-        
+
       // },
       error: function (xhr, status, error) {
         $("#loader").hide();
@@ -829,8 +844,23 @@ $(document).ready(function () {
           $("#loader").hide();
           if (r) {
             alert("Solicitud enviada correctamente.");
-            $("#modal_archive_HR").modal('hide');
+            $("#modal_archive_PU").modal("hide");
             console.log(r);
+
+            var modal = document.querySelector("#modal_archive_PU"),
+              files = modal.querySelector(".input-file"),
+              fileMessage = files.querySelector(".file-message"),
+              fileArchives = files.querySelector(".file-archives");
+
+            setTimeout(() => {
+              // Oculta el contenedor estableciendo su estilo a "display: none"
+              fileArchives.style.display = "none";
+              fileMessage.style.display = "flex";
+              // Borra todos los elementos hijos del contenedor
+              while (fileArchives.firstChild) {
+                fileArchives.removeChild(fileArchives.firstChild);
+              }
+            }, 100);
             //event.returnValue = false;
             // window.location.href = "../Legal/";
           } else {
@@ -879,8 +909,23 @@ $(document).ready(function () {
           $("#loader").hide();
           if (r) {
             alert("Solicitud enviada correctamente.");
-            $("#modal_archive_HR").modal('hide');
+            $("#modal_archive_CL").modal("hide");
             console.log(r);
+
+            var modal = document.querySelector("#modal_archive_CL"),
+              files = modal.querySelector(".input-file"),
+              fileMessage = files.querySelector(".file-message"),
+              fileArchives = files.querySelector(".file-archives");
+
+            setTimeout(() => {
+              // Oculta el contenedor estableciendo su estilo a "display: none"
+              fileArchives.style.display = "none";
+              fileMessage.style.display = "flex";
+              // Borra todos los elementos hijos del contenedor
+              while (fileArchives.firstChild) {
+                fileArchives.removeChild(fileArchives.firstChild);
+              }
+            }, 100);
             //event.returnValue = false;
             // window.location.href = "../Legal/";
           } else {
@@ -929,8 +974,23 @@ $(document).ready(function () {
           $("#loader").hide();
           if (r) {
             alert("Solicitud enviada correctamente.");
-            $("#modal_archive_HR").modal('hide');
+            $("#modal_archive_DNI").modal("hide");
             console.log(r);
+
+            var modal = document.querySelector("#modal_archive_DNI"),
+              files = modal.querySelector(".input-file"),
+              fileMessage = files.querySelector(".file-message"),
+              fileArchives = files.querySelector(".file-archives");
+
+            setTimeout(() => {
+              // Oculta el contenedor estableciendo su estilo a "display: none"
+              fileArchives.style.display = "none";
+              fileMessage.style.display = "flex";
+              // Borra todos los elementos hijos del contenedor
+              while (fileArchives.firstChild) {
+                fileArchives.removeChild(fileArchives.firstChild);
+              }
+            }, 100);
             //event.returnValue = false;
             // window.location.href = "../Legal/";
           } else {

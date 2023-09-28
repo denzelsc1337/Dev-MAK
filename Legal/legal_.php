@@ -358,8 +358,7 @@ require_once('../Controller/controladorListar.php');
                                                 <thead class="">
                                                     <tr>
                                                         <th>ID</th>
-                                                        <th>nom</th>
-                                                        <th>ape</th>
+                                                        <th>nombres</th>
                                                         <th>nom completo</th>
                                                         <th>DIRECCIÓN</th>
                                                         <th>FECHA</th>
@@ -383,10 +382,9 @@ require_once('../Controller/controladorListar.php');
                                                             <td><?php echo $lst_legal_d[2] ?></td>
                                                             <td><?php echo $lst_legal_d[3] ?></td>
                                                             <td><?php echo $lst_legal_d[4] ?></td>
-                                                            <td><?php echo $lst_legal_d[5] ?></td>
                                                             <td>
                                                                 <?php
-                                                                $estado = $lst_legal_d[6];
+                                                                $estado = $lst_legal_d[5];
                                                                 //echo $estado;
                                                                 switch ($estado) {
                                                                     case '10':
@@ -407,9 +405,9 @@ require_once('../Controller/controladorListar.php');
                                                                 }
                                                                 ?>
                                                             </td>
+                                                            <td><?php echo $lst_legal_d[6] ?></td>
                                                             <td><?php echo $lst_legal_d[7] ?></td>
                                                             <td><?php echo $lst_legal_d[8] ?></td>
-                                                            <td><?php echo $lst_legal_d[9] ?></td>
                                                             <td>
                                                                 <div class="row justify-content-evenly">
                                                                     <div class="col-sm-4 justify-content-center options brd-rght-blue" hidden>
@@ -437,7 +435,7 @@ require_once('../Controller/controladorListar.php');
                                                                         </div>
                                                                     </div>
 
-                                                                    <?php if ($lst_legal_d[6] == 30) { ?>
+                                                                    <?php if ($lst_legal_d[5] == 30) { ?>
                                                                         <div class="col-sm-4 justify-content-center options">
                                                                             <div class="options">
                                                                                 <button type="button" class="btn btn-rounded arrow-left_1" id="">
