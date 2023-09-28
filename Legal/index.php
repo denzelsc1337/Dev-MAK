@@ -309,24 +309,8 @@ require_once('../Controller/controladorListar.php');
                                                             <td><?php echo $lst_legal_d[7] ?></td>
                                                             <td>
                                                                 <div class="row justify-content-evenly">
-                                                                    <div class="col-sm-4 justify-content-center options brd-rght-blue" hidden>
-                                                                        <div class="options">
-                                                                            <i class="fa-solid fa-trash"></i>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-sm-4 justify-content-center options brd-rght-blue" hidden>
-                                                                        <div class="options">
-                                                                            <i class="fa-solid fa-pencil"></i>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-sm-4 justify-content-center options" hidden>
-                                                                        <div class="options">
-                                                                            <button type="button" class="btn btn-rounded find_data" id="get_data">
-                                                                                <i class="fa-solid fa-eye"></i>
-                                                                            </button>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-sm-4 justify-content-center arrow-right_1 get_data_soli_legl" data-cod_solic="<?php echo $lst_legal_d[0] ?>" data-cod_client="<?php echo $lst_legal_d[6] ?>">
+
+                                                                    <div class="col-sm-4 justify-content-center get_data_soli_legl" data-cod_solic="<?php echo $lst_legal_d[0] ?>" data-cod_client="<?php echo $lst_legal_d[6] ?>">
                                                                         <div class="options">
                                                                             <button type="button" class="btn btn-rounded" id="">
                                                                                 <i class="fa-solid fa-eye"></i>
@@ -1332,7 +1316,6 @@ require_once('../Controller/controladorListar.php');
 
                     },
                     beforeSend: function() {
-                        $("#loader_uhd").show();
                         $("#lst_docs_lgl").hide();
                         //$("#docs_val").hide();
 
