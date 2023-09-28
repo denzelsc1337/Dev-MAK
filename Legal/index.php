@@ -59,7 +59,7 @@ require_once('../Controller/controladorListar.php');
         <div class="content-wrapper">
 
 
-            <div id="loader_uhd" class="mak_overlay hidden">
+            <div id="loader_uhd" class="mak_overlay" style="display: none;">
                 <img src="../Vista/images/MAK_logo.png" alt="" class="fading-element">
             </div>
 
@@ -1957,7 +1957,8 @@ require_once('../Controller/controladorListar.php');
 
                 beforeSend: function() {
                     // $("#loader_uhd").show();
-                    $("#loader_uhd").removeClass("hidden");
+                    $("#loader_uhd").show();
+                    // $("#loader_uhd").removeClass("hidden");
                     $("#updt_files").hide();
                     $("#updt_status").hide();
 
@@ -2003,8 +2004,8 @@ require_once('../Controller/controladorListar.php');
 
                         const dwnld_info = document.getElementById("btn_dwnld_valo");*/
 
-                        // $("#loader_uhd").hide();
-                        $("#loader_uhd").addClass("hidden");
+                        $("#loader_uhd").hide();
+                        // $("#loader_uhd").addClass("hidden");
 
 
 
