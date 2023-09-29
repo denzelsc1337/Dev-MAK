@@ -79,13 +79,12 @@
 
                 <?php include '../Vista/head-form.php' ?>
 
-                <div class="container">
+                <!-- SECTION -->
+                <div class="card-body p-0">
 
-                    <!-- SECTION -->
-                    <div class="card-body p-0">
+                    <div class="bs-stepper">
 
-                        <div class="bs-stepper">
-
+                        <div class="container">
                             <div class="bs-stepper-header" role="tablist">
                                 <div class="step active" data-target="first_step">
                                     <button type="button" class="step-trigger" role="tab" aria-controls="" id="">
@@ -123,16 +122,17 @@
 
                                 <div class="line" data-target="fourth_step"></div>
                             </div>
+                        </div>
 
-                            <div class="bs-stepper-content">
-                                <!--<form method="POST" id="form_valor" action="../Controller/Add_Valorizacion.php">-->
-                                <form method="POST" id="form_valor" enctype="multipart/form-data">
+                        <div class="bs-stepper-content">
+                            <!--<form method="POST" id="form_valor" action="../Controller/Add_Valorizacion.php">-->
+                            <form method="POST" id="form_valor" enctype="multipart/form-data">
+                                <input type="text" id="id_client_v" name="id_client_v" value="<?php echo $_SESSION['id_usu'] ?>" hidden>
+                                <input type="text" id="dni_client_v" name="dni_client_v" value="<?php echo $_SESSION['dni'] ?>" hidden>
 
-                                    <input type="text" id="id_client_v" name="id_client_v" value="<?php echo $_SESSION['id_usu'] ?>" hidden>
-                                    <input type="text" id="dni_client_v" name="dni_client_v" value="<?php echo $_SESSION['dni'] ?>" hidden>
-
-                                    <!-- SELECCION TIPO -->
-                                    <div id="0" class="section col-md-12 movPag show" role="tabpanel" aria-labelledby="logins-part-trigger" data-target="first_step">
+                                <!-- SELECCION TIPO -->
+                                <div id="0" class="section col-md-12 movPag show" role="tabpanel" aria-labelledby="logins-part-trigger" data-target="first_step">
+                                    <div class="container">
                                         <div class="row mt-3">
 
                                             <div class="col-md-3">
@@ -289,12 +289,14 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <!-- SELECCION TIPO -->
+                                </div>
+                                <!-- SELECCION TIPO -->
 
 
-                                    <!-- CASA - VIVIENDA -->
-                                    <div id="1" class="section card card-default col-md-12" role="tabpanel" aria-labelledby="" data-target="second_step">
+                                <!-- CASA - VIVIENDA -->
+                                <div id="1" class="section card card-default col-md-12" role="tabpanel" aria-labelledby="" data-target="second_step">
 
+                                    <div class="container">
                                         <div class="pt-5">
 
                                             <div class="row">
@@ -544,13 +546,15 @@
                                                 <button type="button" class="btn btn-mak mak-bg sigPag">Continuar</button>
                                             </div>
                                         </div>
-
                                     </div>
-                                    <!-- CASA - VIVIENDA -->
 
-                                    <!-- DEPARTAMENTO - DUPLEX -->
-                                    <div id="2" class="section card card-default col-md-12" role="tabpanel" aria-labelledby="" data-target="second_step">
+                                </div>
+                                <!-- CASA - VIVIENDA -->
 
+                                <!-- DEPARTAMENTO - DUPLEX -->
+                                <div id="2" class="section card card-default col-md-12" role="tabpanel" aria-labelledby="" data-target="second_step">
+
+                                    <div class="container">
                                         <div class="card-body">
                                             <div class="row">
 
@@ -830,13 +834,15 @@
                                                 <div type="button" class="btn btn-mak mak-bg sigPag">Continuar</div>
                                             </div>
                                         </div>
-
                                     </div>
-                                    <!-- DEPARTAMENTO - DUPLEX -->
 
-                                    <!-- TERRENO RESIDENCIAL -->
-                                    <div id="3" class="section card card-default col-md-12" role="tabpanel" aria-labelledby="" data-target="second_step">
+                                </div>
+                                <!-- DEPARTAMENTO - DUPLEX -->
 
+                                <!-- TERRENO RESIDENCIAL -->
+                                <div id="3" class="section card card-default col-md-12" role="tabpanel" aria-labelledby="" data-target="second_step">
+
+                                    <div class="container">
                                         <div class="card-body">
                                             <div class="row">
                                                 <div class="column-card mx-auto">
@@ -918,11 +924,14 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <!-- TERRENO RESIDENCIAL -->
 
-                                    <!-- OFICINA -->
-                                    <div id="4" class="section card card-default col-md-12" role="tabpanel" aria-labelledby="" data-target="second_step">
+                                </div>
+                                <!-- TERRENO RESIDENCIAL -->
 
+                                <!-- OFICINA -->
+                                <div id="4" class="section card card-default col-md-12" role="tabpanel" aria-labelledby="" data-target="second_step">
+
+                                    <div class="container">
                                         <div class="card-body">
                                             <div class="row">
 
@@ -1082,14 +1091,15 @@
                                                 <div type="button" class="btn btn-mak mak-bg sigPag">Continuar</div>
                                             </div>
                                         </div>
-
                                     </div>
-                                    <!-- OFICINA -->
 
-                                    <!-- LOCAL COMERCIAL -->
-                                    <div id="5" class="section card card-default col-md-12" role="tabpanel" aria-labelledby="" data-target="second_step">
+                                </div>
+                                <!-- OFICINA -->
 
+                                <!-- LOCAL COMERCIAL -->
+                                <div id="5" class="section card card-default col-md-12" role="tabpanel" aria-labelledby="" data-target="second_step">
 
+                                    <div class="container">
                                         <!-- LOCAL COMERCIAL - EXCLUSIVO -->
                                         <div class="lcl exclusivo">
 
@@ -1399,14 +1409,15 @@
                                                 <div type="button" class="btn btn-mak mak-bg sigPag">Continuar</div>
                                             </div>
                                         </div>
-
                                     </div>
-                                    <!-- LOCAL COMERCIAL -->
 
+                                </div>
+                                <!-- LOCAL COMERCIAL -->
 
-                                    <!-- LOCAL INDUSTRIAL -->
-                                    <div id="6" class="section card card-default col-md-12" role="tabpanel" aria-labelledby="" data-target="second_step">
+                                <!-- LOCAL INDUSTRIAL -->
+                                <div id="6" class="section card card-default col-md-12" role="tabpanel" aria-labelledby="" data-target="second_step">
 
+                                    <div class="container">
                                         <div class="card-body">
                                             <div class="row">
                                                 <div class="col-md-6 mx-auto">
@@ -1503,14 +1514,15 @@
                                                 <div type="button" class="btn btn-mak mak-bg sigPag">Continuar</div>
                                             </div>
                                         </div>
-
                                     </div>
-                                    <!-- LOCAL INDUSTRIAL -->
 
+                                </div>
+                                <!-- LOCAL INDUSTRIAL -->
 
-                                    <!-- SUBIDA DE ARCHIVOS -->
-                                    <div id="pantalla-SA" class="section col-md-12" role="tabpanel" aria-labelledby="" data-target="third_step">
+                                <!-- SUBIDA DE ARCHIVOS -->
+                                <div id="pantalla-SA" class="section col-md-12" role="tabpanel" aria-labelledby="" data-target="third_step">
 
+                                    <div class="container">
                                         <div class="row">
                                             <div class="column-card">
                                                 <div class="column">
@@ -1579,44 +1591,45 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <!-- SUBIDA DE ARCHIVOS -->
+
+                                </div>
+                                <!-- SUBIDA DE ARCHIVOS -->
+
+                                <!-- RESUMEN DE SOLICITUD -->
+                                <div id="pantalla-RS" class="section col-md-12" role="tabpanel" aria-labelledby="" data-target="fourth_step">
 
 
-                                    <!-- RESUMEN DE SOLICITUD -->
-                                    <div id="pantalla-RS" class="section col-md-12" role="tabpanel" aria-labelledby="" data-target="fourth_step">
+                                    <div class="card-body table-responsive pl-4 pd-4">
 
+                                        <table class="table table-borderless">
+                                            <thead>
+                                                <tr class="t-head">
+                                                    <th>DISTRITO</th>
+                                                    <th>DIRECCIÓN</th>
+                                                    <th>TIPO</th>
+                                                    <th>PROMOCIÓN</th>
+                                                    <th>AT</th>
+                                                    <th>AC</th>
+                                                    <th>AO</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td id="dir__dist"></td>
+                                                    <td id="dir__"></td>
+                                                    <td id="tip__"></td>
+                                                    <td id="pro__"></td>
+                                                    <td id="at__"></td>
+                                                    <td id="ac__"></td>
+                                                    <td id="ao__"></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
 
-                                        <div class="card-body table-responsive pl-4 pd-4">
+                                    <br>
 
-                                            <table class="table table-borderless">
-                                                <thead>
-                                                    <tr class="t-head">
-                                                        <th>DISTRITO</th>
-                                                        <th>DIRECCIÓN</th>
-                                                        <th>TIPO</th>
-                                                        <th>PROMOCIÓN</th>
-                                                        <th>AT</th>
-                                                        <th>AC</th>
-                                                        <th>AO</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr>
-                                                        <td id="dir__dist"></td>
-                                                        <td id="dir__"></td>
-                                                        <td id="tip__"></td>
-                                                        <td id="pro__"></td>
-                                                        <td id="at__"></td>
-                                                        <td id="ac__"></td>
-                                                        <td id="ao__"></td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                        </div>
-
-                                        <br>
-
-                                        <!-- <div class="d-flex w-100 justify-content-between mt-3 resumen">
+                                    <!-- <div class="d-flex w-100 justify-content-between mt-3 resumen">
                                                 <div class="blaa">
                                                     <div class="card-body">
                                                         <div>
@@ -1657,67 +1670,65 @@
 
                                             </div> -->
 
-                                        <div class="row">
-                                            <div class="col-md-4">
-                                                <div class="card-body">
-                                                    <div>
-                                                        <label class="mak-txt">Comentario</label>
-                                                        <textarea id="coment_valr_" placeholder="Escribe un comentario..." readonly></textarea>
-                                                    </div>
-                                                    <div class="row justify-content-between">
-                                                        <button id="verFotos_" class="btn btn-mak mak-bg" data-bs-toggle="modal" data-bs-target="#verFotos">Ver Fotos</button>
-                                                        <button id="verDocs_" class="btn btn-mak mak-bg" data-bs-toggle="modal" data-bs-target="#verDocs">Ver Documentos</button>
-                                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <div class="card-body">
+                                                <div>
+                                                    <label class="mak-txt">Comentario</label>
+                                                    <textarea id="coment_valr_" placeholder="Escribe un comentario..." readonly></textarea>
+                                                </div>
+                                                <div class="row justify-content-evenly">
+                                                    <button id="verFotos_" class="btn btn-mak mak-bg" data-bs-toggle="modal" data-bs-target="#verFotos">Ver Fotos</button>
+                                                    <button id="verDocs_" class="btn btn-mak mak-bg" data-bs-toggle="modal" data-bs-target="#verDocs">Ver Documentos</button>
                                                 </div>
                                             </div>
-                                            <div class="col-md-4">
-                                                <div class="card-box">
-                                                    <div id="mapa_2" style="height: 250px;"></div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <div class="card-body">
-                                                    <div class="card-box card-body data-resume">
-
-                                                        <figcaption class="d-flex flex-column pl-2">
-                                                            <p class="b-text"><b>Resumen</b></p>
-                                                            <small class="">Datos de contacto:</small>
-                                                        </figcaption>
-
-                                                        <ul>
-                                                            <li><b>Nombre: </b><?php echo $_SESSION['nom_usu']; ?></li>
-                                                            <li><b>Email: </b><?php echo $_SESSION['email_usu']; ?></li>
-                                                            <li><b>Teléfono: </b><?php echo $_SESSION['telef_usu']; ?></li>
-                                                        </ul>
-
-                                                        <div>
-                                                            <p><strong>Información de la propiedad:</strong></p>
-                                                            <ul class="lst-resume" data-resume></ul>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-
                                         </div>
-                                        <div class="card-footer">
-                                            <div class="form-flex">
-                                                <button type="button" class="btn btn-mak mak-bg-sec antPag">Retroceder</button>
-                                                <button type="button" class="btn btn-mak mak-bg btn_finalizar" id="btn_finalizar" name="btn_finalizar">
-                                                    Finalizar
-                                                </button>
+                                        <div class="col-md-4">
+                                            <div class="card-box">
+                                                <div id="mapa_2" style="height: 250px;"></div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="card-body">
+                                                <div class="card-box card-body data-resume">
+
+                                                    <figcaption class="d-flex flex-column pl-2">
+                                                        <p class="b-text"><b>Resumen</b></p>
+                                                        <small class="">Datos de contacto:</small>
+                                                    </figcaption>
+
+                                                    <ul>
+                                                        <li><b>Nombre: </b><?php echo $_SESSION['nom_usu']; ?></li>
+                                                        <li><b>Email: </b><?php echo $_SESSION['email_usu']; ?></li>
+                                                        <li><b>Teléfono: </b><?php echo $_SESSION['telef_usu']; ?></li>
+                                                    </ul>
+
+                                                    <div>
+                                                        <p><strong>Información de la propiedad:</strong></p>
+                                                        <ul class="lst-resume" data-resume></ul>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
 
                                     </div>
-                                    <!-- RESUMEN DE SOLICITUD -->
+                                    <div class="card-footer">
+                                        <div class="form-flex">
+                                            <button type="button" class="btn btn-mak mak-bg-sec antPag">Retroceder</button>
+                                            <button type="button" class="btn btn-mak mak-bg btn_finalizar" id="btn_finalizar" name="btn_finalizar">
+                                                Finalizar
+                                            </button>
+                                        </div>
+                                    </div>
 
-                                </form>
+                                </div>
+                                <!-- RESUMEN DE SOLICITUD -->
+                            </form>
 
-                            </div>
                         </div>
                     </div>
-                    <!-- END SECTION -->
                 </div>
+                <!-- END SECTION -->
             </section>
 
             <!-- MODAL FINAL -->
