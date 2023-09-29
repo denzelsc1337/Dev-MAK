@@ -43,7 +43,8 @@ strong {
   font-weight: 600 !important;
 }
 
-.fs-1 {
+.pddt-5 {
+  padding-top: 5rem !important;
 }
 
 .fs-50 {
@@ -1721,7 +1722,7 @@ form .form-content {
   z-index: 997 !important;
 }
 .layout-footer-fixed .wrapper .content-wrapper {
-  padding-bottom: calc(3.5rem + 40px) !important;
+  padding-bottom: calc(3.5rem + 25px) !important;
 }
 
 .mak_overlay {

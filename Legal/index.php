@@ -105,14 +105,14 @@ require_once('../Controller/controladorListar.php');
                 ?>
 
 
-                <div class="d-flex overflow-hidden w-100">
+                <div class="d-flex overflow-hidden w-100 pddt-5">
                     <div class="mak-content-slide">
 
                         <section class="mak-txt position-relative body-slide" data-content="legal">
 
 
                             <form id="updt_files" method="POST" action="../Controller/Add_Solic_Legal.php">
-                                <div class="container mt-5">
+                                <div class="container pddt-5">
 
                                     <div class="arrow-right">
                                         <i class="fa-solid fa-angle-right"></i>
@@ -434,7 +434,7 @@ require_once('../Controller/controladorListar.php');
                             <form method="POST" id="updt_status">
 
                                 <div class="container">
-                                    <div class="card-body pt-5">
+                                    <div class="card-body pddt-5">
 
                                         <div class="arrow-left arrow-left_1">
                                             <i class="fa-solid fa-angle-left"></i>
