@@ -242,7 +242,7 @@ require_once('../Controller/controladorListar.php');
                         <section class="mak-txt position-relative body-slide" data-content="historico">
 
 
-                            <div class="container mt-5">
+                            <div class="ml-5 mr-5 mt-5">
 
                                 <!-- <div class="arrow-left">
                                     <i class="fa-solid fa-angle-left"></i>
@@ -260,11 +260,10 @@ require_once('../Controller/controladorListar.php');
 
 
                                         <div class="col-sm-12">
-
                                             <table id="table" class="table table-borderless" style="width: 100%;">
                                                 <thead class="">
                                                     <tr>
-                                                        <th>ID</th>
+                                                        <th></th>
                                                         <th>nom</th>
                                                         <th>DIRECCIÓN</th>
                                                         <th>FECHA</th>
@@ -278,7 +277,7 @@ require_once('../Controller/controladorListar.php');
                                                 <tbody>
                                                     <?php foreach ($list_solic_legal as $lst_legal_d) : ?>
                                                         <tr>
-                                                            <td><?php echo $lst_legal_d[0] ?></td>
+                                                            <td><?php $lst_legal_d[0] ?></td>
                                                             <td><?php echo $lst_legal_d[1] ?></td>
                                                             <td><?php echo $lst_legal_d[2] ?></td>
                                                             <td><?php echo $lst_legal_d[3] ?></td>
@@ -330,11 +329,12 @@ require_once('../Controller/controladorListar.php');
                                     ?>
 
                                         <div class="col-sm-12">
-                                            <table id="table_" class="table table-borderless" style="width: 100%;">
+                                            <table id="table" class="table table-borderless" style="width: 100%;">
                                                 <thead class="">
                                                     <tr>
-                                                        <th>ID</th>
+                                                        <th></th>
                                                         <th>Nombre Cliente</th>
+                                                        <th>Apellido Cliente</th>
                                                         <th>Nombre Asesor</th>
                                                         <th>DIRECCIÓN</th>
                                                         <th>FECHA</th>
@@ -353,14 +353,15 @@ require_once('../Controller/controladorListar.php');
                                                         //print_r($lst_legal_d)
                                                     ?>
                                                         <tr>
-                                                            <td><?php echo $lst_legal_d[0] ?></td>
+                                                            <td><?php $lst_legal_d[0] ?></td>
                                                             <td><?php echo $lst_legal_d[1] ?></td>
                                                             <td><?php echo $lst_legal_d[2] ?></td>
                                                             <td><?php echo $lst_legal_d[3] ?></td>
                                                             <td><?php echo $lst_legal_d[4] ?></td>
+                                                            <td><?php echo $lst_legal_d[5] ?></td>
                                                             <td>
                                                                 <?php
-                                                                $estado = $lst_legal_d[5];
+                                                                $estado = $lst_legal_d[6];
                                                                 //echo $estado; 
                                                                 switch ($estado) {
                                                                     case '10':
@@ -381,15 +382,15 @@ require_once('../Controller/controladorListar.php');
                                                                 }
                                                                 ?>
                                                             </td>
-                                                            <td><?php echo $lst_legal_d[6] ?></td>
                                                             <td><?php echo $lst_legal_d[7] ?></td>
                                                             <td><?php echo $lst_legal_d[8] ?></td>
+                                                            <td><?php echo $lst_legal_d[9] ?></td>
                                                             <td>
                                                                 <div class="row justify-content-evenly">
 
 
 
-                                                                    <?php if ($lst_legal_d[5] == 30) { ?>
+                                                                    <?php if ($lst_legal_d[6] == 30) { ?>
                                                                         <div class="col-sm-4 justify-content-center show_data_soli_legl" data-cod_solic=" <?php echo $lst_legal_d[0] ?>" data-cod_client="<?php echo $lst_legal_d[7] ?>">
                                                                             <div class="options">
                                                                                 <button type="button" class="btn btn-rounded arrow-left_1" id="">
@@ -1070,6 +1071,7 @@ require_once('../Controller/controladorListar.php');
     <!-- Page specific script -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+    <script src="../assets/vendor/jquery/jquery-3.3.1.min.js"></script>
 
     <!-- Data Tables Pluggin -->
     <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
@@ -1863,15 +1865,16 @@ require_once('../Controller/controladorListar.php');
 
                     // $('#nom_cli_solic').val(data[1] + " " + data[2]);
 
-                    var fullNames = data[1].split(" "),
-                        nomName = fullNames.slice(0, -2).join(" "),
-                        apeName = fullNames.slice(-2).join(" ");
+                    // var fullNames = data[1].split(" "),
+                    //     nomName = fullNames.slice(0, -2).join(" "),
+                    //     apeName = fullNames.slice(-2).join(" ");
+                    // console.log(fullNames);
 
 
-                    $('#nom_cli_solic').val(nomName);
-                    // $('#nom_cli_solic').val(data[1]);
-                    $('#ape_cli_solic').val(apeName);
-                    // $('#ape_cli_solic').val(data[2]);
+                    // $('#nom_cli_solic').val(nomName);
+                    $('#nom_cli_solic').val(data[1]);
+                    // $('#ape_cli_solic').val(apeName);
+                    $('#ape_cli_solic').val(data[2]);
 
                     var btnLstHr = $('.btn_lst_hr');
 
@@ -1984,11 +1987,11 @@ require_once('../Controller/controladorListar.php');
                     try {
                         var detalles = JSON.parse(response);
 
-                        // console.log(detalles);
+                        console.log(detalles);
 
                         var id_valor = detalles[0][0];
-                        var nom_client = detalles[0][1] + " " + detalles[0][2];
-                        // var apellido = detalles[0][2];
+                        var nom_client = detalles[0][1];
+                        var apellido = detalles[0][2];
                         var correo = detalles[0][3];
                         var id_client = detalles[0][4];
                         var dni_client = detalles[0][5];
@@ -2020,14 +2023,14 @@ require_once('../Controller/controladorListar.php');
                         $("#add_data_val").removeClass("hide");
                         // }
 
-                        // console.log("ID Valor: " + id_valor);
-                        // console.log("Nombre Cliente: " + nom_client);
-                        // // console.log("Apellido: " + apellido);
-                        // console.log("email: " + correo);
-                        // console.log("id cliente: " + id_client);
-                        // console.log("dni cliente: " + dni_client);
-                        // console.log("comment: " + coment);
-                        // console.log("estado: " + status_);
+                        console.log("ID Valor: " + id_valor);
+                        console.log("Nombre Cliente: " + nom_client);
+                        console.log("Apellido: " + apellido);
+                        console.log("email: " + correo);
+                        console.log("id cliente: " + id_client);
+                        console.log("dni cliente: " + dni_client);
+                        console.log("comment: " + coment);
+                        console.log("estado: " + status_);
 
                         $("#id_legal_solic").val(id_valor)
                         $("#id_client_l").val(id_client)
@@ -2183,6 +2186,8 @@ require_once('../Controller/controladorListar.php');
     <script>
         $(document).ready(function() {
             $('#table').DataTable({
+                // responsive: true,
+                // autoWidth: false,
                 // "dom": '<"row"<"col-sm-6"l><"col-sm-6"f>>t<"row"<"col-sm-6"i><"col-sm-6"p>>',
                 "language": {
                     "url": "//cdn.datatables.net/plug-ins/1.10.25/i18n/Spanish.json", // URL del archivo de localización
@@ -2197,30 +2202,25 @@ require_once('../Controller/controladorListar.php');
                     $('.dataTables_length select').addClass('form-mak sect tableLenght');
                     $('.dataTables_filter input').addClass('form-mak sect');
                 },
+                columnDefs: [{
+                    searchable: false,
+                    orderable: false,
+                    targets: 0
+                }],
                 "order": [
                     [0, "desc"]
                 ],
             });
+            // Agregar números secuenciales a la primera columna
+            $('table').on('order.dt search.dt', function() {
+                $('table').DataTable().column(0, {
+                    search: 'applied',
+                    order: 'applied'
+                }).nodes().each(function(cell, i) {
+                    cell.innerHTML = i + 1;
+                });
+            }).draw();
             ////
-            $('#table_').DataTable({
-                // "dom": '<"row"<"col-sm-6"l><"col-sm-6"f>>t<"row"<"col-sm-6"i><"col-sm-6"p>>',
-                "language": {
-                    "url": "//cdn.datatables.net/plug-ins/1.10.25/i18n/Spanish.json", // URL del archivo de localización
-                    "searchPlaceholder": "Buscar en la tabla..." // placeholder del Buscar.
-                },
-                "lengthMenu": [
-                    [5, 10, 25, 50, -1],
-                    [5, 10, 25, 50, "Todos"]
-                ],
-                // Otras opciones de DataTables
-                "drawCallback": function(settings) {
-                    $('.dataTables_length select').addClass('form-mak sect tableLenght');
-                    $('.dataTables_filter input').addClass('form-mak sect');
-                },
-                "order": [
-                    [0, "desc"]
-                ],
-            });
         });
     </script>
 

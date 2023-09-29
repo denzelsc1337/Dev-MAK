@@ -161,7 +161,7 @@ class cLegal
 		$cnx = new conexion();
 		$cadena = $cnx->abrirConexion();
 
-		$query = "SELECT id_legal, CONCAT(dl.nom_client,' ', dl.ape_client) as nom_client, CONCAT(cs.nom_client,' ',cs.ape_client) as nom_client , dir_client, fecha_reg, status_solic,user_cod,dni_client,comentario
+		$query = "SELECT id_legal, dl.nom_client, dl.ape_client, CONCAT(cs.nom_client,' ',cs.ape_client) as nom_client , dir_client, fecha_reg, status_solic,user_cod,dni_client,comentario
 				FROM docs_legal dl
 				inner join clientes_servicios cs
 				on dl.user_cod = cs.id_client
@@ -237,17 +237,17 @@ class cLegal
 
 		//$query = "SELECT * FROM valorizacion WHERE id_valor =$id_reg";
 
-		// $query = "SELECT dl.id_legal, dl.nom_client, dl.ape_client, dl.dir_client, dl.user_cod, cs.dni_client, dl.status_solic,dl.comentario
-		// FROM docs_legal dl
-		// INNER JOIN clientes_servicios cs
-		// on cs.id_client = dl.user_cod 
-		// WHERE id_legal = $id_reg and user_cod = $id_client";
-
 		$query = "SELECT dl.id_legal, dl.nom_client, dl.ape_client, dl.dir_client, dl.user_cod, cs.dni_client, dl.status_solic,dl.comentario
 		FROM docs_legal dl
 		INNER JOIN clientes_servicios cs
 		on cs.id_client = dl.user_cod 
-		WHERE id_legal = $id_reg and cs.dni_client = $id_client";
+		WHERE id_legal = $id_reg and user_cod = $id_client";
+
+		// $query = "SELECT dl.id_legal, dl.nom_client, dl.ape_client, dl.dir_client, dl.user_cod, cs.dni_client, dl.status_solic,dl.comentario
+		// FROM docs_legal dl
+		// INNER JOIN clientes_servicios cs
+		// on cs.id_client = dl.user_cod 
+		// WHERE id_legal = $id_reg and cs.dni_client = $id_client";
 
 		$resultado = mysqli_query($cadena, $query);
 
