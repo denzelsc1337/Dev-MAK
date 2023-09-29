@@ -1089,27 +1089,27 @@ require_once('../Controller/controladorListar.php');
 
 
             $('.btn_subir_1').on('click', function() {
-                console.log("test");
+                // console.log("test");
                 $('#upload_doc').modal('show');
                 $tr = $(this).closest('tr');
                 var data = $tr.children("td").map(function() {
                     return $(this).text();
                 }).get();
-                console.log(data);
+                // console.log(data);
                 $('#id_doc_type').val(data[1]);
                 $('#desc_doc').val(data[2].trim());
             });
 
 
             $('.btn_ver_files').on('click', function() {
-                console.log("test");
+                // console.log("test");
                 $('#lst_files').modal('show');
 
                 $tr = $(this).closest('tr');
                 var data = $tr.children("td").map(function() {
                     return $(this).text();
                 }).get();
-                console.log(data);
+                // console.log(data);
 
                 $('#id_usu_soli').val(data[4]);
                 $('#dni_usu_soli').val(data[5]);
@@ -1117,14 +1117,14 @@ require_once('../Controller/controladorListar.php');
 
 
             $('.btn_ver_files_2').on('click', function() {
-                console.log("test");
+                // console.log("test");
                 $('#lst_files_2').modal('show');
 
                 $tr = $(this).closest('tr');
                 var data = $tr.children("td").map(function() {
                     return $(this).text();
                 }).get();
-                console.log(data);
+                // console.log(data);
 
             });
 
@@ -1324,8 +1324,8 @@ require_once('../Controller/controladorListar.php');
                     },
                     success: function(response) {
 
-                        console.log("|--------------------------|");
-                        console.log(response);
+                        // console.log("|--------------------------|");
+                        // console.log(response);
 
                         var data = JSON.parse(response);
 
@@ -1335,7 +1335,7 @@ require_once('../Controller/controladorListar.php');
                         var dbInfo = data.base_de_datos;
                         var estado_db = data.status_doc_;
 
-                        console.log(dbInfo)
+                        // console.log(dbInfo)
                         var cod_doc_, ruta_doc, nom_file;
                         var cont = 1;
 
@@ -1469,7 +1469,7 @@ require_once('../Controller/controladorListar.php');
                         ruta_archivo: ruta_archivo,
                     },
                     success: function(response) {
-                        console.log("archivo eliminado con ID: " + cod_doc_);
+                        // console.log("archivo eliminado con ID: " + cod_doc_);
                         $deleteBtn.closest('.modal').modal('hide');
                         //load_documents();
                     },
@@ -1485,7 +1485,7 @@ require_once('../Controller/controladorListar.php');
 
             $(document).on('click', '.dlt_file', function() {
                 var $this = $(this);
-                console.log("probando botón");
+                // console.log("probando botón");
 
                 var confirmar_ = window.confirm('¿Estás seguro de que deseas eliminar este archivo?');
 
@@ -1506,7 +1506,7 @@ require_once('../Controller/controladorListar.php');
 
 
             $('.btn_lst_hr').on('click', function() {
-                console.log("Botón seleccionado");
+                // console.log("Botón seleccionado");
 
                 var valor1 = $(this).data('valor');
                 var titulo_ = $(this).data('titulo');
@@ -1531,7 +1531,7 @@ require_once('../Controller/controladorListar.php');
             });
 
             $('.btn_lst_lyts').on('click', function() {
-                console.log("Botón seleccionado");
+                // console.log("Botón seleccionado");
 
                 var titulo_doc = $(this).data('valor');
                 var titulo_ = $(this).data('titulo');
@@ -1586,7 +1586,7 @@ require_once('../Controller/controladorListar.php');
             //codigo para el admin y ver los documentos de cada usuario
 
             $('.btn_ver_tipos_0').on('click', function() {
-                console.log("test");
+                // console.log("test");
 
                 $('#lst_docs_1').modal('show');
 
@@ -1598,21 +1598,21 @@ require_once('../Controller/controladorListar.php');
                 $('#lst_docs_1').find('#id_client_0').val(id_usu_soli);
                 $('#lst_docs_1').find('#dni_client_0').val(dni_usu_soli);
 
-                console.log('e?' + id_usu_soli);
-                console.log('pop' + dni_usu_soli);
+                // console.log('e?' + id_usu_soli);
+                // console.log('pop' + dni_usu_soli);
 
                 $tr = $(this).closest('tr');
                 var data = $tr.children("td").map(function() {
                     return $(this).text();
                 }).get();
-                console.log(data);
+                // console.log(data);
 
 
                 var id_doc_lgl_0 = $(this).data('id_doc');
                 var nom_doc_lgl_0 = $(this).data('nom_doc');
 
-                console.log(id_doc_lgl_0);
-                console.log(nom_doc_lgl_0);
+                // console.log(id_doc_lgl_0);
+                // console.log(nom_doc_lgl_0);
 
                 $('#id_tipo_doc_lgl_0').val(id_doc_lgl_0);
 
@@ -1698,8 +1698,8 @@ require_once('../Controller/controladorListar.php');
                 var id_doc_lgl = $(this).data('id_doc');
                 var nom_doc_lgl = $(this).data('nom_doc');
 
-                console.log(id_doc_lgl);
-                console.log(nom_doc_lgl);
+                // console.log(id_doc_lgl);
+                // console.log(nom_doc_lgl);
 
                 $('#id_tipo_doc_lgl').val(id_doc_lgl);
 
@@ -1846,7 +1846,7 @@ require_once('../Controller/controladorListar.php');
                     var _id_soli = $(element).data('cod_solic');
                     var _idcli = $(element).data('cod_client');
 
-                    console.log(_id_soli)
+                    // console.log(_id_soli)
 
                     get_details_solic_legal(_id_soli, _idcli)
 
@@ -1857,13 +1857,21 @@ require_once('../Controller/controladorListar.php');
                         return $(this).text();
                     }).get();
 
-                    console.log(data);
+                    // console.log(data);
 
                     $('#cod_reg_l').val(data[0]);
 
                     // $('#nom_cli_solic').val(data[1] + " " + data[2]);
-                    $('#nom_cli_solic').val(data[1]);
-                    $('#ape_cli_solic').val(data[2]);
+
+                    var fullNames = data[1].split(" "),
+                        nomName = fullNames.slice(0, -2).join(" "),
+                        apeName = fullNames.slice(-2).join(" ");
+
+
+                    $('#nom_cli_solic').val(nomName);
+                    // $('#nom_cli_solic').val(data[1]);
+                    $('#ape_cli_solic').val(apeName);
+                    // $('#ape_cli_solic').val(data[2]);
 
                     var btnLstHr = $('.btn_lst_hr');
 
@@ -1896,8 +1904,8 @@ require_once('../Controller/controladorListar.php');
                     // el lapiz hace que se oculte y muestren los botones
                     var cardFooter = document.querySelector(".card-footer_");
                     var botones = cardFooter.querySelectorAll("button");
-                    console.log(cardFooter);
-                    console.log(botones);
+                    // console.log(cardFooter);
+                    // console.log(botones);
                     botones.forEach((botones, indice) => {
                         if (indice % 2 === 0) { // Los índices pares tienen resto 1 al dividir por 2
                             botones.style.display = "none";
@@ -1933,8 +1941,7 @@ require_once('../Controller/controladorListar.php');
 
                             //     // var buttons = element.querySelectorAll("button");
                             //     // console.log(buttons);
-                            console.log("asdsadsadsda");
-                            console.log(cod_l);
+                            // console.log(cod_l);
                             // console.log(element);
                         });
                         /////
@@ -1977,7 +1984,7 @@ require_once('../Controller/controladorListar.php');
                     try {
                         var detalles = JSON.parse(response);
 
-                        console.log(detalles);
+                        // console.log(detalles);
 
                         var id_valor = detalles[0][0];
                         var nom_client = detalles[0][1] + " " + detalles[0][2];
@@ -2013,14 +2020,14 @@ require_once('../Controller/controladorListar.php');
                         $("#add_data_val").removeClass("hide");
                         // }
 
-                        console.log("ID Valor: " + id_valor);
-                        console.log("Nombre Cliente: " + nom_client);
-                        // console.log("Apellido: " + apellido);
-                        console.log("email: " + correo);
-                        console.log("id cliente: " + id_client);
-                        console.log("dni cliente: " + dni_client);
-                        console.log("comment: " + coment);
-                        console.log("estado: " + status_);
+                        // console.log("ID Valor: " + id_valor);
+                        // console.log("Nombre Cliente: " + nom_client);
+                        // // console.log("Apellido: " + apellido);
+                        // console.log("email: " + correo);
+                        // console.log("id cliente: " + id_client);
+                        // console.log("dni cliente: " + dni_client);
+                        // console.log("comment: " + coment);
+                        // console.log("estado: " + status_);
 
                         $("#id_legal_solic").val(id_valor)
                         $("#id_client_l").val(id_client)
