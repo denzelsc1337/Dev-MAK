@@ -46,9 +46,10 @@ if (is_dir($directorio)) {
             }
             //echo "id_client: $id_client, tipo_doc: $tipo_doc, id_reg: $id_reg, archivo: $archivo"; // Agregar esta línea
 
-            $sql = "SELECT id_document, id_legal, file_name, status_doc
+            $sql = "SELECT id_document, id_legal, file_name, status_doc, tipo_usu_cod
                     FROM documents_clients dcl
                     INNER JOIN docs_legal dl ON dcl.id_client = dl.user_cod
+                    INNER JOIN clientes_servicios cs ON cs.id_client = dl.user_cod
                     WHERE dcl.dni_client = '$id_client' AND tipo_doc = '$tipo_doc' AND id_legal = '$id_reg' 
                     AND file_name = '$archivo'
                     GROUP BY file_name";
@@ -68,6 +69,7 @@ if (is_dir($directorio)) {
                     $db_info['id_legal'] = $row['id_legal'];
                     $db_info['file_name'] = $row['file_name'];
                     $db_info['status_doc_'] = $row['status_doc'];
+                    $db_info['tipo_usu_cod'] = $row['tipo_usu_cod'];
 
 
                     $archivo_info['estado'] = $row['status_doc'];

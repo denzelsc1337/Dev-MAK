@@ -309,7 +309,7 @@ require_once('../Controller/controladorListar.php');
                                                             <td>
                                                                 <div class="row justify-content-evenly">
 
-                                                                    <div class="col-sm-4 justify-content-center get_data_soli_legl" data-cod_solic="<?php echo $lst_legal_d[0] ?>" data-cod_client="<?php echo $lst_legal_d[6] ?>">
+                                                                    <div class="col-sm-4 justify-content-center get_data_soli_legl" data-cod_solic="<?php echo $lst_legal_d[0] ?>" data-cod_client="<?php echo $lst_legal_d[5] ?>">
                                                                         <div class="options">
                                                                             <button type="button" class="btn btn-rounded" id="">
                                                                                 <i class="fa-solid fa-eye"></i>
@@ -399,7 +399,7 @@ require_once('../Controller/controladorListar.php');
                                                                             </div>
                                                                         </div>
                                                                     <?php  } else { ?>
-
+                                                                        <!--vista usuario -->
                                                                         <div class="col-sm-4 justify-content-center get_data_soli_legl" data-cod_solic=" <?php echo $lst_legal_d[0] ?>" data-cod_client="<?php echo $lst_legal_d[7] ?>">
                                                                             <div class="options">
                                                                                 <button type="button" class="btn btn-rounded" id="">
@@ -452,6 +452,7 @@ require_once('../Controller/controladorListar.php');
                                                     <div hidden>
                                                         <input type="text" class="form-mak" id="id_legal_solic" name="id_legal_solic" readonly>
                                                         <input type="text" class="form-mak" id="id_client_l" readonly>
+                                                        <input type="text" class="form-mak" id="dni_client_l" readonly>
                                                     </div>
 
                                                     <div class="row">
