@@ -325,15 +325,17 @@ require_once('../Controller/controladorListar.php'); ?>
                                                                     </div>
                                                                 <?php else : ?>
                                                                     <div class="col-sm-6 d-flex justify-content-center">
-                                                                        <div class="options" title="Descargar archivo">
-                                                                            <?php if ($lst_vlzn_[6] == 200 && !$lst_vlzn_[7] == null) : ?>
+                                                                        <?php if ($lst_vlzn_[6] == 200 && !$lst_vlzn_[7] == null) : ?>
+                                                                            <div class="options" title="Descargar archivo">
                                                                                 <a target="_blank" download="../Valorizaciones/<?php echo $lst_vlzn_[0] . '/' . $lst_vlzn_[9] . '/docs_val/' . $lst_vlzn_[7] ?>" href="../Valorizaciones/<?php echo $lst_vlzn_[0] . '/' . $lst_vlzn_[9] . '/docs_val/' . $lst_vlzn_[7] ?>">
                                                                                     <i class="fa-solid fa-download"></i>
                                                                                 </a>
-                                                                            <?php else : ?>
+                                                                            </div>
+                                                                        <?php else : ?>
+                                                                            <div class="options">
                                                                                 <strong title="En pendiente">-</strong>
-                                                                            <?php endif ?>
-                                                                        </div>
+                                                                            </div>
+                                                                        <?php endif ?>
                                                                     </div>
                                                                 <?php endif ?>
                                                             </div>
