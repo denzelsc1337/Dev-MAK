@@ -898,13 +898,13 @@
                                                                 </div>
                                                                 <div class="col-sm-12 flex">
                                                                     <div class="col-sm-6 flex align-center" style="padding-right: 0px;padding-left: 0px;">
-                                                                        <label class="col-sm-4 col-form-label" style="padding-right: 0px;padding-left: 0px;">Parámetros:</label>
+                                                                        <label class="col-sm-5 col-form-label" style="padding-right: 0px;padding-left: 0px;">Parámetros:</label>
                                                                         <div class=" section-input col-sm-6">
                                                                             <input class="form-control input-number" type="number" min="0" id="params_tern" name="params_tern">
                                                                         </div>
                                                                     </div>
                                                                     <div class="col-sm-6 flex align-center " style="padding-right: 0px;padding-left: 0px;">
-                                                                        <label class="col-sm-3 col-form-label" style="padding-right: 0px;padding-left: 0px;">Frente:</label>
+                                                                        <label class="col-sm-5 col-form-label" style="padding-right: 0px;padding-left: 0px;">Frente:</label>
                                                                         <div class=" section-input col-sm-6">
                                                                             <input class="form-control input-number" type="number" min="0" step="00.01" id="frnte_tern" name="frnte_tern">
                                                                         </div>

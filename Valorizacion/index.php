@@ -325,7 +325,7 @@ require_once('../Controller/controladorListar.php'); ?>
                                                                 <div class="col-sm-6 d-flex justify-content-center">
                                                                     <div class="options">
                                                                         <?php if ($lst_vlzn_[6] == 200 && !$lst_vlzn_[7] == null) : ?>
-                                                                            <a href="../Valorizaciones/<?php echo $lst_vlzn_[0] . '/' . $lst_vlzn_[9] . '/docs_val/' . $lst_vlzn_[7] ?>">
+                                                                            <a target="_blank" href="../Valorizaciones/<?php echo $lst_vlzn_[0] . '/' . $lst_vlzn_[9] . '/docs_val/' . $lst_vlzn_[7] ?>">
                                                                                 <i class="fa-solid fa-download"></i>
                                                                             </a>
                                                                         <?php else : ?>
