@@ -315,24 +315,27 @@ require_once('../Controller/controladorListar.php'); ?>
 
                                                         <td>
                                                             <div class="row justify-content-evenly">
-                                                                <div class="col-sm-6 d-flex justify-content-center">
-                                                                    <div class="options btn_get_obs_0" data-id_solic_val="<?php echo $lst_vlzn_[0] ?>" data-id_cli="<?php echo $lst_vlzn_[8] ?>" data-dni_cli="<?php echo $lst_vlzn_[9] ?>">
-                                                                        <button type="button" class="btn btn-rounded ">
-                                                                            <i class="fa-solid fa-eye"></i>
-                                                                        </button>
+                                                                <?php if ($lst_vlzn_[6] == 400) : ?>
+                                                                    <div class="col-sm-6 d-flex justify-content-center">
+                                                                        <div class="options btn_get_obs_0" data-id_solic_val="<?php echo $lst_vlzn_[0] ?>" data-id_cli="<?php echo $lst_vlzn_[8] ?>" data-dni_cli="<?php echo $lst_vlzn_[9] ?>">
+                                                                            <button type="button" class="btn btn-rounded ">
+                                                                                <i class="fa-solid fa-eye"></i>
+                                                                            </button>
+                                                                        </div>
                                                                     </div>
-                                                                </div>
-                                                                <div class="col-sm-6 d-flex justify-content-center">
-                                                                    <div class="options">
-                                                                        <?php if ($lst_vlzn_[6] == 200 && !$lst_vlzn_[7] == null) : ?>
-                                                                            <a target="_blank" href="../Valorizaciones/<?php echo $lst_vlzn_[0] . '/' . $lst_vlzn_[9] . '/docs_val/' . $lst_vlzn_[7] ?>">
-                                                                                <i class="fa-solid fa-download"></i>
-                                                                            </a>
-                                                                        <?php else : ?>
-                                                                            <strong>-</strong>
-                                                                        <?php endif ?>
+                                                                <?php else : ?>
+                                                                    <div class="col-sm-6 d-flex justify-content-center">
+                                                                        <div class="options">
+                                                                            <?php if ($lst_vlzn_[6] == 200 && !$lst_vlzn_[7] == null) : ?>
+                                                                                <a target="_blank" download="../Valorizaciones/<?php echo $lst_vlzn_[0] . '/' . $lst_vlzn_[9] . '/docs_val/' . $lst_vlzn_[7] ?>" href="../Valorizaciones/<?php echo $lst_vlzn_[0] . '/' . $lst_vlzn_[9] . '/docs_val/' . $lst_vlzn_[7] ?>">
+                                                                                    <i class="fa-solid fa-download"></i>
+                                                                                </a>
+                                                                            <?php else : ?>
+                                                                                <strong>-</strong>
+                                                                            <?php endif ?>
+                                                                        </div>
                                                                     </div>
-                                                                </div>
+                                                                <?php endif ?>
                                                             </div>
                                                         </td>
                                                         <!--
