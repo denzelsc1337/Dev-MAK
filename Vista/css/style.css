@@ -446,6 +446,16 @@ h2 {
   border: 15px solid #fff !important;
   box-shadow: -7px 8px 15px 7px #0000001a !important;
 }
+.search .card {
+  border-radius: 25px !important;
+}
+
+.search .card-box {
+  border-radius: 25px !important;
+  overflow: hidden;
+  border: none !important;
+  box-shadow: -7px 8px 15px 7px #0000001a !important;
+}
 
 .column-card .column {
   display: flex;
@@ -2259,6 +2269,35 @@ figcaption {
 
 .user-panel .info {
   padding: 5px 5px 5px 20px !important;
+}
+
+/* .gmnoprint,
+.gm-control-active .gm-fullscreen-control,
+.gm-svpc,
+.gmnoprint div {
+  margin: 20px !important;
+} */
+
+button.gm-control-active.gm-fullscreen-control {
+  margin: 20px !important;
+}
+
+.gmnoprint.gm-bundled-control.gm-bundled-control-on-bottom {
+  right: 50px !important;
+}
+.gm-style div:nth-child(5) .gmnoprint {
+  margin: 20px !important;
+  & .gm-style-mtc {
+    position: initial !important;
+  }
+}
+
+.gm-style div:nth-child(15) div {
+  left: 10px !important;
+}
+
+.gm-style div:last-child div {
+  right: 10px !important;
 }
 
 /*  */
