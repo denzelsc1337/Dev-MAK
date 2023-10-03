@@ -111,7 +111,8 @@ require_once('../Controller/controladorListar.php');
                         <section class="mak-txt position-relative body-slide" data-content="legal">
 
 
-                            <form id="updt_files" method="POST" action="../Controller/Add_Solic_Legal.php">
+                            <form id="updt_files" method="POST" enctype="multipart/form-data">
+                                <!-- <form id="updt_files" method="POST" action="../Controller/Add_Solic_Legal.php"> -->
                                 <div class="container pddt-5">
 
                                     <div class="arrow-right">
@@ -1072,7 +1073,6 @@ require_once('../Controller/controladorListar.php');
     <!-- Page specific script -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
-    <script src="../assets/vendor/jquery/jquery-3.3.1.min.js"></script>
 
     <!-- Data Tables Pluggin -->
     <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
@@ -2118,75 +2118,8 @@ require_once('../Controller/controladorListar.php');
     </script>
 
     <script>
-        const inputSelect = document.querySelector(".input-select");
-        const textBox = document.querySelector(".textBox");
-        const textBoxValue = document.querySelector("#status_solic_legal_cbo");
-        const selectOptions = document.querySelectorAll(".select-options div");
-
-
-        inputSelect.addEventListener("click", function() {
-            inputSelect.classList.toggle("active");
-            textBox.classList.toggle("radius");
-
-        });
-        document.addEventListener("click", function(event) {
-
-            if (!inputSelect.contains(event.target)) {
-                inputSelect.classList.remove("active");
-                textBox.classList.remove("radius");
-            }
-        });
-
-        selectOptions.forEach(option => {
-            option.addEventListener("click", function() {
-                const dataValue = option.getAttribute("data-value");
-                textBoxValue.value = dataValue; // Cambia el valor de textBoxValue
-
-                switch (dataValue) {
-                    case '10':
-                        textBox.value = "Pendiente";
-                        //----
-                        textBox.classList.add("bg-info");
-                        textBox.classList.remove("bg-warning");
-                        textBox.classList.remove("bg-secondary");
-                        textBox.classList.remove("bg-success");
-                        break;
-                    case '20':
-                        textBox.value = "En revisión";
-                        //----
-                        textBox.classList.add("bg-warning");
-                        textBox.classList.remove("bg-secondary");
-                        textBox.classList.remove("bg-success");
-                        textBox.classList.remove("bg-info");
-                        break;
-                    case '30':
-                        textBox.value = "Borrador";
-                        //----
-                        textBox.classList.add("bg-secondary");
-                        textBox.classList.remove("bg-success");
-                        textBox.classList.remove("bg-info");
-                        textBox.classList.remove("bg-warning");
-                        break;
-                    case '90':
-                        textBox.value = "Finalizado";
-                        textBox.classList.add("bg-success");
-                        textBox.classList.remove("bg-info");
-                        textBox.classList.remove("bg-warning");
-                        textBox.classList.remove("bg-secondary");
-                        break;
-                    default:
-                        break;
-                }
-
-            });
-        });
-        // Cierra el menú desplegable
-        inputSelect.classList.remove("active");
-    </script>
-
-    <script>
         $(document).ready(function() {
-            $('#table').DataTable({
+            var table = $('#table').DataTable({
                 // responsive: true,
                 // autoWidth: false,
                 // "dom": '<"row"<"col-sm-6"l><"col-sm-6"f>>t<"row"<"col-sm-6"i><"col-sm-6"p>>',
@@ -2213,7 +2146,7 @@ require_once('../Controller/controladorListar.php');
                 ],
             });
             // Agregar números secuenciales a la primera columna
-            $('table').on('order.dt search.dt', function() {
+            table.on('order.dt search.dt', function() {
                 $('table').DataTable().column(0, {
                     search: 'applied',
                     order: 'applied'

@@ -60,7 +60,7 @@ if (isset($_POST['btn_save_solic'])) {
         <script type="text/javascript">
             alert("Error al guardar la solicitud")
         </script>
-    <?php
+<?php
     }
 }
 
@@ -76,12 +76,14 @@ if (isset($_POST['btn_updt_solic'])) {
     $olegal = new cLegal();
     $r = $olegal->updt_solic_legal_($id_solic);
 
-    echo $r;
+    // echo $r;
     if ($r) {
 
         $carpeta_nueva = "../Solicitudes/" . $id_solic . "/";
 
         echo $carpeta_nueva;
+
+        echo "      ";
 
         if (!file_exists($carpeta_nueva)) {
             mkdir($carpeta_nueva, 0777, true);
@@ -91,9 +93,15 @@ if (isset($_POST['btn_updt_solic'])) {
 
         $carpeta_destino = $carpeta_nueva . $dni; // Ruta completa de la carpeta de destino
 
+        echo "   -   ";
+        echo $carpeta_destino;
+        echo "      ";
         echo $carpeta_lyts;
+        echo "      ";
 
-        $mover_carpeta = glob($carpeta_lyts . '/*');
+        $mover_carpeta = glob($carpeta_lyts . '*');
+
+        echo $test = implode(", ", $mover_carpeta);
 
         if (!file_exists($carpeta_destino)) {
             rename($carpeta_lyts, $carpeta_destino); // Mueve la carpeta a la nueva ubicación
@@ -105,20 +113,6 @@ if (isset($_POST['btn_updt_solic'])) {
                 rename($file, $newFilePath);
             }
         }
-
-    ?>
-        <script type="text/javascript">
-            alert("Solicitud enviada")
-        </script>
-        <!-- <META http-equiv='Refresh' content='0.2; URL =../Legal/'> -->
-    <?php
-        //echo $carpeta_nueva;
-    } else {
-    ?>
-        <script type="text/javascript">
-            alert("Error al guardar la solicitud")
-        </script>
-<?php
     }
 }
 

@@ -483,7 +483,7 @@ $(document).ready(function () {
       },
     });
   });
-  
+
   // INPUT WITH LIST
   $(document).ready(function () {
     $(".auto-input").on("keyup", function () {
@@ -1012,6 +1012,43 @@ $(document).ready(function () {
   });
   //
 
+  $("#btn_updt_solic").click(function (e) {
+    e.preventDefault();
+    console.log("test");
+    // $("#loader").show();
+    var formData = new FormData($("#updt_files")[0]);
+    //
+    formData.append("btn_updt_solic", true);
+    // --
+    $.ajax({
+      type: "POST",
+      url: "../Controller/Add_Solic_Legal.php",
+      data: formData,
+      processData: false,
+      contentType: false,
+
+      beforeSend: function () {
+        // $("#loader").show();
+      },
+
+      success: function (r) {
+        console.log(r);
+        if (r) {
+          alert("Solicitud enviada correctamente.");
+        } else {
+          alert("Ocurrio un error.");
+        }
+      },
+      error: function (xhr, status, error) {
+        // $("#loader").hide();
+        console.error(error);
+        console.log(xhr.responseText);
+      },
+    });
+    // No es necesario cambiar event.returnValue a false
+    return false;
+  });
+
   // APARTADO SUBIR DOCUMENTOS
   var buttonPu = document.querySelector(".pu");
   var buttonCl = document.querySelector(".cl");
@@ -1021,7 +1058,6 @@ $(document).ready(function () {
 
   var uploadedFiles_PU = [];
   var uploadedFiles_CL = [];
-  var uploadedArray = [];
 
   buttonPu.addEventListener("click", (e) => {
     inputPU_file.click();
