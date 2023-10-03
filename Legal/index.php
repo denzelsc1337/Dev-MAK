@@ -1658,17 +1658,17 @@ require_once('../Controller/controladorListar.php');
                                 enlaceHtml += '<select name="cbo_estados" id="cbo_estados">';
 
                                 if (estado === '500') {
-                                    enlaceHtml += '<option value="500"selected>Pendiente</option>';
-                                    enlaceHtml += '<option value="405">En revisión</option>';
-                                    enlaceHtml += '<option value="200">Finalizado</option>';
+                                    enlaceHtml += '<option value=""selected>Pendientes</option>';
+                                    enlaceHtml += '<option value="">En revisión</option>';
+                                    enlaceHtml += '<option value="">Finalizado</option>';
                                 } else if (estado === '405') {
-                                    enlaceHtml += '<option value="500">Pendiente</option>';
-                                    enlaceHtml += '<option value="405" selected>En revisión</option>';
-                                    enlaceHtml += '<option value="200">Finalizado</option>';
+                                    enlaceHtml += '<option value="">Pendiente</option>';
+                                    enlaceHtml += '<option value="" selected>En revisión</option>';
+                                    enlaceHtml += '<option value="">Finalizado</option>';
                                 } else if (estado === '200') {
-                                    enlaceHtml += '<option value="500">Pendiente</option>';
-                                    enlaceHtml += '<option value="405">En revisión</option>';
-                                    enlaceHtml += '<option value="200" selected>Finalizado</option>';
+                                    enlaceHtml += '<option value="">Pendiente</option>';
+                                    enlaceHtml += '<option value="">En revisión</option>';
+                                    enlaceHtml += '<option value="" selected>Finalizado</option>';
                                 }
                                 enlaceHtml += '</select><br>';
                                 enlaceHtml += '</div>';
