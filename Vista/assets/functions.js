@@ -483,7 +483,7 @@ $(document).ready(function () {
       },
     });
   });
-
+  
   // INPUT WITH LIST
   $(document).ready(function () {
     $(".auto-input").on("keyup", function () {
