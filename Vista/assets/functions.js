@@ -1014,8 +1014,7 @@ $(document).ready(function () {
 
   $("#btn_updt_solic").click(function (e) {
     e.preventDefault();
-    console.log("test");
-    // $("#loader").show();
+    //
     var formData = new FormData($("#updt_files")[0]);
     //
     formData.append("btn_updt_solic", true);
@@ -1035,6 +1034,7 @@ $(document).ready(function () {
         console.log(r);
         if (r) {
           alert("Solicitud enviada correctamente.");
+          window.location.href = "../Legal/";
         } else {
           alert("Ocurrio un error.");
         }

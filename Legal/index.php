@@ -390,24 +390,18 @@ require_once('../Controller/controladorListar.php');
                                                             <td>
                                                                 <div class="row justify-content-evenly">
 
-
-
                                                                     <?php if ($lst_legal_d[6] == 30) { ?>
-                                                                        <div class="col-sm-4 justify-content-center show_data_soli_legl" data-cod_solic=" <?php echo $lst_legal_d[0] ?>" data-cod_client="<?php echo $lst_legal_d[7] ?>">
-                                                                            <div class="options">
-                                                                                <button type="button" class="btn btn-rounded arrow-left_1" id="">
-                                                                                    <i class="fa-solid fa-pencil"></i>
-                                                                                </button>
-                                                                            </div>
+                                                                        <div class="options show_data_soli_legl" data-cod_solic=" <?php echo $lst_legal_d[0] ?>" data-cod_client="<?php echo $lst_legal_d[7] ?>">
+                                                                            <button type="button" class="btn btn-rounded arrow-left_1" id="">
+                                                                                <i class="fa-solid fa-pencil"></i>
+                                                                            </button>
                                                                         </div>
                                                                     <?php  } else { ?>
                                                                         <!--vista usuario -->
-                                                                        <div class="col-sm-4 justify-content-center get_data_soli_legl" data-cod_solic=" <?php echo $lst_legal_d[0] ?>" data-cod_client="<?php echo $lst_legal_d[7] ?>">
-                                                                            <div class="options">
-                                                                                <button type="button" class="btn btn-rounded" id="">
-                                                                                    <i class="fa-solid fa-eye"></i>
-                                                                                </button>
-                                                                            </div>
+                                                                        <div class="options get_data_soli_legl" data-cod_solic=" <?php echo $lst_legal_d[0] ?>" data-cod_client="<?php echo $lst_legal_d[7] ?>">
+                                                                            <button type="button" class="btn btn-rounded" id="">
+                                                                                <i class="fa-solid fa-eye"></i>
+                                                                            </button>
                                                                         </div>
 
                                                                     <?php } ?>
