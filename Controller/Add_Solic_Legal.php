@@ -69,21 +69,17 @@ if (isset($_POST['btn_save_solic'])) {
 
 if (isset($_POST['btn_updt_solic'])) {
 
-    $id_solic = $_POST["cod_reg_l"];
+    $id_solic = $_POST["id_legal_solic"];
 
     $dni = $_POST['dni_user_l'];
 
     $olegal = new cLegal();
     $r = $olegal->updt_solic_legal_($id_solic);
-
+    // print_r($_POST);
     // echo $r;
     if ($r) {
 
         $carpeta_nueva = "../Solicitudes/" . $id_solic . "/";
-
-        echo $carpeta_nueva;
-
-        echo "      ";
 
         if (!file_exists($carpeta_nueva)) {
             mkdir($carpeta_nueva, 0777, true);
@@ -92,12 +88,6 @@ if (isset($_POST['btn_updt_solic'])) {
         $carpeta_lyts = "../borradores/" . $id_solic . '/' . $dni . "/";
 
         $carpeta_destino = $carpeta_nueva . $dni; // Ruta completa de la carpeta de destino
-
-        echo "   -   ";
-        echo $carpeta_destino;
-        echo "      ";
-        echo $carpeta_lyts;
-        echo "      ";
 
         $mover_carpeta = glob($carpeta_lyts . '*');
 
@@ -113,6 +103,10 @@ if (isset($_POST['btn_updt_solic'])) {
                 rename($file, $newFilePath);
             }
         }
+
+        // actualizar el estado a pendiente // 10
+        $oLegal = new cLegal();
+        $r = $oLegal->updt_solic_legal_($id_solic);
     }
 }
 

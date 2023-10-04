@@ -121,6 +121,7 @@ require_once('../Controller/controladorListar.php');
                                     <div class="card-body">
                                         <div class="row">
                                             <div class="row" hidden>
+                                                <input type="text" class="form-control" id="id_legal_solic" name="id_legal_solic" readonly>
                                                 <input type="text" class="form-control" id="id_user" name="id_user" value="<?php echo $_SESSION['id_usu']; ?>">
                                                 <input type="text" class="form-control" id="dni_user_l" name="dni_user_l" value="<?php echo $_SESSION['dni']; ?>">
                                                 <input type="text" class="form-control" id="cod_reg_l" name="cod_reg_l">
