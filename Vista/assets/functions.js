@@ -1049,6 +1049,43 @@ $(document).ready(function () {
     return false;
   });
 
+  $("#btn_updt_borrador").click(function (e) {
+    e.preventDefault();
+    //
+    var formData = new FormData($("#updt_files")[0]);
+    //
+    formData.append("btn_updt_borrador", true);
+    // --
+    $.ajax({
+      type: "POST",
+      url: "../Controller/Add_Solic_Legal.php",
+      data: formData,
+      processData: false,
+      contentType: false,
+
+      beforeSend: function () {
+        // $("#loader").show();
+      },
+
+      success: function (r) {
+        console.log(r);
+        if (r == 1) {
+          alert("Datos actualizados.");
+          window.location.href = "../Legal/";
+        } else {
+          alert("Ocurrio un error.");
+        }
+      },
+      error: function (xhr, status, error) {
+        // $("#loader").hide();
+        console.error(error);
+        console.log(xhr.responseText);
+      },
+    });
+    // No es necesario cambiar event.returnValue a false
+    return false;
+  });
+
   // APARTADO SUBIR DOCUMENTOS
   var buttonPu = document.querySelector(".pu");
   var buttonCl = document.querySelector(".cl");

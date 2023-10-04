@@ -117,15 +117,15 @@ class cLegal
 		$cnx->cerrarConexion($cadena);
 		return $result;
 
-		/*$result = mysqli_query($cadena, $query);
+		$result = mysqli_query($cadena, $query);
 
 
-        if ($result) {
-            $num_rows = mysqli_affected_rows($cadena);
-            echo "Se han insertado $num_rows filas correctamente";
-        } else {
-            echo "Error al ejecutar la consulta: " . mysqli_error($cadena);
-        }*/
+		if ($result) {
+			$num_rows = mysqli_affected_rows($cadena);
+			echo "Se han insertado $num_rows filas correctamente";
+		} else {
+			echo "Error al ejecutar la consulta: " . mysqli_error($cadena);
+		}
 
 		/*echo mysqli_query($cadena, $query);
 		$cnx->cerrarConexion($cadena);*/
@@ -289,7 +289,8 @@ class cLegal
 		$cnx->cerrarConexion($cadena);*/
 	}
 
-	public function updt_doc_status($status,$id_doc_l){
+	public function updt_doc_status($status, $id_doc_l)
+	{
 
 		include_once('../config/Conexion.php');
 		$cnx = new Conexion();
@@ -315,6 +316,5 @@ class cLegal
 
 		/*echo mysqli_query($cadena, $query);
 		$cnx->cerrarConexion($cadena);*/
-		
 	}
 }
