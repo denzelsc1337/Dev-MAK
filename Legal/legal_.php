@@ -113,9 +113,9 @@ require_once('../Controller/controladorListar.php');
                             <form method="POST" action="../Controller/Add_Solic_Legal.php">
                                 <div class="container mt-5">
 
-                                    <!-- <div class="arrow-right">
+                                    <div class="arrow-right">
                                         <i class="fa-solid fa-angle-right"></i>
-                                    </div> -->
+                                    </div>
                                     <div class="card-body">
                                         <div class="row">
                                             <div class="row" hidden>
@@ -247,7 +247,7 @@ require_once('../Controller/controladorListar.php');
                             </form>
                         </section>
 
-                        <!-- <section class="body-mak mak-txt position-relative" data-content="historico">
+                        <section class="body-mak mak-txt position-relative" data-content="historico">
 
 
                             <div class="container mt-5">
@@ -680,7 +680,7 @@ require_once('../Controller/controladorListar.php');
                                     ?>
                                 </div>
                             </form>
-                        </section> -->
+                        </section>
                     </div>
                 </div>
 
