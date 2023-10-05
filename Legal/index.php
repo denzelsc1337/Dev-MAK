@@ -649,7 +649,8 @@ require_once('../Controller/controladorListar.php');
                         <div class="col-sm-12">
                             <div class="container">
 
-                                <form method="POST" action="../Controller/Upload_Legal_Docs.php" enctype="multipart/form-data">
+                                <form id="updt_HR" method="POST" enctype="multipart/form-data">
+                                    <!-- <form method="POST" action="../Controller/Upload_Legal_Docs.php" enctype="multipart/form-data"> -->
 
                                     <div class="content-file flex flex-column">
 
@@ -1141,6 +1142,9 @@ require_once('../Controller/controladorListar.php');
                         id_tipo_doc: valor1
                     },
                     success: function(response) {
+
+                        console.log(response);
+
                         var data = JSON.parse(response);
 
                         var archivos = data.archivos;
@@ -1180,9 +1184,11 @@ require_once('../Controller/controladorListar.php');
                                                 <div class="col-sm-2 tw-modal-ots">
                                                     <div class="row">
                                                         <div class="inputs brd-rght-blue">
-                                                            <input id="ruta_doc_i" type="text" value="${ruta}" readonly hidden>
-                                                            <input id="ruta_archivo_i" type="text" value="${nombreArchivo}" readonly hidden>
-                                                            <input id="cod_doc_i" type="text" value="${id_doc_}" readonly hidden>
+                                                            <div hidden>
+                                                                <input id="ruta_doc_i" type="text" value="${ruta}" readonly>
+                                                                <input id="ruta_archivo_i" type="text" value="${nombreArchivo}" readonly>
+                                                                <input id="cod_doc_i" type="text" value="${id_doc_}" readonly>
+                                                            </div>
 
                                                             <div class="">
                                                                 <button id="dlt_file" type="button" class="btn dlt_file"><i class="cursor fa-solid fa-trash"></i></button>
@@ -1228,6 +1234,8 @@ require_once('../Controller/controladorListar.php');
 
                     },
                     success: function(response) {
+
+                        console.log(response);
                         var data = JSON.parse(response);
 
                         var archivos = data.archivos;
@@ -1240,6 +1248,8 @@ require_once('../Controller/controladorListar.php');
                             var enlaceHtml = '';
 
                             archivos.forEach(function(archivo) {
+
+                                console.log(archivo);
                                 var ruta = archivo.ruta;
                                 var nombreArchivo = archivo.archivo;
                                 var estado = archivo.estado;
@@ -1267,9 +1277,12 @@ require_once('../Controller/controladorListar.php');
                                                 <div class="col-sm-2 tw-modal-ots">
                                                     <div class="row">
                                                         <div class="inputs brd-rght-blue">
-                                                            <input id="ruta_doc_i" type="text" value="${ruta}" readonly hidden>
-                                                            <input id="ruta_archivo_i" type="text" value="${nombreArchivo}" readonly hidden>
-                                                            <input id="cod_doc_i" type="text" value="${id_doc_}" readonly hidden>
+
+                                                            <div hidden>
+                                                                <input id="ruta_doc_i" type="text" value="${ruta}" readonly>
+                                                                <input id="ruta_archivo_i" type="text" value="${nombreArchivo}" readonly>
+                                                                <input id="cod_doc_i" type="text" value="${id_doc_}" readonly>
+                                                            </div>
 
                                                             <div class="">
                                                                 <button id="dlt_file" type="button" class="btn dlt_file"><i class="cursor fa-solid fa-trash"></i></button>
@@ -2123,8 +2136,8 @@ require_once('../Controller/controladorListar.php');
                     "searchPlaceholder": "Buscar en la tabla..." // placeholder del Buscar.
                 },
                 "lengthMenu": [
-                    [5, 10, 25, 50, -1],
-                    [5, 10, 25, 50, "Todos"]
+                    [10, 25, 50, -1],
+                    [10, 25, 50, "Todos"]
                 ],
                 // Otras opciones de DataTables
                 "drawCallback": function(settings) {

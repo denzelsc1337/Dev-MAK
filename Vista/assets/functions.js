@@ -1012,6 +1012,43 @@ $(document).ready(function () {
   });
   //
 
+  $("#btn_updt_hr").click(function (e) {
+    e.preventDefault();
+    //
+    var formData = new FormData($("#updt_HR")[0]);
+    //
+    formData.append("btn_updt_hr", true);
+    // --
+    $.ajax({
+      type: "POST",
+      url: "../Controller/Upload_Legal_Docs.php",
+      data: formData,
+      processData: false,
+      contentType: false,
+
+      beforeSend: function () {
+        // $("#loader").show();
+      },
+
+      success: function (r) {
+        console.log(r);
+        // if (r) {
+        //   alert("Solicitud enviada correctamente.");
+        //   window.location.href = "../Legal/";
+        // } else {
+        //   alert("Ocurrio un error.");
+        // }
+      },
+      error: function (xhr, status, error) {
+        // $("#loader").hide();
+        console.error(error);
+        console.log(xhr.responseText);
+      },
+    });
+    // No es necesario cambiar event.returnValue a false
+    return false;
+  });
+  // ---------------------
   $("#btn_updt_solic").click(function (e) {
     e.preventDefault();
     //
@@ -1086,6 +1123,7 @@ $(document).ready(function () {
     return false;
   });
 
+  // ---------------------
   // APARTADO SUBIR DOCUMENTOS
   var buttonPu = document.querySelector(".pu");
   var buttonCl = document.querySelector(".cl");

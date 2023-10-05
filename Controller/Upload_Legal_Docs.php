@@ -212,7 +212,7 @@ if (isset($_POST["btn_updt_pu"])) {
 
     $target_dir = "../borradores/" . $id_solic . '/' . $dni_client . "/P_U/";
 
-    echo $target_dir;
+    // echo $target_dir;
 
     if (!file_exists($target_dir)) {
       mkdir($target_dir, 0777, true);
@@ -231,17 +231,8 @@ if (isset($_POST["btn_updt_pu"])) {
       $archivos_total++;
     }
   }
-  if ($archivos_total > 0) {
-  ?>
-    <META http-equiv='Refresh' content='0.2; URL =../Legal/legal_.php'>;
-    <script>
-      alert("Borrador Actualizado.");
-    </script>
 
-  <?php
-  } else {
-    echo '<script> alert("Error al actualizar borrador");</script>';
-  }
+  echo $archivos_total;
 }
 
 

@@ -4,13 +4,16 @@ $id_client_ = $_POST['id_client'];
 $dni_u = $_POST['dni_client'];
 $tipo_doc_ = $_POST['id_tipo_doc'];
 
+
+print_r($_POST);
+
 // Directorio donde se encuentran los archivos
-$directorio = "../Documentos Legal/".$dni_u."/".$tipo_doc_."/";
+$directorio = "../Documentos Legal/" . $dni_u . "/" . $tipo_doc_ . "/";
 
 $response = array();
 
-if (is_dir($directorio)){
-        // Obtener la lista de archivos en el directorio
+if (is_dir($directorio)) {
+    // Obtener la lista de archivos en el directorio
     $archivos = scandir($directorio);
 
     foreach ($archivos as $archivo) {
@@ -31,9 +34,7 @@ if (is_dir($directorio)){
     if (empty($response['archivos'])) {
         $response['status_doc'] = "Archivo no encontrado";
     }
-
-
-}else{
+} else {
     $response['status_doc'] = "Carpeta no encontrada";
 }
 
