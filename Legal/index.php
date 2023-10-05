@@ -1127,7 +1127,7 @@ require_once('../Controller/controladorListar.php');
 
             });
 
-            function load_documents(valor1) {
+            function load_documents(dataValue) {
 
                 var dni = '<?php echo $_SESSION['dni'] ?>';
                 var id_cli = '<?php echo $_SESSION['id_usu'] ?>';
@@ -1139,7 +1139,8 @@ require_once('../Controller/controladorListar.php');
                     data: {
                         id_client: id_cli,
                         dni_client: dni,
-                        id_tipo_doc: valor1
+                        id_tipo_doc: _id_tipo_doc,
+                        valor: dataValue
                     },
                     success: function(response) {
 
@@ -1474,6 +1475,7 @@ require_once('../Controller/controladorListar.php');
                         console.log("archivo eliminado con ID: " + ruta_doc + ruta_archivo);
 
                         $deleteBtn.closest('.modal').modal('hide');
+                        // Cargar documents
                         load_documents(_id_tipo_doc);
                     },
                     complete: function() {
@@ -1525,6 +1527,7 @@ require_once('../Controller/controladorListar.php');
                 // console.log("Botón seleccionado");
 
                 var valor1 = $(this).data('valor');
+                var dataValue = $(this).data('valor');
                 var titulo_ = $(this).data('titulo');
                 var _id_doc_lgl = $(this).data('id_doc_');
 
@@ -1541,7 +1544,7 @@ require_once('../Controller/controladorListar.php');
                 /*console.log(titulo_modal);
                 console.log(concepto);*/
 
-                load_documents(valor1);
+                load_documents(titulo_);
 
                 $('#lst_hr_0').modal('show');
             });
