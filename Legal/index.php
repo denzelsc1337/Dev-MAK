@@ -1144,7 +1144,6 @@ require_once('../Controller/controladorListar.php');
                     success: function(response) {
 
                         console.log(response);
-
                         var data = JSON.parse(response);
 
                         var archivos = data.archivos;
@@ -1163,44 +1162,44 @@ require_once('../Controller/controladorListar.php');
                                 var id_doc_ = archivo.id_doc;
                                 var status_r = '';
 
+                                console.log(archivo);
+
 
                                 var delete_btn = $('<button>').text('Eliminar').attr('class', 'btn btn-block btn-danger');
 
 
                                 enlaceHtml += `
 
-                                            <div class="row d-flex justify-content-between align-center mb-4">
-                                                <div class="col-sm-2">
-                                                    <div class="lgl-modal-num">
-                                                        ${cont++}
-                                                    </div>
-                                                </div>
+                            <div class="row d-flex justify-content-between align-center mb-4">
+                                <div class="col-sm-2">
+                                    <div class="lgl-modal-num">
+                                        ${cont++}
+                                    </div>
+                                </div>
 
-                                                <div class="col-sm-8 archive">
-                                                    <img src="#" id="loader" style="display: none;">
-                                                    <a href="${ruta}${nombreArchivo}">${nombreArchivo}</a>
-                                                </div>
+                                <div class="col-sm-8 archive">
+                                    <img src="#" id="loader" style="display: none;">
+                                    <a href="${ruta}${nombreArchivo}">${nombreArchivo}</a>
+                                </div>
 
-                                                <div class="col-sm-2 tw-modal-ots">
-                                                    <div class="row">
-                                                        <div class="inputs brd-rght-blue">
-                                                            <div hidden>
-                                                                <input id="ruta_doc_i" type="text" value="${ruta}" readonly>
-                                                                <input id="ruta_archivo_i" type="text" value="${nombreArchivo}" readonly>
-                                                                <input id="cod_doc_i" type="text" value="${id_doc_}" readonly>
-                                                            </div>
+                                <div class="col-sm-2 tw-modal-ots">
+                                    <div class="row">
+                                        <div class="inputs brd-rght-blue">
+                                            <input id="ruta_doc_i" type="text" value="${ruta}" readonly hidden>
+                                            <input id="ruta_archivo_i" type="text" value="${nombreArchivo}" readonly hidden>
+                                            <input id="cod_doc_i" type="text" value="${id_doc_}" readonly hidden>
 
-                                                            <div class="">
-                                                                <button id="dlt_file" type="button" class="btn dlt_file"><i class="cursor fa-solid fa-trash"></i></button>
-                                                            </div>
-                                                        </div>
-                                                        <div>
-                                                            <button id="dlt_file" type="button" class="btn dlt_file"> <i class="cursor fa-solid fa-download"></i></button>
-                                                        </div>
-                                                    </div>
-                                                </div>
+                                            <div class="">
+                                                <button id="dlt_file" type="button" class="btn dlt_file"><i class="cursor fa-solid fa-trash"></i></button>
                                             </div>
-                                            `;
+                                        </div>
+                                        <div>
+                                            <button id="dlt_file" type="button" class="btn dlt_file"> <i class="cursor fa-solid fa-download"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            `;
 
                             });
 
@@ -1217,6 +1216,7 @@ require_once('../Controller/controladorListar.php');
                     }
                 });
             }
+
 
 
 
@@ -1329,14 +1329,13 @@ require_once('../Controller/controladorListar.php');
 
                     },
                     beforeSend: function() {
+                        $("#loader_uhd").show();
                         $("#lst_docs_lgl").hide();
                         //$("#docs_val").hide();
 
                     },
                     success: function(response) {
 
-                        // console.log("|--------------------------|");
-                        // console.log(response);
 
                         var data = JSON.parse(response);
 
@@ -1346,7 +1345,7 @@ require_once('../Controller/controladorListar.php');
                         var dbInfo = data.base_de_datos;
                         var estado_db = data.status_doc_;
 
-                        // console.log(dbInfo)
+                        console.log(dbInfo)
                         var cod_doc_, ruta_doc, nom_file;
                         var cont = 1;
 
@@ -1371,71 +1370,66 @@ require_once('../Controller/controladorListar.php');
                                     //arroshi recontra tarao
                                     enlaceHtml += `
 
-                                            <div class="row d-flex justify-content-between align-center mb-4">
-                                                <div class="col-sm-1 p-0">
-                                                    <div class="lgl-modal-num">
-                                                        ${cont++}
-                                                    </div>
-                                                </div>
+                            <div class="row d-flex justify-content-between align-center mb-4">
+                                <div class="col-sm-2">
+                                    <div class="lgl-modal-num">
+                                        ${cont++}
+                                    </div>
+                                </div>
 
-                                                <div class="col-sm-6 pl-3 pr-3 archive">
-                                                    <img src="#" id="loader" style="display: none;">
-                                                    <a href="${ruta}${nombreArchivo}">${nombreArchivo}</a>
-                                                </div>
+                                <div class="col-sm-8 archive">
+                                    <img src="#" id="loader" style="display: none;">
+                                    <a href="${ruta}${nombreArchivo}">${nombreArchivo}</a>
+                                </div>
 
-                                                <div class="col-sm-5 p-0 tw-modal-ots">
+                                <div class="col-sm-2 tw-modal-ots">
+                                    <div class="row">
 
-                                                    <div class="d-flex">
+                                        ${
+                                        estadoHtml === '500'
+                                            ? `
+                                            <select>
+                                                <option selected>Pendiente</option>
+                                                <option>Revisado</option>
+                                                <option>Rechazado</option>
+                                                <option>Aceptado</option>
+                                            </select>
+                                            `
+                                            : estadoHtml === '200'
+                                                ? `
+                                                <select>
+                                                    <option>Pendiente</option>
+                                                    <option selected>Revisado</option>
+                                                    <option>Rechazado</option>
+                                                    <option>Aceptado</option>
+                                                </select>
+                                                `
+                                                : `
+                                                <select>
+                                                    <option>Pendiente</option>
+                                                    <option>Revisado</option>
+                                                    <option>Rechazado</option>
+                                                    <option>Aceptado</option>
+                                                </select>
+                                                `
+                                        }
 
-                                                        ${
-                                                        estadoHtml === '500'
-                                                            ? `
-                                                            <select class="form-control">
-                                                                <option selected>Pendiente</option>
-                                                                <option>Revisado</option>
-                                                                <option>Rechazado</option>
-                                                                <option>Aceptado</option>
-                                                            </select>
-                                                            `
-                                                            : estadoHtml === '200'
-                                                                ? `
-                                                                <select class="form-control">
-                                                                    <option>Pendiente</option>
-                                                                    <option selected>Revisado</option>
-                                                                    <option>Rechazado</option>
-                                                                    <option>Aceptado</option>
-                                                                </select>
-                                                                `
-                                                                : `
-                                                                <select class="form-control">
-                                                                    <option>Pendiente</option>
-                                                                    <option>Revisado</option>
-                                                                    <option>Rechazado</option>
-                                                                    <option>Aceptado</option>
-                                                                </select>
-                                                                `
-                                                        }
+                                        <div class="inputs brd-rght-blue">
+                                            <input id="ruta_doc_i" type="text" value="${ruta}" readonly>
+                                            <input id="ruta_archivo_i" type="text" value="${nombreArchivo}" readonly>
+                                            <input id="cod_doc_i" type="text" value="${id_doc_}" readonly>
 
-                                                        <div class="d-flex">
-                                                            <div class="inputs brd-rght-blue">
-
-                                                                <div hidden>
-                                                                    <input id="ruta_doc_i" type="text" value="${ruta}" readonly>
-                                                                    <input id="ruta_archivo_i" type="text" value="${nombreArchivo}" readonly>
-                                                                    <input id="cod_doc_i" type="text" value="${id_doc_}" readonly>
-                                                                </div>
-
-                                                                <button id="dlt_file" type="button" class="btn dlt_file"><i class="cursor fa-solid fa-trash"></i></button>
-                                                                
-                                                            </div>
-                                                            <div>
-                                                                <button id="dlt_file" type="button" class="btn dlt_file"> <i class="cursor fa-solid fa-download"></i></button>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
+                                            <div class="">
+                                                <button id="dlt_file" type="button" class="btn dlt_file"><i class="cursor fa-solid fa-trash"></i></button>
                                             </div>
-                                            `;
+                                        </div>
+                                        <div>
+                                            <button id="dlt_file" type="button" class="btn dlt_file"> <i class="cursor fa-solid fa-download"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            `;
 
                                 });
 
@@ -1461,8 +1455,6 @@ require_once('../Controller/controladorListar.php');
             }
 
 
-
-
             function eliminarArchivo($deleteBtn, cod_doc_, ruta_doc, ruta_archivo) {
 
                 var dni = '<?php echo $_SESSION['dni'] ?>';
@@ -1475,19 +1467,32 @@ require_once('../Controller/controladorListar.php');
                     data: {
                         id_client: id_cli,
                         dni_client: dni,
-                        cod_doc_: cod_doc_,
                         ruta_doc: ruta_doc,
                         ruta_archivo: ruta_archivo,
                     },
                     success: function(response) {
-                        // console.log("archivo eliminado con ID: " + cod_doc_);
+                        console.log("archivo eliminado con ID: " + ruta_doc + ruta_archivo);
+
                         $deleteBtn.closest('.modal').modal('hide');
-                        //load_documents();
+                        load_documents(_id_tipo_doc);
                     },
                     complete: function() {
-                        load_documents();
                         setTimeout(function() {
-                            $('#lst_hr_0').modal('show');
+                            $('#lst_docs_legal').modal('show');
+
+                            if (ruta_doc == "../Documentos Legal/" + dni + "/H_R/") {
+                                console.log("HR")
+                                load_documents('H_R');
+                            } else if (ruta_doc == "../Documentos Legal/" + dni + "/P_U/") {
+                                console.log("PU")
+                                load_documents('P_U');
+                            } else if (ruta_doc == "../Documentos Legal/" + dni + "/C_L/") {
+                                console.log("CL")
+                                load_documents('C_L');
+                            } else if (ruta_doc == "../Documentos Legal/" + dni + "/DNI/") {
+                                console.log("DNI")
+                                load_documents('DNI');
+                            }
                         }, 500);
 
                     }
