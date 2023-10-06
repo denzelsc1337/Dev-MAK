@@ -680,18 +680,12 @@ $(document).ready(function () {
             const dropItem = document.querySelectorAll(".drop-item");
             dropItem.forEach((dropItem) => {
               dropItem.addEventListener("click", (e) => {
-                // let Object = document.querySelectorAll(".archive-item");
-                // Object.forEach((element) => {
-                //   element.addEventListener("click", (e) => {
-                //     element.remove();
-                //     contTagFiles();
-                //   });
-                // });
                 const itemdrop = dropItem.closest(".archive-item");
                 if (itemdrop) {
                   const id = itemdrop.id;
                   itemdrop.remove();
                   removeFile(id);
+                  contTagFiles();
                 }
               });
             });
@@ -714,6 +708,11 @@ $(document).ready(function () {
         DataFiles.splice(indexToRemove, 1);
         console.log(DataFiles);
       }
+
+      const modal = document.querySelector(".modal"),
+        iptFile = modal.querySelector(".upload");
+
+      iptFile.value = "";
     }
 
     function contTagFiles() {
@@ -722,9 +721,13 @@ $(document).ready(function () {
       var cantFileMessage = element.querySelectorAll(".archive-item").length;
       var btnDisable = element.querySelectorAll("button");
 
+      console.log(fileArchives);
+      console.log(cantFileMessage);
+      console.log(btnDisable);
+
       if (cantFileMessage > 0) {
         fileMessage.style.display = "none";
-        fileArchives.style.display = "grid";
+        fileArchives.style.display = "flex";
         // DISABLE BUTTON
         btnDisable.forEach((element) => {
           element.disabled = false;

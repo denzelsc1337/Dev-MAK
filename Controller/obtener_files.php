@@ -3,12 +3,18 @@
 $id_client_ = $_POST['id_client'];
 $dni_u = $_POST['dni_client'];
 $tipo_doc_ = $_POST['id_tipo_doc'];
+$ruta = $_POST['valor'];
 
 
-print_r($_POST);
+// print_r($_POST);
 
 // Directorio donde se encuentran los archivos
-$directorio = "../Documentos Legal/" . $dni_u . "/" . $tipo_doc_ . "/";
+$directorio = $ruta;
+// $directorio = "../borradores/3/" . $dni_u . "/H_R/";
+// $directorio = "../Solicitudes/" . $dni_u . "/" . $tipo_doc_ . "/";
+// $directorio = "../Documentos Legal/" . $dni_u . "/" . $tipo_doc_ . "/";
+
+// echo $directorio;
 
 $response = array();
 

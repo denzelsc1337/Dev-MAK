@@ -3,13 +3,15 @@ $id_solic = $_POST['id_solic_l'];
 $dni_u = $_POST['dni_client'];
 $tipo_doc_ = $_POST['id_tipo_doc'];
 
+
 // Directorio donde se encuentran los archivos
-$directorio = "../borradores/".$id_solic."/".$dni_u."/".$tipo_doc_."/";
+$directorio = "../borradores/" . $id_solic . "/" . $dni_u . "/" . $tipo_doc_ . "/";
+// $directorio = "../borradores/" . $id_solic . "/" . $dni_u . "/" . $tipo_doc_ . "/";
 
 $response = array();
 
-if (is_dir($directorio)){
-        // Obtener la lista de archivos en el directorio
+if (is_dir($directorio)) {
+    // Obtener la lista de archivos en el directorio
     $archivos = scandir($directorio);
 
     foreach ($archivos as $archivo) {
@@ -30,11 +32,8 @@ if (is_dir($directorio)){
     if (empty($response['archivos'])) {
         $response['status_doc'] = "Archivo no encontrado";
     }
-
-
-}else{
+} else {
     $response['status_doc'] = "Carpeta no encontrada";
 }
 
 echo json_encode($response);
-?>

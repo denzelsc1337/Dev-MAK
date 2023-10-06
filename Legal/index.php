@@ -158,10 +158,9 @@ require_once('../Controller/controladorListar.php');
                                                             </div>
                                                             <div class="input-group-append">
 
-                                                                <button type="button" class="btn btn-rounded
-                                                                btn_lst_hr btn_lst_hr_0" data-toggle="modal" data-target="#lst_hr_0" data-valor="H_R" data-titulo="Hoja de Resumen" data-id_doc_="1"><i class="cursor fa-solid fa-eye"></i></button>
+                                                                <button type="button" class="btn btn-rounded btn_lst_hr btn_lst_hr_0" data-toggle="modal" data-target="#lst_hr_0" data-valor="H_R" data-titulo="Hoja de Resumen" data-id_doc_="1"><i class="cursor fa-solid fa-eye"></i></button>
 
-                                                                <button type="button" class="btn btn-rounded  btn_lst_lyts btn_lst_lyts_0" data-toggle="modal" data-target="#lst_lyts" data-valor="H_R" data-titulo="Hoja de Resumen" data-id_doc_="1" style="display:none"><i class="cursor fa-solid fa-pencil"></i></button>
+                                                                <button type="button" class="btn btn-rounded btn_lst_lyts btn_lst_lyts_0" data-toggle="modal" data-target="#lst_lyts" data-valor="H_R" data-titulo="Hoja de Resumen" data-id_doc_="1" data-testeo="ola" style="display:none"><i class="cursor fa-solid fa-pencil"></i></button>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -664,8 +663,11 @@ require_once('../Controller/controladorListar.php');
 
                                         <div class="input-file" id="dropArea">
                                             <div class="file-message">
-                                                <img src="../Vista/images/document-text-svgrepo-com 1.svg" alt="doc">
-                                                <span>Arrastre los archivos aquí para subirlos.</span>
+                                                <img class="row text-center" src="../Vista/assets/loading_upd.gif" id="loader__hr" style="display:none;">
+                                                <div class="file-message_">
+                                                    <img src="../Vista/images/document-text-svgrepo-com 1.svg" alt="doc">
+                                                    <span>Arrastre los archivos aquí para subirlos.</span>
+                                                </div>
                                             </div>
                                             <div class="file-archives" style="display: none;"></div>
                                         </div>
@@ -699,7 +701,8 @@ require_once('../Controller/controladorListar.php');
         </div>
     </div>
     <!-- Modal -->
-    <div class="modal fade" id="lst_hr_0" tabindex="-1" role="dialog" aria-labelledby="lst_hr_0" aria-hidden="true">
+    <!-- modal para -->
+    <!-- <div class="modal fade" id="lst_hr_0" tabindex="-1" role="dialog" aria-labelledby="lst_hr_0" aria-hidden="true">
         <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-body">
@@ -726,15 +729,15 @@ require_once('../Controller/controladorListar.php');
                 </div>
             </div>
         </div>
-    </div>
-
-
+    </div> -->
+    <!-- modal para -->
+    <!-- modal para borradores -->
     <div class="modal fade" id="lst_lyts" tabindex="-1" role="dialog" aria-labelledby="lst_lyts" aria-hidden="true">
         <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-body">
                     <h1 class="title-m" id="titulo_docs_2"></h1>
-                    <div class="row margin">
+                    <div class="row margin justify-content-center">
 
                         <div class="form-group" hidden>
                             <label>id usu</label>
@@ -748,6 +751,8 @@ require_once('../Controller/controladorListar.php');
                             <br>
                         </div>
 
+                        <img class="row text-center" src="../Vista/assets/loading_uhd.gif" id="loader_erase_hr" style="display:none;">
+
                         <div class="col-sm-12" id="descarga_archivo_l">
 
                         </div>
@@ -757,14 +762,15 @@ require_once('../Controller/controladorListar.php');
             </div>
         </div>
     </div>
-
+    <!-- modal para borradores -->
+    <!-- modal para los archivos de Solicitud -->
     <div class="modal fade" id="lst_docs_legal" tabindex="-1" role="dialog" aria-labelledby="lst_docs_legal" aria-hidden="true">
         <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-body">
-                    <h1 class="title-m" id="titulo_docs__"></h1>
+                    <h1 class="title-m" id="titulo_docs">HR</h1>
                     <img class="row margin" src="../Vista/assets/loading_uhd.gif" id="loader_uhd" style="display:none; margin: 0 22rem 5rem">
-                    <div class="row margin" id="lst_docs_lgl" style="display:none">
+                    <div class="row margin" id="lst_docs_lgl">
 
                         <div class="col-sm-12" id="descarga_archivo_p">
 
@@ -775,6 +781,7 @@ require_once('../Controller/controladorListar.php');
             </div>
         </div>
     </div>
+    <!-- modal para los archivos de Solicitud -->
     <!-- Modal -->
     <!-- Modal_HR -->
 
@@ -1133,6 +1140,8 @@ require_once('../Controller/controladorListar.php');
                 var id_cli = '<?php echo $_SESSION['id_usu'] ?>';
                 var _id_tipo_doc = $('#_id_tipo_doc_lgl').val();
 
+                var titulo_ = $(this).data('titulo');
+
                 $.ajax({
                     type: 'POST',
                     url: '../Controller/obtener_files.php',
@@ -1145,9 +1154,15 @@ require_once('../Controller/controladorListar.php');
                     success: function(response) {
 
                         console.log(response);
+                        console.log("------------------");
                         var data = JSON.parse(response);
 
+                        console.log(data);
+
                         var archivos = data.archivos;
+
+                        console.log(archivos);
+                        console.log("------------------");
                         var estado_doc = data.status_doc;
 
                         var cod_doc_, ruta_doc, nom_file;
@@ -1163,8 +1178,9 @@ require_once('../Controller/controladorListar.php');
                                 var id_doc_ = archivo.id_doc;
                                 var status_r = '';
 
-                                console.log(archivo);
+                                // console.log(mai);
 
+                                $('#titulo_docs__').text(titulo_);
 
                                 var delete_btn = $('<button>').text('Eliminar').attr('class', 'btn btn-block btn-danger');
 
@@ -1204,12 +1220,15 @@ require_once('../Controller/controladorListar.php');
 
                             });
 
-                            document.getElementById('descarga_archivo_m').innerHTML = enlaceHtml;
+                            document.getElementById('descarga_archivo_l').innerHTML = enlaceHtml;
 
                         } else {
 
-                            document.getElementById('descarga_archivo_m').textContent = 'Archivo no encontrado';
+                            document.getElementById('descarga_archivo_l').textContent = 'Archivo no encontrado';
                         }
+
+                    },
+                    complete: function() {
 
                     },
                     error: function(xhr, status, error) {
@@ -1236,7 +1255,7 @@ require_once('../Controller/controladorListar.php');
                     },
                     success: function(response) {
 
-                        console.log(response);
+                        // console.log(response);
                         var data = JSON.parse(response);
 
                         var archivos = data.archivos;
@@ -1330,8 +1349,8 @@ require_once('../Controller/controladorListar.php');
 
                     },
                     beforeSend: function() {
-                        $("#loader_uhd").show();
-                        $("#lst_docs_lgl").hide();
+                        // $("#loader_uhd").show();
+                        // $("#lst_docs_lgl").hide();
                         //$("#docs_val").hide();
 
                     },
@@ -1449,6 +1468,9 @@ require_once('../Controller/controladorListar.php');
 
 
                     },
+                    complete: function() {
+                        // $("#lst_docs_lgl").show();
+                    },
                     error: function(xhr, status, error) {
                         console.log(error);
                     }
@@ -1461,6 +1483,8 @@ require_once('../Controller/controladorListar.php');
                 var dni = '<?php echo $_SESSION['dni'] ?>';
                 var id_cli = '<?php echo $_SESSION['id_usu'] ?>';
                 var _id_tipo_doc = $('#_id_tipo_doc_lgl').val();
+                var dataValue = $(this).data('valor');
+                var dataValue123 = $(this).data('valor');
 
                 $.ajax({
                     type: 'POST',
@@ -1468,19 +1492,26 @@ require_once('../Controller/controladorListar.php');
                     data: {
                         id_client: id_cli,
                         dni_client: dni,
+                        cod_doc_: dataValue,
                         ruta_doc: ruta_doc,
                         ruta_archivo: ruta_archivo,
                     },
                     success: function(response) {
+                        console.log(response);
                         console.log("archivo eliminado con ID: " + ruta_doc + ruta_archivo);
 
-                        $deleteBtn.closest('.modal').modal('hide');
+                        $('#loader_erase_hr').show();
+                        $('#descarga_archivo_l').hide();
+                        // $deleteBtn.closest('.modal').modal('hide');
+
                         // Cargar documents
-                        load_documents(_id_tipo_doc);
+                        load_documents(ruta_doc);
                     },
                     complete: function() {
                         setTimeout(function() {
-                            $('#lst_docs_legal').modal('show');
+                            // $('#lst_lyts').modal('show');
+                            $('#loader_erase_hr').hide();
+                            $('#descarga_archivo_l').show();
 
                             if (ruta_doc == "../Documentos Legal/" + dni + "/H_R/") {
                                 console.log("HR")
@@ -1514,7 +1545,10 @@ require_once('../Controller/controladorListar.php');
                     var ruta_doc = $parentDiv.find('#ruta_doc_i').val();
                     var ruta_archivo = $parentDiv.find('#ruta_archivo_i').val();
 
+
                     eliminarArchivo($this, cod_doc_, ruta_doc, ruta_archivo);
+
+
 
                     console.log("archivo eliminado");
                 } else {
@@ -1555,6 +1589,7 @@ require_once('../Controller/controladorListar.php');
                 var titulo_doc = $(this).data('valor');
                 var titulo_ = $(this).data('titulo');
                 var _id_doc_lgl = $(this).data('id_doc_');
+                var testeo = $(this).data('testeo');
 
                 $('#_id_tipo_doc_lgl').val(_id_doc_lgl);
                 $('#_concept').val(titulo_doc);
@@ -1566,22 +1601,16 @@ require_once('../Controller/controladorListar.php');
 
                 var titulo_modal = $('#titulo_docs').val();
 
-
-
                 /*console.log(titulo_modal);
                 console.log(concepto);*/
 
-                load_documents_lyt(id_soli_l, titulo_doc)
+                load_documents_lyt(id_soli_l, titulo_doc);
 
                 $('#lst_lyts').modal('show');
             });
 
 
             $('.btn_lst_docs').on('click', function() {
-
-
-                var titulo_ = $(this).data('titulo');
-
 
 
                 var id_reg = $('#id_legal_solic').val();
@@ -1591,9 +1620,6 @@ require_once('../Controller/controladorListar.php');
                 var _id_doc_lgl = $(this).data('id_doc_');
 
                 var _dni_cli_lgl = $('#dni_client_l').val();
-
-
-                $('#titulo_docs__').text(titulo_);
 
                 load_documents_legal_(id_reg, _dni_cli_lgl, tipo_doc, _id_cli_lgl, _id_doc_lgl)
 
@@ -2040,14 +2066,14 @@ require_once('../Controller/controladorListar.php');
                         $("#add_data_val").removeClass("hide");
                         // }
 
-                        console.log("ID Valor: " + id_valor);
-                        console.log("Nombre Cliente: " + nom_client);
-                        console.log("Apellido: " + apellido);
-                        console.log("email: " + correo);
-                        console.log("id cliente: " + id_client);
-                        console.log("dni cliente: " + dni_client);
-                        console.log("comment: " + coment);
-                        console.log("estado: " + status_);
+                        // console.log("ID Valor: " + id_valor);
+                        // console.log("Nombre Cliente: " + nom_client);
+                        // console.log("Apellido: " + apellido);
+                        // console.log("email: " + correo);
+                        // console.log("id cliente: " + id_client);
+                        // console.log("dni cliente: " + dni_client);
+                        // console.log("comment: " + coment);
+                        // console.log("estado: " + status_);
 
                         $("#id_legal_solic").val(id_valor)
                         $("#id_client_l").val(id_client)
