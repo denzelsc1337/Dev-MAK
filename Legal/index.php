@@ -662,8 +662,8 @@ require_once('../Controller/controladorListar.php');
                                         </div>
 
                                         <div class="input-file" id="dropArea">
+                                            <img class="row text-center" src="../Vista/assets/loading_upd.gif" id="loader__hr" style="display:none;">
                                             <div class="file-message">
-                                                <img class="row text-center" src="../Vista/assets/loading_upd.gif" id="loader__hr" style="display:none;">
                                                 <div class="file-message_">
                                                     <img src="../Vista/images/document-text-svgrepo-com 1.svg" alt="doc">
                                                     <span>Arrastre los archivos aquí para subirlos.</span>
@@ -680,7 +680,7 @@ require_once('../Controller/controladorListar.php');
                                         </div> -->
                                         <div class="card-footer">
                                             <div class="form-flex">
-                                                <button type="submit" class="btn btn-mak mak-bg buton-file" id="btn_updt_hr" name="btn_updt_hr" style="display: none;">Actualizar</button>
+                                                <button type="submit" class="btn btn-mak mak-bg buton-file" id="btn_updt_hr" name="btn_updt_hr" style="display: none;" disabled>Actualizar</button>
                                                 <button type="submit" class="btn btn-mak mak-bg buton-file" id="btn_save_hr" name="btn_save_hr" disabled>Registrar</button>
 
                                                 <label id="buttonFile" class="btn btn-mak mak-bg buton-file">Seleccionar archivos</label>
@@ -801,7 +801,8 @@ require_once('../Controller/controladorListar.php');
                         <div class="col-sm-12">
                             <div class="container">
 
-                                <form method="POST" action="../Controller/Upload_Legal_Docs.php" enctype="multipart/form-data">
+                                <form id="updt_PU" method="POST" enctype="multipart/form-data">
+                                    <!-- <form method="POST" action="../Controller/Upload_Legal_Docs.php" enctype="multipart/form-data"> -->
 
                                     <div class="content-file flex flex-column">
                                         <label>P.U</label>
@@ -812,9 +813,12 @@ require_once('../Controller/controladorListar.php');
                                             <input type="text" name="cod_reg_2" id="cod_reg_2">
                                         </div>
                                         <div class="input-file" id="dropArea_2">
+                                            <img class="row text-center" src="../Vista/assets/loading_upd.gif" id="loader__pu" style="display:none;">
                                             <div class="file-message">
-                                                <img src="../Vista/images/document-text-svgrepo-com 1.svg" alt="doc">
-                                                <span>Arrastre los archivos aquí para subirlos.</span>
+                                                <div class="file-message_">
+                                                    <img src="../Vista/images/document-text-svgrepo-com 1.svg" alt="doc">
+                                                    <span>Arrastre los archivos aquí para subirlos.</span>
+                                                </div>
                                             </div>
                                             <div class="file-archives" style="display: none;"></div>
                                         </div>
@@ -826,7 +830,7 @@ require_once('../Controller/controladorListar.php');
                                         </div> -->
                                         <div class="card-footer">
                                             <div class="form-flex">
-                                                <button type="submit" class="btn btn-mak mak-bg buton-file" id="btn_updt_pu" name="btn_updt_pu" style="display: none;">Actualizar</button>
+                                                <button type="submit" class="btn btn-mak mak-bg buton-file" id="btn_updt_pu" name="btn_updt_pu" style="display: none;" disabled>Actualizar</button>
                                                 <button type="submit" class="btn btn-mak mak-bg buton-file" id="btn_save_pu" name="btn_save_pu" disabled>Registrar</button>
 
                                                 <label id="buttonFile" class="btn btn-mak mak-bg buton-file">Seleccionar archivos</label>
@@ -864,7 +868,8 @@ require_once('../Controller/controladorListar.php');
                     <div class="row">
                         <div class="col-sm-12">
                             <div class="container">
-                                <form method="POST" action="../Controller/Upload_Legal_Docs.php" enctype="multipart/form-data">
+                                <form id="updt_CL" method="POST" enctype="multipart/form-data">
+                                    <!-- <form method="POST" action="../Controller/Upload_Legal_Docs.php" enctype="multipart/form-data"> -->
 
                                     <div class="content-file flex flex-column">
                                         <label>Copia Literal</label>
@@ -875,9 +880,12 @@ require_once('../Controller/controladorListar.php');
                                             <input type="text" name="cod_reg_3" id="cod_reg_3">
                                         </div>
                                         <div class="input-file" id="dropArea_3">
+                                            <img class="row text-center" src="../Vista/assets/loading_upd.gif" id="loader__cl" style="display:none;">
                                             <div class="file-message">
-                                                <img src="../Vista/images/document-text-svgrepo-com 1.svg" alt="doc">
-                                                <span>Arrastre los archivos aquí para subirlos.</span>
+                                                <div class="file-message_">
+                                                    <img src="../Vista/images/document-text-svgrepo-com 1.svg" alt="doc">
+                                                    <span>Arrastre los archivos aquí para subirlos.</span>
+                                                </div>
                                             </div>
                                             <div class="file-archives" style="display: none;"></div>
                                         </div>
@@ -888,7 +896,7 @@ require_once('../Controller/controladorListar.php');
                                         </div> -->
                                         <div class="card-footer">
                                             <div class="form-flex">
-                                                <button type="submit" class="btn btn-mak mak-bg buton-file" id="btn_updt_cl" name="btn_updt_cl" style="display: none;">Actualizar</button>
+                                                <button type="submit" class="btn btn-mak mak-bg buton-file" id="btn_updt_cl" name="btn_updt_cl" style="display: none;" disabled>Actualizar</button>
                                                 <button type="submit" class="btn btn-mak mak-bg buton-file" id="btn_save_cl" name="btn_save_cl" disabled>Registrar</button>
 
                                                 <label id="buttonFile" class="btn btn-mak mak-bg buton-file">Seleccionar archivos</label>
@@ -958,7 +966,8 @@ require_once('../Controller/controladorListar.php');
                     <div class="row">
                         <div class="col-sm-12">
                             <div class="container">
-                                <form method="POST" action="../Controller/Upload_Legal_Docs.php" enctype="multipart/form-data">
+                                <form id="updt_DNI" method="POST" enctype="multipart/form-data">
+                                    <!-- <form method="POST" action="../Controller/Upload_Legal_Docs.php" enctype="multipart/form-data"> -->
                                     <div class="content-file flex flex-column">
                                         <label>DNI</label>
                                         <div hidden>
@@ -968,9 +977,12 @@ require_once('../Controller/controladorListar.php');
                                             <input type="text" name="cod_reg_4" id="cod_reg_4">
                                         </div>
                                         <div class="input-file" id="dropArea_4">
+                                            <img class="row text-center" src="../Vista/assets/loading_upd.gif" id="loader__dni" style="display:none;">
                                             <div class="file-message">
-                                                <img src="../Vista/images/document-text-svgrepo-com 1.svg" alt="doc">
-                                                <span>Arrastre los archivos aquí para subirlos.</span>
+                                                <div class="file-message_">
+                                                    <img src="../Vista/images/document-text-svgrepo-com 1.svg" alt="doc">
+                                                    <span>Arrastre los archivos aquí para subirlos.</span>
+                                                </div>
                                             </div>
                                             <div class="file-archives" style="display: none;"></div>
                                         </div>
@@ -982,7 +994,7 @@ require_once('../Controller/controladorListar.php');
                                         </div> -->
                                         <div class="card-footer">
                                             <div class="form-flex">
-                                                <button type="submit" class="btn btn-mak mak-bg buton-file" id="btn_updt_dni" name="btn_updt_dni" style="display: none;">Actualizar</button>
+                                                <button type="submit" class="btn btn-mak mak-bg buton-file" id="btn_updt_dni" name="btn_updt_dni" style="display: none;" disabled>Actualizar</button>
                                                 <button type="submit" class="btn btn-mak mak-bg buton-file" id="btn_save_dni" name="btn_save_dni" disabled>Registrar</button>
 
                                                 <label id="buttonFile" class="btn btn-mak mak-bg buton-file">Seleccionar archivos</label>

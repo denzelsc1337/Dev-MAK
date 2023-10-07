@@ -1015,6 +1015,7 @@ $(document).ready(function () {
   });
   //
 
+  // MODALES UPDATE UPLOAD FILES
   $("#btn_updt_hr").click(function (e) {
     e.preventDefault();
     //
@@ -1031,16 +1032,24 @@ $(document).ready(function () {
 
       beforeSend: function () {
         // $("#loader").show();
+        // contTagFiles();
       },
 
       success: function (r) {
         console.log(r);
-        // if (r) {
-        //   alert("Solicitud enviada correctamente.");
-        //   window.location.href = "../Legal/";
-        // } else {
-        //   alert("Ocurrio un error.");
-        // }
+
+        $("#loader__hr").show();
+        $(".file-message").hide();
+        $(".file-archives").hide();
+      },
+      complete: function () {
+        // funcion para borrar los files subidos
+        EraseContent();
+        setTimeout(() => {
+          $("#loader__hr").hide();
+          $(".file-archives").hide();
+          $(".file-message").show();
+        }, 1500);
       },
       error: function (xhr, status, error) {
         // $("#loader").hide();
@@ -1051,6 +1060,121 @@ $(document).ready(function () {
     // No es necesario cambiar event.returnValue a false
     return false;
   });
+
+  $("#btn_updt_pu").click(function (e) {
+    e.preventDefault();
+    //
+    var formData = new FormData($("#updt_PU")[0]);
+    //
+    formData.append("btn_updt_pu", true);
+    // --
+    $.ajax({
+      type: "POST",
+      url: "../Controller/Upload_Legal_Docs.php",
+      data: formData,
+      processData: false,
+      contentType: false,
+
+      success: function (r) {
+        console.log(r);
+        $("#loader__pu").show();
+        $(".file-archives").hide();
+      },
+      complete: function () {
+        // funcion para borrar los files subidos
+        EraseContent();
+        setTimeout(() => {
+          $("#loader__pu").hide();
+          $(".file-archives").hide();
+          $(".file-message").show();
+        }, 1500);
+      },
+      error: function (xhr, status, error) {
+        // $("#loader").hide();
+        console.error(error);
+        console.log(xhr.responseText);
+      },
+    });
+    // No es necesario cambiar event.returnValue a false
+    return false;
+  });
+
+  $("#btn_updt_cl").click(function (e) {
+    e.preventDefault();
+    //
+    var formData = new FormData($("#updt_CL")[0]);
+    //
+    formData.append("btn_updt_cl", true);
+    // --
+    $.ajax({
+      type: "POST",
+      url: "../Controller/Upload_Legal_Docs.php",
+      data: formData,
+      processData: false,
+      contentType: false,
+
+      success: function (r) {
+        console.log(r);
+        $("#loader__cl").show();
+        $(".file-archives").hide();
+      },
+      complete: function () {
+        // funcion para borrar los files subidos
+        EraseContent();
+        setTimeout(() => {
+          $("#loader__cl").hide();
+          $(".file-archives").hide();
+          $(".file-message").show();
+        }, 1500);
+      },
+      error: function (xhr, status, error) {
+        // $("#loader").hide();
+        console.error(error);
+        console.log(xhr.responseText);
+      },
+    });
+    // No es necesario cambiar event.returnValue a false
+    return false;
+  });
+
+  $("#btn_updt_dni").click(function (e) {
+    e.preventDefault();
+    //
+    var formData = new FormData($("#updt_DNI")[0]);
+    //
+    formData.append("btn_updt_dni", true);
+    // --
+    $.ajax({
+      type: "POST",
+      url: "../Controller/Upload_Legal_Docs.php",
+      data: formData,
+      processData: false,
+      contentType: false,
+
+      success: function (r) {
+        console.log(r);
+        $("#loader__dni").show();
+        $(".file-archives").hide();
+      },
+      complete: function () {
+        // funcion para borrar los files subidos
+        EraseContent();
+        setTimeout(() => {
+          $("#loader__dni").hide();
+          $(".file-archives").hide();
+          $(".file-message").show();
+        }, 1500);
+      },
+      error: function (xhr, status, error) {
+        // $("#loader").hide();
+        console.error(error);
+        console.log(xhr.responseText);
+      },
+    });
+    // No es necesario cambiar event.returnValue a false
+    return false;
+  });
+  // MODALES UPDATE UPLOAD FILES
   // ---------------------
   $("#btn_updt_solic").click(function (e) {
     e.preventDefault();
@@ -1125,6 +1249,37 @@ $(document).ready(function () {
     // No es necesario cambiar event.returnValue a false
     return false;
   });
+
+  function EraseContent() {
+    // Obtén referencias a los elementos relevantes
+    const fileArchives = document.querySelector(".file-archives");
+    const fileMessage = document.querySelector(".file-message");
+    const btnDisable = document.querySelectorAll(".content-file button");
+
+    // Borra el contenido de fileArchives
+    fileArchives.innerHTML = "";
+
+    // Actualiza la cantidad de archivos
+    const cantFileMessage =
+      fileArchives.querySelectorAll(".archive-item").length;
+
+    console.log(cantFileMessage);
+
+    setTimeout(() => {
+      // Muestra u oculta los elementos según la cantidad de archivos
+      fileMessage.style.display = cantFileMessage > 0 ? "none" : "flex";
+      fileArchives.style.display = cantFileMessage > 0 ? "flex" : "none";
+    }, 1500);
+
+    // Habilita o deshabilita los botones según la cantidad de archivos
+    btnDisable.forEach((element) => {
+      element.disabled = cantFileMessage === 0;
+    });
+
+    // Limpia el valor del input de archivo
+    const iptFile = document.querySelector(".content-file .upload");
+    iptFile.value = "";
+  }
 
   // ---------------------
   // APARTADO SUBIR DOCUMENTOS

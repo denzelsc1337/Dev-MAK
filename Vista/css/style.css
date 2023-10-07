@@ -1399,6 +1399,10 @@ form .form-content {
   width: 100%;
   /* padding: 8rem 10rem; */
   background-color: #f4f4f5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: calc(60vh - 2px);
 }
 
 .content-file .form-flex {
