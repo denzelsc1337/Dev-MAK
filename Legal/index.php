@@ -701,36 +701,6 @@ require_once('../Controller/controladorListar.php');
         </div>
     </div>
     <!-- Modal -->
-    <!-- modal para -->
-    <!-- <div class="modal fade" id="lst_hr_0" tabindex="-1" role="dialog" aria-labelledby="lst_hr_0" aria-hidden="true">
-        <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-body">
-                    <h1 class="title-m" id="titulo_docs"></h1>
-                    <div class="row margin">
-
-                        <div class="form-group" hidden>
-                            <label>id usu</label>
-                            <input type="text" name="usu_dni" id="usu_dni" value="<?php echo $_SESSION['id_usu'] ?>">
-                            <br>
-                            <label>usuario</label>
-                            <input type="text" name="usu_dni" id="usu_dni" value="<?php echo $_SESSION['dni'] ?>">
-                            <br>
-                            <label>id_tipo_doc_lgl</label>
-                            <input type="text" name="_id_tipo_doc_lgl" id="_id_tipo_doc_lgl">
-                            <br>
-                        </div>
-
-                        <div class="col-sm-12" id="descarga_archivo_m">
-
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div> -->
-    <!-- modal para -->
     <!-- modal para borradores -->
     <div class="modal fade" id="lst_lyts" tabindex="-1" role="dialog" aria-labelledby="lst_lyts" aria-hidden="true">
         <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
@@ -768,8 +738,8 @@ require_once('../Controller/controladorListar.php');
         <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-body">
-                    <h1 class="title-m" id="titulo_docs">HR</h1>
-                    <img class="row margin" src="../Vista/assets/loading_uhd.gif" id="loader_uhd" style="display:none; margin: 0 22rem 5rem">
+                    <h1 class="title-m" id="titulo_docs"></h1>
+                    <img class="row margin" src="../Vista/assets/loading_uhd.gif" id="loader_soli" style="display:none; margin: 0 22rem 5rem">
                     <div class="row margin" id="lst_docs_lgl">
 
                         <div class="col-sm-12" id="descarga_archivo_p">
@@ -1199,7 +1169,7 @@ require_once('../Controller/controladorListar.php');
 
                                 enlaceHtml += `
 
-                            <div class="row d-flex justify-content-between align-center mb-4">
+                            <div class="row d-flex justify-content-between align-center mb-4 w-100">
                                 <div class="col-sm-2">
                                     <div class="lgl-modal-num">
                                         ${cont++}
@@ -1295,7 +1265,7 @@ require_once('../Controller/controladorListar.php');
 
                                 enlaceHtml += `
 
-                                            <div class="row d-flex justify-content-between align-center mb-4">
+                                            <div class="row d-flex justify-content-between align-center mb-4 w-100">
                                                 <div class="col-sm-2">
                                                     <div class="lgl-modal-num">
                                                         ${cont++}
@@ -1362,14 +1332,12 @@ require_once('../Controller/controladorListar.php');
 
                     },
                     beforeSend: function() {
-                        // $("#loader_uhd").show();
-                        // $("#lst_docs_lgl").hide();
+                        $("#loader_soli").show();
+                        $("#lst_docs_lgl").hide();
                         //$("#docs_val").hide();
 
                     },
                     success: function(response) {
-
-
                         var data = JSON.parse(response);
 
                         var archivos = data.archivos;
@@ -1383,8 +1351,7 @@ require_once('../Controller/controladorListar.php');
                         var cont = 1;
 
                         setTimeout(function() {
-                            $("#loader_uhd").hide();
-                            $("#lst_docs_lgl").show();
+
                             if (archivos && archivos.length > 0) {
                                 var enlaceHtml = '';
 
@@ -1403,63 +1370,65 @@ require_once('../Controller/controladorListar.php');
                                     //arroshi recontra tarao
                                     enlaceHtml += `
 
-                            <div class="row d-flex justify-content-between align-center mb-4">
-                                <div class="col-sm-2">
+                            <div class="row d-flex justify-content-between align-center mb-4 w-100">
+                                <div class="col-sm-1">
                                     <div class="lgl-modal-num">
                                         ${cont++}
                                     </div>
                                 </div>
 
-                                <div class="col-sm-8 archive">
+                                <div class="col-sm-6 archive">
                                     <img src="#" id="loader" style="display: none;">
                                     <a href="${ruta}${nombreArchivo}">${nombreArchivo}</a>
                                 </div>
 
-                                <div class="col-sm-2 tw-modal-ots">
-                                    <div class="row">
-
+                                <div class="col-sm-5 tw-modal-ots p-0">
+                                    
+                                    <div class="d-flex">
                                         ${
                                         estadoHtml === '500'
                                             ? `
-                                            <select>
+                                            <select class="form-control mr-3">
                                                 <option selected>Pendiente</option>
                                                 <option>Revisado</option>
                                                 <option>Rechazado</option>
                                                 <option>Aceptado</option>
                                             </select>
                                             `
-                                            : estadoHtml === '200'
-                                                ? `
-                                                <select>
-                                                    <option>Pendiente</option>
-                                                    <option selected>Revisado</option>
-                                                    <option>Rechazado</option>
-                                                    <option>Aceptado</option>
-                                                </select>
-                                                `
-                                                : `
-                                                <select>
-                                                    <option>Pendiente</option>
-                                                    <option>Revisado</option>
-                                                    <option>Rechazado</option>
-                                                    <option>Aceptado</option>
-                                                </select>
-                                                `
+                                        : estadoHtml === '200'
+                                            ? `
+                                            <select class="form-control mr-3">
+                                                <option>Pendiente</option>
+                                                <option selected>Revisado</option>
+                                                <option>Rechazado</option>
+                                                <option>Aceptado</option>
+                                            </select>
+                                            `
+                                        : `
+                                            <select class="form-control mr-3">
+                                                <option>Pendiente</option>
+                                                <option>Revisado</option>
+                                                <option>Rechazado</option>
+                                                <option>Aceptado</option>
+                                            </select>
+                                            `
                                         }
 
-                                        <div class="inputs brd-rght-blue">
-                                            <div hidden>
-                                                <input id="ruta_doc_i" type="text" value="${ruta}" readonly>
-                                                <input id="ruta_archivo_i" type="text" value="${nombreArchivo}" readonly>
-                                                <input id="cod_doc_i" type="text" value="${id_doc_}" readonly>
-                                            </div>
+                                        <div class="d-flex">
+                                            <div class="inputs brd-rght-blue">
+                                                <div hidden>
+                                                    <input id="ruta_doc_i" type="text" value="${ruta}" readonly>
+                                                    <input id="ruta_archivo_i" type="text" value="${nombreArchivo}" readonly>
+                                                    <input id="cod_doc_i" type="text" value="${id_doc_}" readonly>
+                                                </div>
 
-                                            <div class="">
-                                                <button id="dlt_file" type="button" class="btn dlt_file"><i class="cursor fa-solid fa-trash"></i></button>
+                                                <div class="options">
+                                                    <button id="dlt_file" type="button" class="btn dlt_file"><i class="cursor fa-solid fa-trash"></i></button>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div>
-                                            <button id="dlt_file" type="button" class="btn dlt_file"> <i class="cursor fa-solid fa-download"></i></button>
+                                            <div class="options">
+                                                <button id="dlt_file" type="button" class="btn dlt_file"> <i class="cursor fa-solid fa-download"></i></button>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -1468,7 +1437,7 @@ require_once('../Controller/controladorListar.php');
 
                                 });
 
-                                document.getElementById('descarga_archivo_p').innerHTML = enlaceHtml;
+                                document.getElementById('lst_docs_lgl').innerHTML = enlaceHtml;
 
                             } else {
 
@@ -1478,13 +1447,16 @@ require_once('../Controller/controladorListar.php');
                             console.log('Estado de archivos:', estado_doc);
                             console.log('Estado de la base de datos:', estado_db);
 
-                        }, 480);
+                        }, 1500);
 
 
 
                     },
                     complete: function() {
-                        // $("#lst_docs_lgl").show();
+                        setTimeout(() => {
+                            $("#loader_soli").hide();
+                            $("#lst_docs_lgl").show();
+                        }, 1500);
                     },
                     error: function(xhr, status, error) {
                         console.log(error);
@@ -1629,12 +1601,13 @@ require_once('../Controller/controladorListar.php');
 
 
                 var id_reg = $('#id_legal_solic').val();
-                //var id_cli = $(this).data('id_user_');
                 var tipo_doc = $(this).data('valor');
+                var _titulo = $(this).data('titulo');
                 var _id_cli_lgl = $('#id_client_l').val();
                 var _id_doc_lgl = $(this).data('id_doc_');
 
                 var _dni_cli_lgl = $('#dni_client_l').val();
+                var titulo_modal = $('#titulo_docs').text(_titulo);
 
                 load_documents_legal_(id_reg, _dni_cli_lgl, tipo_doc, _id_cli_lgl, _id_doc_lgl)
 
@@ -2046,7 +2019,7 @@ require_once('../Controller/controladorListar.php');
                     try {
                         var detalles = JSON.parse(response);
 
-                        console.log(detalles);
+                        // console.log(detalles);
 
                         var id_valor = detalles[0][0];
                         var nom_client = detalles[0][1];
@@ -2082,14 +2055,14 @@ require_once('../Controller/controladorListar.php');
                         $("#add_data_val").removeClass("hide");
                         // }
 
-                        console.log("ID Valor: " + id_valor);
-                        console.log("Nombre Cliente: " + nom_client);
-                        console.log("Apellido: " + apellido);
-                        console.log("email: " + correo);
-                        console.log("id cliente: " + id_client);
-                        console.log("dni cliente: " + dni_client);
-                        console.log("comment: " + coment);
-                        console.log("estado: " + status_);
+                        // console.log("ID Valor: " + id_valor);
+                        // console.log("Nombre Cliente: " + nom_client);
+                        // console.log("Apellido: " + apellido);
+                        // console.log("email: " + correo);
+                        // console.log("id cliente: " + id_client);
+                        // console.log("dni cliente: " + dni_client);
+                        // console.log("comment: " + coment);
+                        // console.log("estado: " + status_);
 
                         $("#id_legal_solic").val(id_valor)
                         $("#id_client_l").val(id_client)
