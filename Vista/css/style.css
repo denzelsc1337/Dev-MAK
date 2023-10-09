@@ -1592,6 +1592,7 @@ form .form-content {
   left: 120px;
   font-size: 25px;
   cursor: pointer;
+  z-index: 9;
 }
 
 .arrow-right {
@@ -1599,6 +1600,7 @@ form .form-content {
   right: 60px;
   font-size: 25px;
   cursor: pointer;
+  z-index: 9;
 }
 
 .file-titled {

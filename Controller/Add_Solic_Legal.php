@@ -73,6 +73,10 @@ if (isset($_POST['btn_updt_solic'])) {
 
     $dni = $_POST['dni_user_l'];
 
+    $cod_reg_l = $_POST['cod_reg_l'];
+
+
+    // actualizar el estado a pendiente // 10
     $olegal = new cLegal();
     $r = $olegal->updt_solic_legal_($id_solic);
     // print_r($_POST);
@@ -85,13 +89,22 @@ if (isset($_POST['btn_updt_solic'])) {
             mkdir($carpeta_nueva, 0777, true);
         }
 
+        echo " - ";
+        echo $carpeta_nueva . "\n";
+
         $carpeta_lyts = "../borradores/" . $id_solic . '/' . $dni . "/";
+
+        echo " - ";
+        echo $carpeta_lyts . "\n";
 
         $carpeta_destino = $carpeta_nueva . $dni; // Ruta completa de la carpeta de destino
 
+        echo " - ";
+        echo $carpeta_destino . "\n";
+
         $mover_carpeta = glob($carpeta_lyts . '*');
 
-        echo $test = implode(", ", $mover_carpeta);
+        echo $test = implode(", ", $mover_carpeta) . "\n";;
 
         if (!file_exists($carpeta_destino)) {
             rename($carpeta_lyts, $carpeta_destino); // Mueve la carpeta a la nueva ubicación
@@ -103,10 +116,6 @@ if (isset($_POST['btn_updt_solic'])) {
                 rename($file, $newFilePath);
             }
         }
-
-        // actualizar el estado a pendiente // 10
-        $oLegal = new cLegal();
-        $r = $oLegal->updt_solic_legal_($id_solic);
     }
 }
 

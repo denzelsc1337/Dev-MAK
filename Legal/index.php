@@ -1214,9 +1214,11 @@ require_once('../Controller/controladorListar.php');
                                 <div class="col-sm-2 tw-modal-ots">
                                     <div class="row">
                                         <div class="inputs brd-rght-blue">
-                                            <input id="ruta_doc_i" type="text" value="${ruta}" readonly hidden>
-                                            <input id="ruta_archivo_i" type="text" value="${nombreArchivo}" readonly hidden>
-                                            <input id="cod_doc_i" type="text" value="${id_doc_}" readonly hidden>
+                                            <div hidden>
+                                                <input id="ruta_doc_i" type="text" value="${ruta}" readonly>
+                                                <input id="ruta_archivo_i" type="text" value="${nombreArchivo}" readonly>
+                                                <input id="cod_doc_i" type="text" value="${id_doc_}" readonly>
+                                            </div>
 
                                             <div class="">
                                                 <button id="dlt_file" type="button" class="btn dlt_file"><i class="cursor fa-solid fa-trash"></i></button>
@@ -1263,7 +1265,6 @@ require_once('../Controller/controladorListar.php');
                         id_solic_l: id_soli_l,
                         dni_client: dni,
                         id_tipo_doc: id_tipo_doc_,
-
                     },
                     success: function(response) {
 
@@ -1447,9 +1448,11 @@ require_once('../Controller/controladorListar.php');
                                         }
 
                                         <div class="inputs brd-rght-blue">
-                                            <input id="ruta_doc_i" type="text" value="${ruta}" readonly>
-                                            <input id="ruta_archivo_i" type="text" value="${nombreArchivo}" readonly>
-                                            <input id="cod_doc_i" type="text" value="${id_doc_}" readonly>
+                                            <div hidden>
+                                                <input id="ruta_doc_i" type="text" value="${ruta}" readonly>
+                                                <input id="ruta_archivo_i" type="text" value="${nombreArchivo}" readonly>
+                                                <input id="cod_doc_i" type="text" value="${id_doc_}" readonly>
+                                            </div>
 
                                             <div class="">
                                                 <button id="dlt_file" type="button" class="btn dlt_file"><i class="cursor fa-solid fa-trash"></i></button>
@@ -1916,7 +1919,8 @@ require_once('../Controller/controladorListar.php');
 
                     // console.log(data);
 
-                    $('#cod_reg_l').val(data[0]);
+                    // $('#cod_reg_l').val(data[0]);
+                    $('#cod_reg_l').val(_id_soli.trim());
 
                     // $('#nom_cli_solic').val(data[1] + " " + data[2]);
 
@@ -2078,14 +2082,14 @@ require_once('../Controller/controladorListar.php');
                         $("#add_data_val").removeClass("hide");
                         // }
 
-                        // console.log("ID Valor: " + id_valor);
-                        // console.log("Nombre Cliente: " + nom_client);
-                        // console.log("Apellido: " + apellido);
-                        // console.log("email: " + correo);
-                        // console.log("id cliente: " + id_client);
-                        // console.log("dni cliente: " + dni_client);
-                        // console.log("comment: " + coment);
-                        // console.log("estado: " + status_);
+                        console.log("ID Valor: " + id_valor);
+                        console.log("Nombre Cliente: " + nom_client);
+                        console.log("Apellido: " + apellido);
+                        console.log("email: " + correo);
+                        console.log("id cliente: " + id_client);
+                        console.log("dni cliente: " + dni_client);
+                        console.log("comment: " + coment);
+                        console.log("estado: " + status_);
 
                         $("#id_legal_solic").val(id_valor)
                         $("#id_client_l").val(id_client)
@@ -2169,6 +2173,106 @@ require_once('../Controller/controladorListar.php');
                 }
             });
         }
+    </script>
+
+    <script>
+        const inputSelect = document.querySelector(".input-select");
+        const textBox = document.querySelector(".textBox");
+        const textBoxValue = document.querySelector("#status_solic_legal_cbo");
+        const selectOptions = document.querySelectorAll(".select-options div");
+        // const btnUpValo = document.querySelector("#subir_valor"),
+        //     btnAddObs = document.querySelector("#add_obsv_v");
+        //const btnDisble = document.querySelector("#bnValo_obs_save");
+        var btnDisble_ = document.getElementById("btnValo_obs_save");
+
+        inputSelect.addEventListener("click", function() {
+            inputSelect.classList.toggle("active");
+            textBox.classList.toggle("radius");
+
+        });
+        document.addEventListener("click", function(event) {
+
+            if (!inputSelect.contains(event.target)) {
+                inputSelect.classList.remove("active");
+                textBox.classList.remove("radius");
+            }
+        });
+
+        selectOptions.forEach(option => {
+            option.addEventListener("click", function() {
+                const dataValue = option.getAttribute("data-value");
+                textBoxValue.value = dataValue; // Cambia el valor de textBoxValue
+
+                // if (dataValue === "200") {
+                //     textBox.value = "Finalizado";
+                //     //----
+                //     textBox.classList.add("bg-success");
+                //     textBox.classList.remove("bg-warning");
+                //     textBox.classList.remove("bg-secondary");
+                //     //----
+
+                // } else if (dataValue === "400") {
+                //     textBox.value = "Observado";
+                //     //----
+                //     textBox.classList.add("bg-warning");
+                //     textBox.classList.remove("bg-secondary");
+                //     textBox.classList.remove("bg-success");
+                //     //----
+
+                // } else {
+                //     textBox.value = "Pendiente";
+                //     //----
+                //     textBox.classList.add("bg-secondary");
+                //     textBox.classList.remove("bg-success");
+                //     textBox.classList.remove("bg-warning");
+                //     //----
+                // }
+
+                switch (dataValue) {
+                    case '10':
+                        textBox.value = "Pendiente";
+                        //----
+                        textBox.classList.add("bg-info");
+                        //
+                        textBox.classList.remove("bg-warning");
+                        textBox.classList.remove("bg-secondary");
+                        textBox.classList.remove("bg-success");
+                        break;
+                    case '20':
+                        textBox.value = "En revisión";
+                        //----
+                        textBox.classList.add("bg-warning");
+                        //
+                        textBox.classList.remove("bg-secondary");
+                        textBox.classList.remove("bg-success");
+                        textBox.classList.remove("bg-info");
+                        break;
+                    case '30':
+                        textBox.value = "Borrador";
+                        //----
+                        textBox.classList.add("bg-secondary");
+                        //
+                        textBox.classList.remove("bg-success");
+                        textBox.classList.remove("bg-info");
+                        textBox.classList.remove("bg-warning");
+                        break;
+                    case '90':
+                        textBox.value = "Finalizado";
+                        //----
+                        textBox.classList.add("bg-success");
+                        //
+                        textBox.classList.remove("bg-info");
+                        textBox.classList.remove("bg-warning");
+                        textBox.classList.remove("bg-secondary");
+                        break;
+                    default:
+                        break;
+                }
+
+            });
+        });
+        // Cierra el menú desplegable
+        inputSelect.classList.remove("active");
     </script>
 
     <script>

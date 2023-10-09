@@ -3,10 +3,13 @@ $id_solic = $_POST['id_solic_l'];
 $dni_u = $_POST['dni_client'];
 $tipo_doc_ = $_POST['id_tipo_doc'];
 
+// print_r($_POST);
+
 
 // Directorio donde se encuentran los archivos
 $directorio = "../borradores/" . $id_solic . "/" . $dni_u . "/" . $tipo_doc_ . "/";
 // $directorio = "../borradores/" . $id_solic . "/" . $dni_u . "/" . $tipo_doc_ . "/";
+
 
 $response = array();
 
