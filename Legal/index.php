@@ -1339,14 +1339,16 @@ require_once('../Controller/controladorListar.php');
                     },
                     success: function(response) {
                         var data = JSON.parse(response);
+                        console.log(data);
 
                         var archivos = data.archivos;
-                        var estado_doc = data.status_doc;
+                        // var estado_doc = data.archivos[0].status_doc;
+                        // var estado_doc = data.status_doc;
 
                         var dbInfo = data.base_de_datos;
                         var estado_db = data.status_doc_;
 
-                        console.log(dbInfo)
+                        // console.log(dbInfo)
                         var cod_doc_, ruta_doc, nom_file;
                         var cont = 1;
 
@@ -1370,82 +1372,81 @@ require_once('../Controller/controladorListar.php');
                                     //arroshi recontra tarao
                                     enlaceHtml += `
 
-                            <div class="row d-flex justify-content-between align-center mb-4 w-100">
-                                <div class="col-sm-1">
-                                    <div class="lgl-modal-num">
-                                        ${cont++}
+                                <div class="row d-flex justify-content-between align-center mb-4 w-100">
+                                    <div class="col-sm-1">
+                                        <div class="lgl-modal-num">
+                                            ${cont++}
+                                        </div>
                                     </div>
-                                </div>
 
-                                <div class="col-sm-6 archive">
-                                    <img src="#" id="loader" style="display: none;">
-                                    <a href="${ruta}${nombreArchivo}">${nombreArchivo}</a>
-                                </div>
+                                    <div class="col-sm-6 archive">
+                                        <img src="#" id="loader" style="display: none;">
+                                        <a href="${ruta}${nombreArchivo}">${nombreArchivo}</a>
+                                    </div>
 
-                                <div class="col-sm-5 tw-modal-ots p-0">
-                                    
-                                    <div class="d-flex">
-                                        ${
-                                        estadoHtml === '500'
-                                            ? `
-                                            <select class="form-control mr-3">
-                                                <option selected>Pendiente</option>
-                                                <option>Revisado</option>
-                                                <option>Rechazado</option>
-                                                <option>Aceptado</option>
-                                            </select>
-                                            `
-                                        : estadoHtml === '200'
-                                            ? `
-                                            <select class="form-control mr-3">
-                                                <option>Pendiente</option>
-                                                <option selected>Revisado</option>
-                                                <option>Rechazado</option>
-                                                <option>Aceptado</option>
-                                            </select>
-                                            `
-                                        : `
-                                            <select class="form-control mr-3">
-                                                <option>Pendiente</option>
-                                                <option>Revisado</option>
-                                                <option>Rechazado</option>
-                                                <option>Aceptado</option>
-                                            </select>
-                                            `
-                                        }
-
+                                    <div class="col-sm-5 tw-modal-ots p-0">
+                                        
                                         <div class="d-flex">
-                                            <div class="inputs brd-rght-blue">
-                                                <div hidden>
-                                                    <input id="ruta_doc_i" type="text" value="${ruta}" readonly>
-                                                    <input id="ruta_archivo_i" type="text" value="${nombreArchivo}" readonly>
-                                                    <input id="cod_doc_i" type="text" value="${id_doc_}" readonly>
-                                                </div>
+                                            ${
+                                            estadoHtml === '500'
+                                                ? `
+                                                <select class="form-mak mr-3">
+                                                    <option selected>Pendiente</option>
+                                                    <option>Revisado</option>
+                                                    <option>Rechazado</option>
+                                                    <option>Aceptado</option>
+                                                </select>
+                                                `
+                                            : estadoHtml === '200'
+                                                ? `
+                                                <select class="form-mak mr-3">
+                                                    <option>Pendiente</option>
+                                                    <option selected>Revisado</option>
+                                                    <option>Rechazado</option>
+                                                    <option>Aceptado</option>
+                                                </select>
+                                                `
+                                            : `
+                                                <select class="form-mak mr-3">
+                                                    <option>Pendiente</option>
+                                                    <option>Revisado</option>
+                                                    <option>Rechazado</option>
+                                                    <option>Aceptado</option>
+                                                </select>
+                                                `
+                                            }
 
-                                                <div class="options">
-                                                    <button id="dlt_file" type="button" class="btn dlt_file"><i class="cursor fa-solid fa-trash"></i></button>
+                                            <div class="d-flex">
+                                                <div class="inputs brd-rght-blue">
+                                                    <div hidden>
+                                                        <input id="ruta_doc_i" type="text" value="${ruta}" readonly>
+                                                        <input id="ruta_archivo_i" type="text" value="${nombreArchivo}" readonly>
+                                                        <input id="cod_doc_i" type="text" value="${id_doc_}" readonly>
+                                                    </div>
+
+                                                    <div class="options">
+                                                        <button id="dlt_file" type="button" class="btn dlt_file"><i class="cursor fa-solid fa-trash"></i></button>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="options">
-                                                <button id="dlt_file" type="button" class="btn dlt_file"> <i class="cursor fa-solid fa-download"></i></button>
+                                                <div class="options">
+                                                    <button id="dlt_file" type="button" class="btn dlt_file"> <i class="cursor fa-solid fa-download"></i></button>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            `;
+                                `;
 
                                 });
 
                                 document.getElementById('lst_docs_lgl').innerHTML = enlaceHtml;
 
                             } else {
-
-                                document.getElementById('descarga_archivo_p').textContent = 'Archivo no encontrado';
+                                document.getElementById('lst_docs_lgl').textContent = 'Archivo no encontrado';
                             }
 
-                            console.log('Estado de archivos:', estado_doc);
-                            console.log('Estado de la base de datos:', estado_db);
+                            // console.log('Estado de archivos:', estado_doc);
+                            // console.log('Estado de la base de datos:', estado_db);
 
                         }, 1500);
 
