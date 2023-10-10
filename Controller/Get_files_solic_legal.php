@@ -35,7 +35,7 @@ if (is_dir($directorio)) {
             $password = "";
             $dbname = "mak";
 
-            $id_client = $id_cli;
+            $dni_ = $dni_u;
             $tipo_doc = $id_tipo_doc;
             $id_reg = $cod_solic;
 
@@ -51,7 +51,7 @@ if (is_dir($directorio)) {
                         FROM documents_clients dcl
                         INNER JOIN docs_legal dl ON dcl.id_client = dl.user_cod
                         INNER JOIN clientes_servicios cs ON cs.id_client = dl.user_cod
-                        WHERE dcl.dni_client = '$id_client' AND tipo_doc = '$tipo_doc' AND id_legal = '$id_reg' 
+                        WHERE dcl.dni_client = '$dni_' AND tipo_doc = '$tipo_doc' AND id_legal = '$id_reg' 
                         AND file_name = '$archivo'
                         GROUP BY file_name";
 

@@ -3,14 +3,7 @@
 $id_client_ = $_POST['id_client'];
 $dni_u = $_POST['dni_client'];
 $tipo_doc_ = $_POST['id_tipo_doc'];
-$ruta = isset($_POST['valor']);
 
-
-// Directorio donde se encuentran los archivos
-$directorio = $ruta;
-
-// $directorio = "../borradores/3/" . $dni_u . "/H_R/";
-// $directorio = "../Solicitudes/" . $dni_u . "/" . $tipo_doc_ . "/";
 $directorio = "../Documentos Legal/" . $dni_u . "/" . $tipo_doc_ . "/";
 
 

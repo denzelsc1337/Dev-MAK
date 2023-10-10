@@ -1342,8 +1342,9 @@ require_once('../Controller/controladorListar.php');
                         console.log(data);
 
                         var archivos = data.archivos;
-                        // var estado_doc = data.archivos[0].status_doc;
+                        // var estado_doc = data.archivos[0].estado;
                         // var estado_doc = data.status_doc;
+                        // console.log(estado_doc);
 
                         var dbInfo = data.base_de_datos;
                         var estado_db = data.status_doc_;
@@ -1358,6 +1359,8 @@ require_once('../Controller/controladorListar.php');
                                 var enlaceHtml = '';
 
                                 archivos.forEach(function(archivo) {
+                                    console.log(archivo);
+
                                     var ruta = archivo.ruta;
                                     var nombreArchivo = archivo.archivo;
                                     var estado = archivo.estado;
@@ -1366,7 +1369,9 @@ require_once('../Controller/controladorListar.php');
 
 
                                     var delete_btn = $('<button>').text('Eliminar').attr('class', 'btn btn-block btn-danger');
-                                    var estadoHtml = estado === 'estado_desconocido' ? '' : `<span class="estado-archivo">${estado}</span>`;
+                                    // var estadoHtml = estado === 'estado_desconocido' ? '' : `<span class="estado-archivo">${estado}</span>`;
+                                    var estadoHtml = estado;
+                                    console.log(estadoHtml);
                                     var estadoDbHtml = estado_db ? `<span class="estado-db">${estado_db}</span>` : '';
 
                                     //arroshi recontra tarao

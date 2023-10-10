@@ -228,17 +228,7 @@ if(isset($_POST["btn_save_dni"])) {
     }
   }
 
-  if ($archivos_total>0) {
-  ?>
-  <META http-equiv='Refresh' content='0.2; URL =../Legal/legal_.php'>;
-  <script>
-      alert("DNI(s)subido(s) correctamente.");
-  </script>
 
-  <?php
-  }else{
-    echo '<script> alert("Error al cargar C.L");</script>';
-  }
 
 }
 
