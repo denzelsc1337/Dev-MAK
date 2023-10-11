@@ -59,8 +59,6 @@ if ($r) {
     $pu_s = $_FILES["fls_pu"];
     $cl_s = $_FILES["fls_cl"];
 
-
-
     //ruta fptps
     $main_ruta = "../Valorizaciones/" . $id_registro . "/" . $dni_cli . "/";
 
@@ -97,7 +95,6 @@ if ($r) {
     $fotos_total = 0;
     //envio de las fotos a la carpeta
     $archivos_cont = count($archivos_selecc['name']);
-
 
     foreach ($uploadedPictures as $key => $filePic) {
         $nombresFotos = $filePic['name'];

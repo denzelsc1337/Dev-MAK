@@ -47,25 +47,8 @@ if (isset($_POST['btn_save_solic'])) {
                 rename($file, $newFilePath);
             }
         }
-
-?>
-        <script type="text/javascript">
-            alert("Solicitud guardada y carpeta creada")
-        </script>
-        <!-- <META http-equiv='Refresh' content='0.2; URL =../Legal/'> -->
-    <?php
-        //echo $carpeta_nueva;
-    } else {
-    ?>
-        <script type="text/javascript">
-            alert("Error al guardar la solicitud")
-        </script>
-<?php
     }
 }
-
-
-
 
 if (isset($_POST['btn_updt_solic'])) {
 
@@ -118,7 +101,6 @@ if (isset($_POST['btn_updt_solic'])) {
         }
     }
 }
-
 
 if (isset($_POST["btn_save_borrador"])) {
 
@@ -190,7 +172,3 @@ if (isset($_POST["btn_updt_borrador"])) {
         echo "Error";
     }
 }
-
-
-
-?>

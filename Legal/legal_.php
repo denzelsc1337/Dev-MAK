@@ -115,7 +115,10 @@ require_once('../Controller/controladorListar.php');
 
                                     <div class="card-body">
                                         <div class="row">
-                                            <input type="text" class="form-control" id="dni_user_l" name="dni_user_l" value="<?php echo $_SESSION['dni']; ?>">
+                                            <div hidden>
+                                                <input type="text" class="form-control" id="id_user" name="id_user" value="<?php echo $_SESSION['id_usu']; ?>">
+                                                <input type="text" class="form-control" id="dni_user_l" name="dni_user_l" value="<?php echo $_SESSION['dni']; ?>">
+                                            </div>
 
                                             <div class="col-sm-6">
                                                 <div class="row">
@@ -268,23 +271,25 @@ require_once('../Controller/controladorListar.php');
                         <div class="col-sm-12">
                             <div class="container">
 
-                                <form id="file_HR" method="POST" enctype="multipart/form-data">
+                                <form id="isrt_HR" method="POST" enctype="multipart/form-data">
                                     <!-- <form method="POST" action="../Controller/Upload_Legal_Docs.php" enctype="multipart/form-data"> -->
 
                                     <div class="content-file flex flex-column">
 
                                         <label>H.R</label>
                                         <div hidden>
-                                            <input type="text" class="form-control" id="dni_usu_0" name="dni_usu_0" value="<?php echo $_SESSION['dni']; ?>">
-                                            <input type="text" class="form-control" id="id_cli_0" name="id_cli_0" value="<?php echo $_SESSION['id_usu']; ?>">
-                                            <input type="text" class="form-control" id="tipo_doc_0" name="tipo_doc_0" value="1">
-                                            <input type="text" name="cod_reg_" id="cod_reg_">
+                                            <input type="text" class="form-control" id="dni_usu_hr" name="dni_usu_hr" value="<?php echo $_SESSION['dni']; ?>">
+                                            <input type="text" class="form-control" id="id_cli_hr" name="id_cli_hr" value="<?php echo $_SESSION['id_usu']; ?>">
+                                            <input type="text" class="form-control" id="tipo_doc_hr" name="tipo_doc_hr" value="1">
                                         </div>
 
                                         <div class="input-file" id="dropArea">
+                                            <img class="row text-center" src="../Vista/assets/loading_upd.gif" id="loader__hr" style="display:none;">
                                             <div class="file-message">
-                                                <img src="../Vista/images/document-text-svgrepo-com 1.svg" alt="doc">
-                                                <span>Arrastre los archivos aquí para subirlos.</span>
+                                                <div class="file-message_">
+                                                    <img src="../Vista/images/document-text-svgrepo-com 1.svg" alt="doc">
+                                                    <span>Arrastre los archivos aquí para subirlos.</span>
+                                                </div>
                                             </div>
                                             <div class="file-archives" style="display: none;"></div>
                                         </div>
@@ -297,8 +302,7 @@ require_once('../Controller/controladorListar.php');
                                         </div> -->
                                         <div class="card-footer">
                                             <div class="form-flex">
-                                                <button type="submit" class="btn btn-mak mak-bg buton-file" id="btn_updt_hr" name="btn_updt_hr" style="display: none;">Actualizar</button>
-                                                <button type="submit" class="btn btn-mak mak-bg buton-file" id="btn_save_hr" name="btn_save_hr" disabled>Registrar</button>
+                                                <button type="submit" class="btn btn-mak mak-bg buton-file" id="btn_isrt_hr" name="btn_isrt_hr" disabled>Registrar</button>
 
                                                 <label id="buttonFile" class="btn btn-mak mak-bg buton-file">Seleccionar archivos</label>
                                                 <input class="upload" type="file" id="hr_s" name="hr_s[]" multiple hidden>

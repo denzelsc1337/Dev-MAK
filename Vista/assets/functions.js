@@ -66,7 +66,7 @@ $(document).ready(function () {
             /*const mensaje = JSON.stringify({ tipo: 'nuevo_registro', mensaje: 'Nuevo registro insertado' });
             socket.send(mensaje);*/
             // No es necesario cambiar event.returnValue a false
-            window.location.href = "../Valorizacion/";
+            // window.location.href = "../Valorizacion/";
           } else {
             alert(
               "Error al registrar, Verifique que los campos esten correctamente completos."
@@ -709,10 +709,10 @@ $(document).ready(function () {
         console.log(DataFiles);
       }
 
-      const modal = document.querySelector(".modal"),
-        iptFile = modal.querySelector(".upload");
+      // const modal = document.querySelector(".modal"),
+      //   iptFile = modal.querySelector(".upload");
 
-      iptFile.value = "";
+      // iptFile.value = "";
     }
 
     function contTagFiles() {
@@ -721,9 +721,9 @@ $(document).ready(function () {
       var cantFileMessage = element.querySelectorAll(".archive-item").length;
       var btnDisable = element.querySelectorAll("button");
 
-      console.log(fileArchives);
-      console.log(cantFileMessage);
-      console.log(btnDisable);
+      // console.log(fileArchives);
+      // console.log(cantFileMessage);
+      // console.log(btnDisable);
 
       if (cantFileMessage > 0) {
         fileMessage.style.display = "none";
@@ -768,17 +768,16 @@ $(document).ready(function () {
       processData: false,
       contentType: false,
 
-      beforeSend: function () {
-        $("#loader").show();
-      },
-
       success: function (r) {
         // console.log(r);
 
         setTimeout(function () {
           if (r) {
+            $("#loader__hr").show();
+            $(".file-message").hide();
+            $(".file-archives").hide();
             alert("Solicitud enviada correctamente.");
-            $("#modal_archive_HR").modal("hide");
+            // $("#modal_archive_HR").modal("hide");
             console.log(r);
 
             var modal = document.querySelector("#modal_archive_HR"),
@@ -805,11 +804,17 @@ $(document).ready(function () {
             // console.log(r);
             //console.log(formData);
           }
-        }, 900);
+        }, 1500);
       },
-      // complete: function () {
-
-      // },
+      complete: function () {
+        // funcion para borrar los files subidos
+        EraseContent();
+        setTimeout(() => {
+          $("#loader__hr").hide();
+          $(".file-archives").hide();
+          $(".file-message").show();
+        }, 1500);
+      },
       error: function (xhr, status, error) {
         $("#loader").hide();
         console.error(error);
@@ -1015,6 +1020,77 @@ $(document).ready(function () {
   });
   //
 
+  // LEGAL_
+  //
+  $("#btn_isrt_hr").click(function (e) {
+    e.preventDefault();
+    // $("#loader").show();
+
+    // var formData = $("#file_HR").serialize();
+    var formData = new FormData($("#isrt_HR")[0]);
+
+    formData.append("btn_isrt_hr", true);
+    formData.append("DataFiles", JSON.stringify(DataFiles));
+
+    $.ajax({
+      type: "POST",
+      url: "../Controller/Upload_Legal_Docs.php",
+      data: formData,
+      processData: false,
+      contentType: false,
+
+      success: function (r) {
+        $("#loader__hr").show();
+        $(".file-message").hide();
+        $(".file-archives").hide();
+        setTimeout(function () {
+          if (r) {
+            alert("Solicitud enviada correctamente.");
+            console.log(r);
+            var modal = document.querySelector("#modal_archive_HR"),
+              files = modal.querySelector(".input-file"),
+              fileMessage = files.querySelector(".file-message"),
+              fileArchives = files.querySelector(".file-archives");
+            setTimeout(() => {
+              // Oculta el contenedor estableciendo su estilo a "display: none"
+              fileArchives.style.display = "none";
+              fileMessage.style.display = "flex";
+              // Borra todos los elementos hijos del contenedor
+              while (fileArchives.firstChild) {
+                fileArchives.removeChild(fileArchives.firstChild);
+              }
+            }, 100);
+            // event.returnValue = false;
+            // window.location.href = "../Legal/";
+          } else {
+            alert(
+              "Error al registrar, Verifique que los campos esten correctamente completos."
+            );
+            console.log(r);
+            console.log(formData);
+          }
+        }, 1500);
+      },
+      complete: function () {
+        // funcion para borrar los files subidos
+        EraseContent();
+        setTimeout(() => {
+          $("#loader__hr").hide();
+          $(".file-archives").hide();
+          $(".file-message").show();
+        }, 1500);
+      },
+      error: function (xhr, status, error) {
+        $("#loader").hide();
+        console.error(error);
+        console.log(xhr.responseText);
+      },
+    });
+    return false;
+  });
+  //
+  // LEGAL_
+
   // MODALES UPDATE UPLOAD FILES
   $("#btn_updt_hr").click(function (e) {
     e.preventDefault();
@@ -1029,11 +1105,6 @@ $(document).ready(function () {
       data: formData,
       processData: false,
       contentType: false,
-
-      beforeSend: function () {
-        // $("#loader").show();
-        // contTagFiles();
-      },
 
       success: function (r) {
         console.log(r);
@@ -1262,8 +1333,6 @@ $(document).ready(function () {
     // Actualiza la cantidad de archivos
     const cantFileMessage =
       fileArchives.querySelectorAll(".archive-item").length;
-
-    console.log(cantFileMessage);
 
     setTimeout(() => {
       // Muestra u oculta los elementos según la cantidad de archivos

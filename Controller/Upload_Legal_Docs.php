@@ -68,7 +68,6 @@ if (isset($_POST["btn_save_hr"])) {
 
 }
 
-
 if (isset($_POST["btn_updt_hr"])) {
   $dni_client = $_POST["dni_usu_0"];
   $id_client = $_POST["id_cli_0"];
@@ -113,21 +112,8 @@ if (isset($_POST["btn_updt_hr"])) {
       $archivos_total++;
     }
   }
-
-
-  if ($archivos_total > 0) {
-?>
-    <!-- <META http-equiv='Refresh' content='0.2; URL =../Legal/legal_.php'>; -->
-    <!-- <script> -->
-    <!-- alert("Borrador Actualizado."); -->
-    <!-- </script> -->
-
-  <?php
-  } else {
-    echo '<script> alert("Error al actualizar borrador");</script>';
-  }
-  print_r($_POST);
 }
+
 
 
 if (isset($_POST["btn_save_pu"])) {
@@ -185,8 +171,6 @@ if (isset($_POST["btn_save_pu"])) {
   }
 }
 
-
-
 if (isset($_POST["btn_updt_pu"])) {
   $dni_client = $_POST["dni_usu_1"];
   $id_client = $_POST["id_cli_1"];
@@ -234,8 +218,6 @@ if (isset($_POST["btn_updt_pu"])) {
 
   echo $archivos_total;
 }
-
-
 
 
 
@@ -293,7 +275,6 @@ if (isset($_POST["btn_save_cl"])) {
   }
 }
 
-
 if (isset($_POST["btn_updt_cl"])) {
   $dni_client = $_POST["dni_usu_2"];
   $id_client = $_POST["id_cli_2"];
@@ -338,18 +319,8 @@ if (isset($_POST["btn_updt_cl"])) {
       $archivos_total++;
     }
   }
-  if ($archivos_total > 0) {
-  ?>
-    <META http-equiv='Refresh' content='0.2; URL =../Legal/legal_.php'>;
-    <script>
-      alert("Borrador Actualizado.");
-    </script>
-
-  <?php
-  } else {
-    echo '<script> alert("Error al actualizar borrador");</script>';
-  }
 }
+
 
 
 if (isset($_POST["btn_save_dni"])) {
@@ -406,10 +377,6 @@ if (isset($_POST["btn_save_dni"])) {
   }
 }
 
-
-
-
-
 if (isset($_POST["btn_updt_dni"])) {
   $dni_client = $_POST["dni_usu_3"];
   $id_client = $_POST["id_cli_3"];
@@ -454,17 +421,65 @@ if (isset($_POST["btn_updt_dni"])) {
       $archivos_total++;
     }
   }
-  if ($archivos_total > 0) {
-  ?>
-    <META http-equiv='Refresh' content='0.2; URL =../Legal/legal_.php'>;
-    <script>
-      alert("Borrador Actualizado.");
-    </script>
-
-<?php
-  } else {
-    echo '<script> alert("Error al actualizar borrador");</script>';
-  }
 }
 
-?>
+////
+
+if (isset($_POST["btn_isrt_hr"])) {
+
+  print_r($_POST);
+  $archivos_selecc = $_FILES["hr_s"];
+  print_r($archivos_selecc);
+
+  $_client_dni = $_POST["dni_usu_hr"];
+  $_client_id = $_POST["id_cli_hr"];
+  $_client_td = $_POST["tipo_doc_hr"];
+
+
+  $getFiles_HR = $_POST['DataFiles'];
+  $Files_HR = json_decode($getFiles_HR, true);
+
+  $target_dir = "../Documentos Legal/" . $_client_dni . "/H_R/";
+
+  if (!file_exists($target_dir)) {
+    mkdir($target_dir, 0777, true);
+  }
+
+  $archivos_total = 0;
+  $file_count = count($archivos_selecc['name']);
+
+  // echo "Número: " . $file_count;
+
+  foreach ($Files_HR as $key => $Files_HR_info) {
+    $fileNames = $Files_HR_info['name'];
+    $fileType = $Files_HR_info['type'];
+    $fileTmp_name = $Files_HR_info['tmp_name'];
+    $fileSize = $Files_HR_info['size'];
+
+    $file = explode(",", $fileNames);
+
+    $file_ext = explode('.', $fileNames);
+    $file_ext = strtolower(end($file_ext));
+
+    for ($i = 0; $i < $file_count; $i++) {
+
+      $fileName = $archivos_selecc["name"][$i];
+      $target_file = $target_dir . basename($archivos_selecc["name"][$i]);
+
+      if (in_array($fileName, $file)) {
+        if (move_uploaded_file($archivos_selecc["tmp_name"][$i], $target_file)) {
+          $archivos_total++;
+
+          // Agregar código del modelo aquí
+          require_once('../Model/Legal.php');
+          $olegal = new cLegal();
+
+          // Modificar la llamada a la función del modelo con los nuevos parámetros
+          $olegal->upload_documents_clients($fileNames, $fileType, $target_dir, $fileSize, $file_ext, $_client_td, $_client_id, $_client_dni);
+        }
+      }
+    }
+  }
+
+  echo "archivo " . $archivos_total;
+}
