@@ -1070,12 +1070,12 @@ $(document).ready(function () {
         // funcion para borrar los files subidos
         EraseContent();
         setTimeout(() => {
+          $("#modal_archive_HR").hide();
+          $("#modal_archive_HR").modal("hide");
+
           $("#loader__hr").hide();
           $(".file-archives").hide();
           $(".file-message").show();
-
-          $("#modal_archive_HR").hide();
-          $("#modal_archive_HR").modal("hide");
         }, 1500);
       },
       error: function (xhr, status, error) {
@@ -1138,12 +1138,12 @@ $(document).ready(function () {
         // funcion para borrar los files subidos
         EraseContent();
         setTimeout(() => {
+          $("#modal_archive_PU").hide();
+          $("#modal_archive_PU").modal("hide");
+
           $("#loader__pu").hide();
           $(".file-archives").hide();
           $(".file-message").show();
-
-          $("#modal_archive_PU").hide();
-          $("#modal_archive_PU").modal("hide");
         }, 1500);
       },
       error: function (xhr, status, error) {
@@ -1208,12 +1208,12 @@ $(document).ready(function () {
         // funcion para borrar los files subidos
         EraseContent();
         setTimeout(() => {
+          $("#modal_archive_CL").hide();
+          $("#modal_archive_CL").modal("hide");
+
           $("#loader__cl").hide();
           $(".file-archives").hide();
           $(".file-message").show();
-
-          $("#modal_archive_CL").hide();
-          $("#modal_archive_CL").modal("hide");
         }, 1500);
       },
       error: function (xhr, status, error) {
@@ -1278,12 +1278,12 @@ $(document).ready(function () {
         // funcion para borrar los files subidos
         EraseContent();
         setTimeout(() => {
+          $("#modal_archive_DNI").hide();
+          $("#modal_archive_DNI").modal("hide");
+
           $("#loader__dni").hide();
           $(".file-archives").hide();
           $(".file-message").show();
-
-          $("#modal_archive_DNI").hide();
-          $("#modal_archive_DNI").modal("hide");
         }, 1500);
       },
       error: function (xhr, status, error) {

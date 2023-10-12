@@ -1156,7 +1156,7 @@ require_once('../Controller/controladorListar.php');
 
                 load_documents(valor1);
 
-                $('#lst_hr_0').modal('show');
+                // $('#lst_hr_0').modal('show');
             });
 
             $('.btn_lst_lyts').on('click', function() {

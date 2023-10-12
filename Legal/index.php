@@ -1573,7 +1573,7 @@ require_once('../Controller/controladorListar.php');
 
                 load_documents(titulo_);
 
-                $('#lst_hr_0').modal('show');
+                // $('#lst_hr_0').modal('show');
             });
 
             $('.btn_lst_lyts').on('click', function() {
@@ -1599,7 +1599,7 @@ require_once('../Controller/controladorListar.php');
 
                 load_documents_lyt(id_soli_l, titulo_doc);
 
-                $('#lst_lyts').modal('show');
+                // $('#lst_lyts').modal('show');
             });
 
 
