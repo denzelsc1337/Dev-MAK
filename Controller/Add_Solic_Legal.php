@@ -25,6 +25,7 @@ if (isset($_POST['btn_save_solic'])) {
 
         $carpeta_nueva = "../Solicitudes/" . $lastID . "/";
 
+
         if (!file_exists($carpeta_nueva)) {
             mkdir($carpeta_nueva, 0777, true);
         }
@@ -37,8 +38,10 @@ if (isset($_POST['btn_save_solic'])) {
 
         $mover_carpeta = glob($carpeta_dnis . '/*');
 
-        if (!file_exists($carpeta_destino)) {
-            rename($carpeta_dnis, $carpeta_destino); // Mueve la carpeta a la nueva ubicación
+        if (file_exists($carpeta_dnis)) {
+            if (!file_exists($carpeta_destino)) {
+                rename($carpeta_dnis, $carpeta_destino); // Mueve la carpeta a la nueva ubicación
+            }
         }
 
         foreach ($mover_carpeta as $file) {
@@ -48,6 +51,12 @@ if (isset($_POST['btn_save_solic'])) {
             }
         }
     }
+?>
+    <META http-equiv='Refresh' content='0.2; URL=../Legal/'>;
+    <script type="text/javascript">
+        alert("Solicitud registrada.");
+    </script>
+    <?php
 }
 
 if (isset($_POST['btn_updt_solic'])) {
@@ -72,18 +81,9 @@ if (isset($_POST['btn_updt_solic'])) {
             mkdir($carpeta_nueva, 0777, true);
         }
 
-        echo " - ";
-        echo $carpeta_nueva . "\n";
-
         $carpeta_lyts = "../borradores/" . $id_solic . '/' . $dni . "/";
 
-        echo " - ";
-        echo $carpeta_lyts . "\n";
-
         $carpeta_destino = $carpeta_nueva . $dni; // Ruta completa de la carpeta de destino
-
-        echo " - ";
-        echo $carpeta_destino . "\n";
 
         $mover_carpeta = glob($carpeta_lyts . '*');
 
@@ -134,12 +134,14 @@ if (isset($_POST["btn_save_borrador"])) {
 
         $carpeta_destino = $carpeta_nueva . $dni_client; // Ruta completa de la carpeta de destino
 
-        echo $carpeta_dnis;
+        // echo $carpeta_dnis;
 
         $mover_carpeta = glob($carpeta_dnis . '/*');
 
-        if (!file_exists($carpeta_destino)) {
-            rename($carpeta_dnis, $carpeta_destino); // Mueve la carpeta a la nueva ubicación
+        if (file_exists($carpeta_dnis)) {
+            if (!file_exists($carpeta_destino)) {
+                rename($carpeta_dnis, $carpeta_destino); // Mueve la carpeta a la nueva ubicación
+            }
         }
 
         foreach ($mover_carpeta as $file) {
@@ -148,6 +150,13 @@ if (isset($_POST["btn_save_borrador"])) {
                 rename($file, $newFilePath);
             }
         }
+
+    ?>
+        <META http-equiv='Refresh' content='0.2; URL=../Legal/'>;
+        <script type="text/javascript">
+            alert("Solicitud guardada.");
+        </script>
+<?php
     }
 }
 
