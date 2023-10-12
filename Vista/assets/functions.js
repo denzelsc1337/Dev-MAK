@@ -699,25 +699,21 @@ $(document).ready(function () {
         // archivo no valido
         alert("Archivo no válido: " + file.name);
       }
-      console.log(DataFiles);
+      // console.log(DataFiles);
     }
 
     function removeFile(id) {
       const indexToRemove = DataFiles.findIndex((item) => item.id === id);
       if (indexToRemove !== -1) {
         DataFiles.splice(indexToRemove, 1);
-        console.log(DataFiles);
+        // console.log(DataFiles);
       }
-
-      // const modal = document.querySelector(".modal"),
-      //   iptFile = modal.querySelector(".upload");
-
-      // iptFile.value = "";
     }
 
     function contTagFiles() {
       const fileMessage = element.querySelector(".file-message");
       const fileArchives = element.querySelector(".file-archives");
+      // const iptFile = element.querySelector(".upload");
       var cantFileMessage = element.querySelectorAll(".archive-item").length;
       var btnDisable = element.querySelectorAll("button");
 
@@ -741,6 +737,7 @@ $(document).ready(function () {
           element.disabled = true;
         });
         // DISABLE BUTTON
+        // iptFile.value = "";
       }
     }
 
@@ -1066,8 +1063,6 @@ $(document).ready(function () {
             alert(
               "Error al registrar, Verifique que los campos esten correctamente completos."
             );
-            console.log(r);
-            console.log(formData);
           }
         }, 1500);
       },
@@ -1078,6 +1073,217 @@ $(document).ready(function () {
           $("#loader__hr").hide();
           $(".file-archives").hide();
           $(".file-message").show();
+
+          $("#modal_archive_HR").hide();
+          $("#modal_archive_HR").modal("hide");
+        }, 1500);
+      },
+      error: function (xhr, status, error) {
+        $("#loader").hide();
+        console.error(error);
+        console.log(xhr.responseText);
+      },
+    });
+    return false;
+  });
+
+  $("#btn_isrt_pu").click(function (e) {
+    e.preventDefault();
+    // $("#loader").show();
+
+    // var formData = $("#file_HR").serialize();
+    var formData = new FormData($("#isrt_PU")[0]);
+
+    formData.append("btn_isrt_pu", true);
+    formData.append("DataFiles", JSON.stringify(DataFiles));
+
+    $.ajax({
+      type: "POST",
+      url: "../Controller/Upload_Legal_Docs.php",
+      data: formData,
+      processData: false,
+      contentType: false,
+
+      success: function (r) {
+        $("#loader__pu").show();
+        $(".file-message").hide();
+        $(".file-archives").hide();
+        setTimeout(function () {
+          if (r) {
+            alert("Solicitud enviada correctamente.");
+            console.log(r);
+            var modal = document.querySelector("#modal_archive_PU"),
+              files = modal.querySelector(".input-file"),
+              fileMessage = files.querySelector(".file-message"),
+              fileArchives = files.querySelector(".file-archives");
+            setTimeout(() => {
+              // Oculta el contenedor estableciendo su estilo a "display: none"
+              fileArchives.style.display = "none";
+              fileMessage.style.display = "flex";
+              // Borra todos los elementos hijos del contenedor
+              while (fileArchives.firstChild) {
+                fileArchives.removeChild(fileArchives.firstChild);
+              }
+            }, 100);
+            // event.returnValue = false;
+            // window.location.href = "../Legal/";
+          } else {
+            alert(
+              "Error al registrar, Verifique que los campos esten correctamente completos."
+            );
+          }
+        }, 1500);
+      },
+      complete: function () {
+        // funcion para borrar los files subidos
+        EraseContent();
+        setTimeout(() => {
+          $("#loader__pu").hide();
+          $(".file-archives").hide();
+          $(".file-message").show();
+
+          $("#modal_archive_PU").hide();
+          $("#modal_archive_PU").modal("hide");
+        }, 1500);
+      },
+      error: function (xhr, status, error) {
+        $("#loader").hide();
+        console.error(error);
+        console.log(xhr.responseText);
+      },
+    });
+    return false;
+  });
+
+  $("#btn_isrt_cl").click(function (e) {
+    e.preventDefault();
+    // $("#loader").show();
+
+    // var formData = $("#file_HR").serialize();
+    var formData = new FormData($("#isrt_CL")[0]);
+
+    formData.append("btn_isrt_cl", true);
+    formData.append("DataFiles", JSON.stringify(DataFiles));
+
+    $.ajax({
+      type: "POST",
+      url: "../Controller/Upload_Legal_Docs.php",
+      data: formData,
+      processData: false,
+      contentType: false,
+
+      success: function (r) {
+        $("#loader__cl").show();
+        $(".file-message").hide();
+        $(".file-archives").hide();
+        setTimeout(function () {
+          if (r) {
+            alert("Solicitud enviada correctamente.");
+            console.log(r);
+            var modal = document.querySelector("#modal_archive_CL"),
+              files = modal.querySelector(".input-file"),
+              fileMessage = files.querySelector(".file-message"),
+              fileArchives = files.querySelector(".file-archives");
+            setTimeout(() => {
+              // Oculta el contenedor estableciendo su estilo a "display: none"
+              fileArchives.style.display = "none";
+              fileMessage.style.display = "flex";
+              // Borra todos los elementos hijos del contenedor
+              while (fileArchives.firstChild) {
+                fileArchives.removeChild(fileArchives.firstChild);
+              }
+            }, 100);
+            // event.returnValue = false;
+            // window.location.href = "../Legal/";
+          } else {
+            alert(
+              "Error al registrar, Verifique que los campos esten correctamente completos."
+            );
+            console.log(r);
+            console.log(formData);
+          }
+        }, 1500);
+      },
+      complete: function () {
+        // funcion para borrar los files subidos
+        EraseContent();
+        setTimeout(() => {
+          $("#loader__cl").hide();
+          $(".file-archives").hide();
+          $(".file-message").show();
+
+          $("#modal_archive_CL").hide();
+          $("#modal_archive_CL").modal("hide");
+        }, 1500);
+      },
+      error: function (xhr, status, error) {
+        $("#loader").hide();
+        console.error(error);
+        console.log(xhr.responseText);
+      },
+    });
+    return false;
+  });
+
+  $("#btn_isrt_dni").click(function (e) {
+    e.preventDefault();
+    // $("#loader").show();
+
+    // var formData = $("#file_HR").serialize();
+    var formData = new FormData($("#isrt_DNI")[0]);
+
+    formData.append("btn_isrt_dni", true);
+    formData.append("DataFiles", JSON.stringify(DataFiles));
+
+    $.ajax({
+      type: "POST",
+      url: "../Controller/Upload_Legal_Docs.php",
+      data: formData,
+      processData: false,
+      contentType: false,
+
+      success: function (r) {
+        $("#loader__dni").show();
+        $(".file-message").hide();
+        $(".file-archives").hide();
+        setTimeout(function () {
+          if (r) {
+            alert("Solicitud enviada correctamente.");
+            console.log(r);
+            var modal = document.querySelector("#modal_archive_DNI"),
+              files = modal.querySelector(".input-file"),
+              fileMessage = files.querySelector(".file-message"),
+              fileArchives = files.querySelector(".file-archives");
+            setTimeout(() => {
+              // Oculta el contenedor estableciendo su estilo a "display: none"
+              fileArchives.style.display = "none";
+              fileMessage.style.display = "flex";
+              // Borra todos los elementos hijos del contenedor
+              while (fileArchives.firstChild) {
+                fileArchives.removeChild(fileArchives.firstChild);
+              }
+            }, 100);
+            // event.returnValue = false;
+            // window.location.href = "../Legal/";
+          } else {
+            alert(
+              "Error al registrar, Verifique que los campos esten correctamente completos."
+            );
+            console.log(r);
+            console.log(formData);
+          }
+        }, 1500);
+      },
+      complete: function () {
+        // funcion para borrar los files subidos
+        EraseContent();
+        setTimeout(() => {
+          $("#loader__dni").hide();
+          $(".file-archives").hide();
+          $(".file-message").show();
+
+          $("#modal_archive_DNI").hide();
+          $("#modal_archive_DNI").modal("hide");
         }, 1500);
       },
       error: function (xhr, status, error) {

@@ -296,10 +296,6 @@ require_once('../Controller/controladorListar.php');
 
                                         <span>O</span>
 
-                                        <!-- <div>
-                                            <label id="buttonFile" class="btn btn-mak mak-bg buton-file">Seleccionar archivos</label>
-                                            <input class="upload" type="file" id="hr_s" name="hr_s[]" multiple hidden>
-                                        </div> -->
                                         <div class="card-footer">
                                             <div class="form-flex">
                                                 <button type="submit" class="btn btn-mak mak-bg buton-file" id="btn_isrt_hr" name="btn_isrt_hr" disabled>Registrar</button>
@@ -327,7 +323,7 @@ require_once('../Controller/controladorListar.php');
             <div class="modal-content">
                 <div class="modal-body">
                     <h1 class="title-m" id="titulo_docs">HR</h1>
-                    <div class="row margin">
+                    <div class="row margin justify-content-center">
 
                         <div class="form-group" hidden>
                             <label>id usu</label>
@@ -341,6 +337,7 @@ require_once('../Controller/controladorListar.php');
                             <br>
                         </div>
 
+                        <img class="row text-center" src="../Vista/assets/loading_uhd.gif" id="loader_erase_hr" style="display:none;">
                         <div class="col-sm-12" id="descarga_archivo_m">
 
                         </div>
@@ -417,21 +414,24 @@ require_once('../Controller/controladorListar.php');
                         <div class="col-sm-12">
                             <div class="container">
 
-                                <form id="file_PU" method="POST" enctype="multipart/form-data">
+                                <form id="isrt_PU" method="POST" enctype="multipart/form-data">
                                     <!-- <form  method="POST" action="../Controller/Upload_Legal_Docs.php" enctype="multipart/form-data"> -->
 
                                     <div class="content-file flex flex-column">
                                         <label>P.U</label>
                                         <div hidden>
-                                            <input type="text" class="form-control" id="dni_usu_1" name="dni_usu_1" value="<?php echo $_SESSION['dni']; ?>">
-                                            <input type="text" class="form-control" id="id_cli_1" name="id_cli_1" value="<?php echo $_SESSION['id_usu']; ?>">
-                                            <input type="text" class="form-control" id="tipo_doc_1" name="tipo_doc_1" value="2">
+                                            <input type="text" class="form-control" id="dni_usu_pu" name="dni_usu_pu" value="<?php echo $_SESSION['dni']; ?>">
+                                            <input type="text" class="form-control" id="id_cli_pu" name="id_cli_pu" value="<?php echo $_SESSION['id_usu']; ?>">
+                                            <input type="text" class="form-control" id="tipo_doc_pu" name="tipo_doc_pu" value="2">
                                             <input type="text" name="cod_reg_2" id="cod_reg_2">
                                         </div>
                                         <div class="input-file" id="dropArea_2">
+                                            <img class="row text-center" src="../Vista/assets/loading_upd.gif" id="loader__pu" style="display:none;">
                                             <div class="file-message">
-                                                <img src="../Vista/images/document-text-svgrepo-com 1.svg" alt="doc">
-                                                <span>Arrastre los archivos aquí para subirlos.</span>
+                                                <div class="file-message_">
+                                                    <img src="../Vista/images/document-text-svgrepo-com 1.svg" alt="doc">
+                                                    <span>Arrastre los archivos aquí para subirlos.</span>
+                                                </div>
                                             </div>
                                             <div class="file-archives" style="display: none;"></div>
                                         </div>
@@ -444,7 +444,7 @@ require_once('../Controller/controladorListar.php');
                                         <div class="card-footer">
                                             <div class="form-flex">
                                                 <button type="submit" class="btn btn-mak mak-bg buton-file" id="btn_updt_pu" name="btn_updt_pu" style="display: none;">Actualizar</button>
-                                                <button type="submit" class="btn btn-mak mak-bg buton-file" id="btn_save_pu" name="btn_save_pu" disabled>Registrar</button>
+                                                <button type="submit" class="btn btn-mak mak-bg buton-file" id="btn_isrt_pu" name="btn_isrt_pu" disabled>Registrar</button>
 
                                                 <label id="buttonFile" class="btn btn-mak mak-bg buton-file">Seleccionar archivos</label>
                                                 <input class="upload" type="file" id="pu_s" name="pu_s[]" multiple hidden>
@@ -481,21 +481,24 @@ require_once('../Controller/controladorListar.php');
                     <div class="row">
                         <div class="col-sm-12">
                             <div class="container">
-                                <form id="file_CL" method="POST" enctype="multipart/form-data">
+                                <form id="isrt_CL" method="POST" enctype="multipart/form-data">
                                     <!-- <form method="POST" action="../Controller/Upload_Legal_Docs.php" enctype="multipart/form-data"> -->
 
                                     <div class="content-file flex flex-column">
                                         <label>Copia Literal</label>
                                         <div hidden>
-                                            <input type="text" class="form-control" id="dni_usu_2" name="dni_usu_2" value="<?php echo $_SESSION['dni']; ?>">
-                                            <input type="text" class="form-control" id="id_cli_2" name="id_cli_2" value="<?php echo $_SESSION['id_usu']; ?>">
-                                            <input type="text" class="form-control" id="tipo_doc_2" name="tipo_doc_2" value="3">
+                                            <input type="text" class="form-control" id="dni_usu_cl" name="dni_usu_cl" value="<?php echo $_SESSION['dni']; ?>">
+                                            <input type="text" class="form-control" id="id_cli_cl" name="id_cli_cl" value="<?php echo $_SESSION['id_usu']; ?>">
+                                            <input type="text" class="form-control" id="tipo_doc_cl" name="tipo_doc_cl" value="3">
                                             <input type="text" name="cod_reg_3" id="cod_reg_3">
                                         </div>
                                         <div class="input-file" id="dropArea_3">
+                                            <img class="row text-center" src="../Vista/assets/loading_upd.gif" id="loader__cl" style="display:none;">
                                             <div class="file-message">
-                                                <img src="../Vista/images/document-text-svgrepo-com 1.svg" alt="doc">
-                                                <span>Arrastre los archivos aquí para subirlos.</span>
+                                                <div class="file-message_">
+                                                    <img src="../Vista/images/document-text-svgrepo-com 1.svg" alt="doc">
+                                                    <span>Arrastre los archivos aquí para subirlos.</span>
+                                                </div>
                                             </div>
                                             <div class="file-archives" style="display: none;"></div>
                                         </div>
@@ -507,7 +510,7 @@ require_once('../Controller/controladorListar.php');
                                         <div class="card-footer">
                                             <div class="form-flex">
                                                 <button type="submit" class="btn btn-mak mak-bg buton-file" id="btn_updt_cl" name="btn_updt_cl" style="display: none;">Actualizar</button>
-                                                <button type="submit" class="btn btn-mak mak-bg buton-file" id="btn_save_cl" name="btn_save_cl" disabled>Registrar</button>
+                                                <button type="submit" class="btn btn-mak mak-bg buton-file" id="btn_isrt_cl" name="btn_isrt_cl" disabled>Registrar</button>
 
                                                 <label id="buttonFile" class="btn btn-mak mak-bg buton-file">Seleccionar archivos</label>
                                                 <input class="upload" type="file" id="cl_s" name="cl_s[]" multiple hidden>
@@ -576,20 +579,23 @@ require_once('../Controller/controladorListar.php');
                     <div class="row">
                         <div class="col-sm-12">
                             <div class="container">
-                                <form id="file_DNI" method="POST" enctype="multipart/form-data">
+                                <form id="isrt_DNI" method="POST" enctype="multipart/form-data">
                                     <!-- <form method="POST" action="../Controller/Upload_Legal_Docs.php" enctype="multipart/form-data"> -->
                                     <div class="content-file flex flex-column">
                                         <label>DNI</label>
                                         <div hidden>
-                                            <input type="text" class="form-control" id="dni_usu_3" name="dni_usu_3" value="<?php echo $_SESSION['dni']; ?>">
-                                            <input type="text" class="form-control" id="id_cli_3" name="id_cli_3" value="<?php echo $_SESSION['id_usu']; ?>">
-                                            <input type="text" class="form-control" id="tipo_doc_3" name="tipo_doc_3" value="4">
+                                            <input type="text" class="form-control" id="dni_usu_dni" name="dni_usu_dni" value="<?php echo $_SESSION['dni']; ?>">
+                                            <input type="text" class="form-control" id="id_cli_dni" name="id_cli_dni" value="<?php echo $_SESSION['id_usu']; ?>">
+                                            <input type="text" class="form-control" id="tipo_doc_dni" name="tipo_doc_dni" value="4">
                                             <input type="text" name="cod_reg_4" id="cod_reg_4">
                                         </div>
                                         <div class="input-file" id="dropArea_4">
+                                            <img class="row text-center" src="../Vista/assets/loading_upd.gif" id="loader__dni" style="display:none;">
                                             <div class="file-message">
-                                                <img src="../Vista/images/document-text-svgrepo-com 1.svg" alt="doc">
-                                                <span>Arrastre los archivos aquí para subirlos.</span>
+                                                <div class="file-message_">
+                                                    <img src="../Vista/images/document-text-svgrepo-com 1.svg" alt="doc">
+                                                    <span>Arrastre los archivos aquí para subirlos.</span>
+                                                </div>
                                             </div>
                                             <div class="file-archives" style="display: none;"></div>
                                         </div>
@@ -602,7 +608,7 @@ require_once('../Controller/controladorListar.php');
                                         <div class="card-footer">
                                             <div class="form-flex">
                                                 <button type="submit" class="btn btn-mak mak-bg buton-file" id="btn_updt_dni" name="btn_updt_dni" style="display: none;">Actualizar</button>
-                                                <button type="submit" class="btn btn-mak mak-bg buton-file" id="btn_save_dni" name="btn_save_dni" disabled>Registrar</button>
+                                                <button type="submit" class="btn btn-mak mak-bg buton-file" id="btn_isrt_dni" name="btn_isrt_dni" disabled>Registrar</button>
 
                                                 <label id="buttonFile" class="btn btn-mak mak-bg buton-file">Seleccionar archivos</label>
                                                 <input class="upload" type="file" id="dni_s" name="dni_s[]" multiple hidden>
@@ -1078,11 +1084,16 @@ require_once('../Controller/controladorListar.php');
                     success: function(response) {
                         console.log("archivo eliminado con ID: " + ruta_doc + ruta_archivo);
 
-                        $deleteBtn.closest('.modal').modal('hide');
+                        $('#loader_erase_hr').show();
+                        $('#descarga_archivo_m').hide();
+                        // $deleteBtn.closest('.modal').modal('hide');
                     },
                     complete: function() {
                         setTimeout(function() {
-                            $('#lst_hr_0').modal('show');
+                            // $('#lst_hr_0').modal('show');
+                            $('#loader_erase_hr').hide();
+                            $('#descarga_archivo_m').show();
+
                             if (ruta_doc == "../Documentos Legal/" + dni + "/H_R/") {
                                 console.log("HR")
                                 load_documents('H_R');

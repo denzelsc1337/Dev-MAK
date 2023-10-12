@@ -427,9 +427,7 @@ if (isset($_POST["btn_updt_dni"])) {
 
 if (isset($_POST["btn_isrt_hr"])) {
 
-  print_r($_POST);
   $archivos_selecc = $_FILES["hr_s"];
-  print_r($archivos_selecc);
 
   $_client_dni = $_POST["dni_usu_hr"];
   $_client_id = $_POST["id_cli_hr"];
@@ -480,6 +478,171 @@ if (isset($_POST["btn_isrt_hr"])) {
       }
     }
   }
+  echo $archivos_total;
+}
 
-  echo "archivo " . $archivos_total;
+if (isset($_POST["btn_isrt_pu"])) {
+
+  $archivos_selecc = $_FILES["pu_s"];
+
+  $_client_dni = $_POST["dni_usu_pu"];
+  $_client_id = $_POST["id_cli_pu"];
+  $_client_td = $_POST["tipo_doc_pu"];
+
+
+  $getFiles_PU = $_POST['DataFiles'];
+  $Files_PU = json_decode($getFiles_PU, true);
+
+  $target_dir = "../Documentos Legal/" . $_client_dni . "/P_U/";
+
+  if (!file_exists($target_dir)) {
+    mkdir($target_dir, 0777, true);
+  }
+
+  $archivos_total = 0;
+  $file_count = count($archivos_selecc['name']);
+
+  // echo "Número: " . $file_count;
+
+  foreach ($Files_PU as $key => $Files_PU_info) {
+    $fileNames = $Files_PU_info['name'];
+    $fileType = $Files_PU_info['type'];
+    $fileTmp_name = $Files_PU_info['tmp_name'];
+    $fileSize = $Files_PU_info['size'];
+
+    $file = explode(",", $fileNames);
+
+    $file_ext = explode('.', $fileNames);
+    $file_ext = strtolower(end($file_ext));
+
+    for ($i = 0; $i < $file_count; $i++) {
+
+      $fileName = $archivos_selecc["name"][$i];
+      $target_file = $target_dir . basename($archivos_selecc["name"][$i]);
+
+      if (in_array($fileName, $file)) {
+        if (move_uploaded_file($archivos_selecc["tmp_name"][$i], $target_file)) {
+          $archivos_total++;
+
+          // Agregar código del modelo aquí
+          require_once('../Model/Legal.php');
+          $olegal = new cLegal();
+
+          // Modificar la llamada a la función del modelo con los nuevos parámetros
+          $olegal->upload_documents_clients($fileNames, $fileType, $target_dir, $fileSize, $file_ext, $_client_td, $_client_id, $_client_dni);
+        }
+      }
+    }
+  }
+  echo $archivos_total;
+}
+
+if (isset($_POST["btn_isrt_cl"])) {
+
+  $archivos_selecc = $_FILES["cl_s"];
+
+  $_client_dni = $_POST["dni_usu_cl"];
+  $_client_id = $_POST["id_cli_cl"];
+  $_client_td = $_POST["tipo_doc_cl"];
+
+
+  $getFiles_CL = $_POST['DataFiles'];
+  $Files_CL = json_decode($getFiles_CL, true);
+
+  $target_dir = "../Documentos Legal/" . $_client_dni . "/C_L/";
+
+  if (!file_exists($target_dir)) {
+    mkdir($target_dir, 0777, true);
+  }
+
+  $archivos_total = 0;
+  $file_count = count($archivos_selecc['name']);
+
+  // echo "Número: " . $file_count;
+
+  foreach ($Files_CL as $key => $Files_CL_info) {
+    $fileNames = $Files_CL_info['name'];
+    $fileType = $Files_CL_info['type'];
+    $fileTmp_name = $Files_CL_info['tmp_name'];
+    $fileSize = $Files_CL_info['size'];
+
+    $file = explode(",", $fileNames);
+
+    $file_ext = explode('.', $fileNames);
+    $file_ext = strtolower(end($file_ext));
+
+    for ($i = 0; $i < $file_count; $i++) {
+
+      $fileName = $archivos_selecc["name"][$i];
+      $target_file = $target_dir . basename($archivos_selecc["name"][$i]);
+
+      if (in_array($fileName, $file)) {
+        if (move_uploaded_file($archivos_selecc["tmp_name"][$i], $target_file)) {
+          $archivos_total++;
+
+          // Agregar código del modelo aquí
+          require_once('../Model/Legal.php');
+          $olegal = new cLegal();
+
+          // Modificar la llamada a la función del modelo con los nuevos parámetros
+          $olegal->upload_documents_clients($fileNames, $fileType, $target_dir, $fileSize, $file_ext, $_client_td, $_client_id, $_client_dni);
+        }
+      }
+    }
+  }
+  echo $archivos_total;
+}
+
+if (isset($_POST["btn_isrt_dni"])) {
+
+  $archivos_selecc = $_FILES["dni_s"];
+
+  $_client_dni = $_POST["dni_usu_dni"];
+  $_client_id = $_POST["id_cli_dni"];
+  $_client_td = $_POST["tipo_doc_dni"];
+
+
+  $getFiles_DNI = $_POST['DataFiles'];
+  $Files_DNI = json_decode($getFiles_DNI, true);
+
+  $target_dir = "../Documentos Legal/" . $_client_dni . "/DNI/";
+
+  if (!file_exists($target_dir)) {
+    mkdir($target_dir, 0777, true);
+  }
+
+  $archivos_total = 0;
+  $file_count = count($archivos_selecc['name']);
+
+  foreach ($Files_DNI as $key => $Files_DNI_info) {
+    $fileNames = $Files_DNI_info['name'];
+    $fileType = $Files_DNI_info['type'];
+    $fileTmp_name = $Files_DNI_info['tmp_name'];
+    $fileSize = $Files_DNI_info['size'];
+
+    $file = explode(",", $fileNames);
+
+    $file_ext = explode('.', $fileNames);
+    $file_ext = strtolower(end($file_ext));
+
+    for ($i = 0; $i < $file_count; $i++) {
+
+      $fileName = $archivos_selecc["name"][$i];
+      $target_file = $target_dir . basename($archivos_selecc["name"][$i]);
+
+      if (in_array($fileName, $file)) {
+        if (move_uploaded_file($archivos_selecc["tmp_name"][$i], $target_file)) {
+          $archivos_total++;
+
+          // Agregar código del modelo aquí
+          require_once('../Model/Legal.php');
+          $olegal = new cLegal();
+
+          // Modificar la llamada a la función del modelo con los nuevos parámetros
+          $olegal->upload_documents_clients($fileNames, $fileType, $target_dir, $fileSize, $file_ext, $_client_td, $_client_id, $_client_dni);
+        }
+      }
+    }
+  }
+  echo $archivos_total;
 }
