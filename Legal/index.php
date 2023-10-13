@@ -808,9 +808,6 @@ require_once('../Controller/controladorListar.php');
                                             </div>
                                         </div>
                                     </div>
-
-
-
                                 </form>
                                 <div id="preview"></div>
                             </div>
@@ -1391,7 +1388,8 @@ require_once('../Controller/controladorListar.php');
 
                                     <div class="col-sm-5 tw-modal-ots p-0">
                                         
-                                        <div class="d-flex">
+                                        <div class="d-flex justify-content-evenly">
+                                        <?php if ($_SESSION['tipo_usu'] == 1) { ?>
                                             ${
                                             estadoHtml === '500'
                                                 ? `
@@ -1420,6 +1418,23 @@ require_once('../Controller/controladorListar.php');
                                                 </select>
                                                 `
                                             }
+                                            <?php } else { ?>
+                                               ${
+                                                
+                                                estadoHtml === '500'
+                                                ? `
+                                                <span class="badge rounded-pill bg-info">Pendiente</span>
+                                                `
+                                                : estadoHtml === '200'
+                                                ? `
+                                                <span class="badge rounded-pill bg-warning">Revisado</span>
+                                                `
+                                                : 
+                                                `
+                                                <span class="badge rounded-pill bg-success">Finalizado</span>
+                                                `
+                                               }
+                                            <?php } ?>
 
                                             <div class="d-flex">
                                                 <div class="inputs brd-rght-blue">
