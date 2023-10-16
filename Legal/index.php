@@ -740,13 +740,17 @@ require_once('../Controller/controladorListar.php');
                 <div class="modal-body">
                     <h1 class="title-m" id="titulo_docs"></h1>
                     <img class="row margin" src="../Vista/assets/loading_uhd.gif" id="loader_soli" style="display:none; margin: 0 22rem 5rem">
-                    <div class="row margin" id="lst_docs_lgl">
 
-                        <div class="col-sm-12" id="descarga_archivo_p">
+                    <form method="POST" enctype="multipart/form-data">
+
+                        <div class="row margin" id="lst_docs_lgl">
+
+                            <div class="col-sm-12" id="descarga_archivo_p">
+
+                            </div>
 
                         </div>
-
-                    </div>
+                    </form>
                 </div>
             </div>
         </div>
@@ -1346,12 +1350,16 @@ require_once('../Controller/controladorListar.php');
                         var dbInfo = data.base_de_datos;
                         var estado_db = data.status_doc_;
 
+                        // var id_doc = data.base_de_datos[0].id_document;
+
                         // console.log(dbInfo)
                         var cod_doc_, ruta_doc, nom_file;
                         var cont = 1;
 
                         setTimeout(function() {
 
+
+                            // if (estado_db === 'Carpeta no encontrada.') {
                             if (archivos && archivos.length > 0) {
                                 var enlaceHtml = '';
 
@@ -1361,101 +1369,111 @@ require_once('../Controller/controladorListar.php');
                                     var ruta = archivo.ruta;
                                     var nombreArchivo = archivo.archivo;
                                     var estado = archivo.estado;
-                                    var id_doc_ = archivo.id_doc;
+                                    var id_doc_ = archivo.id_doc_;
+                                    console.log(id_doc_);
                                     var status_r = '';
+
 
 
                                     var delete_btn = $('<button>').text('Eliminar').attr('class', 'btn btn-block btn-danger');
                                     // var estadoHtml = estado === 'estado_desconocido' ? '' : `<span class="estado-archivo">${estado}</span>`;
                                     var estadoHtml = estado;
-                                    console.log(estadoHtml);
+                                    // console.log(estadoHtml);
                                     var estadoDbHtml = estado_db ? `<span class="estado-db">${estado_db}</span>` : '';
 
                                     //arroshi recontra tarao
                                     enlaceHtml += `
+                                   
+                                    <div hidden>
+                                        <input type="text" class="form-mak" id="_id_doc_" value="${id_doc_}" readonly>
+                                    </div>
 
-                                <div class="row d-flex justify-content-between align-center mb-4 w-100">
-                                    <div class="col-sm-1">
-                                        <div class="lgl-modal-num">
-                                            ${cont++}
+                                    <div class="row d-flex justify-content-between align-center mb-4 w-100">
+                                        <div class="col-sm-1">
+                                            <div class="lgl-modal-num">
+                                                ${cont++}
+                                            </div>
                                         </div>
-                                    </div>
 
-                                    <div class="col-sm-6 archive">
-                                        <img src="#" id="loader" style="display: none;">
-                                        <a href="${ruta}${nombreArchivo}">${nombreArchivo}</a>
-                                    </div>
+                                        <div class="col-sm-6 archive">
+                                            <img src="#" id="loader" style="display: none;">
+                                            <a href="${ruta}${nombreArchivo}">${nombreArchivo}</a>
+                                        </div>
 
-                                    <div class="col-sm-5 tw-modal-ots p-0">
-                                        
-                                        <div class="d-flex justify-content-evenly">
-                                        <?php if ($_SESSION['tipo_usu'] == 1) { ?>
-                                            ${
-                                            estadoHtml === '500'
-                                                ? `
-                                                <select class="form-mak mr-3">
-                                                    <option selected>Pendiente</option>
-                                                    <option>Revisado</option>
-                                                    <option>Rechazado</option>
-                                                    <option>Aceptado</option>
-                                                </select>
-                                                `
-                                            : estadoHtml === '200'
-                                                ? `
-                                                <select class="form-mak mr-3">
-                                                    <option>Pendiente</option>
-                                                    <option selected>Revisado</option>
-                                                    <option>Rechazado</option>
-                                                    <option>Aceptado</option>
-                                                </select>
-                                                `
-                                            : `
-                                                <select class="form-mak mr-3">
-                                                    <option>Pendiente</option>
-                                                    <option>Revisado</option>
-                                                    <option>Rechazado</option>
-                                                    <option>Aceptado</option>
-                                                </select>
-                                                `
-                                            }
-                                            <?php } else { ?>
-                                               ${
-                                                
+                                        <div class="col-sm-5 tw-modal-ots p-0">
+
+                                            <div class="d-flex justify-content-evenly">
+                                            <?php if ($_SESSION['tipo_usu'] == 1) { ?>
+                                                ${
                                                 estadoHtml === '500'
-                                                ? `
-                                                <span class="badge rounded-pill bg-info">Pendiente</span>
-                                                `
+                                                    ? `
+                                                    <select id="_slct_status" name="_slct_status" class="form-mak mr-3">
+                                                        <option value="500" selected>Pendiente</option>
+                                                        <option value="200">Revisado</option>
+                                                        <option value="100">Rechazado</option>
+                                                        <option value="1">Aceptado</option>
+                                                    </select>
+                                                    `
                                                 : estadoHtml === '200'
-                                                ? `
-                                                <span class="badge rounded-pill bg-warning">Revisado</span>
-                                                `
-                                                : 
-                                                `
-                                                <span class="badge rounded-pill bg-success">Finalizado</span>
-                                                `
-                                               }
-                                            <?php } ?>
+                                                    ? `
+                                                    <select id="_slct_status" name="_slct_status" class="form-mak mr-3">
+                                                        <option value="500">Pendiente</option>
+                                                        <option value="200" selected>Revisado</option>
+                                                        <option value="100">Rechazado</option>
+                                                        <option value="1">Aceptado</option>
+                                                    </select>
+                                                    `
+                                                : `
+                                                    <select id="_slct_status" name="_slct_status" class="form-mak mr-3">
+                                                        <option value="500">Pendiente</option>
+                                                        <option value="200">Revisado</option>
+                                                        <option value="100">Rechazado</option>
+                                                        <option value="1">Aceptado</option>
+                                                    </select>
+                                                    `
+                                                }
+                                                <?php } else { ?>
+                                                ${
 
-                                            <div class="d-flex">
-                                                <div class="inputs brd-rght-blue">
-                                                    <div hidden>
-                                                        <input id="ruta_doc_i" type="text" value="${ruta}" readonly>
-                                                        <input id="ruta_archivo_i" type="text" value="${nombreArchivo}" readonly>
-                                                        <input id="cod_doc_i" type="text" value="${id_doc_}" readonly>
+                                                    estadoHtml === '500'
+                                                    ? `
+                                                    <span class="badge rounded-pill bg-info">Pendiente</span>
+                                                    `
+                                                    : estadoHtml === '200'
+                                                    ? `
+                                                    <span class="badge rounded-pill bg-warning">Revisado</span>
+                                                    `
+                                                    : estadoHtml === '100'
+                                                    ? `
+                                                    <span class="badge rounded-pill bg-danger">Rechazado</span>
+                                                    `
+                                                    : 
+                                                    `
+                                                    <span class="badge rounded-pill bg-success">Finalizado</span>
+                                                    `
+                                                }
+                                                <?php } ?>
+
+                                                <div class="d-flex">
+                                                    <div class="inputs brd-rght-blue">
+                                                        <div hidden>
+                                                            <input id="ruta_doc_i" type="text" value="${ruta}" readonly>
+                                                            <input id="ruta_archivo_i" type="text" value="${nombreArchivo}" readonly>
+                                                            <input id="cod_doc_i" type="text" value="${id_doc_}" readonly>
+                                                        </div>
+
+                                                        <div class="options">
+                                                            <button id="dlt_file" type="button" class="btn dlt_file"><i class="cursor fa-solid fa-trash"></i></button>
+                                                        </div>
                                                     </div>
-
                                                     <div class="options">
-                                                        <button id="dlt_file" type="button" class="btn dlt_file"><i class="cursor fa-solid fa-trash"></i></button>
+                                                        <button id="dlt_file" type="button" class="btn dlt_file"> <i class="cursor fa-solid fa-download"></i></button>
                                                     </div>
-                                                </div>
-                                                <div class="options">
-                                                    <button id="dlt_file" type="button" class="btn dlt_file"> <i class="cursor fa-solid fa-download"></i></button>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                `;
+                                    `;
 
                                 });
 
@@ -1630,9 +1648,24 @@ require_once('../Controller/controladorListar.php');
                 var _dni_cli_lgl = $('#dni_client_l').val();
                 var titulo_modal = $('#titulo_docs').text(_titulo);
 
+                var dni = $('#_id_doc_').val(_id_cli_lgl);
+
+                ///////
+                // console.log(id_reg);
+                // console.log(tipo_doc);
+                // console.log(_titulo);
+                // console.log(_id_cli_lgl);
+                // console.log(_id_doc_lgl);
+
+                // console.log(_dni_cli_lgl);
+                // console.log(titulo_modal);
+
+
+
                 load_documents_legal_(id_reg, _dni_cli_lgl, tipo_doc, _id_cli_lgl, _id_doc_lgl)
 
                 $('#lst_docs_legal').modal('show');
+
 
             });
 
@@ -2307,6 +2340,31 @@ require_once('../Controller/controladorListar.php');
                 });
             }).draw();
             ////
+        });
+    </script>
+
+    <script>
+        document.getElementById("lst_docs_legal").addEventListener("click", function() {
+            // Abre el modal
+
+            $("#_slct_status").change(function() {
+                var _data_cbo = {
+                    _status: true,
+                    _id_doc: $('#_id_doc_').val(),
+                    _slct_status: $("#_slct_status").val(),
+                };
+                // var seleccion = $(this).val();
+                $.ajax({
+                    type: "POST",
+                    url: "../Controller/update_status_legal.php",
+                    data: _data_cbo,
+                    dataType: "JSON",
+                    success: function(data) {
+                        console.log(data);
+                    },
+                });
+                return false;
+            });
         });
     </script>
 

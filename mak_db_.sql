@@ -454,16 +454,14 @@ create table tipos_doc_legal(
 
 create table docs_legal(
 	id_legal	int primary key auto_increment, 
-    file_name			varchar(255),
-    file_type			varchar(255),
-    file_destination	varchar(255),
-    file_size			varchar(255),
-    file_desc			varchar(255),
-    file_ext			varchar(255),
-    cod_doc_tipo_legl	int, 
+    rutas_docs			varchar(255),
+    nom_client			varchar(255),
+    ape_client			varchar(255),
+    dir_client			varchar(255),
+    fecha_reg			date,
     user_cod			int,
-    status_doc			varchar(20) default "10",
-    FOREIGN KEY (cod_doc_tipo_legl) REFERENCES  tipos_doc_legal (id_doc_legal) ON DELETE SET NULL,
+    status_solic		varchar(20) default "10",
+    comentario			varchar(255) NULL,
     FOREIGN KEY (user_cod) REFERENCES clientes_servicios (id_client) ON DELETE SET NULL
 );
 

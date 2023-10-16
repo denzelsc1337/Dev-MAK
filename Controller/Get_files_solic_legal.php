@@ -75,6 +75,7 @@ if (is_dir($directorio)) {
                     $db_info['tipo_usu_cod'] = $row['tipo_usu_cod'];
 
 
+                    $archivo_info['id_doc_'] = $row['id_document'];
                     $archivo_info['estado'] = $row['status_doc'];
 
                     $response['base_de_datos'][] = $db_info;
