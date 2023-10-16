@@ -1110,6 +1110,7 @@ textarea {
   width: 100%;
   border-style: none;
   border-bottom: 1px solid var(--blue-mak);
+  font-weight: bold;
 }
 
 textarea:focus {

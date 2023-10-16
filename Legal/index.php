@@ -453,8 +453,24 @@ require_once('../Controller/controladorListar.php');
                                                     <div class="row">
                                                         <div class="col-sm-6">
                                                             <div class="form-group">
-                                                                <label class="mak-txt">Nombres y Apellidos</label>
+                                                                <label class="mak-txt">Nombres</label>
                                                                 <input type="text" class="form-mak" id="data_names_" readonly>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-sm-6">
+                                                            <div class="form-group">
+                                                                <label class="mak-txt">Apellidos</label>
+                                                                <input type="text" class="form-mak" id="data_lnames_" readonly>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-sm-6">
+                                                            <div class="form-group">
+                                                                <label class="mak-txt">Correo</label>
+                                                                <input type="text" class="form-mak" id="data_direcion_" readonly>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -482,12 +498,28 @@ require_once('../Controller/controladorListar.php');
                                                     <div class="row">
                                                         <div class="col-sm-6">
                                                             <div class="form-group">
-                                                                <label class="mak-txt">Nombres y Apellidos</label>
+                                                                <label class="mak-txt">Nombres</label>
                                                                 <input type="text" class="form-mak" id="data_names_" readonly>
                                                             </div>
                                                         </div>
                                                     </div>
+                                                    <div class="row">
+                                                        <div class="col-sm-6">
+                                                            <div class="form-group">
+                                                                <label class="mak-txt">Apellidos</label>
+                                                                <input type="text" class="form-mak" id="data_lnames_" readonly>
+                                                            </div>
+                                                        </div>
+                                                    </div>
 
+                                                    <div class="row">
+                                                        <div class="col-sm-6">
+                                                            <div class="form-group">
+                                                                <label class="mak-txt">Correo</label>
+                                                                <input type="text" class="form-mak" id="data_direcion_" readonly>
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                     <div class="row">
                                                         <div class="col-sm-6">
                                                             <div class="form-group">
@@ -2073,7 +2105,7 @@ require_once('../Controller/controladorListar.php');
                     try {
                         var detalles = JSON.parse(response);
 
-                        // console.log(detalles);
+                        console.log(detalles);
 
                         var id_valor = detalles[0][0];
                         var nom_client = detalles[0][1];
@@ -2123,8 +2155,10 @@ require_once('../Controller/controladorListar.php');
                         $("#dni_client_l").val(dni_client)
 
                         $("#data_names_").val(nom_client)
+                        $("#data_lnames_").val(apellido)
                         // $("#data_names_").val(nom_client + ' ' + apellido)
                         $("#data_direcion_").val(correo)
+                        // $("#data_direcion_").val(correo)
                         $("#coment_").val(coment)
 
                         // $("#status_solic_legal_cbo").val(status_);
