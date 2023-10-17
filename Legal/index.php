@@ -299,7 +299,7 @@ require_once('../Controller/controladorListar.php');
                                                                         echo '<span class="badge rounded-pill bg-success">Finalizado</span>';
                                                                         break;
                                                                     default:
-                                                                        echo 'test';
+                                                                        echo '<span class="badge rounded-pill bg-lightblue">Procesando</span>';
                                                                         break;
                                                                 }
                                                                 ?>
@@ -444,8 +444,8 @@ require_once('../Controller/controladorListar.php');
                                                 if ($_SESSION['tipo_usu'] == 1) {
                                                     //habilitar al admin
                                                 ?>
-                                                    <div hidden>
-                                                        <input type="text" class="form-mak" id="id_legal_solic" name="id_legal_solic" readonly>
+                                                    <div>
+                                                        <input type="text" class="form-mak" id="id_solic_doc" name="id_solic_doc" readonly>
                                                         <input type="text" class="form-mak" id="id_client_l" readonly>
                                                         <input type="text" class="form-mak" id="dni_client_l" readonly>
                                                     </div>
@@ -1324,9 +1324,7 @@ require_once('../Controller/controladorListar.php');
                                                                 <button id="dlt_file" type="button" class="btn dlt_file"><i class="cursor fa-solid fa-trash"></i></button>
                                                             </div>
                                                         </div>
-                                                        <div>
-                                                            <button id="dlt_file" type="button" class="btn dlt_file"> <i class="cursor fa-solid fa-download"></i></button>
-                                                        </div>
+                                                       
                                                     </div>
                                                 </div>
                                             </div>
@@ -1434,7 +1432,7 @@ require_once('../Controller/controladorListar.php');
 
                                         <div class="col-sm-5 tw-modal-ots p-0">
 
-                                            <div class="d-flex justify-content-evenly">
+                                            <div class="d-flex content_status">
                                             <?php if ($_SESSION['tipo_usu'] == 1) { ?>
                                                 ${
                                                 estadoHtml === '500'
@@ -1460,7 +1458,7 @@ require_once('../Controller/controladorListar.php');
                                                         <option value="500">Pendiente</option>
                                                         <option value="200">Revisado</option>
                                                         <option value="100">Rechazado</option>
-                                                        <option value="1">Aceptado</option>
+                                                        <option value="1" selected>Aceptado</option>
                                                     </select>
                                                     `
                                                 }
@@ -1487,7 +1485,8 @@ require_once('../Controller/controladorListar.php');
                                                 <?php } ?>
 
                                                 <div class="d-flex">
-                                                    <div class="inputs brd-rght-blue">
+                                                <?php if ($_SESSION['tipo_usu'] == 1) { ?>
+                                                    <div class="inputs">
                                                         <div hidden>
                                                             <input id="ruta_doc_i" type="text" value="${ruta}" readonly>
                                                             <input id="ruta_archivo_i" type="text" value="${nombreArchivo}" readonly>
@@ -1498,9 +1497,11 @@ require_once('../Controller/controladorListar.php');
                                                             <button id="dlt_file" type="button" class="btn dlt_file"><i class="cursor fa-solid fa-trash"></i></button>
                                                         </div>
                                                     </div>
+                                                    <?php } else { ?>
                                                     <div class="options">
                                                         <button id="dlt_file" type="button" class="btn dlt_file"> <i class="cursor fa-solid fa-download"></i></button>
                                                     </div>
+                                                    <?php } ?>
                                                 </div>
                                             </div>
                                         </div>
@@ -1680,10 +1681,9 @@ require_once('../Controller/controladorListar.php');
                 var _dni_cli_lgl = $('#dni_client_l').val();
                 var titulo_modal = $('#titulo_docs').text(_titulo);
 
-                var dni = $('#_id_doc_').val(_id_cli_lgl);
+                // $('#_id_doc_').val(_id_cli_lgl);
 
                 ///////
-                // console.log(id_reg);
                 // console.log(tipo_doc);
                 // console.log(_titulo);
                 // console.log(_id_cli_lgl);
@@ -1942,11 +1942,16 @@ require_once('../Controller/controladorListar.php');
                 element.addEventListener("click", () => {
                     makContentSlide.style.transform = "translateX(-200%)";
 
+
                     //code
                     var _id_soli = $(element).data('cod_solic');
                     var _idcli = $(element).data('cod_client');
 
-                    // console.log(_id_soli)
+                    console.log("1 -> " + _id_soli)
+                    // console.log(_idcli)
+
+                    $('#id_solic_doc').val(_id_soli);
+                    // document.getElementById('id_solic_doc').value = _id_soli;
 
                     get_details_solic_legal(_id_soli, _idcli)
                 });
@@ -1965,7 +1970,7 @@ require_once('../Controller/controladorListar.php');
                     var _id_soli = $(element).data('cod_solic');
                     var _idcli = $(element).data('cod_client');
 
-                    // console.log(_id_soli)
+                    console.log("2 -> " + _id_soli)
 
                     get_details_solic_legal(_id_soli, _idcli)
 
@@ -2115,6 +2120,9 @@ require_once('../Controller/controladorListar.php');
                         var dni_client = detalles[0][5];
                         var status_ = detalles[0][6];
                         var coment = detalles[0][7];
+
+                        var id_doc_lgl = $(this).data('cod_solic');
+                        console.log("3 -> " + id_doc_lgl);
 
                     } catch (error) {
                         console.error("Error al analizar la respuesta JSON: " + error);

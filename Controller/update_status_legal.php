@@ -10,19 +10,19 @@ if (isset($_POST['_slct_status'])) {
     $id_doc = $_POST['_id_doc'];
     $state = $_POST['_slct_status'];
 
-    if (in_array($state, $_status)) {
+    // if (in_array($state, $_status)) {
 
-        $oLegal = new cLegal();
-        $r = $oLegal->updt_legal_status_docs($id_doc, $state);
+    $oLegal = new cLegal();
+    $r = $oLegal->updt_legal_status_docs($id_doc, $state);
 
-        if ($r) {
-            echo "Success";
-            echo "\n";
-            echo $id_doc . " " . $state;
-        } else {
-            echo "Error";
-        }
+    if ($r) {
+        echo "Success";
+        echo "\n";
+        echo $id_doc . " " . $state;
     } else {
-        echo "no se pudo actualizar";
+        echo "Error";
     }
+    // } else {
+    //     echo "no se pudo actualizar";
+    // }
 }

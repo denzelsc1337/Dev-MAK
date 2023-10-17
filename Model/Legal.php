@@ -324,9 +324,9 @@ class cLegal
 		$cnx = new Conexion();
 		$cadena = $cnx->abrirConexion();
 
-		$query = "UPDATE `documents_clients`
-				  SET `status_doc` = '$state'
-				  WHERE `documents_clients`.`id_document` = '$id_doc'";
+		$query = "UPDATE `docs_legal`
+				  SET `status_solic` = '$state'
+				  WHERE `id_legal` = '$id_doc'";
 
 		$result = mysqli_query($cadena, $query);
 		$cnx->cerrarConexion($cadena);

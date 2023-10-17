@@ -410,17 +410,20 @@ $(document).ready(function () {
 
   $("#btn_updt_solic_l").click(function (e) {
     e.preventDefault();
-
-    var data = $("#updt_status").serialize();
+    var _data = {
+      btn_updt_solic_l: true,
+      _id_doc: $("#id_solic_doc").val(),
+      _slct_status: $("#status_solic_legal_cbo").val(),
+    };
     $.ajax({
       type: "POST",
-      url: "../Controller/update_status_solic_legal.php",
-      data: data,
+      url: "../Controller/update_status_legal.php",
+      data: _data,
       success: function (response) {
         console.log(response);
 
         event.returnValue = false;
-        //window.location.href = "../Legal/";
+        window.location.href = "../Legal/";
       },
       error: function (xhr, status, error) {
         console.error(error);

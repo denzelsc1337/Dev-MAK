@@ -2313,6 +2313,11 @@ button.gm-control-active.gm-fullscreen-control {
   right: 10px !important;
 }
 
+.content_status {
+  justify-content: end;
+  gap: 20px;
+}
+
 /*  */
 /* RESPONSIVE */
 /*  */
