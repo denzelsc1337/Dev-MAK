@@ -1,11 +1,11 @@
 <?php
 require_once('../Model/Legal.php');
 
-$id_lgl_ = isset($_POST['id_legal_solic']);
-$status = isset($_POST['status_solic_legal_cbo']);
+$id_lgl_ = $_POST['_id_doc'];
+$status = $_POST['_slct_status'];
 
 $oLegal = new cLegal();
-$r = $oLegal->updt_legal_status($id_lgl_, $status);
+$r = $oLegal->updt_doc_status($id_lgl_, $status);
 
 
 if ($r) {

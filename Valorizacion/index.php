@@ -478,7 +478,7 @@ require_once('../Controller/controladorListar.php'); ?>
                                                     <li><b>Teléfono: </b><?php echo $_SESSION['telef_usu']; ?></li>
                                                 </ul>
 
-                                                <div>
+                                                <div class="pl-2">
                                                     <p><strong>Información de la propiedad:</strong></p>
 
                                                 </div>
@@ -603,11 +603,8 @@ require_once('../Controller/controladorListar.php'); ?>
                                         <label class="pdd-left">Fotos Subidas</label>
                                         <div>
                                             <div id="fotos_val">
-                                                <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                                                <div id="carouselExampleControls" class="carousel slide" data-ride="carousel" data-interval="false">
                                                     <div id="lst_fotos" class="carousel-inner">
-                                                        <!-- <i id="left" class="fa-solid fa-chevron-left"></i> -->
-                                                        <!-- <div id="lst_fotos"></div> -->
-                                                        <!-- <i id="right" class="fa-solid fa-chevron-right"></i> -->
                                                     </div>
                                                     <button class="carousel-control-prev" type="button" data-target="#carouselExampleControls" data-slide="prev">
                                                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -1508,65 +1505,6 @@ require_once('../Controller/controladorListar.php'); ?>
             });
         }
 
-        /*function get_files_valor(id_sol_v, dni) {
-            $.ajax({
-                type: 'POST',
-                url: '../Controller/Get_Valorizacion_files.php',
-                data: {
-                    id_solic_v: id_sol_v,
-                    dni_cli_v: dni,
-                },
-                success: function(response) {
-
-                    if (response.status === 'error') {
-                        var errorMessage = $('<strong>').text(response.mensaje);
-                        $('#archivos_lista').empty().append(errorMessage);
-                    } else if (response.status === 'empty') {
-                        var noFilesMessage = $('<strong>').text(response.mensaje);
-                        $('#archivos_lista').empty().append(noFilesMessage);
-                    } else {
-                        var archivos = response.files;
-                        var archivosLista = $('#archivos_lista');
-
-                        archivosLista.empty();
-
-                        archivos.forEach(function(archivo) {
-                            if (archivo.trim() !== '') {
-
-                                var link_ = $('<a>')
-                                    .attr('href', '../Valorizaciones/' + id_sol_v + '/' + dni + '/docs_val/' + archivo)
-                                    .attr('download', archivo)
-                                    .text(archivo);
-
-                                var btn_dlt = $('<button type="button" class="btn btn-danger dlt_file"><i class="fa-solid fa-trash"></i>')
-                                    .attr('data-ruta', '../Valorizaciones/' + id_sol_v + '/' + dni + '/docs_val/' + archivo);
-
-                                console.log(btn_dlt);
-
-                                var rol = '<?php echo $_SESSION['tipo_usu'] ?>'
-
-                                if (rol == 1) {
-                                    var listItem = $('<li>').append(link_, ' - ', btn_dlt);
-                                } else {
-                                    var listItem = $('<li>').append(link_);
-                                }
-
-
-                                archivosLista.append(listItem);
-                            }
-                        });
-
-                    }
-                    //$('#descarga_archivo_m').html(link_);
-
-                    //console.log(response);
-                },
-                error: function(xhr, status, error) {
-                    console.log(error);
-                }
-            });
-        }*/
-
         function get_files_valor(id_sol_v, dni) {
             $.ajax({
                 type: 'POST',
@@ -1608,7 +1546,7 @@ require_once('../Controller/controladorListar.php'); ?>
                                     var listItem;
 
                                     if (rol == 1) {
-                                        listItem = $('<li>').append(link_, ' - ', btn_dlt);
+                                        listItem = $('<li>').append(link_, '&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;', btn_dlt);
                                     } else {
                                         listItem = $('<li>').append(link_);
                                     }

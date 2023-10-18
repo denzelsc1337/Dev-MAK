@@ -113,7 +113,7 @@ require_once('../Controller/controladorListar.php');
 
                             <form id="updt_files" method="POST" enctype="multipart/form-data">
                                 <!-- <form id="updt_files" method="POST" action="../Controller/Add_Solic_Legal.php"> -->
-                                <div class="container pddt-5">
+                                <div class="container">
 
                                     <div class="arrow-right">
                                         <i class="fa-solid fa-angle-right"></i>
@@ -265,13 +265,13 @@ require_once('../Controller/controladorListar.php');
                                                 <thead class="">
                                                     <tr>
                                                         <th></th>
-                                                        <th>nom</th>
+                                                        <th>NOMBRES</th>
                                                         <th>DIRECCIÓN</th>
                                                         <th>FECHA</th>
                                                         <th>ESTADO</th>
-                                                        <th>id_user</th>
-                                                        <th>dni_user</th>
-                                                        <th>coment</th>
+                                                        <th hidden>id_user</th>
+                                                        <th>DNI</th>
+                                                        <th>COMENTARIO</th>
                                                         <th>OPCIONES</th>
                                                     </tr>
                                                 </thead>
@@ -304,14 +304,14 @@ require_once('../Controller/controladorListar.php');
                                                                 }
                                                                 ?>
                                                             </td>
-                                                            <td><?php echo $lst_legal_d[5] ?></td>
+                                                            <td hidden><?php echo $lst_legal_d[5] ?></td>
                                                             <td><?php echo $lst_legal_d[6] ?></td>
                                                             <td><?php echo $lst_legal_d[7] ?></td>
                                                             <td>
                                                                 <div class="row justify-content-evenly">
 
-                                                                    <div class="col-sm-4 justify-content-center get_data_soli_legl" data-cod_solic="<?php echo $lst_legal_d[0] ?>" data-cod_client="<?php echo $lst_legal_d[5] ?>">
-                                                                        <div class="options">
+                                                                    <div class="col-sm-4 justify-content-center">
+                                                                        <div class="options get_data_soli_legl" data-cod_solic="<?php echo $lst_legal_d[0] ?>" data-cod_client="<?php echo $lst_legal_d[5] ?>">
                                                                             <button type="button" class="btn btn-rounded" id="">
                                                                                 <i class="fa-solid fa-eye"></i>
                                                                             </button>
@@ -334,15 +334,15 @@ require_once('../Controller/controladorListar.php');
                                                 <thead class="">
                                                     <tr>
                                                         <th></th>
-                                                        <th>Nombre Cliente</th>
-                                                        <th>Apellido Cliente</th>
-                                                        <th>Nombre Asesor</th>
+                                                        <th>NOMBRE CLIENTE</th>
+                                                        <th>APELLIDO CLIENTE</th>
+                                                        <th>ASESOR</th>
                                                         <th>DIRECCIÓN</th>
                                                         <th>FECHA</th>
                                                         <th>ESTADO</th>
-                                                        <th>id_user</th>
-                                                        <th>dni_user</th>
-                                                        <th>coment</th>
+                                                        <th hidden>id_user</th>
+                                                        <th>DNI</th>
+                                                        <th>COMTENTARIO</th>
                                                         <th>OPCIONES</th>
                                                     </tr>
                                                 </thead>
@@ -378,12 +378,12 @@ require_once('../Controller/controladorListar.php');
                                                                         echo '<span class="badge rounded-pill bg-success">Finalizado</span>';
                                                                         break;
                                                                     default:
-                                                                        echo 'test';
+                                                                        echo '<span class="badge rounded-pill bg-lightblue">Procesando</span>';
                                                                         break;
                                                                 }
                                                                 ?>
                                                             </td>
-                                                            <td><?php echo $lst_legal_d[7] ?></td>
+                                                            <td hidden><?php echo $lst_legal_d[7] ?></td>
                                                             <td><?php echo $lst_legal_d[8] ?></td>
                                                             <td><?php echo $lst_legal_d[9] ?></td>
                                                             <td>
@@ -430,7 +430,7 @@ require_once('../Controller/controladorListar.php');
                             <form method="POST" id="updt_status">
 
                                 <div class="container">
-                                    <div class="card-body pddt-5">
+                                    <div class="card-body">
 
                                         <div class="arrow-left arrow-left_1">
                                             <i class="fa-solid fa-angle-left"></i>
@@ -444,7 +444,7 @@ require_once('../Controller/controladorListar.php');
                                                 if ($_SESSION['tipo_usu'] == 1) {
                                                     //habilitar al admin
                                                 ?>
-                                                    <div>
+                                                    <div hidden>
                                                         <input type="text" class="form-mak" id="id_solic_doc" name="id_solic_doc" readonly>
                                                         <input type="text" class="form-mak" id="id_client_l" readonly>
                                                         <input type="text" class="form-mak" id="dni_client_l" readonly>
@@ -543,7 +543,7 @@ require_once('../Controller/controladorListar.php');
                                                             <div class="select-options">
                                                                 <div class="bg-info" data-value="10">Pendiente</div>
                                                                 <div class="bg-warning" data-value="20">En revisión</div>
-                                                                <div class="bg-secondary" data-value="30">Borrador</div>
+                                                                <!-- <div class="bg-secondary" data-value="30">Borrador</div> -->
                                                                 <div class="bg-success" data-value="90">Finalizado</div>
                                                             </div>
                                                         </div>
@@ -640,8 +640,8 @@ require_once('../Controller/controladorListar.php');
                                     ?>
                                         <div class="card-footer">
                                             <div class="form-flex">
-                                                <button type="button" class="btn btn-mak mak-bg-sec">Guardar</button>
-                                                <button type="submit" class="btn btn-mak mak-bg" id="btn_updt_solic_l" name="btn_updt_solic_l">Enviar</button>
+                                                <!-- <button type="button" class="btn btn-mak mak-bg-sec">Guardar</button> -->
+                                                <button type="submit" class="btn btn-mak mak-bg" id="btn_updt_solic_l" name="btn_updt_solic_l">Guardar Solicitud</button>
                                             </div>
                                         </div>
                                     <?php
@@ -1228,7 +1228,8 @@ require_once('../Controller/controladorListar.php');
                                             </div>
                                         </div>
                                         <div>
-                                            <button id="dlt_file" type="button" class="btn dlt_file"> <i class="cursor fa-solid fa-download"></i></button>
+                                            <button id="" type="button" class="btn"> <i class="cursor fa-solid fa-download"></i></button>
+                                            
                                         </div>
                                     </div>
                                 </div>
@@ -1485,21 +1486,20 @@ require_once('../Controller/controladorListar.php');
                                                 <?php } ?>
 
                                                 <div class="d-flex">
+                                                    <div hidden>
+                                                        <input id="ruta_doc_i" type="text" value="${ruta}" readonly>
+                                                        <input id="ruta_archivo_i" type="text" value="${nombreArchivo}" readonly>
+                                                        <input id="cod_doc_i" type="text" value="${id_doc_}" readonly>
+                                                    </div>
                                                 <?php if ($_SESSION['tipo_usu'] == 1) { ?>
                                                     <div class="inputs">
-                                                        <div hidden>
-                                                            <input id="ruta_doc_i" type="text" value="${ruta}" readonly>
-                                                            <input id="ruta_archivo_i" type="text" value="${nombreArchivo}" readonly>
-                                                            <input id="cod_doc_i" type="text" value="${id_doc_}" readonly>
-                                                        </div>
-
                                                         <div class="options">
                                                             <button id="dlt_file" type="button" class="btn dlt_file"><i class="cursor fa-solid fa-trash"></i></button>
                                                         </div>
                                                     </div>
                                                     <?php } else { ?>
                                                     <div class="options">
-                                                        <button id="dlt_file" type="button" class="btn dlt_file"> <i class="cursor fa-solid fa-download"></i></button>
+                                                        <a href="${ruta + nombreArchivo}" target="_blank" class="mak-txt" title="Descargar archivo"><i class="cursor fa-solid fa-download"></i></a>
                                                     </div>
                                                     <?php } ?>
                                                 </div>
@@ -2398,12 +2398,15 @@ require_once('../Controller/controladorListar.php');
                 // var seleccion = $(this).val();
                 $.ajax({
                     type: "POST",
-                    url: "../Controller/update_status_legal.php",
+                    url: "../Controller/update_status_solic_legal.php",
                     data: _data_cbo,
                     dataType: "JSON",
                     success: function(data) {
                         console.log(data);
                     },
+                    complete: function() {
+
+                    }
                 });
                 return false;
             });

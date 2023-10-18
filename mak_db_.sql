@@ -98,6 +98,11 @@ create table usuarios (
 	FOREIGN KEY (tipo_usu_cod) REFERENCES tipo_usuario (tipo_usu_id)
 );
 
+create table roles_usu (
+	id_rol int auto_increment primary key, 
+    nombre_rol varchar(255)
+);
+
 create table tipo_client_service (
 	id_tipo_client_s int not null auto_increment primary key, 
     nombre_tipo_client varchar(255)
@@ -116,8 +121,11 @@ CREATE TABLE clientes_servicios (
   tipo_client_service_cod 	int,
   corredor_cod				char(15) default 'no es corredor',
   suscripcion_cod 			int,
+  tipo_usu_cod				int,
+  rol_usu					int,
   FOREIGN KEY (tipo_client_service_cod) REFERENCES tipo_client_service(id_tipo_client_s)
-  -- FOREIGN KEY (suscripcion_cod) 		REFERENCES suscripciones(id_suscr)
+  FOREIGN KEY (tipo_usu_cod) REFERENCES tipo_usuario (tipo_usu_id)
+  FOREIGN KEY (rol_usu) REFERENCES roles_usu (id_rol)
 );
 
 
@@ -192,127 +200,127 @@ create table propiedades(
     prec_xm2_alq    DECIMAL(5,2),
     prec_mant_prop  DECIMAL(5,2),
     antig_prop 		DATE,
-		exclu_pro 		TINYINT(1) ,
-		fecha_reg_pro 	DATETIME ,
+	exclu_pro 		TINYINT(1) ,
+	fecha_reg_pro 	DATETIME ,
 
-		cod_usu_reg 	INT(11) ,
-		cod_zona 		INT(11) ,
+	cod_usu_reg 	INT(11) ,
+	cod_zona 		INT(11) ,
 
-		frente_prop 	INT(11) ,
-		fondo_prop 		INT(11) ,
-		izq_prop 		INT(11) ,
-		der_prop 		INT(11) ,
+	frente_prop 	INT(11) ,
+	fondo_prop 		INT(11) ,
+	izq_prop 		INT(11) ,
+	der_prop 		INT(11) ,
 
-		cod_acabado 	INT(11) ,
+	cod_acabado 	INT(11) ,
 
-		nave_m2_prop 	DECIMAL(5,2) ,
-		nave_al_prop 	DECIMAL(5,2) ,
-		alma_m2 		DECIMAL(5,2) ,
-		ofi_m2 			DECIMAL(5,2) ,
-		sala_come 		TINYINT(1) ,
-		sala 			TINYINT(1) ,
-		come 			TINYINT(1) ,
-		come_dia 		TINYINT(1) ,
-		sala_estar 		TINYINT(1) ,
-		sala_entre 		TINYINT(1) ,
-		sala_reu 		TINYINT(1) ,
-		sala_confe 		TINYINT(1) ,
-		sala_compu 		TINYINT(1) ,
-		cocina 				TINYINT(1) ,
-		dorm_tot 			INT(11) ,
-		cant_dorm_banio	 	INT(11) ,
-		cant_dorm_clst 		INT(11) ,
-		cant_dorm_wlk_clst 	INT(11) ,
-		total_ambts 		INT(11) ,
-		total_banios 		INT(11) ,
-		banios_compl 		INT(11) ,
-		banios_visit 		INT(11) ,
-		cuarto_serv 		INT(11) ,
-		banio_serv 			INT(11) ,
-		area_lavnd 			TINYINT(1) ,
-		cnt_cochera 		INT(11) ,
-		cod_tipo_cochera 	INT(11) ,
+	nave_m2_prop 	DECIMAL(5,2) ,
+	nave_al_prop 	DECIMAL(5,2) ,
+	alma_m2 		DECIMAL(5,2) ,
+	ofi_m2 			DECIMAL(5,2) ,
+	sala_come 		TINYINT(1) ,
+	sala 			TINYINT(1) ,
+	come 			TINYINT(1) ,
+	come_dia 		TINYINT(1) ,
+	sala_estar 		TINYINT(1) ,
+	sala_entre 		TINYINT(1) ,
+	sala_reu 		TINYINT(1) ,
+	sala_confe 		TINYINT(1) ,
+	sala_compu 		TINYINT(1) ,
+	cocina 				TINYINT(1) ,
+	dorm_tot 			INT(11) ,
+	cant_dorm_banio	 	INT(11) ,
+	cant_dorm_clst 		INT(11) ,
+	cant_dorm_wlk_clst 	INT(11) ,
+	total_ambts 		INT(11) ,
+	total_banios 		INT(11) ,
+	banios_compl 		INT(11) ,
+	banios_visit 		INT(11) ,
+	cuarto_serv 		INT(11) ,
+	banio_serv 			INT(11) ,
+	area_lavnd 			TINYINT(1) ,
+	cnt_cochera 		INT(11) ,
+	cod_tipo_cochera 	INT(11) ,
 
-		cant_depos 			INT(11) ,
-		patio_priv 			TINYINT(1) ,
-		jar_priv 			TINYINT(1) ,
-		terra_priv 			TINYINT(1) ,
-		cant_balcon 		INT(11) ,
-		co_work 			TINYINT(1) ,
-		vestuarios 			TINYINT(1) ,
-		piscina 			TINYINT(1) ,
-		piso 			INT(11) ,
-		pisos_prop 		INT(11) ,
-		pisos_edif 		INT(11) ,
-		nro_depas 		INT(11) ,
-		nro_lc_comer 	INT(11) ,
-		cant_ascensor 	INT(11) ,
-		ascnsor_dir 	TINYINT(1) ,
-		perm_masco 		TINYINT(1) ,
+	cant_depos 			INT(11) ,
+	patio_priv 			TINYINT(1) ,
+	jar_priv 			TINYINT(1) ,
+	terra_priv 			TINYINT(1) ,
+	cant_balcon 		INT(11) ,
+	co_work 			TINYINT(1) ,
+	vestuarios 			TINYINT(1) ,
+	piscina 			TINYINT(1) ,
+	piso 			INT(11) ,
+	pisos_prop 		INT(11) ,
+	pisos_edif 		INT(11) ,
+	nro_depas 		INT(11) ,
+	nro_lc_comer 	INT(11) ,
+	cant_ascensor 	INT(11) ,
+	ascnsor_dir 	TINYINT(1) ,
+	perm_masco 		TINYINT(1) ,
 
-		cod_tipo_ilum 	INT(11) ,
+	cod_tipo_ilum 	INT(11) ,
 
-		acabado_lujo 	TINYINT(1) ,
+	acabado_lujo 	TINYINT(1) ,
 
-		cod_tipo_suel 	INT(11) ,
+	cod_tipo_suel 	INT(11) ,
 
-		aire_acond 		TINYINT(1) ,
+	aire_acond 		TINYINT(1) ,
 
-		cod_tipo_pa_ex 	INT(11) ,
+	cod_tipo_pa_ex 	INT(11) ,
 
-		cant_anden_carga INT(11) ,
+	cant_anden_carga INT(11) ,
 
-		cod_repo_coci 	 INT(11) ,
+	cod_repo_coci 	 INT(11) ,
 
-		kitchenet 		TINYINT(1) ,
-		jacuzzi 		TINYINT(1) ,
-		chimenea 		TINYINT(1) ,
-		camp_ext	 	TINYINT(1) ,
-		horno_emp 		TINYINT(1) ,
-		despensa 		TINYINT(1) ,
-		seg_priv 		TINYINT(1) ,
-		ctrl_accs 		TINYINT(1) ,
-		caseta_guard 	TINYINT(1) ,
-		vid_vigil 		TINYINT(1) ,
-		sist_alarm 		TINYINT(1) ,
-		intercom 		TINYINT(1) ,
-		sist_incend 	TINYINT(1) ,
-		cerco_vivo 		TINYINT(1) ,
-		muro_corr 		TINYINT(1) ,
-		cerco_elec 		TINYINT(1) ,
-		luz 			TINYINT(1) ,
-		agua 			TINYINT(1) ,
-		desague 		TINYINT(1) ,
-		internet 		TINYINT(1) ,
+	kitchenet 		TINYINT(1) ,
+	jacuzzi 		TINYINT(1) ,
+	chimenea 		TINYINT(1) ,
+	camp_ext	 	TINYINT(1) ,
+	horno_emp 		TINYINT(1) ,
+	despensa 		TINYINT(1) ,
+	seg_priv 		TINYINT(1) ,
+	ctrl_accs 		TINYINT(1) ,
+	caseta_guard 	TINYINT(1) ,
+	vid_vigil 		TINYINT(1) ,
+	sist_alarm 		TINYINT(1) ,
+	intercom 		TINYINT(1) ,
+	sist_incend 	TINYINT(1) ,
+	cerco_vivo 		TINYINT(1) ,
+	muro_corr 		TINYINT(1) ,
+	cerco_elec 		TINYINT(1) ,
+	luz 			TINYINT(1) ,
+	agua 			TINYINT(1) ,
+	desague 		TINYINT(1) ,
+	internet 		TINYINT(1) ,
 
-		cod_energ 		INT(11) ,
+	cod_energ 		INT(11) ,
 
-		area_comn 		TINYINT(1) ,
-		terrz_comn 		TINYINT(1) ,
-		coch_vist 		TINYINT(1) ,
-		recep 			TINYINT(1) ,
-		hall 			TINYINT(1) ,
-		ingre_indp 		TINYINT(1) ,
-		bbq 			TINYINT(1) ,
-		area_verde 		TINYINT(1) ,
-		cancha 			TINYINT(1) ,
-		parq_int 		TINYINT(1) ,
-		pisc_comn 		TINYINT(1) ,
-		area_cafe 		TINYINT(1) ,
-		vista_int 		TINYINT(1) ,
-		vista_ext 		TINYINT(1) ,
-		vista_parq 		TINYINT(1) ,
-		vista_pano 		TINYINT(1) ,
-		vista_mar 		TINYINT(1) ,
-		cod_ubic 		INT(11) ,
-		cerca_cc 		TINYINT(1) ,
-		cerca_cole 		TINYINT(1) ,
-		frente_parq 	TINYINT(1) ,
-		frente_mar 		TINYINT(1) ,
-		cerca_parq_m_2 	TINYINT(1) ,
-		av_accs_asfalt 	TINYINT(1) ,
-		av_accs_afirm 	TINYINT(1) ,
-		lic_funcion 	TINYINT(1) ,
+	area_comn 		TINYINT(1) ,
+	terrz_comn 		TINYINT(1) ,
+	coch_vist 		TINYINT(1) ,
+	recep 			TINYINT(1) ,
+	hall 			TINYINT(1) ,
+	ingre_indp 		TINYINT(1) ,
+	bbq 			TINYINT(1) ,
+	area_verde 		TINYINT(1) ,
+	cancha 			TINYINT(1) ,
+	parq_int 		TINYINT(1) ,
+	pisc_comn 		TINYINT(1) ,
+	area_cafe 		TINYINT(1) ,
+	vista_int 		TINYINT(1) ,
+	vista_ext 		TINYINT(1) ,
+	vista_parq 		TINYINT(1) ,
+	vista_pano 		TINYINT(1) ,
+	vista_mar 		TINYINT(1) ,
+	cod_ubic 		INT(11) ,
+	cerca_cc 		TINYINT(1) ,
+	cerca_cole 		TINYINT(1) ,
+	frente_parq 	TINYINT(1) ,
+	frente_mar 		TINYINT(1) ,
+	cerca_parq_m_2 	TINYINT(1) ,
+	av_accs_asfalt 	TINYINT(1) ,
+	av_accs_afirm 	TINYINT(1) ,
+	lic_funcion 	TINYINT(1) ,
     
 -- relaciones
 
@@ -383,7 +391,7 @@ create table valorizacion(
     -- form depa dormitorios
     cant_dorm_dep			int,
     dormitorio_banho_dep 	int, 
-		cant_banho_dep		    int,
+	cant_banho_dep		    int,
     banho_visita_dep	 	boolean,
     
     cuarto_serv_dep		    boolean,
@@ -427,6 +435,9 @@ create table valorizacion(
     -- fin local industrial
     
     estado_solicitud 		int  default '500',
+	obs						VARCHAR(500),
+	comentario				VARCHAR(500),
+	nom_doc_valor			VARCHAR(500),
     
 	FOREIGN KEY (cod_tipo_inmue) REFERENCES  tipo_inmuebles  (id_tipo_inmb) ON DELETE SET NULL,
     FOREIGN KEY (cod_sub_tipo_inmue) REFERENCES  sub_tipo_inmuebles  (id_sub_tipo_inmb) ON DELETE SET NULL,
@@ -443,12 +454,17 @@ create table valorizacion(
 -- 402 = En revision
 -- 200 = Finalizado
 
+-- create table tipos_doc_legal(
+-- 	id_doc_legal 	int primary key auto_increment,
+--     tipo_doc_leg	varchar(255),
+--     tiempo_espera	varchar(255),
+--     costo_doc		varchar(255),
+--     desc_procd		varchar(255)
+-- );
+
 create table tipos_doc_legal(
-	id_doc_legal 	int primary key auto_increment,
-    tipo_doc_leg	varchar(255),
-    tiempo_espera	varchar(255),
-    costo_doc		varchar(255),
-    desc_procd		varchar(255)
+	id_tipo_doc 	int primary key auto_increment,
+    desc_tipo		varchar(90)
 );
 
 
@@ -468,6 +484,23 @@ create table docs_legal(
 -- 10 = Pendiente
 -- 20 = En revision
 -- 90 = Finalizado
+
+create table documents_clients(
+	id_document 	int primary key auto_increment,
+	
+    file_destination	varchar(100),
+    file_name           varchar(300),
+    file_ext			varchar(50),
+    file_type			varchar(100),
+    file_size			int,
+    fecha_reg			date,
+    tipo_doc			int,
+    id_client			int,
+    dni_client			int,
+    status_doc          varchar(20) default "500",
+    FOREIGN KEY (id_client) REFERENCES clientes_servicios (id_client) ON DELETE SET NULL,
+    FOREIGN KEY (tipo_doc) REFERENCES tipos_doc_legal (id_tipo_doc) ON DELETE SET NULL
+);
 
 insert into tipo_inmuebles values (-1, 'sin tipo de inmueble');
 insert into tipo_inmuebles values (null, 'Casa');

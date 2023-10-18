@@ -66,7 +66,7 @@ $(document).ready(function () {
             /*const mensaje = JSON.stringify({ tipo: 'nuevo_registro', mensaje: 'Nuevo registro insertado' });
             socket.send(mensaje);*/
             // No es necesario cambiar event.returnValue a false
-            // window.location.href = "../Valorizacion/";
+            window.location.href = "../Valorizacion/";
           } else {
             alert(
               "Error al registrar, Verifique que los campos esten correctamente completos."
@@ -1948,24 +1948,6 @@ $(document).ready(function () {
   //--------------------------------------------FUERA DE USO-------------------------------------------------------------------//
   //--------------------------------------------FUERA DE USO-------------------------------------------------------------------//
   //--------------------------------------------FUERA DE USO-------------------------------------------------------------------//
-  /*
-  $('#btnValo_casa').click(function(){
-      var _data_casa=$('#form_valor').serialize();
-      $.ajax({
-          type:"POST",
-          url:"../Controller/Add_valorizacion_casa.php",
-          data: _data_casa,
-          success:function(r){
-              if (r==1) {
-                  alert("Solicitud enviada correctamente.");
-              }else{
-                  alert("Error en el servidor.");
-              }
-          }
-      });
-      return false;
-  });
-*/
 
   /*function setBotonPresionado(boton) {
     document.getElementById("botonPresionado").value = boton;
