@@ -537,7 +537,7 @@ require_once('../Controller/controladorListar.php'); ?>
 
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                                        <button type="submit" name="btn_save_valo_file" id="btn_save_valo_file" class="btn btn-primary">Subir</button>
+                                        <button type="submit" name="btn_save_valo_file" id="btn_save_valo_file" class="btn mak-bg">Subir</button>
                                     </div>
                                 </div>
 
@@ -640,7 +640,7 @@ require_once('../Controller/controladorListar.php'); ?>
                             </div>
                             <form id="add_obs_val_0" method="POST">
                                 <div class="modal-body">
-                                    <input type="text" name="id__cod_valor" id="id__cod_valor">
+                                    <input type="hidden" name="id__cod_valor" id="id__cod_valor">
                                     <div class="form-group">
                                         <label>Observacion</label>
                                         <br>
@@ -648,8 +648,8 @@ require_once('../Controller/controladorListar.php'); ?>
                                     </div>
 
                                     <div class="modal-footer">
-                                        <button type="button" class="btn btn-primary" data-dismiss="modal">Cancelar</button>
-                                        <button type="button" class="btn btn-primary" data-dismiss="modal" id="btnValo_obs_set" name="btnValo_obs_set" disabled>Listo</button>
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                                        <button type="button" class="btn mak-bg" data-dismiss="modal" id="btnValo_obs_set" name="btnValo_obs_set" disabled>Listo</button>
                                     </div>
                                 </div>
                             </form>
@@ -2625,6 +2625,19 @@ require_once('../Controller/controladorListar.php'); ?>
                 htmlElement.style.overflow = "hidden";
             }
         });
+    </script>
+
+    <script>
+        // TEXTAREA
+        const textareas = document.querySelectorAll("textarea");
+        textareas.forEach((textarea) => {
+            textarea.addEventListener("keyup", e => {
+                textarea.style.height = "auto";
+                let scHeight = e.target.scrollHeight;
+                textarea.style.height = `${scHeight}px`;
+            })
+        })
+        // TEXTAREA
     </script>
 
     <!-- REQUIRED SCRIPTS -->

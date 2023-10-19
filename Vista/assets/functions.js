@@ -66,7 +66,7 @@ $(document).ready(function () {
             /*const mensaje = JSON.stringify({ tipo: 'nuevo_registro', mensaje: 'Nuevo registro insertado' });
             socket.send(mensaje);*/
             // No es necesario cambiar event.returnValue a false
-            window.location.href = "../Valorizacion/";
+            // window.location.href = "../Valorizacion/";
           } else {
             alert(
               "Error al registrar, Verifique que los campos esten correctamente completos."

@@ -761,3 +761,207 @@ SELECT id_document, id_legal, file_name, status_doc
 select nom_client, ape_client, status_solic, comentario from docs_legal
 where id_legal = 5
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+SELECT 
+-- casa
+v.id_valor AS 'ID PROPIEDAD', CONCAT(cs.nom_client, ' ', cs.ape_client) AS 'ASESOR', ti.tipo_inmb AS 'TIPO DE INMUEBLE', tp.tipo_promo AS 'TIPO OPERACIÓN', v.direccion AS 'DIRECCIÓN', "" AS 'DISTRITO', "" AS 'LINK DE UBICACIÓN', 
+
+(select _sti.sub_tipo_inmb from valorizacion inner join sub_tipo_inmuebles _sti on v.cod_sub_tipo_inmue = _sti.id_sub_tipo_inmb where ti.tipo_inmb = 'casa' limit 1) AS 'SUBTIPO DE INMUEBLE',
+
+(select _ubi.tipo_ubic from valorizacion inner join ubicacion _ubi on v.cod_ubi = _ubi.id_ubicacion where ti.tipo_inmb = 'casa' limit 1) AS 'LOCALIZACIÓN',
+
+(select _tz.tipo_zona from valorizacion inner join tipo_zonificacion _tz on v.cod_zonificacion = _tz.id_zona where ti.tipo_inmb = 'casa' limit 1) AS 'ZONIFICACIÓN',
+
+(select "" from valorizacion where ti.tipo_inmb = 'casa' limit 1) AS 'PRECIO TENTATIVO',
+
+(select v.area_terreno from valorizacion where ti.tipo_inmb = 'casa' limit 1) AS 'ÁREA DE TERRENO', 
+
+(select v.area_construida from valorizacion where ti.tipo_inmb = 'casa' limit 1) AS 'ÁREA CONSTRUIDA', 
+
+(select v.antiguedad from valorizacion where ti.tipo_inmb = 'casa' limit 1) AS 'ANTIGÜEDAD', 
+
+(select _tv.tipo_vista from valorizacion inner join tipo_vista _tv on v.cod_vista = _tv.id_vista where ti.tipo_inmb = 'casa' limit 1) AS 'FRENTE',
+
+(select "" from valorizacion where ti.tipo_inmb = 'casa' limit 1) AS 'PISO CASA',
+
+(select v.cant_dorm from valorizacion where ti.tipo_inmb = 'casa' limit 1) AS 'DORMITORIO(S)',
+
+(select v.cant_banho from valorizacion where ti.tipo_inmb = 'casa' limit 1) AS 'BAÑO(S)', 
+
+(select v.estacionamiento from valorizacion where ti.tipo_inmb = 'casa' limit 1) AS 'ESTACIONAMIENTOS', 
+
+case v.piscina_prop WHEN 1 THEN 'PISCINA' ELSE '' END AS 'OTROS', 
+-- casa
+-- departamento
+(select _sti.sub_tipo_inmb from valorizacion inner join sub_tipo_inmuebles _sti on v.cod_sub_tipo_inmue = _sti.id_sub_tipo_inmb where ti.tipo_inmb = 'departamento' limit 1) AS 'SUBTIPO DE INMUEBLE',
+
+(select _ubi.tipo_ubic from valorizacion inner join ubicacion _ubi on v.cod_ubi = _ubi.id_ubicacion where ti.tipo_inmb = 'departamento' limit 1) AS 'LOCALIZACIÓN',
+
+(select _ta.tipo_acabado from valorizacion inner join tipo_acabado _ta on v.cod_acabado = _ta.id_acabado where ti.tipo_inmb = 'departamento' limit 1) AS 'ACABADO',
+
+(select _tv.tipo_vista from valorizacion inner join tipo_vista _tv on v.cod_vista = _tv.id_vista where ti.tipo_inmb = 'departamento' limit 1) AS 'VISTA',
+
+(select "" AS 'PRECIO TENTATIVO' from valorizacion where ti.tipo_inmb = 'departamento' limit 1) AS 'PRECIO TENTATIVO',
+
+(select v.area_construida from valorizacion where ti.tipo_inmb = 'departamento' limit 1) AS 'ÁREA CONSTRUIDA', 
+
+(select v.area_ocupada from valorizacion where ti.tipo_inmb = 'departamento' limit 1) AS 'ÁREA OCUPADA', 
+
+(select v.antiguedad from valorizacion where ti.tipo_inmb = 'departamento' limit 1) AS 'ANTIGÜEDAD', 
+
+(select v.pisos_edif_dep from valorizacion where ti.tipo_inmb = 'departamento' limit 1) AS 'PISOS DE EDIFICACIÓN',
+
+(select v.piso_dep from valorizacion where ti.tipo_inmb = 'departamento' limit 1) AS 'PISO DONDE SE UBICA',
+
+(select v.cant_dorm_dep from valorizacion where ti.tipo_inmb = 'departamento' limit 1) AS 'DORMITORIO(S)',
+
+(select v.cant_banho_dep from valorizacion where ti.tipo_inmb = 'departamento' limit 1) AS 'BAÑO(S)', 
+
+(select v.estac_dep from valorizacion where ti.tipo_inmb = 'departamento' limit 1) AS 'ESTACIONAMIENTOS',
+-- departamento
+-- terreno
+(select _sti.sub_tipo_inmb from valorizacion inner join sub_tipo_inmuebles _sti on v.cod_sub_tipo_inmue = _sti.id_sub_tipo_inmb where ti.tipo_inmb = 'terreno' limit 1) AS 'SUBTIPO DE INMUEBLE',
+
+(select _tz.tipo_zona from valorizacion inner join tipo_zonificacion _tz on v.cod_zonificacion = _tz.id_zona where ti.tipo_inmb = 'terreno' limit 1) AS 'ZONIFICACIÓN',
+
+(select _ts.tipo_suelo from valorizacion inner join tipo_suelo _ts on v.cod_tipo_suelo = _ts.id_tipo_suelo where ti.tipo_inmb = 'terreno' limit 1) AS 'TIPO SUELO',
+
+(select _ubi.tipo_ubic from valorizacion inner join ubicacion _ubi on v.cod_ubi = _ubi.id_ubicacion where ti.tipo_inmb = 'terreno' limit 1) AS 'LOCALIZACIÓN',
+
+(select "" from valorizacion where ti.tipo_inmb = 'terreno' limit 1) AS 'PRECIO TENTATIVO',
+
+(select v.area_terreno from valorizacion where ti.tipo_inmb = 'terreno' limit 1) AS 'ÁREA DE TERRENO', 
+
+(select v.param_terreno from valorizacion where ti.tipo_inmb = 'terreno' limit 1) AS 'PARÁMETROS', 
+
+(select v.frent_terreno from valorizacion where ti.tipo_inmb = 'terreno' limit 1) AS 'FRENTE', 
+
+(select v.fondo_terreno from valorizacion where ti.tipo_inmb = 'terreno' limit 1) AS 'FONDO', 
+
+(select v.izq_terreno from valorizacion where ti.tipo_inmb = 'terreno' limit 1) AS 'IZQUIERDA', 
+
+(select v.der_terreno from valorizacion where ti.tipo_inmb = 'terreno' limit 1) AS 'DERECHA', 
+-- terreno
+-- oficina
+(select _ubi.tipo_ubic from valorizacion inner join ubicacion _ubi on v.cod_ubi = _ubi.id_ubicacion where ti.tipo_inmb = 'oficina' limit 1) AS 'LOCALIZACIÓN',
+
+(select _ta.tipo_acabado from valorizacion inner join tipo_acabado _ta on v.cod_acabado = _ta.id_acabado where ti.tipo_inmb = 'oficina' limit 1) AS 'ACABADO',
+
+(select _tz.tipo_zona from valorizacion inner join tipo_zonificacion _tz on v.cod_zonificacion = _tz.id_zona where ti.tipo_inmb = 'oficina' limit 1) AS 'ZONIFICACIÓN',
+
+(select _tv.tipo_vista from valorizacion inner join tipo_vista _tv on v.cod_vista = _tv.id_vista where ti.tipo_inmb = 'oficina' limit 1) AS 'VISTA',
+
+(select "" from valorizacion where ti.tipo_inmb = 'oficina' limit 1) AS 'PRECIO TENTATIVO',
+
+(select v.area_construida from valorizacion where ti.tipo_inmb = 'oficina' limit 1) AS 'ÁREA CONSTRUIDA', 
+
+(select v.area_ocupada from valorizacion where ti.tipo_inmb = 'oficina' limit 1) AS 'ÁREA OCUPADA', 
+
+(select v.antiguedad from valorizacion where ti.tipo_inmb = 'oficina' limit 1) AS 'ANTIGÜEDAD',
+
+(select "" from valorizacion where ti.tipo_inmb = 'oficina' limit 1) AS 'PISOS DE EDIFICACIÓN',
+
+(select v.piso_ofi from valorizacion where ti.tipo_inmb = 'oficina' limit 1) AS 'PISO DONDE SE UBICA',
+
+(select v.cochera_ofi from valorizacion where ti.tipo_inmb = 'oficina' limit 1) AS 'ESTACIONAMIENTOS',
+
+CONCAT( case when v.ascensor_ofi = 1 then 'ASCENSOR' else '' end, case when v.ascensor_ofi = 1 and v.aire_ofi = 1 then ', ' else '' end, case when v.aire_ofi = 1 then 'AIRE ACONDICIONADO' else '' end) AS 'OTROS',
+-- oficina
+-- local comercial
+(select _sti.sub_tipo_inmb from valorizacion inner join sub_tipo_inmuebles _sti on v.cod_sub_tipo_inmue = _sti.id_sub_tipo_inmb where ti.tipo_inmb = 'local comercial' limit 1) AS 'SUBTIPO DE INMUEBLE',
+
+(select _tz.tipo_zona from valorizacion inner join tipo_zonificacion _tz on v.cod_zonificacion = _tz.id_zona where ti.tipo_inmb = 'local comercial' limit 1) AS 'ZONIFICACIÓN',
+
+(select _ubi.tipo_ubic from valorizacion inner join ubicacion _ubi on v.cod_ubi = _ubi.id_ubicacion where ti.tipo_inmb = 'local comercial' limit 1) AS 'LOCALIZACIÓN',
+
+(select _ta.tipo_acabado from valorizacion inner join tipo_acabado _ta on v.cod_acabado = _ta.id_acabado where ti.tipo_inmb = 'local comercial' limit 1) AS 'ACABADO',
+
+(select "" from valorizacion where ti.tipo_inmb = 'local comercial' limit 1) AS 'PRECIO TENTATIVO',
+
+(select v.area_terreno from valorizacion where ti.tipo_inmb = 'local comercial' limit 1) AS 'ÁREA DE TERRENO', 
+
+(select v.area_construida from valorizacion where ti.tipo_inmb = 'local comercial' limit 1) AS 'ÁREA CONSTRUIDA', 
+
+(select v.area_ocupada from valorizacion where ti.tipo_inmb = 'local comercial' limit 1) AS 'ÁREA OCUPADA', 
+
+(select v.antiguedad from valorizacion where ti.tipo_inmb = 'local comercial' limit 1) AS 'ANTIGÜEDAD',
+
+(select _tv.tipo_vista from valorizacion inner join tipo_vista _tv on v.cod_vista = _tv.id_vista where ti.tipo_inmb = 'local comercial' limit 1) AS 'FRENTE',
+
+(select "" from valorizacion where ti.tipo_inmb = 'local comercial' limit 1) AS 'PISOS DE EDIFICACIÓN',
+
+(select v.piso_lcl_com from valorizacion where ti.tipo_inmb = 'local comercial' limit 1) AS 'PISO DONDE SE UBICA',
+
+(select v.cochera_lcl_com from valorizacion where ti.tipo_inmb = 'local comercial' limit 1) AS 'ESTACIONAMIENTOS',
+
+CONCAT( case when v.ascensor_lcl_com = 1 then 'ASCENSOR' else '' end, case when v.ascensor_lcl_com = 1 and v.aire_lcl_com = 1 then ', ' else '' end, case when v.aire_lcl_com = 1 then 'AIRE ACONDICIONADO' else '' end) AS 'OTROS',
+-- local comercial
+-- local industrial
+(select _tz.tipo_zona from valorizacion inner join tipo_zonificacion _tz on v.cod_zonificacion = _tz.id_zona where ti.tipo_inmb = 'local industrial' limit 1) AS 'ZONIFICACIÓN',
+
+(select _ts.tipo_suelo from valorizacion inner join tipo_suelo _ts on v.cod_tipo_suelo = _ts.id_tipo_suelo where ti.tipo_inmb = 'local industrial' limit 1) AS 'TIPO SUELO',
+
+(select "" from valorizacion where ti.tipo_inmb = 'local industrial' limit 1) AS 'CERCO PERIMÉTICO',
+
+(select v.cod_tipo_suelo from valorizacion where ti.tipo_inmb = 'local industrial' limit 1) AS 'ACCESO',
+
+(select "" from valorizacion where ti.tipo_inmb = 'local industrial' limit 1) AS 'PRECIO TENTATIVO',
+
+(select v.area_terreno from valorizacion where ti.tipo_inmb = 'local industrial' limit 1) AS 'ÁREA DE TERRENO', 
+
+(select v.area_construida from valorizacion where ti.tipo_inmb = 'local industrial' limit 1) AS 'ÁREA CONSTRUIDA', 
+
+(select v.nave_lcl_ind from valorizacion where ti.tipo_inmb = 'local industrial' limit 1) AS 'ÁREA DE NAVE', 
+
+(select v.antiguedad from valorizacion where ti.tipo_inmb = 'local industrial' limit 1) AS 'ANTIGÜEDAD',
+
+(select "" from valorizacion where ti.tipo_inmb = 'local industrial' limit 1) AS 'PISOS DE EDIFICACIÓN',
+
+(select "" from valorizacion where ti.tipo_inmb = 'local industrial' limit 1) AS 'ESTACIONAMIENTOS'
+-- local industrial
+FROM valorizacion v
+INNER JOIN clientes_servicios cs ON v.cod_client = cs.id_client
+INNER JOIN tipo_inmuebles ti ON v.cod_tipo_inmue = ti.id_tipo_inmb
+INNER JOIN sub_tipo_inmuebles sti ON v.cod_sub_tipo_inmue = sti.id_sub_tipo_inmb
+INNER JOIN tipo_promocion tp ON v.cod_tipo_prom = tp.id_promo
+INNER JOIN ubicacion ubi ON v.cod_ubi = ubi.id_ubicacion
+LEFT JOIN tipo_zonificacion tz ON v.cod_zonificacion = tz.id_zona
+INNER JOIN tipo_vista tv ON v.cod_vista = tv.id_vista
+INNER JOIN tipo_acabado ta ON v.cod_acabado = ta.id_acabado
+
+ORDER BY v.id_valor;
