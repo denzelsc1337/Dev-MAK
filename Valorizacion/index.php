@@ -24,9 +24,6 @@ require_once('../Controller/controladorListar.php'); ?>
     <link rel="stylesheet" href="../Vista/plugins/bootstrap-colorpicker/css/bootstrap-colorpicker.min.css">
     <!-- Tempusdominus Bootstrap 4 -->
     <link rel="stylesheet" href="../Vista/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
-    <!-- Select2 -->
-    <link rel="stylesheet" href="../Vista/plugins/select2/css/select2.min.css">
-    <link rel="stylesheet" href="../Vista/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
     <!-- Bootstrap4 Duallistbox -->
     <link rel="stylesheet" href="../Vista/plugins/bootstrap4-duallistbox/bootstrap-duallistbox.min.css">
     <!-- BS Stepper -->
@@ -117,17 +114,24 @@ require_once('../Controller/controladorListar.php'); ?>
                 }
                 ?>
 
-                <!-- <div class=""> -->
-                <div class="overflow-hidden d-flex scroll">
+                <div id="loader_uhd" class="mak_overlay hidden">
+                    <img src="../Vista/images/MAK_logo.png" alt="" class="fading-element">
+                </div>
 
-                    <section class="content body-mak mak-txt position-relative" data-content="historico">
+                <div class="d-flex overflow-hidden w-100 pddt-5">
+
+                    <div class="mak-content-slide">
 
 
-                        <div class="container">
-                            <h1 class="text-center mt-5">HISTORICO</h1>
-                            <div class="row">
 
-                                <!-- <div class="menu-filter">
+                        <section class="content body-mak mak-txt position-relative" data-content="historico">
+
+
+                            <div class="container">
+                                <h1 class="text-center mt-5">HISTORICO</h1>
+                                <div class="row">
+
+                                    <!-- <div class="menu-filter">
                                     <div class="filter-drop shadow ml-auto">
                                         <div class="dropdown">
                                             Filtros &nbsp;
@@ -141,377 +145,344 @@ require_once('../Controller/controladorListar.php'); ?>
                                     </div>
                                 </div> -->
 
-                                <?php
+                                    <?php
 
 
-                                if ($_SESSION['tipo_usu'] == 1) {
-                                    //ocultar el del user y mostrar el del admin
-                                ?>
+                                    if ($_SESSION['tipo_usu'] == 1) {
+                                        //ocultar el del user y mostrar el del admin
+                                    ?>
 
-                                    <!-- </div> TABLA ADMIN -->
+                                        <!-- </div> TABLA ADMIN -->
 
-                                    <!-- <div class=""> -->
-                                    <div class="col-sm-12">
-                                        <table id="tabla" class="table table_ table-responsive table-borderless mb-3 ml-3 mr-3" style="width: 100%;">
+                                        <div class="col-sm-12 p-0">
+                                            <table id="tabla" class="table table_ table-responsive table-borderless mb-3 mr-3" style="width: 100%;">
 
-                                            <thead>
-                                                <tr>
-                                                    <th>ID</th>
-                                                    <th>Dni</th>
-                                                    <th>Cliente</th>
-                                                    <th>Direccion</th>
-                                                    <th>Tipo Propiedad</th>
-                                                    <th>Tipo</th>
-                                                    <th>Estado</th>
-                                                    <th>Detalles</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <?php
-
-
-                                                function mostrarData($data)
-                                                {
-                                                    switch ($data) {
-                                                        case "1":
-                                                            echo "<td>Si</td>";
-                                                            break;
-                                                        case "0":
-                                                            echo "<td>No</td>";
-                                                            break;
-                                                        case "500":
-                                                            echo "<td><span class='badge rounded-pill bg-secondary'>Pendiente</span></td>";
-                                                            break;
-                                                        case "400":
-                                                            echo "<td><span class='badge rounded-pill bg-warning text-dark'>Observado</span></td>";
-                                                            break;
-                                                        case "200":
-                                                            echo "<td><span class='badge rounded-pill bg-success'> Finalizado</span></td>";
-                                                            break;
-                                                        default:
-                                                            // echo "<td>$data</td>";
-                                                            if ($data !== null) {
-                                                                echo  "<td>$data</td>";
-                                                            } else {
-                                                                echo "<td>-</td>";
-                                                            }
-                                                            break;
-                                                    }
-                                                }
-
-                                                foreach ($list_valo as $lst_vlzn) : ?>
+                                                <thead>
                                                     <tr>
-                                                        <td>
-                                                            <?php echo $lst_vlzn[0] ?>
-                                                        </td>
-                                                        <?php mostrarData($lst_vlzn[1]) ?>
-                                                        <?php mostrarData($lst_vlzn[2]) ?>
-                                                        <?php mostrarData($lst_vlzn[3]) ?>
-                                                        <?php mostrarData($lst_vlzn[4] . ' (' . $lst_vlzn[5] . ')') ?>
-
-                                                        <?php mostrarData($lst_vlzn[6]) ?>
-                                                        <?php mostrarData($lst_vlzn[63]) ?>
-
-                                                        <td>
-
-                                                            <?php if ($lst_vlzn[63] == 400) { ?>
-                                                                <button type="button" class="btn btn-rounded scroll-toggle" data-id_solic_val="<?php echo $lst_vlzn[0] ?>" data-id_cli="<?php echo $lst_vlzn[64] ?>" data-dni_cli="<?php echo $lst_vlzn[1] ?>">
-                                                                    <i class="fa-solid fa-pencil"></i>
-                                                                </button>
-
-                                                            <?php } else { ?>
-                                                                <button type="button" class="btn btn-rounded scroll-toggle" data-id_solic_val="<?php echo $lst_vlzn[0] ?>" data-id_cli="<?php echo $lst_vlzn[64] ?>" data-dni_cli="<?php echo $lst_vlzn[1] ?>">
-                                                                    <i class="fa-solid fa-eye"></i>
-                                                                </button>
-                                                            <?php } ?>
-
-                                                        </td>
-
-                                                        <!--
-                                            <td>
-
-                                                <button type="button" class="btn editbtn" data-toggle="modal" data-target="#exampleModal"><i class="fa-solid fa-upload"></i></button>
-
-                                            </td>-->
+                                                        <th>ID</th>
+                                                        <th>Dni</th>
+                                                        <th>Cliente</th>
+                                                        <th>Direccion</th>
+                                                        <th>Tipo Propiedad</th>
+                                                        <th>Tipo</th>
+                                                        <th>Estado</th>
+                                                        <th>Detalles</th>
                                                     </tr>
-                                                <?php endforeach ?>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                    <!-- </div> -->
+                                                </thead>
+                                                <tbody>
+                                                    <?php
 
-                                    <!-- </div> TABLA ADMIN -->
 
-                                <?php
-                                } else {
-                                ?>
-
-                                    <!-- </div> TABLA USER -->
-
-                                    <!-- <div class="table-responsive "> -->
-                                    <div class="col-sm-12">
-                                        <table class="table table_ table-responsive table-borderless mb-3 pl-3 pr-3" style="width: 100%;">
-                                            <thead>
-                                                <tr>
-                                                    <th>ID</th>
-                                                    <th>Cliente</th>
-                                                    <th>Direccion</th>
-                                                    <th>Tipo Propiedad</th>
-                                                    <th>Tipo</th>
-                                                    <th>Estado</th>
-                                                    <th>Detalles</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <?php
-                                                function mostrarDataUser($data)
-                                                {
-                                                    switch ($data) {
-                                                        case "1":
-                                                            echo "<td>Si</td>";
-                                                            break;
-                                                        case "0":
-                                                            echo "<td>No</td>";
-                                                            break;
-                                                        case "500":
-                                                            echo "<td><span class='badge rounded-pill bg-secondary'>Pendiente</span></td>";
-                                                            break;
-                                                        case "400":
-                                                            echo "<td><span class='badge rounded-pill bg-warning text-dark'>Observado</span></td>";
-                                                            break;
-                                                        case "200":
-                                                            echo "<td><span class='badge rounded-pill bg-success'> Finalizado</span></td>";
-                                                            break;
-
-                                                        default:
-                                                            // echo "<td>$data</td>";
-                                                            if ($data !== null) {
-                                                                echo  "<td>$data</td>";
-                                                            } else {
-                                                                echo "<td>-</td>";
-                                                            }
-                                                            break;
+                                                    function mostrarData($data)
+                                                    {
+                                                        switch ($data) {
+                                                            case "1":
+                                                                echo "<td>Si</td>";
+                                                                break;
+                                                            case "0":
+                                                                echo "<td>No</td>";
+                                                                break;
+                                                            case "500":
+                                                                echo "<td><span class='badge rounded-pill bg-secondary'>Pendiente</span></td>";
+                                                                break;
+                                                            case "400":
+                                                                echo "<td><span class='badge rounded-pill bg-warning text-dark'>Observado</span></td>";
+                                                                break;
+                                                            case "200":
+                                                                echo "<td><span class='badge rounded-pill bg-success'> Finalizado</span></td>";
+                                                                break;
+                                                            default:
+                                                                // echo "<td>$data</td>";
+                                                                if ($data !== null) {
+                                                                    echo  "<td>$data</td>";
+                                                                } else {
+                                                                    echo "<td>-</td>";
+                                                                }
+                                                                break;
+                                                        }
                                                     }
-                                                }
 
+                                                    foreach ($list_valo as $lst_vlzn) : ?>
+                                                        <tr>
+                                                            <td>
+                                                                <?php echo $lst_vlzn[0] ?>
+                                                            </td>
+                                                            <?php mostrarData($lst_vlzn[1]) ?>
+                                                            <?php mostrarData($lst_vlzn[2]) ?>
+                                                            <?php mostrarData($lst_vlzn[3]) ?>
+                                                            <?php mostrarData($lst_vlzn[4] . ' (' . $lst_vlzn[5] . ')') ?>
 
-                                                $list_valo_user = $oValor->list_Valo_Historico_User($_SESSION['id_usu'], $_SESSION['dni']);
+                                                            <?php mostrarData($lst_vlzn[6]) ?>
+                                                            <?php mostrarData($lst_vlzn[63]) ?>
 
-                                                foreach ($list_valo_user as $lst_vlzn_) :
-                                                    $cont = 0;
-                                                ?>
+                                                            <td>
+
+                                                                <?php if ($lst_vlzn[63] == 400) { ?>
+                                                                    <button type="button" class="btn btn-rounded scroll-toggle" data-id_solic_val="<?php echo $lst_vlzn[0] ?>" data-id_cli="<?php echo $lst_vlzn[64] ?>" data-dni_cli="<?php echo $lst_vlzn[1] ?>">
+                                                                        <i class="fa-solid fa-pencil"></i>
+                                                                    </button>
+
+                                                                <?php } else { ?>
+                                                                    <button type="button" class="btn btn-rounded scroll-toggle" data-id_solic_val="<?php echo $lst_vlzn[0] ?>" data-id_cli="<?php echo $lst_vlzn[64] ?>" data-dni_cli="<?php echo $lst_vlzn[1] ?>">
+                                                                        <i class="fa-solid fa-eye"></i>
+                                                                    </button>
+                                                                <?php } ?>
+
+                                                            </td>
+                                                        </tr>
+                                                    <?php endforeach ?>
+                                                </tbody>
+                                            </table>
+                                        </div>
+
+                                        <!-- </div> TABLA ADMIN -->
+
+                                    <?php
+                                    } else {
+                                    ?>
+
+                                        <!-- </div> TABLA USER -->
+
+                                        <!-- <div class="table-responsive "> -->
+                                        <div class="col-sm-12 p-0">
+                                            <table class="table table_ table-responsive table-borderless mb-3 pl-3 pr-3" style="width: 100%;">
+                                                <thead>
                                                     <tr>
-                                                        <td>
-                                                            <?php echo $lst_vlzn_[0] ?>
-                                                        </td>
+                                                        <th>ID</th>
+                                                        <th>Cliente</th>
+                                                        <th>Direccion</th>
+                                                        <th>Tipo Propiedad</th>
+                                                        <th>Tipo</th>
+                                                        <th>Estado</th>
+                                                        <th>Detalles</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <?php
+                                                    function mostrarDataUser($data)
+                                                    {
+                                                        switch ($data) {
+                                                            case "1":
+                                                                echo "<td>Si</td>";
+                                                                break;
+                                                            case "0":
+                                                                echo "<td>No</td>";
+                                                                break;
+                                                            case "500":
+                                                                echo "<td><span class='badge rounded-pill bg-secondary'>Pendiente</span></td>";
+                                                                break;
+                                                            case "400":
+                                                                echo "<td><span class='badge rounded-pill bg-warning text-dark'>Observado</span></td>";
+                                                                break;
+                                                            case "200":
+                                                                echo "<td><span class='badge rounded-pill bg-success'> Finalizado</span></td>";
+                                                                break;
 
-                                                        <?php mostrarDataUser($lst_vlzn_[1]) ?>
-                                                        <?php mostrarDataUser($lst_vlzn_[2]) ?>
-                                                        <?php mostrarDataUser($lst_vlzn_[3] . ' (' . $lst_vlzn_[4] . ')') ?>
+                                                            default:
+                                                                // echo "<td>$data</td>";
+                                                                if ($data !== null) {
+                                                                    echo  "<td>$data</td>";
+                                                                } else {
+                                                                    echo "<td>-</td>";
+                                                                }
+                                                                break;
+                                                        }
+                                                    }
 
-                                                        <?php mostrarDataUser($lst_vlzn_[5]) ?>
-                                                        <?php mostrarDataUser($lst_vlzn_[6]) ?>
+
+                                                    $list_valo_user = $oValor->list_Valo_Historico_User($_SESSION['id_usu'], $_SESSION['dni']);
+
+                                                    foreach ($list_valo_user as $lst_vlzn_) :
+                                                        $cont = 0;
+                                                    ?>
+                                                        <tr>
+                                                            <td>
+                                                                <?php echo $lst_vlzn_[0] ?>
+                                                            </td>
+
+                                                            <?php mostrarDataUser($lst_vlzn_[1]) ?>
+                                                            <?php mostrarDataUser($lst_vlzn_[2]) ?>
+                                                            <?php mostrarDataUser($lst_vlzn_[3] . ' (' . $lst_vlzn_[4] . ')') ?>
+
+                                                            <?php mostrarDataUser($lst_vlzn_[5]) ?>
+                                                            <?php mostrarDataUser($lst_vlzn_[6]) ?>
 
 
-                                                        <td>
-                                                            <div class="row justify-content-evenly">
-                                                                <?php if ($lst_vlzn_[6] == 400) : ?>
-                                                                    <div class="col-sm-6 d-flex justify-content-center">
-                                                                        <div class="options btn_get_obs_0" title="Observación" data-id_solic_val="<?php echo $lst_vlzn_[0] ?>" data-id_cli="<?php echo $lst_vlzn_[8] ?>" data-dni_cli="<?php echo $lst_vlzn_[9] ?>">
-                                                                            <button type="button" class="btn btn-rounded ">
-                                                                                <i class="fa-solid fa-eye"></i>
-                                                                            </button>
+                                                            <td>
+                                                                <div class="row justify-content-evenly">
+                                                                    <?php if ($lst_vlzn_[6] == 400) : ?>
+                                                                        <div class="col-sm-6 d-flex justify-content-center">
+                                                                            <div class="options btn_get_obs_0" title="Observación" data-id_solic_val="<?php echo $lst_vlzn_[0] ?>" data-id_cli="<?php echo $lst_vlzn_[8] ?>" data-dni_cli="<?php echo $lst_vlzn_[9] ?>">
+                                                                                <button type="button" class="btn btn-rounded ">
+                                                                                    <i class="fa-solid fa-eye"></i>
+                                                                                </button>
+                                                                            </div>
                                                                         </div>
-                                                                    </div>
-                                                                <?php else : ?>
-                                                                    <div class="col-sm-6 d-flex justify-content-center">
-                                                                        <?php if ($lst_vlzn_[6] == 200 && !$lst_vlzn_[7] == null) : ?>
-                                                                            <div class="options" title="Descargar archivo">
-                                                                                <a target="_blank" download="../Valorizaciones/<?php echo $lst_vlzn_[0] . '/' . $lst_vlzn_[9] . '/docs_val/' . $lst_vlzn_[7] ?>" href="../Valorizaciones/<?php echo $lst_vlzn_[0] . '/' . $lst_vlzn_[9] . '/docs_val/' . $lst_vlzn_[7] ?>">
-                                                                                    <i class="fa-solid fa-download"></i>
-                                                                                </a>
-                                                                            </div>
-                                                                        <?php else : ?>
-                                                                            <div class="options">
-                                                                                <strong title="En pendiente">-</strong>
-                                                                            </div>
-                                                                        <?php endif ?>
-                                                                    </div>
-                                                                <?php endif ?>
-                                                            </div>
-                                                        </td>
-                                                        <!--
+                                                                    <?php else : ?>
+                                                                        <div class="col-sm-6 d-flex justify-content-center">
+                                                                            <?php if ($lst_vlzn_[6] == 200 && !$lst_vlzn_[7] == null) : ?>
+                                                                                <div class="options" title="Descargar archivo">
+                                                                                    <a target="_blank" download="../Valorizaciones/<?php echo $lst_vlzn_[0] . '/' . $lst_vlzn_[9] . '/docs_val/' . $lst_vlzn_[7] ?>" href="../Valorizaciones/<?php echo $lst_vlzn_[0] . '/' . $lst_vlzn_[9] . '/docs_val/' . $lst_vlzn_[7] ?>">
+                                                                                        <i class="fa-solid fa-download"></i>
+                                                                                    </a>
+                                                                                </div>
+                                                                            <?php else : ?>
+                                                                                <div class="options">
+                                                                                    <strong title="En pendiente">-</strong>
+                                                                                </div>
+                                                                            <?php endif ?>
+                                                                        </div>
+                                                                    <?php endif ?>
+                                                                </div>
+                                                            </td>
+                                                            <!--
                                     <td>
                                         <a href="../Valorizaciones/<?php echo $lst_vlzn_[0] ?>/<?php echo $lst_vlzn_[7] ?>"><i class="fa-solid fa-download"></i></a>
                                     </td>
                                     -->
+                                                        </tr>
+                                                    <?php endforeach ?>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <!-- </div> -->
+
+                                        <!-- </div> TABLA USER -->
+                                    <?php
+                                        //ocultar el del admin y mostrar el del user
+                                    }
+                                    ?>
+
+                                </div>
+
+                            </div>
+
+                        </section>
+
+
+
+                        <section class="content body-mak mak-txt position-relative">
+
+                            <form id="add_data_val" method="POST">
+
+                                <input type="text" name="cod_solic_v" id="cod_solic_v" hidden>
+                                <input type="text" name="dni_usu_v" id="dni_usu_v" hidden>
+                                <div class="container">
+
+                                    <div class="row">
+
+                                        <div class="card-body mt-4">
+                                            <table class="table table-borderless">
+                                                <thead>
+                                                    <tr class="t-head">
+                                                        <th>DISTRITO</th>
+                                                        <th>DIRECCIÓN</th>
+                                                        <th>TIPO</th>
+                                                        <th>PROMOCIÓN</th>
+                                                        <th>AT</th>
+                                                        <th>AC</th>
+                                                        <th>AO</th>
                                                     </tr>
-                                                <?php endforeach ?>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                    <!-- </div> -->
-
-                                    <!-- </div> TABLA USER -->
-                                <?php
-                                    //ocultar el del admin y mostrar el del user
-                                }
-                                ?>
-
-                            </div>
-
-                        </div>
-
-                    </section>
-
-
-                    <div id="loader_uhd" class="mak_overlay hidden">
-                        <img src="../Vista/images/MAK_logo.png" alt="" class="fading-element">
-                    </div>
-
-                    <section class="content body-mak mak-txt position-relative">
-
-                        <form id="add_data_val" method="POST">
-
-                            <input type="text" name="cod_solic_v" id="cod_solic_v" hidden>
-                            <input type="text" name="dni_usu_v" id="dni_usu_v" hidden>
-                            <div class="container">
-
-                                <!-- <div id="loader_uhd" class="loader-styla" style="display: none;">
-                                    <div class="d-flex flex-column align-items-center">
-                                        <img src="../Vista/assets/loading_uhd.gif">
-                                        <div class="lds-spinner mb-4">
-                                            <div></div>
-                                            <div></div>
-                                            <div></div>
-                                            <div></div>
-                                            <div></div>
-                                            <div></div>
-                                            <div></div>
-                                            <div></div>
-                                            <div></div>
-                                            <div></div>
-                                            <div></div>
-                                            <div></div>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <!-- <td>MIRAFLORES</td> -->
+                                                        <td id="dir_dist_rsm"></td>
+                                                        <!-- <td>AV AREQUIPA 4960</td> -->
+                                                        <td id="dir_rsm"></td>
+                                                        <!-- <td>CASA</td> -->
+                                                        <td id="tip_rsm"></td>
+                                                        <!-- <td>VENTA</td> -->
+                                                        <td id="pro_rsm"></td>
+                                                        <td id="at_rsm"></td>
+                                                        <td id="ac_rsm"></td>
+                                                        <td id="ao_rsm"></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
                                         </div>
-                                        <strong>Comprobando Informacion. Por favor espere</strong>
-                                    </div>
-                                </div> -->
+                                        <br>
 
-                                <div class="row">
-
-                                    <div class="card-body mt-4">
-                                        <table class="table table-borderless">
-                                            <thead>
-                                                <tr class="t-head">
-                                                    <th>DISTRITO</th>
-                                                    <th>DIRECCIÓN</th>
-                                                    <th>TIPO</th>
-                                                    <th>PROMOCIÓN</th>
-                                                    <th>AT</th>
-                                                    <th>AC</th>
-                                                    <th>AO</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <!-- <td>MIRAFLORES</td> -->
-                                                    <td id="dir_dist_rsm"></td>
-                                                    <!-- <td>AV AREQUIPA 4960</td> -->
-                                                    <td id="dir_rsm"></td>
-                                                    <!-- <td>CASA</td> -->
-                                                    <td id="tip_rsm"></td>
-                                                    <!-- <td>VENTA</td> -->
-                                                    <td id="pro_rsm"></td>
-                                                    <td id="at_rsm"></td>
-                                                    <td id="ac_rsm"></td>
-                                                    <td id="ao_rsm"></td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                    <br>
-
-                                    <div class="d-flex w-100 justify-content-between mt-3 resumen">
-                                        <div class="blaa">
-                                            <div class="card-body">
-                                                <div>
-                                                    <label class="mak-txt">Comentario</label>
-                                                    <textarea id="coment_valr_r" placeholder="Escribe un comentario..." style="resize: none;" readonly></textarea>
-                                                </div>
-                                                <div class="row justify-content-between">
-                                                    <div class="btn btn-mak mak-bg btn_get_fotos" data-bs-toggle="modal" data-bs-target="#verFotos">Ver Fotos</div>
-                                                    <div class="btn btn-mak mak-bg btn_get_details" data-bs-toggle="modal" data-bs-target="#verDocs">Ver Documentos</div>
-
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="blaa" style="width:33%;">
-                                            <div class="card-box">
-                                                <div id="map_resumen" style="height: 250px;">
-                                                </div>
-                                            </div>
-                                            <small id="mensaje_error"></small>
-                                        </div>
-                                        <div class="blaa">
-                                            <div class="card-box card-body data-resume">
-
-                                                <figcaption class="d-flex flex-column pl-2">
-                                                    <p class="b-text"><b>Resumen</b></p>
-
-                                                    <div class="input-select">
-                                                        <input type="text" id="" name="" class="textBox" readonly>
-                                                        <input type="text" id="status_solic_val_cbo" name="status_solic_val_cbo" hidden readonly>
-                                                        <div class="select-options">
-                                                            <div class="bg-secondary" data-value="500">Pendiente</div>
-                                                            <div class="bg-warning" data-value="400">Observado</div>
-                                                            <div class="bg-success" data-value="200">Finalizado</div>
-                                                        </div>
+                                        <div class="d-flex w-100 justify-content-between mt-3 resumen">
+                                            <div class="blaa">
+                                                <div class="card-body">
+                                                    <div>
+                                                        <label class="mak-txt">Comentario</label>
+                                                        <textarea id="coment_valr_r" placeholder="Escribe un comentario..." style="resize: none;" readonly></textarea>
                                                     </div>
+                                                    <div class="row justify-content-between">
+                                                        <div class="btn btn-mak mak-bg btn_get_fotos" data-bs-toggle="modal" data-bs-target="#verFotos">Ver Fotos</div>
+                                                        <div class="btn btn-mak mak-bg btn_get_details" data-bs-toggle="modal" data-bs-target="#verDocs">Ver Documentos</div>
 
-                                                    <small class="">Datos de contacto:</small>
-                                                </figcaption>
-
-                                                <ul>
-                                                    <li><b>Nombre: </b><?php echo $_SESSION['nom_usu']; ?></li>
-                                                    <li><b>Email: </b><?php echo $_SESSION['email_usu']; ?></li>
-                                                    <li><b>Teléfono: </b><?php echo $_SESSION['telef_usu']; ?></li>
-                                                </ul>
-
-                                                <div class="pl-2">
-                                                    <p><strong>Información de la propiedad:</strong></p>
-
+                                                    </div>
                                                 </div>
                                             </div>
+                                            <div class="blaa" style="width:33%;">
+                                                <div class="card-box">
+                                                    <div id="map_resumen" style="height: 250px;">
+                                                    </div>
+                                                </div>
+                                                <small id="mensaje_error"></small>
+                                            </div>
+                                            <div class="blaa">
+                                                <div class="card-box card-body data-resume">
+
+                                                    <figcaption class="d-flex flex-column pl-2">
+                                                        <p class="b-text"><b>Resumen</b></p>
+
+                                                        <div class="input-select">
+                                                            <input type="text" id="" name="" class="textBox" readonly>
+                                                            <input type="text" id="status_solic_val_cbo" name="status_solic_val_cbo" hidden readonly>
+                                                            <div class="select-options">
+                                                                <div class="bg-secondary" data-value="500">Pendiente</div>
+                                                                <div class="bg-warning" data-value="400">Observado</div>
+                                                                <div class="bg-success" data-value="200">Finalizado</div>
+                                                            </div>
+                                                        </div>
+
+                                                        <small class="">Datos de contacto:</small>
+                                                    </figcaption>
+
+                                                    <ul>
+                                                        <li><b>Nombre: </b><?php echo $_SESSION['nom_usu']; ?></li>
+                                                        <li><b>Email: </b><?php echo $_SESSION['email_usu']; ?></li>
+                                                        <li><b>Teléfono: </b><?php echo $_SESSION['telef_usu']; ?></li>
+                                                    </ul>
+
+                                                    <div class="pl-2">
+                                                        <p><strong>Información de la propiedad:</strong></p>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+
                                         </div>
-
                                     </div>
-                                </div>
 
-                                <div class="card-footer pt-5">
-                                    <div class="form-flex">
-                                        <button type="button" class="btn btn-mak mak-bg-sec antPag avanza_pa_atras">Retroceder</button>
+                                    <div class="card-footer pt-5">
+                                        <div class="form-flex">
+                                            <button type="button" class="btn btn-mak mak-bg-sec antPag avanza_pa_atras">Retroceder</button>
 
-                                        <button type="button" class="btn btn-mak mak-bg-sec upld_file_valo" id="subir_valor">Subir Valorizacion</button>
+                                            <button type="button" class="btn btn-mak mak-bg-sec upld_file_valo" id="subir_valor">Subir Valorizacion</button>
 
-                                        <button type="button" class="btn btn-mak mak-bg-sec add_obs" id="add_obsv_v" data-id_solic>obs</button>
+                                            <button type="button" class="btn btn-mak mak-bg-sec add_obs" id="add_obsv_v" data-id_solic>obs</button>
 
-                                        <button type="button" class="btn btn-mak mak-bg dwnld_valo" id="btn_dwnld_valo" name="btn_dwnld_valo" style="display:none;">Descargar Informacion</button>
+                                            <button type="button" class="btn btn-mak mak-bg dwnld_valo" id="btn_dwnld_valo" name="btn_dwnld_valo" style="display:none;">Descargar Informacion</button>
 
-                                        <button type="button" class="btn btn-mak mak-bg btn_finalizar" id="btnValo_obs_save" name="btnValo_obs_save">Guardar</button>
+                                            <button type="button" class="btn btn-mak mak-bg btn_finalizar" id="btnValo_obs_save" name="btnValo_obs_save">Guardar</button>
 
-                                        <button type="button" class="btn btn-rounded  btn_lst_docs btn_lst_docs_0" data-toggle="modal" data-target="#lst_docs_legal" data-valor="DNI" data-titulo="DNI" data-id_doc_="4" data-id_user_="<?php echo $_SESSION['dni'] ?>">
-                                            <i class="cursor fa-solid fa-eye"></i>
-                                        </button>
+                                            <button type="button" class="btn btn-rounded  btn_lst_docs btn_lst_docs_0" data-toggle="modal" data-target="#lst_docs_legal" data-valor="DNI" data-titulo="DNI" data-id_doc_="4" data-id_user_="<?php echo $_SESSION['dni'] ?>">
+                                                <i class="cursor fa-solid fa-eye"></i>
+                                            </button>
+                                        </div>
                                     </div>
+
                                 </div>
+                            </form>
+                        </section>
 
-                            </div>
-                        </form>
-                    </section>
-
+                    </div>
                 </div>
-                <!-- </div> -->
 
 
 
@@ -701,14 +672,6 @@ require_once('../Controller/controladorListar.php'); ?>
 
 
         <?php include '../Vista/foot-form.php' ?>
-        <!-- <footer class="main-footer">
-            <strong>Copyright © 1986-2023 <a href="https://mak.com.pe/">MAK S.A.C</a>.</strong>
-            All rights reserved.
-            <div class="float-right d-none d-sm-inline-block">
-                <b>Version</b> 1.0.0
-            </div>
-        </footer> -->
-
 
     </div>
 
@@ -777,25 +740,6 @@ require_once('../Controller/controladorListar.php'); ?>
 
 
     <script type="text/javascript">
-        /*
-        function buscarDireccion(event, mapa1Id, mapa2Id) {
-            if (event.keyCode === 13) { // 13 es el código de la tecla "Enter"
-                event.preventDefault();
-                const direccion = document.getElementById('direccion_').value;
-                const geocoder = new google.maps.Geocoder();
-                geocoder.geocode({
-                    address: direccion
-                }, function(results, status) {
-                    if (status === 'OK') {
-                        const latitud = results[0].geometry.location.lat();
-                        const longitud = results[0].geometry.location.lng();
-                        mostrarMapa(latitud, longitud, mapa1Id);
-                        mostrarMapa(latitud, longitud, mapa2Id);
-                    }
-                });
-            }
-        }*/
-
         async function buscarDireccion(event, mapa1Id, mapa2Id) {
             const isEnterKey = event.keyCode === 13;
             const isMouseClick = event.type === 'click';
@@ -900,32 +844,6 @@ require_once('../Controller/controladorListar.php'); ?>
     </script>
     <!--GOOGLE MAPS TESTING-->
 
-    <script type="text/javascript">
-        /*function changeInputs() {
-          const tipo_prop = document.getElementById("tipo_prop");
-
-          const tipo_prop_value_selected = tipo_prop.value;
-
-
-          if (tipo_prop_value_selected === "1") {
-            const area_t = document.getElementById("a_t");
-            area_t.style.display = "none";
-            console.log("testing");
-
-          } else if (tipo_prop_value_selected === "2") {
-
-            console.log("testing2");
-
-          } else if (tipo_prop_value_selected === "3") {
-
-            console.log("testing3");
-
-          }
-        }
-        const tipo_prop = document.getElementById("tipo_prop");
-        tipo_prop.addEventListener("change", changeInputs);*/
-    </script>
-
     <script>
         $(document).ready(function() {
 
@@ -933,12 +851,6 @@ require_once('../Controller/controladorListar.php'); ?>
                 console.log("test");
 
                 $('#upload_valorizacion').modal('show');
-
-                /*$tr = $(this).closest('tr');
-                var data = $tr.children("td").map(function() {
-                    return $(this).text();
-                }).get();
-                console.log(data);*/
 
                 var __id_solic_v = $("#cod_solic_v").val();
                 var cd_solic_v = $("#id_reg_valor").val(__id_solic_v);
@@ -994,49 +906,6 @@ require_once('../Controller/controladorListar.php'); ?>
         $('.btn_get_details').on('click', function() {
 
             $('#details_v').modal('show');
-
-            /*var id_solic_v = $(this).data('id_solic_val');
-            var id_cli_v = $(this).data('id_cli');
-            var dni_cli_v = $(this).data('dni_cli');
-
-
-            //var inpt_solic_v = id_solic_v;
-            var inpt_solic_v = $("#txt_solic").val(id_solic_v);
-            var inpt_cli_v = $("#txt_id_cli").val(id_cli_v);
-            var inpt_dni_v = $("#txt_dni").val(dni_cli_v);
-
-
-            //console.log(inpt_solic_v)
-
-            var id_solic_v = data[0].trim();
-            var id_cli_v = data[1].trim();
-            var dni_cli_v = data[2].trim();
-
-            var rol = '<?php echo $_SESSION['tipo_usu'] ?>'
-
-            console.log(rol);
-
-            $tr = $(this).closest('tr');
-            var data = $tr.children("td").map(function() {
-                return $(this).text();
-            }).get();
-
-            $("#id_solic_arch").val(data[0].trim());
-            $("#dni_cli_arch").val(data[1].trim());
-
-            console.log(id_solic_v, id_cli_v, dni_cli_v);
-
-            if (rol == 1) {
-                get_details_solic(id_solic_v, id_cli_v, dni_cli_v)
-                get_imgs_valor(id_solic_v, dni_cli_v)
-                get_files_valor(id_solic_v, dni_cli_v)
-            } else {
-                get_details_solic(id_solic_v, id_cli_v, dni_cli_v)
-                get_files_valor(id_solic_v, dni_cli_v)
-                get_imgs_valor(id_solic_v, dni_cli_v)
-                console.log("uwu?");
-            }*/
-
 
             var id_solic_v = $("#cod_solic_v").val();
             var dni_cli_v = $("#dni_usu_v").val();
@@ -1140,9 +1009,9 @@ require_once('../Controller/controladorListar.php'); ?>
 
                         $("#obs_sent_").show();
 
-                        console.log("ID Valor: " + id_valor);
-                        console.log("Nombre Cliente: " + nom_client);
-                        console.log("Observacion: " + obs);
+                        // console.log("ID Valor: " + id_valor);
+                        // console.log("Nombre Cliente: " + nom_client);
+                        // console.log("Observacion: " + obs);
 
                         if (obs == null) {
                             $("#obs_sent_").val('Sin Observaciones')
@@ -1172,16 +1041,9 @@ require_once('../Controller/controladorListar.php'); ?>
                 },
 
                 beforeSend: function() {
-                    // $("#loader_uhd").show();
                     $("#loader_uhd").removeClass("hidden");
 
-                    /*$("#detalles_valor").hide();
-                    $("#docs_val").hide();*/
-
-                    // if ($(".mak_overlay").hasClass("hidden")) {
                     $("#add_data_val").addClass("hide");
-                    // }
-
                 },
 
                 success: function(response) {
@@ -1223,11 +1085,11 @@ require_once('../Controller/controladorListar.php'); ?>
                         $("#add_data_val").removeClass("hide");
                         // }
 
-                        console.log("ID Valor: " + id_valor);
-                        console.log("Nombre Cliente: " + nom_client);
-                        console.log("Dirección: " + direccion);
-                        console.log("Tipo Inmueble: " + tipo_inmb);
-                        console.log("Estado: " + coment);
+                        // console.log("ID Valor: " + id_valor);
+                        // console.log("Nombre Cliente: " + nom_client);
+                        // console.log("Dirección: " + direccion);
+                        // console.log("Tipo Inmueble: " + tipo_inmb);
+                        // console.log("Estado: " + coment);
 
                         $("#coment_valr_r").val(coment)
 
@@ -1330,7 +1192,7 @@ require_once('../Controller/controladorListar.php'); ?>
 
                         });
 
-                    }, 900);
+                    }, 1500);
 
                 },
                 error: function(xhr, status, error) {
@@ -1387,17 +1249,6 @@ require_once('../Controller/controladorListar.php'); ?>
                                 scaledSize: iconSize
                             }
                         });
-
-                        /*var circle = new google.maps.Circle({
-                            strokeColor: '#00f',//azulito
-                            strokeOpacity: 0.8,
-                            strokeWeight: 2,
-                            fillColor: '#00f',
-                            fillOpacity: 0.35,
-                            map: map,
-                            center: marker.getPosition(),
-                            radius: 15
-                        });*/
 
                     } else {
                         $("#dir_dist_rsm").text('-');
@@ -1624,8 +1475,6 @@ require_once('../Controller/controladorListar.php'); ?>
                 var id_solic_v = $("#cod_solic_v").val();
                 var dni_cli_v = $("#dni_usu_v").val();
 
-                console.log(dni_cli_v)
-
                 get_imgs_valor(id_solic_v, dni_cli_v)
 
 
@@ -1675,99 +1524,9 @@ require_once('../Controller/controladorListar.php'); ?>
                                 archivosLista.append(carouselItem);
                             }
 
-                            // archivos.forEach(function(archivo) {
-                            //     console.log(archivo);
-                            //     // if (archivo.trim() !== '') {
-
-                            //     //     // -------------
-                            //     //     // var link_ = $('<a>')
-                            //     //     //     .attr('href', '../Valorizaciones/' + id_sol_v + '/' + dni + '/fotos_val/' + archivo)
-                            //     //     //     .attr('download', archivo)
-                            //     //     //     .text(archivo);
-
-                            //     //     // var listItem = $('<li>').append(link_);
-                            //     //     // archivosLista.append(listItem);
-                            //     //     // -------------
-
-                            //     //     // -------------
-                            //     //     // var imgContainer = $('<div class="imagen-slide">');
-                            //     //     // var img = $('<img>')
-                            //     //     //     .attr('src', '../Valorizaciones/' + id_sol_v + '/' + dni + '/fotos_val/' + archivo)
-                            //     //     //     .attr('alt', archivo);
-                            //     //     // // .addClass('imagen-valorizacion'); // Clase para aplicar estilos si es necesario
-                            //     //     // -------------
-
-                            //     //     // -------------
-                            //     //     for (var i = 0; i < archivo.length; i++) {
-
-                            //     //         if (archivo[0]) {
-                            //     //             var carouselItemActive = $('<div class="carousel-item active">');
-
-                            //     //         }
-                            //     //         var img = $('<img>')
-                            //     //             .addClass('d-block w-100')
-                            //     //             .attr('src', '../Valorizaciones/' + id_sol_v + '/' + dni + '/fotos_val/' + archivo)
-                            //     //             .attr('alt', archivo);
-                            //     //         // -------------
-
-                            //     //         // imgContainer.append(img);
-                            //     //         // archivosLista.append(imgContainer);
-
-                            //     //         carouselItemActive.append(img);
-                            //     //         archivosLista.append(carouselItemActive);
-                            //     //     }
-
-
-
-
-                            //     //     // var carouselItemActive = $('<div class="carousel-item active">'); // Agregamos la clase 'active' al primer elemento
-                            //     //     // var imgActive = $('<img>')
-                            //     //     //     .addClass('d-block w-100')
-                            //     //     //     .attr('src', '../Valorizaciones/' + id_sol_v + '/' + dni + '/fotos_val/' + archivos[0])
-                            //     //     //     .attr('alt', archivos[0]);
-
-                            //     //     // var carouselItemActive = $('<div class="carousel-item active">');
-                            //     //     // var img = $('<img>')
-                            //     //     //     .addClass('d-block w-100')
-                            //     //     //     .attr('src', '../Valorizaciones/' + id_sol_v + '/' + dni + '/fotos_val/' + archivos[0])
-                            //     //     //     .attr('alt', archivos[0]);
-
-                            //     //     // carouselItemActive.append(img);
-                            //     //     // archivosLista.append(carouselItemActive);
-
-                            //     //     // // Crear el elemento de carrusel activo
-                            //     //     // var carouselItemActive = $('<div class="carousel-item active">');
-                            //     //     // var imgActive = $('<img>')
-                            //     //     //     .addClass('d-block w-100')
-                            //     //     //     .attr('src', '../Valorizaciones/' + id_sol_v + '/' + dni + '/fotos_val/' + archivo)
-                            //     //     //     .attr('alt', archivo);
-
-                            //     //     // carouselItemActive.append(imgActive);
-                            //     //     // archivosLista.append(carouselItemActive);
-
-                            //     //     // // Generar elementos para los archivos restantes
-                            //     //     // for (var i = 1; i < archivo.length; i++) {
-                            //     //     //     var carouselItem = $('<div class="carousel-item">');
-                            //     //     //     var img = $('<img>')
-                            //     //     //         .addClass('d-block w-100')
-                            //     //     //         .attr('src', '../Valorizaciones/' + id_sol_v + '/' + dni + '/fotos_val/' + archivo[i])
-                            //     //     //         .attr('alt', archivo[i]);
-
-                            //     //     //     carouselItem.append(img);
-                            //     //     //     archivosLista.append(carouselItem);
-                            //     //     // }
-
-                            //     // }
-                            // });
-
-
-
                         }
 
-                        //$('#descarga_archivo_m').html(link_);
-                        //console.log(response);
-                        // initializeSlider();
-                        // $('#lst_fotos').slick();
+
 
                         document.addEventListener("DOMContentLoaded", function() {
                             const carousel = document.querySelector('#lst_fotos');
@@ -1870,319 +1629,12 @@ require_once('../Controller/controladorListar.php'); ?>
         }
     </style>
 
-    <script type="text/javascript">
-        const tipo_prop = document.getElementById("tipo_prop");
-        const sub_tipo_prop = document.getElementById("sub_tipo_prop");
-
-        const area_t = document.getElementById("a__t");
-        const area_c = document.getElementById("a__c");
-        const area_o = document.getElementById("a__o");
-        const antig = document.getElementById("antig_");
-
-
-        const a_t_ = document.getElementById("a_t");
-        const a_c_ = document.getElementById("a_c");
-        const a_o_ = document.getElementById("a_o");
-        const a_ant_ = document.getElementById("antig");
-
-        //const r1 = document.getElementById("resumen_1");
-        //const r2 = document.getElementById("resumen_2");
-
-
-        tipo_prop.addEventListener("change", function() {
-            switch (tipo_prop.value) {
-                case "1":
-                    area_o.classList.add("hidden");
-                    //a_o_.removeAttribute("required");
-
-                    area_t.classList.remove("hidden");
-                    area_c.classList.remove("hidden");
-                    antig.classList.remove("hidden");
-
-
-                    //r1.style.display = "block";
-
-                    break;
-
-                case "2":
-                    area_t.classList.add("hidden");
-                    //a_t_.removeAttribute("required");
-
-                    area_c.classList.remove("hidden");
-                    area_o.classList.remove("hidden");
-                    antig.classList.remove("hidden");
-
-                    //r2.style.display = "block";
-                    break;
-
-                case "3":
-                    area_c.classList.add("hidden");
-                    //a_c_.removeAttribute("required");
-
-                    area_o.classList.add("hidden");
-                    antig.classList.add("hidden");
-                    area_t.classList.remove("hidden");
-                    break;
-
-                case "4":
-                    area_c.classList.remove("hidden");
-                    area_o.classList.remove("hidden");
-                    antig.classList.remove("hidden");
-
-                    area_t.classList.add("hidden");
-                    break;
-
-                case "6":
-                    area_t.classList.remove("hidden");
-                    area_c.classList.remove("hidden");
-                    antig.classList.remove("hidden");
-
-                    area_o.classList.add("hidden");
-
-
-                    break;
-
-                default:
-                    break;
-            }
-
-        });
-
-
-        sub_tipo_prop.addEventListener("change", function() {
-            switch (sub_tipo_prop.value) {
-                case "13":
-                    area_c.classList.remove("hidden");
-                    area_o.classList.remove("hidden");
-                    antig.classList.remove("hidden");
-
-                    area_t.classList.add("hidden");
-                    break;
-                case "14":
-                    area_c.classList.remove("hidden");
-                    area_o.classList.remove("hidden");
-                    antig.classList.remove("hidden");
-
-                    area_t.classList.add("hidden");
-                    break;
-
-                default:
-                    break;
-            }
-
-        });
-
-        function agregar_tabla() {
-            // DISTRITO - DIRECCION
-            var _dir = document.getElementById("direccion_").value;
-            var _dir_dist = _dir.split(", ");
-            // TIPO
-            var _tip = document.getElementById("tipo_prop");
-            var select_tip = _tip.selectedOptions[0];
-            var texto_tip = select_tip.textContent
-            // PROMOCIÓN
-            var _pro = document.getElementById("tipo_prom");
-            var select_pro = _pro.selectedOptions[0];
-            var texto_pro = select_pro.textContent
-            // AT
-            var _at = document.getElementById("a_t").value;
-            // AC
-            var _ac = document.getElementById("a_c").value;
-            // AO
-            var _ao = document.getElementById("a_o").value;
-
-            document.getElementById("at__").innerHTML = _at;
-            document.getElementById("ac__").innerHTML = _ac;
-            document.getElementById("ao__").innerHTML = _ao;
-            var bla;
-            if (_dir_dist[2] === undefined) {
-                bla = "";
-            } else {
-                bla = ", " + _dir_dist[2];
-            }
-            document.getElementById("dir__dist").innerHTML = _dir_dist[1] + bla;
-            document.getElementById("dir__").innerHTML = _dir_dist[0];
-            document.getElementById("tip__").innerHTML = texto_tip;
-            document.getElementById("pro__").innerHTML = texto_pro;
-
-            // console.log(_at, _ac, _ao);
-            console.log(_dir_dist);
-            console.log(_dir_dist[0]);
-            console.log(_dir_dist[1]);
-            console.log(_dir_dist[2]);
-        }
-    </script>
-
-    <script type="text/javascript">
-        $(document).ready(function() {
-            $('#tipo_zoni_l').on('keyup', function() {
-                var letra = $(this).val();
-                var opcionesZoni = $('.opciones_zoni_t');
-
-                if (letra.length > 0) {
-                    $.ajax({
-                        url: '../Controller/getZonas.php',
-                        method: 'POST',
-                        data: {
-                            tipo_zoni_l: letra
-                        },
-                        success: function(response) {
-                            console.log(response);
-                            opcionesZoni.html(response);
-                        }
-                    });
-                } else {
-                    opcionesZoni.empty();
-                }
-            });
-        });
-
-        $(document).ready(function() {
-            $('#tipo_zoni_ofi').on('keyup', function() {
-                var letra = $(this).val();
-                var opcionesZoni = $('.opciones_zoni_ofi');
-
-                if (letra.length > 0) {
-                    $.ajax({
-                        url: '../Controller/getZonas.php',
-                        method: 'POST',
-                        data: {
-                            tipo_zoni_l: letra
-                        },
-                        success: function(response) {
-                            console.log(response);
-                            opcionesZoni.html(response);
-                        }
-                    });
-                } else {
-                    opcionesZoni.empty();
-                }
-            });
-        });
-    </script>
-
-    <script>
-        $(function() {
-            //Initialize Select2 Elements
-            $('.select2').select2()
-
-            //Initialize Select2 Elements
-            $('.select2bs4').select2({
-                theme: 'bootstrap4'
-            })
-
-            //Datemask dd/mm/yyyy
-            $('#datemask').inputmask('dd/mm/yyyy', {
-                'placeholder': 'dd/mm/yyyy'
-            })
-            //Datemask2 mm/dd/yyyy
-            $('#datemask2').inputmask('mm/dd/yyyy', {
-                'placeholder': 'mm/dd/yyyy'
-            })
-            //Money Euro
-            $('[data-mask]').inputmask()
-
-            //Date picker
-            $('#reservationdate').datetimepicker({
-                format: 'L'
-            });
-
-            //Date and time picker
-            $('#reservationdatetime').datetimepicker({
-                icons: {
-                    time: 'far fa-clock'
-                }
-            });
-
-            //Date range picker
-            $('#reservation').daterangepicker()
-            //Date range picker with time picker
-            $('#reservationtime').daterangepicker({
-                timePicker: true,
-                timePickerIncrement: 30,
-                locale: {
-                    format: 'MM/DD/YYYY hh:mm A'
-                }
-            })
-            //Date range as a button
-            $('#daterange-btn').daterangepicker({
-                    ranges: {
-                        'Today': [moment(), moment()],
-                        'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
-                        'Last 7 Days': [moment().subtract(6, 'days'), moment()],
-                        'Last 30 Days': [moment().subtract(29, 'days'), moment()],
-                        'This Month': [moment().startOf('month'), moment().endOf('month')],
-                        'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
-                    },
-                    startDate: moment().subtract(29, 'days'),
-                    endDate: moment()
-                },
-                function(start, end) {
-                    $('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'))
-                }
-            )
-
-            //Timepicker
-            $('#timepicker').datetimepicker({
-                format: 'LT'
-            })
-
-            //Bootstrap Duallistbox
-            $('.duallistbox').bootstrapDualListbox()
-
-            //Colorpicker
-            $('.my-colorpicker1').colorpicker()
-            //color picker with addon
-            $('.my-colorpicker2').colorpicker()
-
-            $('.my-colorpicker2').on('colorpickerChange', function(event) {
-                $('.my-colorpicker2 .fa-square').css('color', event.color.toString());
-            })
-        })
-    </script>
-
-    <script>
-        // DROPDOWN
-        const dropDown = document.querySelector(".dropdown");
-
-        const drops = document.querySelector(".position-absolute");
-
-        dropDown.addEventListener("click", () => {
-            const filter = document.querySelector(".filter-drop");
-            const table = document.querySelector(".table");
-            const optnFilter = document.querySelector(".optn-filter");
-            const listGroupItem = optnFilter.querySelectorAll(".list-group-item");
-
-
-            if (drops) {
-                if (filter.style.height === "50px") {
-                    let items = listGroupItem.length + 1;
-                    let dropHeight = items * "49.33" + "50";
-                    filter.style.height = dropHeight + "px";
-                } else {
-                    filter.style.height = "50px";
-                }
-            } else {
-                if (table.style.width === "100%") {
-                    let items = listGroupItem.length + 1;
-                    let dropHeight = items * "49.33" + "50";
-
-                    table.style.width = "85%";
-                    filter.style.height = dropHeight + "px";
-                } else {
-                    table.style.width = "100%";
-                    filter.style.height = "50px";
-                }
-            }
-        });
-
-        // DROPDOWN
-    </script>
-
     <script>
         $(document).ready(function() {
             $('.table_').DataTable({
+                responsive: true,
                 // "dom": '<"row"<"col-sm-6"l><"col-sm-6"f>>t<"row"<"col-sm-6"i><"col-sm-6"p>>',
+                dom: '<"row"<"col-sm-6"l><"col-sm-6"f>>tip',
                 "language": {
                     "url": "//cdn.datatables.net/plug-ins/1.10.25/i18n/Spanish.json", // URL del archivo de localización
                     "searchPlaceholder": "Buscar en la tabla..." // placeholder del Buscar.
@@ -2203,295 +1655,48 @@ require_once('../Controller/controladorListar.php'); ?>
         });
     </script>
 
+
     <script>
-        // ----------------------------
-
-
-        document.querySelectorAll(".body-mak").forEach(element => {
-
-            const contenedor = document.querySelector(".overflow-hidden");
-            const contenido = contenedor.scrollWidth;
-            const anchoVisible = contenedor.clientWidth;
-
-
-            const totalScroll = contenido - anchoVisible;
-            const mitadScroll = totalScroll / 2;
-
-
-            //
-            if (element.getAttribute("data-content") === "legal") {
-
-                element.querySelector(".arrow-right").addEventListener("click", (e) => {
-
-                    // Realizar la transición a la mitad del scroll horizontal con animación
-                    contenedor.style.scrollBehavior = "smooth"; // Activar la animación
-                    contenedor.scrollLeft = mitadScroll; // Ir a la mitad
-
-
-                })
-
-
-            } else if (element.getAttribute("data-content") === "historico") {
-
-                document.querySelectorAll(".scroll-toggle").forEach((element) => {
-
-                    element.addEventListener("click", function() {
-
-                        var id_valo_soli = $(this).data('id_solic_val');
-                        var id_valo_cli = $(this).data('id_cli');
-                        var dni_cli = $(this).data('dni_cli');
-
-                        //console.log(dni_cli)
-
-                        /*$tr = $(this).closest('tr');
-
-                        var data = $tr.children("td").map(function() {
-                            return $(this).text();
-                        }).get();
-
-                        console.log(data);
-
-                        $('#id_legal_solic').val(data[0]);
-
-                        $('#data_names_').val(data[1]);
-                        $('#data_direcion_').val(data[2]);
-
-                        $('#coment_').val(data[9]);
-
-                        $('#id_client_l').val(data[7]);*/
-
-                        get_details_solic(id_valo_soli, id_valo_cli, dni_cli);
-
-                        $('#cod_solic_v').val(id_valo_soli);
-                        $('#dni_usu_v').val(dni_cli);
-
-                        //load_documents_legal('<?php echo $_SESSION['id_usu'] ?>');
-
-
-                        // Realizar la transición al final del scroll horizontal con animación
-                        contenedor.style.scrollBehavior = "smooth"; // Activar la animación
-                        contenedor.scrollLeft = totalScroll; // Ir al final
-
-                        //initializeSlider()
-
-
-
-
-                    });
-
-                });
-
-                document.querySelectorAll(".avanza_pa_atras").forEach((element) => {
-
-                    element.addEventListener("click", function() {
-
-                        $tr = $(this).closest('tr');
-
-                        var data = $tr.children("td").map(function() {
-                            return $(this).text();
-                        }).get();
-
-                        console.log(data);
-                        $('#cod_reg_l').val(data[0]);
-
-                        $('#nom_cli_solic').val(data[1]);
-                        $('#ape_cli_solic').val(data[2]);
-
-                        $('#dir_cli_solic').val(data[4]);
-
-                        //load_documents_legal('<?php echo $_SESSION['id_usu'] ?>');
-
-                        var btnLstHr = $('.btn_lst_hr');
-                        if (btnLstHr.length > 0) {
-                            btnLstHr.show();
-                        }
-
-
-                        var btnLstLyts = $('.btn_lst_lyts');
-                        if (btnLstLyts.length > 0) {
-                            btnLstLyts.hide();
-                        }
-
-                        // Realizar la transición al final del scroll horizontal con animación
-                        contenedor.style.scrollBehavior = "smooth"; // Activar la animación
-                        contenedor.scrollLeft = 0; // Ir al final
-
-                        $("#coment_valr_r").val('')
-                        $("#tip_rsm").text('');
-                        $("#pro_rsm").text('');
-                        $("#at_rsm").text('');
-                        $("#ac_rsm").text('');
-                        $("#ao_rsm").text('');
-
-                        $(".input-select").removeClass("active");
-
-                    });
-
-                });
-
-
-                document.querySelectorAll(".arrow-left_1").forEach((element) => {
-
-                    element.addEventListener("click", function() {
-
-                        $tr = $(this).closest('tr');
-
-                        var data = $tr.children("td").map(function() {
-                            return $(this).text();
-                        }).get();
-
-                        console.log(data);
-                        $('#cod_reg_l').val(data[0]);
-
-                        $('#nom_cli_solic').val(data[1]);
-                        $('#ape_cli_solic').val(data[2]);
-
-                        $('#dir_cli_solic').val(data[4]);
-
-                        //load_documents_legal('<?php echo $_SESSION['id_usu'] ?>');
-
-                        var btnLstHr = $('.btn_lst_hr');
-                        if (btnLstHr.length > 0) {
-                            btnLstHr.hide();
-                        }
-
-                        var btnLstLyts = $('.btn_lst_lyts');
-                        if (btnLstLyts.length > 0) {
-                            btnLstLyts.show();
-                        }
-
-                        // Realizar la transición al final del scroll horizontal con animación
-                        contenedor.style.scrollBehavior = "smooth"; // Activar la animación
-                        contenedor.scrollLeft = 0; // Ir al final
-
-
-
-
-
-
-                        // el lapiz hace que salga el boton actualizar
-                        var contenido = document.querySelectorAll(".content-file").forEach(element => {
-                            var buttons = element.querySelectorAll("button");
-                            buttons.forEach((btns, indice) => {
-                                if (indice % 2 === 1) { // Los índices pares tienen resto 1 al dividir por 2
-                                    btns.style.display = "none";
-
-                                } else {
-                                    btns.style.display = "block";
-
-                                }
-                            });
-                        });
-                        // el lapiz hace que salga el boton actualizar
-
-                        // el lapiz hace que se oculte y muestren los botones
-                        var cardFooter = document.querySelector(".card-footer");
-                        var botones = cardFooter.querySelectorAll("button");
-
-                        botones.forEach((botones, indice) => {
-                            if (indice % 2 === 0) { // Los índices pares tienen resto 1 al dividir por 2
-                                botones.style.display = "none";
-                            } else {
-                                botones.style.display = "block";
-
-                            }
-                        });
-                        // el lapiz hace que se oculte y muestren los botones
-
-
-
-
-                        // el boton a historico hace que salga el registrar
-                        var arw_rght = document.querySelector(".arrow-right").addEventListener("click", () => {
-                            var contenido = document.querySelectorAll(".content-file").forEach(element => {
-                                // console.log(element);
-                                var buttons = element.querySelectorAll("button");
-                                buttons.forEach((btns, indice) => {
-                                    if (indice % 2 === 0) { // Los índices pares tienen resto 1 al dividir por 2
-                                        btns.style.display = "none";
-                                    } else {
-                                        btns.style.display = "block";
-
-                                    }
-                                });
-                            });
-                            var cardFooter = document.querySelector(".card-footer");
-                            var botones = cardFooter.querySelectorAll("button");
-
-                            botones.forEach((botones, indice) => {
-                                if (indice % 2 === 1) { // Los índices pares tienen resto 1 al dividir por 2
-                                    botones.style.display = "none";
-                                } else {
-                                    botones.style.display = "block";
-
-                                }
-                            });
-                        });
-                        // el boton a historico hace que salga el registrar
-
-
-
-
-
-                    });
-
-                    var upldFile = document.querySelectorAll(".upld-file").forEach(element => {
-                        element.addEventListener("click", () => {
-                            /////
-                            var contenido = document.querySelectorAll(".content-file").forEach(element => {
-                                var cod_l = $('#cod_reg_l').val();
-
-
-                                // var buttons = element.querySelectorAll("button");
-                                // buttons.forEach(btns => {
-                                //     console.log(btns);
-
-                                // });
-                                element.addEventListener("click", () => {
-                                    $('#cod_reg_').val(cod_l)
-                                    $('#cod_reg_2').val(cod_l)
-                                    $('#cod_reg_3').val(cod_l)
-                                    $('#cod_reg_4').val(cod_l)
-
-                                    //     // var buttons = element.querySelectorAll("button");
-                                    //     // console.log(buttons);
-                                    console.log("asdsadsadsda");
-                                    console.log(cod_l);
-                                })
-                                // console.log(element);
-                            });
-                            /////
-                        })
-                    });
-
-                });
-
-
-
-
-
-                element.querySelector(".arrow-left").addEventListener("click", () => {
-                    // Realizar la transición de volver a la mitad del scroll horizontal con animación
-                    contenedor.style.scrollBehavior = "smooth"; // Activar la animación
-                    contenedor.scrollLeft = 0; // Volver al inicio
-                })
-
-            } else if (element.getAttribute("data-content") === "files") {
-
-                // document.querySelectorAll(".scroll-toggle").forEach((element) => {
-                element.querySelector(".arrow-left").addEventListener("click", () => {
-
-                    // Realizar la transición de volver a la mitad del scroll horizontal con animación
-                    contenedor.style.scrollBehavior = "smooth"; // Activar la animación
-                    contenedor.scrollLeft = mitadScroll; // Volver a la mitad
-
-                })
-                // });
+        const makContentSlide = document.querySelector(".mak-content-slide");
+        const goRight = document.querySelectorAll(".scroll-toggle");
+        const goLeft = document.querySelector(".avanza_pa_atras");
+
+
+        makContentSlide.addEventListener("keydown", function(event) {
+            if (event.keyCode === "Tab") {
+                // Previene la acción predeterminada de "Tab"
+                event.preventDefault();
             }
-
+            if (event.keyCode === 9) {
+                // Previene la acción predeterminada de "Tab"
+                event.preventDefault();
+            }
         });
 
-        // ----------------------------F
+        document.addEventListener('DOMContentLoaded', function() {
+
+            makContentSlide.style.transform = "translateX(0%)";
+
+            goRight.forEach(element => {
+                element.addEventListener("click", () => {
+                    makContentSlide.style.transform = "translateX(-100%)";
+
+                    var id_valo_soli = $(element).data('id_solic_val');
+                    var id_valo_cli = $(element).data('id_cli');
+                    var dni_cli = $(element).data('dni_cli');
+
+                    get_details_solic(id_valo_soli, id_valo_cli, dni_cli);
+
+                    $('#cod_solic_v').val(id_valo_soli);
+                    $('#dni_usu_v').val(dni_cli);
+
+                });
+            });
+
+            goLeft.addEventListener("click", () => {
+                makContentSlide.style.transform = "translateX(0%)";
+            });
+        });
     </script>
 
     <script>
@@ -2572,49 +1777,6 @@ require_once('../Controller/controladorListar.php'); ?>
     </script>
 
     <script>
-        // const carousel = document.querySelector('#lst_fotos'),
-        //     firstImg = carousel.querySelectorAll(".imagen-slide")[0];
-        // const arrowIcons = document.querySelectorAll('#fotos_val i');
-
-        // console.log(carousel);
-        // console.log(firstImg);
-
-        // let isDragStart = false,
-        //     prevPageX, prevScrollLeft;
-
-        // let firstImgWidth = firstImg.clientWidth + 15;
-
-        // arrowIcons.forEach(icon => {
-        //     icon.addEventListener("click", () => {
-        //         console.log(icon);
-        //         // console.log(firstImgWidth);
-        //         // carousel.scrollLeft += icon.id == "left" ? -firstImgWidth : firstImgWidth;
-        //     })
-
-        // });
-
-        // const dragStart = (e) => {
-        //     isDragStart = true;
-        //     prevPageX = e.pageX;
-        //     prevScrollLeft = carousel.scrollLeft;
-        // }
-
-        // const dragGing = (e) => {
-        //     if (!isDragStart) return;
-        //     e.preventDefault();
-        //     let positionDiff = e.pageX - prevPageX;
-        //     carousel.scrollLeft = prevScrollLeft - positionDiff;
-        // }
-
-        // const dragStop = () => {
-        //     isDragStart = false;
-        // }
-
-        // carousel.addEventListener("mousedown", dragStart);
-        // carousel.addEventListener("mousemove", dragGing);
-        // carousel.addEventListener("mouseup", dragStop);
-    </script>
-    <script>
         const nav = document.querySelector(".nav-link");
 
         nav.addEventListener("click", () => {
@@ -2650,8 +1812,6 @@ require_once('../Controller/controladorListar.php'); ?>
     <script src="../Vista/plugins/jquery/jquery.min.js"></script>
     <!-- Bootstrap 4 -->
     <script src="../Vista/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <!-- Select2 -->
-    <script src="../Vista/plugins/select2/js/select2.full.min.js"></script>
     <!-- Bootstrap4 Duallistbox -->
     <script src="../Vista/plugins/bootstrap4-duallistbox/jquery.bootstrap-duallistbox.min.js"></script>
     <!-- InputMask -->

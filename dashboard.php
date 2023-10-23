@@ -179,7 +179,7 @@ require_once('config/security.php');
 
         <section class="body-mak">
           <div class="container">
-            <div class="row justify-content-center pt-5 pb-5">
+            <div class="row justify-content-center pt-5">
 
               <div class="card-mak col-md-6">
                 <div class="card-content">
@@ -239,8 +239,6 @@ require_once('config/security.php');
 
             </div>
           </div>
-
-          <br><br>
 
         </section>
 

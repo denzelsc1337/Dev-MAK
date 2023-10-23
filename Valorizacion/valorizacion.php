@@ -1675,7 +1675,7 @@
                                             <div class="card-body">
                                                 <div>
                                                     <label class="mak-txt">Comentario</label>
-                                                    <textarea id="coment_valr_" placeholder="Escribe un comentario..." readonly></textarea>
+                                                    <textarea id="coment_valr_" placeholder="Sin comentario." readonly></textarea>
                                                 </div>
                                                 <div class="row justify-content-evenly">
                                                     <button id="verFotos_" class="btn btn-mak mak-bg" data-bs-toggle="modal" data-bs-target="#verFotos">Ver Fotos</button>
@@ -1931,25 +1931,6 @@
 
 
     <script type="text/javascript">
-        /*
-        function buscarDireccion(event, mapa1Id, mapa2Id) {
-            if (event.keyCode === 13) { // 13 es el código de la tecla "Enter"
-                event.preventDefault();
-                const direccion = document.getElementById('direccion_').value;
-                const geocoder = new google.maps.Geocoder();
-                geocoder.geocode({
-                    address: direccion
-                }, function(results, status) {
-                    if (status === 'OK') {
-                        const latitud = results[0].geometry.location.lat();
-                        const longitud = results[0].geometry.location.lng();
-                        mostrarMapa(latitud, longitud, mapa1Id);
-                        mostrarMapa(latitud, longitud, mapa2Id);
-                    }
-                });
-            }
-        }*/
-
         async function buscarDireccion(event, mapa1Id, mapa2Id) {
             const isEnterKey = event.keyCode === 13;
             const isMouseClick = event.type === 'click';
@@ -2103,32 +2084,6 @@
         }
     </script>
     <!--GOOGLE MAPS TESTING-->
-
-    <script type="text/javascript">
-        /*function changeInputs() {
-          const tipo_prop = document.getElementById("tipo_prop");
-
-          const tipo_prop_value_selected = tipo_prop.value;
-
-
-          if (tipo_prop_value_selected === "1") {
-            const area_t = document.getElementById("a_t");
-            area_t.style.display = "none";
-            console.log("testing");
-
-          } else if (tipo_prop_value_selected === "2") {
-
-            console.log("testing2");
-
-          } else if (tipo_prop_value_selected === "3") {
-
-            console.log("testing3");
-
-          }
-        }
-        const tipo_prop = document.getElementById("tipo_prop");
-        tipo_prop.addEventListener("change", changeInputs);*/
-    </script>
 
     <style type="text/css">
         #a__t,
@@ -2295,8 +2250,6 @@
         });
     </script>
 
-
-
     <script type="text/javascript">
         $(document).ready(function() {
             $('#tipo_zoni_l').on('keyup', function() {
@@ -2421,65 +2374,6 @@
                 $('.my-colorpicker2 .fa-square').css('color', event.color.toString());
             })
         })
-        // BS-Stepper Init
-        // document.addEventListener('DOMContentLoaded', function() {
-        //     window.stepper = new Stepper(document.querySelector('.bs-stepper'))
-        // })
-
-        // // DropzoneJS Demo Code Start
-        // Dropzone.autoDiscover = false
-
-        // // Get the template HTML and remove it from the doumenthe template HTML and remove it from the doument
-        // var previewNode = document.querySelector("#template");
-        // // previewNode.id = "";
-        // var previewTemplate = previewNode.parentNode.innerHTML
-        // previewNode.parentNode.removeChild(previewNode)
-
-        // var myDropzone = new Dropzone(document.body, { // Make the whole body a dropzone
-        //     url: "/target-url", // Set the url
-        //     thumbnailWidth: 80,
-        //     thumbnailHeight: 80,
-        //     parallelUploads: 20,
-        //     previewTemplate: previewTemplate,
-        //     autoQueue: false, // Make sure the files aren't queued until manually added
-        //     previewsContainer: "#previews", // Define the container to display the previews
-        //     clickable: ".fileinput-button" // Define the element that should be used as click trigger to select files.
-        // })
-
-        // myDropzone.on("addedfile", function(file) {
-        //     // Hookup the start button
-        //     file.previewElement.querySelector(".start").onclick = function() {
-        //         myDropzone.enqueueFile(file)
-        //     }
-        // })
-
-        // // Update the total progress bar
-        // myDropzone.on("totaluploadprogress", function(progress) {
-        //     document.querySelector("#total-progress .progress-bar").style.width = progress + "%"
-        // })
-
-        // myDropzone.on("sending", function(file) {
-        //     // Show the total progress bar when upload starts
-        //     document.querySelector("#total-progress").style.opacity = "1"
-        //     // And disable the start button
-        //     file.previewElement.querySelector(".start").setAttribute("disabled", "disabled")
-        // })
-
-        // // Hide the total progress bar when nothing's uploading anymore
-        // myDropzone.on("queuecomplete", function(progress) {
-        //     document.querySelector("#total-progress").style.opacity = "0"
-        // })
-
-        // // Setup the buttons for all transfers
-        // // The "add files" button doesn't need to be setup because the config
-        // // `clickable` has already been specified.
-        // document.querySelector("#actions .start").onclick = function() {
-        //     myDropzone.enqueueFiles(myDropzone.getFilesWithStatus(Dropzone.ADDED))
-        // }
-        // document.querySelector("#actions .cancel").onclick = function() {
-        //     myDropzone.removeAllFiles(true)
-        // }
-        // // DropzoneJS Demo Code End
     </script>
 
     <script>
@@ -2494,6 +2388,8 @@
         })
         // TEXTAREA
     </script>
+
+
 
     <script src="../Vista/assets/selection_types.js"></script>
 

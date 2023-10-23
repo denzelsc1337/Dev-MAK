@@ -752,6 +752,7 @@ li {
   position: absolute;
   bottom: 0;
   padding: 20px;
+  width: 100%;
 }
 
 .card-mak .card-intro a {
@@ -1140,7 +1141,7 @@ textarea::-webkit-scrollbar {
   width: 100%;
   display: flex;
   transition: all 1s ease;
-  transform: translateX(-100%);
+  /* transform: translateX(-100%); */
 }
 
 .body-slide {
@@ -1444,7 +1445,8 @@ form .form-content {
 }
 
 .modal-body .margin {
-  margin: 0 3rem 1rem;
+  /* margin: 0 3rem 1rem; */
+  margin: 0 auto 20px;
 }
 
 /* CSS PERSONALIZADO */
@@ -1536,10 +1538,10 @@ form .form-content {
 
 .file-archives .archive-item {
   position: relative;
-  border: 1px solid var(--blue-mak);
-  border-radius: 10px;
-  width: 120px;
-  height: 100px;
+  /* border: 1px solid var(--blue-mak); */
+  /* border-radius: 10px; */
+  width: 100px;
+  height: 90px;
   padding: 5px;
   user-select: none;
 }
@@ -1554,8 +1556,8 @@ form .form-content {
   background: var(--white-mak);
   border-radius: 50%;
   border: 1px solid;
-  top: -10px;
-  right: -10px;
+  top: -7px;
+  right: 16px;
   margin: 0;
   font-size: 11px;
   cursor: pointer;
@@ -1566,11 +1568,11 @@ form .form-content {
   margin: 0;
 }
 
-.file-archives .archive-item img {
+/* .file-archives .archive-item img {
   width: 100%;
   height: 70px;
   object-fit: cover;
-}
+} */
 
 .file-archives .archive-item .file-icon {
   font-size: xxx-large;
@@ -1723,7 +1725,7 @@ form .form-content {
   opacity: 0;
 }
 
-.upld-valo .upld-file {
+.upld-file {
   text-align: center;
 }
 
@@ -2326,17 +2328,44 @@ button.gm-control-active.gm-fullscreen-control {
   flex-direction: column;
 }
 
+.table_ {
+  margin: 0 !important;
+}
+
 /*  */
 /* RESPONSIVE */
 /*  */
 
-@media only screen and (max-width: 576px) {
-  body i {
+@media only screen and (max-width: 600px) {
+  /* body i {
     font-size: 20px !important;
-  }
+  } */
 
   body .sidebar-open {
     overflow: hidden !important;
+  }
+  .pddt-5 {
+    padding-top: 0rem !important;
+  }
+
+  .header-login {
+    padding: 0.5rem 1rem;
+  }
+
+  .bor-rght-20 {
+    border-radius: 20px 20px 0 50px;
+  }
+
+  .mt-5 {
+    margin-top: 1.5rem !important;
+  }
+
+  .mb-5 {
+    margin-bottom: 1.5rem !important;
+  }
+
+  .title-m {
+    font-size: 3rem;
   }
 
   .sidebar-open #sidebar-overlay {
@@ -2413,7 +2442,13 @@ button.gm-control-active.gm-fullscreen-control {
   }
 
   .form-flex {
+    flex-direction: column;
     justify-content: space-between;
+    gap: 10px;
+  }
+
+  .btn-mak {
+    width: 100% !important;
   }
 
   .bs-stepper-header {
@@ -2431,6 +2466,37 @@ button.gm-control-active.gm-fullscreen-control {
 
   .body-mak .b-title {
     font-size: 50px;
+  }
+
+  .btn-mak {
+    padding: 10px 30px !important;
+  }
+
+  .modal-dialog {
+    max-width: initial !important;
+    margin: 0.5rem !important;
+  }
+
+  .upld-valo .drop-upld {
+  }
+
+  .file-archives {
+    height: initial;
+    flex-flow: wrap;
+    align-self: flex-start;
+  }
+
+  .card-footer {
+    width: 100%;
+  }
+
+  .arrow-left {
+    left: 30px;
+  }
+
+  .preloader img,
+  .mak_overlay img {
+    width: 40%;
   }
 }
 

@@ -82,7 +82,7 @@
 
 
                 <div class="footer-login">
-                  <button id="loginButton" name="loginButton" type="button" class="btn btn-mak mak-bg">Ingresar</button>
+                  <button id="loginButton" name="loginButton" type="submit" class="btn btn-mak mak-bg">Ingresar</button>
                   <!-- <span><a href="http://" class="mak-txt">¿Olvidaste tu<br> contraseña?</a></span> -->
                   <span id="toForgot" class="mak-txt">¿Olvidaste tu<br> contraseña?</span>
                 </div>

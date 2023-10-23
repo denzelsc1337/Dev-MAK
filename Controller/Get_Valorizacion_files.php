@@ -1,11 +1,11 @@
-<?php 
+<?php
 
 $cod_solic = $_POST['id_solic_v'];
 $dni_u = $_POST['dni_cli_v'];
 
-$directorio_PU = "../Valorizaciones/".$cod_solic."/".$dni_u."/Documentos/PU/";
+$directorio_PU = "../Valorizaciones/" . $cod_solic . "/" . $dni_u . "/Documentos/PU/";
 
-$directorio_CL = "../Valorizaciones/".$cod_solic."/".$dni_u."/Documentos/CL/";
+$directorio_CL = "../Valorizaciones/" . $cod_solic . "/" . $dni_u . "/Documentos/CL/";
 
 $response = array();
 
@@ -46,14 +46,14 @@ if (!is_dir($directorio_CL)) {
 } else {
     $archivos_cl  = scandir($directorio_CL);
 
-    $archivos_cl  = array_diff($archivos_cl , array('.', '..'));
+    $archivos_cl  = array_diff($archivos_cl, array('.', '..'));
 
     if (count($archivos_cl) == 0) {
         $response_cl['status'] = "empty";
         $response_cl['mensaje'] = "No se Encontraron Copias Literales";
     } else {
         $response_cl['status'] = "success";
-        $response_cl['files'] = array_values($archivos_cl );
+        $response_cl['files'] = array_values($archivos_cl);
     }
 }
 
@@ -66,4 +66,3 @@ $response['cl'] = $response_cl;
 
 header('Content-Type: application/json');
 echo json_encode($response);
-?>

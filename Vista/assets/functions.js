@@ -628,32 +628,10 @@ $(document).ready(function () {
           let FaceArchive = "";
           FaceArchive += `
              <div id="${id}" class="archive-item" title="${file.name}">
-               <span class="drop-item"><i class="fa-solid fa-xmark"></i></span>
-               `;
-
-          switch (fileExtension) {
-            case "jpg":
-            case "jpeg":
-            case "png":
-            case "gif":
-              FaceArchive += `<img class="file-icon" src="${fileUrl}" alt="${file.name}">`;
-              break;
-            case "pdf":
-              FaceArchive += `<div><i class="file-icon fa-solid fa-file-pdf"></i></div>`;
-              break;
-            case "doc":
-            case "docx":
-              FaceArchive += `<div><i class="file-icon fa-regular fa-file-word"></i></div>`;
-              break;
-            case "xls":
-            case "xlsx":
-              FaceArchive += `<div><i class="file-icon fa-solid fa-file-excel"></i></div>`;
-              break;
-            // Agregar más casos para otros tipos de archivos
-            default:
-              FaceArchive += `<div><i class="file-icon fa-regular fa-file"></i></div>`;
-          }
-          FaceArchive += `
+               <span class="drop-item bg-danger"><i class="fa-solid fa-xmark"></i></span>
+               <div class="upld-file">
+                <img src="../Vista/images/document.svg" alt="">
+               </div>
                <div class="archive">
                  <span>${file.name}</span>
                </div>

@@ -126,9 +126,9 @@ require_once('../Controller/controladorListar.php');
                                                 <input type="text" class="form-control" id="dni_user_l" name="dni_user_l" value="<?php echo $_SESSION['dni']; ?>">
                                                 <input type="text" class="form-control" id="cod_reg_l" name="cod_reg_l">
                                             </div>
-                                            <div class="col-sm-6">
+                                            <div class="col-md-6 mb-5">
                                                 <div class="row">
-                                                    <div class="col-sm-6">
+                                                    <div class="col-md-6">
                                                         <div class="form-group">
                                                             <label class="mak-txt">Nombre</label>
                                                             <input type="text" class="form-mak" id="nom_cli_solic" name="nom_cli_solic" required>
@@ -136,17 +136,25 @@ require_once('../Controller/controladorListar.php');
                                                     </div>
                                                 </div>
                                                 <div class="row">
-                                                    <div class="col-sm-6">
+                                                    <div class="col-md-6">
                                                         <div class="form-group">
                                                             <label class="mak-txt">Apellidos</label>
                                                             <input type="text" class="form-mak" id="ape_cli_solic" name="ape_cli_solic" required>
                                                         </div>
                                                     </div>
                                                 </div>
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <label class="mak-txt">Correo</label>
+                                                            <input type="text" class="form-mak" id="data_direcion_" readonly>
+                                                        </div>
+                                                    </div>
+                                                </div>
 
                                                 <textarea id="rutas_doscs" name="rutas_doscs" rows="5" cols="50" hidden></textarea>
                                             </div>
-                                            <div class="col-sm-6">
+                                            <div class="col-md-6 mb-5">
                                                 <div class="row">
                                                     <div class="col-sm-10">
                                                         <div class="form-group row">
@@ -261,7 +269,7 @@ require_once('../Controller/controladorListar.php');
 
 
                                         <div class="col-sm-12">
-                                            <table id="table" class="table table-borderless" style="width: 100%;">
+                                            <table id="table" class="table table-responsive table-borderless" style="width: 100%;">
                                                 <thead class="">
                                                     <tr>
                                                         <th></th>
@@ -330,7 +338,7 @@ require_once('../Controller/controladorListar.php');
                                     ?>
 
                                         <div class="col-sm-12">
-                                            <table id="table" class="table table-borderless" style="width: 100%;">
+                                            <table id="table" class="table table-responsive table-borderless" style="width: 100%;">
                                                 <thead class="">
                                                     <tr>
                                                         <th></th>
@@ -438,7 +446,7 @@ require_once('../Controller/controladorListar.php');
 
                                         <div class="row">
 
-                                            <div class="col-sm-6 pt-5">
+                                            <div class="col-md-6 pt-5">
                                                 <?php
 
                                                 if ($_SESSION['tipo_usu'] == 1) {
@@ -451,7 +459,7 @@ require_once('../Controller/controladorListar.php');
                                                     </div>
 
                                                     <div class="row">
-                                                        <div class="col-sm-6">
+                                                        <div class="col-sm-12">
                                                             <div class="form-group">
                                                                 <label class="mak-txt">Nombres</label>
                                                                 <input type="text" class="form-mak" id="data_names_" readonly>
@@ -459,7 +467,7 @@ require_once('../Controller/controladorListar.php');
                                                         </div>
                                                     </div>
                                                     <div class="row">
-                                                        <div class="col-sm-6">
+                                                        <div class="col-sm-12">
                                                             <div class="form-group">
                                                                 <label class="mak-txt">Apellidos</label>
                                                                 <input type="text" class="form-mak" id="data_lnames_" readonly>
@@ -467,7 +475,7 @@ require_once('../Controller/controladorListar.php');
                                                         </div>
                                                     </div>
                                                     <div class="row">
-                                                        <div class="col-sm-6">
+                                                        <div class="col-sm-12">
                                                             <div class="form-group">
                                                                 <label class="mak-txt">Correo</label>
                                                                 <input type="text" class="form-mak" id="data_direcion_" readonly>
@@ -475,7 +483,7 @@ require_once('../Controller/controladorListar.php');
                                                         </div>
                                                     </div>
                                                     <div class="row">
-                                                        <div class="col-sm-6">
+                                                        <div class="col-sm-12">
                                                             <div class="form-group">
                                                                 <label class="mak-txt">Comentario</label>
                                                                 <textarea name="coment_" id="coment_" readonly></textarea>
@@ -496,7 +504,7 @@ require_once('../Controller/controladorListar.php');
                                                     </div>
 
                                                     <div class="row">
-                                                        <div class="col-sm-6">
+                                                        <div class="col-md-6">
                                                             <div class="form-group">
                                                                 <label class="mak-txt">Nombres</label>
                                                                 <input type="text" class="form-mak" id="data_names_" readonly>
@@ -504,7 +512,7 @@ require_once('../Controller/controladorListar.php');
                                                         </div>
                                                     </div>
                                                     <div class="row">
-                                                        <div class="col-sm-6">
+                                                        <div class="col-md-6">
                                                             <div class="form-group">
                                                                 <label class="mak-txt">Apellidos</label>
                                                                 <input type="text" class="form-mak" id="data_lnames_" readonly>
@@ -513,7 +521,7 @@ require_once('../Controller/controladorListar.php');
                                                     </div>
 
                                                     <div class="row">
-                                                        <div class="col-sm-6">
+                                                        <div class="col-md-6">
                                                             <div class="form-group">
                                                                 <label class="mak-txt">Correo</label>
                                                                 <input type="text" class="form-mak" id="data_direcion_" readonly>
@@ -521,7 +529,7 @@ require_once('../Controller/controladorListar.php');
                                                         </div>
                                                     </div>
                                                     <div class="row">
-                                                        <div class="col-sm-6">
+                                                        <div class="col-md-6">
                                                             <div class="form-group">
                                                                 <label class="mak-txt">Comentario</label>
                                                                 <textarea name="coment_" id="coment_" readonly></textarea>
@@ -533,7 +541,7 @@ require_once('../Controller/controladorListar.php');
                                                 ?>
                                             </div>
 
-                                            <div class="col-sm-6">
+                                            <div class="col-md-6">
 
                                                 <?php if ($_SESSION['tipo_usu'] == 1) { ?>
                                                     <div class="d-flex justify-content-end pb-3">
@@ -771,7 +779,7 @@ require_once('../Controller/controladorListar.php');
             <div class="modal-content">
                 <div class="modal-body">
                     <h1 class="title-m" id="titulo_docs"></h1>
-                    <img class="row margin" src="../Vista/assets/loading_uhd.gif" id="loader_soli" style="display:none; margin: 0 22rem 5rem">
+                    <img class="row margin" src="../Vista/assets/loading_uhd.gif" id="loader_soli" style="display:none;">
 
                     <form method="POST" enctype="multipart/form-data">
 
@@ -1420,7 +1428,7 @@ require_once('../Controller/controladorListar.php');
                                     </div>
 
                                     <div class="row d-flex justify-content-between align-center mb-4 w-100">
-                                        <div class="col-sm-1">
+                                        <div class="col-sm-2">
                                             <div class="lgl-modal-num">
                                                 ${cont++}
                                             </div>
@@ -1431,14 +1439,14 @@ require_once('../Controller/controladorListar.php');
                                             <a href="${ruta}${nombreArchivo}">${nombreArchivo}</a>
                                         </div>
 
-                                        <div class="col-sm-5 tw-modal-ots p-0">
+                                        <div class="col-sm-4 tw-modal-ots p-0">
 
                                             <div class="d-flex content_status">
                                             <?php if ($_SESSION['tipo_usu'] == 1) { ?>
                                                 ${
                                                 estadoHtml === '500'
                                                     ? `
-                                                    <select id="_slct_status" name="_slct_status" class="form-mak mr-3">
+                                                    <select id="_slct_status" name="_slct_status" class="form-mak">
                                                         <option value="500" selected>Pendiente</option>
                                                         <option value="200">Revisado</option>
                                                         <option value="100">Rechazado</option>
@@ -1447,7 +1455,7 @@ require_once('../Controller/controladorListar.php');
                                                     `
                                                 : estadoHtml === '200'
                                                     ? `
-                                                    <select id="_slct_status" name="_slct_status" class="form-mak mr-3">
+                                                    <select id="_slct_status" name="_slct_status" class="form-mak">
                                                         <option value="500">Pendiente</option>
                                                         <option value="200" selected>Revisado</option>
                                                         <option value="100">Rechazado</option>
@@ -1455,7 +1463,7 @@ require_once('../Controller/controladorListar.php');
                                                     </select>
                                                     `
                                                 : `
-                                                    <select id="_slct_status" name="_slct_status" class="form-mak mr-3">
+                                                    <select id="_slct_status" name="_slct_status" class="form-mak">
                                                         <option value="500">Pendiente</option>
                                                         <option value="200">Revisado</option>
                                                         <option value="100">Rechazado</option>
@@ -2350,6 +2358,7 @@ require_once('../Controller/controladorListar.php');
                 // responsive: true,
                 // autoWidth: false,
                 // "dom": '<"row"<"col-sm-6"l><"col-sm-6"f>>t<"row"<"col-sm-6"i><"col-sm-6"p>>',
+                dom: '<"row"<"col-sm-6"l><"col-sm-6"f>>tip',
                 "language": {
                     "url": "//cdn.datatables.net/plug-ins/1.10.25/i18n/Spanish.json", // URL del archivo de localización
                     "searchPlaceholder": "Buscar en la tabla..." // placeholder del Buscar.

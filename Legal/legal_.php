@@ -120,9 +120,9 @@ require_once('../Controller/controladorListar.php');
                                                 <input type="text" class="form-control" id="dni_user_l" name="dni_user_l" value="<?php echo $_SESSION['dni']; ?>">
                                             </div>
 
-                                            <div class="col-sm-6">
+                                            <div class="col-md-6 mb-5">
                                                 <div class="row">
-                                                    <div class="col-sm-6">
+                                                    <div class="col-md-6">
                                                         <div class="form-group">
                                                             <label class="mak-txt">Nombre</label>
                                                             <input type="text" class="form-mak" id="nom_cli_solic" name="nom_cli_solic" required>
@@ -130,7 +130,7 @@ require_once('../Controller/controladorListar.php');
                                                     </div>
                                                 </div>
                                                 <div class="row">
-                                                    <div class="col-sm-6">
+                                                    <div class="col-md-6">
                                                         <div class="form-group">
                                                             <label class="mak-txt">Apellidos</label>
                                                             <input type="text" class="form-mak" id="ape_cli_solic" name="ape_cli_solic" required>
@@ -138,7 +138,7 @@ require_once('../Controller/controladorListar.php');
                                                     </div>
                                                 </div>
                                                 <div class="row">
-                                                    <div class="col-sm-6">
+                                                    <div class="col-md-6">
                                                         <div class="form-group">
                                                             <label class="mak-txt">Correo</label>
                                                             <input type="text" class="form-mak" id="dir_cli_solic" name="dir_cli_solic" required>
@@ -148,78 +148,86 @@ require_once('../Controller/controladorListar.php');
 
                                                 <textarea id="rutas_doscs" name="rutas_doscs" rows="5" cols="50" hidden><?php echo $rutas; ?></textarea>
                                             </div>
-                                            <div class="col-sm-6">
+                                            <div class="col-md-6 mb-5">
                                                 <div class="row">
-                                                    <div class="col-sm-10">
+                                                    <div class="col-sm-12">
                                                         <div class="form-group row">
-                                                            <label class="col-sm-5 col-form-label">HR:</label>
-                                                            <div class="section-input col-sm-6">
-                                                                <div class="upload-file">
-                                                                    <label class="upld-file" data-bs-toggle="modal" data-bs-target="#modal_archive_HR">Seleccionar archivos.</label>
+                                                            <label class="col-sm-4 col-form-label">HR:</label>
+                                                            <div class="col-md-8 d-flex">
+                                                                <div class="section-input">
+                                                                    <div class="upload-file">
+                                                                        <label class="upld-file" data-bs-toggle="modal" data-bs-target="#modal_archive_HR">Seleccionar archivos.</label>
+                                                                    </div>
                                                                 </div>
-                                                            </div>
-                                                            <div class="input-group-append">
+                                                                <div class="input-group-append">
 
-                                                                <button type="button" class="btn btn-rounded btn_lst_hr btn_lst_hr_0" data-toggle="modal" data-target="#lst_hr_0" data-valor="H_R" data-titulo="Hoja de Resumen" data-id_doc_="1"><i class="cursor fa-solid fa-eye"></i></button>
+                                                                    <button type="button" class="btn btn-rounded btn_lst_hr btn_lst_hr_0" data-toggle="modal" data-target="#lst_hr_0" data-valor="H_R" data-titulo="Hoja de Resumen" data-id_doc_="1"><i class="cursor fa-solid fa-eye"></i></button>
 
-                                                                <button type="button" class="btn btn-rounded btn_lst_lyts btn_lst_lyts_0" data-toggle="modal" data-target="#lst_lyts" data-valor="H_R" data-titulo="Hoja de Resumen" data-id_doc_="1" style="display:none"><i class="cursor fa-solid fa-pencil"></i></button>
+                                                                    <button type="button" class="btn btn-rounded btn_lst_lyts btn_lst_lyts_0" data-toggle="modal" data-target="#lst_lyts" data-valor="H_R" data-titulo="Hoja de Resumen" data-id_doc_="1" style="display:none"><i class="cursor fa-solid fa-pencil"></i></button>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <br>
                                                 <div class="row">
-                                                    <div class="col-sm-10">
+                                                    <div class="col-sm-12">
                                                         <div class="form-group row">
                                                             <label class="col-sm-5 col-form-label">PU:</label>
-                                                            <div class="section-input col-sm-6">
-                                                                <div class="upload-file">
-                                                                    <label class="upld-file" data-bs-toggle="modal" data-bs-target="#modal_archive_PU">Seleccionar archivos.</label>
+                                                            <div class="col-md-8 d-flex">
+                                                                <div class="section-input">
+                                                                    <div class="upload-file">
+                                                                        <label class="upld-file" data-bs-toggle="modal" data-bs-target="#modal_archive_PU">Seleccionar archivos.</label>
+                                                                    </div>
                                                                 </div>
-                                                            </div>
-                                                            <div class="input-group-append">
+                                                                <div class="input-group-append">
 
-                                                                <button type="button" class="btn btn-rounded btn_lst_hr btn_lst_hr_0" data-toggle="modal" data-target="#lst_hr_0" data-valor="P_U" data-titulo="Predio Urbano" data-id_doc_="2"><i class="cursor fa-solid fa-eye"></i></button>
+                                                                    <button type="button" class="btn btn-rounded btn_lst_hr btn_lst_hr_0" data-toggle="modal" data-target="#lst_hr_0" data-valor="P_U" data-titulo="Predio Urbano" data-id_doc_="2"><i class="cursor fa-solid fa-eye"></i></button>
 
-                                                                <button type="button" class="btn btn-rounded btn_lst_lyts btn_lst_lyts_0" data-toggle="modal" data-target="#lst_lyts" data-valor="P_U" data-titulo="Predio Urbano" data-id_doc_="2" style="display:none"><i class="cursor fa-solid fa-pencil"></i></button>
+                                                                    <button type="button" class="btn btn-rounded btn_lst_lyts btn_lst_lyts_0" data-toggle="modal" data-target="#lst_lyts" data-valor="P_U" data-titulo="Predio Urbano" data-id_doc_="2" style="display:none"><i class="cursor fa-solid fa-pencil"></i></button>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <br>
                                                 <div class="row">
-                                                    <div class="col-sm-10">
+                                                    <div class="col-sm-12">
                                                         <div class="form-group row">
                                                             <label class="col-sm-5 col-form-label">COPIA LITERAL:</label>
-                                                            <div class="section-input col-sm-6">
-                                                                <div class="upload-file">
-                                                                    <label class="upld-file" data-bs-toggle="modal" data-bs-target="#modal_archive_CL">Seleccionar archivos.</label>
+                                                            <div class="col-md-8 d-flex">
+                                                                <div class="section-input">
+                                                                    <div class="upload-file">
+                                                                        <label class="upld-file" data-bs-toggle="modal" data-bs-target="#modal_archive_CL">Seleccionar archivos.</label>
+                                                                    </div>
                                                                 </div>
-                                                            </div>
-                                                            <div class="input-group-append">
+                                                                <div class="input-group-append">
 
-                                                                <button type="button" class="btn btn-rounded btn_lst_hr btn_lst_hr_0" data-toggle="modal" data-target="#lst_hr_0" data-valor="C_L" data-titulo="Copia Literal" data-id_doc_="3"><i class="cursor fa-solid fa-eye"></i></button>
+                                                                    <button type="button" class="btn btn-rounded btn_lst_hr btn_lst_hr_0" data-toggle="modal" data-target="#lst_hr_0" data-valor="C_L" data-titulo="Copia Literal" data-id_doc_="3"><i class="cursor fa-solid fa-eye"></i></button>
 
 
-                                                                <button type="button" class="btn btn-rounded  btn_lst_lyts btn_lst_lyts_0" data-toggle="modal" data-target="#lst_lyts" data-valor="C_L" data-titulo="Copia Literal" data-id_doc_="3" style="display:none"><i class="cursor fa-solid fa-pencil"></i></button>
+                                                                    <button type="button" class="btn btn-rounded  btn_lst_lyts btn_lst_lyts_0" data-toggle="modal" data-target="#lst_lyts" data-valor="C_L" data-titulo="Copia Literal" data-id_doc_="3" style="display:none"><i class="cursor fa-solid fa-pencil"></i></button>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <br>
                                                 <div class="row">
-                                                    <div class="col-sm-10">
+                                                    <div class="col-sm-12">
                                                         <div class="form-group row">
                                                             <label class="col-sm-5 col-form-label">DNI:</label>
-                                                            <div class="section-input col-sm-6">
-                                                                <div class="upload-file">
-                                                                    <label class="upld-file" data-bs-toggle="modal" data-bs-target="#modal_archive_DNI">Seleccionar archivos.</label>
+                                                            <div class="col-md-8 d-flex">
+                                                                <div class="section-input">
+                                                                    <div class="upload-file">
+                                                                        <label class="upld-file" data-bs-toggle="modal" data-bs-target="#modal_archive_DNI">Seleccionar archivos.</label>
+                                                                    </div>
                                                                 </div>
-                                                            </div>
-                                                            <div class="input-group-append">
-                                                                <button type="button" class="btn btn-rounded btn_lst_hr btn_lst_hr_0" data-toggle="modal" data-target="#lst_hr_0" data-valor="DNI" data-titulo="DNI" data-id_doc_="4"><i class="cursor fa-solid fa-eye"></i></button>
+                                                                <div class="input-group-append">
+                                                                    <button type="button" class="btn btn-rounded btn_lst_hr btn_lst_hr_0" data-toggle="modal" data-target="#lst_hr_0" data-valor="DNI" data-titulo="DNI" data-id_doc_="4"><i class="cursor fa-solid fa-eye"></i></button>
 
-                                                                <button type="button" class="btn btn-rounded  btn_lst_lyts btn_lst_lyts_0" data-toggle="modal" data-target="#lst_lyts" data-valor="DNI" data-titulo="DNI" data-id_doc_="4" style="display:none"><i class="cursor fa-solid fa-pencil"></i></button>
+                                                                    <button type="button" class="btn btn-rounded  btn_lst_lyts btn_lst_lyts_0" data-toggle="modal" data-target="#lst_lyts" data-valor="DNI" data-titulo="DNI" data-id_doc_="4" style="display:none"><i class="cursor fa-solid fa-pencil"></i></button>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -803,18 +811,15 @@ require_once('../Controller/controladorListar.php');
                                                 </div>
 
                                                 <div class="col-sm-2 tw-modal-ots">
-                                                    <div class="row">
-                                                        <div class="inputs brd-rght-blue">
-                                                            <input id="ruta_doc_i" type="text" value="${ruta}" readonly hidden>
-                                                            <input id="ruta_archivo_i" type="text" value="${nombreArchivo}" readonly hidden>
-                                                            <input id="cod_doc_i" type="text" value="${id_doc_}" readonly hidden>
-
-                                                            <div class="">
-                                                                <button id="dlt_file" type="button" class="btn dlt_file"><i class="cursor fa-solid fa-trash"></i></button>
-                                                            </div>
+                                                    <div class="inputs">
+                                                        <div hidden>
+                                                            <input id="ruta_doc_i" type="text" value="${ruta}" readonly>
+                                                            <input id="ruta_archivo_i" type="text" value="${nombreArchivo}" readonly>
+                                                            <input id="cod_doc_i" type="text" value="${id_doc_}" readonly>
                                                         </div>
-                                                        <div>
-                                                            <button id="dlt_file" type="button" class="btn dlt_file"> <i class="cursor fa-solid fa-download"></i></button>
+
+                                                        <div class="">
+                                                            <button id="dlt_file" type="button" class="btn dlt_file"><i class="cursor fa-solid fa-trash"></i></button>
                                                         </div>
                                                     </div>
                                                 </div>
