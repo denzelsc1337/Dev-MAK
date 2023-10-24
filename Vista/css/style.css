@@ -79,9 +79,9 @@ strong {
   cursor: pointer;
 }
 
-.cursor:hover {
+/* .cursor:hover {
   background-color: rgba(0, 0, 0, 0.03);
-}
+} */
 
 .card-footer {
   background-color: transparent !important;
@@ -2494,9 +2494,17 @@ button.gm-control-active.gm-fullscreen-control {
     left: 30px;
   }
 
+  .arrow-right {
+    right: 30px;
+  }
+
   .preloader img,
   .mak_overlay img {
     width: 40%;
+  }
+
+  .content-file span {
+    margin: 0.5rem 0;
   }
 }
 

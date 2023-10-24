@@ -113,11 +113,12 @@ require_once('../Controller/controladorListar.php');
 
                             <form id="updt_files" method="POST" enctype="multipart/form-data">
                                 <!-- <form id="updt_files" method="POST" action="../Controller/Add_Solic_Legal.php"> -->
-                                <div class="container">
+                                <div class="container mt-5">
 
                                     <div class="arrow-right">
                                         <i class="fa-solid fa-angle-right"></i>
                                     </div>
+
                                     <div class="card-body">
                                         <div class="row">
                                             <div class="row" hidden>
@@ -156,77 +157,88 @@ require_once('../Controller/controladorListar.php');
                                             </div>
                                             <div class="col-md-6 mb-5">
                                                 <div class="row">
-                                                    <div class="col-sm-10">
+                                                    <div class="col-sm-12">
                                                         <div class="form-group row">
-                                                            <label class="col-sm-5 col-form-label">HR:</label>
-                                                            <div class="section-input col-sm-6">
-                                                                <div class="upload-file">
-                                                                    <label class="upld-file" data-valor="HR" data-bs-toggle="modal" data-bs-target="#modal_archive_HR">Seleccionar archivos.</label>
+                                                            <label class="col-sm-4 col-form-label">HR:</label>
+                                                            <div class="col-md-8 d-flex">
+                                                                <div class="section-input">
+                                                                    <div class="upload-file">
+                                                                        <label class="upld-file" data-valor="HR" data-bs-toggle="modal" data-bs-target="#modal_archive_HR">Seleccionar archivos.</label>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="input-group-append">
+
+                                                                    <button type="button" class="btn btn-rounded btn_lst_hr btn_lst_hr_0" data-toggle="modal" data-target="#lst_hr_0" data-valor="H_R" data-titulo="Hoja de Resumen" data-id_doc_="1"><i class="cursor fa-solid fa-eye"></i></button>
+
+                                                                    <button type="button" class="btn btn-rounded btn_lst_lyts btn_lst_lyts_0" data-toggle="modal" data-target="#lst_lyts" data-valor="H_R" data-titulo="Hoja de Resumen" data-id_doc_="1" data-testeo="ola" style="display:none"><i class="cursor fa-solid fa-pencil"></i></button>
                                                                 </div>
                                                             </div>
-                                                            <div class="input-group-append">
 
-                                                                <button type="button" class="btn btn-rounded btn_lst_hr btn_lst_hr_0" data-toggle="modal" data-target="#lst_hr_0" data-valor="H_R" data-titulo="Hoja de Resumen" data-id_doc_="1"><i class="cursor fa-solid fa-eye"></i></button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <br>
+                                                <div class="row">
+                                                    <div class="col-sm-12">
+                                                        <div class="form-group row">
+                                                            <label class="col-sm-4 col-form-label">PU:</label>
+                                                            <div class="col-md-8 d-flex">
+                                                                <div class="section-input">
+                                                                    <div class="upload-file">
+                                                                        <label class="upld-file" data-bs-toggle="modal" data-bs-target="#modal_archive_PU">Seleccionar archivos.</label>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="input-group-append">
 
-                                                                <button type="button" class="btn btn-rounded btn_lst_lyts btn_lst_lyts_0" data-toggle="modal" data-target="#lst_lyts" data-valor="H_R" data-titulo="Hoja de Resumen" data-id_doc_="1" data-testeo="ola" style="display:none"><i class="cursor fa-solid fa-pencil"></i></button>
+                                                                    <button type="button" class="btn btn-rounded btn_lst_hr btn_lst_hr_0" data-toggle="modal" data-target="#lst_hr_0" data-valor="P_U" data-titulo="Predio Urbano" data-id_doc_="2"><i class="cursor fa-solid fa-eye"></i></button>
+
+                                                                    <button type="button" class="btn btn-rounded  btn_lst_lyts btn_lst_lyts_0" data-toggle="modal" data-target="#lst_lyts" data-valor="P_U" data-titulo="Predio Urbano" data-id_doc_="2" style="display:none"><i class="cursor fa-solid fa-pencil"></i></button>
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <br>
+                                                <div class="row">
+                                                    <div class="col-sm-12">
+                                                        <div class="form-group row">
+                                                            <label class="col-sm-4 col-form-label">COPIA LITERAL:</label>
+                                                            <div class="col-md-8 d-flex">
+                                                                <div class="section-input">
+                                                                    <div class="upload-file">
+                                                                        <label class="upld-file" data-bs-toggle="modal" data-bs-target="#modal_archive_CL">Seleccionar archivos.</label>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="input-group-append">
+
+                                                                    <button type="button" class="btn btn-rounded btn_lst_hr btn_lst_hr_0" data-toggle="modal" data-target="#lst_hr_0" data-valor="C_L" data-titulo="Copia Literal" data-id_doc_="3"><i class="cursor fa-solid fa-eye"></i></button>
+
+
+                                                                    <button type="button" class="btn btn-rounded  btn_lst_lyts btn_lst_lyts_0" data-toggle="modal" data-target="#lst_lyts" data-valor="C_L" data-titulo="Copia Literal" data-id_doc_="3" style="display:none"><i class="cursor fa-solid fa-pencil"></i></button>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <br>
                                                 <div class="row">
-                                                    <div class="col-sm-10">
+                                                    <div class="col-sm-12">
                                                         <div class="form-group row">
-                                                            <label class="col-sm-5 col-form-label">PU:</label>
-                                                            <div class="section-input col-sm-6">
-                                                                <div class="upload-file">
-                                                                    <label class="upld-file" data-bs-toggle="modal" data-bs-target="#modal_archive_PU">Seleccionar archivos.</label>
+                                                            <label class="col-sm-4 col-form-label">DNI:</label>
+                                                            <div class="col-md-8 d-flex">
+                                                                <div class="section-input">
+                                                                    <div class="upload-file">
+                                                                        <label class="upld-file" data-bs-toggle="modal" data-bs-target="#modal_archive_DNI">Seleccionar archivos.</label>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="input-group-append">
+                                                                    <button type="button" class="btn btn-rounded btn_lst_hr btn_lst_hr_0" data-toggle="modal" data-target="#lst_hr_0" data-valor="DNI" data-titulo="DNI" data-id_doc_="4"><i class="cursor fa-solid fa-eye"></i></button>
+
+                                                                    <button type="button" class="btn btn-rounded  btn_lst_lyts btn_lst_lyts_0" data-toggle="modal" data-target="#lst_lyts" data-valor="DNI" data-titulo="DNI" data-id_doc_="4" style="display:none"><i class="cursor fa-solid fa-pencil"></i></button>
                                                                 </div>
                                                             </div>
-                                                            <div class="input-group-append">
 
-                                                                <button type="button" class="btn btn-rounded btn_lst_hr btn_lst_hr_0" data-toggle="modal" data-target="#lst_hr_0" data-valor="P_U" data-titulo="Predio Urbano" data-id_doc_="2"><i class="cursor fa-solid fa-eye"></i></button>
-
-                                                                <button type="button" class="btn btn-rounded  btn_lst_lyts btn_lst_lyts_0" data-toggle="modal" data-target="#lst_lyts" data-valor="P_U" data-titulo="Predio Urbano" data-id_doc_="2" style="display:none"><i class="cursor fa-solid fa-pencil"></i></button>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <br>
-                                                <div class="row">
-                                                    <div class="col-sm-10">
-                                                        <div class="form-group row">
-                                                            <label class="col-sm-5 col-form-label">COPIA LITERAL:</label>
-                                                            <div class="section-input col-sm-6">
-                                                                <div class="upload-file">
-                                                                    <label class="upld-file" data-bs-toggle="modal" data-bs-target="#modal_archive_CL">Seleccionar archivos.</label>
-                                                                </div>
-                                                            </div>
-                                                            <div class="input-group-append">
-
-                                                                <button type="button" class="btn btn-rounded btn_lst_hr btn_lst_hr_0" data-toggle="modal" data-target="#lst_hr_0" data-valor="C_L" data-titulo="Copia Literal" data-id_doc_="3"><i class="cursor fa-solid fa-eye"></i></button>
-
-
-                                                                <button type="button" class="btn btn-rounded  btn_lst_lyts btn_lst_lyts_0" data-toggle="modal" data-target="#lst_lyts" data-valor="C_L" data-titulo="Copia Literal" data-id_doc_="3" style="display:none"><i class="cursor fa-solid fa-pencil"></i></button>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <br>
-                                                <div class="row">
-                                                    <div class="col-sm-10">
-                                                        <div class="form-group row">
-                                                            <label class="col-sm-5 col-form-label">DNI:</label>
-                                                            <div class="section-input col-sm-6">
-                                                                <div class="upload-file">
-                                                                    <label class="upld-file" data-bs-toggle="modal" data-bs-target="#modal_archive_DNI">Seleccionar archivos.</label>
-                                                                </div>
-                                                            </div>
-                                                            <div class="input-group-append">
-                                                                <button type="button" class="btn btn-rounded btn_lst_hr btn_lst_hr_0" data-toggle="modal" data-target="#lst_hr_0" data-valor="DNI" data-titulo="DNI" data-id_doc_="4"><i class="cursor fa-solid fa-eye"></i></button>
-
-                                                                <button type="button" class="btn btn-rounded  btn_lst_lyts btn_lst_lyts_0" data-toggle="modal" data-target="#lst_lyts" data-valor="DNI" data-titulo="DNI" data-id_doc_="4" style="display:none"><i class="cursor fa-solid fa-pencil"></i></button>
-                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -524,7 +536,7 @@ require_once('../Controller/controladorListar.php');
                                                         <div class="col-md-6">
                                                             <div class="form-group">
                                                                 <label class="mak-txt">Correo</label>
-                                                                <input type="text" class="form-mak" id="data_direcion_" readonly>
+                                                                <input type="text" class="form-mak" id="data_direcion__" readonly>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -1224,7 +1236,7 @@ require_once('../Controller/controladorListar.php');
 
                                 <div class="col-sm-2 tw-modal-ots">
                                     <div class="row">
-                                        <div class="inputs brd-rght-blue">
+                                        <div class="inputs">
                                             <div hidden>
                                                 <input id="ruta_doc_i" type="text" value="${ruta}" readonly>
                                                 <input id="ruta_archivo_i" type="text" value="${nombreArchivo}" readonly>
@@ -1321,7 +1333,7 @@ require_once('../Controller/controladorListar.php');
 
                                                 <div class="col-sm-2 tw-modal-ots">
                                                     <div class="row">
-                                                        <div class="inputs brd-rght-blue">
+                                                        <div class="inputs">
 
                                                             <div hidden>
                                                                 <input id="ruta_doc_i" type="text" value="${ruta}" readonly>
@@ -1903,7 +1915,6 @@ require_once('../Controller/controladorListar.php');
                 var _idcli = $(this).data('cod_client');
 
 
-                get_details_solic_legal(_id_soli, _idcli)
             });*/
 
 
@@ -1955,7 +1966,6 @@ require_once('../Controller/controladorListar.php');
                     var _id_soli = $(element).data('cod_solic');
                     var _idcli = $(element).data('cod_client');
 
-                    console.log("1 -> " + _id_soli)
                     // console.log(_idcli)
 
                     $('#id_solic_doc').val(_id_soli);
@@ -1977,8 +1987,6 @@ require_once('../Controller/controladorListar.php');
                     //code
                     var _id_soli = $(element).data('cod_solic');
                     var _idcli = $(element).data('cod_client');
-
-                    console.log("2 -> " + _id_soli)
 
                     get_details_solic_legal(_id_soli, _idcli)
 
@@ -2118,7 +2126,7 @@ require_once('../Controller/controladorListar.php');
                     try {
                         var detalles = JSON.parse(response);
 
-                        console.log(detalles);
+                        // console.log(detalles);
 
                         var id_valor = detalles[0][0];
                         var nom_client = detalles[0][1];
@@ -2128,9 +2136,6 @@ require_once('../Controller/controladorListar.php');
                         var dni_client = detalles[0][5];
                         var status_ = detalles[0][6];
                         var coment = detalles[0][7];
-
-                        var id_doc_lgl = $(this).data('cod_solic');
-                        console.log("3 -> " + id_doc_lgl);
 
                     } catch (error) {
                         console.error("Error al analizar la respuesta JSON: " + error);
@@ -2166,16 +2171,15 @@ require_once('../Controller/controladorListar.php');
                         // console.log("comment: " + coment);
                         // console.log("estado: " + status_);
 
-                        $("#id_legal_solic").val(id_valor)
-                        $("#id_client_l").val(id_client)
-                        $("#dni_client_l").val(dni_client)
+                        $("#id_legal_solic").val(id_valor);
+                        $("#id_client_l").val(id_client);
+                        $("#dni_client_l").val(dni_client);
 
-                        $("#data_names_").val(nom_client)
-                        $("#data_lnames_").val(apellido)
-                        // $("#data_names_").val(nom_client + ' ' + apellido)
-                        $("#data_direcion_").val(correo)
-                        // $("#data_direcion_").val(correo)
-                        $("#coment_").val(coment)
+                        $("#data_names_").val(nom_client);
+                        $("#data_lnames_").val(apellido);
+                        $("#data_direcion_").val(correo);
+                        $("#data_direcion__").val(correo);
+                        $("#coment_").val(coment);
 
                         // $("#status_solic_legal_cbo").val(status_);
 

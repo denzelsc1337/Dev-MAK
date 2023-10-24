@@ -8,13 +8,11 @@ require_once('../Controller/controladorListar.php'); ?>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>MAK SERVICE</title>
 
-    <!-- Google Font: Source Sans Pro -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+
     <!-- Font Awesome -->
     <link rel="stylesheet" href="../Vista/plugins/fontawesome-free/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer">
 
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Material+Icons+Outlined" crossorigin="anonymous" referrerpolicy="no-referrer">
 
     <!-- daterange picker -->
     <link rel="stylesheet" href="../Vista/plugins/daterangepicker/daterangepicker.css">
@@ -408,7 +406,7 @@ require_once('../Controller/controladorListar.php'); ?>
                                                 <div class="card-body">
                                                     <div>
                                                         <label class="mak-txt">Comentario</label>
-                                                        <textarea id="coment_valr_r" placeholder="Escribe un comentario..." style="resize: none;" readonly></textarea>
+                                                        <textarea id="coment_valr_r" placeholder="Sin comentario..." style="resize: none;" readonly></textarea>
                                                     </div>
                                                     <div class="row justify-content-between">
                                                         <div class="btn btn-mak mak-bg btn_get_fotos" data-bs-toggle="modal" data-bs-target="#verFotos">Ver Fotos</div>
@@ -450,7 +448,9 @@ require_once('../Controller/controladorListar.php'); ?>
                                                     </ul>
 
                                                     <div class="pl-2">
-                                                        <p><strong>Información de la propiedad:</strong></p>
+                                                        <!-- <p><strong>Información de la propiedad:</strong></p> -->
+
+                                                        <span class="cursor" id="lst_resume_" data-toggle="modal" data-target="#lst_resume" data-id_solic_val="<?php echo $lst_vlzn[0] ?>" data-id_cli="<?php echo $lst_vlzn[64] ?>" data-dni_cli="<?php echo $lst_vlzn[1] ?>"><small><strong>Ver más detalles.</strong></small></span>
 
                                                     </div>
                                                 </div>
@@ -459,7 +459,7 @@ require_once('../Controller/controladorListar.php'); ?>
                                         </div>
                                     </div>
 
-                                    <div class="card-footer pt-5">
+                                    <div class=" card-footer pt-5">
                                         <div class="form-flex">
                                             <button type="button" class="btn btn-mak mak-bg-sec antPag avanza_pa_atras">Retroceder</button>
 
@@ -666,6 +666,29 @@ require_once('../Controller/controladorListar.php'); ?>
                     </div>
                 </div>
 
+                <div class="modal fade" id="lst_resume" tabindex="-1" role="dialog" aria-labelledby="lst_resume" aria-hidden="true">
+                    <div id="loader_uhd_3" class="mak_overlay hidden">
+                        <img src="../Vista/images/MAK_logo.png" alt="" class="fading-element">
+                    </div>
+                    <div class="modal-dialog modal-lg modal-dialog-centered">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Detalles del resumen</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <div id="resume_lst"></div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-primary">Save changes</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
 
             </section>
         </div>
@@ -674,6 +697,13 @@ require_once('../Controller/controladorListar.php'); ?>
         <?php include '../Vista/foot-form.php' ?>
 
     </div>
+
+
+    <script>
+
+    </script>
+
+
 
     <script>
         function habilitarBoton() {
@@ -694,41 +724,6 @@ require_once('../Controller/controladorListar.php'); ?>
 
     <!--GOOGLE MAPS TESTING-->
     <script type="text/javascript">
-        function initmap() {
-            const autocomplete = new google.maps.places.Autocomplete(document.getElementById('direccion_'));
-            var map = new google.maps.Map(document.getElementById('mapa'), {
-                center: {
-                    lat: -34.397,
-                    lng: 150.644
-                },
-                zoom: 18
-            });
-            var marker = new google.maps.Marker({
-                position: {
-                    lat: -34.397,
-                    lng: 150.644
-                },
-                map: map
-            });
-
-            if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition(function(position) {
-                    var pos = {
-                        lat: position.coords.latitude,
-                        lng: position.coords.longitude
-                    };
-                    map.setCenter(pos);
-                    var marker = new google.maps.Marker({
-                        position: pos,
-                        map: map,
-                        title: 'Ubicación actual'
-                    });
-                }, function() {
-                    // Manejar errores de geolocalización aquí
-                });
-            }
-        }
-
         function onGoogleMapsLoaded() {
             const autocomplete = new google.maps.places.Autocomplete(document.getElementById('direccion_'));
         }
@@ -736,7 +731,7 @@ require_once('../Controller/controladorListar.php'); ?>
 
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCNO5GraIm8rWrrLbWt-Gv9GxsenRng-8o&callback=initmap&libraries=places" onload="onGoogleMapsLoaded()" async defer>
     </script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCNO5GraIm8rWrrLbWt-Gv9GxsenRng-8o&libraries=places"></script>
+
 
 
     <script type="text/javascript">
@@ -986,7 +981,6 @@ require_once('../Controller/controladorListar.php'); ?>
                 },
 
                 success: function(response) {
-                    console.log(response);
 
                     try {
                         var detalles = JSON.parse(response);
@@ -1047,7 +1041,7 @@ require_once('../Controller/controladorListar.php'); ?>
                 },
 
                 success: function(response) {
-                    console.log(response);
+                    // console.log(response);
 
                     try {
                         var detalles = JSON.parse(response);
@@ -1059,7 +1053,7 @@ require_once('../Controller/controladorListar.php'); ?>
                         var direccion = detalles[0][2];
                         var tipo_inmb = detalles[0][3];
                         var estado = detalles[0][61];
-                        var coment = detalles[0][62];
+                        var coment = detalles[0][63];
 
                     } catch (error) {
                         console.error("Error al analizar la respuesta JSON: " + error);
@@ -1223,7 +1217,6 @@ require_once('../Controller/controladorListar.php'); ?>
                         }
                     }
                     if (district) {
-                        console.log("distrito", district);
                         $("#dir_dist_rsm").text(district);
 
                         var districtLocation = results[0].geometry.location;
@@ -1803,10 +1796,8 @@ require_once('../Controller/controladorListar.php'); ?>
     </script>
 
     <!-- REQUIRED SCRIPTS -->
-    <script src="../Vista/js/stepper.js"></script>
-    <script src="../Vista/js/resume.js"></script>
+    <script src="../Vista/js/getResume.js"></script>
     <script src="../Vista/assets/functions.js"></script>
-    <script src="../Vista/assets/selection_types.js"></script>
 
     <!-- jQuery -->
     <script src="../Vista/plugins/jquery/jquery.min.js"></script>

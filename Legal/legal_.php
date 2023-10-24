@@ -173,7 +173,7 @@ require_once('../Controller/controladorListar.php');
                                                 <div class="row">
                                                     <div class="col-sm-12">
                                                         <div class="form-group row">
-                                                            <label class="col-sm-5 col-form-label">PU:</label>
+                                                            <label class="col-sm-4 col-form-label">PU:</label>
                                                             <div class="col-md-8 d-flex">
                                                                 <div class="section-input">
                                                                     <div class="upload-file">
@@ -194,7 +194,7 @@ require_once('../Controller/controladorListar.php');
                                                 <div class="row">
                                                     <div class="col-sm-12">
                                                         <div class="form-group row">
-                                                            <label class="col-sm-5 col-form-label">COPIA LITERAL:</label>
+                                                            <label class="col-sm-4 col-form-label">COPIA LITERAL:</label>
                                                             <div class="col-md-8 d-flex">
                                                                 <div class="section-input">
                                                                     <div class="upload-file">
@@ -216,7 +216,7 @@ require_once('../Controller/controladorListar.php');
                                                 <div class="row">
                                                     <div class="col-sm-12">
                                                         <div class="form-group row">
-                                                            <label class="col-sm-5 col-form-label">DNI:</label>
+                                                            <label class="col-sm-4 col-form-label">DNI:</label>
                                                             <div class="col-md-8 d-flex">
                                                                 <div class="section-input">
                                                                     <div class="upload-file">

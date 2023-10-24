@@ -8,7 +8,6 @@
   var sections = document.querySelectorAll(".section");
   var section_Array = [];
 
-
   sections.forEach((element) => {
     section_Array.push(element.getAttribute("id"));
   });
@@ -20,12 +19,9 @@
     whatTI = tipoInmueble.value;
   });
 
-
   const buttonNextPag = document.querySelector(".nextPag");
 
   buttonNextPag.addEventListener("click", function () {
-
-
     if (section_Array.includes(whatTI)) {
       const section = document.getElementById(whatTI);
 
@@ -34,22 +30,20 @@
         arrayValues.splice(0);
         const sub_tipo_prop = document.querySelector("#sub_tipo_prop").value;
 
-
         if (sub_tipo_prop === "13" || sub_tipo_prop === "14") {
-
           const locales = section.querySelectorAll(".lcl");
 
-          locales.forEach(element => {
+          locales.forEach((element) => {
             if (element.classList.contains("show")) {
-              const inputs_chk_lcl = element.querySelectorAll("input[type='checkbox']");
-              inputs_chk_lcl.forEach(element => {
-
+              const inputs_chk_lcl = element.querySelectorAll(
+                "input[type='checkbox']"
+              );
+              inputs_chk_lcl.forEach((element) => {
                 inputsID_chk.push(element.getAttribute("id"));
               });
 
               // true or false in chks
               inputsID_chk.forEach(function (checkboxID) {
-
                 var checkbox_lcl = document.getElementById(checkboxID);
                 checkbox_lcl.addEventListener("change", function () {
                   if (this.checked) {
@@ -79,15 +73,17 @@
                   });
                   //
                   cardBodys.forEach((element) => {
-                    const input = element.querySelectorAll("input:not([hidden])");
+                    const input = element.querySelectorAll(
+                      "input:not([hidden])"
+                    );
                     input.forEach((ele) => {
                       arrayValues.push(ele.value);
                     });
                     //
                     const select = element.querySelectorAll("select");
                     select.forEach((ele) => {
-
-                      const textValue_ = ele.options[ele.selectedIndex].innerText;
+                      const textValue_ =
+                        ele.options[ele.selectedIndex].innerText;
                       arrayValues.push(textValue_);
                     });
                   });
@@ -95,15 +91,11 @@
 
                 // console.log(arrayNames);
                 // console.log(arrayValues);
-              })
+              });
             }
-
           });
         }
-
       } else {
-
-
         ///
         const inputs_chk = section.querySelectorAll("input[type='checkbox']");
         //
@@ -116,7 +108,6 @@
           var checkbox = document.getElementById(checkboxID);
           // console.log(checkbox);
           checkbox.addEventListener("change", function () {
-
             let chk_c_1 = document.querySelector("#sala_");
             let chk_c_2 = document.querySelector("#comedor_");
             let chk_d_1 = document.querySelector("#sala_d");
@@ -148,7 +139,6 @@
                 chk_d_1.disabled = false;
                 chk_d_2.disabled = false;
               }
-
             }
           });
         });
@@ -180,7 +170,6 @@
               //
               const select = element.querySelectorAll("select");
               select.forEach((ele) => {
-
                 const textValue_ = ele.options[ele.selectedIndex].innerText;
                 arrayValues.push(textValue_);
               });
@@ -189,19 +178,14 @@
 
           // console.log(arrayNames);
           // console.log(arrayValues);
-        })
-
+        });
       }
-
     }
   });
-
-
 
   const buttonLstPag = document.querySelector(".lstPag");
 
   buttonLstPag.addEventListener("click", function () {
-
     const contFotos = document.getElementById("fileValorArchives"),
       cantFotos = contFotos.children.length,
       verFotos = document.getElementById("verFotos_");
@@ -213,7 +197,6 @@
       cantDocs_cl = contDocs_cl.children.length;
 
     const verDocs = document.getElementById("verDocs_");
-
 
     if (cantFotos > 1) {
       verFotos.disabled = false;
@@ -232,9 +215,6 @@
     const PU_docs = modalContentDocuments.querySelector(".PU_docs");
     const CL_docs = modalContentDocuments.querySelector(".CL_docs");
 
-    console.log(PU_docs);
-    console.log(CL_docs);
-
     if (cantDocs_pu > 0) {
       PU_docs.style.display = "block";
     } else {
@@ -247,16 +227,12 @@
       CL_docs.style.display = "none";
     }
 
-
-
     const cards = document.querySelectorAll(".card-body");
-    // console.log(cards);
 
     cards.forEach((element) => {
       // console.log(element);
       var dataResume = element.classList.contains("data-resume");
       // console.log(dataResume);
-
 
       if (dataResume === true) {
         const allTag = element.querySelectorAll("*");
@@ -271,8 +247,7 @@
               var valor1 = arrayNames[index];
               var valor2 = arrayValues[index];
 
-              var contenidoExplicit =
-                "<li><strong>" + valor1 + " </strong>";
+              var contenidoExplicit = "<li><strong>" + valor1 + " </strong>";
 
               if (valor2 === "true") {
                 resumeForm += contenidoExplicit + "Sí." + "<br></li>";
@@ -286,67 +261,86 @@
                 valor2 !== "undefined" &&
                 valor2 !== undefined
               ) {
-                resumeForm +=
-                  contenidoExplicit + valor2 + "." + "<br></li>";
+                resumeForm += contenidoExplicit + valor2 + "." + "<br></li>";
               }
             }
             element.innerHTML = resumeForm;
+
+            // Crear un objeto JSON para almacenar los datos
+            const jsonData = {};
+
+            // Divide el texto en líneas
+            const lines = resumeForm.split("<br></li>");
+
+            // Recorre las líneas para extraer los datos
+            lines.forEach((line) => {
+              const keyValue = line.match(/<strong>([^<]+)<\/strong>([^<]+)/);
+              if (keyValue && keyValue.length === 3) {
+                const key = keyValue[1].trim();
+                const value = keyValue[2].trim();
+                jsonData[key] = value;
+              }
+            });
+
+            // Convierte el objeto JSON en una cadena JSON
+            const jsonString = JSON.stringify(jsonData);
+
+            console.log(jsonString);
+
+            localStorage.setItem("jsonString", JSON.stringify(jsonString));
           }
         });
       }
     });
 
-
     var comment = document.querySelector("#coment_valr").value;
     document.getElementById("coment_valr_").textContent = comment;
   });
 
-
-
   const buttonAtrPag = document.querySelector(".atrPag");
-
 
   buttonAtrPag.addEventListener("click", function () {
     arrayNames.splice(0);
     arrayValues.splice(0);
   });
 
-  const buttonBckPag = document.querySelectorAll(".backPag").forEach(element => {
-    element.addEventListener("click", function () {
-      // arrayNames.splice(0);
-      // arrayValues.splice(0);
-      // borrar checkbox de local comercial   => local exclusivo / local comun
-      inputsID_chk.forEach(function (checkboxID) {
-        var checkboxs = document.getElementById(checkboxID);
-        for (var i = 0; i < inputsID_chk.length; i++) {
-          checkboxs.value = false;
-        }
+  const buttonBckPag = document
+    .querySelectorAll(".backPag")
+    .forEach((element) => {
+      element.addEventListener("click", function () {
+        // arrayNames.splice(0);
+        // arrayValues.splice(0);
+        // borrar checkbox de local comercial   => local exclusivo / local comun
+        inputsID_chk.forEach(function (checkboxID) {
+          var checkboxs = document.getElementById(checkboxID);
+          for (var i = 0; i < inputsID_chk.length; i++) {
+            checkboxs.value = false;
+          }
+        });
+        // borrar checkbox de local comercial   => local exclusivo / local comun
+
+        // borrar inputs de local comercial   => local exclusivo / local comun
+        InputsErase();
+        // borrar inputs de local comercial   => local exclusivo / local comun
       });
-      // borrar checkbox de local comercial   => local exclusivo / local comun
-
-      // borrar inputs de local comercial   => local exclusivo / local comun
-      InputsErase();
-      // borrar inputs de local comercial   => local exclusivo / local comun
     });
-  });
-
 
   function InputsErase() {
     const allSections = document.querySelectorAll(".section.card-default");
     // const allSections_ = document.querySelectorAll((".section"));
-    allSections.forEach(element => {
+    allSections.forEach((element) => {
       const allInputsTxt = element.querySelectorAll("input:not([hidden])");
       const allInputsNum = element.querySelectorAll("input[type='number']");
-      const allCheckBox = element.querySelectorAll("input[type='checkbox']:checked");
-
+      const allCheckBox = element.querySelectorAll(
+        "input[type='checkbox']:checked"
+      );
 
       // const allInputsTxt = document.querySelectorAll("input:not([hidden])");
       // const allInputsNum = document.querySelectorAll("input[type='number']");
       // const allCheckBox = document.querySelectorAll("input[type='checkbox']:checked");
-      // console.log(allSections);  
+      // console.log(allSections);
       // console.log(allSections_);
       // console.log(allInputsTxt);
-
 
       for (var i = 0; i < allInputsTxt.length; i++) {
         allInputsTxt[i].value = "";
@@ -362,6 +356,4 @@
       }
     });
   }
-
-
 })();
