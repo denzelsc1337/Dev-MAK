@@ -1,15 +1,7 @@
-$("#lst_resume_").on("click", function () {
-  var id_valo_soli = $(this).data("id_solic_val");
-  var id_valo_cli = $(this).data("id_cli");
-  var dni_cli = $(this).data("dni_cli");
-
-  getResumen(id_valo_soli, id_valo_cli, dni_cli);
-});
-
 function getResumen(idsolicitud, idclient, dniclient) {
   $.ajax({
     type: "POST",
-    url: "../Controller/Get_Details_Valorizacion.php",
+    url: "../Controller/getDetails_valo.php",
     data: {
       id_solic_l: idsolicitud,
       id_client: idclient,
@@ -18,17 +10,99 @@ function getResumen(idsolicitud, idclient, dniclient) {
     success: function (response) {
       var data = JSON.parse(response);
       console.log(data);
-      var resumeContent = "<ul>"; // Iniciar una lista
+      var lblContent = [
+        "ID propiedad",
+        "Cliente",
+        "Dirección",
+        "Tipo inmueble",
+        "Sub tipo inmueble",
+        "Promoción",
+        "Área terreno",
+        "Área construida",
+        "Área ocupada",
+        "Antigüedad",
+        // CASA
+        "Sala/Comedor",
+        "Sala",
+        "Comedor",
+        "Cocina",
+        "Amoblado",
+        "Piscina",
+        "N° dormitorios",
+        "Dormitorio con baño",
+        "N° baños",
+        "Baño visita",
+        "Cuarto de servicio",
+        "Baño de servicio",
+        "Estacionamiento",
+        "Depósito",
+        "Ubicación",
+        "Vista",
+        "Acabado",
+        // DEPARTAMENTO
+        "Sala/Comedor",
+        "Sala",
+        "Comedor",
+        "Cocina",
+        "Amoblado",
+        "N° dormitorios",
+        "Dormitorio con baño",
+        "N° baños",
+        "Baño visita",
+        "Cuarto de servicio",
+        "Baño de servicio",
+        "Estacionamiento",
+        "Depósito",
+        "Ascensor",
+        "Ascensor directo",
+        "Pisos del edificio",
+        "Piso del depa",
+        "Zonificación",
+        "Suelo",
+        // TERRENO
+        "Parámetros",
+        "Frente",
+        "Izquierda",
+        "Fondo",
+        "Derecha",
+        // OFICINA
+        "Piso de la oficina",
+        "Cochera",
+        "Ascensor",
+        "Aire acond",
+        // LOCAL COMERCIAL
+        "Frente",
+        "Cochera",
+        "Piso del local",
+        "Ascensor",
+        "Aire acond",
+        // LOCAL INDUSTRIAL
+        "Frente",
+        "Nave",
+        //
+        "Estado",
+        "Comentario",
+        "Observación",
+        // "Documentos",
+      ];
 
-      data.forEach(function (item) {
-        // Verificar si el valor no es nulo (null)
-        if (item !== null) {
-          // Agregar cada elemento a la lista en su propio <li>
-          resumeContent += "<li>" + item + "</li>";
+      var resumeContent = ""; // Iniciar una lista
+      data.forEach(function (data, type) {
+        if (data !== null) {
+          for (let index = 0; index < data.length; index++) {
+            // resumeContent += "<li>" + data[index] + "</li>";
+
+            var valor1 = lblContent[index];
+            var valor2 = data[index].valor;
+            var valor3 = data[index].tipo;
+
+            console.log(valor2);
+            console.log(valor3);
+
+            var lbl = "<li><strong>" + valor1 + ": </strong>";
+          }
         }
       });
-
-      resumeContent += "</ul>"; // Cerrar la lista
 
       // Imprimir el contenido en el div con id lst_resume_
       $("#resume_lst").html(resumeContent);
@@ -39,4 +113,6 @@ function getResumen(idsolicitud, idclient, dniclient) {
   });
 }
 
-// $("#dir_rsm").text(detalles[0][2]);
+$(".avanza_pa_atras").on("click", function () {
+  $("#resume_lst").empty();
+});

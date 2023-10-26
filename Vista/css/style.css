@@ -428,12 +428,14 @@ h2 {
   box-shadow: 0 0 0 rgba(0, 0, 0, 0.125), 0 0 0 rgba(0, 0, 0, 0.2) !important;
 }
 
-#pantalla-RS table {
+#pantalla-RS table,
+#add_data_val table {
   width: 95% !important;
   margin: 0 auto;
 }
 
-#pantalla-RS .card-body {
+#pantalla-RS .card-body,
+#add_data_val .card-body {
   padding-left: 15px;
   padding-right: 15px;
 }
@@ -561,6 +563,15 @@ h2 {
   display: grid;
   grid-template-columns: auto auto;
   align-items: center;
+}
+
+#resume_lst {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+#resume_lst li {
+  padding-bottom: 5px;
 }
 
 .card-resume {

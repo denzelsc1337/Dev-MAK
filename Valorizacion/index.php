@@ -359,125 +359,121 @@ require_once('../Controller/controladorListar.php'); ?>
 
 
 
-                        <section class="content body-mak mak-txt position-relative">
+                        <section class="body-mak mak-txt col-md-12">
 
                             <form id="add_data_val" method="POST">
 
                                 <input type="text" name="cod_solic_v" id="cod_solic_v" hidden>
                                 <input type="text" name="dni_usu_v" id="dni_usu_v" hidden>
-                                <div class="container">
 
-                                    <div class="row">
 
-                                        <div class="card-body mt-4">
-                                            <table class="table table-borderless">
-                                                <thead>
-                                                    <tr class="t-head">
-                                                        <th>DISTRITO</th>
-                                                        <th>DIRECCIÓN</th>
-                                                        <th>TIPO</th>
-                                                        <th>PROMOCIÓN</th>
-                                                        <th>AT</th>
-                                                        <th>AC</th>
-                                                        <th>AO</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr>
-                                                        <!-- <td>MIRAFLORES</td> -->
-                                                        <td id="dir_dist_rsm"></td>
-                                                        <!-- <td>AV AREQUIPA 4960</td> -->
-                                                        <td id="dir_rsm"></td>
-                                                        <!-- <td>CASA</td> -->
-                                                        <td id="tip_rsm"></td>
-                                                        <!-- <td>VENTA</td> -->
-                                                        <td id="pro_rsm"></td>
-                                                        <td id="at_rsm"></td>
-                                                        <td id="ac_rsm"></td>
-                                                        <td id="ao_rsm"></td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                        <br>
 
-                                        <div class="d-flex w-100 justify-content-between mt-3 resumen">
-                                            <div class="blaa">
-                                                <div class="card-body">
-                                                    <div>
-                                                        <label class="mak-txt">Comentario</label>
-                                                        <textarea id="coment_valr_r" placeholder="Sin comentario..." style="resize: none;" readonly></textarea>
-                                                    </div>
-                                                    <div class="row justify-content-between">
-                                                        <div class="btn btn-mak mak-bg btn_get_fotos" data-bs-toggle="modal" data-bs-target="#verFotos">Ver Fotos</div>
-                                                        <div class="btn btn-mak mak-bg btn_get_details" data-bs-toggle="modal" data-bs-target="#verDocs">Ver Documentos</div>
-
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="blaa" style="width:33%;">
-                                                <div class="card-box">
-                                                    <div id="map_resumen" style="height: 250px;">
-                                                    </div>
-                                                </div>
-                                                <small id="mensaje_error"></small>
-                                            </div>
-                                            <div class="blaa">
-                                                <div class="card-box card-body data-resume">
-
-                                                    <figcaption class="d-flex flex-column pl-2">
-                                                        <p class="b-text"><b>Resumen</b></p>
-
-                                                        <div class="input-select">
-                                                            <input type="text" id="" name="" class="textBox" readonly>
-                                                            <input type="text" id="status_solic_val_cbo" name="status_solic_val_cbo" hidden readonly>
-                                                            <div class="select-options">
-                                                                <div class="bg-secondary" data-value="500">Pendiente</div>
-                                                                <div class="bg-warning" data-value="400">Observado</div>
-                                                                <div class="bg-success" data-value="200">Finalizado</div>
-                                                            </div>
-                                                        </div>
-
-                                                        <small class="">Datos de contacto:</small>
-                                                    </figcaption>
-
-                                                    <ul>
-                                                        <li><b>Nombre: </b><?php echo $_SESSION['nom_usu']; ?></li>
-                                                        <li><b>Email: </b><?php echo $_SESSION['email_usu']; ?></li>
-                                                        <li><b>Teléfono: </b><?php echo $_SESSION['telef_usu']; ?></li>
-                                                    </ul>
-
-                                                    <div class="pl-2">
-                                                        <!-- <p><strong>Información de la propiedad:</strong></p> -->
-
-                                                        <span class="cursor" id="lst_resume_" data-toggle="modal" data-target="#lst_resume" data-id_solic_val="<?php echo $lst_vlzn[0] ?>" data-id_cli="<?php echo $lst_vlzn[64] ?>" data-dni_cli="<?php echo $lst_vlzn[1] ?>"><small><strong>Ver más detalles.</strong></small></span>
-
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                    </div>
-
-                                    <div class=" card-footer pt-5">
-                                        <div class="form-flex">
-                                            <button type="button" class="btn btn-mak mak-bg-sec antPag avanza_pa_atras">Retroceder</button>
-
-                                            <button type="button" class="btn btn-mak mak-bg-sec upld_file_valo" id="subir_valor">Subir Valorizacion</button>
-
-                                            <button type="button" class="btn btn-mak mak-bg-sec add_obs" id="add_obsv_v" data-id_solic>obs</button>
-
-                                            <button type="button" class="btn btn-mak mak-bg dwnld_valo" id="btn_dwnld_valo" name="btn_dwnld_valo" style="display:none;">Descargar Informacion</button>
-
-                                            <button type="button" class="btn btn-mak mak-bg btn_finalizar" id="btnValo_obs_save" name="btnValo_obs_save">Guardar</button>
-
-                                            <button type="button" class="btn btn-rounded  btn_lst_docs btn_lst_docs_0" data-toggle="modal" data-target="#lst_docs_legal" data-valor="DNI" data-titulo="DNI" data-id_doc_="4" data-id_user_="<?php echo $_SESSION['dni'] ?>">
-                                                <i class="cursor fa-solid fa-eye"></i>
-                                            </button>
-                                        </div>
-                                    </div>
-
+                                <div class="card-body table-responsive pl-4 pd-4">
+                                    <table class="table table-borderless">
+                                        <thead>
+                                            <tr class="t-head">
+                                                <th>DISTRITO</th>
+                                                <th>DIRECCIÓN</th>
+                                                <th>TIPO</th>
+                                                <th>PROMOCIÓN</th>
+                                                <th>AT</th>
+                                                <th>AC</th>
+                                                <th>AO</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td id="dir_dist_rsm"></td>
+                                                <td id="dir_rsm"></td>
+                                                <td id="tip_rsm"></td>
+                                                <td id="pro_rsm"></td>
+                                                <td id="at_rsm"></td>
+                                                <td id="ac_rsm"></td>
+                                                <td id="ao_rsm"></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
                                 </div>
+                                <br>
+
+
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="card-body">
+                                            <div>
+                                                <label class="mak-txt">Comentario</label>
+                                                <textarea id="coment_valr_r" placeholder="Sin comentario." style="resize: none;" readonly></textarea>
+                                            </div>
+                                            <div class="row justify-content-between">
+                                                <div class="btn btn-mak mak-bg btn_get_fotos" data-bs-toggle="modal" data-bs-target="#verFotos">Ver Fotos</div>
+                                                <div class="btn btn-mak mak-bg btn_get_details" data-bs-toggle="modal" data-bs-target="#verDocs">Ver Documentos</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="card-box">
+                                            <div id="map_resumen" style="height: 250px;">
+                                            </div>
+                                        </div>
+                                        <small id="mensaje_error"></small>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="card-body">
+                                            <div class="card-box data-resume">
+
+                                                <figcaption class="d-flex flex-column pl-2">
+                                                    <p class="b-text"><b>Resumen</b></p>
+
+                                                    <div class="input-select">
+                                                        <input type="text" id="" name="" class="textBox" readonly>
+                                                        <input type="text" id="status_solic_val_cbo" name="status_solic_val_cbo" hidden readonly>
+                                                        <div class="select-options">
+                                                            <div class="bg-secondary" data-value="500">Pendiente</div>
+                                                            <div class="bg-warning" data-value="400">Observado</div>
+                                                            <div class="bg-success" data-value="200">Finalizado</div>
+                                                        </div>
+                                                    </div>
+
+                                                    <small class="">Datos de contacto:</small>
+                                                </figcaption>
+
+                                                <ul>
+                                                    <li><b>Nombre: </b><?php echo $_SESSION['nom_usu']; ?></li>
+                                                    <li><b>Email: </b><?php echo $_SESSION['email_usu']; ?></li>
+                                                    <li><b>Teléfono: </b><?php echo $_SESSION['telef_usu']; ?></li>
+                                                </ul>
+
+                                                <div class="pl-2">
+                                                    <!-- <p><strong>Información de la propiedad:</strong></p> -->
+
+                                                    <span class="cursor" id="lst_resume_" data-toggle="modal" data-target="#lst_resume"><small><strong>Ver más detalles.</strong></small></span>
+
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+
+                                <div class=" card-footer pt-5">
+                                    <div class="form-flex">
+                                        <button type="button" class="btn btn-mak mak-bg-sec antPag avanza_pa_atras">Retroceder</button>
+
+                                        <button type="button" class="btn btn-mak mak-bg-sec upld_file_valo" id="subir_valor">Subir Valorizacion</button>
+
+                                        <button type="button" class="btn btn-mak mak-bg-sec add_obs" id="add_obsv_v" data-id_solic>obs</button>
+
+                                        <button type="button" class="btn btn-mak mak-bg dwnld_valo" id="btn_dwnld_valo" name="btn_dwnld_valo" style="display:none;">Descargar Informacion</button>
+
+                                        <button type="button" class="btn btn-mak mak-bg btn_finalizar" id="btnValo_obs_save" name="btnValo_obs_save">Guardar</button>
+
+                                        <button type="button" class="btn btn-rounded  btn_lst_docs btn_lst_docs_0" data-toggle="modal" data-target="#lst_docs_legal" data-valor="DNI" data-titulo="DNI" data-id_doc_="4" data-id_user_="<?php echo $_SESSION['dni'] ?>">
+                                            <i class="cursor fa-solid fa-eye"></i>
+                                        </button>
+                                    </div>
+                                </div>
+
                             </form>
                         </section>
 
@@ -670,7 +666,7 @@ require_once('../Controller/controladorListar.php'); ?>
                     <div id="loader_uhd_3" class="mak_overlay hidden">
                         <img src="../Vista/images/MAK_logo.png" alt="" class="fading-element">
                     </div>
-                    <div class="modal-dialog modal-lg modal-dialog-centered">
+                    <div class="modal-dialog modal-xl modal-dialog-centered">
                         <div class="modal-content">
                             <div class="modal-header">
                                 <h5 class="modal-title" id="exampleModalLabel">Detalles del resumen</h5>
@@ -679,7 +675,7 @@ require_once('../Controller/controladorListar.php'); ?>
                                 </button>
                             </div>
                             <div class="modal-body">
-                                <div id="resume_lst"></div>
+                                <ul id="resume_lst"></ul>
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -964,7 +960,7 @@ require_once('../Controller/controladorListar.php'); ?>
         function get_obs_solic(idsolicitud, idclient, dniclient) {
             $.ajax({
                 type: 'POST',
-                url: '../Controller/Get_Details_Valorizacion.php',
+                url: '../Controller/.php',
                 data: {
                     id_solic_l: idsolicitud,
                     id_client: idclient,
@@ -985,7 +981,7 @@ require_once('../Controller/controladorListar.php'); ?>
                     try {
                         var detalles = JSON.parse(response);
 
-                        console.log(detalles);
+                        // console.log(detalles);
 
                         var id_valor = detalles[0][0];
                         var nom_client = detalles[0][1];
@@ -1046,7 +1042,7 @@ require_once('../Controller/controladorListar.php'); ?>
                     try {
                         var detalles = JSON.parse(response);
 
-                        console.log(detalles);
+                        // console.log(detalles);
 
                         var id_valor = detalles[0][0];
                         var nom_client = detalles[0][1];
@@ -1256,7 +1252,7 @@ require_once('../Controller/controladorListar.php'); ?>
                     $("#mensaje_error").show();
                     $("#mensaje_error").text("No se pudo encontrar la dirección.");
                     $("#map_resumen").hide();
-                    console.log("Error al geocodificar la dirección:", status);
+                    // console.log("Error al geocodificar la dirección:", status);
                 }
             });
         }
@@ -1625,7 +1621,7 @@ require_once('../Controller/controladorListar.php'); ?>
     <script>
         $(document).ready(function() {
             $('.table_').DataTable({
-                responsive: true,
+                // responsive: true,
                 // "dom": '<"row"<"col-sm-6"l><"col-sm-6"f>>t<"row"<"col-sm-6"i><"col-sm-6"p>>',
                 dom: '<"row"<"col-sm-6"l><"col-sm-6"f>>tip',
                 "language": {
@@ -1679,6 +1675,8 @@ require_once('../Controller/controladorListar.php'); ?>
                     var dni_cli = $(element).data('dni_cli');
 
                     get_details_solic(id_valo_soli, id_valo_cli, dni_cli);
+
+                    getResumen(id_valo_soli, id_valo_cli, dni_cli);
 
                     $('#cod_solic_v').val(id_valo_soli);
                     $('#dni_usu_v').val(dni_cli);

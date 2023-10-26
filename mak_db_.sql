@@ -572,73 +572,7 @@ insert into tipo_zonificacion values (null, 'CH-1 (CASA HUERTA 1)');
 insert into tipo_zonificacion values (null, 'CH-2 (CASA HUERTA 2)');
 insert into tipo_zonificacion values (null, 'PR (PREDIO RÚSTICO)');
 
--- TERRENO
-insert into tipo_zonificacion values (null, 'RDMB (RESIDENCIAL DE DENSIDAD MUY BAJA)',3);
-insert into tipo_zonificacion values (null, 'RDB (RESIDENCIAL DE DENSIDAD BAJA)',3);
-insert into tipo_zonificacion values (null, 'RDM (RESIDENCIAL DE DENSIDAD MEDIA)',3);
-insert into tipo_zonificacion values (null, 'RDA (RESIDENCIAL DE DENSIDAD ALTA)',3);
-insert into tipo_zonificacion values (null, 'RDMA (RESIDENCIAL DE DENSIDAD MUY ALTA)',3);
-insert into tipo_zonificacion values (null, 'VT (VIVIENDA TALLER)',3);
-insert into tipo_zonificacion values (null, 'OU (OTROS USOS)',3);
-insert into tipo_zonificacion values (null, 'ZRE (ZONA DE REGLAMENTO ESPECIAL)',3);
-insert into tipo_zonificacion values (null, 'ZRE-1 ZONA DE REGLAMENTO ESPECIAL 1)',3);
-insert into tipo_zonificacion values (null, 'ZRE-2 (ZONA DE REGLAMENTO ESPECIAL 2)',3);
-insert into tipo_zonificacion values (null, 'ZTE-1 ZONA DE TRATAMIENTO ESPECIAL 1)',3);
-insert into tipo_zonificacion values (null, 'ZTE-2 (ZONA DE TRATAMIENTO ESPECIAL 2)',3);
-insert into tipo_zonificacion values (null, 'ZTE-3 (ZONA DE TRATAMIENTO ESPECIAL 3)',3);
-insert into tipo_zonificacion values (null, 'IMDM (ZONA MIXTA DE DENSIDAD MEDIA)',3);
-insert into tipo_zonificacion values (null, 'CH-1 (CASA HUERTA 1)',3);
-insert into tipo_zonificacion values (null, 'CH-2 (CASA HUERTA 2)',3);
-insert into tipo_zonificacion values (null, 'PR (PREDIO RÚSTICO)',3);
-insert into tipo_zonificacion values (null, 'CV (COMERCIO VECINAL)',3);
-insert into tipo_zonificacion values (null, 'CZ (COMERCIO ZONAL)',3);
-insert into tipo_zonificacion values (null, 'CL (COMERCIO LOCAL)',3);
-insert into tipo_zonificacion values (null, 'CD (COMERCIO DISTRITAL',3);
-insert into tipo_zonificacion values (null, 'CM (COMERCIO METROPOLITANO)',3);
-insert into tipo_zonificacion values (null, 'CE (COMERCIO ESPECIALIZADO)',3);
-insert into tipo_zonificacion values (null, 'I-1 (INDUSTRIA ELEMENTAL)',3);
-insert into tipo_zonificacion values (null, '1-2 (INDUSTRIA LIVIANA)',3);
-insert into tipo_zonificacion values (null, '(1-3 (GRAN INDUSTRIA)',3);
-insert into tipo_zonificacion values (null, '1-4 (INDUSTRIA PESADA BÁSICA)',3);
-insert into tipo_zonificacion values (null, 'IL (INDUSTRIA LIVIANA)',3);
-insert into tipo_zonificacion values (null, 'IG (GRAN INDUSTRIA)',3);
 
--- OFICINA
-insert into tipo_zonificacion values (null, 'RDMB (RESIDENCIAL DE DENSIDAD MUY BAJA)',4);
-insert into tipo_zonificacion values (null, 'RDB (RESIDENCIAL DE DENSIDAD BAJA)',4);
-insert into tipo_zonificacion values (null, 'RDM (RESIDENCIAL DE DENSIDAD MEDIA)',4);
-insert into tipo_zonificacion values (null, 'RDA (RESIDENCIAL DE DENSIDAD ALTA)',4);
-insert into tipo_zonificacion values (null, 'RDMA (RESIDENCIAL DE DENSIDAD MUY ALTA)',4);
-insert into tipo_zonificacion values (null, 'VT (VIVIENDA TALLER)',4);
-insert into tipo_zonificacion values (null, 'OU (OTROS USOS)',4);
-insert into tipo_zonificacion values (null, 'ZRE (ZONA DE REGLAMENTO ESPECIAL)',4);
-insert into tipo_zonificacion values (null, 'ZRE-1 (ZONA DE REGLAMENTO ESPECIAL 1)',4);
-insert into tipo_zonificacion values (null, 'ZRE-2 (ZONA DE REGLAMENTO ESPECIAL 2)',4);
-insert into tipo_zonificacion values (null, 'ZTE-1 (ZONA DE TRATAMIENTO ESPECIAL 1)',4);
-insert into tipo_zonificacion values (null, 'ZTE-2 [ZONA DE TRATAMIENTO ESPECIAL 2)',4);
-insert into tipo_zonificacion values (null, 'ZTE-3 (ZONA DE TRATAMIENTO ESPECIAL 3)',4);
-insert into tipo_zonificacion values (null, 'MDM (ZONA MIXTA DE DENSIDAD MEDIA)',4);
-insert into tipo_zonificacion values (null, 'CV (COMERCIO VECINAL)',4);
-insert into tipo_zonificacion values (null, 'CZ (COMERCIO ZONAL)',4);
-insert into tipo_zonificacion values (null, 'CL (COMERCIO LOCAL)',4);
-insert into tipo_zonificacion values (null, 'CD (COMERCIO DISTRITAL',4);
-insert into tipo_zonificacion values (null, 'CM (COMERCIO METROPOLITANO)',4);
-insert into tipo_zonificacion values (null, 'CE (COMERCIO ESPECIALIZADO)',4);
-
--- LOCAL COM
-insert into tipo_zonificacion values (null, 'CV (COMERCIO VECINAL)',5);
-insert into tipo_zonificacion values (null, 'CZ (COMERCIO ZONAL)',5);
-insert into tipo_zonificacion values (null, 'CL (COMERCIO LOCAL)',5);
-insert into tipo_zonificacion values (null, 'CD (COMERCIO DISTRITAL',5);
-insert into tipo_zonificacion values (null, 'CM (COMERCIO METROPOLITANO)',5);
-insert into tipo_zonificacion values (null, 'CE (COMERCIO ESPECIALIZADO',5);
--- LOCAL INDUS
-insert into tipo_zonificacion values (null, '1-1 (INDUSTRIA ELEMENTAL)',6);
-insert into tipo_zonificacion values (null, '1-2 (INDUSTRIA LIVIANA)',6);
-insert into tipo_zonificacion values (null, '1-3 (GRAN INDUSTRIA)',6);
-insert into tipo_zonificacion values (null, '1-4 (INDUSTRIA PESADA BÁSICA)',6);
-insert into tipo_zonificacion values (null, 'IL (INDUSTRIA LIVIANA)',6);
-insert into tipo_zonificacion values (null, 'IG (GRAN INDUSTRIA)',6);
 
 
 

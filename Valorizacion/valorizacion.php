@@ -1629,46 +1629,6 @@
 
                                     <br>
 
-                                    <!-- <div class="d-flex w-100 justify-content-between mt-3 resumen">
-                                                <div class="blaa">
-                                                    <div class="card-body">
-                                                        <div>
-                                                            <label class="mak-txt">Comentario</label>
-                                                            <textarea id="coment_valr_" placeholder="Escribe un comentario..." readonly></textarea>
-                                                        </div>
-                                                        <div class="row justify-content-between">
-                                                            <button id="verFotos_" class="btn btn-mak mak-bg" data-bs-toggle="modal" data-bs-target="#verFotos">Ver Fotos</button>
-                                                            <button id="verDocs_" class="btn btn-mak mak-bg" data-bs-toggle="modal" data-bs-target="#verDocs">Ver Documentos</button>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="blaa" style="width:33%;">
-                                                    <div class="card-box">
-                                                        <div id="mapa_2" style="height: 250px;"></div>
-                                                    </div>
-                                                </div>
-                                                <div class="blaa">
-                                                    <div class="card-box card-body data-resume">
-
-                                                        <figcaption class="d-flex flex-column pl-2">
-                                                            <p class="b-text"><b>Resumen</b></p>
-                                                            <small class="">Datos de contacto:</small>
-                                                        </figcaption>
-
-                                                        <ul>
-                                                            <li><b>Nombre: </b><?php echo $_SESSION['nom_usu']; ?></li>
-                                                            <li><b>Email: </b><?php echo $_SESSION['email_usu']; ?></li>
-                                                            <li><b>Teléfono: </b><?php echo $_SESSION['telef_usu']; ?></li>
-                                                        </ul>
-
-                                                        <div>
-                                                            <p><strong>Información de la propiedad:</strong></p>
-                                                            <ul class="lst-resume" data-resume></ul>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                            </div> -->
 
                                     <div class="row">
                                         <div class="col-md-4">
