@@ -129,20 +129,6 @@ require_once('../Controller/controladorListar.php'); ?>
                                 <h1 class="text-center mt-5">HISTORICO</h1>
                                 <div class="row">
 
-                                    <!-- <div class="menu-filter">
-                                    <div class="filter-drop shadow ml-auto">
-                                        <div class="dropdown">
-                                            Filtros &nbsp;
-                                            <i class="fa-solid fa-sliders"></i>
-                                        </div>
-                                        <div class="optn-filter">
-                                            <div class="list-group-item">1</div>
-                                            <div class="list-group-item">2</div>
-                                            <div class="list-group-item">3</div>
-                                        </div>
-                                    </div>
-                                </div> -->
-
                                     <?php
 
 
@@ -153,7 +139,7 @@ require_once('../Controller/controladorListar.php'); ?>
                                         <!-- </div> TABLA ADMIN -->
 
                                         <div class="col-sm-12 p-0">
-                                            <table id="tabla" class="table table_ table-responsive table-borderless mb-3 mr-3" style="width: 100%;">
+                                            <table class="table table_ table-responsive table-borderless mb-3 mr-3" style="width: 100%;">
 
                                                 <thead>
                                                     <tr>
@@ -333,11 +319,6 @@ require_once('../Controller/controladorListar.php'); ?>
                                                                     <?php endif ?>
                                                                 </div>
                                                             </td>
-                                                            <!--
-                                    <td>
-                                        <a href="../Valorizaciones/<?php echo $lst_vlzn_[0] ?>/<?php echo $lst_vlzn_[7] ?>"><i class="fa-solid fa-download"></i></a>
-                                    </td>
-                                    -->
                                                         </tr>
                                                     <?php endforeach ?>
                                                 </tbody>
@@ -1618,31 +1599,6 @@ require_once('../Controller/controladorListar.php'); ?>
         }
     </style>
 
-    <script>
-        $(document).ready(function() {
-            $('.table_').DataTable({
-                // responsive: true,
-                // "dom": '<"row"<"col-sm-6"l><"col-sm-6"f>>t<"row"<"col-sm-6"i><"col-sm-6"p>>',
-                dom: '<"row"<"col-sm-6"l><"col-sm-6"f>>tip',
-                "language": {
-                    "url": "//cdn.datatables.net/plug-ins/1.10.25/i18n/Spanish.json", // URL del archivo de localización
-                    "searchPlaceholder": "Buscar en la tabla..." // placeholder del Buscar.
-                },
-                "lengthMenu": [
-                    [5, 10, 25, 50, -1],
-                    [5, 10, 25, 50, "Todos"]
-                ],
-                // Otras opciones de DataTables
-                "drawCallback": function(settings) {
-                    $('.dataTables_length select').addClass('form-mak sect tableLenght');
-                    $('.dataTables_filter input').addClass('form-mak sect');
-                },
-                "order": [
-                    [0, "desc"]
-                ],
-            });
-        });
-    </script>
 
 
     <script>
@@ -1822,7 +1778,6 @@ require_once('../Controller/controladorListar.php'); ?>
     <script src="../Vista/dist/js/demo.js"></script>
 
 
-
     <!-- Data Tables Pluggin -->
     <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap5.min.js"></script>
@@ -1830,6 +1785,31 @@ require_once('../Controller/controladorListar.php'); ?>
     <script src="https://cdn.datatables.net/responsive/2.4.1/js/responsive.bootstrap4.min.js"></script>
 
 
+    <script>
+        $(document).ready(function() {
+            $('.table_').DataTable({
+                // responsive: true,
+                // "dom": '<"row"<"col-sm-6"l><"col-sm-6"f>>t<"row"<"col-sm-6"i><"col-sm-6"p>>',
+                dom: '<"row"<"col-sm-6"l><"col-sm-6"f>>tip',
+                "language": {
+                    "url": "//cdn.datatables.net/plug-ins/1.10.25/i18n/Spanish.json", // URL del archivo de localización
+                    "searchPlaceholder": "Buscar en la tabla..." // placeholder del Buscar.
+                },
+                "lengthMenu": [
+                    [5, 10, 25, 50, -1],
+                    [5, 10, 25, 50, "Todos"]
+                ],
+                // Otras opciones de DataTables
+                "drawCallback": function(settings) {
+                    $('.dataTables_length select').addClass('form-mak sect tableLenght');
+                    $('.dataTables_filter input').addClass('form-mak sect');
+                },
+                "order": [
+                    [0, "desc"]
+                ],
+            });
+        });
+    </script>
 
 </body>
 

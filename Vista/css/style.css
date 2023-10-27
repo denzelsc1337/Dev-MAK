@@ -525,6 +525,10 @@ h2 {
   border-bottom: 10px solid transparent;
 }
 
+.table-responsive {
+  display: inline-table !important;
+}
+
 .options {
   min-width: 40px;
   height: 40px;
@@ -2516,6 +2520,9 @@ button.gm-control-active.gm-fullscreen-control {
 
   .content-file span {
     margin: 0.5rem 0;
+  }
+  .table-responsive {
+    display: block !important;
   }
 }
 

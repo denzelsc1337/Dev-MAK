@@ -261,14 +261,7 @@ require_once('../Controller/controladorListar.php');
                         </section>
 
                         <section class="mak-txt position-relative body-slide" data-content="historico">
-
-
-                            <div class="ml-5 mr-5 mt-5">
-
-                                <!-- <div class="arrow-left">
-                                    <i class="fa-solid fa-angle-left"></i>
-                                </div> -->
-
+                            <div class="container">
                                 <h1 class="text-center">HISTORICO</h1>
                                 <div class="row">
 
@@ -280,7 +273,7 @@ require_once('../Controller/controladorListar.php');
                                     ?>
 
 
-                                        <div class="col-sm-12">
+                                        <div class="col-sm-12 p-0">
                                             <table id="table" class="table table-responsive table-borderless" style="width: 100%;">
                                                 <thead class="">
                                                     <tr>
@@ -440,7 +433,6 @@ require_once('../Controller/controladorListar.php');
                                     ?>
 
                                 </div>
-
                             </div>
                         </section>
 
