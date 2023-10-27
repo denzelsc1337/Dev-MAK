@@ -426,7 +426,7 @@ require_once('../Controller/controladorListar.php'); ?>
 
                                                     <div class="input-select">
                                                         <input type="text" id="" name="" class="textBox" readonly>
-                                                        <input type="text" id="status_solic_val_cbo" name="status_solic_val_cbo" hidden readonly>
+                                                        <input type="hidden" id="status_solic_val_cbo" name="status_solic_val_cbo" readonly>
                                                         <div class="select-options">
                                                             <div class="bg-secondary" data-value="500">Pendiente</div>
                                                             <div class="bg-warning" data-value="400">Observado</div>
@@ -1048,7 +1048,7 @@ require_once('../Controller/controladorListar.php'); ?>
                         var nom_client = detalles[0][1];
                         var direccion = detalles[0][2];
                         var tipo_inmb = detalles[0][3];
-                        var estado = detalles[0][61];
+                        var estado = detalles[0][62];
                         var coment = detalles[0][63];
 
                     } catch (error) {

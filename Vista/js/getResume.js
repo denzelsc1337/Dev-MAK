@@ -80,26 +80,49 @@ function getResumen(idsolicitud, idclient, dniclient) {
         "Frente",
         "Nave",
         //
-        "Estado",
+        // "Estado",
         "Comentario",
         "Observación",
         // "Documentos",
       ];
 
       var resumeContent = ""; // Iniciar una lista
-      data.forEach(function (data, type) {
+      data.forEach(function (data) {
         if (data !== null) {
           for (let index = 0; index < data.length; index++) {
-            // resumeContent += "<li>" + data[index] + "</li>";
-
             var valor1 = lblContent[index];
             var valor2 = data[index].valor;
             var valor3 = data[index].tipo;
 
-            console.log(valor2);
-            console.log(valor3);
-
             var lbl = "<li><strong>" + valor1 + ": </strong>";
+
+            if (valor2 !== null) {
+              if (valor3 === "BOOLEAN") {
+                if (valor2 === "1" || valor2 === 1) {
+                  resumeContent += lbl + "Sí" + "<br></li>";
+                } else {
+                  resumeContent += lbl + "No" + "<br></li>";
+                }
+              } else if (valor2 === "") {
+                resumeContent += lbl + "Sin data.<br></li>";
+              } else {
+                // if (index === 62) {
+                //   if (valor2 === "500") {
+                //     resumeContent += lbl + "Pendiente.<br></li>";
+                //   } else if (valor2 === "200") {
+                //     resumeContent += lbl + "Revisado.<br></li>";
+                //   } else if (valor2 === "100") {
+                //     resumeContent += lbl + "Rechazado.<br></li>";
+                //   } else if (valor2 === "1") {
+                //     resumeContent += lbl + "Aceptado.<br></li>";
+                //   } else {
+                //     resumeContent += lbl + "Sin documento.<br></li>";
+                //   }
+                // } else {
+                resumeContent += lbl + valor2 + "<br></li>";
+                // }
+              }
+            }
           }
         }
       });

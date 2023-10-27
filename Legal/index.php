@@ -471,7 +471,7 @@ require_once('../Controller/controladorListar.php');
                                                     </div>
 
                                                     <div class="row">
-                                                        <div class="col-sm-12">
+                                                        <div class="col-sm-6">
                                                             <div class="form-group">
                                                                 <label class="mak-txt">Nombres</label>
                                                                 <input type="text" class="form-mak" id="data_names_" readonly>
@@ -479,7 +479,7 @@ require_once('../Controller/controladorListar.php');
                                                         </div>
                                                     </div>
                                                     <div class="row">
-                                                        <div class="col-sm-12">
+                                                        <div class="col-sm-6">
                                                             <div class="form-group">
                                                                 <label class="mak-txt">Apellidos</label>
                                                                 <input type="text" class="form-mak" id="data_lnames_" readonly>
@@ -487,7 +487,7 @@ require_once('../Controller/controladorListar.php');
                                                         </div>
                                                     </div>
                                                     <div class="row">
-                                                        <div class="col-sm-12">
+                                                        <div class="col-sm-6">
                                                             <div class="form-group">
                                                                 <label class="mak-txt">Correo</label>
                                                                 <input type="text" class="form-mak" id="data_direcion_" readonly>
@@ -495,7 +495,7 @@ require_once('../Controller/controladorListar.php');
                                                         </div>
                                                     </div>
                                                     <div class="row">
-                                                        <div class="col-sm-12">
+                                                        <div class="col-sm-6">
                                                             <div class="form-group">
                                                                 <label class="mak-txt">Comentario</label>
                                                                 <textarea name="coment_" id="coment_" readonly></textarea>
