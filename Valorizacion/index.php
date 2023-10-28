@@ -905,14 +905,12 @@ require_once('../Controller/controladorListar.php'); ?>
 
         });
 
-
-
         function download_excel(id_valor_soli) {
 
             $.ajax({
 
                 type: 'POST',
-                url: '../Controller/Valor_Excel.php',
+                url: '../Controller/excel.valorizacion.php',
                 data: {
                     id_solc_v: id_valor_soli,
                 },
@@ -926,6 +924,7 @@ require_once('../Controller/controladorListar.php'); ?>
                     var blob = new Blob([response], {
                         type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
                     });
+
                     var link = document.createElement('a');
                     link.href = URL.createObjectURL(blob);
                     link.download = 'Informacion_Valorizacion_' + id_valor_soli + '.xlsx';
