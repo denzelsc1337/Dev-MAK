@@ -254,14 +254,14 @@ a:hover {
   }
 }
 
-#fotos_val {
+/* #fotos_val {
   width: 780px;
-}
+} */
 
 #lst_fotos {
   display: flex;
   overflow: hidden;
-  width: 700px;
+  /* width: 700px; */
   height: 500px;
   margin: 1.5rem auto;
   padding: 0 !important;
@@ -431,6 +431,7 @@ h2 {
 #pantalla-RS table,
 #add_data_val table {
   width: 95% !important;
+  height  
   margin: 0 auto;
 }
 
@@ -2523,6 +2524,20 @@ button.gm-control-active.gm-fullscreen-control {
   }
   .table-responsive {
     display: block !important;
+  }
+
+
+  .carousel-control-next,
+  .carousel-control-prev {
+    width: 7%;
+  }
+
+  #resume_lst{
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .row .justify-content-evenly{
+    gap: 20px;
   }
 }
 

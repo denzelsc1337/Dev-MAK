@@ -349,8 +349,8 @@ require_once('../Controller/controladorListar.php'); ?>
 
 
 
-                                <div class="card-body table-responsive pl-4 pd-4">
-                                    <table class="table table-borderless">
+                                <div class="card-body pl-4 pd-4">
+                                    <table class="table table-responsive table-borderless">
                                         <thead>
                                             <tr class="t-head">
                                                 <th>DISTRITO</th>
@@ -385,7 +385,10 @@ require_once('../Controller/controladorListar.php'); ?>
                                                 <label class="mak-txt">Comentario</label>
                                                 <textarea id="coment_valr_r" placeholder="Sin comentario." style="resize: none;" readonly></textarea>
                                             </div>
-                                            <div class="row justify-content-between">
+
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="row justify-content-evenly">
                                                 <div class="btn btn-mak mak-bg btn_get_fotos" data-bs-toggle="modal" data-bs-target="#verFotos">Ver Fotos</div>
                                                 <div class="btn btn-mak mak-bg btn_get_details" data-bs-toggle="modal" data-bs-target="#verDocs">Ver Documentos</div>
                                             </div>
@@ -449,9 +452,9 @@ require_once('../Controller/controladorListar.php'); ?>
 
                                         <button type="button" class="btn btn-mak mak-bg btn_finalizar" id="btnValo_obs_save" name="btnValo_obs_save">Guardar</button>
 
-                                        <button type="button" class="btn btn-rounded  btn_lst_docs btn_lst_docs_0" data-toggle="modal" data-target="#lst_docs_legal" data-valor="DNI" data-titulo="DNI" data-id_doc_="4" data-id_user_="<?php echo $_SESSION['dni'] ?>">
+                                        <!-- <button type="button" class="btn btn-rounded  btn_lst_docs btn_lst_docs_0" data-toggle="modal" data-target="#lst_docs_legal" data-valor="DNI" data-titulo="DNI" data-id_doc_="4" data-id_user_="<?php echo $_SESSION['dni'] ?>">
                                             <i class="cursor fa-solid fa-eye"></i>
-                                        </button>
+                                        </button> -->
                                     </div>
                                 </div>
 
@@ -537,32 +540,30 @@ require_once('../Controller/controladorListar.php'); ?>
                         <div class="modal-content">
                             <div class="modal-body">
                                 <h1 class="title-m" id="titulo_docs">Fotos</h1>
-                                <div class="row">
-                                    <div hidden>
-                                        <input type="text" name="txt_solic" id="txt_solic">
-                                        <input type="text" name="txt_id_cli" id="txt_id_cli">
-                                        <input type="text" name="txt_dni" id="txt_dni">
-                                    </div>
-                                    <div class="col-sm-12">
-                                        <ul id="detalles_valor" style="display:none"></ul>
+                                <div hidden>
+                                    <input type="text" name="txt_solic" id="txt_solic">
+                                    <input type="text" name="txt_id_cli" id="txt_id_cli">
+                                    <input type="text" name="txt_dni" id="txt_dni">
+                                </div>
+                                <div class="col-sm-12">
+                                    <ul id="detalles_valor" style="display:none"></ul>
 
-                                    </div>
-                                    <div id="docs_val">
-                                        <label class="pdd-left">Fotos Subidas</label>
-                                        <div>
-                                            <div id="fotos_val">
-                                                <div id="carouselExampleControls" class="carousel slide" data-ride="carousel" data-interval="false">
-                                                    <div id="lst_fotos" class="carousel-inner">
-                                                    </div>
-                                                    <button class="carousel-control-prev" type="button" data-target="#carouselExampleControls" data-slide="prev">
-                                                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                                        <span class="sr-only">Previous</span>
-                                                    </button>
-                                                    <button class="carousel-control-next" type="button" data-target="#carouselExampleControls" data-slide="next">
-                                                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                                        <span class="sr-only">Next</span>
-                                                    </button>
+                                </div>
+                                <div id="docs_val">
+                                    <label class="pdd-left">Fotos Subidas</label>
+                                    <div>
+                                        <div id="fotos_val">
+                                            <div id="carouselExampleControls" class="carousel slide" data-ride="carousel" data-interval="false">
+                                                <div id="lst_fotos" class="carousel-inner">
                                                 </div>
+                                                <button class="carousel-control-prev" type="button" data-target="#carouselExampleControls" data-slide="prev">
+                                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                                    <span class="sr-only">Previous</span>
+                                                </button>
+                                                <button class="carousel-control-next" type="button" data-target="#carouselExampleControls" data-slide="next">
+                                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                                    <span class="sr-only">Next</span>
+                                                </button>
                                             </div>
                                         </div>
                                     </div>
@@ -661,6 +662,7 @@ require_once('../Controller/controladorListar.php'); ?>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                                 <button type="button" class="btn btn-primary">Save changes</button>
+                                <button id="exportButton">Exportar a Excel</button>
                             </div>
                         </div>
                     </div>
@@ -676,10 +678,9 @@ require_once('../Controller/controladorListar.php'); ?>
     </div>
 
 
-    <script>
 
-    </script>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.14/xlsx.full.min.js"></script>
+    <script src="export.js"></script>
 
 
     <script>
@@ -1752,6 +1753,7 @@ require_once('../Controller/controladorListar.php'); ?>
     <!-- REQUIRED SCRIPTS -->
     <script src="../Vista/js/getResume.js"></script>
     <script src="../Vista/assets/functions.js"></script>
+    <script src="../Vista/assets/excel.valorizacion.js"></script>
 
     <!-- jQuery -->
     <script src="../Vista/plugins/jquery/jquery.min.js"></script>
@@ -1810,6 +1812,8 @@ require_once('../Controller/controladorListar.php'); ?>
             });
         });
     </script>
+
+
 
 </body>
 
