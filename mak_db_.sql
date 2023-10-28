@@ -2,24 +2,24 @@ create database mak;
 use mak;
 
 CREATE TABLE IF NOT EXISTS tipo_inmuebles (
-  id_tipo_inmb 		int null primary key auto_increment,
+  id_tipo_inmb 	int primary key auto_increment,
   tipo_inmb 		varchar(255) NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS sub_tipo_inmuebles (
-  id_sub_tipo_inmb 	int primary key auto_increment,
+  id_sub_tipo_inmb int primary key auto_increment,
   sub_tipo_inmb 	varchar(255) NOT NULL,
   cod_tipo_inmb 	int NOT NULL,
   FOREIGN KEY (cod_tipo_inmb) REFERENCES tipo_inmuebles (id_tipo_inmb)
 );
 
 CREATE TABLE IF NOT EXISTS tipo_zonificacion (
-  id_zona 		int null primary key auto_increment,
+  id_zona 		int primary key auto_increment,
   tipo_zona 	varchar(255) NOT NULL
 );
 
 create table tipo_cliente(
-	id_tipo_cliente int auto_increment primary key not null,
+	id_tipo_cliente int auto_increment primary key,
     tipo_cliente varchar(80) not null
 );
  
@@ -714,7 +714,7 @@ insert into tipo_client_service (nombre_tipo_client) values('Propietario');
 
 insert into usuarios values(null, 'Denzel', 'Sotomayor', 'dsotomayor', '1337','denzelsotomayor@gmail.com', null, 1, 'm', 1);
 
-insert into tipos_doc_legal values (null,'Numeracion', '15 dias habiles aprox. / 30 dias habiles si hubiera observacion aprox.', 
-									'Sujeto a TUPA, entre s/50 y s/100 aprox.', 'Se requiere de plano de distribucion aprobado y croquis.');
+-- insert into tipos_doc_legal values (null,'Numeracion', '15 dias habiles aprox. / 30 dias habiles si hubiera observacion aprox.', 
+-- 									'Sujeto a TUPA, entre s/50 y s/100 aprox.', 'Se requiere de plano de distribucion aprobado y croquis.');
 
 
