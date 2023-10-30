@@ -476,23 +476,30 @@ require_once('../Controller/controladorListar.php'); ?>
                                 </button>
                             </div>
 
+
                             <form id="adding_valo_file" method="POST" enctype="multipart/form-data">
+
                                 <div class="modal-body">
                                     <input type="text" name="id_reg_valor" id="id_reg_valor" hidden>
                                     <input type="text" name="dni_solic_valor" id="dni_solic_valor" hidden>
-                                    <div class="form-group">
-                                        <label>Archivo de Valorizacion</label>
-                                        <br>
-                                        <input type="file" name="valorizacion_files[]" id="valorizacion_files" multiple>
+                                    <div class="form-group text-center">
+                                        <img class="row margin" src="../Vista/assets/loading_uhd.gif" id="loader_add_valo" style="display:none;">
+                                        <div class="adding_valo_content">
+                                            <label>Archivo de Valorizacion</label>
+                                            <br>
+                                            <input type="file" name="valorizacion_files[]" id="valorizacion_files" onkeyup="habilitarBoton()">
+                                        </div>
                                     </div>
 
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                                        <button type="submit" name="btn_save_valo_file" id="btn_save_valo_file" class="btn mak-bg">Subir</button>
-                                    </div>
+
+                                </div>
+                                <div class="modal-footer">
+                                    <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button> -->
+                                    <button type="button" class="btn btn-secondary" id="limpiarBoton">Limpiar</button>
+                                    <button type="submit" name="btn_save_valo_file" id="btn_save_valo_file" class="btn mak-bg">Subir</button>
                                 </div>
 
-                                <div id="message_aprob"></div>
+                                <!-- <div id="message_aprob"></div> -->
                             </form>
 
                         </div>
@@ -659,11 +666,11 @@ require_once('../Controller/controladorListar.php'); ?>
                             <div class="modal-body">
                                 <ul id="resume_lst"></ul>
                             </div>
-                            <div class="modal-footer">
+                            <!-- <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                                 <button type="button" class="btn btn-primary">Save changes</button>
                                 <button id="exportButton">Exportar a Excel</button>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                 </div>
@@ -689,6 +696,12 @@ require_once('../Controller/controladorListar.php'); ?>
             const boton_ = document.getElementById("btnValo_obs_save");
 
             const obs = document.getElementById("obs_send_");
+            const fil = document.getElementById("valorizacion_files");
+
+
+            // boton.disabled = true;
+
+
 
             if (obs.value.trim() !== '') {
                 boton.disabled = false;
@@ -697,7 +710,33 @@ require_once('../Controller/controladorListar.php'); ?>
                 boton.disabled = true;
                 boton_.disabled = true;
             }
+
+            console.log(fil);
+            console.log(fil.value);
+            if (fil.value !== '') {
+                boton_.disabled = false;
+            } else {
+                boton_.disabled = true;
+            }
         }
+
+
+        $(document).ready(function() {
+            // Cuando cambia el input file
+            $("#valorizacion_files").on("change", function() {
+                var inputFile = $(this)[0];
+                if (inputFile.files.length > 0) {
+                    $("#btnValo_obs_save").prop("disabled", false); // Habilita el botón
+                } else {
+                    $("#btnValo_obs_save").prop("disabled", true); // Deshabilita el botón
+                }
+            });
+
+            $("#limpiarBoton").on("click", function() {
+                $("#valorizacion_files").val(""); // Borra el valor del input file
+                $("#btnValo_obs_save").prop("disabled", true); // Deshabilita el botón
+            });
+        });
     </script>
 
     <!--GOOGLE MAPS TESTING-->
@@ -941,7 +980,7 @@ require_once('../Controller/controladorListar.php'); ?>
         function get_obs_solic(idsolicitud, idclient, dniclient) {
             $.ajax({
                 type: 'POST',
-                url: '../Controller/.php',
+                url: '../Controller/Get_Details_Valorizacion.php',
                 data: {
                     id_solic_l: idsolicitud,
                     id_client: idclient,
@@ -962,11 +1001,13 @@ require_once('../Controller/controladorListar.php'); ?>
                     try {
                         var detalles = JSON.parse(response);
 
-                        // console.log(detalles);
+                        console.log(detalles);
 
                         var id_valor = detalles[0][0];
                         var nom_client = detalles[0][1];
-                        var obs = detalles[0][63];
+                        var obs = detalles[0][64];
+
+                        // console.log(obs);
 
                     } catch (error) {
                         console.error("Error al analizar la respuesta JSON: " + error);
@@ -1117,6 +1158,7 @@ require_once('../Controller/controladorListar.php'); ?>
                                 add_file_val_1.style.display = "none";
 
                                 dwnld_info.style.display = "none";
+                                btnDisable.prop("disabled", true);
                         }
 
                         $("#dir_rsm").text(detalles[0][2]);
@@ -1686,7 +1728,7 @@ require_once('../Controller/controladorListar.php'); ?>
                     btnAddObs.classList.add("hidden");
                     btnAddObs.style.display = "none";
 
-                    btnDisble_.disabled = false;
+                    btnDisble_.disabled = true;
 
                 } else if (dataValue === "400") {
                     textBox.value = "Observado";
@@ -1700,7 +1742,7 @@ require_once('../Controller/controladorListar.php'); ?>
                     btnAddObs.classList.remove("hidden");
                     btnAddObs.style.display = "block";
 
-                    btnDisble_.disabled = false;
+                    btnDisble_.disabled = true;
 
                 } else {
                     textBox.value = "Pendiente";
@@ -1714,7 +1756,7 @@ require_once('../Controller/controladorListar.php'); ?>
                     btnAddObs.classList.add("hidden");
                     btnAddObs.style.display = "none";
 
-                    btnDisble_.disabled = true;
+                    btnDisble_.disabled = false;
                 }
 
             });

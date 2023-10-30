@@ -1,41 +1,39 @@
-<?php 
+<?php
 require_once('../Model/Valorizacion.php');
 
-  $id_reg = $_POST["id_reg_valor"];
-  $dni_cli = $_POST["dni_solic_valor"];
-  
-  $target_dir = "../Valorizaciones/".$id_reg."/".$dni_cli."/docs_val/";
+$id_reg = $_POST["id_reg_valor"];
+$dni_cli = $_POST["dni_solic_valor"];
 
-  if (!file_exists($target_dir)) {
-    mkdir($target_dir, 0777, true);
-  }
+$target_dir = "../Valorizaciones/" . $id_reg . "/" . $dni_cli . "/docs_val/";
 
-  $archivos_selecc = $_FILES["valorizacion_files"];
+if (!file_exists($target_dir)) {
+  mkdir($target_dir, 0777, true);
+}
 
-  $archivos_cont = count($archivos_selecc['name']);
+$archivos_selecc = $_FILES["valorizacion_files"];
+
+$archivos_cont = count($archivos_selecc['name']);
 
 
-  $archivos_total = 0;
+$archivos_total = 0;
+print_r($_POST);
+// for ($i=0; $i < $archivos_cont ; $i++) { 
+//   $ubicacion_save = $target_dir . basename($archivos_selecc["name"][$i]);
+//   if (move_uploaded_file($archivos_selecc["tmp_name"][$i], $ubicacion_save)) {
 
-  for ($i=0; $i < $archivos_cont ; $i++) { 
-    $ubicacion_save = $target_dir . basename($archivos_selecc["name"][$i]);
-    if (move_uploaded_file($archivos_selecc["tmp_name"][$i], $ubicacion_save)) {
+//       require_once('../Model/Valorizacion.php');
+//       $oValor = new Valorizacion();
 
-        require_once('../Model/Valorizacion.php');
-        $oValor = new Valorizacion();
+//       // Modificar la llamada a la función del modelo con los nuevos parámetros
+//       $oValor->update_doc_nom_valor($id_reg, $dni_cli,$archivos_selecc["name"][$i]);
 
-        // Modificar la llamada a la función del modelo con los nuevos parámetros
-        $oValor->update_doc_nom_valor($id_reg, $dni_cli,$archivos_selecc["name"][$i]);
+//       $archivos_total++;
+//   } 
+// }
+// if ($archivos_total > 0) {
+//   $response["archivos_total"] = $archivos_total;
+// } else {
+//   $response["error"] = "No se pudieron cargar archivos.";
+// }
 
-        $archivos_total++;
-    }
-  }
-  if ($archivos_total > 0) {
-    $response["archivos_total"] = $archivos_total;
-  } else {
-    $response["error"] = "No se pudieron cargar archivos.";
-  }
-
-  echo json_encode($response);
-
-?>
+// echo json_encode($response);

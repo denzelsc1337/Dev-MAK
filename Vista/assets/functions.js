@@ -442,7 +442,10 @@ $(document).ready(function () {
       data: formData,
       processData: false,
       contentType: false,
-
+      beforeSend: function () {
+        $("#loader_add_valo").show();
+        $(".adding_valo_content").hide();
+      },
       success: function (response) {
         if (response) {
           $("#message_aprob").text("Archivos cargados exitosamente.");
@@ -454,6 +457,14 @@ $(document).ready(function () {
           $("#message_aprob").text("Error desconocido al cargar archivos.");
           console.log("p" + response);
         }
+      },
+      complete: function () {
+        setTimeout(() => {
+          $(".adding_valo_content").show();
+          $("#loader_add_valo").hide();
+
+          $("#upload_valorizacion").modal("hide");
+        }, 2000);
       },
       error: function (xhr, status, error) {
         console.error(error);
