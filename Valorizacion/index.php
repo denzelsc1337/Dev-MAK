@@ -949,7 +949,7 @@ require_once('../Controller/controladorListar.php'); ?>
             $.ajax({
 
                 type: 'POST',
-                url: '../Controller/excel.valorizacion.php',
+                url: '../Controller/Valor_Excel.php',
                 data: {
                     id_solc_v: id_valor_soli,
                 },
@@ -967,6 +967,7 @@ require_once('../Controller/controladorListar.php'); ?>
                     var link = document.createElement('a');
                     link.href = URL.createObjectURL(blob);
                     link.download = 'Informacion_Valorizacion_' + id_valor_soli + '.xlsx';
+
                     document.body.appendChild(link);
                     link.click();
                     document.body.removeChild(link);
