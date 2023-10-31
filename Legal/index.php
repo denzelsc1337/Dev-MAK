@@ -148,7 +148,7 @@ require_once('../Controller/controladorListar.php');
                                                     <div class="col-md-6">
                                                         <div class="form-group">
                                                             <label class="mak-txt">Correo</label>
-                                                            <input type="text" class="form-mak" id="data_direcion_" readonly>
+                                                            <input type="text" class="form-mak" id="data_direcion_1" readonly>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -279,7 +279,7 @@ require_once('../Controller/controladorListar.php');
                                                     <tr>
                                                         <th></th>
                                                         <th>NOMBRES</th>
-                                                        <th>DIRECCIÓN</th>
+                                                        <th>CORREO</th>
                                                         <th>FECHA</th>
                                                         <th>ESTADO</th>
                                                         <th hidden>id_user</th>
@@ -350,7 +350,7 @@ require_once('../Controller/controladorListar.php');
                                                         <th>NOMBRE CLIENTE</th>
                                                         <th>APELLIDO CLIENTE</th>
                                                         <th>ASESOR</th>
-                                                        <th>DIRECCIÓN</th>
+                                                        <th>CORREO</th>
                                                         <th>FECHA</th>
                                                         <th>ESTADO</th>
                                                         <th hidden>id_user</th>
@@ -482,7 +482,7 @@ require_once('../Controller/controladorListar.php');
                                                         <div class="col-sm-6">
                                                             <div class="form-group">
                                                                 <label class="mak-txt">Correo</label>
-                                                                <input type="text" class="form-mak" id="data_direcion_" readonly>
+                                                                <input type="text" class="form-mak" id="data_direcion_2" readonly>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -528,7 +528,7 @@ require_once('../Controller/controladorListar.php');
                                                         <div class="col-md-6">
                                                             <div class="form-group">
                                                                 <label class="mak-txt">Correo</label>
-                                                                <input type="text" class="form-mak" id="data_direcion__" readonly>
+                                                                <input type="text" class="form-mak" id="data_direcion_3" readonly>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -1431,8 +1431,8 @@ require_once('../Controller/controladorListar.php');
                                         <input type="text" class="form-mak" id="_id_doc_" value="${id_doc_}" readonly>
                                     </div>
 
-                                    <div class="row d-flex justify-content-between align-center mb-4 w-100">
-                                        <div class="col-sm-2">
+                                    <div class="row d-flex justify-content-evenly align-center mb-4 w-100">
+                                        <div class="col-sm-1">
                                             <div class="lgl-modal-num">
                                                 ${cont++}
                                             </div>
@@ -1443,7 +1443,7 @@ require_once('../Controller/controladorListar.php');
                                             <a href="${ruta}${nombreArchivo}">${nombreArchivo}</a>
                                         </div>
 
-                                        <div class="col-sm-4 tw-modal-ots p-0">
+                                        <div class="col-sm-3 tw-modal-ots p-0">
 
                                             <div class="d-flex content_status">
                                             <?php if ($_SESSION['tipo_usu'] == 1) { ?>
@@ -1490,7 +1490,7 @@ require_once('../Controller/controladorListar.php');
                                                     ? `
                                                     <span class="badge rounded-pill bg-danger">Rechazado</span>
                                                     `
-                                                    : 
+                                                    :  estadoHtml === '1'
                                                     `
                                                     <span class="badge rounded-pill bg-success">Finalizado</span>
                                                     `
@@ -2118,7 +2118,7 @@ require_once('../Controller/controladorListar.php');
                     try {
                         var detalles = JSON.parse(response);
 
-                        // console.log(detalles);
+                        console.log(detalles);
 
                         var id_valor = detalles[0][0];
                         var nom_client = detalles[0][1];
@@ -2169,8 +2169,11 @@ require_once('../Controller/controladorListar.php');
 
                         $("#data_names_").val(nom_client);
                         $("#data_lnames_").val(apellido);
-                        $("#data_direcion_").val(correo);
-                        $("#data_direcion__").val(correo);
+
+                        // console.log(correo);
+                        $("#data_direcion_1").val(correo);
+                        $("#data_direcion_2").val(correo);
+                        $("#data_direcion_3").val(correo);
                         $("#coment_").val(coment);
 
                         // $("#status_solic_legal_cbo").val(status_);
