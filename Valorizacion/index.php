@@ -944,33 +944,34 @@ require_once('../Controller/controladorListar.php'); ?>
 
         });
 
+
         function download_excel(id_valor_soli) {
-
             $.ajax({
-
                 type: 'POST',
                 url: '../Controller/Valor_Excel.php',
                 data: {
                     id_solc_v: id_valor_soli,
                 },
-
                 xhrFields: {
                     responseType: 'blob'
                 },
-
                 success: function(response) {
-                    // Crear un enlace y simular clic para descargar el archivo
                     var blob = new Blob([response], {
-                        type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
+                        type: 'text/csv'
                     });
 
-                    var link = document.createElement('a');
-                    link.href = URL.createObjectURL(blob);
-                    link.download = 'Informacion_Valorizacion_' + id_valor_soli + '.xlsx';
+                    var blobUrl = URL.createObjectURL(blob);
 
-                    document.body.appendChild(link);
-                    link.click();
-                    document.body.removeChild(link);
+                    window.open('https://docs.google.com/spreadsheets/u/0/viewer?url=' + blobUrl);
+
+                    // var link = document.createElement('a');
+                    // link.href = URL.createObjectURL(blob);
+                    // link.download = 'Informacion_Valorizacion_' + id_valor_soli + '.csv';
+
+                    // link.style.display = 'none';
+                    // document.body.appendChild(link);
+                    // link.click();
+                    // document.body.removeChild(link);
                 },
                 error: function(xhr, status, error) {
                     console.log(error);
