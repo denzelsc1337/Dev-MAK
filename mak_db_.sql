@@ -123,8 +123,8 @@ CREATE TABLE clientes_servicios (
   suscripcion_cod 			int,
   tipo_usu_cod				int,
   rol_usu					int,
-  FOREIGN KEY (tipo_client_service_cod) REFERENCES tipo_client_service(id_tipo_client_s)
-  FOREIGN KEY (tipo_usu_cod) REFERENCES tipo_usuario (tipo_usu_id)
+  FOREIGN KEY (tipo_client_service_cod) REFERENCES tipo_client_service(id_tipo_client_s),
+  FOREIGN KEY (tipo_usu_cod) REFERENCES tipo_usuario (tipo_usu_id),
   FOREIGN KEY (rol_usu) REFERENCES roles_usu (id_rol)
 );
 
