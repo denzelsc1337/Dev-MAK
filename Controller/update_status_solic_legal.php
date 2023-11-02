@@ -7,9 +7,11 @@ $status = $_POST['_slct_status'];
 $oLegal = new cLegal();
 $r = $oLegal->updt_doc_status($id_lgl_, $status);
 
+// echo $r;
 
-if ($r) {
-    echo "Success";
-} else {
-    echo "Error";
-};
+
+// if ($r) {
+//     echo "Success";
+// } else {
+//     echo "Error";
+// };

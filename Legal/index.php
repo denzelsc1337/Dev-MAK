@@ -786,7 +786,7 @@ require_once('../Controller/controladorListar.php');
                     <h1 class="title-m" id="titulo_docs"></h1>
                     <img class="row margin" src="../Vista/assets/loading_uhd.gif" id="loader_soli" style="display:none;">
 
-                    <form method="POST" enctype="multipart/form-data">
+                    <form id="statusChange" method="POST" enctype="multipart/form-data">
 
                         <div class="row margin" id="lst_docs_lgl">
 
@@ -1116,27 +1116,23 @@ require_once('../Controller/controladorListar.php');
         $(document).ready(function() {
 
             $('.btn_subir_1').on('click', function() {
-                // console.log("test");
                 $('#upload_doc').modal('show');
                 $tr = $(this).closest('tr');
                 var data = $tr.children("td").map(function() {
                     return $(this).text();
                 }).get();
-                // console.log(data);
                 $('#id_doc_type').val(data[1]);
                 $('#desc_doc').val(data[2].trim());
             });
 
 
             $('.btn_ver_files').on('click', function() {
-                // console.log("test");
                 $('#lst_files').modal('show');
 
                 $tr = $(this).closest('tr');
                 var data = $tr.children("td").map(function() {
                     return $(this).text();
                 }).get();
-                // console.log(data);
 
                 $('#id_usu_soli').val(data[4]);
                 $('#dni_usu_soli').val(data[5]);
@@ -1144,14 +1140,12 @@ require_once('../Controller/controladorListar.php');
 
 
             $('.btn_ver_files_2').on('click', function() {
-                // console.log("test");
                 $('#lst_files_2').modal('show');
 
                 $tr = $(this).closest('tr');
                 var data = $tr.children("td").map(function() {
                     return $(this).text();
                 }).get();
-                // console.log(data);
 
             });
 
@@ -1165,7 +1159,6 @@ require_once('../Controller/controladorListar.php');
 
 
                 var _id_tipo_doc = $('#_id_tipo_doc_lgl').val();
-                console.log("ola: " + _id_tipo_doc);
                 var docCode = "";
 
                 if (_id_tipo_doc === "1") {
@@ -1173,8 +1166,6 @@ require_once('../Controller/controladorListar.php');
                 } else if (_id_tipo_doc === "2") {
                     docCode = "P_U";
                 }
-
-                console.log(docCode);
 
                 $.ajax({
                     type: 'POST',
@@ -1191,7 +1182,7 @@ require_once('../Controller/controladorListar.php');
 
                         var data = JSON.parse(response);
 
-                        console.log(data);
+                        // console.log(data);
 
                         var archivos = data.archivos;
                         var estado_doc = data.status_doc;
@@ -1208,8 +1199,6 @@ require_once('../Controller/controladorListar.php');
                                 var estado = archivo.estado;
                                 var id_doc_ = archivo.id_doc;
                                 var status_r = '';
-
-                                // console.log(mai);
 
                                 $('#titulo_docs__').text(titulo_);
 
@@ -1387,7 +1376,7 @@ require_once('../Controller/controladorListar.php');
                     },
                     success: function(response) {
                         var data = JSON.parse(response);
-                        console.log(data);
+                        // console.log(data);
 
                         var archivos = data.archivos;
                         // var estado_doc = data.archivos[0].estado;
@@ -1411,13 +1400,13 @@ require_once('../Controller/controladorListar.php');
                                 var enlaceHtml = '';
 
                                 archivos.forEach(function(archivo) {
-                                    console.log(archivo);
+                                    // console.log(archivo);
 
                                     var ruta = archivo.ruta;
                                     var nombreArchivo = archivo.archivo;
                                     var estado = archivo.estado;
                                     var id_doc_ = archivo.id_doc_;
-                                    console.log(id_doc_);
+                                    // console.log(id_doc_);
                                     var status_r = '';
 
 
@@ -1570,7 +1559,7 @@ require_once('../Controller/controladorListar.php');
                     },
                     success: function(response) {
                         // console.log(response);
-                        console.log("archivo eliminado con ID: " + ruta_doc + ruta_archivo);
+                        // console.log("archivo eliminado con ID: " + ruta_doc + ruta_archivo);
 
                         $('#loader_erase_hr').show();
                         $('#descarga_archivo_l').hide();
@@ -1624,10 +1613,11 @@ require_once('../Controller/controladorListar.php');
 
 
 
-                    console.log("archivo eliminado");
-                } else {
-                    console.log("cancelado");
+                    // console.log("archivo eliminado");
                 }
+                // else {
+                // console.log("cancelado");
+                // }
             });
 
 
@@ -2120,7 +2110,7 @@ require_once('../Controller/controladorListar.php');
                     try {
                         var detalles = JSON.parse(response);
 
-                        console.log(detalles);
+                        // console.log(detalles);
 
                         var id_valor = detalles[0][0];
                         var nom_client = detalles[0][1];
