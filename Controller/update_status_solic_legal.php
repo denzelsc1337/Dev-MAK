@@ -15,7 +15,4 @@ $status = $_POST['_slct_status'];
 $sql = "UPDATE documents_clients SET status_doc = $status WHERE id_document = $id_lgl_";
 
 
-$result = mysqli_query($cadena, $sql);
-
-
-echo $result;
+echo $result = mysqli_query($cadena, $sql);
