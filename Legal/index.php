@@ -1459,6 +1459,15 @@ require_once('../Controller/controladorListar.php');
                                                         <option value="1">Aceptado</option>
                                                     </select>
                                                     `
+                                                : estadoHtml === '100'
+                                                    ? `
+                                                    <select id="_slct_status" name="_slct_status" class="form-mak">
+                                                        <option value="500">Pendiente</option>
+                                                        <option value="200">Revisado</option>
+                                                        <option value="100" selected>Rechazado</option>
+                                                        <option value="1">Aceptado</option>
+                                                    </select>
+                                                    `
                                                 : `
                                                     <select id="_slct_status" name="_slct_status" class="form-mak">
                                                         <option value="500">Pendiente</option>
@@ -2399,10 +2408,16 @@ require_once('../Controller/controladorListar.php');
                 $.ajax({
                     type: "POST",
                     url: "../Controller/update_status_solic_legal.php",
+                    // url: "../Controller/update_status_legal.php",
                     data: _data_cbo,
                     dataType: "JSON",
                     success: function(data) {
                         console.log(data);
+                        // if (data === 1) {
+                        //     alert("Estado cambiado correctamente.");
+                        // } else {
+                        //     alert("Hubo un problema.")
+                        // }
                     },
                     complete: function() {
 
