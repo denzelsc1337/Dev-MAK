@@ -62,7 +62,7 @@ $(document).ready(function () {
 
           if (r) {
             //alert("Solicitud enviada correctamente.");
-            console.log(r);
+            // // console.log(r);
             /*const mensaje = JSON.stringify({ tipo: 'nuevo_registro', mensaje: 'Nuevo registro insertado' });
             socket.send(mensaje);*/
             // No es necesario cambiar event.returnValue a false
@@ -71,10 +71,10 @@ $(document).ready(function () {
             alert(
               "Error al registrar, Verifique que los campos esten correctamente completos."
             );
-            // console.log(r);
+            // // console.log(r);
             // console.log(data);
           }
-          // console.log(r);
+          // // console.log(r);
           // console.log(data);
         }, 900);
       },
@@ -114,14 +114,14 @@ $(document).ready(function () {
           $("#loader").hide();
           if (r) {
             //alert("Solicitud enviada correctamente.");
-            console.log(r);
+            // console.log(r);
             //event.returnValue = false;
             window.location.href = "../Valorizacion/";
           } else {
             alert(
               "Error al registrar, Verifique que los campos esten correctamente completos."
             );
-            console.log(r);
+            // console.log(r);
             //console.log(formData);
           }
         }, 900);
@@ -164,14 +164,14 @@ $(document).ready(function () {
           $("#loader").hide();
           if (r) {
             //alert("Solicitud enviada correctamente.");
-            console.log(r);
+            // console.log(r);
             //event.returnValue = false;
             window.location.href = "../Valorizacion/";
           } else {
             alert(
               "Error al registrar, Verifique que los campos esten correctamente completos."
             );
-            console.log(r);
+            // console.log(r);
             //console.log(formData);
           }
         }, 900);
@@ -211,14 +211,14 @@ $(document).ready(function () {
           $("#loader").hide();
           if (r) {
             //alert("Solicitud enviada correctamente.");
-            console.log(r);
+            // console.log(r);
             //event.returnValue = false;
             window.location.href = "../Valorizacion/";
           } else {
             alert(
               "Error al registrar, Verifique que los campos esten correctamente completos."
             );
-            console.log(r);
+            // console.log(r);
             //console.log(formData);
           }
         }, 900);
@@ -257,14 +257,14 @@ $(document).ready(function () {
           $("#loader").hide();
           if (r) {
             //alert("Solicitud enviada correctamente.");
-            console.log(r);
+            // console.log(r);
             //event.returnValue = false;
             window.location.href = "../Valorizacion/";
           } else {
             alert(
               "Error al registrar, Verifique que los campos esten correctamente completos."
             );
-            console.log(r);
+            // console.log(r);
             //console.log(formData);
           }
         }, 900);
@@ -304,14 +304,14 @@ $(document).ready(function () {
           $("#loader").hide();
           if (r) {
             //alert("Solicitud enviada correctamente.");
-            console.log(r);
+            // console.log(r);
             //event.returnValue = false;
             window.location.href = "../Valorizacion/";
           } else {
             alert(
               "Error al registrar, Verifique que los campos esten correctamente completos."
             );
-            console.log(r);
+            // console.log(r);
             //console.log(formData);
           }
         }, 900);
@@ -350,14 +350,14 @@ $(document).ready(function () {
           $("#loader").hide();
           if (r) {
             //alert("Solicitud enviada correctamente.");
-            console.log(r);
+            // console.log(r);
             //event.returnValue = false;
             window.location.href = "../Valorizacion/";
           } else {
             alert(
               "Error al registrar, Verifique que los campos esten correctamente completos."
             );
-            console.log(r);
+            // console.log(r);
             //console.log(formData);
           }
         }, 900);
@@ -758,7 +758,7 @@ $(document).ready(function () {
       contentType: false,
 
       success: function (r) {
-        // console.log(r);
+        // // console.log(r);
 
         setTimeout(function () {
           if (r) {
@@ -767,7 +767,7 @@ $(document).ready(function () {
             $(".file-archives").hide();
             alert("Solicitud enviada correctamente.");
             // $("#modal_archive_HR").modal("hide");
-            console.log(r);
+            // console.log(r);
 
             var modal = document.querySelector("#modal_archive_HR"),
               files = modal.querySelector(".input-file"),
@@ -790,7 +790,7 @@ $(document).ready(function () {
             alert(
               "Error al registrar, Verifique que los campos esten correctamente completos."
             );
-            // console.log(r);
+            // // console.log(r);
             //console.log(formData);
           }
         }, 1500);
@@ -803,6 +803,7 @@ $(document).ready(function () {
           $(".file-archives").hide();
           $(".file-message").show();
         }, 1500);
+        $("#modal_archive_HR").modal("hide");
       },
       error: function (xhr, status, error) {
         $("#loader").hide();
@@ -835,14 +836,14 @@ $(document).ready(function () {
       },
 
       success: function (r) {
-        // console.log(r);
+        // // console.log(r);
 
         setTimeout(function () {
           $("#loader").hide();
           if (r) {
             alert("Solicitud enviada correctamente.");
             $("#modal_archive_PU").modal("hide");
-            console.log(r);
+            // console.log(r);
 
             var modal = document.querySelector("#modal_archive_PU"),
               files = modal.querySelector(".input-file"),
@@ -864,7 +865,7 @@ $(document).ready(function () {
             alert(
               "Error al registrar, Verifique que los campos esten correctamente completos."
             );
-            // console.log(r);
+            // // console.log(r);
             //console.log(formData);
           }
         }, 900);
@@ -900,14 +901,14 @@ $(document).ready(function () {
       },
 
       success: function (r) {
-        // console.log(r);
+        // // console.log(r);
 
         setTimeout(function () {
           $("#loader").hide();
           if (r) {
             alert("Solicitud enviada correctamente.");
             $("#modal_archive_CL").modal("hide");
-            console.log(r);
+            // console.log(r);
 
             var modal = document.querySelector("#modal_archive_CL"),
               files = modal.querySelector(".input-file"),
@@ -929,7 +930,7 @@ $(document).ready(function () {
             alert(
               "Error al registrar, Verifique que los campos esten correctamente completos."
             );
-            // console.log(r);
+            // // console.log(r);
             //console.log(formData);
           }
         }, 900);
@@ -965,14 +966,14 @@ $(document).ready(function () {
       },
 
       success: function (r) {
-        // console.log(r);
+        // // console.log(r);
 
         setTimeout(function () {
           $("#loader").hide();
           if (r) {
             alert("Solicitud enviada correctamente.");
             $("#modal_archive_DNI").modal("hide");
-            console.log(r);
+            // console.log(r);
 
             var modal = document.querySelector("#modal_archive_DNI"),
               files = modal.querySelector(".input-file"),
@@ -994,7 +995,7 @@ $(document).ready(function () {
             alert(
               "Error al registrar, Verifique que los campos esten correctamente completos."
             );
-            // console.log(r);
+            // // console.log(r);
             //console.log(formData);
           }
         }, 900);
@@ -1035,7 +1036,7 @@ $(document).ready(function () {
         setTimeout(function () {
           if (r) {
             alert("Solicitud enviada correctamente.");
-            console.log(r);
+            // console.log(r);
             var modal = document.querySelector("#modal_archive_HR"),
               files = modal.querySelector(".input-file"),
               fileMessage = files.querySelector(".file-message"),
@@ -1103,7 +1104,7 @@ $(document).ready(function () {
         setTimeout(function () {
           if (r) {
             alert("Solicitud enviada correctamente.");
-            console.log(r);
+            // console.log(r);
             var modal = document.querySelector("#modal_archive_PU"),
               files = modal.querySelector(".input-file"),
               fileMessage = files.querySelector(".file-message"),
@@ -1171,7 +1172,7 @@ $(document).ready(function () {
         setTimeout(function () {
           if (r) {
             alert("Solicitud enviada correctamente.");
-            console.log(r);
+            // console.log(r);
             var modal = document.querySelector("#modal_archive_CL"),
               files = modal.querySelector(".input-file"),
               fileMessage = files.querySelector(".file-message"),
@@ -1191,7 +1192,7 @@ $(document).ready(function () {
             alert(
               "Error al registrar, Verifique que los campos esten correctamente completos."
             );
-            console.log(r);
+            // console.log(r);
             console.log(formData);
           }
         }, 1500);
@@ -1241,7 +1242,7 @@ $(document).ready(function () {
         setTimeout(function () {
           if (r) {
             alert("Solicitud enviada correctamente.");
-            console.log(r);
+            // console.log(r);
             var modal = document.querySelector("#modal_archive_DNI"),
               files = modal.querySelector(".input-file"),
               fileMessage = files.querySelector(".file-message"),
@@ -1261,7 +1262,7 @@ $(document).ready(function () {
             alert(
               "Error al registrar, Verifique que los campos esten correctamente completos."
             );
-            console.log(r);
+            // console.log(r);
             console.log(formData);
           }
         }, 1500);
@@ -1305,7 +1306,7 @@ $(document).ready(function () {
       contentType: false,
 
       success: function (r) {
-        console.log(r);
+        // console.log(r);
 
         $("#loader__hr").show();
         $(".file-message").hide();
@@ -1318,6 +1319,7 @@ $(document).ready(function () {
           $("#loader__hr").hide();
           $(".file-archives").hide();
           $(".file-message").show();
+          $("#modal_archive_HR").modal("hide");
         }, 1500);
       },
       error: function (xhr, status, error) {
@@ -1345,7 +1347,7 @@ $(document).ready(function () {
       contentType: false,
 
       success: function (r) {
-        console.log(r);
+        // console.log(r);
         $("#loader__pu").show();
         $(".file-archives").hide();
       },
@@ -1356,6 +1358,7 @@ $(document).ready(function () {
           $("#loader__pu").hide();
           $(".file-archives").hide();
           $(".file-message").show();
+          $("#modal_archive_PU").modal("hide");
         }, 1500);
       },
       error: function (xhr, status, error) {
@@ -1383,7 +1386,7 @@ $(document).ready(function () {
       contentType: false,
 
       success: function (r) {
-        console.log(r);
+        // console.log(r);
         $("#loader__cl").show();
         $(".file-archives").hide();
       },
@@ -1394,6 +1397,7 @@ $(document).ready(function () {
           $("#loader__cl").hide();
           $(".file-archives").hide();
           $(".file-message").show();
+          $("#modal_archive_CL").modal("hide");
         }, 1500);
       },
       error: function (xhr, status, error) {
@@ -1421,7 +1425,7 @@ $(document).ready(function () {
       contentType: false,
 
       success: function (r) {
-        console.log(r);
+        // console.log(r);
         $("#loader__dni").show();
         $(".file-archives").hide();
       },
@@ -1432,6 +1436,7 @@ $(document).ready(function () {
           $("#loader__dni").hide();
           $(".file-archives").hide();
           $(".file-message").show();
+          $("#modal_archive_DNI").modal("hide");
         }, 1500);
       },
       error: function (xhr, status, error) {
@@ -1464,7 +1469,7 @@ $(document).ready(function () {
       },
 
       success: function (r) {
-        console.log(r);
+        // console.log(r);
         if (r) {
           alert("Solicitud enviada correctamente.");
           window.location.href = "../Legal/";
@@ -1501,7 +1506,7 @@ $(document).ready(function () {
       },
 
       success: function (r) {
-        console.log(r);
+        // console.log(r);
         if (r == 1) {
           alert("Datos actualizados.");
           window.location.href = "../Legal/";
@@ -1962,7 +1967,7 @@ $(document).ready(function () {
           alert(
             "Error al registrar, Verifique que los campos esten correctamente completos."
           );
-          console.log(r);
+          // console.log(r);
           console.log(data);
         }
       },

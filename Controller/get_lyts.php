@@ -25,6 +25,7 @@ if (is_dir($directorio)) {
             $archivo_info = array();
             $archivo_info['ruta'] = $directorio;
             $archivo_info['archivo'] = $archivo;
+            $archivo_info['tipo_doc'] = $tipo_doc_;
             // Puedes establecer el estado del archivo como desees
             $archivo_info['estado'] = 'estado_desconocido';
 
