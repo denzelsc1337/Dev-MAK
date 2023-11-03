@@ -401,7 +401,6 @@ require_once('../Controller/controladorListar.php');
                                                             <td><?php echo $lst_legal_d[9] ?></td>
                                                             <td>
                                                                 <div class="row justify-content-evenly">
-
                                                                     <?php if ($lst_legal_d[6] == 30) { ?>
                                                                         <div class="options show_data_soli_legl" data-cod_solic=" <?php echo $lst_legal_d[0] ?>" data-cod_client="<?php echo $lst_legal_d[7] ?>">
                                                                             <button type="button" class="btn btn-rounded arrow-left_1" id="">
@@ -410,16 +409,52 @@ require_once('../Controller/controladorListar.php');
                                                                         </div>
                                                                     <?php  } else { ?>
                                                                         <!--vista usuario -->
-                                                                        <div class="options get_data_soli_legl" data-cod_solic=" <?php echo $lst_legal_d[0] ?>" data-cod_client="<?php echo $lst_legal_d[7] ?>">
-                                                                            <button type="button" class="btn btn-rounded" id="">
-                                                                                <i class="fa-solid fa-eye"></i>
-                                                                            </button>
-                                                                        </div>
 
+                                                                        <?php if ($lst_legal_d[6] == 90) {
+
+                                                                            $ruta = "../Informes Legal/{$lst_legal_d[0]}/{$_SESSION['dni']}/";
+
+                                                                            $archivos = scandir($ruta);
+                                                                            $archivoMasReciente = null;
+                                                                            $fechaMasReciente = 0;
+
+                                                                            foreach ($archivos as $archivo) {
+                                                                                if ($archivo != "." && $archivo != "..") {
+                                                                                    $rutaArchivo = $ruta . '/' . $archivo;
+                                                                                    $fechaArchivo = filemtime($rutaArchivo);
+
+                                                                                    if ($fechaArchivo > $fechaMasReciente) {
+                                                                                        $archivoMasReciente = $archivo;
+                                                                                        $fechaMasReciente = $fechaArchivo;
+                                                                                    }
+                                                                                }
+                                                                            }
+
+                                                                            // if ($archivoMasReciente !== null) {
+                                                                            //     echo "El archivo más reciente es: " . $archivoMasReciente;
+                                                                            // } else {
+                                                                            //     echo "No se encontraron archivos en la carpeta.";
+                                                                            // }
+
+                                                                        ?>
+
+
+                                                                            <div class="options" title="Descargar archivo">
+                                                                                <a target="_blank" download="<?php echo $archivoMasReciente ?>" href="../Informes Legal/<?php echo $lst_legal_d[0] . '/' . $_SESSION['dni'] . '/' . $archivoMasReciente ?>">
+                                                                                    <i class="fa-solid fa-download"></i>
+                                                                                </a>
+                                                                            </div>
+                                                                        <?php } else { ?>
+                                                                            <div class="options get_data_soli_legl" data-cod_solic=" <?php echo $lst_legal_d[0] ?>" data-cod_client="<?php echo $lst_legal_d[7] ?>">
+                                                                                <button type="button" class="btn btn-rounded" id="">
+                                                                                    <i class="fa-solid fa-eye"></i>
+                                                                                </button>
+                                                                            </div>
+
+                                                                        <?php } ?>
                                                                     <?php } ?>
-
-
                                                                 </div>
+
                                                             </td>
                                                         </tr>
                                                     <?php endforeach ?>
