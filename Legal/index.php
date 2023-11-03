@@ -652,8 +652,8 @@ require_once('../Controller/controladorListar.php');
                                     ?>
                                         <div class="card-footer">
                                             <div class="form-flex">
-                                                <!-- <button type="button" class="btn btn-mak mak-bg-sec">Guardar</button> -->
-                                                <button type="submit" class="btn btn-mak mak-bg" id="btn_updt_solic_l" name="btn_updt_solic_l">Guardar Solicitud</button>
+                                                <button type="button" class="btn btn-mak mak-bg-sec" id="btn_upld_solic_l" name="btn_upld_solic_l" data-bs-toggle="modal" data-bs-target="#modal_upld_File" style="display: none;">Subir archivo</button>
+                                                <button type="submit" class="btn btn-mak mak-bg" id="btn_updt_solic_l" name="btn_updt_solic_l" disabled>Guardar Solicitud</button>
                                             </div>
                                         </div>
                                     <?php
@@ -1066,7 +1066,47 @@ require_once('../Controller/controladorListar.php');
     <!-- Modal -->
     <!-- Modal_DNI -->
 
+    <!-- Modal upldFile -->
+    <div class="modal fade" id="modal_upld_File" tabindex="-1" role="dialog" aria-labelledby="modal_upld_File" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modal_upld_File">Subir archivo</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
 
+                <form id="adding_legal_file" method="POST" enctype="multipart/form-data">
+
+                    <div class="modal-body">
+                        <div hidden>
+                            <input type="text" name="id_reg_lgl" id="id_reg_lgl">
+                            <input type="text" name="dni_solic_lgl" id="dni_solic_lgl">
+                        </div>
+                        <div class="form-group text-center">
+                            <img class="row margin" src="../Vista/assets/loading_uhd.gif" id="loader_add_legal" style="display:none;">
+                            <div class="adding_legal_content">
+                                <label>Archivo del informe legal</label>
+                                <br>
+                                <input type="file" name="legal_files[]" id="legal_files" onkeyup="habilitarBoton()">
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button> -->
+                        <button type="button" class="btn btn-secondary" id="limpiarBoton">Limpiar</button>
+                        <button type="submit" name="btn_save_legal_file" id="btn_save_legal_file" class="btn mak-bg">Subir</button>
+                    </div>
+
+                    <!-- <div id="message_aprob"></div> -->
+                </form>
+
+            </div>
+        </div>
+    </div>
+    <!-- Modal upldFile -->
     <!-- MODALES -->
 
     <!-- REQUIRED SCRIPTS -->
@@ -1962,7 +2002,7 @@ require_once('../Controller/controladorListar.php');
                     // console.log(_idcli)
 
                     $('#id_solic_doc').val(_id_soli);
-                    // document.getElementById('id_solic_doc').value = _id_soli;
+
 
                     get_details_solic_legal(_id_soli, _idcli)
                 });
@@ -2116,6 +2156,8 @@ require_once('../Controller/controladorListar.php');
                 success: function(response) {
                     // console.log(response);
 
+                    var save_file_leg_ = document.getElementById("btn_updt_solic_l");
+
                     try {
                         var detalles = JSON.parse(response);
 
@@ -2137,23 +2179,8 @@ require_once('../Controller/controladorListar.php');
 
                     setTimeout(function() {
 
-                        /*const tipo_status = document.getElementById("status_solic_legal_cbo");
-
-                        var btnDisable = $("#btnValo_obs_save");
-
-                        const add_obs_1 = document.getElementById("add_obsv_v");
-                        const add_file_val_1 = document.getElementById("subir_valor");
-
-                        const dwnld_info = document.getElementById("btn_dwnld_valo");*/
-
                         $("#loader_uhd").hide();
-                        // $("#loader_uhd").addClass("hidden");
-
-
-
-                        // if (!$(".mak_overlay").hasClass("hidden")) {
                         $("#add_data_val").removeClass("hide");
-                        // }
 
                         // console.log("ID Valor: " + id_valor);
                         // console.log("Nombre Cliente: " + nom_client);
@@ -2171,13 +2198,10 @@ require_once('../Controller/controladorListar.php');
                         $("#data_names_").val(nom_client);
                         $("#data_lnames_").val(apellido);
 
-                        // console.log(correo);
                         $("#data_direcion_1").val(correo);
                         $("#data_direcion_2").val(correo);
                         $("#data_direcion_3").val(correo);
                         $("#coment_").val(coment);
-
-                        // $("#status_solic_legal_cbo").val(status_);
 
 
                         switch (status_) {
@@ -2189,7 +2213,6 @@ require_once('../Controller/controladorListar.php');
                                 $(".textBox").removeClass("bg-warning");
                                 $(".textBox").removeClass("bg-secondary");
                                 $(".textBox").removeClass("bg-success");
-
                                 break;
                             case '20':
                                 $("#status_solic_legal_cbo").val("20");
@@ -2199,7 +2222,6 @@ require_once('../Controller/controladorListar.php');
                                 $(".textBox").removeClass("bg-secondary");
                                 $(".textBox").removeClass("bg-success");
                                 $(".textBox").removeClass("bg-info");
-
                                 break;
                             case '30':
                                 $("#status_solic_legal_cbo").val("30");
@@ -2257,9 +2279,6 @@ require_once('../Controller/controladorListar.php');
         const textBox = document.querySelector(".textBox");
         const textBoxValue = document.querySelector("#status_solic_legal_cbo");
         const selectOptions = document.querySelectorAll(".select-options div");
-        // const btnUpValo = document.querySelector("#subir_valor"),
-        //     btnAddObs = document.querySelector("#add_obsv_v");
-        //const btnDisble = document.querySelector("#bnValo_obs_save");
         var btnDisble_ = document.getElementById("btnValo_obs_save");
 
         inputSelect.addEventListener("click", function() {
@@ -2280,30 +2299,7 @@ require_once('../Controller/controladorListar.php');
                 const dataValue = option.getAttribute("data-value");
                 textBoxValue.value = dataValue; // Cambia el valor de textBoxValue
 
-                // if (dataValue === "200") {
-                //     textBox.value = "Finalizado";
-                //     //----
-                //     textBox.classList.add("bg-success");
-                //     textBox.classList.remove("bg-warning");
-                //     textBox.classList.remove("bg-secondary");
-                //     //----
-
-                // } else if (dataValue === "400") {
-                //     textBox.value = "Observado";
-                //     //----
-                //     textBox.classList.add("bg-warning");
-                //     textBox.classList.remove("bg-secondary");
-                //     textBox.classList.remove("bg-success");
-                //     //----
-
-                // } else {
-                //     textBox.value = "Pendiente";
-                //     //----
-                //     textBox.classList.add("bg-secondary");
-                //     textBox.classList.remove("bg-success");
-                //     textBox.classList.remove("bg-warning");
-                //     //----
-                // }
+                var add_file_leg_ = document.getElementById("btn_upld_solic_l");
 
                 switch (dataValue) {
                     case '10':
@@ -2314,6 +2310,8 @@ require_once('../Controller/controladorListar.php');
                         textBox.classList.remove("bg-warning");
                         textBox.classList.remove("bg-secondary");
                         textBox.classList.remove("bg-success");
+
+                        add_file_leg_.style.display = "none";
                         break;
                     case '20':
                         textBox.value = "En revisión";
@@ -2323,6 +2321,8 @@ require_once('../Controller/controladorListar.php');
                         textBox.classList.remove("bg-secondary");
                         textBox.classList.remove("bg-success");
                         textBox.classList.remove("bg-info");
+
+                        add_file_leg_.style.display = "none";
                         break;
                     case '30':
                         textBox.value = "Borrador";
@@ -2341,6 +2341,8 @@ require_once('../Controller/controladorListar.php');
                         textBox.classList.remove("bg-info");
                         textBox.classList.remove("bg-warning");
                         textBox.classList.remove("bg-secondary");
+
+                        add_file_leg_.style.display = "block";
                         break;
                     default:
                         break;
@@ -2424,6 +2426,48 @@ require_once('../Controller/controladorListar.php');
                     }
                 });
                 return false;
+            });
+        });
+    </script>
+
+
+    <script>
+        $('#btn_upld_solic_l').on('click', function() {
+
+            var __id_solic_v = $("#id_solic_doc").val();
+            var cd_solic_v = $("#id_reg_lgl").val(__id_solic_v);
+
+            var __dni__solic_v = $("#dni_client_l").val();
+            var dni_solic_v = $("#dni_solic_lgl").val(__dni__solic_v);
+
+        });
+
+        function habilitarBoton() {
+
+            const fil = document.getElementById("legal_files");
+            const boton_ = document.getElementById("btn_updt_solic_l");
+
+            if (fil.value !== '') {
+                boton_.disabled = false;
+            } else {
+                boton_.disabled = true;
+            }
+        }
+
+        $(document).ready(function() {
+            // Cuando cambia el input file
+            $("#legal_files").on("change", function() {
+                var inputFile = $(this)[0];
+                if (inputFile.files.length > 0) {
+                    $("#btn_updt_solic_l").prop("disabled", false); // Habilita el botón
+                } else {
+                    $("#btn_updt_solic_l").prop("disabled", true); // Deshabilita el botón
+                }
+            });
+
+            $("#limpiarBoton").on("click", function() {
+                $("#legal_files").val(""); // Borra el valor del input file
+                $("#btn_updt_solic_l").prop("disabled", true); // Deshabilita el botón
             });
         });
     </script>
