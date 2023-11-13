@@ -414,6 +414,7 @@ $(document).ready(function () {
       btn_updt_solic_l: true,
       _id_doc: $("#id_solic_doc").val(),
       _slct_status: $("#status_solic_legal_cbo").val(),
+      _coment: $("#coment_").val(),
     };
     $.ajax({
       type: "POST",
@@ -1550,7 +1551,7 @@ $(document).ready(function () {
         // console.log(r);
         if (r == 1) {
           alert("Datos actualizados.");
-          window.location.href = "../Legal/";
+          // window.location.href = "../Legal/";
         } else {
           alert("Ocurrio un error.");
         }

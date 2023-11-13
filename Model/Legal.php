@@ -103,14 +103,14 @@ class cLegal
 		$cnx->cerrarConexion($cadena);*/
 	}
 
-	public function updt_lyt_legal_($nom_cli_lyt, $ape_cli_lyt, $id_solic_l)
+	public function updt_lyt_legal_($nom_cli_lyt, $ape_cli_lyt, $id_solic_l, $dir_cli_lyt)
 	{
 		include_once('../config/Conexion.php');
 		$cnx = new Conexion();
 		$cadena = $cnx->abrirConexion();
 
 		$query = "UPDATE docs_legal
-				  set nom_client = '$nom_cli_lyt', ape_client ='$ape_cli_lyt'
+				  set nom_client = '$nom_cli_lyt', ape_client ='$ape_cli_lyt' , dir_client ='$dir_cli_lyt'
 				  WHERE id_legal = '$id_solic_l'";
 
 		$result = mysqli_query($cadena, $query);
@@ -298,6 +298,34 @@ class cLegal
 
 		$query = "UPDATE `docs_legal`
 				  SET `status_solic` = '$state'
+				  WHERE `id_legal` = '$id_doc'";
+
+		$result = mysqli_query($cadena, $query);
+		$cnx->cerrarConexion($cadena);
+		return $result;
+
+		/*$result = mysqli_query($cadena, $query);
+
+
+        if ($result) {
+            $num_rows = mysqli_affected_rows($cadena);
+            echo "Se han insertado $num_rows filas correctamente";
+        } else {
+            echo "Error al ejecutar la consulta: " . mysqli_error($cadena);
+        }*/
+
+		/*echo mysqli_query($cadena, $query);
+		$cnx->cerrarConexion($cadena);*/
+	}
+
+	public function updt_legal_coment_docs($id_doc, $coment)
+	{
+		include_once('../config/Conexion.php');
+		$cnx = new Conexion();
+		$cadena = $cnx->abrirConexion();
+
+		$query = "UPDATE `docs_legal`
+				  SET `comentario` = '$coment'
 				  WHERE `id_legal` = '$id_doc'";
 
 		$result = mysqli_query($cadena, $query);

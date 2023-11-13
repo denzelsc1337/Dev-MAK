@@ -536,10 +536,11 @@ h2 {
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
 }
 
-.options {
-  cursor: pointer;
+.options i{
+  color: var(--blue-mak);
 }
 
 .options button {
@@ -1128,6 +1129,7 @@ li {
 textarea {
   width: 100%;
   border-style: none;
+  color: var(--blue-mak);
   border-bottom: 1px solid var(--blue-mak);
   font-weight: bold;
 }

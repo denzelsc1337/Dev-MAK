@@ -161,9 +161,10 @@ if (isset($_POST["btn_save_borrador"])) {
 }
 
 if (isset($_POST["btn_updt_borrador"])) {
+    $id_solic_l = $_POST['id_legal_solic'];
     $nom_cli_lyt = $_POST['nom_cli_solic'];
     $ape_cli_lyt = $_POST['ape_cli_solic'];
-    $id_solic_l = $_POST['id_legal_solic'];
+    $dir_cli_lyt = $_POST['data_direccion_1'];
 
     // print_r($_POST);
 
@@ -173,7 +174,7 @@ if (isset($_POST["btn_updt_borrador"])) {
     $cadena = $cnx->abrirConexion();
 
     $oLegal = new cLegal();
-    $r = $oLegal->updt_lyt_legal_($nom_cli_lyt, $ape_cli_lyt, $id_solic_l);
+    $r = $oLegal->updt_lyt_legal_($nom_cli_lyt, $ape_cli_lyt, $id_solic_l, $dir_cli_lyt);
 
     if ($r) {
         echo $r;

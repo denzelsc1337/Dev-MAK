@@ -450,7 +450,7 @@ require_once('../Controller/controladorListar.php'); ?>
 
                                         <button type="button" class="btn btn-mak mak-bg dwnld_valo" id="btn_dwnld_valo" name="btn_dwnld_valo" style="display:none;">Descargar Informacion</button>
 
-                                        <button type="button" class="btn btn-mak mak-bg btn_finalizar" id="btnValo_obs_save" name="btnValo_obs_save">Guardar</button>
+                                        <button type="button" class="btn btn-mak mak-bg btn_finalizar" id="btnValo_obs_save" name="btnValo_obs_save" disabled>Guardar</button>
 
                                         <!-- <button type="button" class="btn btn-rounded  btn_lst_docs btn_lst_docs_0" data-toggle="modal" data-target="#lst_docs_legal" data-valor="DNI" data-titulo="DNI" data-id_doc_="4" data-id_user_="<?php echo $_SESSION['dni'] ?>">
                                             <i class="cursor fa-solid fa-eye"></i>
@@ -615,16 +615,17 @@ require_once('../Controller/controladorListar.php'); ?>
                 </div>
 
                 <div class="modal fade" id="get_obs_valr" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div id="loader_uhd_2" class="mak_overlay hidden">
+                    <!-- <div id="loader_uhd_2" class="mak_overlay hidden">
                         <img src="../Vista/images/MAK_logo.png" alt="" class="fading-element">
-                    </div>
+                    </div> -->
                     <div class="modal-dialog modal-dialog-centered" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
                                 <h5 class="modal-title" id="exampleModalLabel">Observaciones</h5>
                             </div>
                             <div class="modal-body" id="modal_obs">
-                                <textarea id="obs_sent_" name="obs_sent_" readonly disabled style="resize: none;"></textarea>
+                                <img class="row margin" src="../Vista/assets/loading_uhd.gif" id="loader_uhd_2" style="display: none;">
+                                <textarea id="obs_sent_" name="obs_sent_" readonly style="resize: none;"></textarea>
                             </div>
                         </div>
                     </div>
@@ -696,30 +697,16 @@ require_once('../Controller/controladorListar.php'); ?>
             const boton_ = document.getElementById("btnValo_obs_save");
 
             const obs = document.getElementById("obs_send_");
-            const fil = document.getElementById("valorizacion_files");
 
-
-            // boton.disabled = true;
-
-
-
-            if (obs.value.trim() !== '') {
+            if (obs.value.trim().length > 0) {
+                boton_.disabled = false;
                 boton.disabled = false;
-                boton_.disabled = false;
             } else {
+                boton_.disabled = true;
                 boton.disabled = true;
-                boton_.disabled = true;
             }
 
-            console.log(fil);
-            console.log(fil.value);
-            if (fil.value !== '') {
-                boton_.disabled = false;
-            } else {
-                boton_.disabled = true;
-            }
         }
-
 
         $(document).ready(function() {
             // Cuando cambia el input file
@@ -903,9 +890,6 @@ require_once('../Controller/controladorListar.php'); ?>
             var id_cli__ = $(this).data('id_cli');
             var dni_cli__ = $(this).data('dni_cli');
 
-            console.log(id_);
-
-
             $('#get_obs_valr').modal('show');
 
             get_obs_solic(id_, id_cli__, dni_cli__)
@@ -990,8 +974,8 @@ require_once('../Controller/controladorListar.php'); ?>
                 },
 
                 beforeSend: function() {
-                    // $("#loader_uhd").show();
-                    $("#loader_uhd_2").removeClass("hidden");
+                    $("#loader_uhd_2").show();
+                    // $("#loader_uhd_2").removeClass("hidden");
 
 
                     $("#obs_sent_").hide();
@@ -1018,8 +1002,8 @@ require_once('../Controller/controladorListar.php'); ?>
 
                     setTimeout(function() {
 
-                        // $("#loader_uhd").hide();
-                        $("#loader_uhd_2").addClass("hidden");
+                        $("#loader_uhd_2").hide();
+                        // $("#loader_uhd_2").addClass("hidden");
 
                         $("#obs_sent_").show();
 
@@ -1108,6 +1092,24 @@ require_once('../Controller/controladorListar.php'); ?>
                         $("#coment_valr_r").val(coment)
 
                         switch (estado) {
+                            case '500':
+                                $("#status_solic_val_cbo").val("500");
+                                $(".textBox").val("Pendiente");
+                                $(".textBox").addClass("bg-secondary");
+                                $(".textBox").removeClass("bg-success");
+                                $(".textBox").removeClass("bg-warning");
+
+
+                                add_obs_1.classList.add("hidden");
+                                add_obs_1.style.display = "none";
+
+                                add_file_val_1.classList.add("hidden");
+                                add_file_val_1.style.display = "none";
+
+                                dwnld_info.style.display = "none";
+                                // btnDisable.prop("disabled", true);
+
+                                break;
                             case '400':
                                 $("#status_solic_val_cbo").val("400");
                                 $(".textBox").val("Observado");
@@ -1121,7 +1123,7 @@ require_once('../Controller/controladorListar.php'); ?>
                                 add_obs_1.classList.remove("hidden");
                                 add_obs_1.style.display = "block";
 
-                                btnDisable.prop("disabled", true);
+                                // btnDisable.prop("disabled", true);
                                 dwnld_info.style.display = "none";
 
                                 break;
@@ -1140,27 +1142,12 @@ require_once('../Controller/controladorListar.php'); ?>
                                 add_file_val_1.classList.remove("hidden");
                                 add_file_val_1.style.display = "none";
 
-                                btnDisable.prop("disabled", true);
+                                // btnDisable.prop("disabled", true);
 
                                 dwnld_info.style.display = "block";
                                 break;
 
-                            default:
-                                $("#status_solic_val_cbo").val("500");
-                                $(".textBox").val("Pendiente");
-                                $(".textBox").addClass("bg-secondary");
-                                $(".textBox").removeClass("bg-success");
-                                $(".textBox").removeClass("bg-warning");
 
-
-                                add_obs_1.classList.add("hidden");
-                                add_obs_1.style.display = "none";
-
-                                add_file_val_1.classList.add("hidden");
-                                add_file_val_1.style.display = "none";
-
-                                dwnld_info.style.display = "none";
-                                btnDisable.prop("disabled", true);
                         }
 
                         $("#dir_rsm").text(detalles[0][2]);
@@ -1174,7 +1161,7 @@ require_once('../Controller/controladorListar.php'); ?>
                         var direccion_val = $("#dir_rsm").text();
                         get_distrito_x_direccion(direccion_val);
 
-                        btnDisable.prop("disabled", true);
+                        // btnDisable.prop("disabled", true);
 
 
 
@@ -1758,7 +1745,7 @@ require_once('../Controller/controladorListar.php'); ?>
                     btnAddObs.classList.add("hidden");
                     btnAddObs.style.display = "none";
 
-                    btnDisble_.disabled = false;
+                    btnDisble_.disabled = true;
                 }
 
             });
