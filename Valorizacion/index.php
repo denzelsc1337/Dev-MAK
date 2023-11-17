@@ -126,6 +126,20 @@ require_once('../Controller/controladorListar.php'); ?>
 
 
                             <div class="container">
+
+                                <?php
+
+
+                                if ($_SESSION['tipo_usu'] == 1) {
+                                ?>
+                                    <button type="button" class="btn btn-mak mak-bg dwnld_valo" id="btn_dwnld_valo" name="btn_dwnld_valo" disabled>Descargar Informacion</button>
+                                    <input type="date" id="fecha_ini_txt" name="fecha_ini_txt">
+                                    <input type="date" id="fecha_fin_txt" name="fecha_fin_txt" disabled>
+                                    <a href="../Controller/Valor_Excel.php" class="btn btn-mak mak-bg dwnld_valo"> Exportar a </a>
+
+                                <?php } ?>
+
+
                                 <h1 class="text-center mt-5">HISTORICO</h1>
                                 <div class="row">
 
@@ -873,13 +887,25 @@ require_once('../Controller/controladorListar.php'); ?>
     </script>
 
     <script type="text/javascript">
-        $('.dwnld_valo').on('click', function() {
+        $('#fecha_ini_txt').change(function() {
+            if ($(this).val() !== "") {
+                $('#fecha_fin_txt').prop('disabled', false);
+                $('#btn_dwnld_valo').prop('disabled', false);
+            } else {
+                $('#fecha_fin_txt').prop('disabled', true);
+                $('#btn_dwnld_valo').prop('disabled', true);
+            }
+        });
 
-            var id_solic_v = $("#cod_solic_v").val();
+        $('#btn_dwnld_valo').on('click', function() {
 
-            console.log(id_solic_v);
+            var fecha_ini_val = $("#fecha_ini_txt").val();
+            var fecha_fin_val = $("#fecha_fin_txt").val();
 
-            download_excel(id_solic_v);
+            console.log(fecha_ini_val);
+            console.log(fecha_fin_val);
+
+            download_excel(fecha_ini_val, fecha_fin_val);
 
         });
 
@@ -929,24 +955,29 @@ require_once('../Controller/controladorListar.php'); ?>
         });
 
 
-        function download_excel(id_valor_soli) {
+        function download_excel(fecha_ini_val, fecha_fin_val) {
             $.ajax({
                 type: 'POST',
                 url: '../Controller/Valor_Excel.php',
                 data: {
-                    id_solc_v: id_valor_soli,
+                    fecha_ini_val: fecha_ini_val,
+                    fecha_fin_val: fecha_fin_val,
                 },
-                xhrFields: {
-                    responseType: 'blob'
-                },
+                // xhrFields: {
+                //     responseType: 'blob'
+                // },
                 success: function(response) {
-                    var blob = new Blob([response], {
-                        type: 'text/csv'
-                    });
 
-                    var blobUrl = URL.createObjectURL(blob);
 
-                    window.open('https://docs.google.com/spreadsheets/u/0/viewer?url=' + blobUrl);
+                    console.log(response);
+
+                    // var blob = new Blob([response], {
+                    //     type: 'text/csv'
+                    // });
+
+                    // var blobUrl = URL.createObjectURL(blob);
+
+                    // window.open('https://docs.google.com/spreadsheets/u/0/viewer?url=' + blobUrl);
 
                     // var link = document.createElement('a');
                     // link.href = URL.createObjectURL(blob);
@@ -1428,9 +1459,6 @@ require_once('../Controller/controladorListar.php'); ?>
             var confirmar_ = window.confirm('¿Estás seguro de que deseas eliminar este archivo?');
 
             if (confirmar_) {
-                /*var $parentDiv = $(this).closest('.inputs').parent();
-                var ruta_doc = $parentDiv.find('#ruta_doc_i').val();
-                var ruta_archivo = $parentDiv.find('#ruta_archivo_i').val();*/
 
                 eliminarArchivo($this, ruta_);
 
@@ -1533,8 +1561,6 @@ require_once('../Controller/controladorListar.php'); ?>
                             const carousel = document.querySelector('#lst_fotos');
                             const firstImg = carousel.firstElementChild;
                             console.log(carousel.querySelectorAll(".imagen-slide img")[0]);
-                            // const carousel = document.querySelector('#lst_fotos'),
-                            //     firstImg = carousel.querySelectorAll(".imagen-slide img")[0];
                             const arrowIcons = document.querySelectorAll('#fotos_val i');
 
 
@@ -1574,62 +1600,13 @@ require_once('../Controller/controladorListar.php'); ?>
                         });
                     },
 
-
-                    /* complete: function() {
-                        initializeSlider();
-                    },*/
                     error: function(xhr, status, error) {
                         console.log(error);
                     }
                 });
-
-
             }
-
-
-
-            // function initializeSlider() {
-            //     var fotos_ = $('#lst_fotos');
-            //     console.log(fotos_);
-
-            //     $('#lst_fotos').slick({
-            //         infinite: true,
-            //         slidesToShow: 1,
-            //         slidesToScroll: 1,
-            //         prevArrow: '<button type="button" class="slick-prev">Anterior</button>',
-            //         nextArrow: '<button type="button" class="slick-next">Siguiente</button>',
-            //     });
-            // }
-
         });
-
-
-        // $('#fotos_val').slick();
-        // $('#lst_fotos').slick();
     </script>
-
-    <style type="text/css">
-        #a__t,
-        #a__c,
-        #a__o,
-        #antig_ {
-            opacity: 1;
-            height: 100%;
-            margin-bottom: 3px;
-            transition: opacity 0.3s ease-out, height 0.3s ease-out, margin-bottom 0.3s ease-out;
-        }
-
-
-        #a__t.hidden,
-        #a__c.hidden,
-        #a__o.hidden,
-        #antig_.hidden {
-            opacity: 0;
-            height: 0;
-            margin-bottom: 0;
-        }
-    </style>
-
 
 
     <script>

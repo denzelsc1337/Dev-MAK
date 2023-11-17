@@ -308,6 +308,9 @@ require_once('../Controller/controladorListar.php');
                                                                     case '30':
                                                                         echo '<span class="badge rounded-pill bg-secondary">Borrador</span>';
                                                                         break;
+                                                                    case '40':
+                                                                        echo '<span class="badge rounded-pill bg-danger">Rechazado</span>';
+                                                                        break;
                                                                     case '90':
                                                                         echo '<span class="badge rounded-pill bg-success">Finalizado</span>';
                                                                         break;
@@ -591,6 +594,7 @@ require_once('../Controller/controladorListar.php');
                                                                 <div class="bg-info" data-value="10">Pendiente</div>
                                                                 <div class="bg-warning" data-value="20">En revisión</div>
                                                                 <!-- <div class="bg-secondary" data-value="30">Borrador</div> -->
+                                                                <!-- <div class="bg-danger" data-value="40">Rechazado</div> -->
                                                                 <div class="bg-success" data-value="90">Finalizado</div>
                                                             </div>
                                                         </div>
@@ -2232,6 +2236,8 @@ require_once('../Controller/controladorListar.php');
 
 
 
+
+
                         switch (status_) {
                             case '10':
                                 $("#status_solic_legal_cbo").val("10");
@@ -2269,6 +2275,21 @@ require_once('../Controller/controladorListar.php');
                                 $(".textBox").removeClass("bg-success");
                                 $(".textBox").removeClass("bg-info");
                                 $(".textBox").removeClass("bg-warning");
+
+                                upld_file_leg_.style.display = "none";
+
+                                habilitarComent();
+
+                                break;
+                            case '40':
+                                $("#status_solic_legal_cbo").val("40");
+                                //
+                                $(".textBox").val("Rechazado");
+                                $(".textBox").addClass("bg-danger");
+                                $(".textBox").removeClass("bg-success");
+                                $(".textBox").removeClass("bg-info");
+                                $(".textBox").removeClass("bg-warning");
+                                $(".textBox").removeClass("bg-secondary");
 
                                 upld_file_leg_.style.display = "none";
 
@@ -2390,6 +2411,11 @@ require_once('../Controller/controladorListar.php');
                         coment.setAttribute('readonly', 'readonly');
                         // coment.style.display = "none";
                         break;
+                    case '40':
+
+
+                        coment.removeAttribute('readonly');
+                        break;
                     case '90':
                         textBox.value = "Finalizado";
                         //----
@@ -2456,6 +2482,24 @@ require_once('../Controller/controladorListar.php');
     </script>
 
     <script>
+        function isRefused() {
+            // const txt_status_soli = document.getElementById("textBox");
+            // const cbo_status_soli = document.getElementById("status_solic_legal_cbo");
+
+            // txt_status_soli.innerText("Rechazado");
+            // cbo_status_soli.innerText("40");
+            $('.textBox').val("Rechazado");
+            $("#status_solic_legal_cbo").val("40");
+
+            $('.textBox').addClass("bg-danger");
+            $(".textBox").removeClass("bg-success");
+            $(".textBox").removeClass("bg-info");
+            $(".textBox").removeClass("bg-warning");
+
+            $("#coment_").removeAttr('readonly');
+
+        }
+
         document.getElementById("lst_docs_legal").addEventListener("click", function() {
             // Abre el modal
 
@@ -2474,11 +2518,12 @@ require_once('../Controller/controladorListar.php');
                     dataType: "JSON",
                     success: function(data) {
                         console.log(data);
-                        // if (data === 1) {
-                        //     alert("Estado cambiado correctamente.");
-                        // } else {
-                        //     alert("Hubo un problema.")
-                        // }
+                        if (data === 100) {
+                            //     alert("Estado cambiado correctamente.");
+                            isRefused();
+                        } else {
+                            //     alert("Hubo un problema.")
+                        }
                     },
                     complete: function() {
 
@@ -2507,7 +2552,7 @@ require_once('../Controller/controladorListar.php');
             const boton_ = document.getElementById("btn_updt_solic_l");
             const coment = document.getElementById("coment_");
 
-            if (fil.value !== '' && coment.value !== '') {
+            if (fil.value !== '' || coment.value !== '') {
                 boton_.disabled = false;
             } else {
                 boton_.disabled = true;

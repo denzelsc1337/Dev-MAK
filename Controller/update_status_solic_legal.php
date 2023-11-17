@@ -12,7 +12,10 @@ $status = $_POST['_slct_status'];
 // $r = $oLegal->updt_doc_status($id_lgl_, $status);
 
 
-$sql = "UPDATE documents_clients SET status_doc = $status WHERE id_document = $id_lgl_";
+$sql = "UPDATE documents_clients 
+        SET status_doc = $status 
+        WHERE id_document = $id_lgl_";
 
 
-echo $result = mysqli_query($cadena, $sql);
+$result = mysqli_query($cadena, $sql);
+echo $status;
