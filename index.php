@@ -60,7 +60,7 @@
           <div class="mak row justify-content-center">
             <div class="col-md-9">
               <div class="mt-5 mb-5">
-                <h1>Inicio Sesión</h1>
+                <h1>Inicio de Sesión</h1>
               </div>
               <form id="loginForm" method="post">
 
