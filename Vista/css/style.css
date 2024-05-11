@@ -22,6 +22,81 @@
   /* Ruta al archivo de fuente */
 }
 
+/* MAK  */
+.mak {
+  background-color: #f7f7f7;
+}
+
+.mak .mak-bg {
+  color: var(--blue-mak) !important;
+  background-color: var(--white-mak) !important;
+}
+.mak .main-header {
+  border-bottom: 1px solid #cfd4de;
+}
+
+.mak .navbar-nav {
+  height: 63.98px;
+  align-items: center;
+}
+
+.mak .nav-link:hover {
+  background-color: #cfd4de4d;
+}
+
+.mak .navbar-nav.ml-auto {
+  gap: 15px;
+}
+
+.mak .sidebar {
+  margin-top: calc(4.6875rem + 1px) !important;
+}
+
+.mak .btn {
+  color: var(--white-mak);
+  background-color: var(--blue-mak);
+}
+
+.separador {
+  border: 1px solid #e7eaef;
+  margin: 0 5px;
+}
+
+.notification {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--blue-mak);
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  cursor: pointer;
+}
+
+.img_perfil {
+  display: flex;
+  align-items: center;
+}
+
+.img_perfil img {
+  background-size: cover;
+
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  overflow: hidden;
+}
+
+.img_content {
+  display: flex;
+}
+
+.img_text {
+  margin-left: 15px;
+  line-height: 20px;
+}
+/* MAK  */
+
 body {
   font-family: var(--Text) !important;
   background-color: #f8fafb;
@@ -148,12 +223,6 @@ a:hover {
 
 .active .bs-stepper-circle {
   background-color: var(--blue-mak) !important;
-}
-
-.mak {
-  height: 100%;
-  display: flex;
-  align-items: center;
 }
 
 .select2.select2-container {
@@ -431,7 +500,6 @@ h2 {
 #pantalla-RS table,
 #add_data_val table {
   width: 95% !important;
-  height  
   margin: 0 auto;
 }
 
@@ -539,7 +607,7 @@ h2 {
   cursor: pointer;
 }
 
-.options i{
+.options i {
   color: var(--blue-mak);
 }
 
@@ -2242,6 +2310,7 @@ body:not(.sidebar-mini-md):not(.sidebar-mini-xs):not(.layout-top-nav)
   .main-header {
   margin-left: 0 !important;
   z-index: 999;
+  height: 75px;
 }
 
 figcaption {
@@ -2350,15 +2419,15 @@ button.gm-control-active.gm-fullscreen-control {
   margin: 0 !important;
 }
 
+.modal.show {
+  user-select: none;
+}
+
 /*  */
 /* RESPONSIVE */
 /*  */
 
 @media only screen and (max-width: 600px) {
-  /* body i {
-    font-size: 20px !important;
-  } */
-
   body .sidebar-open {
     overflow: hidden !important;
   }
@@ -2528,17 +2597,16 @@ button.gm-control-active.gm-fullscreen-control {
     display: block !important;
   }
 
-
   .carousel-control-next,
   .carousel-control-prev {
     width: 7%;
   }
 
-  #resume_lst{
+  #resume_lst {
     grid-template-columns: 1fr 1fr;
   }
 
-  .row .justify-content-evenly{
+  .row .justify-content-evenly {
     gap: 20px;
   }
 }

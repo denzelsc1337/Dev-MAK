@@ -185,7 +185,7 @@ create table clientes(
 );
 
 create table propiedades(
-	id_prop int auto_increment primary key, 
+	id_prop int primary key, 
     cod_tipo_prop int, 
     
     cod_sub_tipo_inmb int, 

@@ -42,17 +42,49 @@ require_once('config/security.php');
 
 </head>
 
-<body class="hold-transition sidebar-mini sidebar-collapse layout-fixed layout-navbar-fixed layout-footer-fixed">
-  <div class="wrapper">
+<body class="mak hold-transition sidebar-mini sidebar-collapse layout-fixed layout-navbar-fixed layout-footer-fixed">
 
-    <!-- Preloader -->
+  <!-- MODAL PROPIEDADES DASH -->
+  <!-- <div class="modal" id="exampleModal" tabindex="-1" data-backdrop="static"> -->
+  <!-- <div class="modal fade" id="exampleModal" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Modal title</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form>
+
+            <div class="form-group">
+              <label for="id_prop_search" class="mak-txt">Propiedad</label>
+              <input type="text" class="form-mak sect" id="id_prop_search" name="id_prop_search" placeholder="Ingrese la propiedad" required>
+            </div>
+
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button id="btn_id_prop" type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div> -->
+  <!-- MODAL PROPIEDADES DASH -->
+
+
+  <!-- <div class="wrapper">
+
+    <!-- Preloader --
     <div class="preloader flex-column justify-content-center align-items-center">
       <img src="Vista/images/mak_2.png" alt="MakLogo" width="25%">
     </div>
 
-    <!-- Navbar -->
+    <!-- Navbar --
     <nav class="main-header navbar navbar-expand navbar-dark mak-bg">
-      <!-- Left navbar links -->
+      <!-- Left navbar links --
       <ul class="navbar-nav">
         <a href="dashboard.php" class="d-flex align-items-center mak-bg pl-4">
           <img src="Vista/images/LOGO.png" alt="AdminLTE Logo" class="brand-image">
@@ -62,26 +94,26 @@ require_once('config/security.php');
         </li>
         <!-- <li class="nav-item d-none d-sm-inline-block">
           <a href="dashboard.php" class="nav-link">Inicio</a>
-        </li> -->
-      </ul>
+        </li> --
+  </ul>
 
-      <!-- Right navbar links -->
+  <!-- Right navbar links --
       <ul class="navbar-nav ml-auto">
 
         <!-- <li class="nav-item">
           <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button">
             <i class="fas fa-th-large"></i>
           </a>
-        </li> -->
-      </ul>
-    </nav>
-    <!-- /.navbar -->
+        </li> --
+  </ul>
+  </nav>
+  <!-- /.navbar -->
 
-    <!-- Main Sidebar Container -->
+  <!-- Main Sidebar Container --
     <aside class="main-sidebar sidebar-dark-primary elevation-4 mak-bg">
-      <!-- Sidebar -->
+      <!-- Sidebar --
       <div class="sidebar">
-        <!-- Sidebar user panel (optional) -->
+        <!-- Sidebar user panel (optional) --
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
           <div class="image">
             <img src="Vista/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
@@ -91,14 +123,14 @@ require_once('config/security.php');
           </div>
         </div>
 
-        <!-- Sidebar Menu -->
+        <!-- Sidebar Menu --
         <section>
           <div>
             <nav class="mt-2">
               <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                 <!-- Add icons to the links using the .nav-icon class
-                 with font-awesome or any other icon font library -->
-                <!--MAK MODULOS-->
+                 with font-awesome or any other icon font library --
+                <!--MAK MODULOS--
                 <li class="nav-header">SERVICIOS</li>
                 <li class="nav-item">
                   <a href="Search/Busqueda.php" class="nav-link">
@@ -125,8 +157,8 @@ require_once('config/security.php');
               <nav class="mt-2">
                 <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                   <!-- Add icons to the links using the .nav-icon class
-                 with font-awesome or any other icon font library -->
-                  <!--MAK MODULOS PARA EL ADMIN-->
+                 with font-awesome or any other icon font library --
+                  <!--MAK MODULOS PARA EL ADMIN--
 
                   <li class="nav-header">Mis Pendientes</li>
 
@@ -163,12 +195,12 @@ require_once('config/security.php');
             </nav>
           </div>
         </section>
-        <!-- /.sidebar-menu -->
+        <!-- /.sidebar-menu --
       </div>
-      <!-- /.sidebar -->
+      <!-- /.sidebar --
     </aside>
 
-    <!-- Content Wrapper. Contains page content -->
+    <!-- Content Wrapper. Contains page content --
     <div class="content-wrapper">
       <div class="content">
 
@@ -184,7 +216,7 @@ require_once('config/security.php');
               <div class="card-mak col-md-6">
                 <div class="card-content">
                   <img class="card-img-top" src="Vista/images/search.jpg" alt="Dist Photo 1">
-                  <!-- <div class="image-overlay"></div> -->
+                  <!-- <div class="image-overlay"></div> --
                   <div class="card-intro">
                     <div class="card-intro-txt">
                       <h1>Búsqueda</h1>
@@ -198,7 +230,7 @@ require_once('config/security.php');
               <div class="card-mak col-md-6">
                 <div class="card-content">
                   <img class="card-img-top" src="Vista/images/money.jpg" alt="Dist Photo 2">
-                  <!-- <div class="image-overlay"></div> -->
+                  <!-- <div class="image-overlay"></div> --
                   <div class="card-intro">
                     <div class="card-intro-txt">
                       <h1>Valorizaciones</h1>
@@ -212,7 +244,7 @@ require_once('config/security.php');
               <div class="card-mak col-md-6">
                 <div class="card-content">
                   <img class="card-img-top" src="Vista/images/finance.jpg" alt="Dist Photo 3">
-                  <!-- <div class="image-overlay"></div> -->
+                  <!-- <div class="image-overlay"></div> --
                   <div class="card-intro">
                     <div class="card-intro-txt">
                       <h1>Informe Legal</h1>
@@ -226,7 +258,7 @@ require_once('config/security.php');
               <div class="card-mak col-md-6">
                 <div class="card-content">
                   <img class="card-img-top" src="Vista/images/search.jpg" alt="Dist Photo 4">
-                  <!-- <div class="image-overlay"></div> -->
+                  <!-- <div class="image-overlay"></div> --
                   <div class="card-intro">
                     <div class="card-intro-txt">
                       <h1>Beneficios</h1>
@@ -248,7 +280,7 @@ require_once('config/security.php');
     <aside class="control-sidebar control-sidebar-dark">
     </aside>
 
-    <!-- Main Footer -->
+    <!-- Main Footer --
     <footer class="main-footer">
       <strong>Copyright &copy; 1986-2023 <a href="https://mak.com.pe/">MAK S.A.C</a>.</strong>
       All rights reserved.
@@ -256,6 +288,67 @@ require_once('config/security.php');
         <b>Version</b> 1.0.0
       </div>
     </footer>
+  </div> -->
+
+  <div class="wrapper">
+    <!-- NAVBAR -->
+    <nav class="main-header navbar navbar-expand mak-bg">
+
+      <ul class="navbar-nav align-content ml-4">
+        <a href="dashboard.php" class="d-flex align-items-center mak-bg">
+          <img src="Vista/images/Logo_mak.png" alt="AdminLTE Logo" class="brand-image">
+        </a>
+        <li class="nav-item">
+          <a href="#" class="nav-link">Mis servicios</a>
+        </li>
+        <li class="nav-item d-none d-sm-inline-block">
+          <a href="#" class="nav-link">Mis avisos</a>
+        </li>
+      </ul>
+
+      <!-- Right navbar links -->
+      <ul class="navbar-nav ml-auto mr-4">
+        <li class="nav-item">
+
+          <div class="btn ">
+            Subir propiedad
+            <i class="fa-solid fa-folder-plus"></i>
+          </div>
+        </li>
+        <li>
+          <span class="separador"></span>
+        </li>
+        <li>
+          <div class="notification">
+            <i class="fa-regular fa-bell"></i>
+          </div>
+        </li>
+        <li>
+          <div class="img_content">
+            <div class="img_perfil">
+              <img src="Vista/images/marcador_2.jpg" alt="">
+
+            </div>
+            <div class="img_text">
+              <!-- <span>Moisés</span>
+            <p>Ackerman</p> -->
+              <span>Moisés <br> Ackerman</span>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </nav>
+    <!-- NAVBAR -->
+
+    <aside class="">
+      <div class="sidebar">
+        hola
+      </div>
+    </aside>
+
+    <section>
+      hola
+    </section>
   </div>
 
 
@@ -268,6 +361,14 @@ require_once('config/security.php');
   <script src="Vista/dist/js/adminlte.min.js"></script>
   <!-- AdminLTE for demo purposes -->
   <script src="Vista/dist/js/demo.js"></script>
+
+  <script src="./Vista/assets/id_prop_search.js"></script>
+
+  <script>
+    $(document).ready(function() {
+      $('#exampleModal').modal('show');
+    });
+  </script>
 
 </body>
 
