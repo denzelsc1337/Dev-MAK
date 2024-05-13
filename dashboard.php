@@ -1,6 +1,4 @@
-<?php
-require_once('config/security.php');
-?>
+<?php require_once('config/security.php'); ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -43,6 +41,72 @@ require_once('config/security.php');
 </head>
 
 <body class="mak hold-transition sidebar-mini sidebar-collapse layout-fixed layout-navbar-fixed layout-footer-fixed">
+
+
+  <div class="wrapper">
+    <!-- NAVBAR -->
+    <nav class="main-header navbar navbar-expand mak-bg">
+
+      <ul class="navbar-nav align-content ml-4">
+        <a href="dashboard.php" class="d-flex align-items-center mak-bg">
+          <img src="Vista/images/Logo_mak.png" alt="AdminLTE Logo" class="brand-image">
+        </a>
+        <li class="nav-item">
+          <a href="#" class="nav-link">Mis servicios</a>
+        </li>
+        <li class="nav-item d-none d-sm-inline-block">
+          <a href="#" class="nav-link">Mis avisos</a>
+        </li>
+      </ul>
+
+      <!-- Right navbar links -->
+      <ul class="navbar-nav ml-auto mr-4">
+        <li class="nav-item" data-target="add_property">
+
+          <div id="addProp" class="btn_button" onclick='linker("views/add_property.php")'>
+            Subir propiedad
+            <i class="fa-solid fa-folder-plus"></i>
+          </div>
+        </li>
+        <li>
+          <span class="separador"></span>
+        </li>
+        <li>
+          <div class="notification">
+            <i class="fa-regular fa-bell"></i>
+          </div>
+        </li>
+        <li>
+          <div class="img_content">
+            <div class="img_perfil">
+              <img src="Vista/images/marcador_2.jpg" alt="">
+
+            </div>
+            <div class="img_text">
+              <!-- <span>Moisés</span>
+            <p>Ackerman</p> -->
+              <span>Moisés <br> Ackerman</span>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </nav>
+    <!-- NAVBAR -->
+
+
+    <section class="section_content">
+      <?php include 'lateral_bar.php' ?>
+
+      <div id="content">
+        <iframe id="paginas" name="contenido"></iframe>
+      </div>
+
+      <?php include 'lateral_bar.php' ?>
+    </section>
+
+  </div>
+
+
 
   <!-- MODAL PROPIEDADES DASH -->
   <!-- <div class="modal" id="exampleModal" tabindex="-1" data-backdrop="static"> -->
@@ -290,67 +354,6 @@ require_once('config/security.php');
     </footer>
   </div> -->
 
-  <div class="wrapper">
-    <!-- NAVBAR -->
-    <nav class="main-header navbar navbar-expand mak-bg">
-
-      <ul class="navbar-nav align-content ml-4">
-        <a href="dashboard.php" class="d-flex align-items-center mak-bg">
-          <img src="Vista/images/Logo_mak.png" alt="AdminLTE Logo" class="brand-image">
-        </a>
-        <li class="nav-item">
-          <a href="#" class="nav-link">Mis servicios</a>
-        </li>
-        <li class="nav-item d-none d-sm-inline-block">
-          <a href="#" class="nav-link">Mis avisos</a>
-        </li>
-      </ul>
-
-      <!-- Right navbar links -->
-      <ul class="navbar-nav ml-auto mr-4">
-        <li class="nav-item">
-
-          <div class="btn ">
-            Subir propiedad
-            <i class="fa-solid fa-folder-plus"></i>
-          </div>
-        </li>
-        <li>
-          <span class="separador"></span>
-        </li>
-        <li>
-          <div class="notification">
-            <i class="fa-regular fa-bell"></i>
-          </div>
-        </li>
-        <li>
-          <div class="img_content">
-            <div class="img_perfil">
-              <img src="Vista/images/marcador_2.jpg" alt="">
-
-            </div>
-            <div class="img_text">
-              <!-- <span>Moisés</span>
-            <p>Ackerman</p> -->
-              <span>Moisés <br> Ackerman</span>
-            </div>
-          </div>
-        </li>
-      </ul>
-    </nav>
-    <!-- NAVBAR -->
-
-    <aside class="">
-      <div class="sidebar">
-        hola
-      </div>
-    </aside>
-
-    <section>
-      hola
-    </section>
-  </div>
-
 
   <!-- REQUIRED SCRIPTS -->
   <!-- jQuery -->
@@ -362,7 +365,7 @@ require_once('config/security.php');
   <!-- AdminLTE for demo purposes -->
   <script src="Vista/dist/js/demo.js"></script>
 
-  <script src="./Vista/assets/id_prop_search.js"></script>
+  <script src="./Vista/assets/dash.js"></script>
 
   <script>
     $(document).ready(function() {

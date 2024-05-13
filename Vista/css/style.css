@@ -1,8 +1,9 @@
 :root {
   --radius-20: 20px;
-  --blue-mak: #182f59;
+  --blue-mak: #1d3058;
   --yell-mak: #f39200;
   --white-mak: #fff;
+  --other-mak: #e7eaef;
 
   --Title: "Poppins", sans-serif;
   --Text: "PoppinsText", sans-serif;
@@ -40,21 +41,77 @@
   align-items: center;
 }
 
-.mak .nav-link:hover {
+.mak .nav-item:not(.active) .nav-link:hover {
   background-color: #cfd4de4d;
+  border-radius: 6px;
 }
 
 .mak .navbar-nav.ml-auto {
   gap: 15px;
 }
 
-.mak .sidebar {
+.mak .section_content {
   margin-top: calc(4.6875rem + 1px) !important;
+  height: calc(100vh - (4.6875rem + 1px));
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
 }
 
-.mak .btn {
+.mak .section_content .lateral_bar {
+  width: 85px;
+  height: 100%;
+  border-radius: 10px;
+  background-color: var(--white-mak);
+  transition: width 1s;
+}
+
+.mak .bdr {
+  border: 1px solid var(--other-mak);
+}
+
+.mak .section_content .lateral_bar a {
+  color: var(--blue-mak);
+}
+
+.mak.sidebar-collapse .section_content .lateral_bar {
+  width: 235px;
+}
+
+.mak .section_content .lateral_bar ul {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  list-style: none;
+  padding: 20px;
+}
+
+.mak .section_content .lateral_bar ul .nav-item {
+  white-space: nowrap;
+  border-radius: 6px;
+}
+
+.mak .section_content .lateral_bar ul .nav-item.active {
+  background-color: var(--blue-mak);
+}
+
+.mak .section_content .lateral_bar ul .nav-item.active a {
+  color: var(--white-mak);
+}
+
+.mak .section_content .lateral_bar ul .nav-item .nav-link {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  overflow: hidden;
+}
+
+.mak .btn_button {
   color: var(--white-mak);
   background-color: var(--blue-mak);
+  padding: 8px 12px;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
 .separador {
@@ -95,6 +152,18 @@
   margin-left: 15px;
   line-height: 20px;
 }
+
+#content {
+  width: 100%;
+  margin: 0 15px;
+}
+
+#content #paginas {
+  width: 100%;
+  min-height: 100%;
+  border: none;
+}
+
 /* MAK  */
 
 body {
@@ -1216,11 +1285,6 @@ textarea::-webkit-scrollbar {
 
 .window {
   height: calc(100vh - 15vh);
-}
-
-.section {
-  padding-bottom: 5rem;
-  min-width: 0;
 }
 
 .mak-content-slide {
@@ -2421,6 +2485,10 @@ button.gm-control-active.gm-fullscreen-control {
 
 .modal.show {
   user-select: none;
+}
+
+.layout-navbar-fixed.layout-fixed .wrapper .sidebar {
+  margin-top: calc(4.6875rem + 1px) !important;
 }
 
 /*  */
