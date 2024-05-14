@@ -23,15 +23,51 @@
   /* Ruta al archivo de fuente */
 }
 
+/*  */
+.w100 {
+  width: 100%;
+}
+/*  */
+
 /* MAK  */
 .mak {
   background-color: #f7f7f7;
+  color: var(--blue-mak);
+}
+
+.mak.content {
+  padding: 0 10px !important;
+}
+
+.mak .mak-bdr {
+  background-color: var(--white-mak);
+  border: 1px solid var(--other-mak);
+}
+
+.mak .mak-bdr.radius-plus {
+  border-radius: 10px;
 }
 
 .mak .mak-bg {
   color: var(--blue-mak) !important;
   background-color: var(--white-mak) !important;
 }
+
+.mak .mak-primary {
+  color: var(--white-mak) !important;
+  background-color: var(--blue-mak) !important;
+}
+
+/* .mak .tp-md.mak-primary {
+  color: var(--blue-mak) !important;
+  background-color: var(--white-mak) !important;
+} */
+
+.mak .mak-tertiary {
+  color: #1d305859 !important;
+  background-color: var(--white-mak) !important;
+}
+
 .mak .main-header {
   border-bottom: 1px solid #cfd4de;
 }
@@ -50,24 +86,25 @@
   gap: 15px;
 }
 
+.mak .nav.nav-tabs {
+  gap: 20px;
+  border: none;
+}
+
 .mak .section_content {
   margin-top: calc(4.6875rem + 1px) !important;
   height: calc(100vh - (4.6875rem + 1px));
   padding: 15px;
   display: flex;
   justify-content: space-between;
+  gap: 5px;
 }
 
 .mak .section_content .lateral_bar {
   width: 85px;
   height: 100%;
   border-radius: 10px;
-  background-color: var(--white-mak);
   transition: width 1s;
-}
-
-.mak .bdr {
-  border: 1px solid var(--other-mak);
 }
 
 .mak .section_content .lateral_bar a {
@@ -107,10 +144,6 @@
 }
 
 .mak .btn_button {
-  color: var(--white-mak);
-  background-color: var(--blue-mak);
-  padding: 8px 12px;
-  border-radius: 5px;
   cursor: pointer;
 }
 
@@ -137,7 +170,6 @@
 
 .img_perfil img {
   background-size: cover;
-
   border-radius: 50%;
   width: 35px;
   height: 35px;
@@ -155,13 +187,66 @@
 
 #content {
   width: 100%;
-  margin: 0 15px;
 }
 
 #content #paginas {
   width: 100%;
   min-height: 100%;
   border: none;
+}
+
+.mak .mak-control {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 15px;
+  border-radius: 6px;
+  border: 1px solid var(--other-mak) !important;
+  /* background-color: var(--white-mak) !important; */
+}
+
+.mak .mak-control:focus {
+  border: none;
+  outline: none;
+}
+
+.mak .content-filter {
+  display: flex;
+}
+
+#paginas html {
+  width: calc(100% - 1px);
+}
+
+.mak .content-filter .filter-item {
+  gap: 10px;
+}
+
+.mak .card-body .card-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.mak .card-body .card-head .mak-control {
+  border: none !important;
+  padding: 0;
+}
+
+.mak .card-body .card-head .title {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.tab-content {
+  width: 100%;
+}
+
+.tab-content:not(.active) {
+  display: none;
 }
 
 /* MAK  */
@@ -201,6 +286,14 @@ strong {
 
 .fs-70 {
   font-size: 70px !important;
+}
+
+.d-flex {
+  display: flex;
+}
+
+.justify-between {
+  justify-content: space-between;
 }
 
 .bor-rght-20 {
@@ -808,7 +901,7 @@ h2 {
 
 .form-mak:focus {
   border: none;
-  outline: 0px;
+  outline: none;
   font-weight: bold;
   color: var(--blue-mak);
   border-bottom: 1px solid var(--blue-mak);

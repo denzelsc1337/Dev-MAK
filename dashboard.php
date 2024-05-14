@@ -63,7 +63,7 @@
       <ul class="navbar-nav ml-auto mr-4">
         <li class="nav-item" data-target="add_property">
 
-          <div id="addProp" class="btn_button" onclick='linker("views/add_property.php")'>
+          <div class="mak-control mak-primary btn_button" onclick='linker("views/add_property.php")'>
             Subir propiedad
             <i class="fa-solid fa-folder-plus"></i>
           </div>
