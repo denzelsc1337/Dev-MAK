@@ -1,7 +1,5 @@
 const tabContents = document.querySelectorAll(".tab-content");
 
-console.log(tabContents);
-
 tabContents.forEach((tabs) => {
   if (!tabs.classList.contains("active")) {
     tabs.classList.add("hide");
@@ -14,8 +12,6 @@ tabContents.forEach((tabs) => {
 // Selecciona todos los elementos con la clase "tab-content"
 const tabItems = document.querySelectorAll(".tab");
 const contentContainers = document.querySelectorAll(".tab-content");
-
-console.log(contentContainers);
 
 tabItems.forEach((element) => {
   element.addEventListener("click", () => {
@@ -53,4 +49,20 @@ tipoModalidad.forEach((element) => {
 
     document.querySelector("#tp-md").value = data;
   });
+});
+
+function updateCounter(event) {
+  const textarea = event.target;
+  const container = textarea.parentElement;
+  const counter = container.querySelector(".char-counter");
+  const maxLength = textarea.getAttribute("maxlength");
+  const currentLength = textarea.value.length;
+
+  counter.textContent = `${currentLength}/${maxLength}`;
+}
+
+document.querySelectorAll(".txt-area").forEach((textarea) => {
+  textarea.addEventListener("input", updateCounter);
+  // Inicializa el contador para cada textarea
+  updateCounter({ target: textarea });
 });

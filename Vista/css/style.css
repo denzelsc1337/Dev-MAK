@@ -249,6 +249,114 @@
   display: none;
 }
 
+.textarea-container {
+  position: relative;
+}
+
+.txt-area {
+  font-size: 15px;
+  box-sizing: border-box;
+}
+
+.char-counter {
+  position: absolute;
+  user-select: none;
+  bottom: 10px;
+  right: 10px;
+  font-size: 12px;
+  color: #555;
+}
+
+/* DRAG & DROP */
+
+.mak .file-content {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  gap: 15px;
+}
+
+.mak .file-content .up-archive.file-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 90px;
+  height: 90px;
+  border: 1px dashed #cfd4de;
+  border-radius: 15px;
+  cursor: cell;
+}
+
+.mak .file-content .up-archive.file-item .item-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  width: 65%;
+  height: 65%;
+  border-radius: 8px;
+  /* background-color: var(--blue-mak); */
+  color: var(--blue-mak);
+  font-size: 13px;
+}
+
+.mak .file-content.drag-over-effect .up-archive {
+  display: none;
+}
+
+.drag-over-effect {
+  border: 2px dashed #000;
+  background-color: #f0f0f0;
+}
+
+.mak .drop-archive {
+  display: none;
+}
+
+.mak .file-content.drag-over-effect .drop-archive {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.mak .file-content .list-file .file-item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 90px;
+  height: 90px;
+  border-radius: 5px;
+  overflow: hidden;
+  background-color: #efefef;
+}
+.mak .file-content .list-file {
+  display: flex;
+  gap: 15px;
+}
+
+.mak .file-content .list-file .file-item img {
+  width: 100%;
+}
+
+.mak .file-content .list-file .file-item .item-close {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 3px;
+  right: 3px;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  font-size: 10px;
+  cursor: pointer;
+  background-color: var(--white-mak);
+}
+/* DRAG & DROP */
+
 /* MAK  */
 
 body {
@@ -1883,7 +1991,7 @@ form .form-content {
   justify-content: center;
   width: 150px;
   height: 150px;
-  border: 1px dashed;
+  border: 1px dashed #cfd4de;
   border-radius: 15px;
   cursor: cell;
 }
@@ -1892,12 +2000,13 @@ form .form-content {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
   text-align: center;
   width: 65%;
   height: 65%;
   border-radius: 8px;
-  background-color: var(--blue-mak);
-  color: var(--white-mak);
+  /* background-color: var(--blue-mak); */
+  color: var(--blue-mak);
   font-size: 13px;
 }
 
