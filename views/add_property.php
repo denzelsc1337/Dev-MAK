@@ -190,10 +190,10 @@
                                     </div>
                                 </div>
 
-                                <!-- <div class="content-file"> -->
                                 <div class="file-content">
 
-                                    <div class="list-file"></div>
+                                    <!-- <div class="list-file"></div> -->
+                                    <input id="inputFile" name="inputFile[]" type="file" multiple hidden>
 
                                     <div class="up-archive file-item">
                                         <div id="btnFile" class="item-box">
@@ -206,11 +206,38 @@
                                         <h1>Soltar Archivos</h1>
                                     </div>
 
-                                    <input id="inputFile" name="inputFile[]" type="file" multiple hidden>
                                 </div>
 
-                                <!-- </div> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 mb-3">
+                        <div class="mak-bdr radius-plus">
+                            <div class="card-body">
+                                <div class="card-head justify-between mb-3">
+                                    <div class="mak-control d-flex">
+                                        <img src="../Vista/images/map.svg" alt="">
+                                        Subir fotos
+                                    </div>
+                                    <!-- <div class="mak-control mak-tertiary btn_button">
+                                        <i class="fa-solid fa-trash"></i>&nbsp;Eliminar todos los archivos
+                                    </div> -->
+                                </div>
 
+                                <div class="row">
+                                    <!-- <div class="col-md-12 d-flex"> -->
+                                    <div class="col-md-6 mb-2">
+                                        <span class="mak-title-lbl">Video de YouTube <span class="mak-tertiary">(Opcional)</span></span>
+
+                                        <input type="email" class="mak-control w100" id="exampleInputEmail1" placeholder="Enter email">
+                                    </div>
+                                    <div class="col-md-6 mb-2">
+                                        <span class="mak-title-lbl">Vídeo de recorrido <span class="mak-tertiary">(Opcional)</span></span>
+                                        <input type="email" class="mak-control w100" id="exampleInputEmail1" placeholder="Enter email">
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -489,6 +516,10 @@
             </div>
         </div>
         <!-- BUSCAR PROPIEDAD -->
+    </div>
+
+    <div id="saveBtn" class="mak-control mak-primary btn_button">
+        Guardar cambios
     </div>
 
 

@@ -4,6 +4,7 @@ var dragContent = document.querySelector(".file-content"),
   iptFile = dragContent.querySelector("#inputFile"),
   txtBox = dragContent.querySelector(".ole");
 var listFile = document.querySelector(".list-file");
+var saveBtn = document.querySelector("#saveBtn");
 
 inputBox.onclick = () => iptFile.click();
 
@@ -18,23 +19,23 @@ iptFile.onchange = () => {
 
 // CUANDO EL ARCHIVO ESTA EN EL DRAG AREA
 dragContent.ondragover = (e) => {
-  //   e.preventDefault();
-  //   [...e.dataTransfer.items].forEach((item) => {
-  //   if (typeValidation(item.type)) {
-  dragContent.classList.add("drag-over-effect");
-  //   }
-  //   });
+  e.preventDefault();
+  [...e.dataTransfer.items].forEach((item) => {
+    if (typeValidation(item.type)) {
+      dragContent.classList.add("drag-over-effect");
+    }
+  });
 };
 
 // CUANDO EL ARCHIVO ESTA FUERA DEL DRAG AREA
 dragContent.ondragleave = (e) => {
-  //   e.preventDefault();
+  e.preventDefault();
   dragContent.classList.remove("drag-over-effect");
 };
 
 // CUANDO EL ARCHIVO SE SUELTA EN EL DRAG AREA
 dragContent.ondrop = (e) => {
-  //   e.preventDefault();
+  e.preventDefault();
   dragContent.classList.remove("drag-over-effect");
 
   if (e.dataTransfer.items) {
@@ -76,28 +77,11 @@ function typeValidation(type) {
 }
 
 function uploadFile(file) {
-  //   listFile.style.display = "block";
-
-  imgSelector(file);
-  //   li.classList.add("in-prog");
-  //   li.innerHTML = `
-  //         <div class="file-item">
-  //             <img src="${imgSelector(file.type)}" alt="">
-  //             <div class="item-close">
-  //                 <i class="fa-solid fa-xmark"></i>
-  //             </div>
-  //         </div>
-  //   `;
-  // ------------------------
-  //   console.log(file);
-}
-
-function imgSelector(file) {
   const reader = new FileReader();
   reader.onload = (e) => {
     const imgSrc = e.target.result;
     const id = `file-${Math.random().toString(32).substring(7)}`;
-    listFile.innerHTML += `
+    dragContent.innerHTML += `
         <div id="${id}" class="file-item">
             <img src="${imgSrc}" alt="${file.name}">
             <div class="item-close">
@@ -105,19 +89,38 @@ function imgSelector(file) {
             </div>
         </div>
       `;
-    // listFile.appendChild(listItem);
 
-    // const closeButton = listItem.querySelectorAll(".item-close");
-    // closeButton.forEach((element) => {
-    //   element.addEventListener("click", () => {
-    //     listItem.remove();
-    //   });
-    // });
+    const closeButton = dragContent.querySelectorAll(".item-close");
+
+    closeButton.forEach((element) => {
+      //   console.log(element);
+      element.addEventListener("click", () => {
+        // console.log(element);
+
+        const dlt = element.closest(".file-item");
+
+        if (dlt) {
+          const id = dlt.id;
+          dlt.remove();
+        }
+      });
+    });
   };
   reader.readAsDataURL(file);
+
+  // upArchive(file);
+  saveBtn.addEventListener("click", () => {
+    upArchive(file);
+  });
 }
 
-function upArchive() {
+saveBtn.addEventListener("click", () => {
+  selectedFiles.forEach((file) => {
+    upArchive(file);
+  });
+});
+
+function upArchive(file) {
   var http = new XMLHttpRequest();
   var data = new FormData();
   data.append("file", file);

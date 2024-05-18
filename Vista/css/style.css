@@ -274,6 +274,7 @@
   flex-wrap: wrap;
   width: 100%;
   gap: 15px;
+  min-height: 90px;
 }
 
 .mak .file-content .up-archive.file-item {
@@ -282,9 +283,14 @@
   justify-content: center;
   width: 90px;
   height: 90px;
+  opacity: 1;
+  visibility: visible;
+  transition-duration: 0.2s;
+  transform: scale(1);
   border: 1px dashed #cfd4de;
   border-radius: 15px;
   cursor: cell;
+  order: 1;
 }
 
 .mak .file-content .up-archive.file-item .item-box {
@@ -301,16 +307,8 @@
   font-size: 13px;
 }
 
-.mak .file-content.drag-over-effect .up-archive {
-  display: none;
-}
-
-.drag-over-effect {
-  border: 2px dashed #000;
-  background-color: #f0f0f0;
-}
-
-.mak .drop-archive {
+.mak .file-content.drag-over-effect .up-archive,
+.mak .file-content.drag-over-effect .list-file {
   display: none;
 }
 
@@ -318,10 +316,9 @@
   display: flex !important;
   align-items: center;
   justify-content: center;
-  width: 100%;
 }
 
-.mak .file-content .list-file .file-item {
+.mak .file-content .file-item {
   position: relative;
   display: flex;
   align-items: center;
@@ -330,18 +327,18 @@
   height: 90px;
   border-radius: 5px;
   overflow: hidden;
-  background-color: #efefef;
 }
+
 .mak .file-content .list-file {
   display: flex;
   gap: 15px;
 }
 
-.mak .file-content .list-file .file-item img {
+.mak .file-content .file-item img {
   width: 100%;
 }
 
-.mak .file-content .list-file .file-item .item-close {
+.mak .file-content .file-item .item-close {
   position: absolute;
   display: flex;
   align-items: center;
@@ -354,6 +351,38 @@
   font-size: 10px;
   cursor: pointer;
   background-color: var(--white-mak);
+}
+
+.file-content .drop-archive {
+  font-size: 40px;
+  font-weight: 700;
+  color: #c0cae1;
+  margin: auto;
+  min-height: 90px;
+  pointer-events: none;
+  opacity: 0;
+  visibility: hidden;
+  transform: scale(0.6);
+  transition-duration: 0.2s;
+  order: 1;
+}
+
+.drag-over-effect .up-archive {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: scale(1.1);
+}
+.drag-over-effect .drop-archive {
+  opacity: 1;
+  visibility: visible;
+  transform: scale(1);
+}
+
+.mak .mak-title-lbl {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--blue-mak);
 }
 /* DRAG & DROP */
 
