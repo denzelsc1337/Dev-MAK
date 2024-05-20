@@ -144,6 +144,7 @@
 }
 
 .mak .btn_button {
+  user-select: none;
   cursor: pointer;
 }
 
@@ -302,9 +303,9 @@
   width: 65%;
   height: 65%;
   border-radius: 8px;
-  /* background-color: var(--blue-mak); */
   color: var(--blue-mak);
   font-size: 13px;
+  user-select: none;
 }
 
 .mak .file-content.drag-over-effect .up-archive,
