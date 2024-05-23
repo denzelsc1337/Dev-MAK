@@ -1,66 +1,78 @@
 document.addEventListener("DOMContentLoaded", function () {
-  var dragContent = document.querySelector(".file-content"),
-    inputBox = dragContent.querySelector(".up-archive.file-item"),
-    iptFile = dragContent.querySelector("#inputFile");
+  var dataDrag = [];
+  var dragContentAreas = document.querySelectorAll(".file-content");
 
-  inputBox.onclick = () => iptFile.click();
+  dragContentAreas.forEach((dragContent) => {
+    var inputBox = dragContent.querySelector(".up-archive.file-item");
+    var iptFile = dragContent.querySelector("#inputFile");
 
-  iptFile.onchange = () => {
-    [...iptFile.files].forEach((file) => {
-      if (typeValidation(file.type)) {
-        console.log(file);
-        uploadFile(file);
-      }
-    });
-    iptFile.value = ""; // Clear the input file value
-  };
+    if (inputBox && iptFile) {
+      inputBox.addEventListener("click", () => iptFile.click());
 
-  // CUANDO EL ARCHIVO ESTA EN EL DRAG AREA
-  dragContent.ondragover = (e) => {
-    e.preventDefault();
-    [...e.dataTransfer.items].forEach((item) => {
-      if (typeValidation(item.type)) {
-        dragContent.classList.add("drag-over-effect");
-      }
-    });
-  };
-
-  // CUANDO EL ARCHIVO ESTA FUERA DEL DRAG AREA
-  dragContent.ondragleave = (e) => {
-    e.preventDefault();
-    dragContent.classList.remove("drag-over-effect");
-  };
-
-  // CUANDO EL ARCHIVO SE SUELTA EN EL DRAG AREA
-  dragContent.ondrop = (e) => {
-    e.preventDefault();
-    dragContent.classList.remove("drag-over-effect");
-
-    if (e.dataTransfer.items) {
-      [...e.dataTransfer.items].forEach((item) => {
-        if (item.kind === "file") {
-          const file = item.getAsFile();
+      iptFile.addEventListener("change", () => {
+        [...iptFile.files].forEach((file) => {
           if (typeValidation(file.type)) {
-            uploadFile(file);
+            console.log(file);
+            uploadFile(file, dragContent);
           }
-        }
+        });
+        iptFile.value = ""; // Clear the input file value
       });
-    } else {
-      [...e.dataTransfer.files].forEach((file) => {
-        if (typeValidation(file.type)) {
-          uploadFile(file);
+
+      dragContent.addEventListener("dragover", (e) => {
+        e.preventDefault();
+        [...e.dataTransfer.items].forEach((item) => {
+          if (typeValidation(item.type)) {
+            dragContent.classList.add("drag-over-effect");
+          }
+        });
+      });
+
+      dragContent.addEventListener("dragleave", (e) => {
+        e.preventDefault();
+        dragContent.classList.remove("drag-over-effect");
+      });
+
+      dragContent.addEventListener("drop", (e) => {
+        e.preventDefault();
+        dragContent.classList.remove("drag-over-effect");
+
+        if (e.dataTransfer.items) {
+          [...e.dataTransfer.items].forEach((item) => {
+            if (item.kind === "file") {
+              const file = item.getAsFile();
+              if (typeValidation(file.type)) {
+                uploadFile(file, dragContent);
+              }
+            }
+          });
+        } else {
+          [...e.dataTransfer.files].forEach((file) => {
+            if (typeValidation(file.type)) {
+              uploadFile(file, dragContent);
+            }
+          });
         }
       });
     }
-  };
+  });
 
   function typeValidation(type) {
-    const docType = type;
     const validExtensions = ["image/jpeg", "image/jpg", "image/png"];
-    return validExtensions.includes(docType);
+    return validExtensions.includes(type);
   }
 
-  function uploadFile(file) {
+  function uploadFile(file, dragContent) {
+  
+
+    dataDrag.push(dragContent);
+    console.log(dataDrag.length);
+
+
+    // if (dataDrag.lenght >= 1) {
+    //   console.log("eh?");
+    // }
+
     const reader = new FileReader();
     reader.onload = (e) => {
       const imgSrc = e.target.result;
@@ -68,27 +80,27 @@ document.addEventListener("DOMContentLoaded", function () {
       dragContent.insertAdjacentHTML(
         "beforeend",
         `
-              <div id="${id}" class="file-item">
-                  <img src="${imgSrc}" alt="${file.name}">
-                  <div class="item-close">
-                      <i class="fa-solid fa-xmark"></i>
-                  </div>
-              </div>
-            `
+        <div id="${id}" class="file-item">
+            <img src="${imgSrc}" alt="${file.name}">
+            <div class="item-close">
+                <i class="fa-solid fa-xmark"></i>
+            </div>
+        </div>
+      `
       );
 
-      const closeButton = dragContent.querySelectorAll(".item-close");
-      closeButton.forEach((element) => {
-        element.addEventListener("click", () => {
-          const dlt = element.closest(".file-item");
-          if (dlt) {
-            dlt.remove();
-          }
-        });
+      const closeButton = dragContent.querySelector(`#${id} .item-close`);
+      closeButton.addEventListener("click", () => {
+        const dlt = closeButton.closest(".file-item");
+        if (dlt) {
+          dlt.remove();
+        }
       });
     };
     reader.readAsDataURL(file);
+    
   }
+  
 
   function upArchive(file) {
     var http = new XMLHttpRequest();

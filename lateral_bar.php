@@ -17,6 +17,11 @@
             </a>
         </li>
         <li class="nav-item">
+            <a class="nav-link" href="./Legal/index.php" role="button">
+                Legal
+            </a>
+        </li>
+        <li class="nav-item">
             <a class="nav-link" href="#" role="button" data-widget="pushmenu">
                 <i class="fas fa-bars"></i>
             </a>
