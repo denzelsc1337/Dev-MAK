@@ -140,7 +140,7 @@ require_once('../Controller/controladorListar.php');
                                                 <div class="row">
                                                     <div class="col-md-6">
                                                         <div class="form-group">
-                                                            <label class="mak-txt">Correo</label>
+                                                            <label class="mak-txt">Dirección</label>
                                                             <input type="text" class="form-mak" id="dir_cli_solic" name="dir_cli_solic" required>
                                                         </div>
                                                     </div>

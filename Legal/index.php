@@ -603,6 +603,36 @@ require_once('../Controller/controladorListar.php');
                                                 <?php } ?>
 
                                                 <div class="card-body" id="carpeta_l">
+
+                                                    <script>
+                                                        document.addEventListener("DOMContentLoaded", () => {
+
+                                                            var id_reg = $('#id_legal_solic').val();
+                                                            var tipo_doc = $(this).data('valor');
+                                                            var _titulo = $(this).data('titulo');
+                                                            var _id_cli_lgl = $('#id_client_l').val();
+                                                            var _id_doc_lgl = $(this).data('id_doc_');
+
+                                                            var _dni_cli_lgl = $('#dni_client_l').val();
+                                                            var titulo_modal = $('#titulo_docs').text(_titulo);
+
+                                                            ///////
+                                                            console.log(id_reg);
+                                                            console.log(tipo_doc);
+                                                            console.log(_titulo);
+                                                            console.log(_id_cli_lgl);
+                                                            console.log(_id_doc_lgl);
+
+                                                            console.log(_dni_cli_lgl);
+                                                            console.log(titulo_modal);
+
+
+
+                                                            // load_documents_legal_(id_reg, _dni_cli_lgl, tipo_doc, _id_cli_lgl, _id_doc_lgl)
+
+                                                        });
+                                                    </script>
+
                                                     <div class="row card-resume">
                                                         <div class="col-sm-2">
                                                             <div class="lgl-modal-num">
@@ -1285,38 +1315,38 @@ require_once('../Controller/controladorListar.php');
 
                                 enlaceHtml += `
 
-            <div class="row d-flex justify-content-between align-center mb-4 w-100">
-                <div class="col-sm-2">
-                    <div class="lgl-modal-num">
-                        ${cont++}
-                    </div>
-                </div>
+                                        <div class="row d-flex justify-content-between align-center mb-4 w-100">
+                                            <div class="col-sm-2">
+                                                <div class="lgl-modal-num">
+                                                    ${cont++}
+                                                </div>
+                                            </div>
 
-                <div class="col-sm-8 archive">
-                    <img src="#" id="loader" style="display: none;">
-                    <a href="${ruta}${nombreArchivo}">${nombreArchivo}</a>
-                </div>
+                                            <div class="col-sm-8 archive">
+                                                <img src="#" id="loader" style="display: none;">
+                                                <a href="${ruta}${nombreArchivo}" target="_blank">${nombreArchivo}</a>
+                                            </div>
 
-                <div class="col-sm-2 tw-modal-ots">
-                    <div class="row">
-                        <div class="inputs">
-                            <div hidden>
-                                <input id="ruta_doc_i" type="text" value="${ruta}" readonly>
-                                <input id="ruta_archivo_i" type="text" value="${nombreArchivo}" readonly>
-                                <input id="cod_doc_i" type="text" value="${id_doc_}" readonly>
-                            </div>
+                                            <div class="col-sm-2 tw-modal-ots">
+                                                <div class="row">
+                                                    <div class="inputs">
+                                                        <div hidden>
+                                                            <input id="ruta_doc_i" type="text" value="${ruta}" readonly>
+                                                            <input id="ruta_archivo_i" type="text" value="${nombreArchivo}" readonly>
+                                                            <input id="cod_doc_i" type="text" value="${id_doc_}" readonly>
+                                                        </div>
 
-                            <div class="">
-                                <button id="dlt_file" type="button" class="btn dlt_file"><i class="cursor fa-solid fa-trash"></i></button>
-                            </div>
-                        </div>
-                        <div>
-                            <button id="" type="button" class="btn"> <i class="cursor fa-solid fa-download"></i></button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            `;
+                                                        <div class="">
+                                                            <button id="dlt_file" type="button" class="btn dlt_file"><i class="cursor fa-solid fa-trash"></i></button>
+                                                        </div>
+                                                    </div>
+                                                    <div>
+                                                        <button id="" type="button" class="btn"> <i class="cursor fa-solid fa-download"></i></button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                `;
 
                             });
 
@@ -1511,7 +1541,7 @@ require_once('../Controller/controladorListar.php');
 
                                         <div class="col-sm-6 archive">
                                             <img src="#" id="loader" style="display: none;">
-                                            <a href="${ruta}${nombreArchivo}">${nombreArchivo}</a>
+                                            <a href="${ruta}${nombreArchivo}" target="_blank">${nombreArchivo}</a>
                                         </div>
 
                                         <div class="col-sm-3 tw-modal-ots p-0">
@@ -2147,23 +2177,14 @@ require_once('../Controller/controladorListar.php');
                 },
 
                 beforeSend: function() {
-                    // $("#loader_uhd").show();
                     $("#loader_uhd").show();
-                    // $("#loader_uhd").removeClass("hidden");
                     $("#updt_files").hide();
                     $("#updt_status").hide();
-
                     $("#form_files").hide();
-                    /*$("#docs_val").hide();*/
-
-                    // if ($(".mak_overlay").hasClass("hidden")) {
-                    // $("#add_data_val").addClass("hide");
-                    // }
-
                 },
 
                 success: function(response) {
-                    // console.log(response);
+                    console.log(response);
 
                     var save_file_leg_ = document.getElementById("btn_updt_solic_l");
                     var upld_file_leg_ = document.getElementById("btn_upld_solic_l");
@@ -2344,99 +2365,101 @@ require_once('../Controller/controladorListar.php');
     </script>
 
     <script>
-        const inputSelect = document.querySelector(".input-select");
-        const textBox = document.querySelector(".textBox");
-        const textBoxValue = document.querySelector("#status_solic_legal_cbo");
-        const selectOptions = document.querySelectorAll(".select-options div");
-        var btnDisble_ = document.getElementById("btnValo_obs_save");
+        document.addEventListener("DOMContentLoaded", () => {
+            const inputSelect = document.querySelector(".input-select");
+            const textBox = document.querySelector(".textBox");
+            const textBoxValue = document.querySelector("#status_solic_legal_cbo");
+            const selectOptions = document.querySelectorAll(".select-options div");
+            var btnDisble_ = document.getElementById("btnValo_obs_save");
 
-        inputSelect.addEventListener("click", function() {
-            inputSelect.classList.toggle("active");
-            textBox.classList.toggle("radius");
-
-        });
-        document.addEventListener("click", function(event) {
-
-            if (!inputSelect.contains(event.target)) {
-                inputSelect.classList.remove("active");
-                textBox.classList.remove("radius");
-            }
-        });
-
-        selectOptions.forEach(option => {
-            option.addEventListener("click", function() {
-                const dataValue = option.getAttribute("data-value");
-                textBoxValue.value = dataValue; // Cambia el valor de textBoxValue
-
-                var add_file_leg_ = document.getElementById("btn_upld_solic_l");
-
-                var coment = document.getElementById("coment_");
-
-                switch (dataValue) {
-                    case '10':
-                        textBox.value = "Pendiente";
-                        //----
-                        textBox.classList.add("bg-info");
-                        //
-                        textBox.classList.remove("bg-warning");
-                        textBox.classList.remove("bg-secondary");
-                        textBox.classList.remove("bg-success");
-
-                        add_file_leg_.style.display = "none";
-                        // coment.style.display = "none";
-                        coment.setAttribute('readonly', 'readonly');
-                        break;
-                    case '20':
-                        textBox.value = "En revisión";
-                        //----
-                        textBox.classList.add("bg-warning");
-                        //
-                        textBox.classList.remove("bg-secondary");
-                        textBox.classList.remove("bg-success");
-                        textBox.classList.remove("bg-info");
-
-                        add_file_leg_.style.display = "none";
-                        // coment.style.display = "block";
-                        coment.removeAttribute('readonly');
-                        break;
-                    case '30':
-                        textBox.value = "Borrador";
-                        //----
-                        textBox.classList.add("bg-secondary");
-                        //
-                        textBox.classList.remove("bg-success");
-                        textBox.classList.remove("bg-info");
-                        textBox.classList.remove("bg-warning");
-
-                        coment.setAttribute('readonly', 'readonly');
-                        // coment.style.display = "none";
-                        break;
-                    case '40':
-
-
-                        coment.removeAttribute('readonly');
-                        break;
-                    case '90':
-                        textBox.value = "Finalizado";
-                        //----
-                        textBox.classList.add("bg-success");
-                        //
-                        textBox.classList.remove("bg-info");
-                        textBox.classList.remove("bg-warning");
-                        textBox.classList.remove("bg-secondary");
-
-                        // coment.style.display = "none";
-                        coment.setAttribute('readonly', 'readonly');
-                        add_file_leg_.style.display = "block";
-                        break;
-                    default:
-                        break;
-                }
+            inputSelect.addEventListener("click", function() {
+                inputSelect.classList.toggle("active");
+                textBox.classList.toggle("radius");
 
             });
+            document.addEventListener("click", function(event) {
+
+                if (!inputSelect.contains(event.target)) {
+                    inputSelect.classList.remove("active");
+                    textBox.classList.remove("radius");
+                }
+            });
+
+            selectOptions.forEach(option => {
+                option.addEventListener("click", function() {
+                    const dataValue = option.getAttribute("data-value");
+                    textBoxValue.value = dataValue; // Cambia el valor de textBoxValue
+
+                    var add_file_leg_ = document.getElementById("btn_upld_solic_l");
+
+                    var coment = document.getElementById("coment_");
+
+                    switch (dataValue) {
+                        case '10':
+                            textBox.value = "Pendiente";
+                            //----
+                            textBox.classList.add("bg-info");
+                            //
+                            textBox.classList.remove("bg-warning");
+                            textBox.classList.remove("bg-secondary");
+                            textBox.classList.remove("bg-success");
+
+                            add_file_leg_.style.display = "none";
+                            // coment.style.display = "none";
+                            coment.setAttribute('readonly', 'readonly');
+                            break;
+                        case '20':
+                            textBox.value = "En revisión";
+                            //----
+                            textBox.classList.add("bg-warning");
+                            //
+                            textBox.classList.remove("bg-secondary");
+                            textBox.classList.remove("bg-success");
+                            textBox.classList.remove("bg-info");
+
+                            add_file_leg_.style.display = "none";
+                            // coment.style.display = "block";
+                            coment.removeAttribute('readonly');
+                            break;
+                        case '30':
+                            textBox.value = "Borrador";
+                            //----
+                            textBox.classList.add("bg-secondary");
+                            //
+                            textBox.classList.remove("bg-success");
+                            textBox.classList.remove("bg-info");
+                            textBox.classList.remove("bg-warning");
+
+                            coment.setAttribute('readonly', 'readonly');
+                            // coment.style.display = "none";
+                            break;
+                        case '40':
+
+
+                            coment.removeAttribute('readonly');
+                            break;
+                        case '90':
+                            textBox.value = "Finalizado";
+                            //----
+                            textBox.classList.add("bg-success");
+                            //
+                            textBox.classList.remove("bg-info");
+                            textBox.classList.remove("bg-warning");
+                            textBox.classList.remove("bg-secondary");
+
+                            // coment.style.display = "none";
+                            coment.setAttribute('readonly', 'readonly');
+                            add_file_leg_.style.display = "block";
+                            break;
+                        default:
+                            break;
+                    }
+
+                });
+            });
+            // Cierra el menú desplegable
+            inputSelect.classList.remove("active");
         });
-        // Cierra el menú desplegable
-        inputSelect.classList.remove("active");
     </script>
 
     <script>
@@ -2446,10 +2469,10 @@ require_once('../Controller/controladorListar.php');
                 // autoWidth: false,
                 // "dom": '<"row"<"col-sm-6"l><"col-sm-6"f>>t<"row"<"col-sm-6"i><"col-sm-6"p>>',
                 dom: '<"row"<"col-sm-6"l><"col-sm-6"f>>tip',
-                "language": {
-                    "url": "//cdn.datatables.net/plug-ins/1.10.25/i18n/Spanish.json", // URL del archivo de localización
-                    "searchPlaceholder": "Buscar en la tabla..." // placeholder del Buscar.
-                },
+                // "language": {
+                //     "url": "//cdn.datatables.net/plug-ins/1.10.25/i18n/Spanish.json", // URL del archivo de localización
+                //     "searchPlaceholder": "Buscar en la tabla..." // placeholder del Buscar.
+                // },
                 "lengthMenu": [
                     [10, 25, 50, -1],
                     [10, 25, 50, "Todos"]
@@ -2482,23 +2505,23 @@ require_once('../Controller/controladorListar.php');
     </script>
 
     <script>
-        function isRefused() {
-            // const txt_status_soli = document.getElementById("textBox");
-            // const cbo_status_soli = document.getElementById("status_solic_legal_cbo");
+        // function isRefused() {
+        //     // const txt_status_soli = document.getElementById("textBox");
+        //     // const cbo_status_soli = document.getElementById("status_solic_legal_cbo");
 
-            // txt_status_soli.innerText("Rechazado");
-            // cbo_status_soli.innerText("40");
-            $('.textBox').val("Rechazado");
-            $("#status_solic_legal_cbo").val("40");
+        //     // txt_status_soli.innerText("Rechazado");
+        //     // cbo_status_soli.innerText("40");
+        //     $('.textBox').val("Rechazado");
+        //     $("#status_solic_legal_cbo").val("40");
 
-            $('.textBox').addClass("bg-danger");
-            $(".textBox").removeClass("bg-success");
-            $(".textBox").removeClass("bg-info");
-            $(".textBox").removeClass("bg-warning");
+        //     $('.textBox').addClass("bg-danger");
+        //     $(".textBox").removeClass("bg-success");
+        //     $(".textBox").removeClass("bg-info");
+        //     $(".textBox").removeClass("bg-warning");
 
-            $("#coment_").removeAttr('readonly');
+        //     $("#coment_").removeAttr('readonly');
 
-        }
+        // }
 
         document.getElementById("lst_docs_legal").addEventListener("click", function() {
             // Abre el modal
@@ -2520,7 +2543,7 @@ require_once('../Controller/controladorListar.php');
                         console.log(data);
                         if (data === 100) {
                             //     alert("Estado cambiado correctamente.");
-                            isRefused();
+                            // isRefused();
                         } else {
                             //     alert("Hubo un problema.")
                         }

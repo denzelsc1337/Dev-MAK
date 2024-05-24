@@ -59,48 +59,89 @@ if (isset($_POST['btn_save_solic'])) {
     <?php
 }
 
+// if (isset($_POST['btn_updt_solic'])) {
+
+//     $id_solic = $_POST["id_legal_solic"];
+
+//     $dni = $_POST['dni_user_l'];
+
+//     $cod_reg_l = $_POST['cod_reg_l'];
+
+
+//     // actualizar el estado a pendiente // 10
+//     $olegal = new cLegal();
+//     $r = $olegal->updt_solic_legal_($id_solic);
+//     // print_r($_POST);
+//     // echo $r;
+//     if ($r) {
+
+//         $carpeta_nueva = "../Solicitudes/" . $id_solic . "/";
+
+//         if (!file_exists($carpeta_nueva)) {
+//             mkdir($carpeta_nueva, 0777, true);
+//         }
+
+//         $carpeta_lyts = "../borradores/" . $id_solic . '/' . $dni . "/";
+//         echo $carpeta_lyts;
+
+//         $carpeta_destino = $carpeta_nueva . $dni; // Ruta completa de la carpeta de destino
+//         echo $carpeta_destino;
+
+
+//         $mover_carpeta = glob($carpeta_lyts . '*');
+
+//         echo $test = implode(", ", $mover_carpeta) . "\n";;
+
+//         if (!file_exists($carpeta_destino)) {
+//             rename($carpeta_lyts, $carpeta_destino); // Mueve la carpeta a la nueva ubicación
+//         }
+
+//         foreach ($mover_carpeta as $file) {
+//             if (is_file($file)) {
+//                 $newFilePath = $carpeta_nueva . "/" . basename($file);
+//                 rename($file, $newFilePath);
+//             }
+//         }
+//     }
+// }
+
 if (isset($_POST['btn_updt_solic'])) {
-
     $id_solic = $_POST["id_legal_solic"];
-
     $dni = $_POST['dni_user_l'];
-
     $cod_reg_l = $_POST['cod_reg_l'];
 
-
-    // actualizar el estado a pendiente // 10
+    // Actualizar el estado a pendiente
     $olegal = new cLegal();
     $r = $olegal->updt_solic_legal_($id_solic);
-    // print_r($_POST);
-    // echo $r;
-    if ($r) {
 
-        $carpeta_nueva = "../Solicitudes/" . $id_solic . "/";
+    if ($r) {
+        $carpeta_nueva = "../Solicitudes/";
 
         if (!file_exists($carpeta_nueva)) {
             mkdir($carpeta_nueva, 0777, true);
         }
 
-        $carpeta_lyts = "../borradores/" . $id_solic . '/' . $dni . "/";
+        $carpeta_origen = "../borradores/" . $id_solic . "/";
+        $carpeta_destino = $carpeta_nueva . basename($carpeta_origen); // Ruta completa de la carpeta de destino
 
-        $carpeta_destino = $carpeta_nueva . $dni; // Ruta completa de la carpeta de destino
-
-        $mover_carpeta = glob($carpeta_lyts . '*');
-
-        echo $test = implode(", ", $mover_carpeta) . "\n";;
-
-        if (!file_exists($carpeta_destino)) {
-            rename($carpeta_lyts, $carpeta_destino); // Mueve la carpeta a la nueva ubicación
-        }
-
-        foreach ($mover_carpeta as $file) {
-            if (is_file($file)) {
-                $newFilePath = $carpeta_nueva . "/" . basename($file);
-                rename($file, $newFilePath);
+        // Función para mover el directorio completo
+        function moveDir($src, $dest)
+        {
+            if (file_exists($src)) {
+                rename($src, $dest);
             }
         }
+
+        // echo "Origen: " . $carpeta_origen . "\n";
+        // echo "Destino: " . $carpeta_destino . "\n";
+
+        // Mover la carpeta completa
+        moveDir($carpeta_origen, $carpeta_destino);
     }
 }
+
+
+
 
 if (isset($_POST["btn_save_borrador"])) {
 
