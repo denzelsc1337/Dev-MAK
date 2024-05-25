@@ -1598,7 +1598,7 @@ require_once('../Controller/controladorListar.php');
                                                     `
                                                     : estadoHtml === '100'
                                                     ? `
-                                                    <span class="badge rounded-pill bg-danger">Rechazado</span>
+                                                    <span class="badge rounded-pill bg-danger" title="Volver a subir archivo">Rechazado</span>
                                                     `
                                                     :
                                                     `
@@ -1612,6 +1612,7 @@ require_once('../Controller/controladorListar.php');
                                                         <input id="ruta_doc_i" type="text" value="${ruta}" readonly>
                                                         <input id="ruta_archivo_i" type="text" value="${nombreArchivo}" readonly>
                                                         <input id="cod_doc_i" type="text" value="${id_doc_}" readonly>
+                                                        <input id="" type="text" value="<?php echo $_SESSION['tipo_usu'] ?>" readonly>
                                                     </div>
                                                 <?php if ($_SESSION['tipo_usu'] == 1) { ?>
                                                     <div class="inputs">
@@ -1620,8 +1621,14 @@ require_once('../Controller/controladorListar.php');
                                                         </div>
                                                     </div>
                                                     <?php } else { ?>
-                                                    <div class="options">
+                                                        
+                                                    <div class="options" hidden>
                                                         <a href="${ruta + nombreArchivo}" target="_blank" class="mak-txt" title="Descargar archivo"><i class="cursor fa-solid fa-download"></i></a>
+                                                    </div>
+                                                    
+                                                    <div class="options" title="Volver a subir archivo">
+                                                        <input id="fileAgain" type="file" value="" hidden>
+                                                        <button id="upAgain" type="button" class="btn"><i class="fa-solid fa-arrow-up-from-bracket"></i></button>
                                                     </div>
                                                     <?php } ?>
                                                 </div>
