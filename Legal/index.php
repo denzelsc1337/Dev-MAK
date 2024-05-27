@@ -281,6 +281,7 @@ require_once('../Controller/controladorListar.php');
                                                         <th>NOMBRES</th>
                                                         <th>CORREO</th>
                                                         <th>FECHA</th>
+                                                        <th>TIEMPO</th>
                                                         <th>ESTADO</th>
                                                         <th hidden>id_user</th>
                                                         <th>DNI</th>
@@ -295,6 +296,23 @@ require_once('../Controller/controladorListar.php');
                                                             <td><?php echo $lst_legal_d[1] ?></td>
                                                             <td><?php echo $lst_legal_d[2] ?></td>
                                                             <td><?php echo $lst_legal_d[3] ?></td>
+                                                            <td><?php
+                                                                $fecha = $lst_legal_d[3];
+                                                                $fecha_obj = new DateTime($fecha);
+                                                                $fecha_actual = new DateTime();
+                                                                $diferencia = $fecha_obj->diff($fecha_actual);
+                                                                $dias_transcurridos = $diferencia->days;
+
+                                                                // echo $dias_transcurridos . " días";
+
+                                                                if ($dias_transcurridos <= 2) {
+                                                                    echo "<div class='estado verde' title='" . $dias_transcurridos . " días'></div>";
+                                                                } elseif ($dias_transcurridos <= 4) {
+                                                                    echo "<div class='estado amarillo' title='" . $dias_transcurridos . " días'></div>";
+                                                                } else {
+                                                                    echo "<div class='estado rojo' title='" . $dias_transcurridos . " días'></div>";
+                                                                }
+                                                                ?></td>
                                                             <td>
                                                                 <?php
                                                                 $estado = $lst_legal_d[4];
@@ -604,35 +622,6 @@ require_once('../Controller/controladorListar.php');
 
                                                 <div class="card-body" id="carpeta_l">
 
-                                                    <script>
-                                                        document.addEventListener("DOMContentLoaded", () => {
-
-                                                            var id_reg = $('#id_legal_solic').val();
-                                                            var tipo_doc = $(this).data('valor');
-                                                            var _titulo = $(this).data('titulo');
-                                                            var _id_cli_lgl = $('#id_client_l').val();
-                                                            var _id_doc_lgl = $(this).data('id_doc_');
-
-                                                            var _dni_cli_lgl = $('#dni_client_l').val();
-                                                            var titulo_modal = $('#titulo_docs').text(_titulo);
-
-                                                            ///////
-                                                            console.log(id_reg);
-                                                            console.log(tipo_doc);
-                                                            console.log(_titulo);
-                                                            console.log(_id_cli_lgl);
-                                                            console.log(_id_doc_lgl);
-
-                                                            console.log(_dni_cli_lgl);
-                                                            console.log(titulo_modal);
-
-
-
-                                                            // load_documents_legal_(id_reg, _dni_cli_lgl, tipo_doc, _id_cli_lgl, _id_doc_lgl)
-
-                                                        });
-                                                    </script>
-
                                                     <div class="row card-resume">
                                                         <div class="col-sm-2">
                                                             <div class="lgl-modal-num">
@@ -643,7 +632,7 @@ require_once('../Controller/controladorListar.php');
                                                             <span class="mak-txt bld">Hoja de Resumen</span>
                                                         </div>
                                                         <div class="col-sm-2 justify-content-center">
-                                                            <div class="options btn-rounded  btn_lst_docs btn_lst_docs_0" data-valor="H_R" data-titulo="Hoja de Resumen" data-id_doc_="1" data-id_user_="<?php echo $_SESSION['dni'] ?>">
+                                                            <div class="options btn-rounded btn_lst_docs btn_lst_docs_0" data-valor="H_R" data-titulo="Hoja de Resumen" data-id_doc_="1" data-id_user_="<?php echo $_SESSION['dni'] ?>">
                                                                 <button type="button" class="btn">
                                                                     <i class="cursor fa-solid fa-eye"></i>
                                                                 </button>
@@ -661,7 +650,7 @@ require_once('../Controller/controladorListar.php');
                                                             <span class="mak-txt bld">Predio Urbano</span>
                                                         </div>
                                                         <div class="col-sm-2 justify-content-center">
-                                                            <div class="options  btn-rounded  btn_lst_docs btn_lst_docs_0" data-toggle="modal" data-target="#lst_docs_legal" data-valor="P_U" data-titulo="Predio Urbano" data-id_doc_="2" data-id_user_="<?php echo $_SESSION['dni'] ?>">
+                                                            <div class="options  btn-rounded btn_lst_docs btn_lst_docs_0" data-toggle="modal" data-target="#lst_docs_legal" data-valor="P_U" data-titulo="Predio Urbano" data-id_doc_="2" data-id_user_="<?php echo $_SESSION['dni'] ?>">
                                                                 <button type="button" class="btn">
                                                                     <i class="cursor fa-solid fa-eye"></i>
                                                                 </button>
@@ -1175,6 +1164,52 @@ require_once('../Controller/controladorListar.php');
         </div>
     </div>
     <!-- Modal upldFile -->
+
+    <!-- Modal add new file -->
+    <div class="modal fade" id="modal_again_File" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modal_upld_new_File">Subir archivo</h5>
+                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+
+                <form id="adding_new_legal_file" method="POST" enctype="multipart/form-data">
+
+                    <div class="modal-body">
+                        <div hidden>
+                            <input type="text" id="id_new_file" name="id_new_file">
+                            <input type="text" id="id_new_reg" name="id_new_reg">
+                            <input type="text" id="_estado_new_" name="_estado_new_">
+                            <input type="text" id="_ruta_new_" name="_ruta_new_">
+                        </div>
+                        <div class="form-group text-center">
+                            <img class="row margin" src="../Vista/assets/loading_uhd.gif" id="loader_add_new_legal" style="display:none;">
+                            <div class="adding_new_legal_content">
+                                <label>Archivo del informe legal</label>
+                                <br>
+                                <input type="file" name="new_files" id="new_files" onkeyup="habilitarBoton()">
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button> -->
+                        <button type="button" class="btn btn-secondary" id="limpiar_new_Boton">Limpiar</button>
+                        <button type="submit" name="btn_add_new_file" id="btn_add_new_file" class="btn mak-bg">Subir</button>
+                    </div>
+
+                    <!-- <div id="message_aprob"></div> -->
+                </form>
+
+            </div>
+        </div>
+    </div>
+    <!-- Modal add new file -->
+
+
     <!-- MODALES -->
 
     <!-- REQUIRED SCRIPTS -->
@@ -1221,99 +1256,100 @@ require_once('../Controller/controladorListar.php');
 
 
     <script>
-        $(document).ready(function() {
+        document.addEventListener("DOMContentLoaded", () => {
+            $(document).ready(function() {
 
-            $('.btn_subir_1').on('click', function() {
-                $('#upload_doc').modal('show');
-                $tr = $(this).closest('tr');
-                var data = $tr.children("td").map(function() {
-                    return $(this).text();
-                }).get();
-                $('#id_doc_type').val(data[1]);
-                $('#desc_doc').val(data[2].trim());
-            });
-
-
-            $('.btn_ver_files').on('click', function() {
-                $('#lst_files').modal('show');
-
-                $tr = $(this).closest('tr');
-                var data = $tr.children("td").map(function() {
-                    return $(this).text();
-                }).get();
-
-                $('#id_usu_soli').val(data[4]);
-                $('#dni_usu_soli').val(data[5]);
-            });
+                $('.btn_subir_1').on('click', function() {
+                    $('#upload_doc').modal('show');
+                    $tr = $(this).closest('tr');
+                    var data = $tr.children("td").map(function() {
+                        return $(this).text();
+                    }).get();
+                    $('#id_doc_type').val(data[1]);
+                    $('#desc_doc').val(data[2].trim());
+                });
 
 
-            $('.btn_ver_files_2').on('click', function() {
-                $('#lst_files_2').modal('show');
+                $('.btn_ver_files').on('click', function() {
+                    $('#lst_files').modal('show');
 
-                $tr = $(this).closest('tr');
-                var data = $tr.children("td").map(function() {
-                    return $(this).text();
-                }).get();
+                    $tr = $(this).closest('tr');
+                    var data = $tr.children("td").map(function() {
+                        return $(this).text();
+                    }).get();
 
-            });
-
-            function load_documents(dataValue) {
-
-                var dni = '<?php echo $_SESSION['dni'] ?>';
-                var id_cli = '<?php echo $_SESSION['id_usu'] ?>';
-                var _id_tipo_doc = $('#_id_tipo_doc_lgl').val();
-
-                var titulo_ = $(this).data('titulo');
+                    $('#id_usu_soli').val(data[4]);
+                    $('#dni_usu_soli').val(data[5]);
+                });
 
 
-                var _id_tipo_doc = $('#_id_tipo_doc_lgl').val();
-                var docCode = "";
+                $('.btn_ver_files_2').on('click', function() {
+                    $('#lst_files_2').modal('show');
 
-                if (_id_tipo_doc === "1") {
-                    docCode = "H_R";
-                } else if (_id_tipo_doc === "2") {
-                    docCode = "P_U";
-                }
+                    $tr = $(this).closest('tr');
+                    var data = $tr.children("td").map(function() {
+                        return $(this).text();
+                    }).get();
 
-                $.ajax({
-                    type: 'POST',
-                    url: '../Controller/obtener_files.php',
-                    data: {
-                        id_client: id_cli,
-                        dni_client: dni,
-                        id_tipo_doc: _id_tipo_doc,
-                        valor: dataValue,
-                        bla: docCode
-                    },
-                    success: function(response) {
+                });
+
+                function load_documents(dataValue) {
+
+                    var dni = '<?php echo $_SESSION['dni'] ?>';
+                    var id_cli = '<?php echo $_SESSION['id_usu'] ?>';
+                    var _id_tipo_doc = $('#_id_tipo_doc_lgl').val();
+
+                    var titulo_ = $(this).data('titulo');
 
 
-                        var data = JSON.parse(response);
+                    var _id_tipo_doc = $('#_id_tipo_doc_lgl').val();
+                    var docCode = "";
 
-                        // console.log(data);
+                    if (_id_tipo_doc === "1") {
+                        docCode = "H_R";
+                    } else if (_id_tipo_doc === "2") {
+                        docCode = "P_U";
+                    }
 
-                        var archivos = data.archivos;
-                        var estado_doc = data.status_doc;
-
-                        var cod_doc_, ruta_doc, nom_file;
-                        var cont = 1;
-
-                        if (archivos && archivos.length > 0) {
-                            var enlaceHtml = '';
-
-                            archivos.forEach(function(archivo) {
-                                var ruta = archivo.ruta;
-                                var nombreArchivo = archivo.archivo;
-                                var estado = archivo.estado;
-                                var id_doc_ = archivo.id_doc;
-                                var status_r = '';
-
-                                $('#titulo_docs__').text(titulo_);
-
-                                var delete_btn = $('<button>').text('Eliminar').attr('class', 'btn btn-block btn-danger');
+                    $.ajax({
+                        type: 'POST',
+                        url: '../Controller/obtener_files.php',
+                        data: {
+                            id_client: id_cli,
+                            dni_client: dni,
+                            id_tipo_doc: _id_tipo_doc,
+                            valor: dataValue,
+                            bla: docCode
+                        },
+                        success: function(response) {
 
 
-                                enlaceHtml += `
+                            var data = JSON.parse(response);
+
+                            // console.log(data);
+
+                            var archivos = data.archivos;
+                            var estado_doc = data.status_doc;
+
+                            var cod_doc_, ruta_doc, nom_file;
+                            var cont = 1;
+
+                            if (archivos && archivos.length > 0) {
+                                var enlaceHtml = '';
+
+                                archivos.forEach(function(archivo) {
+                                    var ruta = archivo.ruta;
+                                    var nombreArchivo = archivo.archivo;
+                                    var estado = archivo.estado;
+                                    var id_doc_ = archivo.id_doc;
+                                    var status_r = '';
+
+                                    $('#titulo_docs__').text(titulo_);
+
+                                    var delete_btn = $('<button>').text('Eliminar').attr('class', 'btn btn-block btn-danger');
+
+
+                                    enlaceHtml += `
 
                                         <div class="row d-flex justify-content-between align-center mb-4 w-100">
                                             <div class="col-sm-2">
@@ -1348,69 +1384,69 @@ require_once('../Controller/controladorListar.php');
                                         </div>
                                 `;
 
-                            });
+                                });
 
-                            document.getElementById('descarga_archivo_l').innerHTML = enlaceHtml;
+                                document.getElementById('descarga_archivo_l').innerHTML = enlaceHtml;
 
-                        } else {
+                            } else {
 
-                            document.getElementById('descarga_archivo_l').textContent = 'Archivo no encontrado';
+                                document.getElementById('descarga_archivo_l').textContent = 'Archivo no encontrado';
+                            }
+
+                        },
+                        complete: function() {
+
+                        },
+                        error: function(xhr, status, error) {
+                            console.log(error);
                         }
-
-                    },
-                    complete: function() {
-
-                    },
-                    error: function(xhr, status, error) {
-                        console.log(error);
-                    }
-                });
-            }
+                    });
+                }
 
 
 
 
-            function load_documents_lyt(id_soli_l, id_tipo_doc_) {
+                function load_documents_lyt(id_soli_l, id_tipo_doc_) {
 
-                var dni = '<?php echo $_SESSION['dni'] ?>';
+                    var dni = '<?php echo $_SESSION['dni'] ?>';
 
-                $.ajax({
-                    type: 'POST',
-                    url: '../Controller/get_lyts.php',
-                    data: {
-                        id_solic_l: id_soli_l,
-                        dni_client: dni,
-                        id_tipo_doc: id_tipo_doc_,
-                    },
-                    success: function(response) {
+                    $.ajax({
+                        type: 'POST',
+                        url: '../Controller/get_lyts.php',
+                        data: {
+                            id_solic_l: id_soli_l,
+                            dni_client: dni,
+                            id_tipo_doc: id_tipo_doc_,
+                        },
+                        success: function(response) {
 
-                        // console.log(response);
-                        var data = JSON.parse(response);
+                            // console.log(response);
+                            var data = JSON.parse(response);
 
-                        var archivos = data.archivos;
-                        var estado_doc = data.status_doc;
+                            var archivos = data.archivos;
+                            var estado_doc = data.status_doc;
 
-                        var cod_doc_, ruta_doc, nom_file;
-                        var cont = 1;
+                            var cod_doc_, ruta_doc, nom_file;
+                            var cont = 1;
 
-                        if (archivos && archivos.length > 0) {
-                            var enlaceHtml = '';
+                            if (archivos && archivos.length > 0) {
+                                var enlaceHtml = '';
 
-                            archivos.forEach(function(archivo) {
+                                archivos.forEach(function(archivo) {
 
-                                // console.log(archivo);
+                                    // console.log(archivo);
 
-                                var ruta = archivo.ruta;
-                                var nombreArchivo = archivo.archivo;
-                                var estado = archivo.estado;
-                                var id_doc_ = archivo.id_doc;
-                                var status_r = '';
-
-
-                                var delete_btn = $('<button>').text('Eliminar').attr('class', 'btn btn-block btn-danger');
+                                    var ruta = archivo.ruta;
+                                    var nombreArchivo = archivo.archivo;
+                                    var estado = archivo.estado;
+                                    var id_doc_ = archivo.id_doc;
+                                    var status_r = '';
 
 
-                                enlaceHtml += `
+                                    var delete_btn = $('<button>').text('Eliminar').attr('class', 'btn btn-block btn-danger');
+
+
+                                    enlaceHtml += `
 
                                             <div class="row d-flex justify-content-evenly align-center mb-4 w-100">
                                                 <div class="col-sm-1">
@@ -1444,92 +1480,60 @@ require_once('../Controller/controladorListar.php');
                                             </div>
                                             `;
 
-                            });
+                                });
 
-                            document.getElementById('descarga_archivo_l').innerHTML = enlaceHtml;
+                                document.getElementById('descarga_archivo_l').innerHTML = enlaceHtml;
 
-                        } else {
+                            } else {
 
-                            document.getElementById('descarga_archivo_l').textContent = 'Archivo no encontrado';
+                                document.getElementById('descarga_archivo_l').textContent = 'Archivo no encontrado';
+                            }
+
+                        },
+                        error: function(xhr, status, error) {
+                            console.log(error);
                         }
-
-                    },
-                    error: function(xhr, status, error) {
-                        console.log(error);
-                    }
-                });
-            }
+                    });
+                }
 
 
+                function load_documents_legal_(id_reg, id_cli, tipo_doc, id_cli_l, id_tipo_doc) {
+                    $.ajax({
+                        type: 'POST',
+                        url: '../Controller/Get_files_solic_legal.php',
+                        data: {
+                            id_solic_l: id_reg,
+                            dni_cli: id_cli,
+                            cod_tipo_doc: tipo_doc,
+                            id_cli_lgl: id_cli_l,
+                            id_tipo_doc: id_tipo_doc
+                        },
+                        beforeSend: function() {
+                            $("#loader_soli").show();
+                            $("#lst_docs_lgl").hide();
+                        },
+                        success: function(response) {
+                            var data = JSON.parse(response);
+                            var archivos = data.archivos;
+                            var enlaceHtml = '';
+                            var cont = 1;
 
-            function load_documents_legal_(id_reg, id_cli, tipo_doc, id_cli_l, id_tipo_doc) {
-
-                $.ajax({
-                    type: 'POST',
-                    url: '../Controller/Get_files_solic_legal.php',
-                    data: {
-                        id_solic_l: id_reg,
-                        dni_cli: id_cli,
-                        cod_tipo_doc: tipo_doc,
-
-                        id_cli_lgl: id_cli_l,
-                        id_tipo_doc: id_tipo_doc
-
-                    },
-                    beforeSend: function() {
-                        $("#loader_soli").show();
-                        $("#lst_docs_lgl").hide();
-                        //$("#docs_val").hide();
-
-                    },
-                    success: function(response) {
-                        var data = JSON.parse(response);
-                        // console.log(data);
-
-                        var archivos = data.archivos;
-                        // var estado_doc = data.archivos[0].estado;
-                        // var estado_doc = data.status_doc;
-                        // console.log(estado_doc);
-
-                        var dbInfo = data.base_de_datos;
-                        var estado_db = data.status_doc_;
-
-                        // var id_doc = data.base_de_datos[0].id_document;
-
-                        // console.log(dbInfo)
-                        var cod_doc_, ruta_doc, nom_file;
-                        var cont = 1;
-
-                        setTimeout(function() {
-
-
-                            // if (estado_db === 'Carpeta no encontrada.') {
                             if (archivos && archivos.length > 0) {
-                                var enlaceHtml = '';
-
                                 archivos.forEach(function(archivo) {
-                                    // console.log(archivo);
 
+                                    // console.log(archivo);
                                     var ruta = archivo.ruta;
                                     var nombreArchivo = archivo.archivo;
                                     var estado = archivo.estado;
                                     var id_doc_ = archivo.id_doc_;
-                                    // console.log(id_doc_);
-                                    var status_r = '';
-
-
-
-                                    var delete_btn = $('<button>').text('Eliminar').attr('class', 'btn btn-block btn-danger');
-                                    // var estadoHtml = estado === 'estado_desconocido' ? '' : `<span class="estado-archivo">${estado}</span>`;
+                                    var _ruta = archivo.ruta;
                                     var estadoHtml = estado;
-                                    // console.log(estadoHtml);
-                                    var estadoDbHtml = estado_db ? `<span class="estado-db">${estado_db}</span>` : '';
 
-                                    //arroshi recontra tarao
                                     enlaceHtml += `
-                                   
                                     <div hidden>
-                                        <input type="text" class="form-mak" id="_id_doc_" value="${id_doc_}" readonly>
+                                        <input type="text" id="_id_doc_" value="${id_doc_}" readonly>
+                                        <input type="text" id="_estado_" value="${estado}" readonly>
+                                        <input type="text" id="_ruta_" value="${_ruta}" readonly>
                                     </div>
 
                                     <div class="row d-flex justify-content-evenly align-center mb-4 w-100">
@@ -1538,478 +1542,516 @@ require_once('../Controller/controladorListar.php');
                                                 ${cont++}
                                             </div>
                                         </div>
-
                                         <div class="col-sm-6 archive">
                                             <img src="#" id="loader" style="display: none;">
                                             <a href="${ruta}${nombreArchivo}" target="_blank">${nombreArchivo}</a>
                                         </div>
-
                                         <div class="col-sm-3 tw-modal-ots p-0">
-
                                             <div class="d-flex content_status">
                                             <?php if ($_SESSION['tipo_usu'] == 1) { ?>
-                                                ${
-                                                estadoHtml === '500'
-                                                    ? `
-                                                    <select id="_slct_status" name="_slct_status" class="form-mak">
-                                                        <option value="500" selected>Pendiente</option>
-                                                        <option value="200">Revisado</option>
-                                                        <option value="100">Rechazado</option>
-                                                        <option value="1">Aceptado</option>
-                                                    </select>
-                                                    `
-                                                : estadoHtml === '200'
-                                                    ? `
-                                                    <select id="_slct_status" name="_slct_status" class="form-mak">
-                                                        <option value="500">Pendiente</option>
-                                                        <option value="200" selected>Revisado</option>
-                                                        <option value="100">Rechazado</option>
-                                                        <option value="1">Aceptado</option>
-                                                    </select>
-                                                    `
-                                                : estadoHtml === '100'
-                                                    ? `
-                                                    <select id="_slct_status" name="_slct_status" class="form-mak">
-                                                        <option value="500">Pendiente</option>
-                                                        <option value="200">Revisado</option>
-                                                        <option value="100" selected>Rechazado</option>
-                                                        <option value="1">Aceptado</option>
-                                                    </select>
-                                                    `
-                                                : `
-                                                    <select id="_slct_status" name="_slct_status" class="form-mak">
-                                                        <option value="500">Pendiente</option>
-                                                        <option value="200">Revisado</option>
-                                                        <option value="100">Rechazado</option>
-                                                        <option value="1" selected>Aceptado</option>
-                                                    </select>
-                                                    `
-                                                }
-                                                <?php } else { ?>
-                                                ${
+                                ${
+                                    estadoHtml === '500'
+                                        ? `
+                                        <select id="_slct_status" name="_slct_status" class="form-mak">
+                                            <option value="500" selected>Pendiente</option>
+                                            <option value="200">Revisado</option>
+                                            <option value="100">Rechazado</option>
+                                            <option value="1">Aceptado</option>
+                                        </select>
+                                        `
+                                    : estadoHtml === '200'
+                                        ? `
+                                        <select id="_slct_status" name="_slct_status" class="form-mak">
+                                            <option value="500">Pendiente</option>
+                                            <option value="200" selected>Revisado</option>
+                                            <option value="100">Rechazado</option>
+                                            <option value="1">Aceptado</option>
+                                        </select>
+                                        `
+                                    : estadoHtml === '100'
+                                        ? `
+                                        <select id="_slct_status" name="_slct_status" class="form-mak">
+                                            <option value="500">Pendiente</option>
+                                            <option value="200">Revisado</option>
+                                            <option value="100" selected>Rechazado</option>
+                                            <option value="1">Aceptado</option>
+                                        </select>
+                                        `
+                                    : `
+                                        <select id="_slct_status" name="_slct_status" class="form-mak">
+                                            <option value="500">Pendiente</option>
+                                            <option value="200">Revisado</option>
+                                            <option value="100">Rechazado</option>
+                                            <option value="1" selected>Aceptado</option>
+                                        </select>
+                                        `
+                                }
+                                 <?php } else { ?>
+                                 ${
 
-                                                    estadoHtml === '500'
-                                                    ? `
-                                                    <span class="badge rounded-pill bg-info">Pendiente</span>
-                                                    `
-                                                    : estadoHtml === '200'
-                                                    ? `
-                                                    <span class="badge rounded-pill bg-warning">Revisado</span>
-                                                    `
-                                                    : estadoHtml === '100'
-                                                    ? `
-                                                    <span class="badge rounded-pill bg-danger" title="Volver a subir archivo">Rechazado</span>
-                                                    `
-                                                    :
-                                                    `
-                                                    <span class="badge rounded-pill bg-success">Finalizado</span>
-                                                    `
-                                                }
-                                                <?php } ?>
-
-                                                <div class="d-flex">
-                                                    <div hidden>
-                                                        <input id="ruta_doc_i" type="text" value="${ruta}" readonly>
-                                                        <input id="ruta_archivo_i" type="text" value="${nombreArchivo}" readonly>
-                                                        <input id="cod_doc_i" type="text" value="${id_doc_}" readonly>
-                                                        <input id="" type="text" value="<?php echo $_SESSION['tipo_usu'] ?>" readonly>
-                                                    </div>
-                                                <?php if ($_SESSION['tipo_usu'] == 1) { ?>
-                                                    <div class="inputs">
-                                                        <div class="options">
-                                                            <button id="dlt_file" type="button" class="btn dlt_file"><i class="cursor fa-solid fa-trash"></i></button>
-                                                        </div>
-                                                    </div>
-                                                    <?php } else { ?>
-                                                        
-                                                    <div class="options" hidden>
-                                                        <a href="${ruta + nombreArchivo}" target="_blank" class="mak-txt" title="Descargar archivo"><i class="cursor fa-solid fa-download"></i></a>
-                                                    </div>
-                                                    
-                                                    <div class="options" title="Volver a subir archivo">
-                                                        <input id="fileAgain" type="file" value="" hidden>
-                                                        <button id="upAgain" type="button" class="btn"><i class="fa-solid fa-arrow-up-from-bracket"></i></button>
-                                                    </div>
-                                                    <?php } ?>
-                                                </div>
-                                            </div>
-                                        </div>
+                                    estadoHtml === '500'
+                                    ? `
+                                    <span class="badge rounded-pill bg-info">Pendiente</span>
+                                    `
+                                    : estadoHtml === '200'
+                                    ? `
+                                    <span class="badge rounded-pill bg-warning">Revisado</span>
+                                    `
+                                    : estadoHtml === '100'
+                                    ? `
+                                    <span class="badge rounded-pill bg-danger" title="Volver a subir archivo">Rechazado</span>
+                                    <div id="fileAgainContent" class="options" title="Volver a subir archivo">
+                                        <form id="addingFileAgain" method="POST" enctype="multipart/form-data">
+                                            <input id="fileAgain" type="file" hidden>
+                                            <button id="upAgain" type="button" class="btn">
+                                               <i class="fa-solid fa-arrow-up-from-bracket"></i>
+                                            </button>
+                                        </form>
                                     </div>
-                                    `;
+                                     `
+                                    :
+                                    `
+                                    <span class="badge rounded-pill bg-success">Finalizado</span>
+                                    `
+                                 }
+                                 <?php } ?>
+
+                                 <div class="d-flex">
+                                     <div hidden>
+                                         <input id="ruta_doc_i" type="text" value="${ruta}" readonly>
+                                         <input id="ruta_archivo_i" type="text" value="${nombreArchivo}" readonly>
+                                         <input id="cod_doc_i" type="text" value="${id_doc_}" readonly>
+                                     </div>
+                                 <?php if ($_SESSION['tipo_usu'] == 1) { ?>
+                                     <div class="inputs">
+                                         <div class="options">
+                                             <button id="dlt_file" type="button" class="btn dlt_file"><i class="cursor fa-solid fa-trash"></i></button>
+                                         </div>
+                                     </div>
+                                     <?php } else { ?>
+
+                                     <div class="options" hidden>
+                                         <a href="${ruta + nombreArchivo}" target="_blank" class="mak-txt" title="Descargar archivo"><i class="cursor fa-solid fa-download"></i></a>
+                                     </div>
+
+
+                                     <?php } ?>
+                                 </div>
+                             </div>
+                         </div>
+                     </div>
+
+                        `;
+
 
                                 });
 
                                 document.getElementById('lst_docs_lgl').innerHTML = enlaceHtml;
-
                             } else {
                                 document.getElementById('lst_docs_lgl').textContent = 'Archivo no encontrado';
                             }
-
-                            // console.log('Estado de archivos:', estado_doc);
-                            // console.log('Estado de la base de datos:', estado_db);
-
-                        }, 1500);
-
-
-
-                    },
-                    complete: function() {
-                        setTimeout(() => {
-                            $("#loader_soli").hide();
-                            $("#lst_docs_lgl").show();
-                        }, 1500);
-                    },
-                    error: function(xhr, status, error) {
-                        console.log(error);
-                    }
-                });
-            }
-
-
-            function eliminarArchivo($deleteBtn, cod_doc_, ruta_doc, ruta_archivo, docCode) {
-
-                var dni = '<?php echo $_SESSION['dni'] ?>';
-                var id_cli = '<?php echo $_SESSION['id_usu'] ?>';
-                var _id_tipo_doc = $('#_id_tipo_doc_lgl').val();
-
-                $.ajax({
-                    type: 'POST',
-                    url: '../Controller/eliminarArchivos.php',
-                    data: {
-                        id_client: id_cli,
-                        dni_client: dni,
-                        ruta_doc: ruta_doc,
-                        ruta_archivo: ruta_archivo,
-                    },
-                    success: function(response) {
-                        // console.log(response);
-                        // console.log("archivo eliminado con ID: " + ruta_doc + ruta_archivo);
-
-                        $('#loader_erase_hr').show();
-                        $('#descarga_archivo_l').hide();
-                        // $deleteBtn.closest('.modal').modal('hide');
-
-                        // Cargar documents
-                        load_documents(docCode);
-
-                        setTimeout(() => {
-
-                        }, 2000);
-                    },
-                    complete: function() {
-                        setTimeout(function() {
-                            $('#loader_erase_hr').hide();
-                            $('#descarga_archivo_l').show();
-                            // if (ruta_doc == "../Documentos Legal/" + dni + "/H_R/") {
-                            //     console.log("HR")
-                            //     load_documents('H_R');
-                            // } else if (ruta_doc == "../Documentos Legal/" + dni + "/P_U/") {
-                            //     console.log("PU")
-                            //     load_documents('P_U');
-                            // } else if (ruta_doc == "../Documentos Legal/" + dni + "/C_L/") {
-                            //     console.log("CL")
-                            //     load_documents('C_L');
-                            // } else if (ruta_doc == "../Documentos Legal/" + dni + "/DNI/") {
-                            //     console.log("DNI")
-                            //     load_documents('DNI');
-                            // }
-                        }, 2000);
-
-                    }
-                });
-            }
-
-            $(document).on('click', '.dlt_file', function() {
-                var $this = $(this);
-                // console.log("probando botón");
-
-                var confirmar_ = window.confirm('¿Estás seguro de que deseas eliminar este archivo?');
-
-                if (confirmar_) {
-                    var $parentDiv = $(this).closest('.inputs').parent();
-
-                    var cod_doc_ = $parentDiv.find('#cod_doc_i').val();
-                    var ruta_doc = $parentDiv.find('#ruta_doc_i').val();
-                    var ruta_archivo = $parentDiv.find('#ruta_archivo_i').val();
-
-
-                    eliminarArchivo($this, cod_doc_, ruta_doc, ruta_archivo);
-
-
-
-                    // console.log("archivo eliminado");
+                        },
+                        complete: function() {
+                            setTimeout(() => {
+                                $("#loader_soli").hide();
+                                $("#lst_docs_lgl").show();
+                            }, 1500);
+                        },
+                        error: function(xhr, status, error) {
+                            console.log(error);
+                        }
+                    });
                 }
-                // else {
-                // console.log("cancelado");
-                // }
-            });
 
+                function eliminarArchivo($deleteBtn, cod_doc_, ruta_doc, ruta_archivo, docCode) {
 
-            $('.btn_lst_hr').on('click', function() {
-                // console.log("Botón seleccionado");
+                    var dni = '<?php echo $_SESSION['dni'] ?>';
+                    var id_cli = '<?php echo $_SESSION['id_usu'] ?>';
+                    var _id_tipo_doc = $('#_id_tipo_doc_lgl').val();
 
-                var valor1 = $(this).data('valor');
-                var dataValue = $(this).data('valor');
-                var titulo_ = $(this).data('titulo');
-                var _id_doc_lgl = $(this).data('id_doc_');
+                    $.ajax({
+                        type: 'POST',
+                        url: '../Controller/eliminarArchivos.php',
+                        data: {
+                            id_client: id_cli,
+                            dni_client: dni,
+                            ruta_doc: ruta_doc,
+                            ruta_archivo: ruta_archivo,
+                        },
+                        success: function(response) {
+                            // console.log(response);
+                            // console.log("archivo eliminado con ID: " + ruta_doc + ruta_archivo);
 
-                $('#_id_tipo_doc_lgl').val(_id_doc_lgl);
-                $('#_concept').val(valor1);
-                $('#titulo_docs').text(titulo_);
+                            $('#loader_erase_hr').show();
+                            $('#descarga_archivo_l').hide();
+                            // $deleteBtn.closest('.modal').modal('hide');
 
-                var concepto = $('#_concept').val();
+                            // Cargar documents
+                            load_documents(docCode);
 
-                var titulo_modal = $('#titulo_docs').val();
+                            setTimeout(() => {
 
+                            }, 2000);
+                        },
+                        complete: function() {
+                            setTimeout(function() {
+                                $('#loader_erase_hr').hide();
+                                $('#descarga_archivo_l').show();
+                                // if (ruta_doc == "../Documentos Legal/" + dni + "/H_R/") {
+                                //     console.log("HR")
+                                //     load_documents('H_R');
+                                // } else if (ruta_doc == "../Documentos Legal/" + dni + "/P_U/") {
+                                //     console.log("PU")
+                                //     load_documents('P_U');
+                                // } else if (ruta_doc == "../Documentos Legal/" + dni + "/C_L/") {
+                                //     console.log("CL")
+                                //     load_documents('C_L');
+                                // } else if (ruta_doc == "../Documentos Legal/" + dni + "/DNI/") {
+                                //     console.log("DNI")
+                                //     load_documents('DNI');
+                                // }
+                            }, 2000);
 
-
-                /*console.log(titulo_modal);
-                console.log(concepto);*/
-
-                load_documents(titulo_);
-
-                // $('#lst_hr_0').modal('show');
-            });
-
-            $('.btn_lst_lyts').on('click', function() {
-                // console.log("Botón seleccionado");
-
-                var titulo_doc = $(this).data('valor');
-                var titulo_ = $(this).data('titulo');
-                var _id_doc_lgl = $(this).data('id_doc_');
-                var testeo = $(this).data('testeo');
-
-                $('#_id_tipo_doc_lgl').val(_id_doc_lgl);
-                $('#_concept').val(titulo_doc);
-                $('#titulo_docs_2').text(titulo_);
-
-
-                var id_soli_l = $('#cod_reg_l').val();
-                var concepto = $('#_concept').val();
-
-                var titulo_modal = $('#titulo_docs').val();
-
-                /*console.log(titulo_modal);
-                console.log(concepto);*/
-
-                load_documents_lyt(id_soli_l, titulo_doc);
-
-            });
-
-
-            $('.btn_lst_docs').on('click', function() {
-
-
-                var id_reg = $('#id_legal_solic').val();
-                var tipo_doc = $(this).data('valor');
-                var _titulo = $(this).data('titulo');
-                var _id_cli_lgl = $('#id_client_l').val();
-                var _id_doc_lgl = $(this).data('id_doc_');
-
-                var _dni_cli_lgl = $('#dni_client_l').val();
-                var titulo_modal = $('#titulo_docs').text(_titulo);
-
-                // $('#_id_doc_').val(_id_cli_lgl);
-
-                ///////
-                // console.log(tipo_doc);
-                // console.log(_titulo);
-                // console.log(_id_cli_lgl);
-                // console.log(_id_doc_lgl);
-
-                // console.log(_dni_cli_lgl);
-                // console.log(titulo_modal);
-
-
-
-                load_documents_legal_(id_reg, _dni_cli_lgl, tipo_doc, _id_cli_lgl, _id_doc_lgl)
-
-                $('#lst_docs_legal').modal('show');
-
-
-            });
-
-
-            //codigo para el admin y ver los documentos de cada usuario
-
-            $('.btn_ver_tipos_0').on('click', function() {
-                // console.log("test");
-
-                $('#lst_docs_1').modal('show');
-
-                //valores de los inputs del modal lst_files
-                var id_usu_soli = $('#id_usu_soli').val();
-                var dni_usu_soli = $('#dni_usu_soli').val();
-
-                //valores a los inputs en el modal lst_docs_1
-                $('#lst_docs_1').find('#id_client_0').val(id_usu_soli);
-                $('#lst_docs_1').find('#dni_client_0').val(dni_usu_soli);
-
-                // console.log('e?' + id_usu_soli);
-                // console.log('pop' + dni_usu_soli);
-
-                $tr = $(this).closest('tr');
-                var data = $tr.children("td").map(function() {
-                    return $(this).text();
-                }).get();
-                // console.log(data);
-
-
-                var id_doc_lgl_0 = $(this).data('id_doc');
-                var nom_doc_lgl_0 = $(this).data('nom_doc');
-
-                // console.log(id_doc_lgl_0);
-                // console.log(nom_doc_lgl_0);
-
-                $('#id_tipo_doc_lgl_0').val(id_doc_lgl_0);
-
-                $('#_concept_doc_0').val(nom_doc_lgl_0);
-
-
-                var concept = $('#_concept_doc_0').val();
-                var id_tipo_doc_ = $('#id_tipo_doc_lgl_0').val();
-
-                $.ajax({
-                    type: 'POST',
-                    url: '../Controller/obtener_files_client.php',
-                    data: {
-                        _concept_doc: concept,
-                        id_client: id_usu_soli,
-                        dni_client: dni_usu_soli,
-                        id_tipo_doc: id_tipo_doc_
-                    },
-                    success: function(response) {
-                        var data = JSON.parse(response);
-
-                        var archivos = data.archivos;
-                        var estado_doc = data.status_doc;
-
-
-                        if (archivos && archivos.length > 0) {
-                            var enlaceHtml = '';
-
-                            archivos.forEach(function(archivo) {
-                                var ruta = archivo.ruta;
-                                var nombreArchivo = archivo.archivo;
-                                var estado = archivo.estado;
-                                var status_r = '';
-
-                                enlaceHtml += '<div>';
-                                enlaceHtml += '<a href="' + ruta + nombreArchivo + '">' + nombreArchivo + '</a> &nbsp';
-
-                                enlaceHtml += '<i>' + status_r + '</i><br>';
-
-                                enlaceHtml += '<select name="cbo_estados" id="cbo_estados">';
-
-                                if (estado === '500') {
-                                    enlaceHtml += '<option value=""selected>Pendientes</option>';
-                                    enlaceHtml += '<option value="">En revisión</option>';
-                                    enlaceHtml += '<option value="">Finalizado</option>';
-                                } else if (estado === '405') {
-                                    enlaceHtml += '<option value="">Pendiente</option>';
-                                    enlaceHtml += '<option value="" selected>En revisión</option>';
-                                    enlaceHtml += '<option value="">Finalizado</option>';
-                                } else if (estado === '200') {
-                                    enlaceHtml += '<option value="">Pendiente</option>';
-                                    enlaceHtml += '<option value="">En revisión</option>';
-                                    enlaceHtml += '<option value="" selected>Finalizado</option>';
-                                }
-                                enlaceHtml += '</select><br>';
-                                enlaceHtml += '</div>';
-                            });
-
-                            document.getElementById('descarga_archivo_ul').innerHTML = enlaceHtml;
-
-                        } else {
-
-                            document.getElementById('descarga_archivo_ul').textContent = 'Archivo no encontrado';
                         }
+                    });
+                }
 
-                    },
-                    error: function(xhr, status, error) {
-                        console.log(error);
+                $(document).on('click', '.dlt_file', function() {
+                    var $this = $(this);
+                    // console.log("probando botón");
+
+                    var confirmar_ = window.confirm('¿Estás seguro de que deseas eliminar este archivo?');
+
+                    if (confirmar_) {
+                        var $parentDiv = $(this).closest('.inputs').parent();
+
+                        var cod_doc_ = $parentDiv.find('#cod_doc_i').val();
+                        var ruta_doc = $parentDiv.find('#ruta_doc_i').val();
+                        var ruta_archivo = $parentDiv.find('#ruta_archivo_i').val();
+
+
+                        eliminarArchivo($this, cod_doc_, ruta_doc, ruta_archivo);
+
+
+
+                        // console.log("archivo eliminado");
                     }
-                });
-
-            });
-            //codigo para el admin y ver los documentos de cada usuario
-
-
-
-            //codigo para el usuario comun vea sus propios documentos
-
-            $('.btn_ver_tipos').on('click', function() {
-
-                $('#lst_docs_0').modal('show');
-
-                var id_doc_lgl = $(this).data('id_doc');
-                var nom_doc_lgl = $(this).data('nom_doc');
-
-                // console.log(id_doc_lgl);
-                // console.log(nom_doc_lgl);
-
-                $('#id_tipo_doc_lgl').val(id_doc_lgl);
-
-                $('#_concept_doc').val(nom_doc_lgl);
-
-
-
-                var concept = $('#_concept_doc').val();
-                var id_tipo_doc_ = $('#id_tipo_doc_lgl').val();
-
-                var dni = '<?php echo $_SESSION['dni'] ?>';
-                var id_cli = '<?php echo $_SESSION['id_usu'] ?>';
-
-                $.ajax({
-                    type: 'POST',
-                    url: '../Controller/obtener_files_client.php',
-                    data: {
-                        _concept_doc: concept,
-                        id_client: id_cli,
-                        dni_client: dni,
-                        id_tipo_doc: id_tipo_doc_
-                    },
-                    success: function(response) {
-                        var data = JSON.parse(response);
-
-                        var archivos = data.archivos;
-                        var estado_doc = data.status_doc;
-
-
-                        if (archivos && archivos.length > 0) {
-                            var enlaceHtml = '';
-
-                            archivos.forEach(function(archivo) {
-                                var ruta = archivo.ruta;
-                                var nombreArchivo = archivo.archivo;
-                                var estado = archivo.estado;
-                                var status_r = '';
-
-
-                                enlaceHtml += '<a href="' + ruta + nombreArchivo + '">' + nombreArchivo + '</a> &nbsp';
-
-                                if (estado == 500) {
-                                    status_r = 'Pendiente'
-                                }
-                                enlaceHtml += '<i>' + status_r + '</i><br>';
-                            });
-
-                            document.getElementById('descarga_archivo_s').innerHTML = enlaceHtml;
-
-                        } else {
-
-                            document.getElementById('descarga_archivo_s').textContent = 'Archivo no encontrado';
-                        }
-
-                    },
-                    error: function(xhr, status, error) {
-                        console.log(error);
-                    }
+                    // else {
+                    // console.log("cancelado");
+                    // }
                 });
 
 
-            });
+                $('.btn_lst_hr').on('click', function() {
+                    // console.log("Botón seleccionado");
 
+                    var valor1 = $(this).data('valor');
+                    var dataValue = $(this).data('valor');
+                    var titulo_ = $(this).data('titulo');
+                    var _id_doc_lgl = $(this).data('id_doc_');
+
+                    $('#_id_tipo_doc_lgl').val(_id_doc_lgl);
+                    $('#_concept').val(valor1);
+                    $('#titulo_docs').text(titulo_);
+
+                    var concepto = $('#_concept').val();
+
+                    var titulo_modal = $('#titulo_docs').val();
+
+
+
+                    /*console.log(titulo_modal);
+                    console.log(concepto);*/
+
+                    load_documents(titulo_);
+
+                    // $('#lst_hr_0').modal('show');
+                });
+
+                $('.btn_lst_lyts').on('click', function() {
+                    // console.log("Botón seleccionado");
+
+                    var titulo_doc = $(this).data('valor');
+                    var titulo_ = $(this).data('titulo');
+                    var _id_doc_lgl = $(this).data('id_doc_');
+                    var testeo = $(this).data('testeo');
+
+                    $('#_id_tipo_doc_lgl').val(_id_doc_lgl);
+                    $('#_concept').val(titulo_doc);
+                    $('#titulo_docs_2').text(titulo_);
+
+
+                    var id_soli_l = $('#cod_reg_l').val();
+                    var concepto = $('#_concept').val();
+
+                    var titulo_modal = $('#titulo_docs').val();
+
+                    /*console.log(titulo_modal);
+                    console.log(concepto);*/
+
+                    load_documents_lyt(id_soli_l, titulo_doc);
+
+                });
+
+
+                $('.btn_lst_docs').on('click', function() {
+
+
+                    var id_reg = $('#id_legal_solic').val();
+                    var tipo_doc = $(this).data('valor');
+                    var _titulo = $(this).data('titulo');
+                    var _id_cli_lgl = $('#id_client_l').val();
+                    var _id_doc_lgl = $(this).data('id_doc_');
+
+                    var _dni_cli_lgl = $('#dni_client_l').val();
+                    var titulo_modal = $('#titulo_docs').text(_titulo);
+
+                    $('#_titulo_docs').val(tipo_doc);
+
+
+                    load_documents_legal_(id_reg, _dni_cli_lgl, tipo_doc, _id_cli_lgl, _id_doc_lgl)
+
+
+
+                    $('#lst_docs_legal').modal('show');
+
+
+                });
+
+
+
+
+                // O cualquier otro código que necesite manipular elementos dinámicos
+                $(document).on('change', '#_slct_status', function() {
+                    var _data_cbo = {
+                        _status: true,
+                        _id_doc: $('#_id_doc_').val(),
+                        _slct_status: $("#_slct_status").val(),
+                    };
+
+                    $.ajax({
+                        type: "POST",
+                        url: "../Controller/update_status_solic_legal.php",
+                        data: _data_cbo,
+                        dataType: "JSON",
+                        success: function(data) {
+                            console.log(data);
+                            if (data) {
+                                alert("Estado cambiado correctamente.");
+                                // isRefused();
+                            } else {
+                                alert("Hubo un problema.")
+                            }
+                        },
+                        complete: function() {
+                            // Any additional actions on complete
+                        }
+                    });
+                    return false;
+                });
+
+
+
+
+                $(document).on('click', '#fileAgainContent', function() {
+
+                    var _id_ = $('#id_client_l').val();
+                    $("#id_new_file").val(_id_);
+
+                    var _dni_ = $('#dni_client_l').val();
+                    $("#id_new_reg").val(_dni_);
+
+                    var _estado_ = $("#_estado_").val();
+                    $("#_estado_new_").val(_estado_);
+
+                    var _ruta_ = $("#_ruta_").val();
+                    $("#_ruta_new_").val(_ruta_);
+
+                    $("#modal_again_File").modal("show");
+                })
+
+
+                //codigo para el admin y ver los documentos de cada usuario
+
+                $('.btn_ver_tipos_0').on('click', function() {
+                    // console.log("test");
+
+                    $('#lst_docs_1').modal('show');
+
+                    //valores de los inputs del modal lst_files
+                    var id_usu_soli = $('#id_usu_soli').val();
+                    var dni_usu_soli = $('#dni_usu_soli').val();
+
+                    //valores a los inputs en el modal lst_docs_1
+                    $('#lst_docs_1').find('#id_client_0').val(id_usu_soli);
+                    $('#lst_docs_1').find('#dni_client_0').val(dni_usu_soli);
+
+                    // console.log('e?' + id_usu_soli);
+                    // console.log('pop' + dni_usu_soli);
+
+                    $tr = $(this).closest('tr');
+                    var data = $tr.children("td").map(function() {
+                        return $(this).text();
+                    }).get();
+                    // console.log(data);
+
+
+                    var id_doc_lgl_0 = $(this).data('id_doc');
+                    var nom_doc_lgl_0 = $(this).data('nom_doc');
+
+                    // console.log(id_doc_lgl_0);
+                    // console.log(nom_doc_lgl_0);
+
+                    $('#id_tipo_doc_lgl_0').val(id_doc_lgl_0);
+
+                    $('#_concept_doc_0').val(nom_doc_lgl_0);
+
+
+                    var concept = $('#_concept_doc_0').val();
+                    var id_tipo_doc_ = $('#id_tipo_doc_lgl_0').val();
+
+                    $.ajax({
+                        type: 'POST',
+                        url: '../Controller/obtener_files_client.php',
+                        data: {
+                            _concept_doc: concept,
+                            id_client: id_usu_soli,
+                            dni_client: dni_usu_soli,
+                            id_tipo_doc: id_tipo_doc_
+                        },
+                        success: function(response) {
+                            var data = JSON.parse(response);
+
+                            var archivos = data.archivos;
+                            var estado_doc = data.status_doc;
+
+
+                            if (archivos && archivos.length > 0) {
+                                var enlaceHtml = '';
+
+                                archivos.forEach(function(archivo) {
+                                    var ruta = archivo.ruta;
+                                    var nombreArchivo = archivo.archivo;
+                                    var estado = archivo.estado;
+                                    var status_r = '';
+
+                                    enlaceHtml += '<div>';
+                                    enlaceHtml += '<a href="' + ruta + nombreArchivo + '">' + nombreArchivo + '</a> &nbsp';
+
+                                    enlaceHtml += '<i>' + status_r + '</i><br>';
+
+                                    enlaceHtml += '<select name="cbo_estados" id="cbo_estados">';
+
+                                    if (estado === '500') {
+                                        enlaceHtml += '<option value=""selected>Pendientes</option>';
+                                        enlaceHtml += '<option value="">En revisión</option>';
+                                        enlaceHtml += '<option value="">Finalizado</option>';
+                                    } else if (estado === '405') {
+                                        enlaceHtml += '<option value="">Pendiente</option>';
+                                        enlaceHtml += '<option value="" selected>En revisión</option>';
+                                        enlaceHtml += '<option value="">Finalizado</option>';
+                                    } else if (estado === '200') {
+                                        enlaceHtml += '<option value="">Pendiente</option>';
+                                        enlaceHtml += '<option value="">En revisión</option>';
+                                        enlaceHtml += '<option value="" selected>Finalizado</option>';
+                                    }
+                                    enlaceHtml += '</select><br>';
+                                    enlaceHtml += '</div>';
+                                });
+
+                                document.getElementById('descarga_archivo_ul').innerHTML = enlaceHtml;
+
+                            } else {
+
+                                document.getElementById('descarga_archivo_ul').textContent = 'Archivo no encontrado';
+                            }
+
+                        },
+                        error: function(xhr, status, error) {
+                            console.log(error);
+                        }
+                    });
+
+                });
+                //codigo para el admin y ver los documentos de cada usuario
+
+
+
+                //codigo para el usuario comun vea sus propios documentos
+
+                $('.btn_ver_tipos').on('click', function() {
+
+                    $('#lst_docs_0').modal('show');
+
+                    var id_doc_lgl = $(this).data('id_doc');
+                    var nom_doc_lgl = $(this).data('nom_doc');
+
+                    // console.log(id_doc_lgl);
+                    // console.log(nom_doc_lgl);
+
+                    $('#id_tipo_doc_lgl').val(id_doc_lgl);
+
+                    $('#_concept_doc').val(nom_doc_lgl);
+
+
+
+                    var concept = $('#_concept_doc').val();
+                    var id_tipo_doc_ = $('#id_tipo_doc_lgl').val();
+
+                    var dni = '<?php echo $_SESSION['dni'] ?>';
+                    var id_cli = '<?php echo $_SESSION['id_usu'] ?>';
+
+                    $.ajax({
+                        type: 'POST',
+                        url: '../Controller/obtener_files_client.php',
+                        data: {
+                            _concept_doc: concept,
+                            id_client: id_cli,
+                            dni_client: dni,
+                            id_tipo_doc: id_tipo_doc_
+                        },
+                        success: function(response) {
+                            var data = JSON.parse(response);
+
+                            var archivos = data.archivos;
+                            var estado_doc = data.status_doc;
+
+
+                            if (archivos && archivos.length > 0) {
+                                var enlaceHtml = '';
+
+                                archivos.forEach(function(archivo) {
+                                    var ruta = archivo.ruta;
+                                    var nombreArchivo = archivo.archivo;
+                                    var estado = archivo.estado;
+                                    var status_r = '';
+
+
+                                    enlaceHtml += '<a href="' + ruta + nombreArchivo + '">' + nombreArchivo + '</a> &nbsp';
+
+                                    if (estado == 500) {
+                                        status_r = 'Pendiente'
+                                    }
+                                    enlaceHtml += '<i>' + status_r + '</i><br>';
+                                });
+
+                                document.getElementById('descarga_archivo_s').innerHTML = enlaceHtml;
+
+                            } else {
+
+                                document.getElementById('descarga_archivo_s').textContent = 'Archivo no encontrado';
+                            }
+
+                        },
+                        error: function(xhr, status, error) {
+                            console.log(error);
+                        }
+                    });
+
+
+                });
+
+            });
         });
     </script>
 
@@ -2237,7 +2279,9 @@ require_once('../Controller/controladorListar.php');
                         $("#dni_client_l").val(dni_client);
 
                         $("#data_names_").val(nom_client);
+                        $("#nom_cli_solic").val(nom_client);
                         $("#data_lnames_").val(apellido);
+                        $("#ape_cli_solic").val(apellido);
 
                         $("#data_direcion_1").val(correo);
                         $("#data_direcion_2").val(correo);
@@ -2530,51 +2574,62 @@ require_once('../Controller/controladorListar.php');
 
         // }
 
-        document.getElementById("lst_docs_legal").addEventListener("click", function() {
-            // Abre el modal
 
-            $("#_slct_status").change(function() {
-                var _data_cbo = {
-                    _status: true,
-                    _id_doc: $('#_id_doc_').val(),
-                    _slct_status: $("#_slct_status").val(),
-                };
-                // var seleccion = $(this).val();
-                $.ajax({
-                    type: "POST",
-                    url: "../Controller/update_status_solic_legal.php",
-                    // url: "../Controller/update_status_legal.php",
-                    data: _data_cbo,
-                    dataType: "JSON",
-                    success: function(data) {
-                        console.log(data);
-                        if (data === 100) {
-                            //     alert("Estado cambiado correctamente.");
-                            // isRefused();
-                        } else {
-                            //     alert("Hubo un problema.")
-                        }
-                    },
-                    complete: function() {
 
-                    }
-                });
-                return false;
-            });
-        });
+        // document.getElementById("lst_docs_legal").addEventListener("click", function() {
+        //     // Abre el modal
+        //     $("#_slct_status").change(function() {
+        //         var _data_cbo = {
+        //             _status: true,
+        //             _id_doc: $('#_id_doc_').val(),
+        //             _slct_status: $("#_slct_status").val(),
+        //         };
+        //         // var seleccion = $(this).val();
+        //         $.ajax({
+        //             type: "POST",
+        //             url: "../Controller/update_status_solic_legal.php",
+        //             // url: "../Controller/update_status_legal.php",
+        //             data: _data_cbo,
+        //             dataType: "JSON",
+        //             success: function(data) {
+        //                 console.log(data);
+        //                 // if (data === 100) {
+        //                 // alert("Estado cambiado correctamente.");
+        //                 // isRefused();
+        //                 // } else {
+        //                 //     alert("Hubo un problema.")
+        //                 // }
+        //             },
+        //             complete: function() {
+
+        //             }
+        //         });
+        //         return false;
+        //     });
+
+        // });
     </script>
 
-
     <script>
-        $('#btn_upld_solic_l').on('click', function() {
+        // $('#btn_upld_solic_l').on('click', function() {
 
-            var __id_solic_v = $("#id_solic_doc").val();
-            var cd_solic_v = $("#id_reg_lgl").val(__id_solic_v);
+        //     var __id_solic_v = $("#id_solic_doc").val();
+        //     var cd_solic_v = $("#id_reg_lgl").val(__id_solic_v);
 
-            var __dni__solic_v = $("#dni_client_l").val();
-            var dni_solic_v = $("#dni_solic_lgl").val(__dni__solic_v);
+        //     var __dni__solic_v = $("#dni_client_l").val();
+        //     var dni_solic_v = $("#dni_solic_lgl").val(__dni__solic_v);
 
-        });
+        // });
+
+        // $('#fileAgainContent').on('click', function() {
+
+        //     var _id_new_file = $("#id_solic_doc").val();
+        //     var id_new_file = $("#id_new_file").val(_id_new_file);
+
+        //     var _id_new_reg = $("#dni_client_l").val();
+        //     var id_new_reg = $("#id_new_reg").val(_id_new_reg);
+
+        // });
 
         function habilitarBoton() {
 
@@ -2610,7 +2665,16 @@ require_once('../Controller/controladorListar.php');
                 $("#legal_files").val(""); // Borra el valor del input file
                 $("#btn_updt_solic_l").prop("disabled", true); // Deshabilita el botón
             });
+
+            $("#limpiar_new_Boton").on("click", function() {
+                $("#new_files").val(""); // Borra el valor del input file
+                $("#btn_updt_solic_l").prop("disabled", true); // Deshabilita el botón
+            });
         });
+    </script>
+
+    <script>
+
     </script>
 </body>
 

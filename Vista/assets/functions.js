@@ -514,6 +514,47 @@ $(document).ready(function () {
     });
   });
 
+  $("#btn_add_new_file").click(function (e) {
+    e.preventDefault();
+
+    var formData = new FormData($("#adding_new_legal_file")[0]);
+
+    $.ajax({
+      type: "POST",
+      url: "../Controller/upload_new_doc_legal.php",
+      data: formData,
+      processData: false,
+      contentType: false,
+      beforeSend: function () {
+        $("#loader_add_new_legal").show();
+        $(".adding_new_legal_content").hide();
+      },
+      success: function (response) {
+        console.log(response);
+        // if (response) {
+        //   $("#message_aprob").text("Archivos cargados exitosamente.");
+        //   console.log("e?" + response);
+        // } else if (response.error) {
+        //   $("#message_aprob").text(response.error);
+        //   console.log("uwu" + response);
+        // } else {
+        //   $("#message_aprob").text("Error desconocido al cargar archivos.");
+        //   console.log("p" + response);
+        // }
+      },
+      complete: function () {
+        setTimeout(() => {
+          $(".adding_new_legal_content").show();
+          $("#loader_add_new_legal").hide();
+          $("#modal_upld_new_File").modal("hide");
+        }, 2000);
+      },
+      error: function (xhr, status, error) {
+        console.error(error);
+      },
+    });
+  });
+
   $("#loginButton").click(function (e) {
     e.preventDefault();
 

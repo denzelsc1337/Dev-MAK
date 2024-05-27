@@ -28,6 +28,26 @@
 .w100 {
   width: 100%;
 }
+
+.estado {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin: auto;
+  cursor: help;
+}
+
+.estado.verde {
+  background-color: green;
+}
+
+.estado.amarillo {
+  background-color: yellow;
+}
+
+.estado.rojo {
+  background-color: red;
+}
 /*  */
 
 /* MAK  */
