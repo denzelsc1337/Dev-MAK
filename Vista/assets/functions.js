@@ -519,6 +519,9 @@ $(document).ready(function () {
 
     var formData = new FormData($("#adding_new_legal_file")[0]);
 
+    // formData.append("btn_add_new_file", true);
+    // formData.append("new_files", JSON.stringify(new_files));
+
     $.ajax({
       type: "POST",
       url: "../Controller/upload_new_doc_legal.php",

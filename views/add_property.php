@@ -123,9 +123,204 @@ $ID = mysqli_fetch_object($ID_prop);
                                         <?php
                                         require_once('../Controller/controladorListar.php');
                                         ?>
-                                        <select id="tipo_prop" name="tipo_prop" class="mak-control w100" value="-1"></select>
+                                        <select id="tipo_prop" name="tipo_prop" class="mak-control w-100" value="-1"></select>
                                     </div>
                                     <!-- </div> -->
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 pr-0 mb-3">
+                            <div class="mak-bdr radius-plus">
+                                <div class="card-body">
+                                    <div class="card-head justify-between mb-3">
+                                        <div class="mak-control d-flex">
+                                            <img src="../Vista/images/file-plus.svg" alt="">
+                                            Información adicional
+                                        </div>
+                                        <div class="mak-control mak-tertiary btn_button clear">
+                                            <i class="fa-solid fa-trash"></i>&nbsp;Limpiar filtro
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="mak-control-grid">
+                                            <div class="control-group">
+                                                <span>Precio:</span>
+                                                <div class="content-input">
+                                                    <span>USD</span>
+                                                    <input id="precio_" name="precio_" type="number" class="mak-control w-100" placeholder="Escribe aquí">
+                                                </div>
+                                            </div>
+                                            <div class="control-group">
+                                                <span>Precio por m²:</span>
+                                                <div class="content-input">
+                                                    <span>USD</span>
+                                                    <input id="precio_m2" name="precio_m2" type="number" class="mak-control w-100" placeholder="Escribe aquí">
+                                                </div>
+                                            </div>
+                                            <div class="control-group">
+                                                <span>Área total:</span>
+                                                <div>
+                                                    <input id="area_total" name="area_total" type="number" class="mak-control mr-2" placeholder="Escribe aquí">m²
+                                                </div>
+                                            </div>
+                                            <div class="control-group">
+                                                <span>Área construida:</span>
+                                                <div>
+                                                    <input id="area_construida" name="area_construida" type="number" class="mak-control mr-2" placeholder="Escribe aquí">m²
+                                                </div>
+                                            </div>
+                                            <div class="control-group">
+                                                <span>Área ocupada:</span>
+                                                <div>
+                                                    <input id="area_ocupada" name="area_ocupada" type="number" class="mak-control mr-2" placeholder="Escribe aquí">m²
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- CASA -->
+                                        <div class="mak-control-full casa">
+                                            <div class="control-group">
+                                                <span>Dormitorios:</span>
+                                                <div>
+                                                    <input id="dormitorios_" name="dormitorios_" type="number" class="mak-control w-75" placeholder="0">
+                                                </div>
+                                            </div>
+                                            <div class="control-group">
+                                                <span>Baños:</span>
+                                                <div>
+                                                    <input id="banos_" name="banos_" type="number" class="mak-control w-75" placeholder="0">
+                                                </div>
+                                            </div>
+                                            <div class="control-group">
+                                                <span>Cochera:</span>
+                                                <div>
+                                                    <input id="cochera_" name="cochera_" type="number" class="mak-control w-75" placeholder="0">
+                                                </div>
+                                            </div>
+                                            <div class="control-group">
+                                                <span>N° de pisos:</span>
+                                                <div>
+                                                    <input id="num_pisos_" name="num_pisos_" type="number" class="mak-control w-75" placeholder="0">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- CASA -->
+                                        <!-- OFICINA -->
+                                        <div class="mak-control-full oficina">
+                                            <div class="control-group">
+                                                <span>Ambientes:</span>
+                                                <div>
+                                                    <input id="dormitorios_" name="dormitorios_" type="number" class="mak-control w-75" placeholder="0">
+                                                </div>
+                                            </div>
+                                            <div class="control-group">
+                                                <span>Baños:</span>
+                                                <div>
+                                                    <input id="banos_" name="banos_" type="number" class="mak-control w-75" placeholder="0">
+                                                </div>
+                                            </div>
+                                            <div class="control-group">
+                                                <span>Cochera:</span>
+                                                <div>
+                                                    <input id="cochera_" name="cochera_" type="number" class="mak-control w-75" placeholder="0">
+                                                </div>
+                                            </div>
+                                            <div class="control-group">
+                                                <span>N° de pisos:</span>
+                                                <div>
+                                                    <input id="num_pisos_" name="num_pisos_" type="number" class="mak-control w-75" placeholder="0">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- OFICINA -->
+                                        <!-- LOCAL COMERCIAL -->
+                                        <div class="mak-control-full comercial">
+                                            <div class="control-group">
+                                                <span>Ambientes:</span>
+                                                <div>
+                                                    <input id="dormitorios_" name="dormitorios_" type="number" class="mak-control w-75" placeholder="0">
+                                                </div>
+                                            </div>
+                                            <div class="control-group">
+                                                <span>Baños:</span>
+                                                <div>
+                                                    <input id="banos_" name="banos_" type="number" class="mak-control w-75" placeholder="0">
+                                                </div>
+                                            </div>
+                                            <div class="control-group">
+                                                <span>Cochera:</span>
+                                                <div>
+                                                    <input id="cochera_" name="cochera_" type="number" class="mak-control w-75" placeholder="0">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- LOCAL COMERCIAL -->
+                                        <!-- LOCAL INDUSTRIAL / ALMACEN -->
+                                        <div class="mak-control-full industrial">
+                                            <div class="control-group">
+                                                <span>Zonificación:</span>
+                                                <div>
+                                                    <select name="" id="" class="mak-control w-75"></select>
+                                                </div>
+                                            </div>
+                                            <div class="control-group">
+                                                <span>Área de nave:</span>
+                                                <div>
+                                                    <input id="banos_" name="banos_" type="number" class="mak-control w-75 mr-2" placeholder="0"> ml
+                                                </div>
+                                            </div>
+                                            <div class="control-group">
+                                                <span>Altura de nave:</span>
+                                                <div>
+                                                    <input id="cochera_" name="cochera_" type="number" class="mak-control w-75 mr-2" placeholder="0"> ml
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="mak-control-full industrial">
+                                            <div class="control-group">
+                                                <span>Ambientes:</span>
+                                                <div>
+                                                    <input id="dormitorios_" name="dormitorios_" type="number" class="mak-control w-75" placeholder="0">
+                                                </div>
+                                            </div>
+                                            <div class="control-group">
+                                                <span>Baños:</span>
+                                                <div>
+                                                    <input id="banos_" name="banos_" type="number" class="mak-control w-75" placeholder="0">
+                                                </div>
+                                            </div>
+                                            <div class="control-group">
+                                                <span>Cochera:</span>
+                                                <div>
+                                                    <input id="cochera_" name="cochera_" type="number" class="mak-control w-75" placeholder="0">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- LOCAL INDUSTRIAL / ALMACEN -->
+                                        <!-- TERRENO -->
+                                        <div class="mak-control-full terreno">
+                                            <div class="control-group">
+                                                <span>Zonificación:</span>
+                                                <div>
+                                                    <input id="dormitorios_" name="dormitorios_" type="number" class="mak-control w-75" placeholder="0">
+                                                </div>
+                                            </div>
+                                            <div class="control-group">
+                                                <span>Parámetros:</span>
+                                                <div>
+                                                    <input id="banos_" name="banos_" type="number" class="mak-control w-75 mr-2" placeholder="0">pisos
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- TERRENO -->
+                                        <div class="mak-control-grid">
+                                            <div class="control-group">
+                                                <span>Porcentaje de comisión:</span>
+                                                <div>
+                                                    <input id="porcen_comision" name="porcen_comision" type="number" class="mak-control mr-2" placeholder="Escribe aquí"> %
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -147,27 +342,27 @@ $ID = mysqli_fetch_object($ID_prop);
                                         <!-- <div class="col-md-12 d-flex"> -->
                                         <div class="col-md-6 mb-2">
                                             <span>Departamento</span>
-                                            <select id="depa_prop" name="depa_prop" class="mak-control w100"></select>
+                                            <select id="depa_prop" name="depa_prop" class="mak-control w-100"></select>
                                         </div>
                                         <div class="col-md-6 mb-2">
                                             <span>Provincia</span>
-                                            <select id="prov_prop" name="prov_prop" class="mak-control w100"></select>
+                                            <select id="prov_prop" name="prov_prop" class="mak-control w-100"></select>
                                         </div>
                                         <div class="col-md-6 mb-2">
                                             <span>Distrito</span>
-                                            <select id="distr_prop" name="distr_prop" class="mak-control w100"></select>
+                                            <select id="distr_prop" name="distr_prop" class="mak-control w-100"></select>
                                         </div>
                                         <div class="col-md-6 mb-2">
                                             <span>Urbanización <span class="mak-tertiary">(Opcional)</span></span>
-                                            <input id="" name="" type="text" class="mak-control w100" placeholder="Escribe una palabra clave">
+                                            <input id="" name="" type="text" class="mak-control w-100" placeholder="Escribe una palabra clave">
                                         </div>
                                         <div class="col-md-7 mb-2">
                                             <span>Localización en el mapa</span>
-                                            <input id="direccion_" name="direccion_" type="text" class="mak-control w100" id="" placeholder="Escribe una dirección">
+                                            <input id="direccion_" name="direccion_" type="text" class="mak-control w-100" id="" placeholder="Escribe una dirección">
                                         </div>
                                         <div class="col-md-5 mb-2">
                                             <span>&nbsp;</span>
-                                            <select name="" id="" class="mak-control w100">
+                                            <select name="" id="" class="mak-control w-100">
                                                 <option value="">1</option>
                                                 <option value="">2</option>
                                                 <option value="">3</option>
@@ -236,12 +431,35 @@ $ID = mysqli_fetch_object($ID_prop);
                                         <!-- <div class="col-md-12 d-flex"> -->
                                         <div class="col-md-6 mb-2">
                                             <span class="mak-title-lbl">Video de YouTube <span class="mak-tertiary">(Opcional)</span></span>
-                                            <input id="vid-yt-prop" name="vid-yt-prop" type="text" class="mak-control w100" placeholder="Enter email">
+                                            <input id="vid-yt-prop" name="vid-yt-prop" type="text" class="mak-control w-100" placeholder="Enter email">
                                         </div>
                                         <div class="col-md-6 mb-2">
                                             <span class="mak-title-lbl">Vídeo de recorrido <span class="mak-tertiary">(Opcional)</span></span>
-                                            <input id="vid-rec-prop" name="vid-rec-prop" type="text" class="mak-control w100" placeholder="Enter email">
+                                            <input id="vid-rec-prop" name="vid-rec-prop" type="text" class="mak-control w-100" placeholder="Enter email">
                                         </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 mb-3">
+                            <div class="mak-bdr radius-plus">
+                                <div class="card-body">
+                                    <div class="card-head justify-between mb-3">
+                                        <div class="mak-control d-flex">
+                                            <img src="../Vista/images/map.svg" alt="">
+                                            Características de la propiedad
+                                        </div>
+                                        <div class="mak-control mak-tertiary btn_button clear">
+                                            <i class="fa-solid fa-trash"></i>&nbsp;Limpiar filtros
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <label class="mak-control cursor" for="aire_acondicionado">
+                                            <input type="checkbox" name="aire_acondicionado" id="aire_acondicionado">
+                                            <span>Aire acondicionado</span>
+                                        </label>
                                     </div>
                                 </div>
                             </div>
@@ -302,45 +520,13 @@ $ID = mysqli_fetch_object($ID_prop);
                                     <?php
                                     require_once('../Controller/controladorListar.php');
                                     ?>
-                                    <select id="tipo_prop" name="tipo_prop" class="mak-control w100" value="-1"></select>
+                                    <select id="tipo_prop" name="tipo_prop" class="mak-control w-100" value="-1"></select>
                                 </div>
                                 <!-- </div> -->
                             </div>
                         </div>
                     </div>
-                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 pr-0 mb-3">
-                        <div class="mak-bdr radius-plus">
-                            <div class="card-body">
-                                <div class="card-head justify-between mb-3">
-                                    <div class="mak-control d-flex">
-                                        <img src="../Vista/images/file-plus.svg" alt="">
-                                        Información adicional
-                                    </div>
-                                    <div class="mak-control mak-tertiary btn_button clear">
-                                        <i class="fa-solid fa-trash"></i>&nbsp;Limpiar filtro
-                                    </div>
-                                </div>
-                                <div class="">
-                                    <span>Precio</span>
-                                    <div class="textarea-container">
-                                        <textarea id="title_prop" name="title_prop" class="mak-control txt-area" maxlength="80" placeholder="Escribir aquí."></textarea>
-                                        <div id="charCounter" class="char-counter">0/80</div>
-                                    </div>
-                                </div>
-                                <div class="">
-                                    <span>Descripción</span>
-                                    <div class="textarea-container">
-                                        <textarea id="desc_prop" name="desc_prop" class="mak-control txt-area" maxlength="500" rows="15" placeholder="Escribir aquí."></textarea>
-                                        <div id="charCounter" class="char-counter">0/80</div>
-                                    </div>
-                                </div>
-                                <div class="comision" style="display: none;">
-                                    <span>Porcentaje de comisión:</span>
-                                    <input id="" name="" type="text" class="mak-control" placeholder="Escribe aquí">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+
                 </div>
                 <div class="col-xl-7 col-lg-7 col-md-12 col-sm-12 col-12">
                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 pl-0 mb-3">
@@ -359,27 +545,27 @@ $ID = mysqli_fetch_object($ID_prop);
                                     <!-- <div class="col-md-12 d-flex"> -->
                                     <div class="col-md-6 mb-2">
                                         <span>Departamento</span>
-                                        <select id="depa_prop" name="depa_prop" class="mak-control w100"></select>
+                                        <select id="depa_prop" name="depa_prop" class="mak-control w-100"></select>
                                     </div>
                                     <div class="col-md-6 mb-2">
                                         <span>Provincia</span>
-                                        <select id="prov_prop" name="prov_prop" class="mak-control w100"></select>
+                                        <select id="prov_prop" name="prov_prop" class="mak-control w-100"></select>
                                     </div>
                                     <div class="col-md-6 mb-2">
                                         <span>Distrito</span>
-                                        <select id="distr_prop" name="distr_prop" class="mak-control w100"></select>
+                                        <select id="distr_prop" name="distr_prop" class="mak-control w-100"></select>
                                     </div>
                                     <div class="col-md-6 mb-2">
                                         <span>Urbanización <span class="mak-tertiary">(Opcional)</span></span>
-                                        <input id="" name="" type="text" class="mak-control w100" placeholder="Escribe una palabra clave">
+                                        <input id="" name="" type="text" class="mak-control w-100" placeholder="Escribe una palabra clave">
                                     </div>
                                     <div class="col-md-7 mb-2">
                                         <span>Localización en el mapa</span>
-                                        <input id="direccion_" name="direccion_" type="text" class="mak-control w100" id="" placeholder="Escribe una dirección">
+                                        <input id="direccion_" name="direccion_" type="text" class="mak-control w-100" id="" placeholder="Escribe una dirección">
                                     </div>
                                     <div class="col-md-5 mb-2">
                                         <span>&nbsp;</span>
-                                        <select name="" id="" class="mak-control w100">
+                                        <select name="" id="" class="mak-control w-100">
                                             <option value="">1</option>
                                             <option value="">2</option>
                                             <option value="">3</option>

@@ -1179,11 +1179,12 @@ require_once('../Controller/controladorListar.php');
                 <form id="adding_new_legal_file" method="POST" enctype="multipart/form-data">
 
                     <div class="modal-body">
-                        <div hidden>
+                        <div>
                             <input type="text" id="id_new_file" name="id_new_file">
-                            <input type="text" id="id_new_reg" name="id_new_reg">
+                            <input type="text" id="dni_new_reg" name="dni_new_reg">
                             <input type="text" id="_estado_new_" name="_estado_new_">
                             <input type="text" id="_ruta_new_" name="_ruta_new_">
+                            <input type="text" id="tipo_doc_" name="tipo_doc_">
                         </div>
                         <div class="form-group text-center">
                             <img class="row margin" src="../Vista/assets/loading_uhd.gif" id="loader_add_new_legal" style="display:none;">
@@ -1521,7 +1522,7 @@ require_once('../Controller/controladorListar.php');
                             if (archivos && archivos.length > 0) {
                                 archivos.forEach(function(archivo) {
 
-                                    // console.log(archivo);
+                                    console.log(archivo);
                                     var ruta = archivo.ruta;
                                     var nombreArchivo = archivo.archivo;
                                     var estado = archivo.estado;
@@ -1806,7 +1807,10 @@ require_once('../Controller/controladorListar.php');
                     var _dni_cli_lgl = $('#dni_client_l').val();
                     var titulo_modal = $('#titulo_docs').text(_titulo);
 
-                    $('#_titulo_docs').val(tipo_doc);
+
+                    // segundo modal -- volver a subir archibo rechazado
+                    $("#tipo_doc_").val(_id_doc_lgl);
+                    // segundo modal -- volver a subir archibo rechazado
 
 
                     load_documents_legal_(id_reg, _dni_cli_lgl, tipo_doc, _id_cli_lgl, _id_doc_lgl)
@@ -1859,7 +1863,7 @@ require_once('../Controller/controladorListar.php');
                     $("#id_new_file").val(_id_);
 
                     var _dni_ = $('#dni_client_l').val();
-                    $("#id_new_reg").val(_dni_);
+                    $("#dni_new_reg").val(_dni_);
 
                     var _estado_ = $("#_estado_").val();
                     $("#_estado_new_").val(_estado_);
@@ -2611,26 +2615,6 @@ require_once('../Controller/controladorListar.php');
     </script>
 
     <script>
-        // $('#btn_upld_solic_l').on('click', function() {
-
-        //     var __id_solic_v = $("#id_solic_doc").val();
-        //     var cd_solic_v = $("#id_reg_lgl").val(__id_solic_v);
-
-        //     var __dni__solic_v = $("#dni_client_l").val();
-        //     var dni_solic_v = $("#dni_solic_lgl").val(__dni__solic_v);
-
-        // });
-
-        // $('#fileAgainContent').on('click', function() {
-
-        //     var _id_new_file = $("#id_solic_doc").val();
-        //     var id_new_file = $("#id_new_file").val(_id_new_file);
-
-        //     var _id_new_reg = $("#dni_client_l").val();
-        //     var id_new_reg = $("#id_new_reg").val(_id_new_reg);
-
-        // });
-
         function habilitarBoton() {
 
             const fil = document.getElementById("legal_files");

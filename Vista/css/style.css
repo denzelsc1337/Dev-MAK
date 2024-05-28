@@ -25,9 +25,6 @@
 /* 
 
 /*  */
-.w100 {
-  width: 100%;
-}
 
 .estado {
   width: 30px;
@@ -217,6 +214,42 @@
   border: none;
 }
 
+.mak-control-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.mak-control-grid .control-group {
+  flex: 1 calc(50% - 1rem);
+}
+
+.mak-control-full {
+  display: flex;
+  width: 100%;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.mak-control-full .control-group {
+  flex: 1 1 calc(100% - 1rem);
+}
+
+.mak .hidden {
+  opacity: 0;
+  transition: opacity 0.5s ease-out; /* Ajusta el tiempo según sea necesario */
+}
+
+.mak .visible {
+  opacity: 1;
+  transition: opacity 0.5s ease-in;
+}
+
+.mak .display-none {
+  display: none;
+}
+
 .mak .mak-control {
   display: inline-flex;
   align-items: center;
@@ -231,6 +264,13 @@
 .mak .mak-control:focus {
   border: none;
   outline: none;
+}
+
+.mak .content-input {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-left: 0.5rem;
 }
 
 .mak .content-filter {
