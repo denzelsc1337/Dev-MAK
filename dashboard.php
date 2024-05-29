@@ -16,14 +16,9 @@
 
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Material+Icons+Outlined" crossorigin="anonymous" referrerpolicy="no-referrer">
 
-  <!-- daterange picker -->
-  <!-- <link rel="stylesheet" href="Vista/plugins/daterangepicker/daterangepicker.css"> -->
-  <!-- iCheck for checkboxes and radio inputs -->
-  <!-- <link rel="stylesheet" href="Vista/plugins/icheck-bootstrap/icheck-bootstrap.min.css"> -->
-  <!-- Bootstrap Color Picker -->
-  <!-- <link rel="stylesheet" href="Vista/plugins/bootstrap-colorpicker/css/bootstrap-colorpicker.min.css"> -->
-  <!-- Tempusdominus Bootstrap 4 -->
-  <!-- <link rel="stylesheet" href="Vista/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css"> -->
+  <!-- BOOTSTRAP -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer">
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
   <!-- Select2 -->
   <link rel="stylesheet" href="Vista/plugins/select2/css/select2.min.css">
   <link rel="stylesheet" href="Vista/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
@@ -355,23 +350,67 @@
   </div> -->
 
 
+  <!-- <?php // include 'modals.php' 
+        ?> -->
+
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title" id="exampleModalLabel">Más servicios</h1>
+          <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="d-flex g-10">
+            <label class="mak-control cursor m-0" for="aire_acondicionado">
+              <input type="checkbox" name="aire_acondicionado" id="aire_acondicionado">
+              <span>Aire acondicionado</span>
+            </label>
+            <label class="mak-control cursor m-0" for="aire_acondicionado">
+              <input type="checkbox" name="aire_acondicionado" id="aire_acondicionado">
+              <span>Aire acondicionado</span>
+            </label>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function openModal() {
+      // console.log('Abriendo modal...');
+      $('#exampleModal').modal('show');
+    }
+
+    // Escucha mensajes del iframe
+    window.addEventListener('message', function(event) {
+      // console.log('Mensaje recibido:', event.data);
+      if (event.data === 'openModal') {
+        openModal();
+      }
+    });
+  </script>
+
   <!-- REQUIRED SCRIPTS -->
   <!-- jQuery -->
   <script src="Vista/plugins/jquery/jquery.min.js"></script>
   <!-- Bootstrap 4 -->
   <script src="Vista/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
   <!-- AdminLTE App -->
-  <script src="Vista/dist/js/adminlte.min.js"></script>
+  <script src="./../Dev-MAK/Vista/dist/js/adminlte.min.js"></script>
   <!-- AdminLTE for demo purposes -->
-  <script src="Vista/dist/js/demo.js"></script>
+  <script src="./Vista/dist/js/demo.js"></script>
 
   <script src="./Vista/assets/dash.js"></script>
+  <!-- script modal -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
 
-  <script>
-    $(document).ready(function() {
-      $('#exampleModal').modal('show');
-    });
-  </script>
 
 </body>
 

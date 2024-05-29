@@ -19,6 +19,10 @@ $ID = mysqli_fetch_object($ID_prop);
     <!-- JQUERY -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
+    <!-- BOOTSTRAP -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+
     <!-- Font Awesome -->
     <link rel="stylesheet" href="../Vista/plugins/fontawesome-free/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer">
@@ -38,6 +42,10 @@ $ID = mysqli_fetch_object($ID_prop);
 
 
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCNO5GraIm8rWrrLbWt-Gv9GxsenRng-8o&libraries=places" async defer></script>
+
+
+
+
     <style>
         html {
             overflow-x: hidden;
@@ -445,7 +453,7 @@ $ID = mysqli_fetch_object($ID_prop);
                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 mb-3">
                             <div class="mak-bdr radius-plus">
-                                <div class="card-body">
+                                <div class="card-body chks">
                                     <div class="card-head justify-between mb-3">
                                         <div class="mak-control d-flex">
                                             <img src="../Vista/images/map.svg" alt="">
@@ -455,11 +463,36 @@ $ID = mysqli_fetch_object($ID_prop);
                                             <i class="fa-solid fa-trash"></i>&nbsp;Limpiar filtros
                                         </div>
                                     </div>
-                                    <div>
-                                        <label class="mak-control cursor" for="aire_acondicionado">
-                                            <input type="checkbox" name="aire_acondicionado" id="aire_acondicionado">
-                                            <span>Aire acondicionado</span>
+                                    <h5>Servicios</h5>
+                                    <div class="d-flex g-10 mb-2">
+                                        <label class="mak-options cursor m-0" for="aire_acondicionado">
+                                            <input id="aire_acondicionado" name="aire_acondicionado" type="checkbox" class="mak-control-event">
+                                            <span class="ml-2 mr-2">Aire acondicionado</span>
+                                            <input type="number" min="0" class="mak-options-brd-bottom p-0">
                                         </label>
+                                        <label class="mak-control cursor m-0" for="area_juegos">
+                                            <input id="area_juegos" name="area_juegos" type="checkbox" class="">
+                                            <span>Área de juegos infantiles</span>
+                                        </label>
+                                        <div class="mak-control brd-out cursor m-0 verOptions_01" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                            <i class="fa-solid fa-plus"></i>
+                                            Ver más opciones
+                                        </div>
+                                    </div>
+                                    <h5>Carácteristicas Generales</h5>
+                                    <div class="d-flex g-10 mb-2">
+                                        <label class="mak-control cursor m-0" for="acabados_lujo">
+                                            <input id="acabados_lujo" name="acabados_lujo" type="checkbox" class="mak-control-event">
+                                            <span>Acabados de lujo</span>
+                                        </label>
+                                        <label class="mak-control cursor m-0" for="amueblado">
+                                            <input id="amueblado" name="amueblado" type="checkbox" class="mak-control-event">
+                                            <span>Amueblado</span>
+                                        </label>
+                                        <div class="mak-control brd-out cursor m-0 verOptions_02" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                            <i class="fa-solid fa-plus"></i>
+                                            Ver más opciones
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -596,17 +629,97 @@ $ID = mysqli_fetch_object($ID_prop);
     </div>
 
 
-
+    <!-- MODAL -->
+    <!-- <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title" id="exampleModalLabel">Más servicios</h1>
+                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="d-flex g-10">
+                        <label class="mak-control cursor m-0" for="aire_acondicionado">
+                            <input type="checkbox" name="aire_acondicionado" id="aire_acondicionado">
+                            <span>Aire acondicionado</span>
+                        </label>
+                        <label class="mak-control cursor m-0" for="aire_acondicionado">
+                            <input type="checkbox" name="aire_acondicionado" id="aire_acondicionado">
+                            <span>Aire acondicionado</span>
+                        </label>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div> -->
+    <!-- <?php include '../modals.php' ?> -->
+    <!-- MODAL -->
 
     <!-- jQuery -->
     <script src="./../Vista/plugins/jquery/jquery.min.js"></script>
     <script src="./../Vista/assets/add_property.js"></script>
     <script src="./../Vista/assets/selection_types.js"></script>
     <script src="./../Vista/js/upFiles.js"></script>
-
+    <!-- script modal -->
+    <script src="../Vista/dist/js/adminlte.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
 
     <script>
+        document.addEventListener('DOMContentLoaded', function() {
 
+            var lblContent = document.querySelector('.chks');
+            var labels = lblContent.querySelectorAll('label');
+
+            // console.log(lblContent);
+            // console.log(labels);
+
+            labels.forEach(function(label) {
+
+                var checkbox = label.querySelectorAll('input[type="checkbox"]');
+                var lastInput = label.querySelector('input[type="number"]:not(.mak-control-event)');
+
+                checkbox.forEach(element => {
+
+                    element.addEventListener("click", function() {
+                        if (element.classList.contains("mak-control-event")) {
+                            if (element.checked) {
+                                label.classList.add('checked');
+                                // lastInput.classList.remove("hidden");
+                            } else {
+                                label.classList.remove('checked');
+                                lastInput.value = "";
+                                // lastInput.classList.add("hidden");
+                            }
+                        } else {
+                            if (element.checked) {
+                                label.classList.add('checked');
+                            } else {
+                                label.classList.remove('checked');
+                            }
+                        }
+                    });
+
+                });
+                // console.log(chk);
+
+                // label.addEventListener('change', function() {
+                //     // console.log("ola");
+                //     // console.log(checkbox);
+
+                //     if (checkbox.checked) {
+                //         label.classList.add('checked', 'expanded');
+                //     } else {
+                //         label.classList.remove('checked', 'expanded');
+                //     }
+                // });
+            });
+        });
     </script>
 
     <!--GOOGLE MAPS TESTING-->
@@ -668,5 +781,15 @@ $ID = mysqli_fetch_object($ID_prop);
         window.initMap = initMap;
     </script>
     <!--GOOGLE MAPS TESTING-->
+
+
+
+    <script>
+        console.log(document.querySelector('.verOptions_01'));
+        document.querySelector('.verOptions_01').addEventListener('click', function() {
+            // Enviar mensaje a la página principal para abrir el modal
+            parent.postMessage('openModal', '*');
+        });
+    </script>
 
 </body>

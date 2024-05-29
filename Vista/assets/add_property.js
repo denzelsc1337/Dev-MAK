@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
           element.classList.remove("mak-primary");
 
           if (checkbox.value == "2") {
-            document.querySelector(".comision").style.display = "none";
+            // document.querySelector(".comision").style.display = "none";
           }
         } else {
           // Si el checkbox no está marcado, marcarlo y añadir la clase
@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
           element.classList.add("mak-primary");
 
           if (checkbox.value == "2") {
-            document.querySelector(".comision").style.display = "block";
+            // document.querySelector(".comision").style.display = "block";
           }
 
           // Activar el segundo tab si se hace clic en el tercer tab
@@ -57,7 +57,7 @@ document.addEventListener("DOMContentLoaded", () => {
           const itemCheckbox = item.querySelector(".tab-checkbox");
           if (itemCheckbox) {
             itemCheckbox.checked = false;
-            document.querySelector(".comision").style.display = "none";
+            // document.querySelector(".comision").style.display = "none";
           }
         });
         element.classList.add("mak-primary");
