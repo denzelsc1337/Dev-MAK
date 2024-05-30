@@ -1,4 +1,4 @@
-<div class="lateral_bar mak-bdr">
+<div class="lateral_bar lateral_left mak-bdr">
     <ul>
         <li class="nav-item active">
             <a class="nav-link" role="button" onclick='linker("views/main.php")'>

@@ -1,0 +1,38 @@
+COLORES
+
+Azul: 16243E
+Líneas: E7EAEF
+Algunas Letras: 
+Sombra de botones: F1F3F6
+
+
+TIPOGRAFÍAS
+
+Navbar: 
+- Bt: Helvetica Roman
+- Nombre: Helvetica Bold
+- Apellido: Helvetica Roman
+- Norificación: Helvetica Roman
+
+Lateral:
+- Sin seleccionar: Helvetica Roman
+- Seleccionar: Helvetica Bold
+
+Ilustrasión + Texto:
+- Helvetica Bold
+- Helvetica Roman
+
+Paneles:
+- Títulos: Helvetica Mendium
+- Acuatilziacón: Helvetica Roman
+- Textos: Helvetica Roman
+- BtVerMás: Helvetica Roman
+
+Servicio Tecnico:
+- Titulo: Helvetica Bold
+- Texto: Helvetica Roman - Bold
+
+Calendario:
+- Titulo + Mes + Dias: Helvetica Mendium
+- Números: Helvetica Roman
+- Notificación: Titulo - Medium / Texto - Roman

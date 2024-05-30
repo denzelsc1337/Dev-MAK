@@ -90,13 +90,16 @@
 
 
     <section class="section_content">
-      <?php include 'lateral_bar.php' ?>
+      <div class="distribution">
+        <?php include 'lateral_bar.php' ?>
 
-      <div id="content">
-        <iframe id="paginas" name="contenido"></iframe>
+        <div id="content">
+          <iframe id="paginas" name="contenido" src="views/main.php"></iframe>
+        </div>
+
+        <?php include 'lateral_bar_right.php' ?>
       </div>
 
-      <?php include 'lateral_bar.php' ?>
     </section>
 
   </div>
