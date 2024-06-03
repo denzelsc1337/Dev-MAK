@@ -33,6 +33,12 @@
   <link rel="stylesheet" href="Vista/dist/css/adminlte.min.css">
   <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
 
+  <style>
+    html {
+      overflow: hidden;
+    }
+  </style>
+
 </head>
 
 <body class="mak hold-transition sidebar-mini sidebar-collapse layout-fixed layout-navbar-fixed layout-footer-fixed">
@@ -58,7 +64,8 @@
       <ul class="navbar-nav ml-auto mr-4">
         <li class="nav-item" data-target="add_property">
 
-          <div class="mak-control mak-primary btn_button" onclick='linker("views/add_property.php")'>
+          <div class="mak-control mak-primary btn_button" onclick='linker("views/menu_property.php")'>
+            <!-- <div class="mak-control mak-primary btn_button" onclick='linker("views/add_property.php")'> -->
             Subir propiedad
             <i class="fa-solid fa-folder-plus"></i>
           </div>
@@ -384,21 +391,6 @@
       </div>
     </div>
   </div>
-
-  <script>
-    function openModal() {
-      // console.log('Abriendo modal...');
-      $('#exampleModal').modal('show');
-    }
-
-    // Escucha mensajes del iframe
-    window.addEventListener('message', function(event) {
-      // console.log('Mensaje recibido:', event.data);
-      if (event.data === 'openModal') {
-        openModal();
-      }
-    });
-  </script>
 
   <!-- REQUIRED SCRIPTS -->
   <!-- jQuery -->

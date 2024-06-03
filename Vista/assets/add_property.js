@@ -1,97 +1,127 @@
 // --------------------------------
 // --------------------------------
 
-document.addEventListener("DOMContentLoaded", () => {
-  const tabItems = document.querySelectorAll(".tab");
-  const contentContainers = document.querySelectorAll(".tab-content");
+// document.addEventListener("DOMContentLoaded", () => {
+//   const tabItems = document.querySelectorAll(".tab");
+//   const contentContainers = document.querySelectorAll(".tab-content");
 
-  tabItems.forEach((element) => {
-    element.addEventListener("click", () => {
-      const checkbox = element.querySelector(".tab-checkbox");
+//   tabItems.forEach((element) => {
+//     element.addEventListener("click", () => {
+//       const checkbox = element.querySelector(".tab-checkbox");
 
-      if (checkbox) {
-        // Manejo de tabs con checkbox
-        tabItems[0].classList.remove("mak-primary");
+//       if (checkbox) {
+//         // Manejo de tabs con checkbox
+//         tabItems[0].classList.remove("mak-primary");
 
-        if (checkbox.checked) {
-          // Si el checkbox está marcado, desmarcarlo y remover la clase
-          checkbox.checked = false;
-          element.classList.remove("mak-primary");
+//         if (checkbox.checked) {
+//           // Si el checkbox está marcado, desmarcarlo y remover la clase
+//           checkbox.checked = false;
+//           element.classList.remove("mak-primary");
 
-          if (checkbox.value == "2") {
-            // document.querySelector(".comision").style.display = "none";
-          }
-        } else {
-          // Si el checkbox no está marcado, marcarlo y añadir la clase
-          checkbox.checked = true;
-          element.classList.add("mak-primary");
+//           if (checkbox.value == "2") {
+//             // document.querySelector(".comision").style.display = "none";
+//           }
+//         } else {
+//           // Si el checkbox no está marcado, marcarlo y añadir la clase
+//           checkbox.checked = true;
+//           element.classList.add("mak-primary");
 
-          if (checkbox.value == "2") {
-            // document.querySelector(".comision").style.display = "block";
-          }
+//           if (checkbox.value == "2") {
+//             // document.querySelector(".comision").style.display = "block";
+//           }
 
-          // Activar el segundo tab si se hace clic en el tercer tab
-          if (checkbox.value == "2") {
-            const secondTab = document
-              .querySelector('.tab .tab-checkbox[value="1"]')
-              .closest(".tab");
-            if (secondTab) {
-              const secondCheckbox = secondTab.querySelector(".tab-checkbox");
-              secondCheckbox.checked = true;
-              secondTab.classList.add("mak-primary");
+//           // Activar el segundo tab si se hace clic en el tercer tab
+//           if (checkbox.value == "2") {
+//             const secondTab = document
+//               .querySelector('.tab .tab-checkbox[value="1"]')
+//               .closest(".tab");
+//             if (secondTab) {
+//               const secondCheckbox = secondTab.querySelector(".tab-checkbox");
+//               secondCheckbox.checked = true;
+//               secondTab.classList.add("mak-primary");
 
-              // Mostrar el contenido del segundo tab
-              const secondTabTargetId = secondTab.getAttribute("data-target");
-              const secondTabTargetContainer =
-                document.getElementById(secondTabTargetId);
-              if (secondTabTargetContainer) {
-                secondTabTargetContainer.classList.add("active");
-              }
-            }
-          }
+//               // Mostrar el contenido del segundo tab
+//               const secondTabTargetId = secondTab.getAttribute("data-target");
+//               const secondTabTargetContainer =
+//                 document.getElementById(secondTabTargetId);
+//               if (secondTabTargetContainer) {
+//                 secondTabTargetContainer.classList.add("active");
+//               }
+//             }
+//           }
+//         }
+//       } else {
+//         // Manejo del tab sin checkbox (tab 1)
+//         tabItems.forEach((item) => {
+//           item.classList.remove("mak-primary");
+//           const itemCheckbox = item.querySelector(".tab-checkbox");
+//           if (itemCheckbox) {
+//             itemCheckbox.checked = false;
+//             // document.querySelector(".comision").style.display = "none";
+//           }
+//         });
+//         element.classList.add("mak-primary");
+//       }
+
+//       // Ocultar todos los contenedores de contenido
+//       contentContainers.forEach((container) => {
+//         container.classList.remove("active");
+//       });
+
+//       // Mostrar el contenedor de contenido correspondiente al tab clicado
+//       const targetId = element.getAttribute("data-target");
+//       const targetContainer = document.getElementById(targetId);
+
+//       if (targetContainer) {
+//         targetContainer.classList.add("active");
+//       }
+
+//       // Verificar si ambos checkboxes están desmarcados
+//       const checkboxes = document.querySelectorAll(".tab-checkbox");
+//       const anyCheckboxChecked = [...checkboxes].some((chk) => chk.checked);
+//       if (!anyCheckboxChecked) {
+//         // Activar el primer tab si ninguno de los checkboxes está marcado
+//         tabItems[0].classList.add("mak-primary");
+
+//         const firstTabTargetId = tabItems[0].getAttribute("data-target");
+//         const firstTabTargetContainer =
+//           document.getElementById(firstTabTargetId);
+
+//         if (firstTabTargetContainer) {
+//           tabItems[0].click();
+//         }
+//       }
+//     });
+//   });
+// });
+
+const tabItems = document.querySelectorAll(".mak-control[data-tab]");
+
+tabItems.forEach((element) => {
+  element.addEventListener("click", function () {
+    const checkbox = element.querySelector(".tab-checkbox");
+
+    if (checkbox) {
+      if (checkbox.checked) {
+        // Si el checkbox está marcado, desmarcarlo y remover la clase
+        checkbox.checked = false;
+        element.classList.remove("mak-primary");
+        if (checkbox.value == "2") {
+          document.querySelector(".comision").classList.add("hide");
+        } else if (checkbox.value == "1") {
+          document.querySelector(".anunciar").value = "";
         }
       } else {
-        // Manejo del tab sin checkbox (tab 1)
-        tabItems.forEach((item) => {
-          item.classList.remove("mak-primary");
-          const itemCheckbox = item.querySelector(".tab-checkbox");
-          if (itemCheckbox) {
-            itemCheckbox.checked = false;
-            // document.querySelector(".comision").style.display = "none";
-          }
-        });
+        // Si el checkbox no está marcado, marcarlo y añadir la clase
+        checkbox.checked = true;
         element.classList.add("mak-primary");
-      }
-
-      // Ocultar todos los contenedores de contenido
-      contentContainers.forEach((container) => {
-        container.classList.remove("active");
-      });
-
-      // Mostrar el contenedor de contenido correspondiente al tab clicado
-      const targetId = element.getAttribute("data-target");
-      const targetContainer = document.getElementById(targetId);
-
-      if (targetContainer) {
-        targetContainer.classList.add("active");
-      }
-
-      // Verificar si ambos checkboxes están desmarcados
-      const checkboxes = document.querySelectorAll(".tab-checkbox");
-      const anyCheckboxChecked = [...checkboxes].some((chk) => chk.checked);
-      if (!anyCheckboxChecked) {
-        // Activar el primer tab si ninguno de los checkboxes está marcado
-        tabItems[0].classList.add("mak-primary");
-
-        const firstTabTargetId = tabItems[0].getAttribute("data-target");
-        const firstTabTargetContainer =
-          document.getElementById(firstTabTargetId);
-
-        if (firstTabTargetContainer) {
-          tabItems[0].click();
+        if (checkbox.value == "2") {
+          document.querySelector(".comision").classList.remove("hide");
+        } else if (checkbox.value == "1") {
+          document.querySelector(".anunciar").value = 1;
         }
       }
-    });
+    }
   });
 });
 

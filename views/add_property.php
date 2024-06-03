@@ -56,7 +56,7 @@ $ID = mysqli_fetch_object($ID_prop);
         }
 
         #map {
-            height: 400px;
+            height: 200px;
             width: 100%;
         }
     </style>
@@ -71,9 +71,9 @@ $ID = mysqli_fetch_object($ID_prop);
         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 mb-3">
             <div class="content-filter justify-between">
                 <div class="filter-item d-flex">
-                    <div class="tab mak-control mak-primary btn_button" data-target="tab-item-1">Sin anunciar propiedad</div>
-                    <div class="tab mak-control btn_button" data-target="tab-item-2"><input type="checkbox" class="tab-checkbox" value="1" />Anunciar propiedad</div>
-                    <div class="tab mak-control btn_button" data-target="tab-item-2"><input type="checkbox" class="tab-checkbox" value="2" />Aparecer en búsqueda</div>
+                    <!-- <div class="tab mak-control mak-primary btn_button" data-target="tab-item-1">Sin anunciar propiedad</div> -->
+                    <div class="mak-control btn_button" data-tab="tab-item-1"><input type="checkbox" class="tab-checkbox" value="1" />Anunciar propiedad</div>
+                    <div class="mak-control btn_button" data-tab="tab-item-2"><input type="checkbox" class="tab-checkbox" value="2" />Aparecer en búsqueda</div>
                 </div>
                 <div class="filter-item d-flex">
                     <div class="mak-control mak-primary btn_button">Guardar cambios</div>
@@ -88,6 +88,7 @@ $ID = mysqli_fetch_object($ID_prop);
         <!-- PROPIEDAD SIN ANUNCIAR -->
         <div id="tab-item-1" class="tab-content active">
             <form method="POST" id="form_prop" enctype="multipart/form-data">
+                <input class="anunciar" type="hidden">
                 <div class="row">
                     <div class="col-xl-5 col-lg-5 col-md-12 col-sm-12 col-12">
                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 pr-0 mb-3">
@@ -320,7 +321,8 @@ $ID = mysqli_fetch_object($ID_prop);
                                             </div>
                                         </div>
                                         <!-- TERRENO -->
-                                        <div class="mak-control-grid">
+                                        <!-- COMISION -->
+                                        <div class="mak-control-grid comision hide">
                                             <div class="control-group">
                                                 <span>Porcentaje de comisión:</span>
                                                 <div>
@@ -328,6 +330,7 @@ $ID = mysqli_fetch_object($ID_prop);
                                                 </div>
                                             </div>
                                         </div>
+                                        <!-- COMISION -->
                                     </div>
                                 </div>
                             </div>
@@ -785,7 +788,7 @@ $ID = mysqli_fetch_object($ID_prop);
 
 
     <script>
-        console.log(document.querySelector('.verOptions_01'));
+        // console.log(document.querySelector('.verOptions_01'));
         document.querySelector('.verOptions_01').addEventListener('click', function() {
             // Enviar mensaje a la página principal para abrir el modal
             parent.postMessage('openModal', '*');
