@@ -318,7 +318,7 @@
   transition: width 1s ease;
 }
 
-.mak .mak-control.brd-out {
+.mak .mak-options.brd-out {
   border: none !important;
 }
 
@@ -341,7 +341,8 @@
 }
 
 .mak .mak-options span {
-  font-size: 10px;
+  font-size: 16px;
+  margin-inline: 0.5rem;
   user-select: none;
 }
 
@@ -452,6 +453,13 @@
   color: #555;
 }
 
+.caracteristicas {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
 /* MENU PROPERTY */
 .menu_container {
   display: flex;
@@ -484,6 +492,7 @@
   position: relative;
   display: flex;
   flex-wrap: wrap;
+  padding: 5px;
 }
 
 .mak .file-content .file-item {
@@ -496,6 +505,27 @@
   border-radius: 5px;
   overflow: hidden;
   margin: 0 10px 10px 0;
+}
+
+.mak .file-content .file-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.mak .file-content .file-item .item-close {
+  position: absolute;
+  top: 3px;
+  right: 3px;
+  background: white;
+  border-radius: 50%;
+  font-size: 11px;
+  width: 15px;
+  height: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
 }
 
 .mak .file-content .up-archive {
@@ -511,6 +541,15 @@
   bottom: 0px;
   left: 0px;
   right: 0px;
+}
+.mak .file-content .up-archive.file-item.file-file {
+  position: initial;
+  margin: 0 !important;
+  order: 2;
+  width: 90px;
+  height: 90px;
+  border: 1px dashed;
+  font-size: 13px;
 }
 
 .mak .file-content .up-archive.file-item .item-box {
@@ -556,6 +595,10 @@
 
 .mak .drag-over-effect .drop-archive h1 {
   margin: 0;
+}
+
+.mak .table input[type="checkbox"] {
+  border-radius: 20px;
 }
 /* DRAG & DROP */
 
@@ -1011,7 +1054,7 @@ h2 {
 
 /*  */
 
-.table {
+.table.shadow {
   text-align: center;
   transition: all 0.5s ease;
   border-radius: var(--radius-20);
@@ -1028,28 +1071,28 @@ h2 {
   color: var(--blue-mak);
 }
 
-.table td {
+.table.shadow td {
   vertical-align: middle !important;
 }
 
-.table thead .t-head {
+.table.shadow thead .t-head {
   background-color: var(--blue-mak);
   color: var(--white-mak);
 }
 
-.table thead tr th {
+.table.shadow thead tr th {
   text-align: center !important;
 }
 
-.table thead .t-head th:first-child {
+.table.shadow thead .t-head th:first-child {
   border-radius: 20px 0 0 0;
 }
 
-.table thead .t-head th:last-child {
+.table.shadow thead .t-head th:last-child {
   border-radius: 0 20px 0 0;
 }
 
-.table tbody .t-head td:not(:last-child) {
+.table.shadow tbody .t-head td:not(:last-child) {
   /* border-right: 3px solid var(--blue-mak); */
   border-top: 10px solid transparent;
   border-right: 2px solid var(--blue-mak);
@@ -1058,6 +1101,9 @@ h2 {
 
 .table-responsive {
   display: inline-table !important;
+}
+.table-group-divider {
+  border-top: calc(1px * 2) solid currentcolor;
 }
 
 .options {
@@ -3142,7 +3188,8 @@ button.gm-control-active.gm-fullscreen-control {
 }
 
 .prev-month,
-.next-month {
+.next-month,
+.placeholder {
   color: lightgrey;
 }
 

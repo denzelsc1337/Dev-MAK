@@ -90,7 +90,7 @@ $ID = mysqli_fetch_object($ID_prop);
             <form method="POST" id="form_prop" enctype="multipart/form-data">
                 <input class="anunciar" type="hidden">
                 <div class="row">
-                    <div class="col-xl-5 col-lg-5 col-md-12 col-sm-12 col-12">
+                    <div class="col-xl-5 col-lg-5 col-md-5 col-sm-5 col-5">
                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 pr-0 mb-3">
                             <div class="mak-bdr radius-plus">
                                 <div class="card-body">
@@ -336,7 +336,75 @@ $ID = mysqli_fetch_object($ID_prop);
                             </div>
                         </div>
                     </div>
-                    <div class="col-xl-7 col-lg-7 col-md-12 col-sm-12 col-12">
+                    <div class="col-xl-7 col-lg-7 col-md-7 col-sm-7 col-7">
+                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 pl-0 mb-3">
+                            <div class="mak-bdr radius-plus">
+                                <div class="card-body">
+                                    <div class="card-head justify-between mb-3">
+                                        <div class="mak-control d-flex">
+                                            <img src="../Vista/images/map.svg" alt="">
+                                            HR, PU & Copia Literal&nbsp;<img src="./../Vista/images/alert.svg" alt="" width="15" height="15">
+                                        </div>
+                                        <div class="mak-control mak-tertiary btn_button clear">
+                                            <i class="fa-solid fa-trash"></i>&nbsp;Limpiar filtro
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <table class="table table-borderless">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">
+                                                        <input type="checkbox" name="" id="">
+                                                    </th>
+                                                    <th scope="col">Nombre de documento</th>
+                                                    <th scope="col">Tipo de documento</th>
+                                                    <th scope="col">Tamaño</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody class="table-group-divider">
+                                                <tr>
+                                                    <th scope="row">
+                                                        <div class="cursor">
+                                                            <i class="fa-solid fa-plus"></i>
+                                                        </div>
+                                                    </th>
+                                                    <td class="placeholder">Mark</td>
+                                                    <td class="placeholder">Otto</td>
+                                                    <td class="placeholder">@mdo</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 pl-0 mb-3">
+                            <div class="mak-bdr radius-plus">
+                                <div class="card-body">
+                                    <div class="card-head justify-between mb-3">
+                                        <div class="mak-control d-flex">
+                                            <img src="../Vista/images/link.svg" alt="">
+                                            Colocar URL de videos
+                                        </div>
+                                        <!-- <div class="mak-control mak-tertiary btn_button">
+                                        <i class="fa-solid fa-trash"></i>&nbsp;Eliminar todos los archivos
+                                    </div> -->
+                                    </div>
+
+                                    <div class="row">
+                                        <!-- <div class="col-md-12 d-flex"> -->
+                                        <div class="col-md-12 mb-2">
+                                            <span class="mak-title-lbl">Video de YouTube <span class="mak-tertiary">(Opcional)</span></span>
+                                            <input id="vid-yt-prop" name="vid-yt-prop" type="text" class="mak-control w-100" placeholder="Enter email">
+                                        </div>
+                                        <div class="col-md-12 mb-2">
+                                            <span class="mak-title-lbl">Vídeo de recorrido <span class="mak-tertiary">(Opcional)</span></span>
+                                            <input id="vid-rec-prop" name="vid-rec-prop" type="text" class="mak-control w-100" placeholder="Enter email">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 pl-0 mb-3">
                             <div class="mak-bdr radius-plus">
                                 <div class="card-body">
@@ -425,33 +493,6 @@ $ID = mysqli_fetch_object($ID_prop);
                                 </div>
                             </div>
                         </div>
-                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 mb-3">
-                            <div class="mak-bdr radius-plus">
-                                <div class="card-body">
-                                    <div class="card-head justify-between mb-3">
-                                        <div class="mak-control d-flex">
-                                            <img src="../Vista/images/link.svg" alt="">
-                                            Colocar URL de videos
-                                        </div>
-                                        <!-- <div class="mak-control mak-tertiary btn_button">
-                                        <i class="fa-solid fa-trash"></i>&nbsp;Eliminar todos los archivos
-                                    </div> -->
-                                    </div>
-
-                                    <div class="row">
-                                        <!-- <div class="col-md-12 d-flex"> -->
-                                        <div class="col-md-6 mb-2">
-                                            <span class="mak-title-lbl">Video de YouTube <span class="mak-tertiary">(Opcional)</span></span>
-                                            <input id="vid-yt-prop" name="vid-yt-prop" type="text" class="mak-control w-100" placeholder="Enter email">
-                                        </div>
-                                        <div class="col-md-6 mb-2">
-                                            <span class="mak-title-lbl">Vídeo de recorrido <span class="mak-tertiary">(Opcional)</span></span>
-                                            <input id="vid-rec-prop" name="vid-rec-prop" type="text" class="mak-control w-100" placeholder="Enter email">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 mb-3">
@@ -467,35 +508,173 @@ $ID = mysqli_fetch_object($ID_prop);
                                         </div>
                                     </div>
                                     <h5>Servicios</h5>
-                                    <div class="d-flex g-10 mb-2">
+                                    <div class="caracteristicas">
                                         <label class="mak-options cursor m-0" for="aire_acondicionado">
                                             <input id="aire_acondicionado" name="aire_acondicionado" type="checkbox" class="mak-control-event">
-                                            <span class="ml-2 mr-2">Aire acondicionado</span>
+                                            <span>Aire acondicionado</span>
                                             <input type="number" min="0" class="mak-options-brd-bottom p-0">
                                         </label>
-                                        <label class="mak-control cursor m-0" for="area_juegos">
+                                        <label class="mak-options cursor m-0" for="area_juegos">
                                             <input id="area_juegos" name="area_juegos" type="checkbox" class="">
                                             <span>Área de juegos infantiles</span>
                                         </label>
-                                        <div class="mak-control brd-out cursor m-0 verOptions_01" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                        <label class="mak-options cursor m-0" for="area_lavanderia">
+                                            <input id="area_lavanderia" name="area_lavanderia" type="checkbox" class="">
+                                            <span>Área de lavandería</span>
+                                        </label>
+                                        <label class="mak-options cursor m-0" for="area_verde">
+                                            <input id="area_verde" name="area_verde" type="checkbox" class="">
+                                            <span>Área(s) verde(s)</span>
+                                        </label>
+                                        <label class="mak-options cursor m-0" for="altillo">
+                                            <input id="altillo" name="altillo" type="checkbox" class="">
+                                            <span>Altillos</span>
+                                        </label>
+                                        <label class="mak-options cursor m-0" for="canchas">
+                                            <input id="canchas" name="canchas" type="checkbox" class="">
+                                            <span>Canchas deportivas</span>
+                                        </label>
+                                        <label class="mak-options cursor m-0" for="cer_leed">
+                                            <input id="cer_leed" name="cer_leed" type="checkbox" class="">
+                                            <span>Certificación LEED</span>
+                                        </label>
+                                        <label class="mak-options cursor m-0" for="gym">
+                                            <input id="gym" name="gym" type="checkbox" class="">
+                                            <span>Gimnasio</span>
+                                        </label>
+                                        <label class="mak-options cursor m-0" for="seguridad">
+                                            <input id="seguridad" name="seguridad" type="checkbox" class="">
+                                            <span>Guardería/Seguridad privada</span>
+                                        </label>
+                                        <label class="mak-options cursor m-0" for="ethernet">
+                                            <input id="ethernet" name="ethernet" type="checkbox" class="">
+                                            <span>Internet/Wifi</span>
+                                        </label>
+                                        <label class="mak-options cursor m-0" for="video_vigilancia">
+                                            <input id="video_vigilancia" name="video_vigilancia" type="checkbox" class="">
+                                            <span>Video vigilencia</span>
+                                        </label>
+                                        <div class="mak-options brd-out cursor m-0 verOptions_01" data-bs-toggle="modal" data-bs-target="#exampleModal">
                                             <i class="fa-solid fa-plus"></i>
-                                            Ver más opciones
+                                            <span>Ver más opciones</span>
                                         </div>
                                     </div>
                                     <h5>Carácteristicas Generales</h5>
-                                    <div class="d-flex g-10 mb-2">
-                                        <label class="mak-control cursor m-0" for="acabados_lujo">
+                                    <div class="caracteristicas">
+                                        <label class="mak-options cursor m-0" for="acabados_lujo">
                                             <input id="acabados_lujo" name="acabados_lujo" type="checkbox" class="mak-control-event">
                                             <span>Acabados de lujo</span>
                                         </label>
-                                        <label class="mak-control cursor m-0" for="amueblado">
+                                        <label class="mak-options cursor m-0" for="amueblado">
                                             <input id="amueblado" name="amueblado" type="checkbox" class="mak-control-event">
                                             <span>Amueblado</span>
                                         </label>
-                                        <div class="mak-control brd-out cursor m-0 verOptions_02" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                        <label class="mak-options cursor m-0" for="acceso_asfalto">
+                                            <input id="acceso_asfalto" name="acceso_asfalto" type="checkbox" class="mak-control-event">
+                                            <span>Av. acceso asfaltada</span>
+                                        </label>
+                                        <label class="mak-options cursor m-0" for="acceso_afirmado">
+                                            <input id="acceso_afirmado" name="acceso_afirmado" type="checkbox" class="mak-control-event">
+                                            <span>Av. acceso afirmada</span>
+                                        </label>
+                                        <label class="mak-options cursor m-0" for="ascensor">
+                                            <input id="ascensor" name="ascensor" type="checkbox" class="mak-control-event">
+                                            <span>Ascensor</span>
+                                        </label>
+                                        <label class="mak-options cursor m-0" for="banios_servicio">
+                                            <input id="banios_servicio" name="banios_servicio" type="checkbox" class="mak-control-event">
+                                            <span>Baños de servicio</span>
+                                        </label>
+                                        <label class="mak-options cursor m-0" for="guardia">
+                                            <input id="guardia" name="guardia" type="checkbox" class="mak-control-event">
+                                            <span>Caseta de guardia</span>
+                                        </label>
+                                        <label class="mak-options cursor m-0" for="cerca_electrica">
+                                            <input id="cerca_electrica" name="cerca_electrica" type="checkbox" class="mak-control-event">
+                                            <span>Cerca electrica</span>
+                                        </label>
+                                        <label class="mak-options cursor m-0" for="chimenea">
+                                            <input id="chimenea" name="chimenea" type="checkbox" class="mak-control-event">
+                                            <span>Chimenea</span>
+                                        </label>
+                                        <label class="mak-options cursor m-0" for="tipo_cochera">
+                                            <input id="tipo_cochera" name="tipo_cochera" type="checkbox" class="mak-control-event">
+                                            <span>Tipo cochera</span>
+                                        </label>
+                                        <div class="mak-options brd-out cursor m-0 verOptions_02" data-bs-toggle="modal" data-bs-target="#exampleModal">
                                             <i class="fa-solid fa-plus"></i>
-                                            Ver más opciones
+                                            <span>Ver más opciones</span>
                                         </div>
+                                    </div>
+                                    <h5>Exteriores</h5>
+                                    <div class="caracteristicas">
+                                        <label class="mak-options cursor m-0" for="bbq">
+                                            <input id="bbq" name="bbq" type="checkbox" class="mak-control-event">
+                                            <span>Área BBQ</span>
+                                        </label>
+                                        <label class="mak-options cursor m-0" for="balcon">
+                                            <input id="balcon" name="balcon" type="checkbox" class="mak-control-event">
+                                            <span>Balcón(es)</span>
+                                        </label>
+                                        <label class="mak-options cursor m-0" for="acceso_tierra">
+                                            <input id="acceso_tierra" name="acceso_tierra" type="checkbox" class="mak-control-event">
+                                            <span>Acceso por camino a tierra</span>
+                                        </label>
+                                    </div>
+                                    <h5>Áreas comunes</h5>
+                                    <div class="caracteristicas">
+                                        <label class="mak-options cursor m-0" for="bodega">
+                                            <input id="bodega" name="bodega" type="checkbox" class="mak-control-event">
+                                            <span>Bodega(s)</span>
+                                        </label>
+                                        <label class="mak-options cursor m-0" for="comedor_diario">
+                                            <input id="comedor_diario" name="comedor_diario" type="checkbox" class="mak-control-event">
+                                            <span>Comedor diario</span>
+                                        </label>
+                                        <label class="mak-options cursor m-0" for="club_house">
+                                            <input id="club_house" name="club_house" type="checkbox" class="mak-control-event">
+                                            <span>Club house</span>
+                                        </label>
+                                        <label class="mak-options cursor m-0" for="dormitorio_banio">
+                                            <input id="dormitorio_banio" name="dormitorio_banio" type="checkbox" class="mak-control-event">
+                                            <span>Dormitorio principal con baño</span>
+                                        </label>
+                                        <label class="mak-options cursor m-0" for="desague">
+                                            <input id="desague" name="desague" type="checkbox" class="mak-control-event">
+                                            <span>Desagüe</span>
+                                        </label>
+                                        <label class="mak-options cursor m-0" for="equipado">
+                                            <input id="equipado" name="equipado" type="checkbox" class="mak-control-event">
+                                            <span>Equipado</span>
+                                        </label>
+                                        <label class="mak-options cursor m-0" for="ingreso_indepen">
+                                            <input id="ingreso_indepen" name="ingreso_indepen" type="checkbox" class="mak-control-event">
+                                            <span>Ingreso independiente</span>
+                                        </label>
+                                        <label class="mak-options cursor m-0" for="patio">
+                                            <input id="patio" name="patio" type="checkbox" class="mak-control-event">
+                                            <span>Patio</span>
+                                        </label>
+                                        <label class="mak-options cursor m-0" for="parque_interno">
+                                            <input id="parque_interno" name="parque_interno" type="checkbox" class="mak-control-event">
+                                            <span>Parque interno</span>
+                                        </label>
+                                        <label class="mak-options cursor m-0" for="sauna">
+                                            <input id="sauna" name="sauna" type="checkbox" class="mak-control-event">
+                                            <span>Sauna</span>
+                                        </label>
+                                        <label class="mak-options cursor m-0" for="sala_estar">
+                                            <input id="sala_estar" name="sala_estar" type="checkbox" class="mak-control-event">
+                                            <span>Sala de estar</span>
+                                        </label>
+                                        <label class="mak-options cursor m-0" for="sala_entreten">
+                                            <input id="sala_entreten" name="sala_entreten" type="checkbox" class="mak-control-event">
+                                            <span>Sala de entretenimiento</span>
+                                        </label>
+                                        <label class="mak-options cursor m-0" for="solarium">
+                                            <input id="solarium" name="solarium" type="checkbox" class="mak-control-event">
+                                            <span>Solarium</span>
+                                        </label>
                                     </div>
                                 </div>
                             </div>
@@ -512,7 +691,7 @@ $ID = mysqli_fetch_object($ID_prop);
         </div>
         <!-- PROPIEDAD SIN ANUNCIAR -->
         <!-- ANUNCIAR PROPIEDAD  -->
-        <div id="tab-item-2" class="tab-content">
+        <!-- <div id="tab-item-2" class="tab-content">
             <div class="row">
                 <div class="col-xl-5 col-lg-5 col-md-12 col-sm-12 col-12">
                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 pr-0 mb-3">
@@ -527,7 +706,6 @@ $ID = mysqli_fetch_object($ID_prop);
                                         <i class="fa-solid fa-trash"></i>&nbsp;Limpiar filtro
                                     </div>
                                 </div>
-                                <!-- <div class=""> -->
                                 <div class="">
                                     <span>Título</span>
                                     <div class="textarea-container">
@@ -558,7 +736,6 @@ $ID = mysqli_fetch_object($ID_prop);
                                     ?>
                                     <select id="tipo_prop" name="tipo_prop" class="mak-control w-100" value="-1"></select>
                                 </div>
-                                <!-- </div> -->
                             </div>
                         </div>
                     </div>
@@ -578,7 +755,6 @@ $ID = mysqli_fetch_object($ID_prop);
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <!-- <div class="col-md-12 d-flex"> -->
                                     <div class="col-md-6 mb-2">
                                         <span>Departamento</span>
                                         <select id="depa_prop" name="depa_prop" class="mak-control w-100"></select>
@@ -608,11 +784,7 @@ $ID = mysqli_fetch_object($ID_prop);
                                         </select>
                                     </div>
                                     <div class="col-md-12">
-                                        <!-- 
-                                        <h1>Buscar Dirección en el Mapa</h1>
-                                        <input id="direccion" type="text" placeholder="Ingresa una dirección">
-                                        <button onclick="buscarDireccion()">Buscar</button>
-                                        <div id="map"></div> -->
+
                                     </div>
                                 </div>
                             </div>
@@ -620,7 +792,7 @@ $ID = mysqli_fetch_object($ID_prop);
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
         <!-- ANUNCIAR PROPIEDAD  -->
         <!-- BUSCAR PROPIEDAD -->
         <!-- <div id="aparecer" class="tab-content">
@@ -788,10 +960,14 @@ $ID = mysqli_fetch_object($ID_prop);
 
 
     <script>
-        // console.log(document.querySelector('.verOptions_01'));
         document.querySelector('.verOptions_01').addEventListener('click', function() {
             // Enviar mensaje a la página principal para abrir el modal
-            parent.postMessage('openModal', '*');
+            parent.postMessage('verOptions_01', '*');
+        });
+
+        document.querySelector('.verOptions_02').addEventListener('click', function() {
+            // Enviar mensaje a la página principal para abrir el modal
+            parent.postMessage('verOptions_02', '*');
         });
     </script>
 

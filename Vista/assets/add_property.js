@@ -213,7 +213,7 @@ clearBtns.forEach((element) => {
       let allTags = element.querySelectorAll(
         "input, textarea, select, li, .file-item"
       );
-      console.log(allTags);
+      // console.log(allTags);
 
       allTags.forEach((field) => {
         if (
@@ -236,6 +236,7 @@ clearBtns.forEach((element) => {
         } else if (field.classList.contains("file-item")) {
           if (!field.classList.contains("up-archive")) {
             field.remove();
+            allTags[0].classList.remove("file-file");
           }
         }
       });

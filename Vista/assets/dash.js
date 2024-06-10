@@ -10,7 +10,7 @@ window.addEventListener(
   "message",
   function (event) {
     if (event.data) {
-      console.log("Mensaje recibido:", event.data);
+      // console.log("Mensaje recibido:", event.data);
 
       // CONEXIONES ENTRE IFRAMES
       if (typeof event.data === "string" && /\.php$/.test(event.data)) {
@@ -22,8 +22,12 @@ window.addEventListener(
       // CONEXIONES ENTRE IFRAMES
 
       // ABRIR MODAL
-      if (event.data === "openModal") {
-        $("#exampleModal").modal("show");
+      else if (event.data === "verOptions_01") {
+        $("#verOptions_01").modal("show");
+      } else if (event.data === "verOptions_02") {
+        $("#verOptions_02").modal("show");
+      } else {
+        alert("PROBLEMAS");
       }
       // ABRIR MODAL
     } else {

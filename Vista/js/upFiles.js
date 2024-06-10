@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
+  // DRAG AND DROP FILES
   var dataDrag = [];
   var dragContentAreas = document.querySelectorAll(".file-content");
 
@@ -63,15 +64,14 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function uploadFile(file, dragContent) {
-  
-
     dataDrag.push(dragContent);
-    console.log(dataDrag.length);
+    // console.log(dataDrag.length);
+    var contenedor = dragContent.querySelector(".up-archive");
 
-
-    // if (dataDrag.lenght >= 1) {
-    //   console.log("eh?");
-    // }
+    if (dataDrag.length >= 1) {
+      contenedor.classList.add("file-file");
+      // tata.style.order = "2";
+    }
 
     const reader = new FileReader();
     reader.onload = (e) => {
@@ -94,13 +94,15 @@ document.addEventListener("DOMContentLoaded", function () {
         const dlt = closeButton.closest(".file-item");
         if (dlt) {
           dlt.remove();
+          console.log(dataDrag.length);
+          if (dataDrag.length == 1) {
+            contenedor.classList.remove("file-file");
+          }
         }
       });
     };
     reader.readAsDataURL(file);
-    
   }
-  
 
   function upArchive(file) {
     var http = new XMLHttpRequest();
@@ -116,4 +118,11 @@ document.addEventListener("DOMContentLoaded", function () {
     http.open("POST", "../views/sender.php", true);
     http.send(data);
   }
+  // DRAG AND DROP FILES
+
+  // UP FILES TABLE
+  var contentArea = document.querySelectorAll(".file-content");
+
+  // inputBox.addEventListener("click", () => iptFile.click());
+  // UP FILES TABLE
 });

@@ -78,7 +78,7 @@ $ID = mysqli_fetch_object($ID_prop);
         <!-- <div class="row"> -->
         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 mb-3">
             <div class="row">
-                <div class="col-xl-6 col-lg-12 col-md-6 col-sm-12 col-12 mb-3">
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6 mb-3">
                     <div class="mak-bdr mak-pdd">
                         <div class="menu_container">
                             <img src="./../Vista/images/Plataforma/Menu/Frame717.png" alt="" width="70">
@@ -91,7 +91,7 @@ $ID = mysqli_fetch_object($ID_prop);
                         </div>
                     </div>
                 </div>
-                <div class="col-xl-6 col-lg-12 col-md-6 col-sm-12 col-12 mb-3">
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6 mb-3">
                     <div class="mak-bdr mak-pdd">
                         <div class="menu_container">
                             <img src="./../Vista/images/Plataforma/Menu/Frame718.png" alt="" width="70">
