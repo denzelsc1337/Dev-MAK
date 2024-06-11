@@ -90,6 +90,10 @@
   background-color: var(--blue-mak) !important;
 }
 
+.mak .mak-outline {
+  border: 1px solid var(--other-mak) !important;
+}
+
 /* .mak .tp-md.mak-primary {
   color: var(--blue-mak) !important;
   background-color: var(--white-mak) !important;
@@ -458,6 +462,24 @@
   gap: 10px;
   margin-bottom: 2rem;
   flex-wrap: wrap;
+}
+
+.mak .modal.fade .modal-header {
+  padding-bottom: 0;
+  border: none;
+}
+.mak .modal.fade .modal-footer {
+  display: flex;
+  flex-wrap: nowrap;
+  border: none;
+}
+
+.mak .modal.fade .modal-footer button {
+  width: 50%;
+}
+
+.mak .modal.fade .modal-body .caracteristicas {
+  margin-bottom: 0;
 }
 
 /* MENU PROPERTY */

@@ -168,6 +168,56 @@ document.querySelectorAll(".txt-area").forEach((textarea) => {
 // --------------------------------
 // --------------------------------
 
+// Función para inicializar los eventos
+function initializeEvents(container) {
+  var lblContent = container.querySelectorAll(".chks label");
+  console.log(lblContent);
+
+  lblContent.forEach(function (label) {
+    var checkbox = label.querySelectorAll('input[type="checkbox"]');
+    var lastInput = label.querySelector(
+      'input[type="number"]:not(.mak-control-event)'
+    );
+
+    checkbox.forEach((element) => {
+      element.addEventListener("click", function () {
+        console.log("Checkbox clicked");
+        if (element.classList.contains("mak-control-event")) {
+          if (element.checked) {
+            label.classList.add("checked");
+          } else {
+            label.classList.remove("checked");
+            if (lastInput) {
+              lastInput.value = "";
+            }
+          }
+        } else {
+          if (element.checked) {
+            label.classList.add("checked");
+          } else {
+            label.classList.remove("checked");
+          }
+        }
+      });
+    });
+  });
+}
+
+// Inicializar eventos en el contenido principal
+initializeEvents(document);
+
+// // Inicializar eventos cuando los modales se muestren
+// $("#verOptions_01").on("shown.bs.modal", function () {
+//   initializeEvents(this);
+// });
+
+// $("#verOptions_02").on("shown.bs.modal", function () {
+//   initializeEvents(this);
+// });
+
+// --------------------------------
+// --------------------------------
+
 const clearBtns = document.querySelectorAll(".card-body");
 
 // clearBtns.forEach((element) => {
@@ -272,3 +322,6 @@ $(document).ready(function () {
     });
   });
 });
+
+// --------------------------------
+// --------------------------------

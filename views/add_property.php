@@ -554,7 +554,7 @@ $ID = mysqli_fetch_object($ID_prop);
                                             <input id="video_vigilancia" name="video_vigilancia" type="checkbox" class="">
                                             <span>Video vigilencia</span>
                                         </label>
-                                        <div class="mak-options brd-out cursor m-0 verOptions_01" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                        <div class="mak-options brd-out cursor m-0 verOptions_01" data-bs-toggle="modal" data-bs-target="#abreConClase(VerOptions_)">
                                             <i class="fa-solid fa-plus"></i>
                                             <span>Ver más opciones</span>
                                         </div>
@@ -601,7 +601,7 @@ $ID = mysqli_fetch_object($ID_prop);
                                             <input id="tipo_cochera" name="tipo_cochera" type="checkbox" class="mak-control-event">
                                             <span>Tipo cochera</span>
                                         </label>
-                                        <div class="mak-options brd-out cursor m-0 verOptions_02" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                        <div class="mak-options brd-out cursor m-0 verOptions_02" data-bs-toggle="modal" data-bs-target="#abreConClase(VerOptions_)">
                                             <i class="fa-solid fa-plus"></i>
                                             <span>Ver más opciones</span>
                                         </div>
@@ -689,152 +689,10 @@ $ID = mysqli_fetch_object($ID_prop);
 
             </form>
         </div>
-        <!-- PROPIEDAD SIN ANUNCIAR -->
-        <!-- ANUNCIAR PROPIEDAD  -->
-        <!-- <div id="tab-item-2" class="tab-content">
-            <div class="row">
-                <div class="col-xl-5 col-lg-5 col-md-12 col-sm-12 col-12">
-                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 pr-0 mb-3">
-                        <div class="mak-bdr radius-plus">
-                            <div class="card-body">
-                                <div class="card-head justify-between mb-3">
-                                    <div class="mak-control d-flex">
-                                        <img src="../Vista/images/box.svg" alt="">
-                                        Información de la propiedad
-                                    </div>
-                                    <div class="mak-control mak-tertiary btn_button clear">
-                                        <i class="fa-solid fa-trash"></i>&nbsp;Limpiar filtro
-                                    </div>
-                                </div>
-                                <div class="">
-                                    <span>Título</span>
-                                    <div class="textarea-container">
-                                        <textarea id="title_prop" name="title_prop" class="mak-control txt-area" maxlength="80" placeholder="Escribir aquí."></textarea>
-                                        <div id="charCounter" class="char-counter">0/80</div>
-                                    </div>
-                                </div>
-                                <div class="">
-                                    <span>Descripción</span>
-                                    <div class="textarea-container">
-                                        <textarea id="desc_prop" name="desc_prop" class="mak-control txt-area" maxlength="500" rows="15" placeholder="Escribir aquí."></textarea>
-                                        <div id="charCounter" class="char-counter">0/80</div>
-                                    </div>
-                                </div>
-                                <div class="">
-                                    <span>Modalidad</span>
-                                    <ul class="nav nav-tabs">
-                                        <li class="tp-md mak-control btn_button" data-target="1">Venta</li>
-                                        <li class="tp-md mak-control btn_button" data-target="2">Alquiler</li>
-                                        <li class="tp-md mak-control btn_button" data-target="3">Proyecto</li>
-                                    </ul>
-                                    <input id="modalidad_prop" name="modalidad_prop" type="hidden">
-                                </div>
-                                <div class="mt-2">
-                                    <span>Tipo de inmueble</span>
-                                    <?php
-                                    require_once('../Controller/controladorListar.php');
-                                    ?>
-                                    <select id="tipo_prop" name="tipo_prop" class="mak-control w-100" value="-1"></select>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-                <div class="col-xl-7 col-lg-7 col-md-12 col-sm-12 col-12">
-                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 pl-0 mb-3">
-                        <div class="mak-bdr radius-plus">
-                            <div class="card-body">
-                                <div class="card-head justify-between mb-3">
-                                    <div class="mak-control d-flex">
-                                        <img src="../Vista/images/map.svg" alt="">
-                                        Dirección
-                                    </div>
-                                    <div class="mak-control mak-tertiary btn_button clear">
-                                        <i class="fa-solid fa-trash"></i>&nbsp;Limpiar filtro
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-6 mb-2">
-                                        <span>Departamento</span>
-                                        <select id="depa_prop" name="depa_prop" class="mak-control w-100"></select>
-                                    </div>
-                                    <div class="col-md-6 mb-2">
-                                        <span>Provincia</span>
-                                        <select id="prov_prop" name="prov_prop" class="mak-control w-100"></select>
-                                    </div>
-                                    <div class="col-md-6 mb-2">
-                                        <span>Distrito</span>
-                                        <select id="distr_prop" name="distr_prop" class="mak-control w-100"></select>
-                                    </div>
-                                    <div class="col-md-6 mb-2">
-                                        <span>Urbanización <span class="mak-tertiary">(Opcional)</span></span>
-                                        <input id="" name="" type="text" class="mak-control w-100" placeholder="Escribe una palabra clave">
-                                    </div>
-                                    <div class="col-md-7 mb-2">
-                                        <span>Localización en el mapa</span>
-                                        <input id="direccion_" name="direccion_" type="text" class="mak-control w-100" id="" placeholder="Escribe una dirección">
-                                    </div>
-                                    <div class="col-md-5 mb-2">
-                                        <span>&nbsp;</span>
-                                        <select name="" id="" class="mak-control w-100">
-                                            <option value="">1</option>
-                                            <option value="">2</option>
-                                            <option value="">3</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-md-12">
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div> -->
-        <!-- ANUNCIAR PROPIEDAD  -->
-        <!-- BUSCAR PROPIEDAD -->
-        <!-- <div id="aparecer" class="tab-content">
-            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 mb-3 d-flex">
-                hola 2
-            </div>
-        </div> -->
-        <!-- BUSCAR PROPIEDAD -->
     </div>
 
 
-    <!-- MODAL -->
-    <!-- <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h1 class="modal-title" id="exampleModalLabel">Más servicios</h1>
-                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <div class="d-flex g-10">
-                        <label class="mak-control cursor m-0" for="aire_acondicionado">
-                            <input type="checkbox" name="aire_acondicionado" id="aire_acondicionado">
-                            <span>Aire acondicionado</span>
-                        </label>
-                        <label class="mak-control cursor m-0" for="aire_acondicionado">
-                            <input type="checkbox" name="aire_acondicionado" id="aire_acondicionado">
-                            <span>Aire acondicionado</span>
-                        </label>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
-                </div>
-            </div>
-        </div>
-    </div> -->
-    <!-- <?php include '../modals.php' ?> -->
-    <!-- MODAL -->
+
 
     <!-- jQuery -->
     <script src="./../Vista/plugins/jquery/jquery.min.js"></script>
@@ -846,55 +704,7 @@ $ID = mysqli_fetch_object($ID_prop);
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
 
-            var lblContent = document.querySelector('.chks');
-            var labels = lblContent.querySelectorAll('label');
-
-            // console.log(lblContent);
-            // console.log(labels);
-
-            labels.forEach(function(label) {
-
-                var checkbox = label.querySelectorAll('input[type="checkbox"]');
-                var lastInput = label.querySelector('input[type="number"]:not(.mak-control-event)');
-
-                checkbox.forEach(element => {
-
-                    element.addEventListener("click", function() {
-                        if (element.classList.contains("mak-control-event")) {
-                            if (element.checked) {
-                                label.classList.add('checked');
-                                // lastInput.classList.remove("hidden");
-                            } else {
-                                label.classList.remove('checked');
-                                lastInput.value = "";
-                                // lastInput.classList.add("hidden");
-                            }
-                        } else {
-                            if (element.checked) {
-                                label.classList.add('checked');
-                            } else {
-                                label.classList.remove('checked');
-                            }
-                        }
-                    });
-
-                });
-                // console.log(chk);
-
-                // label.addEventListener('change', function() {
-                //     // console.log("ola");
-                //     // console.log(checkbox);
-
-                //     if (checkbox.checked) {
-                //         label.classList.add('checked', 'expanded');
-                //     } else {
-                //         label.classList.remove('checked', 'expanded');
-                //     }
-                // });
-            });
-        });
     </script>
 
     <!--GOOGLE MAPS TESTING-->

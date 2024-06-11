@@ -24,8 +24,18 @@ window.addEventListener(
       // ABRIR MODAL
       else if (event.data === "verOptions_01") {
         $("#verOptions_01").modal("show");
+
+        // $("#verOptions_01").on("shown.bs.modal", function () {
+        //   // Your code to execute inside the modal
+        //   initializeEvents(document);
+        // });
       } else if (event.data === "verOptions_02") {
         $("#verOptions_02").modal("show");
+
+        // $("#verOptions_02").on("shown.bs.modal", function () {
+        //   // Your code to execute inside the modal
+        //   initializeEvents(document);
+        // });
       } else {
         alert("PROBLEMAS");
       }
@@ -38,24 +48,3 @@ window.addEventListener(
 );
 
 // ---------------------------------------------
-// // Escucha mensajes desde el iframe
-// window.addEventListener(
-//   "message",
-//   function (event) {
-//     // console.log('Mensaje recibido:', event.data);
-
-//     if (event.data === "views/menu_property.php") {
-//       var iframe = document.getElementById("paginas");
-//       if (iframe) {
-//         iframe.src = "views/add_property.php";
-//       } else {
-//         console.error("No se encontró el iframe con id 'paginas'.");
-//       }
-//     }
-
-//     if (event.data === "openModal") {
-//       $("#exampleModal").modal("show");
-//     }
-//   },
-//   false
-// );
