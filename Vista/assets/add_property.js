@@ -179,24 +179,44 @@ function initializeEvents(container) {
       'input[type="number"]:not(.mak-control-event)'
     );
 
+    // checkbox.forEach((element) => {
+    //   element.addEventListener("click", function () {
+    //     console.log("Checkbox clicked");
+    //     if (element.classList.contains("mak-control-event")) {
+    //       if (element.checked) {
+    //         label.classList.add("checked");
+    //       } else {
+    //         label.classList.remove("checked");
+    //         if (lastInput) {
+    //           lastInput.value = "";
+    //         }
+    //       }
+    //     } else {
+    //       if (element.checked) {
+    //         label.classList.add("checked");
+    //       } else {
+    //         label.classList.remove("checked");
+    //       }
+    //     }
+    //   });
+    // });
     checkbox.forEach((element) => {
       element.addEventListener("click", function () {
         console.log("Checkbox clicked");
+
+        // Verifica si el elemento es de clase 'mak-control-event'
         if (element.classList.contains("mak-control-event")) {
-          if (element.checked) {
-            label.classList.add("checked");
-          } else {
-            label.classList.remove("checked");
-            if (lastInput) {
-              lastInput.value = "";
-            }
+          console.log(element.checked);
+          // Agrega o elimina la clase 'checked' del label dependiendo del estado del checkbox
+          label.classList.toggle("checked", element.checked);
+
+          // Si el checkbox se desmarca y hay un último input, limpia su valor
+          if (!element.checked && lastInput) {
+            lastInput.value = "";
           }
         } else {
-          if (element.checked) {
-            label.classList.add("checked");
-          } else {
-            label.classList.remove("checked");
-          }
+          // Agrega o elimina la clase 'checked' del label dependiendo del estado del checkbox
+          label.classList.toggle("checked", element.checked);
         }
       });
     });
