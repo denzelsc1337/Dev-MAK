@@ -171,7 +171,6 @@ document.querySelectorAll(".txt-area").forEach((textarea) => {
 // Función para inicializar los eventos
 function initializeEvents(container) {
   var lblContent = container.querySelectorAll(".chks label");
-  console.log(lblContent);
 
   lblContent.forEach(function (label) {
     var checkbox = label.querySelectorAll('input[type="checkbox"]');

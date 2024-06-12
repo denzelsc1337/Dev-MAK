@@ -361,16 +361,15 @@ $ID = mysqli_fetch_object($ID_prop);
                                                     <th scope="col">Tamaño</th>
                                                 </tr>
                                             </thead>
-                                            <tbody class="table-group-divider">
-                                                <tr>
-                                                    <th scope="row">
-                                                        <div class="cursor">
-                                                            <i class="fa-solid fa-plus"></i>
-                                                        </div>
+                                            <tbody class="table-group-divider table-file-archive">
+                                                <tr class="tr-list-upfile">
+                                                    <th class="upfile cursor" scope="row">
+                                                        <i class="fa-solid fa-plus"></i>
+                                                        <input type="file" name="table-inputFile" id="table-inputFile" hidden>
                                                     </th>
-                                                    <td class="placeholder">Mark</td>
-                                                    <td class="placeholder">Otto</td>
-                                                    <td class="placeholder">@mdo</td>
+                                                    <td class="placeholder">TuArchivo</td>
+                                                    <td class="placeholder">(png, jpg, pdf)</td>
+                                                    <td class="placeholder">1 KB</td>
                                                 </tr>
                                             </tbody>
                                         </table>

@@ -81,7 +81,8 @@
         <li>
           <div class="img_content">
             <div class="img_perfil">
-              <img src="Vista/images/marcador_2.jpg" alt="">
+              <!-- <img src="Vista/images/marcador_2.jpg" alt=""> -->
+              <img src="" alt="">
 
             </div>
             <div class="img_text">

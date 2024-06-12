@@ -9,8 +9,12 @@ function linker(link) {
 window.addEventListener(
   "message",
   function (event) {
+    // Evitar ejecutar si el evento es setup_new_selection
+    if (event.data.action === "setup_new_selection") {
+      return;
+    }
     if (event.data) {
-      // console.log("Mensaje recibido:", event.data);
+      console.log("Mensaje recibido:", event.data);
 
       // CONEXIONES ENTRE IFRAMES
       if (typeof event.data === "string" && /\.php$/.test(event.data)) {
@@ -37,11 +41,11 @@ window.addEventListener(
         //   initializeEvents(document);
         // });
       } else {
-        alert("PROBLEMAS");
+        alert("PROBLEMAS1");
       }
       // ABRIR MODAL
     } else {
-      alert("PROBLEMAS");
+      alert("PROBLEMAS2");
     }
   },
   false

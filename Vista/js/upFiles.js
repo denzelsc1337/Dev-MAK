@@ -121,8 +121,16 @@ document.addEventListener("DOMContentLoaded", function () {
   // DRAG AND DROP FILES
 
   // UP FILES TABLE
-  var contentArea = document.querySelectorAll(".file-content");
+  var contentArea = document.querySelector(".table-file-archive");
+  var fileBtn = contentArea.querySelector("tr th");
+  var iptFile = fileBtn.querySelector("#table-inputFile");
 
-  // inputBox.addEventListener("click", () => iptFile.click());
+  fileBtn.addEventListener("click", () => iptFile.click());
+
+  iptFile.onchange = () => {
+    file = this.files;
+    file = iptFile.files;
+    showFiles(file);
+  };
   // UP FILES TABLE
 });
