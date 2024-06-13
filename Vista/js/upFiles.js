@@ -122,15 +122,67 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // UP FILES TABLE
   var contentArea = document.querySelector(".table-file-archive");
-  var fileBtn = contentArea.querySelector("tr th");
-  var iptFile = fileBtn.querySelector("#table-inputFile");
+  var fileRows = contentArea.querySelectorAll(".tr-list-upfile");
 
-  fileBtn.addEventListener("click", () => iptFile.click());
+  fileRows.forEach((row) => {
+    var fileBtn = row.querySelector("td.cursor i");
+    var inputFile = row.querySelector("input[type='file']");
 
-  iptFile.onchange = () => {
-    file = this.files;
-    file = iptFile.files;
-    showFiles(file);
-  };
+    fileBtn.addEventListener("click", () => {
+      inputFile.click();
+    });
+
+    inputFile.addEventListener("change", ({ target }) => {
+      let file = target.files[0];
+      if (file) {
+        let fileName = file.name;
+        let dataTarget = target.getAttribute("data-target"); // Obtener el data-target
+        showFiles(fileName, target.id, dataTarget);
+      }
+    });
+  });
+
+  function showFiles(fileName, inputFileId, dataTarget) {
+    let xhr = new XMLHttpRequest();
+    xhr.open("POST", "../views/add.propertyTable.php");
+    xhr.upload.addEventListener("progress", ({ loaded, total }) => {
+      let fileLoaded = Math.floor((loaded / total) * 100);
+      let fileTotal = Math.floor(total / 100);
+      console.log(fileLoaded, fileTotal);
+    });
+
+    let form = document.querySelector("#form_prop");
+    let formData = new FormData(form);
+    formData.append("dni_cli", document.querySelector("#dni_cli").value);
+    formData.append("inputFileId", inputFileId);
+    formData.append("dataTarget", dataTarget);
+
+    xhr.onreadystatechange = function () {
+      if (xhr.readyState == 4 && xhr.status == 200) {
+        console.log("Response from server: ", xhr.responseText);
+      } else if (xhr.readyState == 4) {
+        console.error("Error: ", xhr.status, xhr.statusText);
+      }
+    };
+
+    xhr.send(formData);
+
+    $.ajax({
+      type: "POST",
+      url: "../views/add.propertyTable.php",
+      data: formData,
+      processData: false,
+      contentType: false,
+      beforeSend: function () {
+        console.log("Enviando...");
+      },
+      success: function (r) {
+        console.log("Éxito:", r);
+      },
+      error: function (xhr, status, error) {
+        console.log("Error:", error);
+      },
+    });
+  }
   // UP FILES TABLE
 });

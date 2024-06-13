@@ -4,13 +4,8 @@ $id_client_ = $_POST['id_client'];
 $dni_u = $_POST['dni_client'];
 $tipo_doc_ = $_POST['id_tipo_doc'];
 
-$directorio = "../Documentos Legal/" . $dni_u . "/" . $tipo_doc_ . "/";
-
-
-
-
-
-// echo $directorio;
+// $directorio = "../Documentos Legal/" . $dni_u . "/" . $tipo_doc_ . "/";
+$directorio = "../DocumentosPropiedad/" . $dni_u . "/" . $tipo_doc_ . "/";
 
 $response = array();
 

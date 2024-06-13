@@ -64,6 +64,8 @@ $ID = mysqli_fetch_object($ID_prop);
 
 <body class="mak content">
 
+    <?php include("../sesion.php") ?>
+
     <div class="row">
         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 mb-3">
             <span class="mak-control"><b>ID de la propiedad: <?php echo $ID->total_props; ?></b> </span>
@@ -88,6 +90,7 @@ $ID = mysqli_fetch_object($ID_prop);
         <!-- PROPIEDAD SIN ANUNCIAR -->
         <div id="tab-item-1" class="tab-content active">
             <form method="POST" id="form_prop" enctype="multipart/form-data">
+
                 <input class="anunciar" type="hidden">
                 <div class="row">
                     <div class="col-xl-5 col-lg-5 col-md-5 col-sm-5 col-5">
@@ -350,29 +353,51 @@ $ID = mysqli_fetch_object($ID_prop);
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <table class="table table-borderless">
-                                            <thead>
-                                                <tr>
-                                                    <th scope="col">
-                                                        <input type="checkbox" name="" id="">
-                                                    </th>
-                                                    <th scope="col">Nombre de documento</th>
-                                                    <th scope="col">Tipo de documento</th>
-                                                    <th scope="col">Tamaño</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody class="table-group-divider table-file-archive">
-                                                <tr class="tr-list-upfile">
-                                                    <th class="upfile cursor" scope="row">
-                                                        <i class="fa-solid fa-plus"></i>
-                                                        <input type="file" name="table-inputFile" id="table-inputFile" hidden>
-                                                    </th>
-                                                    <td class="placeholder">TuArchivo</td>
-                                                    <td class="placeholder">(png, jpg, pdf)</td>
-                                                    <td class="placeholder">1 KB</td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
+
+                                        <form id="table-form" method="POST" action="#">
+                                            <table class="table table-borderless">
+                                                <thead>
+                                                    <tr>
+                                                        <th scope="col">
+                                                            <input type="checkbox" name="" id="">
+                                                        </th>
+                                                        <th scope="col">Nombre de documento</th>
+                                                        <th scope="col">Tipo de documento</th>
+                                                        <th scope="col">Tamaño</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody class="table-group-divider table-file-archive">
+                                                    <tr class="tr-list-upfile">
+                                                        <td class="upfile1 cursor" scope="row">
+                                                            <i class="fa-solid fa-plus"></i>
+                                                            <input type="file" name="table-inputFile" id="table-inputFile1" data-target="H_R" hidden>
+                                                        </td>
+                                                        <td class="placeholder">
+                                                            <span>TuArchivo</span>
+                                                            <div class="progress-bar">
+                                                                <div class="progress"></div>
+                                                            </div>
+                                                        </td>
+                                                        <td class="placeholder">(png, jpg, pdf)</td>
+                                                        <td class="placeholder">1 KB</td>
+                                                    </tr>
+                                                    <tr class="tr-list-upfile">
+                                                        <td class="upfile2 cursor" scope="row">
+                                                            <i class="fa-solid fa-plus"></i>
+                                                            <input type="file" name="table-inputFile" id="table-inputFile2" data-target="P_U" hidden>
+                                                        </td>
+                                                        <td class="placeholder">
+                                                            <span>TuArchivo</span>
+                                                            <div class="progress-bar">
+                                                                <div class="progress"></div>
+                                                            </div>
+                                                        </td>
+                                                        <td class="placeholder">(png, jpg, pdf)</td>
+                                                        <td class="placeholder">1 KB</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </form>
                                     </div>
                                 </div>
                             </div>

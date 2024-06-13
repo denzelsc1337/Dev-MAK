@@ -771,7 +771,7 @@ require_once('../Controller/controladorListar.php');
                     },
                     success: function(response) {
 
-                        console.log(response);
+                        // console.log(response);s
                         var data = JSON.parse(response);
 
                         var archivos = data.archivos;
@@ -790,7 +790,7 @@ require_once('../Controller/controladorListar.php');
                                 var id_doc_ = archivo.id_doc;
                                 var status_r = '';
 
-                                console.log(archivo);
+                                // console.log(archivo);
 
 
                                 var delete_btn = $('<button>').text('Eliminar').attr('class', 'btn btn-block btn-danger');
@@ -961,7 +961,7 @@ require_once('../Controller/controladorListar.php');
                         var dbInfo = data.base_de_datos;
                         var estado_db = data.status_doc_;
 
-                        console.log(dbInfo)
+                        // console.log(dbInfo)
                         var cod_doc_, ruta_doc, nom_file;
                         var cont = 1;
 
@@ -1140,7 +1140,7 @@ require_once('../Controller/controladorListar.php');
 
 
             $('.btn_lst_hr').on('click', function() {
-                console.log("Botón seleccionado hr");
+                console.log("Botón seleccionado");
 
                 var valor1 = $(this).data('valor');
                 var titulo_ = $(this).data('titulo');
@@ -1154,14 +1154,7 @@ require_once('../Controller/controladorListar.php');
 
                 var titulo_modal = $('#titulo_docs').val();
 
-
-
-                /*console.log(titulo_modal);
-                console.log(concepto);*/
-
                 load_documents(valor1);
-
-                // $('#lst_hr_0').modal('show');
             });
 
             $('.btn_lst_lyts').on('click', function() {
@@ -1181,11 +1174,6 @@ require_once('../Controller/controladorListar.php');
                 var concepto = $('#_concept').val();
 
                 var titulo_modal = $('#titulo_docs').val();
-
-
-
-                /*console.log(titulo_modal);
-                console.log(concepto);*/
 
                 load_documents_lyt(id_soli_l, titulo_doc)
 
