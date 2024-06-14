@@ -351,53 +351,55 @@ $ID = mysqli_fetch_object($ID_prop);
                                         <div class="mak-control mak-tertiary btn_button clear">
                                             <i class="fa-solid fa-trash"></i>&nbsp;Limpiar filtro
                                         </div>
+                                        <button type="button" id="reset-selected">Reset Selected</button>
                                     </div>
                                     <div class="row">
 
-                                        <form id="table-form" method="POST" action="#">
-                                            <table class="table table-borderless">
-                                                <thead>
-                                                    <tr>
-                                                        <th scope="col">
-                                                            <input type="checkbox" name="" id="">
-                                                        </th>
-                                                        <th scope="col">Nombre de documento</th>
-                                                        <th scope="col">Tipo de documento</th>
-                                                        <th scope="col">Tamaño</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody class="table-group-divider table-file-archive">
-                                                    <tr class="tr-list-upfile">
-                                                        <td class="upfile1 cursor" scope="row">
-                                                            <i class="fa-solid fa-plus"></i>
-                                                            <input type="file" name="table-inputFile" id="table-inputFile1" data-target="H_R" hidden>
-                                                        </td>
-                                                        <td class="placeholder">
-                                                            <span>TuArchivo</span>
-                                                            <div class="progress-bar">
-                                                                <div class="progress"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td class="placeholder">(png, jpg, pdf)</td>
-                                                        <td class="placeholder">1 KB</td>
-                                                    </tr>
-                                                    <tr class="tr-list-upfile">
-                                                        <td class="upfile2 cursor" scope="row">
-                                                            <i class="fa-solid fa-plus"></i>
-                                                            <input type="file" name="table-inputFile" id="table-inputFile2" data-target="P_U" hidden>
-                                                        </td>
-                                                        <td class="placeholder">
-                                                            <span>TuArchivo</span>
-                                                            <div class="progress-bar">
-                                                                <div class="progress"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td class="placeholder">(png, jpg, pdf)</td>
-                                                        <td class="placeholder">1 KB</td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                        </form>
+                                        <table class="table table-borderless">
+                                            <thead>
+                                                <tr>
+                                                    <th>
+                                                        <input type="checkbox" id="select-all">
+                                                    </th>
+                                                    <th>Archivo</th>
+                                                    <th>Tipo</th>
+                                                    <th>Tamaño</th>
+                                                    <th>Acciones</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody class="table-file-archive">
+                                                <tr class="tr-list-upfile">
+                                                    <td>
+                                                        <input type="checkbox" class="select-file">
+                                                    </td>
+                                                    <td class="upfile1 cursor" scope="row">
+                                                        <i class="fa-solid fa-plus"></i>
+                                                        <input type="file" name="table-inputFile1" id="table-inputFile1" data-target="H_R" hidden>
+                                                    </td>
+                                                    <td class="placeholder">
+                                                        <span>TuArchivo</span>
+                                                        <div class="progress-area">
+                                                            <li class="row">
+                                                                <div class="content">
+                                                                    <div class="details">
+                                                                        <span class="name"></span>
+                                                                        <span class="percent"></span>
+                                                                    </div>
+                                                                    <div class="progress-bar">
+                                                                        <div class="progress"></div>
+                                                                    </div>
+                                                                </div>
+                                                            </li>
+                                                        </div>
+                                                    </td>
+                                                    <td class="placeholder">(png, jpg, pdf)</td>
+                                                    <td class="placeholder">1 KB</td>
+                                                </tr>
+                                                <!-- Más filas según sea necesario -->
+                                            </tbody>
+                                        </table>
+                                        <button id="reset-selected">Reset Selected</button>
+
                                     </div>
                                 </div>
                             </div>
