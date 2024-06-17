@@ -59,7 +59,12 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   function typeValidation(type) {
-    const validExtensions = ["image/jpeg", "image/jpg", "image/png"];
+    const validExtensions = [
+      "image/jpeg",
+      "image/jpg",
+      "image/png",
+      "application/vnd.openxmlformats-officedocument.wordprocessingml.document", // Tipo MIME para .docx
+    ];
     return validExtensions.includes(type);
   }
 
@@ -121,157 +126,248 @@ document.addEventListener("DOMContentLoaded", function () {
   // DRAG AND DROP FILES
 
   // UP FILES TABLE
-  var contentArea = document.querySelector(".table-file-archive");
-  var selectAllCheckbox = document.getElementById("select-all");
-  var resetSelectedButton = document.getElementById("reset-selected");
+  // var contentArea = document.querySelector(".table-file-archive");
+  // var selectAllCheckbox = document.getElementById("select-all");
+  // var resetSelectedButton = document.getElementById("reset-selected");
 
-  function bindEventsToRow(row) {
-    var fileBtn = row.querySelector("td.cursor");
-    var inputFile = row.querySelector("input[type='file']");
-    var fileBtnIcon = fileBtn.querySelector("i");
+  // function bindEventsToRow(row) {
+  //   var fileBtn = row.querySelector("td.cursor");
+  //   var inputFile = row.querySelector("input[type='file']");
+  //   var fileBtnIcon = fileBtn.querySelector("i");
 
-    function handleFileBtnClick() {
-      if (fileBtnIcon.classList.contains("fa-plus")) {
-        inputFile.click();
-      } else if (fileBtnIcon.classList.contains("fa-xmark")) {
-        resetRow(row);
+  //   function handleFileBtnClick() {
+  //     if (fileBtnIcon.classList.contains("fa-plus")) {
+  //       inputFile.click();
+  //     } else if (fileBtnIcon.classList.contains("fa-xmark")) {
+  //       resetRow(row);
+  //     }
+  //   }
+
+  //   function handleInputFileChange({ target }) {
+  //     let file = target.files[0];
+  //     if (file) {
+  //       let fileName = file.name;
+  //       let dataTarget = target.getAttribute("data-target");
+  //       updateTableRow(row, file);
+  //       uploadFile(fileName, target.id, dataTarget, target);
+  //       toggleIconToCheckbox(fileBtnIcon, row);
+  //     }
+  //   }
+
+  //   fileBtn.addEventListener("click", handleFileBtnClick);
+  //   inputFile.addEventListener("change", handleInputFileChange);
+
+  //   // Store the event listeners so we can remove them later if needed
+  //   row._fileBtnClickHandler = handleFileBtnClick;
+  //   row._inputFileChangeHandler = handleInputFileChange;
+  // }
+
+  // function updateTableRow(row, file) {
+  //   let rowContent = row.querySelectorAll("td");
+  //   let inputFile = row.querySelector("input[type='file']");
+  //   let inputFileId = inputFile.id;
+  //   let inputFileName = inputFile.name;
+  //   let inputDataTarget = inputFile.getAttribute("data-target");
+
+  //   rowContent[1].innerHTML = `<i class="fa-solid fa-xmark"></i>
+  //                            <input type="file" name="${inputFileName}" id="${inputFileId}" data-target="${inputDataTarget}" hidden>`;
+  //   rowContent[2].querySelector("span").textContent = file.name;
+  //   rowContent[3].textContent = file.type;
+  //   rowContent[4].textContent = `${Math.round(file.size / 1024)} KB`;
+  // }
+
+  // function resetRow(row) {
+  //   let rowContent = row.querySelectorAll("td");
+  //   let inputFile = row.querySelector("input[type='file']");
+  //   let inputFileId = inputFile.id;
+  //   let inputFileName = inputFile.name;
+  //   let inputDataTarget = inputFile.getAttribute("data-target");
+
+  //   rowContent[1].innerHTML = `<i class="fa-solid fa-plus"></i>
+  //                            <input type="file" name="${inputFileName}" id="${inputFileId}" data-target="${inputDataTarget}" hidden>`;
+  //   rowContent[2].innerHTML = `<span>TuArchivo</span>
+  //                            <div class="progress-area">
+  //                                <li class="row">
+  //                                    <div class="content">
+  //                                        <div class="details">
+  //                                            <span class="name"></span>
+  //                                            <span class="percent"></span>
+  //                                        </div>
+  //                                        <div class="progress-bar">
+  //                                            <div class="progress"></div>
+  //                                        </div>
+  //                                    </div>
+  //                                </li>
+  //                            </div>`;
+  //   rowContent[3].textContent = "(png, jpg, pdf)";
+  //   rowContent[4].textContent = "1 KB";
+
+  //   // Unbind the previous event listeners
+  //   let fileBtn = row.querySelector("td.cursor");
+  //   let newInputFile = row.querySelector("input[type='file']");
+
+  //   fileBtn.removeEventListener("click", row._fileBtnClickHandler);
+  //   inputFile.removeEventListener("change", row._inputFileChangeHandler);
+
+  //   // Re-bind the click and change events for the reset input element
+  //   bindEventsToRow(row);
+  // }
+
+  // function uploadFile(fileName, inputFileId, dataTarget, inputFileElement) {
+  //   let xhr = new XMLHttpRequest();
+  //   xhr.open("POST", "../Controller/Add_propiedades.php");
+
+  //   xhr.upload.addEventListener("progress", ({ loaded, total }) => {
+  //     let fileLoaded = Math.floor((loaded / total) * 100);
+  //     let progressElement = inputFileElement
+  //       .closest("tr")
+  //       .querySelector(".progress-bar .progress");
+  //     progressElement.style.width = fileLoaded + "%";
+  //     progressElement.textContent = fileLoaded + "%";
+  //   });
+
+  //   let form = document.querySelector("#form_prop");
+  //   let formData = new FormData(form);
+  //   formData.append("dni_cli", document.querySelector("#dni_cli").value);
+  //   formData.append("inputFileId", inputFileId);
+  //   formData.append("dataTarget", dataTarget);
+
+  //   xhr.onreadystatechange = function () {
+  //     if (xhr.readyState == 4 && xhr.status == 200) {
+  //       console.log("Response from server: ", xhr.responseText);
+  //     } else if (xhr.readyState == 4) {
+  //       console.error("Error: ", xhr.status, xhr.statusText);
+  //     }
+  //   };
+
+  //   xhr.send(formData);
+
+  //   // $.ajax({
+  //   //   type: "POST",
+  //   //   url: "../views/add.propertyTable.php",
+  //   //   data: formData,
+  //   //   processData: false,
+  //   //   contentType: false,
+  //   //   beforeSend: function () {
+  //   //     console.log("Enviando...");
+  //   //   },
+  //   //   success: function (r) {
+  //   //     console.log("Éxito:", r);
+  //   //   },
+  //   //   error: function (xhr, status, error) {
+  //   //     console.log("Error:", error);
+  //   //   },
+  //   // });
+  // }
+  // var fileRows = contentArea.querySelectorAll(".tr-list-upfile");
+  // fileRows.forEach((row) => {
+  //   bindEventsToRow(row);
+  // });
+
+  // selectAllCheckbox.addEventListener("change", function () {
+  //   let checkboxes = contentArea.querySelectorAll(".select-file");
+  //   checkboxes.forEach((checkbox) => {
+  //     checkbox.checked = selectAllCheckbox.checked;
+  //   });
+  // });
+
+  // resetSelectedButton.addEventListener("click", function () {
+  //   let checkboxes = contentArea.querySelectorAll(".select-file:checked");
+  //   checkboxes.forEach((checkbox) => {
+  //     let row = checkbox.closest("tr");
+  //     resetRow(row);
+  //   });
+  // });
+  // UP FILES TABLE
+
+  var upTable = document.querySelector("#upTable");
+  var tableContent = upTable.querySelector(".table-file-archive");
+  var rowContent = tableContent.querySelectorAll(".tr-list-upfile");
+
+  var inputFile = document.querySelector("#table-inputFile");
+
+  let currentRowTarget = "";
+
+  // Agregar eventos de clic a cada botón de las filas
+  rowContent.forEach((element) => {
+    const firstTD = element.querySelector("td:first-child");
+    const btnRow = firstTD.querySelector("label");
+
+    btnRow.addEventListener("click", () => {
+      currentRowTarget = element.getAttribute("data-row-target");
+      console.log(currentRowTarget);
+    });
+  });
+
+  // Evento para manejar el cambio en el input file
+  inputFile.addEventListener("change", () => {
+    [...inputFile.files].forEach((file) => {
+      // Lógica de validación de tipo de archivo
+      if (typeValidation(file.type)) {
+        uploadFile(currentRowTarget, file); // Llama a tu función de subida de archivos
+      } else {
+        console.log("archivo no soportado.");
       }
-    }
+    });
+    inputFile.value = ""; // Limpia el valor del input file
+  });
 
-    function handleInputFileChange({ target }) {
-      let file = target.files[0];
-      if (file) {
-        let fileName = file.name;
-        let dataTarget = target.getAttribute("data-target");
-        updateTableRow(row, file);
-        uploadFile(fileName, target.id, dataTarget, target);
-        toggleIconToCheckbox(fileBtnIcon, row);
-      }
-    }
+  // Función de validación de tipo de archivo (añade los tipos de archivo permitidos)
+  // inputFile.addEventListener("change", handleInputFileChange);
 
-    fileBtn.addEventListener("click", handleFileBtnClick);
-    inputFile.addEventListener("change", handleInputFileChange);
+  // Función para subir el archivo (añade tu lógica aquí)
+  function uploadFile(target, file) {
+    // Tu lógica para subir el archivo
+    // console.log(row);
+    // console.log(target);
+    // console.log(file);
 
-    // Store the event listeners so we can remove them later if needed
-    row._fileBtnClickHandler = handleFileBtnClick;
-    row._inputFileChangeHandler = handleInputFileChange;
-  }
-
-  function updateTableRow(row, file) {
-    let rowContent = row.querySelectorAll("td");
-    let inputFile = row.querySelector("input[type='file']");
-    let inputFileId = inputFile.id;
-    let inputFileName = inputFile.name;
-    let inputDataTarget = inputFile.getAttribute("data-target");
-
-    rowContent[1].innerHTML = `<i class="fa-solid fa-xmark"></i>
-                             <input type="file" name="${inputFileName}" id="${inputFileId}" data-target="${inputDataTarget}" hidden>`;
-    rowContent[2].querySelector("span").textContent = file.name;
-    rowContent[3].textContent = file.type;
-    rowContent[4].textContent = `${Math.round(file.size / 1024)} KB`;
-  }
-
-  function resetRow(row) {
-    let rowContent = row.querySelectorAll("td");
-    let inputFile = row.querySelector("input[type='file']");
-    let inputFileId = inputFile.id;
-    let inputFileName = inputFile.name;
-    let inputDataTarget = inputFile.getAttribute("data-target");
-
-    rowContent[1].innerHTML = `<i class="fa-solid fa-plus"></i>
-                             <input type="file" name="${inputFileName}" id="${inputFileId}" data-target="${inputDataTarget}" hidden>`;
-    rowContent[2].innerHTML = `<span>TuArchivo</span>
-                             <div class="progress-area">
-                                 <li class="row">
-                                     <div class="content">
-                                         <div class="details">
-                                             <span class="name"></span>
-                                             <span class="percent"></span>
-                                         </div>
-                                         <div class="progress-bar">
-                                             <div class="progress"></div>
-                                         </div>
-                                     </div>
-                                 </li>
-                             </div>`;
-    rowContent[3].textContent = "(png, jpg, pdf)";
-    rowContent[4].textContent = "1 KB";
-
-    // Unbind the previous event listeners
-    let fileBtn = row.querySelector("td.cursor");
-    let newInputFile = row.querySelector("input[type='file']");
-
-    fileBtn.removeEventListener("click", row._fileBtnClickHandler);
-    inputFile.removeEventListener("change", row._inputFileChangeHandler);
-
-    // Re-bind the click and change events for the reset input element
-    bindEventsToRow(row);
-  }
-
-  function uploadFile(fileName, inputFileId, dataTarget, inputFileElement) {
     let xhr = new XMLHttpRequest();
-    xhr.open("POST", "../Controller/Add_propiedades.php");
 
     xhr.upload.addEventListener("progress", ({ loaded, total }) => {
       let fileLoaded = Math.floor((loaded / total) * 100);
-      let progressElement = inputFileElement
-        .closest("tr")
-        .querySelector(".progress-bar .progress");
-      progressElement.style.width = fileLoaded + "%";
-      progressElement.textContent = fileLoaded + "%";
+
+      console.log(fileLoaded);
+      console.log(loaded);
+      console.log(total);
     });
 
-    let form = document.querySelector("#form_prop");
-    let formData = new FormData(form);
-    formData.append("dni_cli", document.querySelector("#dni_cli").value);
-    formData.append("inputFileId", inputFileId);
-    formData.append("dataTarget", dataTarget);
-
-    xhr.onreadystatechange = function () {
-      if (xhr.readyState == 4 && xhr.status == 200) {
-        console.log("Response from server: ", xhr.responseText);
-      } else if (xhr.readyState == 4) {
-        console.error("Error: ", xhr.status, xhr.statusText);
-      }
-    };
-
-    xhr.send(formData);
-
-    // $.ajax({
-    //   type: "POST",
-    //   url: "../views/add.propertyTable.php",
-    //   data: formData,
-    //   processData: false,
-    //   contentType: false,
-    //   beforeSend: function () {
-    //     console.log("Enviando...");
-    //   },
-    //   success: function (r) {
-    //     console.log("Éxito:", r);
-    //   },
-    //   error: function (xhr, status, error) {
-    //     console.log("Error:", error);
-    //   },
-    // });
+    updateTableRow(tableContent, target, file);
   }
-  var fileRows = contentArea.querySelectorAll(".tr-list-upfile");
-  fileRows.forEach((row) => {
-    bindEventsToRow(row);
-  });
 
-  selectAllCheckbox.addEventListener("change", function () {
-    let checkboxes = contentArea.querySelectorAll(".select-file");
-    checkboxes.forEach((checkbox) => {
-      checkbox.checked = selectAllCheckbox.checked;
-    });
-  });
+  function getExtension(mimeType) {
+    const mimeTypes = {
+      "image/jpeg": "jpeg",
+      "image/jpg": "jpg",
+      "image/png": "png",
+      "application/vnd.openxmlformats-officedocument.wordprocessingml.document":
+        "docx",
+      // Puedes agregar más tipos MIME si es necesario
+    };
+    return mimeTypes[mimeType] || mimeType; // Devuelve la extensión o el tipo MIME si no está en la lista
+  }
 
-  resetSelectedButton.addEventListener("click", function () {
-    let checkboxes = contentArea.querySelectorAll(".select-file:checked");
-    checkboxes.forEach((checkbox) => {
-      let row = checkbox.closest("tr");
-      resetRow(row);
-    });
-  });
-  // UP FILES TABLE
+  function updateTableRow(tableContent, target, file) {
+    // Encuentra la fila con el atributo data-row-target que coincide con el valor de target
+    let row = tableContent.querySelector(
+      `.tr-list-upfile[data-row-target="${target}"]`
+    );
+    if (row) {
+      let rowContent = row.querySelectorAll("td");
+
+      // Eliminar todas las clases de cada td
+      rowContent.forEach((td) => {
+        td.className = "";
+      });
+
+      // Actualizar el contenido de cada td
+      rowContent[1].querySelector("span").textContent = file.name;
+      rowContent[2].textContent = getExtension(file.type);
+      rowContent[3].textContent = `${Math.round(file.size / 1024)} KB`;
+    } else {
+      console.log(
+        `No se encontró ninguna fila con data-row-target="${target}"`
+      );
+    }
+  }
 });

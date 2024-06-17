@@ -355,29 +355,32 @@ $ID = mysqli_fetch_object($ID_prop);
                                     </div>
                                     <div class="row">
 
-                                        <table class="table table-borderless">
+                                        <table id="upTable" class="table table-borderless">
                                             <thead>
                                                 <tr>
                                                     <th>
                                                         <input type="checkbox" id="select-all">
                                                     </th>
+
                                                     <th>Archivo</th>
                                                     <th>Tipo</th>
                                                     <th>Tamaño</th>
-                                                    <th>Acciones</th>
                                                 </tr>
                                             </thead>
                                             <tbody class="table-file-archive">
-                                                <tr class="tr-list-upfile">
-                                                    <td>
-                                                        <input type="checkbox" class="select-file">
-                                                    </td>
-                                                    <td class="upfile1 cursor" scope="row">
-                                                        <i class="fa-solid fa-plus"></i>
-                                                        <input type="file" name="table-inputFile1" id="table-inputFile1" data-target="H_R" hidden>
+
+                                                <input type="file" id="table-inputFile" name="table-inputFile[]" data-target="" multiple hidden>
+
+                                                <tr class="tr-list-upfile dni" data-row-target="DNI">
+                                                    <td scope="row">
+                                                        <!-- <div class="upfile1 cursor">
+                                                            <i class="fa-solid fa-plus"></i>
+                                                            
+                                                        </div> -->
+                                                        <label for="table-inputFile"><i class="fa-solid fa-plus"></i></label>
                                                     </td>
                                                     <td class="placeholder">
-                                                        <span>TuArchivo</span>
+                                                        <span>Documentos (DNI)</span>
                                                         <div class="progress-area">
                                                             <li class="row">
                                                                 <div class="content">
@@ -395,7 +398,114 @@ $ID = mysqli_fetch_object($ID_prop);
                                                     <td class="placeholder">(png, jpg, pdf)</td>
                                                     <td class="placeholder">1 KB</td>
                                                 </tr>
-                                                <!-- Más filas según sea necesario -->
+                                                <tr class="tr-list-upfile" data-row-target="P_U">
+                                                    <td scope="row">
+                                                        <!-- <div class="upfile1 cursor">
+                                                            <i class="fa-solid fa-plus"></i>
+                                                            
+                                                        </div> -->
+                                                        <label for="table-inputFile"><i class="fa-solid fa-plus"></i></label>
+                                                    </td>
+                                                    <td class="placeholder">
+                                                        <span>Documentos (PU)</span>
+                                                        <div class="progress-area">
+                                                            <li class="row">
+                                                                <div class="content">
+                                                                    <div class="details">
+                                                                        <span class="name"></span>
+                                                                        <span class="percent"></span>
+                                                                    </div>
+                                                                    <div class="progress-bar">
+                                                                        <div class="progress"></div>
+                                                                    </div>
+                                                                </div>
+                                                            </li>
+                                                        </div>
+                                                    </td>
+                                                    <td class="placeholder">(png, jpg, pdf)</td>
+                                                    <td class="placeholder">1 KB</td>
+                                                </tr>
+                                                <tr class="tr-list-upfile" data-row-target="H_R">
+                                                    <td scope="row">
+                                                        <!-- <div class="upfile1 cursor">
+                                                            <i class="fa-solid fa-plus"></i>
+                                                            
+                                                        </div> -->
+                                                        <label for="table-inputFile"><i class="fa-solid fa-plus"></i></label>
+                                                    </td>
+                                                    <td class="placeholder">
+                                                        <span>Documentos (HR)</span>
+                                                        <div class="progress-area">
+                                                            <li class="row">
+                                                                <div class="content">
+                                                                    <div class="details">
+                                                                        <span class="name"></span>
+                                                                        <span class="percent"></span>
+                                                                    </div>
+                                                                    <div class="progress-bar">
+                                                                        <div class="progress"></div>
+                                                                    </div>
+                                                                </div>
+                                                            </li>
+                                                        </div>
+                                                    </td>
+                                                    <td class="placeholder">(png, jpg, pdf)</td>
+                                                    <td class="placeholder">1 KB</td>
+                                                </tr>
+                                                <tr class="tr-list-upfile" data-row-target="C_L">
+                                                    <td scope="row">
+                                                        <!-- <div class="upfile1 cursor">
+                                                            <i class="fa-solid fa-plus"></i>
+                                                            
+                                                        </div> -->
+                                                        <label for="table-inputFile"><i class="fa-solid fa-plus"></i></label>
+                                                    </td>
+                                                    <td class="placeholder">
+                                                        <span>Documentos (Copia Literal)</span>
+                                                        <div class="progress-area">
+                                                            <li class="row">
+                                                                <div class="content">
+                                                                    <div class="details">
+                                                                        <span class="name"></span>
+                                                                        <span class="percent"></span>
+                                                                    </div>
+                                                                    <div class="progress-bar">
+                                                                        <div class="progress"></div>
+                                                                    </div>
+                                                                </div>
+                                                            </li>
+                                                        </div>
+                                                    </td>
+                                                    <td class="placeholder">(png, jpg, pdf)</td>
+                                                    <td class="placeholder">1 KB</td>
+                                                </tr>
+                                                <tr class="tr-list-upfile" data-row-target="OTROS">
+                                                    <td scope="row">
+                                                        <!-- <div class="upfile1 cursor">
+                                                            <i class="fa-solid fa-plus"></i>
+                                                            
+                                                        </div> -->
+                                                        <label for="table-inputFile"><i class="fa-solid fa-plus"></i></label>
+                                                    </td>
+                                                    <td class="placeholder">
+                                                        <span>Documentos (Otros documentos)</span>
+                                                        <div class="progress-area">
+                                                            <li class="row">
+                                                                <div class="content">
+                                                                    <div class="details">
+                                                                        <span class="name"></span>
+                                                                        <span class="percent"></span>
+                                                                    </div>
+                                                                    <div class="progress-bar">
+                                                                        <div class="progress"></div>
+                                                                    </div>
+                                                                </div>
+                                                            </li>
+                                                        </div>
+                                                    </td>
+                                                    <td class="placeholder">(png, jpg, pdf)</td>
+                                                    <td class="placeholder">1 KB</td>
+                                                </tr>
                                             </tbody>
                                         </table>
                                         <button id="reset-selected">Reset Selected</button>

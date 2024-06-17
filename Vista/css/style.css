@@ -482,6 +482,15 @@
   margin-bottom: 0;
 }
 
+.mak .table-file-archive .tr-list-upfile td label {
+  margin: 0;
+  cursor: pointer;
+}
+
+.mak .progress-area {
+  display: none;
+}
+
 /* MENU PROPERTY */
 .menu_container {
   display: flex;
