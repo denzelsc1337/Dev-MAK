@@ -316,31 +316,31 @@ clearBtns.forEach((element) => {
 // --------------------------------
 // --------------------------------
 
-$(document).ready(function () {
-  $("#saveBtn").click(function (e) {
-    e.preventDefault();
+// $(document).ready(function () {
+//   $("#saveBtn").click(function (e) {
+//     e.preventDefault();
 
-    var formData = new FormData($("#form_prop")[0]);
-    console.log(formData);
+//     var formData = new FormData($("#form_prop")[0]);
+//     console.log(arrayFile);
 
-    $.ajax({
-      type: "POST",
-      url: "../Controller/Add_propiedades.php",
-      data: formData,
-      processData: false,
-      contentType: false,
-      beforeSend: function () {
-        console.log("Enviando...");
-      },
-      success: function (r) {
-        console.log("Éxito:", r);
-      },
-      error: function (xhr, status, error) {
-        console.log("Error:", error);
-      },
-    });
-  });
-});
+//     $.ajax({
+//       type: "POST",
+//       url: "../Controller/Add_propiedades.php",
+//       data: formData,
+//       processData: false,
+//       contentType: false,
+//       beforeSend: function () {
+//         console.log("Enviando...");
+//       },
+//       success: function (r) {
+//         console.log("Éxito:", r);
+//       },
+//       error: function (xhr, status, error) {
+//         console.log("Error:", error);
+//       },
+//     });
+//   });
+// });
 
 // --------------------------------
 // --------------------------------

@@ -487,8 +487,19 @@
   cursor: pointer;
 }
 
-.mak .progress-area {
-  display: none;
+.mak .progress-area .content {
+  width: 100%;
+  height: initial;
+}
+
+.mak .progress-area .content .progress-bar {
+  width: 100%;
+  height: 5px;
+  border-radius: 2px;
+  background-color: lightgray;
+}
+.mak .progress-area .content .progress-bar .progress {
+  background-color: var(--blue-mak);
 }
 
 /* MENU PROPERTY */

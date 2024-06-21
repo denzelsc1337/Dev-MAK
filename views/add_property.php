@@ -135,7 +135,14 @@ $ID = mysqli_fetch_object($ID_prop);
                                         <?php
                                         require_once('../Controller/controladorListar.php');
                                         ?>
-                                        <select id="tipo_prop" name="tipo_prop" class="mak-control w-100" value="-1"></select>
+
+                                        <!-- <select id="tipo_prop" name="tipo_prop" class="mak-control w-100" value="-1"></select> -->
+                                        <select class="mak-control w-100" id="tipo_prop_" name="tipo_prop_">
+                                            <option selected disabled>Selecciona</option>
+                                            <?php foreach ($selector_types_props as $selectorTypes_props) : ?>
+                                                <option value="<?php echo $selectorTypes_props[0]; ?>"><?php echo $selectorTypes_props[1] ?></option>
+                                            <?php endforeach ?>
+                                        </select>
                                     </div>
                                     <!-- </div> -->
                                 </div>
@@ -382,7 +389,7 @@ $ID = mysqli_fetch_object($ID_prop);
                                                     <td class="placeholder">
                                                         <span>Documentos (DNI)</span>
                                                         <div class="progress-area">
-                                                            <li class="row">
+                                                            <!-- <li class="row">
                                                                 <div class="content">
                                                                     <div class="details">
                                                                         <span class="name"></span>
@@ -392,7 +399,7 @@ $ID = mysqli_fetch_object($ID_prop);
                                                                         <div class="progress"></div>
                                                                     </div>
                                                                 </div>
-                                                            </li>
+                                                            </li> -->
                                                         </div>
                                                     </td>
                                                     <td class="placeholder">(png, jpg, pdf)</td>
@@ -409,7 +416,7 @@ $ID = mysqli_fetch_object($ID_prop);
                                                     <td class="placeholder">
                                                         <span>Documentos (PU)</span>
                                                         <div class="progress-area">
-                                                            <li class="row">
+                                                            <!-- <li class="row">
                                                                 <div class="content">
                                                                     <div class="details">
                                                                         <span class="name"></span>
@@ -419,7 +426,7 @@ $ID = mysqli_fetch_object($ID_prop);
                                                                         <div class="progress"></div>
                                                                     </div>
                                                                 </div>
-                                                            </li>
+                                                            </li> -->
                                                         </div>
                                                     </td>
                                                     <td class="placeholder">(png, jpg, pdf)</td>
@@ -436,7 +443,7 @@ $ID = mysqli_fetch_object($ID_prop);
                                                     <td class="placeholder">
                                                         <span>Documentos (HR)</span>
                                                         <div class="progress-area">
-                                                            <li class="row">
+                                                            <!-- <li class="row">
                                                                 <div class="content">
                                                                     <div class="details">
                                                                         <span class="name"></span>
@@ -446,7 +453,7 @@ $ID = mysqli_fetch_object($ID_prop);
                                                                         <div class="progress"></div>
                                                                     </div>
                                                                 </div>
-                                                            </li>
+                                                            </li> -->
                                                         </div>
                                                     </td>
                                                     <td class="placeholder">(png, jpg, pdf)</td>
@@ -463,7 +470,7 @@ $ID = mysqli_fetch_object($ID_prop);
                                                     <td class="placeholder">
                                                         <span>Documentos (Copia Literal)</span>
                                                         <div class="progress-area">
-                                                            <li class="row">
+                                                            <!-- <li class="row">
                                                                 <div class="content">
                                                                     <div class="details">
                                                                         <span class="name"></span>
@@ -473,7 +480,7 @@ $ID = mysqli_fetch_object($ID_prop);
                                                                         <div class="progress"></div>
                                                                     </div>
                                                                 </div>
-                                                            </li>
+                                                            </li> -->
                                                         </div>
                                                     </td>
                                                     <td class="placeholder">(png, jpg, pdf)</td>
@@ -489,19 +496,6 @@ $ID = mysqli_fetch_object($ID_prop);
                                                     </td>
                                                     <td class="placeholder">
                                                         <span>Documentos (Otros documentos)</span>
-                                                        <div class="progress-area">
-                                                            <li class="row">
-                                                                <div class="content">
-                                                                    <div class="details">
-                                                                        <span class="name"></span>
-                                                                        <span class="percent"></span>
-                                                                    </div>
-                                                                    <div class="progress-bar">
-                                                                        <div class="progress"></div>
-                                                                    </div>
-                                                                </div>
-                                                            </li>
-                                                        </div>
                                                     </td>
                                                     <td class="placeholder">(png, jpg, pdf)</td>
                                                     <td class="placeholder">1 KB</td>

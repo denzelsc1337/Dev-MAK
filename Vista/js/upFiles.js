@@ -286,6 +286,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
   var inputFile = document.querySelector("#table-inputFile");
 
+  var arrayFile = [];
+
   let currentRowTarget = "";
 
   // Agregar eventos de clic a cada botón de las filas
@@ -295,7 +297,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     btnRow.addEventListener("click", () => {
       currentRowTarget = element.getAttribute("data-row-target");
-      console.log(currentRowTarget);
+      // console.log(currentRowTarget);
     });
   });
 
@@ -312,27 +314,70 @@ document.addEventListener("DOMContentLoaded", function () {
     inputFile.value = ""; // Limpia el valor del input file
   });
 
-  // Función de validación de tipo de archivo (añade los tipos de archivo permitidos)
-  // inputFile.addEventListener("change", handleInputFileChange);
+  let form = document.querySelector("#form_prop");
+  let formData = new FormData(form);
 
   // Función para subir el archivo (añade tu lógica aquí)
   function uploadFile(target, file) {
     // Tu lógica para subir el archivo
-    // console.log(row);
-    // console.log(target);
-    // console.log(file);
 
     let xhr = new XMLHttpRequest();
+    xhr.open("POST", "../Controller/Add_propiedades.php");
+
+    // Mostrar área de progreso
+    let row = tableContent.querySelector(
+      `.tr-list-upfile[data-row-target="${target}"]`
+    );
+    let progressArea = row.querySelector(".progress-area");
+    let fileDetailsTD = row.querySelectorAll("td")[1];
+    // Ocultar el td y mostrar el área de progreso
+    progressArea.style.display = "block";
+    // fileDetailsTD.style.display = "none";
 
     xhr.upload.addEventListener("progress", ({ loaded, total }) => {
       let fileLoaded = Math.floor((loaded / total) * 100);
+      let fileTotal = Math.floor(total / 1000);
 
-      console.log(fileLoaded);
-      console.log(loaded);
-      console.log(total);
+      let progressHTML = `
+                        <div class="progress-area">
+                          <div class="content">
+                            <div class="details">
+                              <span class="name"><${file.name}/span>
+                              <span class="percent">${fileLoaded}%</span>
+                            </div>
+                            <div class="progress-bar">
+                              <div class="progress" style="width: ${fileLoaded}%"></div>
+                            </div>
+                          </div>  
+                        </div>`;
+
+      fileDetailsTD.innerHTML = progressHTML;
     });
 
-    updateTableRow(tableContent, target, file);
+    // updateTableRow(tableContent, target, file);
+    xhr.addEventListener("load", () => {
+      if (xhr.status === 200) {
+        // Ocultar área de progreso y mostrar el td
+        progressArea.style.display = "none";
+        // fileDetailsTD.style.display = "none";
+
+        // arrayFile.push(file);
+        arrayFile.push({
+          name: file.name,
+          type: file.type,
+          size: file.size,
+          lastModified: file.lastModified,
+        });
+        console.log(arrayFile);
+
+        // Actualizar la fila de la tabla con los datos del archivo
+        updateTableRow(tableContent, target, file);
+      } else {
+        console.error("Error al subir el archivo");
+      }
+    });
+
+    xhr.send(formData);
   }
 
   function getExtension(mimeType) {
@@ -360,8 +405,10 @@ document.addEventListener("DOMContentLoaded", function () {
         td.className = "";
       });
 
+      // Cambiar el icono plus por input checkbox
+      rowContent[0].innerHTML = `<input type="checkbox" id="${target}">`;
       // Actualizar el contenido de cada td
-      rowContent[1].querySelector("span").textContent = file.name;
+      rowContent[1].innerHTML = `<span>${file.name}</span>`;
       rowContent[2].textContent = getExtension(file.type);
       rowContent[3].textContent = `${Math.round(file.size / 1024)} KB`;
     } else {
@@ -370,4 +417,32 @@ document.addEventListener("DOMContentLoaded", function () {
       );
     }
   }
+
+  $(document).ready(function () {
+    $("#saveBtn").click(function (e) {
+      e.preventDefault();
+
+      var formData = new FormData($("#form_prop")[0]);
+
+      // formData.append("tipo_prop", $("#tipo_prop").val());
+      formData.append("arrayFile", JSON.stringify(arrayFile));
+
+      $.ajax({
+        type: "POST",
+        url: "../Controller/Add_propiedades.php",
+        data: formData,
+        processData: false,
+        contentType: false,
+        beforeSend: function () {
+          console.log("Enviando...");
+        },
+        success: function (r) {
+          console.log("Éxito:", r);
+        },
+        error: function (xhr, status, error) {
+          console.log("Error:", error);
+        },
+      });
+    });
+  });
 });
