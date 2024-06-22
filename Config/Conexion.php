@@ -15,7 +15,7 @@ Class conexion{
 		$this->usuario = "root";
 		$this->clave ="";
 		$this->server ="localhost";
-		$this->nombreBD = "mak";
+		$this->nombreBD = "test";
 
 		// $this->usuario = "root";
 		// $this->clave ="";

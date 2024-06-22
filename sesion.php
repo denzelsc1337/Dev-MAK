@@ -11,4 +11,5 @@ if (empty($_SESSION)) {
 <?php
 }
 ?>
-<input type="hidden" id="dni_cli" value="<?php echo $_SESSION['dni'] ?>" />
+<!-- <input type="hidden" id="dni_cli" value="<?php echo $_SESSION['dni'] ?>" /> -->
+<input type="hidden" id="dni_cli" value="<?php echo $_SESSION['dni_usu'] ?>" />

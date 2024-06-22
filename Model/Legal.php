@@ -139,10 +139,14 @@ class cLegal
 		$cnx = new conexion();
 		$cadena = $cnx->abrirConexion();
 
-		$query = "SELECT id_legal, CONCAT(dl.nom_client,' ',dl.ape_client) as nom_client , dir_client, fecha_reg, status_solic,user_cod,dni_client, comentario
-				FROM docs_legal dl
-				inner join clientes_servicios cs
-				on dl.user_cod = cs.id_client where not status_solic = 30";
+		// $query = "SELECT id_legal, CONCAT(dl.nom_client,' ',dl.ape_client) as nom_client , dir_client, fecha_reg, status_solic,user_cod,dni_client, comentario
+		// 		FROM docs_legal dl
+		// 		inner join clientes_servicios cs
+		// 		on dl.user_cod = cs.id_client where not status_solic = 30";
+		$query = "SELECT id_legal, CONCAT(dl.nom_client,' ',dl.ape_client) as nom_client , dir_client, dl.fecha_reg, status_solic,user_cod, c.dni, comentario
+					FROM docs_legal dl
+					INNER JOIN clientes c ON dl.user_cod = c.id_client 
+					WHERE NOT status_solic = 30";
 
 		$resultado = mysqli_query($cadena, $query);
 

@@ -147,7 +147,6 @@
         eye.classList.remove("fa-eye-slash");
         eye.classList.add("fa-eye");
       } else {
-        console.log(iptPass.type);
         iptPass.type = "password";
         eye.classList.remove("fa-eye");
         eye.classList.add("fa-eye-slash");
