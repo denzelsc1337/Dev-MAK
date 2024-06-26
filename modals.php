@@ -185,9 +185,3 @@
 <!-- VER 2DAS OPCIONES ADD_PROPERTY  -->
 
 <script src="./Vista/assets/add_property.js"></script>
-<script>
-    // Inicializar eventos cuando el modal se muestre
-    // $("#verOptions_01").on("shown.bs.modal", function() {
-    //     initializeEvents(this);
-    // });
-</script>

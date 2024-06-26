@@ -14,7 +14,7 @@ window.addEventListener(
       return;
     }
     if (event.data) {
-      console.log("Mensaje recibido:", event.data);
+      // console.log("Mensaje recibido:", event.data);
 
       // CONEXIONES ENTRE IFRAMES
       if (typeof event.data === "string" && /\.php$/.test(event.data)) {
@@ -25,7 +25,7 @@ window.addEventListener(
       }
       // CONEXIONES ENTRE IFRAMES
 
-      // ABRIR MODAL
+      // ABRIR MODALF
       else if (event.data === "verOptions_01") {
         $("#verOptions_01").modal("show");
 

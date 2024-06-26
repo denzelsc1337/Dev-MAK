@@ -278,7 +278,14 @@ $ID = mysqli_fetch_object($ID_prop);
                                             <div class="control-group">
                                                 <span>Zonificación:</span>
                                                 <div>
-                                                    <select name="" id="" class="mak-control w-75"></select>
+                                                    <select name="" id="" class="mak-control w-75">
+
+                                                        <option selected disabled>Selecciona</option>
+                                                        <?php foreach ($selector_types_zon as $selector_zon) : ?>
+                                                            <option value="<?php echo $selector_zon[0]; ?>"><?php echo $selector_zon[1] ?></option>
+                                                        <?php endforeach ?>
+
+                                                    </select>
                                                 </div>
                                             </div>
                                             <div class="control-group">
@@ -639,14 +646,17 @@ $ID = mysqli_fetch_object($ID_prop);
                                     </div>
                                     <h5>Servicios</h5>
                                     <div class="caracteristicas">
+
                                         <label class="mak-options cursor m-0" for="aire_acondicionado">
                                             <input id="aire_acondicionado" name="aire_acondicionado" type="checkbox" class="mak-control-event">
                                             <span>Aire acondicionado</span>
-                                            <input type="number" min="0" class="mak-options-brd-bottom p-0">
+                                            <input type="number" min="0" id="cant_aire_acondicionado" name="cant_aire_acondicionado" class="mak-options-brd-bottom p-0">
                                         </label>
+
                                         <label class="mak-options cursor m-0" for="area_juegos">
-                                            <input id="area_juegos" name="area_juegos" type="checkbox" class="">
+                                            <input id="area_juegos" name="area_juegos" type="checkbox" class="mak-control-event">
                                             <span>Área de juegos infantiles</span>
+                                            <input type="number" min="0" id="cant_area_juegos" name="cant_area_juegos" class="mak-options-brd-bottom p-0">
                                         </label>
                                         <label class="mak-options cursor m-0" for="area_lavanderia">
                                             <input id="area_lavanderia" name="area_lavanderia" type="checkbox" class="">
@@ -816,7 +826,6 @@ $ID = mysqli_fetch_object($ID_prop);
                         Guardar cambios
                     </button>
                 </div>
-
             </form>
         </div>
     </div>
