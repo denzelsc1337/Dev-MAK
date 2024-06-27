@@ -168,86 +168,71 @@ document.querySelectorAll(".txt-area").forEach((textarea) => {
 // --------------------------------
 // --------------------------------
 
+var arrayData = [];
+
 // Función para inicializar los eventos
 function initializeEvents(container) {
-  // console.log(container);
   var lblContent = container.querySelectorAll(".chks .mak-options");
-  // console.log(lblContent);
 
   lblContent.forEach(function (label) {
-    // console.log(label);
-    var checkbox = label.querySelectorAll('input[type="checkbox"]');
+    var checkboxes = label.querySelectorAll('input[type="checkbox"]');
     var lastInput = label.querySelector(
       'input[type="number"]:not(.mak-control-event)'
     );
 
-    // label.addEventListener("click", () => {
-    // // checkbox.forEach((element) => {
-    // //   label.addEventListener("click", function () {
-    // //     console.log(element);
-    // //     console.log("Checkbox clicked");
-    // //     // Verifica si el elemento es de clase 'mak-control-event'
-    // //     if (element.classList.contains("mak-control-event")) {
-    // //       console.log(element.checked);
-    // //       // Agrega o elimina la clase 'checked' del label dependiendo del estado del checkbox
-    // //       element.classList.toggle("checked", label.checked);
-    // //       // Si el checkbox se desmarca y hay un último input, limpia su valor
-    // //       if (!element.checked && lastInput) {
-    // //         lastInput.value = "";
-    // //       }
-    // //     } else {
-    // //       // Agrega o elimina la clase 'checked' del label dependiendo del estado del checkbox
-    // //       element.classList.toggle("checked", label.checked);
-    // //     }
-    // //   });
-    // // });
-    // });
+    checkboxes.forEach((checkbox) => {
+      checkbox.addEventListener("click", function () {
+        var checkboxValue = checkbox.value || checkbox.id; // Usar el id como valor si el valor está vacío
+        var numberValue = lastInput ? lastInput.value : null;
 
-    // console.log(checkbox);
-    // console.log(lastInput);
-
-    // checkbox.forEach((element) => {
-    //   element.addEventListener("click", function () {
-    //     console.log("Checkbox clicked");
-    //     if (element.classList.contains("mak-control-event")) {
-    //       if (element.checked) {
-    //         label.classList.add("checked");
-    //       } else {
-    //         label.classList.remove("checked");
-    //         if (lastInput) {
-    //           lastInput.value = "";
-    //         }
-    //       }
-    //     } else {
-    //       if (element.checked) {
-    //         label.classList.add("checked");
-    //       } else {
-    //         label.classList.remove("checked");
-    //       }
-    //     }
-    //   });
-    // });
-    checkbox.forEach((element) => {
-      // console.log(element);
-      element.addEventListener("click", function () {
-        // console.log(element);
-        console.log("Checkbox clicked");
-
-        // Verifica si el elemento es de clase 'mak-control-event'
-        if (element.classList.contains("mak-control-event")) {
-          console.log(element.checked);
-          // Agrega o elimina la clase 'checked' del label dependiendo del estado del checkbox
-          label.classList.toggle("checked", element.checked);
-
-          // Si el checkbox se desmarca y hay un último input, limpia su valor
-          if (!element.checked && lastInput) {
-            lastInput.value = "";
+        // Si el checkbox está marcado, agregar el objeto al array
+        if (checkbox.checked) {
+          // Verifica si el objeto ya existe en el array
+          var existingIndex = arrayData.findIndex(
+            (obj) => obj.id === checkboxValue
+          );
+          if (existingIndex === -1) {
+            arrayData.push({
+              id: checkboxValue,
+              checked: checkbox.checked,
+              number: numberValue,
+            });
+          } else {
+            // Actualiza el objeto existente
+            arrayData[existingIndex].checked = checkbox.checked;
+            arrayData[existingIndex].number = numberValue;
           }
         } else {
-          // Agrega o elimina la clase 'checked' del label dependiendo del estado del checkbox
-          label.classList.toggle("checked", element.checked);
+          // Si el checkbox está desmarcado, eliminar el objeto del array
+          var index = arrayData.findIndex((obj) => obj.id === checkboxValue);
+          if (index !== -1) {
+            arrayData.splice(index, 1);
+          }
         }
+
+        // Mostrar el array actualizado en la consola
+        console.log(arrayData);
       });
+
+      // Listener para el input de tipo number
+      if (lastInput) {
+        lastInput.addEventListener("input", function () {
+          var numberValue = lastInput.value;
+          var checkboxValue = checkbox.value || checkbox.id;
+
+          // Verifica si el objeto ya existe en el array
+          var existingIndex = arrayData.findIndex(
+            (obj) => obj.id === checkboxValue
+          );
+          if (existingIndex !== -1) {
+            // Actualiza el objeto existente con el nuevo valor del número
+            arrayData[existingIndex].number = numberValue;
+          }
+
+          // Mostrar el array actualizado en la consola
+          console.log(arrayData);
+        });
+      }
     });
   });
 }
