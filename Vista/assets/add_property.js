@@ -172,122 +172,157 @@ var arrayData = [];
 
 // Función para inicializar los eventos
 function initializeEvents(container) {
+  // console.log(container);
   var lblContent = container.querySelectorAll(".chks .mak-options");
 
   lblContent.forEach(function (label) {
-    var checkboxes = label.querySelectorAll('input[type="checkbox"]');
+    var checkbox = label.querySelector('input[type="checkbox"]');
     var lastInput = label.querySelector(
       'input[type="number"]:not(.mak-control-event)'
     );
 
-    checkboxes.forEach((checkbox) => {
-      checkbox.addEventListener("click", function () {
-        var checkboxValue = checkbox.value || checkbox.id; // Usar el id como valor si el valor está vacío
-        var numberValue = lastInput ? lastInput.value : null;
+    // Agregar evento al checkbox
+    checkbox.addEventListener("click", function () {
+      // console.log(label);
+      // console.log(checkbox);
 
-        // Si el checkbox está marcado, agregar el objeto al array
-        if (checkbox.checked) {
-          // Verifica si el objeto ya existe en el array
-          var existingIndex = arrayData.findIndex(
-            (obj) => obj.id === checkboxValue
-          );
-          if (existingIndex === -1) {
+      // var checkboxValue = checkbox.value || checkbox.id; // Usar el id como valor si el valor está vacío
+      var chkValue = checkbox.value; // valor ON / OFF del checkbox
+      var chkID = checkbox.id; // valor ID del checkbox
+
+      var numberValue = lastInput ? lastInput.value : 0;
+
+      // console.log(checkboxValue);
+      // console.log(chkValue);
+      // console.log(chkID);
+
+      // Si el checkbox está marcado, agregar el objeto al array
+      if (checkbox.checked) {
+        // Verifica si el objeto ya existe en el array
+        var existingIndex = arrayData.findIndex((obj) => obj.id === chkID);
+        console.log(existingIndex);
+
+        if (existingIndex === -1 /* || existingIndex === 0 */) {
+          if (checkbox.classList.contains("mak-control-event")) {
+            console.log("eh?");
+            console.log(arrayData);
+
+            // Definir el valor inicial del número
+            let valorInputNumber = lastInput.value;
+
+            // Añadir evento change solo una vez
+            lastInput.addEventListener("change", () => {
+              valorInputNumber = lastInput.value;
+              console.log(valorInputNumber);
+
+              // Actualizar el número en el array cuando cambie el valor del input
+              const indexToUpdate = arrayData.findIndex(
+                (obj) => obj.id === chkID
+              );
+              console.log(indexToUpdate);
+              if (indexToUpdate !== -1) {
+                arrayData[indexToUpdate].number = valorInputNumber;
+              }
+              console.log(arrayData);
+            });
+
+            // Añadir el nuevo objeto al array
             arrayData.push({
-              id: checkboxValue,
-              checked: checkbox.checked,
-              number: numberValue,
+              id: chkID,
+              // checked: checkbox.checked,
+              number: valorInputNumber,
             });
           } else {
-            // Actualiza el objeto existente
-            arrayData[existingIndex].checked = checkbox.checked;
-            arrayData[existingIndex].number = numberValue;
+            arrayData.push({
+              id: chkID,
+              // checked: checkbox.checked,
+              number: null,
+            });
           }
+          // console.log(arrayData);
         } else {
-          // Si el checkbox está desmarcado, eliminar el objeto del array
-          var index = arrayData.findIndex((obj) => obj.id === checkboxValue);
-          if (index !== -1) {
-            arrayData.splice(index, 1);
-          }
+          // Actualiza el objeto existente
+          // arrayData[existingIndex].checked = checkbox.checked;
+          arrayData[existingIndex].number = numberValue;
         }
+      } else {
+        // Si el checkbox está desmarcado, eliminar el objeto del array
+        var index = arrayData.findIndex((obj) => obj.id === chkID);
+        if (index !== -1) {
+          arrayData.splice(index, 1);
+        }
+      }
 
-        // Mostrar el array actualizado en la consola
-        console.log(arrayData);
-      });
+      // Mostrar el array actualizado en la consola
+      console.log(arrayData);
 
-      // Listener para el input de tipo number
-      if (lastInput) {
-        lastInput.addEventListener("input", function () {
-          var numberValue = lastInput.value;
-          var checkboxValue = checkbox.value || checkbox.id;
+      // Agrega o elimina la clase 'checked' del label dependiendo del estado del checkbox
+      label.classList.toggle("checked", checkbox.checked);
 
-          // Verifica si el objeto ya existe en el array
-          var existingIndex = arrayData.findIndex(
-            (obj) => obj.id === checkboxValue
-          );
-          if (existingIndex !== -1) {
-            // Actualiza el objeto existente con el nuevo valor del número
-            arrayData[existingIndex].number = numberValue;
-          }
-
-          // Mostrar el array actualizado en la consola
-          console.log(arrayData);
-        });
+      // Si el checkbox se desmarca y hay un último input, limpia su valor
+      if (!checkbox.checked && lastInput) {
+        lastInput.value = "";
       }
     });
+
+    // // Agregar evento al input de número
+    // if (lastInput) {
+    //   lastInput.addEventListener("input", function () {
+    //     var numberValue = lastInput.value;
+    //     var checkboxValue = checkbox.value || checkbox.id;
+
+    //     // Verifica si el objeto ya existe en el array
+    //     var existingIndex = arrayData.findIndex(
+    //       (obj) => obj.id === checkboxValue
+    //     );
+    //     if (existingIndex !== -1) {
+    //       // Actualiza el objeto existente con el nuevo valor del número
+    //       arrayData[existingIndex].number = numberValue;
+    //     }
+
+    //     // Mostrar el array actualizado en la consola
+    //     console.log(arrayData);
+    //   });
+    // }
   });
+
+  // -----------------------------------------------------------------------------------------
 }
 
 // Inicializar eventos en el contenido principal
-initializeEvents(document);
+if (window.location.href.includes("add_property")) {
+  document
+    .querySelector(".verOptions_01")
+    .addEventListener("click", function () {
+      // Enviar mensaje a la página principal para abrir el modal
+      parent.postMessage("verOptions_01", "*");
+    });
 
-// // Inicializar eventos cuando los modales se muestren
-// $("#verOptions_01").on("shown.bs.modal", function () {
-//   initializeEvents(this);
-// });
+  window.addEventListener("message", function (event) {
+    // Verificar el origen del mensaje para seguridad
+    // if (event.origin !== "http://your-origin.com") {
+    //   return;
+    // }
 
-// $("#verOptions_02").on("shown.bs.modal", function () {
-//   initializeEvents(this);
-// });
+    if (event.data.type === "modalValue") {
+      console.log("Valor recibido del modal:", event.data.value);
+      // Aquí puedes procesar el valor recibido según tus necesidades
+    }
+  });
+
+  initializeEvents(document);
+}
+// if (
+//   window.location.href ===
+//   "http://localhost/Project-DEVs/Dev-MAK/views/add_property.php"
+// ) {
+//   initializeEvents(document);
+// }
 
 // --------------------------------
 // --------------------------------
 
 const clearBtns = document.querySelectorAll(".card-body");
-
-// clearBtns.forEach((element) => {
-//   // console.log(element);
-//   let btn = element.querySelectorAll(".clear");
-//   // console.log(btn);
-//   btn.forEach((btn) => {
-//     btn.addEventListener("click", () => {
-//       // console.log(btn);
-//       // console.log(element);
-
-//       let allTags = element.querySelectorAll(
-//         "input, textarea, select, li, .file-item"
-//       );
-//       console.log(allTags);
-
-//       allTags.forEach((field) => {
-//         // console.log(field);
-//         if (
-//           field.tagName.toLowerCase() === "input" ||
-//           field.tagName.toLowerCase() === "textarea"
-//         ) {
-//           field.value = "";
-//         } else if (field.tagName.toLowerCase() === "li") {
-//           field.classList.remove("mak-primary");
-//         } else if (field.tagName.toLowerCase() === "select") {
-//           field.value = "-1";
-//         } else if (field.classList.contains("file-item")) {
-//           if (!field.classList.contains("up-archive")) {
-//             field.remove();
-//           }
-//         }
-//       });
-//     });
-//   });
-// });
 
 clearBtns.forEach((element) => {
   let btn = element.querySelectorAll(".clear");

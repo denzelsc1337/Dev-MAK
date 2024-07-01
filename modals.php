@@ -1,5 +1,5 @@
 <!-- VER 1RAS OPCIONES ADD_PROPERTY  -->
-<div class="modal fade" id="verOptions_01" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="verOptions_01" data-bs-backdrop="static" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-lg">
         <div class="modal-content">
             <div class="modal-header">
@@ -8,7 +8,7 @@
                     <span aria-hidden="true">×</span>
                 </button>
             </div>
-            <div class="modal-body chks">
+            <div class="modal-body chks_">
                 <div class="caracteristicas">
                     <label class="mak-options cursor m-0" for="kitchenette">
                         <input id="kitchenette" name="kitchenette" type="checkbox" class="">
@@ -54,7 +54,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn mak-outline" data-bs-dismiss="modal">Cancelar</button>
-                <button type="button" class="btn mak-primary">Hecho</button>
+                <button id="asd" type="button" class="btn mak-primary">Hecho</button>
             </div>
         </div>
     </div>

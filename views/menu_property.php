@@ -111,14 +111,14 @@ $ID = mysqli_fetch_object($ID_prop);
 
 </body>
 <!-- jQuery -->
-<script src="./../Vista/plugins/jquery/jquery.min.js"></script>
-<script src="./../Vista/assets/add_property.js"></script>
+<!-- <script src="./../Vista/plugins/jquery/jquery.min.js"></script> -->
+<!-- <script src="./../Vista/assets/add_property.js"></script> -->
 
-<script src="./../Vista/js/upFiles.js"></script>
-<script src="./../Vista/assets/dash.js"></script>
+<!-- <script src="./../Vista/js/upFiles.js"></script> -->
+<!-- <script src="./../Vista/assets/dash.js"></script> -->
 <!-- script modal -->
-<script src="../Vista/dist/js/adminlte.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+<!-- <script src="../Vista/dist/js/adminlte.min.js"></script> -->
+<!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script> -->
 
 
 <script>

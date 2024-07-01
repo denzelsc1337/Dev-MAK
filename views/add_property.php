@@ -17,31 +17,31 @@ $ID = mysqli_fetch_object($ID_prop);
     <title>MAK</title>
 
     <!-- JQUERY -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
 
     <!-- BOOTSTRAP -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer">
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script> -->
 
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="../Vista/plugins/fontawesome-free/css/all.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <!-- <link rel="stylesheet" href="../Vista/plugins/fontawesome-free/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer"> -->
 
     <!-- Select2 -->
-    <link rel="stylesheet" href="../Vista/plugins/select2/css/select2.min.css">
-    <link rel="stylesheet" href="../Vista/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
+    <!-- <link rel="stylesheet" href="../Vista/plugins/select2/css/select2.min.css"> -->
+    <!-- <link rel="stylesheet" href="../Vista/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css"> -->
     <!-- Bootstrap4 Duallistbox -->
-    <link rel="stylesheet" href="../Vista/plugins/bootstrap4-duallistbox/bootstrap-duallistbox.min.css">
+    <!-- <link rel="stylesheet" href="../Vista/plugins/bootstrap4-duallistbox/bootstrap-duallistbox.min.css"> -->
     <!-- BS Stepper -->
-    <link rel="stylesheet" href="../Vista/plugins/bs-stepper/css/bs-stepper.min.css">
+    <!-- <link rel="stylesheet" href="../Vista/plugins/bs-stepper/css/bs-stepper.min.css">-->
     <link rel="stylesheet" type="text/css" href="../Vista/css/style.css">
     <!-- dropzonejs -->
-    <link rel="stylesheet" href="../Vista/plugins/dropzone/min/dropzone.min.css">
+    <!-- <link rel="stylesheet" href="../Vista/plugins/dropzone/min/dropzone.min.css"> -->
     <!-- Theme style -->
     <link rel="stylesheet" href="../Vista/dist/css/adminlte.min.css">
 
 
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCNO5GraIm8rWrrLbWt-Gv9GxsenRng-8o&libraries=places" async defer></script>
+    <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCNO5GraIm8rWrrLbWt-Gv9GxsenRng-8o&libraries=places" async defer></script> -->
 
 
 
@@ -834,13 +834,14 @@ $ID = mysqli_fetch_object($ID_prop);
 
 
     <!-- jQuery -->
-    <script src="./../Vista/plugins/jquery/jquery.min.js"></script>
+    <!-- <script src="./../Vista/plugins/jquery/jquery.min.js"></script> -->
     <script src="./../Vista/assets/add_property.js"></script>
-    <script src="./../Vista/assets/selection_types.js"></script>
-    <script src="./../Vista/js/upFiles.js"></script>
+    <!-- <script src="./../Vista/assets/selection_types.js"></script> -->
+    <!-- <script src="./../Vista/js/upFiles.js"></script> -->
+    <!-- <script src="./../Vista/assets/dash.js"></script> -->
     <!-- script modal -->
-    <script src="../Vista/dist/js/adminlte.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+    <!-- <script src="../Vista/dist/js/adminlte.min.js"></script> -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script> -->
 
     <script>
 
@@ -909,15 +910,15 @@ $ID = mysqli_fetch_object($ID_prop);
 
 
     <script>
-        document.querySelector('.verOptions_01').addEventListener('click', function() {
-            // Enviar mensaje a la página principal para abrir el modal
-            parent.postMessage('verOptions_01', '*');
-        });
+        // document.querySelector('.verOptions_01').addEventListener('click', function() {
+        //     // Enviar mensaje a la página principal para abrir el modal
+        //     parent.postMessage('verOptions_01', '*');
+        // });
 
-        document.querySelector('.verOptions_02').addEventListener('click', function() {
-            // Enviar mensaje a la página principal para abrir el modal
-            parent.postMessage('verOptions_02', '*');
-        });
+        // document.querySelector('.verOptions_02').addEventListener('click', function() {
+        //     // Enviar mensaje a la página principal para abrir el modal
+        //     parent.postMessage('verOptions_02', '*');
+        // });
     </script>
 
 </body>
