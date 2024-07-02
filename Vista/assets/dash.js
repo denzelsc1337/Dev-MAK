@@ -1,6 +1,6 @@
-function linker(link) {
-  document.getElementById("paginas").src = link;
-}
+// function linker(link) {
+//   document.getElementById("paginas").src = link;
+// }
 
 // -----------------------
 // -----------------------
@@ -35,11 +35,13 @@ window.addEventListener(
           // Eliminar el listener existente antes de agregar uno nuevo
           makOptionsElement.removeEventListener("click", handleModalClick);
           makOptionsElement.addEventListener("click", handleModalClick);
+          // handleModalClick();
         });
 
         function handleModalClick() {
-          const inputValue = document.getElementById("kitchenette").value;
+          const inputValue = document.querySelector('input[type="checkbox"]').value;
           console.log(inputValue);
+          console.log("hola", inputValue.checked);
 
           // Enviar el valor de vuelta al iframe
           event.source.postMessage(
@@ -49,11 +51,12 @@ window.addEventListener(
         }
 
         document
-          .getElementById("sendMessageButton")
+          .querySelector(".mak-options")
           .addEventListener("click", function () {
-            var iframe = document.getElementById("iframe");
+            var iframe = document.getElementById("paginas");
+            // console.log(iframe);
             iframe.contentWindow.postMessage(
-              { action: "executeFunction", params: "paramValue" },
+              { action: "executeFunction", params: "modalValue" },
               "*"
             );
           });

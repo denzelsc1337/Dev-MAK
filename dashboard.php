@@ -46,7 +46,7 @@
 
   <div class="wrapper">
     <!-- NAVBAR -->
-    <nav class="main-header navbar navbar-expand mak-bg">
+    <nav class="main-header navbar navbar-expand mak-bg" hidden>
 
       <ul class="navbar-nav align-content ml-4">
         <a href="dashboard.php" class="d-flex align-items-center mak-bg">
@@ -64,11 +64,11 @@
       <ul class="navbar-nav ml-auto mr-4">
         <li class="nav-item" data-target="add_property">
 
-          <div class="mak-control mak-primary btn_button" onclick='linker("views/menu_property.php")'>
-            <!-- <div class="mak-control mak-primary btn_button" onclick='linker("views/add_property.php")'> -->
+          <!-- <div class="mak-control mak-primary btn_button" onclick='linker("views/menu_property.php")'> -->
+          <a class="mak-control mak-primary btn_button" href="./views/menu_property.php">
             Subir propiedad
             <i class="fa-solid fa-folder-plus"></i>
-          </div>
+          </a>
         </li>
         <li>
           <span class="separador"></span>
@@ -95,6 +95,8 @@
       </ul>
     </nav>
     <!-- NAVBAR -->
+
+    <?php include 'header.php' ?>
 
 
     <section class="section_content">

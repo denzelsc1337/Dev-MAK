@@ -1,13 +1,3 @@
-<?php
-include_once('./Config/Conexion.php');
-
-$cnx = new conexion();
-$cadena = $cnx->abrirConexion();
-
-$ID_prop = mysqli_query($cadena, "SELECT COUNT(*) + 1 AS total_props FROM propiedades");
-
-$ID = mysqli_fetch_object($ID_prop);
-?>
 <div class="lateral_bar lateral_right">
 
     <div class="mak-bdr panel panel_01">
@@ -21,11 +11,11 @@ $ID = mysqli_fetch_object($ID_prop);
             </a>
 
         </div>
-        <img src="./Vista/images/Plataforma/PanelPrincipal/ServicioTecnico.png" alt="">
+        <img src="./../Vista/images/Plataforma/PanelPrincipal/ServicioTecnico.png" alt="">
     </div>
 
     <div class="mak-bdr panel panel_02">
-        <img src="./Vista/images/Plataforma/PanelPrincipal/Banner1.png" alt="">
+        <img src="./../Vista/images/Plataforma/PanelPrincipal/Banner1.png" alt="">
     </div>
 
     <div class="mak-bdr panel panel_03">

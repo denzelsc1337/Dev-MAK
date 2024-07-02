@@ -1,100 +1,86 @@
+document.addEventListener("DOMContentLoaded", () => {
+  var arrayData = [];
+
+  function initializeCheckboxListeners() {
+    var contentCaract = document.querySelectorAll(".chks .mak-options");
+
+    contentCaract.forEach(function (label) {
+      console.log(label);
+
+      var checkbox = label.querySelector('input[type="checkbox"]');
+      var lastInput = label.querySelector(
+        'input[type="number"]:not(.mak-control-event)'
+      );
+
+      // console.log(checkbox);
+      // console.log(lastInput);
+
+      checkbox.addEventListener("click", () => {
+        console.log("hola");
+        var chkValue = checkbox.checked; // valor ON / OFF del checkbox
+        var chkID = checkbox.id; // valor ID del checkbox
+
+        if (checkbox.checked) {
+          // Verifica si el objeto ya existe en el array
+          var existingIndex = arrayData.findIndex((obj) => obj.id === chkID);
+          console.log(existingIndex);
+
+          if (existingIndex === -1 /* || existingIndex === 0 */) {
+            if (checkbox.classList.contains("mak-control-event")) {
+              // Definir el valor inicial del número
+              let valorInputNumber = lastInput.value;
+              lastInput.addEventListener("change", () => {
+                valorInputNumber = lastInput.value;
+                console.log(valorInputNumber);
+
+                // Actualizar el número en el array cuando cambie el valor del input
+                const indexToUpdate = arrayData.findIndex(
+                  (obj) => obj.id === chkID
+                );
+                console.log(indexToUpdate);
+                if (indexToUpdate !== -1) {
+                  arrayData[indexToUpdate].number = valorInputNumber;
+                }
+              });
+
+              // Añadir el nuevo objeto al array
+              arrayData.push({
+                id: chkID,
+                checked: chkValue,
+                number: valorInputNumber,
+              });
+            } else {
+              arrayData.push({
+                id: chkID,
+                checked: chkValue,
+                number: null,
+              });
+            }
+          } else {
+            // Actualiza el objeto existente
+            // arrayData[existingIndex].checked = checkbox.checked;
+            arrayData[existingIndex].number = numberValue;
+          }
+        } else {
+          // Si el checkbox está desmarcado, eliminar el objeto del array
+          var index = arrayData.findIndex((obj) => obj.id === chkID);
+          if (index !== -1) {
+            arrayData.splice(index, 1);
+          }
+        }
+        // Mostrar el array actualizado en la consola
+        console.log(arrayData);
+      });
+    });
+  }
+
+  // Llamar a initializeCheckboxListeners cuando el modal se abra
+  var modal = document.getElementById("verOptions_01");
+  modal.addEventListener("show.bs.modal", initializeCheckboxListeners);
+});
+
 // --------------------------------
 // --------------------------------
-
-// document.addEventListener("DOMContentLoaded", () => {
-//   const tabItems = document.querySelectorAll(".tab");
-//   const contentContainers = document.querySelectorAll(".tab-content");
-
-//   tabItems.forEach((element) => {
-//     element.addEventListener("click", () => {
-//       const checkbox = element.querySelector(".tab-checkbox");
-
-//       if (checkbox) {
-//         // Manejo de tabs con checkbox
-//         tabItems[0].classList.remove("mak-primary");
-
-//         if (checkbox.checked) {
-//           // Si el checkbox está marcado, desmarcarlo y remover la clase
-//           checkbox.checked = false;
-//           element.classList.remove("mak-primary");
-
-//           if (checkbox.value == "2") {
-//             // document.querySelector(".comision").style.display = "none";
-//           }
-//         } else {
-//           // Si el checkbox no está marcado, marcarlo y añadir la clase
-//           checkbox.checked = true;
-//           element.classList.add("mak-primary");
-
-//           if (checkbox.value == "2") {
-//             // document.querySelector(".comision").style.display = "block";
-//           }
-
-//           // Activar el segundo tab si se hace clic en el tercer tab
-//           if (checkbox.value == "2") {
-//             const secondTab = document
-//               .querySelector('.tab .tab-checkbox[value="1"]')
-//               .closest(".tab");
-//             if (secondTab) {
-//               const secondCheckbox = secondTab.querySelector(".tab-checkbox");
-//               secondCheckbox.checked = true;
-//               secondTab.classList.add("mak-primary");
-
-//               // Mostrar el contenido del segundo tab
-//               const secondTabTargetId = secondTab.getAttribute("data-target");
-//               const secondTabTargetContainer =
-//                 document.getElementById(secondTabTargetId);
-//               if (secondTabTargetContainer) {
-//                 secondTabTargetContainer.classList.add("active");
-//               }
-//             }
-//           }
-//         }
-//       } else {
-//         // Manejo del tab sin checkbox (tab 1)
-//         tabItems.forEach((item) => {
-//           item.classList.remove("mak-primary");
-//           const itemCheckbox = item.querySelector(".tab-checkbox");
-//           if (itemCheckbox) {
-//             itemCheckbox.checked = false;
-//             // document.querySelector(".comision").style.display = "none";
-//           }
-//         });
-//         element.classList.add("mak-primary");
-//       }
-
-//       // Ocultar todos los contenedores de contenido
-//       contentContainers.forEach((container) => {
-//         container.classList.remove("active");
-//       });
-
-//       // Mostrar el contenedor de contenido correspondiente al tab clicado
-//       const targetId = element.getAttribute("data-target");
-//       const targetContainer = document.getElementById(targetId);
-
-//       if (targetContainer) {
-//         targetContainer.classList.add("active");
-//       }
-
-//       // Verificar si ambos checkboxes están desmarcados
-//       const checkboxes = document.querySelectorAll(".tab-checkbox");
-//       const anyCheckboxChecked = [...checkboxes].some((chk) => chk.checked);
-//       if (!anyCheckboxChecked) {
-//         // Activar el primer tab si ninguno de los checkboxes está marcado
-//         tabItems[0].classList.add("mak-primary");
-
-//         const firstTabTargetId = tabItems[0].getAttribute("data-target");
-//         const firstTabTargetContainer =
-//           document.getElementById(firstTabTargetId);
-
-//         if (firstTabTargetContainer) {
-//           tabItems[0].click();
-//         }
-//       }
-//     });
-//   });
-// });
-
 const tabItems = document.querySelectorAll(".mak-control[data-tab]");
 
 tabItems.forEach((element) => {
@@ -168,155 +154,151 @@ document.querySelectorAll(".txt-area").forEach((textarea) => {
 // --------------------------------
 // --------------------------------
 
-var arrayData = [];
-
 // Función para inicializar los eventos
-function initializeEvents(container) {
-  // console.log(container);
-  var lblContent = container.querySelectorAll(".chks .mak-options");
+// function initializeEvents(container) {
+// console.log(container);
+// var lblContent = document.querySelectorAll(".chks .mak-options");
+// var lblContent = document.querySelectorAll(".chks .caracteristicas");
+// console.log(lblContent);
 
-  lblContent.forEach(function (label) {
-    var checkbox = label.querySelector('input[type="checkbox"]');
-    var lastInput = label.querySelector(
-      'input[type="number"]:not(.mak-control-event)'
-    );
+// lblContent.forEach(function (label) {
+//   // console.log(label);
+//   var checkbox = label.querySelector('input[type="checkbox"]');
+//   var lastInput = label.querySelector(
+//     'input[type="number"]:not(.mak-control-event)'
+//   );
 
-    // Agregar evento al checkbox
-    checkbox.addEventListener("click", function () {
-      // console.log(label);
-      // console.log(checkbox);
+//   // Agregar evento al checkbox
+//   checkbox.addEventListener("click", function () {
+//     // console.log(label);
+//     // console.log(checkbox);
 
-      // var checkboxValue = checkbox.value || checkbox.id; // Usar el id como valor si el valor está vacío
-      var chkValue = checkbox.value; // valor ON / OFF del checkbox
-      var chkID = checkbox.id; // valor ID del checkbox
+//     // var checkboxValue = checkbox.value || checkbox.id; // Usar el id como valor si el valor está vacío
+//     var chkValue = checkbox.checked; // valor ON / OFF del checkbox
+//     var chkID = checkbox.id; // valor ID del checkbox
 
-      var numberValue = lastInput ? lastInput.value : 0;
+//     var numberValue = lastInput ? lastInput.value : 0;
 
-      // console.log(checkboxValue);
-      // console.log(chkValue);
-      // console.log(chkID);
+//     // console.log(checkboxValue);
+//     // console.log(chkValue);
+//     // console.log(chkID);
 
-      // Si el checkbox está marcado, agregar el objeto al array
-      if (checkbox.checked) {
-        // Verifica si el objeto ya existe en el array
-        var existingIndex = arrayData.findIndex((obj) => obj.id === chkID);
-        console.log(existingIndex);
+//     // Si el checkbox está marcado, agregar el objeto al array
+//     if (checkbox.checked) {
+//       // Verifica si el objeto ya existe en el array
+//       var existingIndex = arrayData.findIndex((obj) => obj.id === chkID);
+//       console.log(existingIndex);
 
-        if (existingIndex === -1 /* || existingIndex === 0 */) {
-          if (checkbox.classList.contains("mak-control-event")) {
-            console.log("eh?");
-            console.log(arrayData);
+//       if (existingIndex === -1 /* || existingIndex === 0 */) {
+//         if (checkbox.classList.contains("mak-control-event")) {
+//           console.log("eh?");
+//           console.log(arrayData);
 
-            // Definir el valor inicial del número
-            let valorInputNumber = lastInput.value;
+//           // Definir el valor inicial del número
+//           let valorInputNumber = lastInput.value;
 
-            // Añadir evento change solo una vez
-            lastInput.addEventListener("change", () => {
-              valorInputNumber = lastInput.value;
-              console.log(valorInputNumber);
+//           // Añadir evento change solo una vez
+//           lastInput.addEventListener("change", () => {
+//             valorInputNumber = lastInput.value;
+//             console.log(valorInputNumber);
 
-              // Actualizar el número en el array cuando cambie el valor del input
-              const indexToUpdate = arrayData.findIndex(
-                (obj) => obj.id === chkID
-              );
-              console.log(indexToUpdate);
-              if (indexToUpdate !== -1) {
-                arrayData[indexToUpdate].number = valorInputNumber;
-              }
-              console.log(arrayData);
-            });
+//             // Actualizar el número en el array cuando cambie el valor del input
+//             const indexToUpdate = arrayData.findIndex(
+//               (obj) => obj.id === chkID
+//             );
+//             console.log(indexToUpdate);
+//             if (indexToUpdate !== -1) {
+//               arrayData[indexToUpdate].number = valorInputNumber;
+//             }
+//             console.log(arrayData);
+//           });
 
-            // Añadir el nuevo objeto al array
-            arrayData.push({
-              id: chkID,
-              // checked: checkbox.checked,
-              number: valorInputNumber,
-            });
-          } else {
-            arrayData.push({
-              id: chkID,
-              // checked: checkbox.checked,
-              number: null,
-            });
-          }
-          // console.log(arrayData);
-        } else {
-          // Actualiza el objeto existente
-          // arrayData[existingIndex].checked = checkbox.checked;
-          arrayData[existingIndex].number = numberValue;
-        }
-      } else {
-        // Si el checkbox está desmarcado, eliminar el objeto del array
-        var index = arrayData.findIndex((obj) => obj.id === chkID);
-        if (index !== -1) {
-          arrayData.splice(index, 1);
-        }
-      }
+//           // Añadir el nuevo objeto al array
+//           arrayData.push({
+//             id: chkID,
+//             checked: chkValue,
+//             number: valorInputNumber,
+//           });
+//         } else {
+//           arrayData.push({
+//             id: chkID,
+//             checked: chkValue,
+//             number: null,
+//           });
+//         }
+//         // console.log(arrayData);
+//       } else {
+//         // Actualiza el objeto existente
+//         // arrayData[existingIndex].checked = checkbox.checked;
+//         arrayData[existingIndex].number = numberValue;
+//       }
+//     } else {
+//       // Si el checkbox está desmarcado, eliminar el objeto del array
+//       var index = arrayData.findIndex((obj) => obj.id === chkID);
+//       if (index !== -1) {
+//         arrayData.splice(index, 1);
+//       }
+//     }
 
-      // Mostrar el array actualizado en la consola
-      console.log(arrayData);
+//     // Mostrar el array actualizado en la consola
+//     console.log(arrayData);
 
-      // Agrega o elimina la clase 'checked' del label dependiendo del estado del checkbox
-      label.classList.toggle("checked", checkbox.checked);
+//     // Agrega o elimina la clase 'checked' del label dependiendo del estado del checkbox
+//     label.classList.toggle("checked", checkbox.checked);
 
-      // Si el checkbox se desmarca y hay un último input, limpia su valor
-      if (!checkbox.checked && lastInput) {
-        lastInput.value = "";
-      }
-    });
+//     // Si el checkbox se desmarca y hay un último input, limpia su valor
+//     if (!checkbox.checked && lastInput) {
+//       lastInput.value = "";
+//     }
+//   });
 
-    // // Agregar evento al input de número
-    // if (lastInput) {
-    //   lastInput.addEventListener("input", function () {
-    //     var numberValue = lastInput.value;
-    //     var checkboxValue = checkbox.value || checkbox.id;
+//   // // Agregar evento al input de número
+//   // if (lastInput) {
+//   //   lastInput.addEventListener("input", function () {
+//   //     var numberValue = lastInput.value;
+//   //     var checkboxValue = checkbox.value || checkbox.id;
 
-    //     // Verifica si el objeto ya existe en el array
-    //     var existingIndex = arrayData.findIndex(
-    //       (obj) => obj.id === checkboxValue
-    //     );
-    //     if (existingIndex !== -1) {
-    //       // Actualiza el objeto existente con el nuevo valor del número
-    //       arrayData[existingIndex].number = numberValue;
-    //     }
+//   //     // Verifica si el objeto ya existe en el array
+//   //     var existingIndex = arrayData.findIndex(
+//   //       (obj) => obj.id === checkboxValue
+//   //     );
+//   //     if (existingIndex !== -1) {
+//   //       // Actualiza el objeto existente con el nuevo valor del número
+//   //       arrayData[existingIndex].number = numberValue;
+//   //     }
 
-    //     // Mostrar el array actualizado en la consola
-    //     console.log(arrayData);
-    //   });
-    // }
-  });
+//   //     // Mostrar el array actualizado en la consola
+//   //     console.log(arrayData);
+//   //   });
+//   // }
+// });
 
-  // -----------------------------------------------------------------------------------------
-}
+// -----------------------------------------------------------------------------------------
+// }
 
-// Inicializar eventos en el contenido principal
-if (window.location.href.includes("add_property")) {
-  document
-    .querySelector(".verOptions_01")
-    .addEventListener("click", function () {
-      // Enviar mensaje a la página principal para abrir el modal
-      parent.postMessage("verOptions_01", "*");
-    });
+// // // Inicializar eventos en el contenido principal
+// // if (window.location.href.includes("add_property")) {
+// //   document
+// //     .querySelector(".verOptions_01")
+// //     .addEventListener("click", function () {
+// //       // Enviar mensaje a la página principal para abrir el modal
+// //       parent.postMessage("verOptions_01", "*");
+// //     });
 
-  window.addEventListener("message", function (event) {
-    // Verificar el origen del mensaje para seguridad
-    // if (event.origin !== "http://your-origin.com") {
-    //   return;
-    // }
+// //   window.addEventListener("message", function (event) {
+// //     if (event.data.type === "modalValue") {
+// //       console.log("Valor recibido del modal:", event.data.value);
+// //       // Aquí puedes procesar el valor recibido según tus necesidades
+// //     }
+// //   });
 
-    if (event.data.type === "modalValue") {
-      console.log("Valor recibido del modal:", event.data.value);
-      // Aquí puedes procesar el valor recibido según tus necesidades
-    }
-  });
-
-  initializeEvents(document);
-}
+// //   document;
+// // }
 // if (
 //   window.location.href ===
 //   "http://localhost/Project-DEVs/Dev-MAK/views/add_property.php"
 // ) {
-//   initializeEvents(document);
+// initializeEvents(document);
 // }
 
 // --------------------------------

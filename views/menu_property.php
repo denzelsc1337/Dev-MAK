@@ -16,17 +16,18 @@ $ID = mysqli_fetch_object($ID_prop);
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>MAK</title>
 
-    <!-- JQUERY -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-    <!-- BOOTSTRAP -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer">
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
-
+    <!-- Google Font: Source Sans Pro -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="../Vista/plugins/fontawesome-free/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer">
 
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Material+Icons+Outlined" crossorigin="anonymous" referrerpolicy="no-referrer">
+
+    <!-- BOOTSTRAP -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
     <!-- Select2 -->
     <link rel="stylesheet" href="../Vista/plugins/select2/css/select2.min.css">
     <link rel="stylesheet" href="../Vista/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
@@ -40,8 +41,6 @@ $ID = mysqli_fetch_object($ID_prop);
     <!-- Theme style -->
     <link rel="stylesheet" href="../Vista/dist/css/adminlte.min.css">
 
-
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCNO5GraIm8rWrrLbWt-Gv9GxsenRng-8o&libraries=places" async defer></script>
 
     <style>
         html {
@@ -61,58 +60,72 @@ $ID = mysqli_fetch_object($ID_prop);
 
 <body class="mak content">
 
-    <div class="row">
-        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 mb-3">
-            <div class="d-flex align-center ml-2">
-                <div class="">
-                    <img src="./../Vista/images/Plataforma/Menu/Speech_Bubble.png" alt="" width="180">
-                </div>
-                <div>
-                    <span>¿Listo para vender tu propiedad?</span>
-                    <span>Identifica que tipo de modalidad deseas realizar.</span>
-                    <span>Recuerda que una vez seleccionada una opción el ID será único.</span>
-                </div>
-            </div>
-        </div>
+    <?php include './../header.php' ?>
 
-        <!-- <div class="row"> -->
-        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 mb-3">
-            <div class="row">
-                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12 mb-3">
-                    <div class="mak-bdr mak-pdd">
-                        <div class="menu_container">
-                            <img src="./../Vista/images/Plataforma/Menu/Frame717.png" alt="" width="70">
-                            <div>
-                                <span><b>Venta o Alquiler</b></span>
-                                <span>Sube un aviso de tu casa, departamento, oficina, terreno o local.</span>
-                            </div>
-                            <!-- <button class="mak-control mak-primary btn_button propiedad" onclick='linker("views/menu_property.php")'>Publicar</button> -->
-                            <button class="mak-control mak-primary btn_button propiedad" onclick='changeIframeSource("views/add_property.php")'>Publicar</button>
+    <section class="section_content">
+        <div class="distribution">
+
+            <?php include './../lateral_bar.php' ?>
+
+            <div class="body-container">
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 mb-3">
+                    <div class="d-flex align-center ml-2">
+                        <div class="">
+                            <img src="./../Vista/images/Plataforma/Menu/Speech_Bubble.png" alt="" width="180">
+                        </div>
+                        <div>
+                            <span>¿Listo para vender tu propiedad?</span>
+                            <span>Identifica que tipo de modalidad deseas realizar.</span>
+                            <span>Recuerda que una vez seleccionada una opción el ID será único.</span>
                         </div>
                     </div>
                 </div>
-                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12 mb-3">
-                    <div class="mak-bdr mak-pdd">
-                        <div class="menu_container">
-                            <img src="./../Vista/images/Plataforma/Menu/Frame718.png" alt="" width="70">
-                            <div>
-                                <span><b>Proyecto</b></span>
-                                <span>Sube tu desarrollo inmoibliario de departamento, casa o lote.</span>
+
+                <!-- <div class="row"> -->
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 mb-3">
+                    <div class="row">
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12 mb-3">
+                            <div class="mak-bdr mak-pdd">
+                                <div class="menu_container">
+                                    <img src="./../Vista/images/Plataforma/Menu/Frame717.png" alt="" width="70">
+                                    <div>
+                                        <span><b>Venta o Alquiler</b></span>
+                                        <span>Sube un aviso de tu casa, departamento, oficina, terreno o local.</span>
+                                    </div>
+                                    <!-- <button class="mak-control mak-primary btn_button propiedad" onclick='changeIframeSource("views/add_property.php")'>Publicar</button> -->
+                                    <a href="./add_property.php" class="mak-control mak-primary btn_button">Publicar</a>
+                                </div>
                             </div>
-                            <button class="mak-control mak-primary btn_button">Publicar</button>
+                        </div>
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12 mb-3">
+                            <div class="mak-bdr mak-pdd">
+                                <div class="menu_container">
+                                    <img src="./../Vista/images/Plataforma/Menu/Frame718.png" alt="" width="70">
+                                    <div>
+                                        <span><b>Proyecto</b></span>
+                                        <span>Sube tu desarrollo inmoibliario de departamento, casa o lote.</span>
+                                    </div>
+                                    <button class="mak-control mak-primary btn_button">Publicar</button>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-        <!-- </div> -->
+                <a href="./add_property.php" class="mak-control mak-primary btn_button">Publicar</a>
+                <!-- </div> -->
 
-    </div>
+            </div>
+
+            <?php include './../lateral_bar_right.php' ?>
+
+        </div>
+
+    </section>
 
 </body>
 <!-- jQuery -->
 <!-- <script src="./../Vista/plugins/jquery/jquery.min.js"></script> -->
-<!-- <script src="./../Vista/assets/add_property.js"></script> -->
+<script src="./../Vista/assets/add_property.js"></script>
 
 <!-- <script src="./../Vista/js/upFiles.js"></script> -->
 <!-- <script src="./../Vista/assets/dash.js"></script> -->
@@ -122,10 +135,10 @@ $ID = mysqli_fetch_object($ID_prop);
 
 
 <script>
-    function changeIframeSource(link) {
-        // Enviar mensaje a la página principal para cambiar el src del iframe
-        parent.postMessage(link, '*');
-    }
+    // function changeIframeSource(link) {
+    //     // Enviar mensaje a la página principal para cambiar el src del iframe
+    //     parent.postMessage(link, '*');
+    // }
 
     // document.querySelector('.propiedad').addEventListener('click', function() {
     //     // Enviar mensaje a la página principal para abrir el modal

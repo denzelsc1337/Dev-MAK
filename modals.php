@@ -10,6 +10,11 @@
             </div>
             <div class="modal-body chks_">
                 <div class="caracteristicas">
+                    <label class="mak-options cursor m-0" for="aire_acondicionado_">
+                        <input id="aire_acondicionado_" name="aire_acondicionado_" type="checkbox" class="mak-control-event">
+                        <span>Aire acondicionado_</span>
+                        <input type="number" min="0" id="cant_aire_acondicionado_" name="cant_aire_acondicionado_" class="mak-options-brd-bottom p-0">
+                    </label>
                     <label class="mak-options cursor m-0" for="kitchenette">
                         <input id="kitchenette" name="kitchenette" type="checkbox" class="">
                         <span>Kitchenette</span>
