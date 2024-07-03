@@ -1,34 +1,41 @@
 document.addEventListener("DOMContentLoaded", () => {
+  // ------------------------------------------------------------------------------------------------------
+  // ------------------------------------------------------------------------------------------------------
+  $(".depa, .casa, .edif, .ofic, .lclc, .lcli, .terr").hide();
+  // ------------------------------------------------------------------------------------------------------
+  // ------------------------------------------------------------------------------------------------------
+
   var arrayData = [];
 
   function initializeCheckboxListeners() {
-    var contentCaract = document.querySelectorAll(".chks .mak-options");
+    var contentCaract = document.querySelectorAll(
+      ".chks .mak-options:not(.details)"
+    );
 
-    contentCaract.forEach(function (label) {
-      console.log(label);
-
+    contentCaract.forEach((label) => {
       var checkbox = label.querySelector('input[type="checkbox"]');
       var lastInput = label.querySelector(
         'input[type="number"]:not(.mak-control-event)'
       );
 
-      // console.log(checkbox);
-      // console.log(lastInput);
+      checkbox.addEventListener("change", (event) => {
+        var estadoChk = event.target.checked;
 
-      checkbox.addEventListener("click", () => {
-        console.log("hola");
-        var chkValue = checkbox.checked; // valor ON / OFF del checkbox
-        var chkID = checkbox.id; // valor ID del checkbox
+        if (estadoChk === true) {
+          console.log(checkbox);
+          console.log(lastInput);
 
-        if (checkbox.checked) {
           // Verifica si el objeto ya existe en el array
+          var chkID = checkbox.id; // Asegúrate de tener el ID del checkbox
           var existingIndex = arrayData.findIndex((obj) => obj.id === chkID);
           console.log(existingIndex);
 
-          if (existingIndex === -1 /* || existingIndex === 0 */) {
+          if (existingIndex === -1) {
             if (checkbox.classList.contains("mak-control-event")) {
               // Definir el valor inicial del número
               let valorInputNumber = lastInput.value;
+
+              // Añadir evento change solo una vez
               lastInput.addEventListener("change", () => {
                 valorInputNumber = lastInput.value;
                 console.log(valorInputNumber);
@@ -38,21 +45,21 @@ document.addEventListener("DOMContentLoaded", () => {
                   (obj) => obj.id === chkID
                 );
                 console.log(indexToUpdate);
+
                 if (indexToUpdate !== -1) {
                   arrayData[indexToUpdate].number = valorInputNumber;
                 }
               });
-
               // Añadir el nuevo objeto al array
               arrayData.push({
                 id: chkID,
-                checked: chkValue,
+                checked: estadoChk,
                 number: valorInputNumber,
               });
             } else {
               arrayData.push({
                 id: chkID,
-                checked: chkValue,
+                checked: estadoChk,
                 number: null,
               });
             }
@@ -62,21 +69,31 @@ document.addEventListener("DOMContentLoaded", () => {
             arrayData[existingIndex].number = numberValue;
           }
         } else {
+          console.log("falcedad");
           // Si el checkbox está desmarcado, eliminar el objeto del array
+          var chkID = checkbox.id; // Asegúrate de tener el ID del checkbox
           var index = arrayData.findIndex((obj) => obj.id === chkID);
+          console.log(index);
           if (index !== -1) {
             arrayData.splice(index, 1);
           }
         }
+
         // Mostrar el array actualizado en la consola
         console.log(arrayData);
+
+        // Agrega o elimina la clase 'checked' del label dependiendo del estado del checkbox
+        label.classList.toggle("checked", estadoChk);
+
+        // Si el checkbox se desmarca y hay un último input, limpia su valor
+        if (!checkbox.checked && lastInput) {
+          lastInput.value = "";
+        }
       });
     });
   }
 
-  // Llamar a initializeCheckboxListeners cuando el modal se abra
-  var modal = document.getElementById("verOptions_01");
-  modal.addEventListener("show.bs.modal", initializeCheckboxListeners);
+  initializeCheckboxListeners();
 });
 
 // --------------------------------
@@ -348,31 +365,30 @@ clearBtns.forEach((element) => {
 // --------------------------------
 // --------------------------------
 
-// $(document).ready(function () {
-//   $("#saveBtn").click(function (e) {
-//     e.preventDefault();
+$(document).ready(function () {
+  $("#saveBtn").click(function (e) {
+    e.preventDefault();
 
-//     var formData = new FormData($("#form_prop")[0]);
-//     console.log(arrayFile);
+    var formData = new FormData($("#form_prop")[0]);
 
-//     $.ajax({
-//       type: "POST",
-//       url: "../Controller/Add_propiedades.php",
-//       data: formData,
-//       processData: false,
-//       contentType: false,
-//       beforeSend: function () {
-//         console.log("Enviando...");
-//       },
-//       success: function (r) {
-//         console.log("Éxito:", r);
-//       },
-//       error: function (xhr, status, error) {
-//         console.log("Error:", error);
-//       },
-//     });
-//   });
-// });
+    $.ajax({
+      type: "POST",
+      url: "../Controller/Add_propiedades.php",
+      data: formData,
+      processData: false,
+      contentType: false,
+      beforeSend: function () {
+        console.log("Enviando...");
+      },
+      success: function (r) {
+        console.log("Éxito:", r);
+      },
+      error: function (xhr, status, error) {
+        console.log("Error:", error);
+      },
+    });
+  });
+});
 
 // --------------------------------
 // --------------------------------

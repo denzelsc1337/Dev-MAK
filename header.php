@@ -2,7 +2,7 @@
 <nav class="main-header navbar navbar-expand mak-bg">
 
     <ul class="navbar-nav align-content ml-4">
-        <a href="dashboard.php" class="d-flex align-items-center mak-bg">
+        <a href="../dashboard.php" class="d-flex align-items-center mak-bg">
             <img src="../Vista/images/Logo_mak.png" alt="AdminLTE Logo" class="brand-image">
         </a>
         <li class="nav-item">
@@ -18,7 +18,7 @@
         <li class="nav-item" data-target="add_property">
 
             <!-- <div class="mak-control mak-primary btn_button" onclick='linker("views/menu_property.php")'> -->
-            <a class="mak-control mak-primary btn_button" href="./views/menu_property.php">
+            <a class="mak-control mak-primary btn_button" href="./menu_property.php">
                 Subir propiedad
                 <i class="fa-solid fa-folder-plus"></i>
             </a>

@@ -698,13 +698,8 @@ CREATE TABLE IF NOT EXISTS documents_clients(
     FOREIGN KEY (tipo_doc) REFERENCES tipos_doc_legal (id_tipo_doc) ON DELETE SET NULL
 );
 
--- insert into tipo_inmuebles values (-1, 'sin tipo de inmueble');
-insert into tipo_inmuebles values (null, 'Casa');
-insert into tipo_inmuebles values (null, 'Departamento');
-insert into tipo_inmuebles values (null, 'Terreno');
-insert into tipo_inmuebles values (null, 'Oficina');
-insert into tipo_inmuebles values (null, 'Local Comercial');
-insert into tipo_inmuebles values (null, 'Local Industrial');
+INSERT INTO `tipo_inmuebles` (`id_tipo_inmb`, `tipo_inmb`) VALUES (NULL, 'DEPARTAMENTO'), (NULL, 'CASA'), (NULL, 'CASA DE PLAYA'), (NULL, 'CASA DE CAMPO'), (NULL, 'TERRENO / LOTE'), (NULL, 'TERRENO AGRICOLA'), (NULL, 'OFICINA'), (NULL, 'HOTEL'), (NULL, 'LOCAL COMERCIAL'), (NULL, 'LOCAL INDUSTRIAL');
+INSERT INTO `sub_tipo_inmuebles` (`id_sub_tipo_inmb`, `sub_tipo_inmb`, `cod_tipo_inmb`) VALUES (NULL, 'FLAT', '1'), (NULL, 'DÚPLEX', '1'), (NULL, 'TRÍPLEX', '1'), (NULL, 'PENT-HOUSE', '1');
 
 
 insert into sub_tipo_inmuebles values (-1, 'Sin tipo', -1);

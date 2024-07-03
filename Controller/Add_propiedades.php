@@ -6,10 +6,10 @@ include_once('../Config/Conexion.php');
 print_r($_POST);
 
 // ------------------------------------------------------
-// $data[1] = $_POST["title_prop"];
-// $data[2] = $_POST["desc_prop"];
-// $data[3] = $_POST["modalidad_prop"];
-// $data[4] = $_POST["tipo_prop_"];
+$data[1] = $_POST["title_prop"];
+$data[2] = $_POST["desc_prop"];
+$data[3] = $_POST["modalidad_prop"];
+$data[4] = $_POST["tipo_prop_"];
 // ------------------------------------------------------
 // $data[5] = $_POST["precio_"];
 // $data[6] = $_POST["precio_m2"];

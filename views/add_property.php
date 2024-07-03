@@ -51,6 +51,8 @@ $ID = mysqli_fetch_object($ID_prop);
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
+    <!-- jQuery -->
+    <script src="../Vista/plugins/jquery/jquery.min.js"></script>
 
     <style>
         html {
@@ -155,12 +157,13 @@ $ID = mysqli_fetch_object($ID_prop);
                                                     ?>
 
                                                     <!-- <select id="tipo_prop" name="tipo_prop" class="mak-control w-100" value="-1"></select> -->
-                                                    <select class="mak-control w-100" id="tipo_prop_" name="tipo_prop_">
+                                                    <!-- <select class="mak-control w-100" id="tipo_prop_" name="tipo_prop_">
                                                         <option selected disabled>Selecciona</option>
                                                         <?php foreach ($selector_types_props as $selectorTypes_props) : ?>
                                                             <option value="<?php echo $selectorTypes_props[0]; ?>"><?php echo $selectorTypes_props[1] ?></option>
                                                         <?php endforeach ?>
-                                                    </select>
+                                                    </select> -->
+                                                    <select id="tipo_prop" name="tipo_prop" class="mak-control w-100" value=""></select>
                                                 </div>
                                                 <!-- </div> -->
                                             </div>
@@ -212,28 +215,44 @@ $ID = mysqli_fetch_object($ID_prop);
                                                                 <input id="area_ocupada" name="area_ocupada" type="number" class="mak-control mr-2" placeholder="Escribe aquí">m²
                                                             </div>
                                                         </div>
+                                                        <div class="control-group lcli terr">
+                                                            <span>Frente:</span>
+                                                            <div>
+                                                                <input id="area_ocupada" name="area_ocupada" type="number" class="mak-control mr-2" placeholder="Escribe aquí">m²
+                                                            </div>
+                                                        </div>
+                                                        <div class="control-group depa">
+                                                            <span>Tipo de Departamento:</span>
+                                                            <!-- <select class="mak-control w-100" id="tipo_prop_" name="tipo_prop_">
+                                                                <option selected disabled>Selecciona</option>
+                                                                <?php foreach ($selector__sub_types_props as $selectorSubTypes_props) : ?>
+                                                                    <option value="<?php echo $selectorSubTypes_props[0]; ?>"><?php echo $selectorSubTypes_props[1] ?></option>
+                                                                <?php endforeach ?>
+                                                            </select> -->
+                                                            <select id="sub_tipo_prop" name="sub_tipo_prop" class="mak-control w-100" value=""></select>
+                                                        </div>
                                                     </div>
                                                     <!-- CASA -->
                                                     <div class="mak-control-full casa">
-                                                        <div class="control-group">
+                                                        <div class="control-group depa casa">
                                                             <span>Dormitorios:</span>
                                                             <div>
                                                                 <input id="dormitorios_" name="dormitorios_" type="number" class="mak-control w-75" placeholder="0">
                                                             </div>
                                                         </div>
-                                                        <div class="control-group">
+                                                        <div class="control-group depa casa edif">
                                                             <span>Baños:</span>
                                                             <div>
                                                                 <input id="banos_" name="banos_" type="number" class="mak-control w-75" placeholder="0">
                                                             </div>
                                                         </div>
-                                                        <div class="control-group">
+                                                        <div class="control-group depa casa edif ofic lclc lcli">
                                                             <span>Cochera:</span>
                                                             <div>
                                                                 <input id="cochera_" name="cochera_" type="number" class="mak-control w-75" placeholder="0">
                                                             </div>
                                                         </div>
-                                                        <div class="control-group">
+                                                        <div class="control-group depa casa edif ofic">
                                                             <span>N° de pisos:</span>
                                                             <div>
                                                                 <input id="num_pisos_" name="num_pisos_" type="number" class="mak-control w-75" placeholder="0">
@@ -243,57 +262,51 @@ $ID = mysqli_fetch_object($ID_prop);
                                                     <!-- CASA -->
                                                     <!-- OFICINA -->
                                                     <div class="mak-control-full oficina">
-                                                        <div class="control-group">
+                                                        <div class="control-group edif ofic lclc lcli">
                                                             <span>Ambientes:</span>
                                                             <div>
                                                                 <input id="dormitorios_" name="dormitorios_" type="number" class="mak-control w-75" placeholder="0">
                                                             </div>
                                                         </div>
-                                                        <div class="control-group">
+                                                        <!-- <div class="control-group">
                                                             <span>Baños:</span>
                                                             <div>
                                                                 <input id="banos_" name="banos_" type="number" class="mak-control w-75" placeholder="0">
                                                             </div>
-                                                        </div>
-                                                        <div class="control-group">
+                                                        </div> -->
+                                                        <!-- <div class="control-group">
                                                             <span>Cochera:</span>
                                                             <div>
                                                                 <input id="cochera_" name="cochera_" type="number" class="mak-control w-75" placeholder="0">
                                                             </div>
-                                                        </div>
-                                                        <div class="control-group">
+                                                        </div> -->
+                                                        <!-- <div class="control-group edif">
                                                             <span>N° de pisos:</span>
                                                             <div>
                                                                 <input id="num_pisos_" name="num_pisos_" type="number" class="mak-control w-75" placeholder="0">
                                                             </div>
-                                                        </div>
+                                                        </div> -->
                                                     </div>
                                                     <!-- OFICINA -->
                                                     <!-- LOCAL COMERCIAL -->
                                                     <div class="mak-control-full comercial">
-                                                        <div class="control-group">
-                                                            <span>Ambientes:</span>
-                                                            <div>
-                                                                <input id="dormitorios_" name="dormitorios_" type="number" class="mak-control w-75" placeholder="0">
-                                                            </div>
-                                                        </div>
-                                                        <div class="control-group">
+                                                        <div class="control-group ofic lclc lcli">
                                                             <span>Baños:</span>
                                                             <div>
                                                                 <input id="banos_" name="banos_" type="number" class="mak-control w-75" placeholder="0">
                                                             </div>
                                                         </div>
-                                                        <div class="control-group">
+                                                        <!-- <div class="control-group">
                                                             <span>Cochera:</span>
                                                             <div>
                                                                 <input id="cochera_" name="cochera_" type="number" class="mak-control w-75" placeholder="0">
                                                             </div>
-                                                        </div>
+                                                        </div> -->
                                                     </div>
                                                     <!-- LOCAL COMERCIAL -->
                                                     <!-- LOCAL INDUSTRIAL / ALMACEN -->
                                                     <div class="mak-control-full industrial">
-                                                        <div class="control-group">
+                                                        <div class="control-group lcli terr">
                                                             <span>Zonificación:</span>
                                                             <div>
                                                                 <select name="" id="" class="mak-control w-75">
@@ -306,49 +319,49 @@ $ID = mysqli_fetch_object($ID_prop);
                                                                 </select>
                                                             </div>
                                                         </div>
-                                                        <div class="control-group">
+                                                        <div class="control-group lcli">
                                                             <span>Área de nave:</span>
                                                             <div>
                                                                 <input id="banos_" name="banos_" type="number" class="mak-control w-75 mr-2" placeholder="0"> ml
                                                             </div>
                                                         </div>
-                                                        <div class="control-group">
+                                                        <div class="control-group lcli">
                                                             <span>Altura de nave:</span>
                                                             <div>
-                                                                <input id="cochera_" name="cochera_" type="number" class="mak-control w-75 mr-2" placeholder="0"> ml
+                                                                <input id="alt_nave" name="alt_nave" type="number" class="mak-control w-75 mr-2" placeholder="0"> ml
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <div class="mak-control-full industrial">
-                                                        <div class="control-group">
+                                                        <!-- <div class="control-group">
                                                             <span>Ambientes:</span>
                                                             <div>
                                                                 <input id="dormitorios_" name="dormitorios_" type="number" class="mak-control w-75" placeholder="0">
                                                             </div>
-                                                        </div>
-                                                        <div class="control-group">
+                                                        </div> -->
+                                                        <!-- <div class="control-group">
                                                             <span>Baños:</span>
                                                             <div>
                                                                 <input id="banos_" name="banos_" type="number" class="mak-control w-75" placeholder="0">
                                                             </div>
-                                                        </div>
-                                                        <div class="control-group">
+                                                        </div> -->
+                                                        <!-- <div class="control-group">
                                                             <span>Cochera:</span>
                                                             <div>
                                                                 <input id="cochera_" name="cochera_" type="number" class="mak-control w-75" placeholder="0">
                                                             </div>
-                                                        </div>
+                                                        </div> -->
                                                     </div>
                                                     <!-- LOCAL INDUSTRIAL / ALMACEN -->
                                                     <!-- TERRENO -->
                                                     <div class="mak-control-full terreno">
-                                                        <div class="control-group">
+                                                        <!-- <div class="control-group">
                                                             <span>Zonificación:</span>
                                                             <div>
                                                                 <input id="dormitorios_" name="dormitorios_" type="number" class="mak-control w-75" placeholder="0">
                                                             </div>
-                                                        </div>
-                                                        <div class="control-group">
+                                                        </div> -->
+                                                        <div class="control-group  terr">
                                                             <span>Parámetros:</span>
                                                             <div>
                                                                 <input id="banos_" name="banos_" type="number" class="mak-control w-75 mr-2" placeholder="0">pisos
@@ -358,7 +371,7 @@ $ID = mysqli_fetch_object($ID_prop);
                                                     <!-- TERRENO -->
                                                     <!-- COMISION -->
                                                     <div class="mak-control-grid comision hide">
-                                                        <div class="control-group">
+                                                        <div class="control-group depa casa edif ofic lclc lcli terr">
                                                             <span>Porcentaje de comisión:</span>
                                                             <div>
                                                                 <input id="porcen_comision" name="porcen_comision" type="number" class="mak-control mr-2" placeholder="Escribe aquí"> %
@@ -712,7 +725,7 @@ $ID = mysqli_fetch_object($ID_prop);
                                                         <input id="video_vigilancia" name="video_vigilancia" type="checkbox" class="">
                                                         <span>Video vigilencia</span>
                                                     </label>
-                                                    <div class="mak-options brd-out cursor m-0" data-bs-toggle="modal" data-bs-target="#verOptions_01">
+                                                    <div class="mak-options details brd-out cursor m-0" data-bs-toggle="modal" data-bs-target="#verOptions_01">
                                                         <i class="fa-solid fa-plus"></i>
                                                         <span>Ver más opciones</span>
                                                     </div>
@@ -759,7 +772,7 @@ $ID = mysqli_fetch_object($ID_prop);
                                                         <input id="tipo_cochera" name="tipo_cochera" type="checkbox" class="mak-control-event">
                                                         <span>Tipo cochera</span>
                                                     </label>
-                                                    <div class="mak-options brd-out cursor m-0" data-bs-toggle="modal" data-bs-target="#verOptions_02">
+                                                    <div class="mak-options details brd-out cursor m-0" data-bs-toggle="modal" data-bs-target="#verOptions_02">
                                                         <i class="fa-solid fa-plus"></i>
                                                         <span>Ver más opciones</span>
                                                     </div>
@@ -1112,9 +1125,8 @@ $ID = mysqli_fetch_object($ID_prop);
 
     <!-- REQUIRED SCRIPTS -->
     <script src="./../Vista/assets/add_property.js"></script>
+    <script src="./../Vista/assets/selection_types.js"></script>
 
-    <!-- jQuery -->
-    <script src="../Vista/plugins/jquery/jquery.min.js"></script>
     <!-- Bootstrap 4 -->
     <script src="../Vista/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 
@@ -1138,6 +1150,10 @@ $ID = mysqli_fetch_object($ID_prop);
     <!-- AdminLTE for demo purposes -->
     <script src="../Vista/dist/js/demo.js"></script>
     <!-- Page specific script -->
+
+    <script src="../Vista/assets/dash.js"></script>
+    <!-- script modal -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
 
 
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>

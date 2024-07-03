@@ -128,7 +128,8 @@
   align-items: center;
 }
 
-.mak .nav-item:not(.active) .nav-link:hover {
+.mak .nav-item:not(.active) .nav-link:hover,
+.mak .nav-item.logout-item {
   background-color: #cfd4de4d;
   border-radius: 6px;
 }
