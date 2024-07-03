@@ -87,7 +87,7 @@ CREATE TABLE IF NOT EXISTS roles_usu (
 
 CREATE TABLE IF NOT EXISTS tipo_usuario (
 	tipo_usu_id 	int primary key auto_increment,
-	tipo_usu_nom 	varchar (255) not null
+	tipo_usu_nom 	varchar (255) not null,
 	cod_rol int NOT NULL,
 	FOREIGN KEY (cod_rol) REFERENCES roles_usu (id_rol)
 );
@@ -96,6 +96,7 @@ CREATE TABLE IF NOT EXISTS usuarios (
 	id_usu INT auto_increment PRIMARY KEY NOT NULL,
 	nom_usu VARCHAR (30) NOT NULL,
 	ape_usu VARCHAR (30) NOT NULL,
+	dni_usu VARCHAR (8) NOT NULL,
 	cod_usu VARCHAR (30) NOT NULL,
 	pass_usu VARCHAR (20) NOT NULL,
 	mail_usu VARCHAR (40),
@@ -106,13 +107,13 @@ CREATE TABLE IF NOT EXISTS usuarios (
 	FOREIGN KEY (tipo_usu_cod) REFERENCES tipo_usuario (tipo_usu_id)
 );
 
-create table tipo_client_service (
+CREATE TABLE IF NOT EXISTS tipo_client_service (
 	id_tipo_client_s int not null auto_increment primary key, 
     nombre_tipo_client varchar(255)
 );
 
 
-CREATE TABLE clientes_servicios (
+CREATE TABLE IF NOT EXISTS clientes_servicios (
   id_client 				INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
   dni_client 				char(8) not null,
   nom_client 				varchar(50) NOT NULL,
@@ -132,7 +133,7 @@ CREATE TABLE clientes_servicios (
 );
 
 
-create table clientes(
+CREATE TABLE IF NOT EXISTS clientes(
 	id_client INT auto_increment PRIMARY KEY NOT NULL,
 	fecha_reg datetime not null,
     
@@ -184,12 +185,24 @@ create table clientes(
 	FOREIGN KEY (cod_tipo_client) REFERENCES tipo_cliente(id_tipo_cliente)
 );
 
-create table propiedades(
+CREATE TABLE IF NOT EXISTS propiedades(
 	id_prop int auto_increment primary key,
 
 	cod_client int,
 	cod_tipo_inmue int,
 	cod_sub_tipo_inmue int,
+
+	cod_ubi int,
+	cod_vista int,
+	cod_acabado int,
+	cod_zonificacion int,
+	cod_tipo_suelo int,
+	cod_tipo_pa_ex int,
+	cod_repo_coci int,
+	cod_energ int,
+	cod_tipo_promo int,
+	cod_tipo_cochera int,
+	cod_tipo_ilum int,
 
 	cod_usu int,
 	usu_asig int,
@@ -226,8 +239,8 @@ create table propiedades(
 	distrito varchar(255),
 	urbanizacion varchar(255),
 	
-	latitud	nvarchar(20),
-	longitud nvarchar(20)
+	latitud	varchar(20),
+	longitud varchar(20),
 
 	-- servicios
 	aire_acond boolean,
@@ -335,17 +348,17 @@ create table propiedades(
     FOREIGN KEY (cod_vista) REFERENCES  tipo_vista  (id_vista) ON DELETE SET NULL,
     FOREIGN KEY (cod_acabado) REFERENCES  tipo_acabado  (id_acabado) ON DELETE SET NULL,
     FOREIGN KEY (cod_zonificacion) REFERENCES  tipo_zonificacion (id_zona) ON DELETE SET NULL,
-    FOREIGN KEY (cod_tipo_suelo) REFERENCES  tipo_suelo  (id_tipo_suelo) ON DELETE SET NULL
+    FOREIGN KEY (cod_tipo_suelo) REFERENCES  tipo_suelo  (id_tipo_suelo) ON DELETE SET NULL,
 
 	FOREIGN KEY (cod_tipo_pa_ex) REFERENCES  tipo_pared_ext  (id_tipo_p) ON DELETE SET NULL,
 	FOREIGN KEY (cod_repo_coci)	REFERENCES  tipo_repostero  (id_tipo_repo) ON DELETE SET NULL,
 	FOREIGN KEY (cod_energ)	REFERENCES  tipo_energia  (id_tipo_energ) ON DELETE SET NULL,
-	FOREIGN KEY (cod_tipo_promo) REFERENCES  tipo_promocion  (id_promo),
+	FOREIGN KEY (cod_tipo_promo) REFERENCES  tipo_promocion  (id_promo)  ON DELETE SET NULL,
 	FOREIGN KEY (cod_tipo_cochera) REFERENCES  tipo_cochera  (id_tipo_cochera) ON DELETE SET NULL,
-	FOREIGN KEY (cod_tipo_ilum)	REFERENCES  tipo_iluminacion  (id_tipo_ilum)ON DELETE SET NULL,
+	FOREIGN KEY (cod_tipo_ilum)	REFERENCES  tipo_iluminacion  (id_tipo_ilum)ON DELETE SET NULL
 )
 
--- create table propiedades(
+-- CREATE TABLE IF NOT EXISTS propiedades(
 -- 	id_prop int auto_increment primary key, 
 --     cod_tipo_prop int, 
     
@@ -505,14 +518,23 @@ create table propiedades(
 -- );
 
 
-create table valorizacion(
+CREATE TABLE IF NOT EXISTS valorizacion(
 	id_valor		int auto_increment primary key,
 	cod_client 		int,
 	direccion		varchar(150),
+
+	cod_usu int,
     
-    cod_tipo_inmue		int, 
-    cod_sub_tipo_inmue	int,
-    cod_tipo_prom		int,
+    cod_tipo_inmue int, 
+    cod_sub_tipo_inmue int,
+    cod_tipo_prom int,
+
+    cod_tipo_pa_ex int,
+    cod_repo_coci int,
+    cod_energ int,
+    cod_tipo_promo int,
+    cod_tipo_cochera int,
+    cod_tipo_ilum int,
     
     area_terreno	double,
     area_construida	double,
@@ -542,7 +564,7 @@ create table valorizacion(
     cod_ubi			int,
     cod_vista		int, 
     cod_acabado		int,
-    -- fin form casa genera
+    -- fin form casa general
 
     -- form depa general
     sala_comedor_dep		boolean, 
@@ -614,14 +636,21 @@ create table valorizacion(
     FOREIGN KEY (cod_vista) REFERENCES  tipo_vista  (id_vista) ON DELETE SET NULL,
     FOREIGN KEY (cod_acabado) REFERENCES  tipo_acabado  (id_acabado) ON DELETE SET NULL,
     FOREIGN KEY (cod_zonificacion) REFERENCES  tipo_zonificacion (id_zona) ON DELETE SET NULL,
-    FOREIGN KEY (cod_tipo_suelo) REFERENCES  tipo_suelo  (id_tipo_suelo) ON DELETE SET NULL
+    FOREIGN KEY (cod_tipo_suelo) REFERENCES  tipo_suelo  (id_tipo_suelo) ON DELETE SET NULL,
+
+	FOREIGN KEY (cod_tipo_pa_ex) REFERENCES  tipo_pared_ext  (id_tipo_p) ON DELETE SET NULL,
+	FOREIGN KEY (cod_repo_coci)	REFERENCES  tipo_repostero  (id_tipo_repo) ON DELETE SET NULL,
+	FOREIGN KEY (cod_energ)	REFERENCES  tipo_energia  (id_tipo_energ) ON DELETE SET NULL,
+	FOREIGN KEY (cod_tipo_promo) REFERENCES  tipo_promocion  (id_promo)  ON DELETE SET NULL,
+	FOREIGN KEY (cod_tipo_cochera) REFERENCES  tipo_cochera  (id_tipo_cochera) ON DELETE SET NULL,
+	FOREIGN KEY (cod_tipo_ilum)	REFERENCES  tipo_iluminacion  (id_tipo_ilum)ON DELETE SET NULL
 );
 
 -- 502 = Pendiente
 -- 402 = En revision
 -- 200 = Finalizado
 
--- create table tipos_doc_legal(
+-- CREATE TABLE IF NOT EXISTS tipos_doc_legal(
 -- 	id_doc_legal 	int primary key auto_increment,
 --     tipo_doc_leg	varchar(255),
 --     tiempo_espera	varchar(255),
@@ -629,13 +658,13 @@ create table valorizacion(
 --     desc_procd		varchar(255)
 -- );
 
-create table tipos_doc_legal(
+CREATE TABLE IF NOT EXISTS tipos_doc_legal(
 	id_tipo_doc 	int primary key auto_increment,
     desc_tipo		varchar(90)
 );
 
 
-create table docs_legal(
+CREATE TABLE IF NOT EXISTS docs_legal(
 	id_legal	int primary key auto_increment, 
     rutas_docs			varchar(255),
     nom_client			varchar(255),
@@ -652,7 +681,7 @@ create table docs_legal(
 -- 20 = En revision
 -- 90 = Finalizado
 
-create table documents_clients(
+CREATE TABLE IF NOT EXISTS documents_clients(
 	id_document 	int primary key auto_increment,
 	
     file_destination	varchar(100),
@@ -669,7 +698,7 @@ create table documents_clients(
     FOREIGN KEY (tipo_doc) REFERENCES tipos_doc_legal (id_tipo_doc) ON DELETE SET NULL
 );
 
-insert into tipo_inmuebles values (-1, 'sin tipo de inmueble');
+-- insert into tipo_inmuebles values (-1, 'sin tipo de inmueble');
 insert into tipo_inmuebles values (null, 'Casa');
 insert into tipo_inmuebles values (null, 'Departamento');
 insert into tipo_inmuebles values (null, 'Terreno');
