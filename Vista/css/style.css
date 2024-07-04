@@ -421,10 +421,9 @@
 
 .mak-control-full {
   display: flex;
-  justify-content: space-around;
   flex-wrap: wrap;
   width: 100%;
-  gap: 0.5rem;
+  row-gap: 0.5rem;
 }
 
 .mak-control-full .control-group {

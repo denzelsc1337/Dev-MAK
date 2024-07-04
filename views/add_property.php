@@ -657,7 +657,7 @@ $ID = mysqli_fetch_object($ID_prop);
                                                 <h5>Servicios</h5>
                                                 <div class="caracteristicas">
 
-                                                    <label class="mak-options cursor m-0" for="aire_acondicionado">
+                                                    <label class="mak-options cursor m-0 depa" for="aire_acondicionado">
                                                         <input id="aire_acondicionado" name="aire_acondicionado" type="checkbox" class="mak-control-event">
                                                         <span>Aire acondicionado</span>
                                                         <input type="number" min="0" id="cant_aire_acondicionado" name="cant_aire_acondicionado" class="mak-options-brd-bottom p-0">
