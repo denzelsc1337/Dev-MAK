@@ -232,8 +232,8 @@ $ID = mysqli_fetch_object($ID_prop);
                                                             <select id="sub_tipo_prop" name="sub_tipo_prop" class="mak-control w-100" value=""></select>
                                                         </div>
                                                     </div>
-                                                    <!-- CASA -->
-                                                    <div class="mak-control-full casa">
+                                                    <div class="mak-control-full">
+                                                        <!-- CASA -->
                                                         <div class="control-group depa casa">
                                                             <span>Dormitorios:</span>
                                                             <div>
@@ -258,10 +258,10 @@ $ID = mysqli_fetch_object($ID_prop);
                                                                 <input id="num_pisos_" name="num_pisos_" type="number" class="mak-control w-75" placeholder="0">
                                                             </div>
                                                         </div>
-                                                    </div>
-                                                    <!-- CASA -->
-                                                    <!-- OFICINA -->
-                                                    <div class="mak-control-full oficina">
+
+                                                        <!-- CASA -->
+                                                        <!-- OFICINA -->
+
                                                         <div class="control-group edif ofic lclc lcli">
                                                             <span>Ambientes:</span>
                                                             <div>
@@ -286,10 +286,10 @@ $ID = mysqli_fetch_object($ID_prop);
                                                                 <input id="num_pisos_" name="num_pisos_" type="number" class="mak-control w-75" placeholder="0">
                                                             </div>
                                                         </div> -->
-                                                    </div>
-                                                    <!-- OFICINA -->
-                                                    <!-- LOCAL COMERCIAL -->
-                                                    <div class="mak-control-full comercial">
+
+                                                        <!-- OFICINA -->
+                                                        <!-- LOCAL COMERCIAL -->
+
                                                         <div class="control-group ofic lclc lcli">
                                                             <span>Baños:</span>
                                                             <div>
@@ -302,10 +302,10 @@ $ID = mysqli_fetch_object($ID_prop);
                                                                 <input id="cochera_" name="cochera_" type="number" class="mak-control w-75" placeholder="0">
                                                             </div>
                                                         </div> -->
-                                                    </div>
-                                                    <!-- LOCAL COMERCIAL -->
-                                                    <!-- LOCAL INDUSTRIAL / ALMACEN -->
-                                                    <div class="mak-control-full industrial">
+
+                                                        <!-- LOCAL COMERCIAL -->
+                                                        <!-- LOCAL INDUSTRIAL / ALMACEN -->
+
                                                         <div class="control-group lcli terr">
                                                             <span>Zonificación:</span>
                                                             <div>
@@ -331,30 +331,9 @@ $ID = mysqli_fetch_object($ID_prop);
                                                                 <input id="alt_nave" name="alt_nave" type="number" class="mak-control w-75 mr-2" placeholder="0"> ml
                                                             </div>
                                                         </div>
-                                                    </div>
-                                                    <div class="mak-control-full industrial">
-                                                        <!-- <div class="control-group">
-                                                            <span>Ambientes:</span>
-                                                            <div>
-                                                                <input id="dormitorios_" name="dormitorios_" type="number" class="mak-control w-75" placeholder="0">
-                                                            </div>
-                                                        </div> -->
-                                                        <!-- <div class="control-group">
-                                                            <span>Baños:</span>
-                                                            <div>
-                                                                <input id="banos_" name="banos_" type="number" class="mak-control w-75" placeholder="0">
-                                                            </div>
-                                                        </div> -->
-                                                        <!-- <div class="control-group">
-                                                            <span>Cochera:</span>
-                                                            <div>
-                                                                <input id="cochera_" name="cochera_" type="number" class="mak-control w-75" placeholder="0">
-                                                            </div>
-                                                        </div> -->
-                                                    </div>
-                                                    <!-- LOCAL INDUSTRIAL / ALMACEN -->
-                                                    <!-- TERRENO -->
-                                                    <div class="mak-control-full terreno">
+
+                                                        <!-- LOCAL INDUSTRIAL / ALMACEN -->
+                                                        <!-- TERRENO -->
                                                         <!-- <div class="control-group">
                                                             <span>Zonificación:</span>
                                                             <div>
@@ -367,18 +346,18 @@ $ID = mysqli_fetch_object($ID_prop);
                                                                 <input id="banos_" name="banos_" type="number" class="mak-control w-75 mr-2" placeholder="0">pisos
                                                             </div>
                                                         </div>
-                                                    </div>
-                                                    <!-- TERRENO -->
-                                                    <!-- COMISION -->
-                                                    <div class="mak-control-grid comision hide">
-                                                        <div class="control-group depa casa edif ofic lclc lcli terr">
-                                                            <span>Porcentaje de comisión:</span>
-                                                            <div>
-                                                                <input id="porcen_comision" name="porcen_comision" type="number" class="mak-control mr-2" placeholder="Escribe aquí"> %
+                                                        <!-- TERRENO -->
+                                                        <!-- COMISION -->
+                                                        <div class="mak-control-grid comision hide">
+                                                            <div class="control-group depa casa edif ofic lclc lcli terr">
+                                                                <span>Porcentaje de comisión:</span>
+                                                                <div>
+                                                                    <input id="porcen_comision" name="porcen_comision" type="number" class="mak-control mr-2" placeholder="Escribe aquí"> %
+                                                                </div>
                                                             </div>
                                                         </div>
+                                                        <!-- COMISION -->
                                                     </div>
-                                                    <!-- COMISION -->
                                                 </div>
                                             </div>
                                         </div>
@@ -555,7 +534,7 @@ $ID = mysqli_fetch_object($ID_prop);
                                                         Colocar URL de videos
                                                     </div>
                                                     <!-- <div class="mak-control mak-tertiary btn_button">
-                                        <i class="fa-solid fa-trash"></i>&nbsp;Eliminar todos los archivos
+                                        <https: class="fa-solid fa-trash"></https://pe.indeed.com/viewjob?from=appshareios%2CiaBackPress&jk=e3299165c6acc93ai>&nbsp;Eliminar todos los archivos
                                     </div> -->
                                                 </div>
 

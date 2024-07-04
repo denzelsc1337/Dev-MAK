@@ -2,6 +2,55 @@ document.addEventListener("DOMContentLoaded", () => {
   // ------------------------------------------------------------------------------------------------------
   // ------------------------------------------------------------------------------------------------------
   $(".depa, .casa, .edif, .ofic, .lclc, .lcli, .terr").hide();
+
+  $("#tipo_prop").change(function () {
+    var selectedValue = $(this).val(); // Obtiene el valor seleccionado
+    switch (selectedValue) {
+      case "1":
+        $(".depa, .casa, .edif, .ofic, .lclc, .lcli, .terr").hide();
+        $(".depa").show();
+        break;
+      case "2":
+        $(".depa, .casa, .edif, .ofic, .lclc, .lcli, .terr").hide();
+        $(".casa").show();
+        break;
+      case "3":
+        $(".depa, .casa, .edif, .ofic, .lclc, .lcli, .terr").hide();
+        $(".casa").show();
+        break;
+      case "4":
+        $(".depa, .casa, .edif, .ofic, .lclc, .lcli, .terr").hide();
+        $(".casa").show();
+        break;
+      case "5":
+        $(".depa, .casa, .edif, .ofic, .lclc, .lcli, .terr").hide();
+        $(".terr").show();
+        break;
+      case "6":
+        $(".depa, .casa, .edif, .ofic, .lclc, .lcli, .terr").hide();
+        $(".terr").show();
+        break;
+      case "7":
+        $(".depa, .casa, .edif, .ofic, .lclc, .lcli, .terr").hide();
+        $(".ofic").show();
+        break;
+      case "8":
+        $(".depa, .casa, .edif, .ofic, .lclc, .lcli, .terr").hide();
+        $(".lclc").show();
+        break;
+      case "9":
+        $(".depa, .casa, .edif, .ofic, .lclc, .lcli, .terr").hide();
+        $(".lclc").show();
+        break;
+      case "10":
+        $(".depa, .casa, .edif, .ofic, .lclc, .lcli, .terr").hide();
+        $(".lcli").show();
+        break;
+      default:
+        break;
+    }
+  });
+
   // ------------------------------------------------------------------------------------------------------
   // ------------------------------------------------------------------------------------------------------
 

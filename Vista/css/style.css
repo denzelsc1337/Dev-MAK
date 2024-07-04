@@ -421,13 +421,15 @@
 
 .mak-control-full {
   display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
   width: 100%;
   gap: 0.5rem;
-  margin-bottom: 1rem;
 }
 
 .mak-control-full .control-group {
-  flex: 1 1 calc(100% - 1rem);
+  text-align: center;
+  /* flex: 1 1 calc(100% - 1rem); */
 }
 
 .mak .content-input {
