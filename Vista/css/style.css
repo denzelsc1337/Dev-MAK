@@ -130,9 +130,16 @@
 
 /* .mak .nav-item:not(.active) .nav-link:hover,*/
 .mak .nav-item.logout-item {
-  float: right;
   cursor: pointer;
   margin: 0;
+  display: flex;
+  justify-content: end;
+}
+
+.mak .nav-item.logout-item .nav-link {
+  display: flex;
+  justify-content: center;
+  max-width: 62px;
 }
 
 .mak .navbar-nav.ml-auto {
@@ -342,8 +349,13 @@
   z-index: 100;
 }
 
+.mak.sidebar-collapse .nav-item.logout-item {
+  display: flex;
+  justify-content: end;
+}
+
 .mak.sidebar-collapse .nav-item.logout-item .nav-link {
-  transform: rotate(180deg);
+  transform: rotate(0deg);
 }
 
 /* ===== Reusable code - Here ===== */
@@ -368,6 +380,7 @@
 
 .sidebar .nav-item.logout-item .nav-link {
   height: 50px;
+  transform: rotate(180deg);
 }
 
 .sidebar header .image,
@@ -492,11 +505,14 @@ body.dark .sidebar header .toggle {
   padding: 0;
   border-radius: 6px;
   text-decoration: none;
-  transition: var(--tran-03);
 }
 
 /* .sidebar li a:hover, */
-.sidebar .nav-item:hover:not(.nav-item.logout-item) {
+/* .sidebar .nav-item.active:hover:not(.nav-item.logout-item) {
+  background-color: var(--blue-mak);
+} */
+
+.sidebar .nav-item:hover:not(.nav-item.active, .nav-item.logout-item) {
   background-color: var(--other-mak);
 }
 
@@ -683,6 +699,10 @@ body.dark .home .text {
   user-select: none;
   max-width: 100%;
   transition: width 1s ease;
+}
+
+.mak div.mak-options {  
+  order: 1;
 }
 
 .mak .mak-options.brd-out {

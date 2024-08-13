@@ -1,54 +1,206 @@
 document.addEventListener("DOMContentLoaded", () => {
   // ------------------------------------------------------------------------------------------------------
   // ------------------------------------------------------------------------------------------------------
-  $(".depa, .casa, .edif, .ofic, .lclc, .lcli, .terr").hide();
+  $(
+    ".departamento, .casa, .casa_playa, .casa_campo, .terr_lote, .terr_agricola, .oficina, .hotel, .local_comercial, .local_industrial"
+  ).hide();
+
+  // $('#')
 
   $("#tipo_prop").change(function () {
+    $(
+      ".departamento, .casa, .casa_playa, .casa_campo, .terr_lote, .terr_agricola, .oficina, .hotel, .local_comercial, .local_industrial"
+    ).hide();
+
     var selectedValue = $(this).val(); // Obtiene el valor seleccionado
-    switch (selectedValue) {
-      case "1":
-        $(".depa, .casa, .edif, .ofic, .lclc, .lcli, .terr").hide();
-        $(".depa").show();
-        break;
-      case "2":
-        $(".depa, .casa, .edif, .ofic, .lclc, .lcli, .terr").hide();
-        $(".casa").show();
-        break;
-      case "3":
-        $(".depa, .casa, .edif, .ofic, .lclc, .lcli, .terr").hide();
-        $(".casa").show();
-        break;
-      case "4":
-        $(".depa, .casa, .edif, .ofic, .lclc, .lcli, .terr").hide();
-        $(".casa").show();
-        break;
-      case "5":
-        $(".depa, .casa, .edif, .ofic, .lclc, .lcli, .terr").hide();
-        $(".terr").show();
-        break;
-      case "6":
-        $(".depa, .casa, .edif, .ofic, .lclc, .lcli, .terr").hide();
-        $(".terr").show();
-        break;
-      case "7":
-        $(".depa, .casa, .edif, .ofic, .lclc, .lcli, .terr").hide();
-        $(".ofic").show();
-        break;
-      case "8":
-        $(".depa, .casa, .edif, .ofic, .lclc, .lcli, .terr").hide();
-        $(".lclc").show();
-        break;
-      case "9":
-        $(".depa, .casa, .edif, .ofic, .lclc, .lcli, .terr").hide();
-        $(".lclc").show();
-        break;
-      case "10":
-        $(".depa, .casa, .edif, .ofic, .lclc, .lcli, .terr").hide();
-        $(".lcli").show();
-        break;
-      default:
-        break;
+    var item_html = "";
+
+    var caracteristics_serv = document.querySelector(".servicios");
+    var caracteristics_serv_plus = document.querySelector(".servicios_plus");
+    var caracteristics_gene = document.querySelector(".generales");
+    var caracteristics_gene_plus = document.querySelector(".generales_plus");
+    var caracteristics_comu = document.querySelector(".comunes");
+    var caracteristics_comu_plus = document.querySelector(".comunes_plus");
+
+    // borrar los elementos label creados
+    const labels = document.querySelectorAll("label.mak-options");
+
+    labels.forEach((label) => {
+      label.remove();
+    });
+    // borrar los elementos label creados
+
+    function generateItemHtml(items) {
+      // console.log(items);
+      const otherServicesHtml = Object.keys(items)
+        .filter(
+          (key) =>
+            key !== "servicios_plus" &&
+            key !== "generales_plus" &&
+            key !== "comunes_plus"
+        )
+        .map((key) => {
+          const item = items[key];
+          return `
+      <label class="mak-options cursor m-0" for="${item.id}">
+        <input id="${item.id}" name="${item.id}" type="checkbox" class="mak-control-event">
+        <span>${item.nombre}</span>
+      </label>
+    `;
+        })
+        .join("");
+
+      return otherServicesHtml;
     }
+
+    function printHTML(data, value) {
+      // console.log(data);
+      // console.log(value);
+      var type = "";
+
+      switch (value) {
+        case "1":
+          type = "departamento";
+          $(".departamento").show();
+          break;
+        case "2":
+          type = "casa";
+          $(".casa").show();
+          break;
+        case "3":
+          type = "casa_playa";
+          $(".casa").show();
+          break;
+        case "4":
+          type = "casa_campo";
+          $(".casa").show();
+          break;
+        case "5":
+          type = "terr_lote";
+          $(".terr_lote").show();
+          break;
+        case "6":
+          type = "terr_agricola";
+          $(".terr_agricola").show();
+          break;
+        case "7":
+          type = "oficina";
+          $(".oficina").show();
+          break;
+        case "8":
+          type = "hotel";
+          $(".hotel").show();
+          break;
+        case "9":
+          type = "local_comercial";
+          $(".local_comercial").show();
+          break;
+        case "10":
+          type = "local_industrial";
+          $(".local_industrial").show();
+          break;
+        default:
+          console.error("Valor no reconocido:", value);
+          return; // Salir de la función si el valor no es reconocido
+      }
+
+      // Verifica que las propiedades existan antes de usarlas
+
+      // APARTADO DE SERVICIOS
+      if (data[type] && data[type].servicios) {
+        // Imprimir servicios en caracteristics_serv
+        caracteristics_serv.innerHTML += generateItemHtml(data[type].servicios);
+      } else {
+        console.log(`No se encontraron servicios para el tipo: ${type}`);
+      }
+
+      // // APARTADO DE SERVICIOS_PLUS
+      if (
+        data[type] &&
+        data[type].servicios &&
+        data[type].servicios.servicios_plus
+      ) {
+        // Imprimir servicios_plus en caracteristics_serv_plus
+        caracteristics_serv_plus.innerHTML += generateItemHtml(
+          data[type].servicios.servicios_plus
+        );
+      } else {
+        console.log(`No se encontraron servicios_plus para el tipo: ${type}`);
+      }
+      // // APARTADO DE SERVICIOS_PLUS
+      // APARTADO DE SERVICIOS
+
+      // APARTADO DE GENERALES
+      if (data[type] && data[type].generales) {
+        // Imprimir servicios en caracteristics_serv
+        caracteristics_gene.innerHTML += generateItemHtml(data[type].generales);
+      } else {
+        console.log(`No se encontraron generales para el tipo: ${type}`);
+      }
+
+      // // APARTADO DE GENERALES_PLUS
+      if (
+        data[type] &&
+        data[type].generales &&
+        data[type].generales.generales_plus
+      ) {
+        // Imprimir generales_plus en caracteristics_serv_plus
+        caracteristics_gene_plus.innerHTML += generateItemHtml(
+          data[type].generales.generales_plus
+        );
+      } else {
+        console.log(`No se encontraron generales_plus para el tipo: ${type}`);
+      }
+      // // APARTADO DE GENERALES_PLUS
+      // APARTADO DE GENERALES
+
+      // APARTADO DE COMUNES
+      if (data[type] && data[type].comunes) {
+        // Imprimir servicios en caracteristics_serv
+        caracteristics_comu.innerHTML += generateItemHtml(data[type].comunes);
+      } else {
+        console.log(`No se encontraron comunes para el tipo: ${type}`);
+      }
+
+      // // APARTADO DE COMUNES_PLUS
+      if (data[type] && data[type].comunes && data[type].comunes.comunes_plus) {
+        // Imprimir comunes_plus en caracteristics_serv_plus
+        caracteristics_comu_plus.innerHTML += generateItemHtml(
+          data[type].comunes.comunes_plus
+        );
+      } else {
+        console.log(`No se encontraron comunes_plus para el tipo: ${type}`);
+      }
+      // // APARTADO DE COMUNES_PLUS
+      // APARTADO DE COMUNES
+    }
+
+    $.ajax({
+      type: "GET",
+      url: "../Controller/details_property.php",
+      success: function (response) {
+        const data = JSON.parse(response);
+        // console.log(selectedValue);
+        // console.log(data);
+
+        // switch (selectedValue) {
+        //   case "1":
+        //   case "2":
+        //   case "3":
+        //   case "4":
+        //   case "5":
+        //   case "6":
+        //   case "7":
+        //   case "8":
+        //   case "9":
+        //   case "10":
+        printHTML(data, selectedValue);
+        // break;
+        // default:
+        // break;
+        // }
+      },
+    });
   });
 
   // ------------------------------------------------------------------------------------------------------
@@ -430,7 +582,7 @@ $(document).ready(function () {
         console.log("Enviando...");
       },
       success: function (r) {
-        console.log("Éxito:", r);
+        // console.log("Éxito:", r);
       },
       error: function (xhr, status, error) {
         console.log("Error:", error);

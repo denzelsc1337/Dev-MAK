@@ -110,6 +110,7 @@
                         <path d="M11.45 17.2004L7.59991 13.0003L11.45 8.80029" stroke="#16243E" stroke-linecap="round" stroke-linejoin="round" />
                     </svg>
 
+
                 </div>
                 <!-- </a> -->
             </li>
@@ -117,32 +118,3 @@
     </div>
 
 </nav>
-
-<script>
-    const body = document.querySelector('body'),
-        sidebar = body.querySelector('nav'),
-        toggle = body.querySelector(".toggle"),
-        searchBtn = body.querySelector(".search-box"),
-        modeSwitch = body.querySelector(".toggle-switch"),
-        modeText = body.querySelector(".mode-text");
-
-
-    toggle.addEventListener("click", () => {
-        sidebar.classList.toggle("close");
-    })
-
-    searchBtn.addEventListener("click", () => {
-        sidebar.classList.remove("close");
-    })
-
-    modeSwitch.addEventListener("click", () => {
-        body.classList.toggle("dark");
-
-        if (body.classList.contains("dark")) {
-            modeText.innerText = "Light mode";
-        } else {
-            modeText.innerText = "Dark mode";
-
-        }
-    });
-</script>

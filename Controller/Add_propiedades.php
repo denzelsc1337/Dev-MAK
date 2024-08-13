@@ -2,14 +2,48 @@
 require_once('../Model/propiedades.php');
 include_once('../Config/Conexion.php');
 
+// print_r($_POST);
 
-print_r($_POST);
+$cnx = new Conexion();
+$cadena = $cnx->abrirConexion();
+
+//Contar los elementos en $_POST
+$num_elements = count($_POST);
+
+//Imprimir la cantidad de elementos recibidos
+echo "Número de elementos recibidos por POST: " . $num_elements . "\n";
+
+$data = [];
+
+$i = 1; // Contador para las claves del array $data
+
+foreach ($_POST as $key => $value) {
+    $data[$i] = $value;
+    $i++;
+}
+
+// Ahora $data contiene todos los elementos de $_POST, y están numerados secuencialmente.
+// print_r($data);
+
+
+$oProp = new propiedades();
+$r = $oProp->add_Propiedades($data, $cadena);
+
+
+
+if ($r) {
+
+    echo "wii " . $r;
+} else {
+    echo "Error al insertar el registro.";
+}
+
 
 // ------------------------------------------------------
-$data[1] = $_POST["title_prop"];
-$data[2] = $_POST["desc_prop"];
-$data[3] = $_POST["modalidad_prop"];
-$data[4] = $_POST["tipo_prop_"];
+// $data[1] = $_POST["title_prop"];
+// $data[2] = $_POST["desc_prop"];
+// $data[3] = $_POST["modalidad_prop"];
+// $data[4] = $_POST["tipo_prop_"];
 // ------------------------------------------------------
 // $data[5] = $_POST["precio_"];
 // $data[6] = $_POST["precio_m2"];
