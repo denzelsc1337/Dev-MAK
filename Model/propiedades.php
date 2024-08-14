@@ -15,14 +15,14 @@ class propiedades
 
         switch ($data[4]) {
             case 1:
-                $query = "INSERT INTO `propiedades` (`cod_client`, `cod_tipo_inmue`) VALUES (2,1);";
+                $query = "INSERT INTO `propiedades` (`cod_client`, `cod_tipo_inmue`) VALUES ('" . $data[20] . "','" . $data[4] . "');";
                 break; // Detener el flujo después de ejecutar este caso
             case 2:
-                $query = "INSERT INTO `propiedades` (`cod_client`, `cod_tipo_inmue`) VALUES (3,2);";
+                $query = "INSERT INTO `propiedades` (`cod_client`, `cod_tipo_inmue`) VALUES ('" . $data[20] . "','" . $data[4] . "');";
                 break;
             default:
                 // Puedes agregar una consulta por defecto aquí si es necesario
-                // $query = "SELECT * FROM propiedades";
+                $query = "SELECT * FROM propiedades LIMIT 1";
                 break;
         }
 

@@ -69,7 +69,7 @@
           </ul>
         </nav>
 
-        <?php if ($_SESSION['tipo_usu'] == 1) : ?>
+        <?php if ($_SESSION['tipo_usu_cod'] == 1) : ?>
           <nav class="mt-2">
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
               <!-- Add icons to the links using the .nav-icon class

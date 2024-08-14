@@ -242,196 +242,206 @@ $data = [
             ['id' => 'casa_playa_ingreso_indepen', 'nombre' => 'Ingreso independiente'],
             ['id' => 'casa_playa_parque_interno', 'nombre' => 'Parque interno'],
             ['id' => 'casa_playa_sala_estar', 'nombre' => 'Sala de estar']
-        ] //,
-    ] //,
-    // 'casa_campo' => [
-    //     'servicios' => [
-    //         ['id' => 'area_lavanderia', 'nombre' => 'Área de Lavandería'],
-    //         ['id' => 'gimnasio', 'nombre' => 'Gimnasio'],
-    //         ['id' => 'linea_blanca', 'nombre' => 'Línea blanca'],
-    //         ['id' => 'acondicionado', 'nombre' => 'Aire acondicionado'],
-    //         ['id' => 'seguridad', 'nombre' => 'Guardianía /Seguridad Privada'],
-    //         ['id' => 'control_accesos', 'nombre' => 'Control de accesos'],
-    //         ['id' => 'vigilancia', 'nombre' => 'Video Vigilancia'],
-    //         ['id' => 'alarma_security', 'nombre' => 'Sistema de alarma de seguridad'],
-    //         ['id' => 'tv_cable', 'nombre' => 'Televisión por cable'],
-    //         ['id' => 'serv_basicos', 'nombre' => 'Servicios básicos'],
-    //         'servicios_plus' => [
-    //             ['id' => 'area_juegos', 'nombre' => 'Área de Juegos Infantiles'],
-    //             ['id' => 'serv_limpieza', 'nombre' => 'Servicio de Limpieza'],
-    //             ['id' => 'parrilla', 'nombre' => 'Parrilla'],
-    //             ['id' => 'area_verdes', 'nombre' => 'Áreas verdes'],
-    //             ['id' => 'canchas', 'nombre' => 'Canchas Deportivas'],
-    //             ['id' => 'kitchenet', 'nombre' => 'Kitchenet'],
-    //             ['id' => 'uso_profesional', 'nombre' => 'Uso Profesional'],
-    //             ['id' => 'uso_comercial', 'nombre' => 'Uso Comercial'],
-    //             ['id' => 'ether_wifi', 'nombre' => 'Internet/Wifi'],
-    //             ['id' => 'luminarias', 'nombre' => 'Posee Luminarias']
-    //         ]
-    //     ],
-    //     'generales' => [
-    //         ['id' => 'amoblado', 'nombre' => 'Amueblado/a'],
-    //         ['id' => 'ascensor', 'nombre' => 'Ascensor(es)', 'cantidad' => 1],
-    //         ['id' => 'guardia', 'nombre' => 'Caseta de guardia'],
-    //         ['id' => 'electrica', 'nombre' => 'Cerca eléctrica'],
-    //         ['id' => 'chimenea', 'nombre' => 'Chimenea'],
-    //         ['id' => 'jardin', 'nombre' => 'Jardín(es)'],
-    //         ['id' => 'piscina', 'nombre' => 'Piscina'],
-    //         ['id' => 'terraza', 'nombre' => 'Terraza'],
-    //         ['id' => 'bano_servicio', 'nombre' => 'Baño de servicio', 'cantidad' => 1],
-    //         ['id' => 'cuarto_servicio', 'nombre' => 'Cuartos de servicio', 'cantidad' => 1],
-    //         'generales_plus' => [
-    //             ['id' => 'amoblado', 'nombre' => 'Jacuzzi'],
-    //             ['id' => 'gimnasio', 'nombre' => 'Seguridad'],
-    //             ['id' => 'gimnasio', 'nombre' => 'Centros Comerciales Cercanos'],
-    //             ['id' => 'gimnasio', 'nombre' => 'Cerca a colegios'],
-    //             ['id' => 'gimnasio', 'nombre' => 'Vista a la Ciudad'],
-    //             ['id' => 'gimnasio', 'nombre' => 'Vista al Mar'],
-    //             ['id' => 'gimnasio', 'nombre' => 'Niveles construidos', 'cantidad' => 1],
-    //             ['id' => 'gimnasio', 'nombre' => 'Reposteros de cocina'],
-    //             ['id' => 'gimnasio', 'nombre' => 'Metros cuadrados de frente', 'cantidad' => 1],
-    //             ['id' => 'gimnasio', 'nombre' => 'Metros cuadrados de fondo', 'cantidad' => 1],
-    //             ['id' => 'gimnasio', 'nombre' => 'Intercomunicador'],
-    //             ['id' => 'gimnasio', 'nombre' => 'Número de pisos', 'cantidad' => 1],
-    //             ['id' => 'gimnasio', 'nombre' => 'Cerco vivo'],
-    //             ['id' => 'gimnasio', 'nombre' => 'Cerco de material noble'],
-    //             ['id' => 'gimnasio', 'nombre' => 'Dúplex'],
-    //             ['id' => 'gimnasio', 'nombre' => 'Cerca a parque'],
-    //             ['id' => 'gimnasio', 'nombre' => 'Closet'],
-    //             ['id' => 'gimnasio', 'nombre' => 'En condominio'],
-    //             ['id' => 'gimnasio', 'nombre' => 'Walk in closet'],
-    //             ['id' => 'gimnasio', 'nombre' => 'Vista Parque'],
-    //             ['id' => 'gimnasio', 'nombre' => 'Frente a Parque'],
-    //             ['id' => 'gimnasio', 'nombre' => 'Cocina'],
-    //             ['id' => 'gimnasio', 'nombre' => 'Mascotas'],
-    //             ['id' => 'gimnasio', 'nombre' => 'Acabados de lujo'],
-    //             ['id' => 'gimnasio', 'nombre' => 'Área BBQ'],
-    //             ['id' => 'gimnasio', 'nombre' => 'Balcón(es)'],
-    //             ['id' => 'gimnasio', 'nombre' => 'Acceso por camino a tierra']
-    //         ]
-    //     ],
-    //     'comunes' => [
-    //         ['id' => 'bodega', 'nombre' => 'Bodega(s)'],
-    //         ['id' => 'gimnasio', 'nombre' => 'Gimnasio'],
-    //     ],
-    // ],
-    // 'terr_lote' => [
-    //     'servicios' => [
-    //         ['id' => 'area_lavanderia', 'nombre' => 'Área de Lavandería'],
-    //         ['id' => 'gimnasio', 'nombre' => 'Gimnasio'],
-    //         ['id' => 'linea_blanca', 'nombre' => 'Línea blanca'],
-    //         ['id' => 'acondicionado', 'nombre' => 'Aire acondicionado'],
-    //         ['id' => 'seguridad', 'nombre' => 'Guardianía /Seguridad Privada'],
-    //         ['id' => 'control_accesos', 'nombre' => 'Control de accesos'],
-    //         ['id' => 'vigilancia', 'nombre' => 'Video Vigilancia'],
-    //         ['id' => 'alarma_security', 'nombre' => 'Sistema de alarma de seguridad'],
-    //         'servicios_plus' => [
-    //             ['id' => 'tv_cable', 'nombre' => 'Televisión por cable'],
-    //             ['id' => 'serv_basicos', 'nombre' => 'Servicios básicos'],
-    //             ['id' => 'area_juegos', 'nombre' => 'Área de Juegos Infantiles'],
-    //             ['id' => 'serv_limpieza', 'nombre' => 'Servicio de Limpieza'],
-    //             ['id' => 'parrilla', 'nombre' => 'Parrilla'],
-    //             ['id' => 'area_verdes', 'nombre' => 'Áreas verdes'],
-    //             ['id' => 'canchas', 'nombre' => 'Canchas Deportivas'],
-    //             ['id' => 'kitchenet', 'nombre' => 'Kitchenet'],
-    //             ['id' => 'uso_profesional', 'nombre' => 'Uso Profesional'],
-    //             ['id' => 'uso_comercial', 'nombre' => 'Uso Comercial'],
-    //             ['id' => 'ascensor', 'nombre' => 'Capacidad de personas por ascensor', 'cantidad' => 1],
-    //             ['id' => 'ether_wifi', 'nombre' => 'Internet/Wifi']
-    //         ]
-    //     ],
+        ],
+    ],
+    'casa_campo' => [
+        'servicios' => [
+            ['id' => 'casa_campo_area_lavanderia', 'nombre' => 'Área de Lavandería'],
+            ['id' => 'casa_campo_gimnasio', 'nombre' => 'Gimnasio'],
+            ['id' => 'casa_campo_linea_blanca', 'nombre' => 'Línea blanca'],
+            ['id' => 'casa_campo_acondicionado', 'nombre' => 'Aire acondicionado'],
+            ['id' => 'casa_campo_seguridad', 'nombre' => 'Guardianía /Seguridad Privada'],
+            ['id' => 'casa_campo_control_accesos', 'nombre' => 'Control de accesos'],
+            ['id' => 'casa_campo_vigilancia', 'nombre' => 'Video Vigilancia'],
+            ['id' => 'casa_campo_alarma_security', 'nombre' => 'Sistema de alarma de seguridad'],
+            ['id' => 'casa_campo_tv_cable', 'nombre' => 'Televisión por cable'],
+            ['id' => 'casa_campo_serv_basicos', 'nombre' => 'Servicios básicos'],
+            'servicios_plus' => [
+                ['id' => 'casa_campo_area_juegos', 'nombre' => 'Área de Juegos Infantiles'],
+                ['id' => 'casa_campo_serv_limpieza', 'nombre' => 'Servicio de Limpieza'],
+                ['id' => 'casa_campo_parrilla', 'nombre' => 'Parrilla'],
+                ['id' => 'casa_campo_area_verdes', 'nombre' => 'Áreas verdes'],
+                ['id' => 'casa_campo_canchas', 'nombre' => 'Canchas Deportivas'],
+                ['id' => 'casa_campo_kitchenet', 'nombre' => 'Kitchenet'],
+                ['id' => 'casa_campo_uso_profesional', 'nombre' => 'Uso Profesional'],
+                ['id' => 'casa_campo_uso_comercial', 'nombre' => 'Uso Comercial'],
+                ['id' => 'casa_campo_ether_wifi', 'nombre' => 'Internet/Wifi'],
+                ['id' => 'casa_campo_luminarias', 'nombre' => 'Posee Luminarias']
+            ]
+        ],
+        'generales' => [
+            ['id' => 'casa_campo_amoblado', 'nombre' => 'Amueblado/a'],
+            ['id' => 'casa_campo_ascensor', 'nombre' => 'Ascensor(es)', 'cantidad' => 1],
+            ['id' => 'casa_campo_guardia', 'nombre' => 'Caseta de guardia'],
+            ['id' => 'casa_campo_electrica', 'nombre' => 'Cerca eléctrica'],
+            ['id' => 'casa_campo_chimenea', 'nombre' => 'Chimenea'],
+            ['id' => 'casa_campo_jardin', 'nombre' => 'Jardín(es)'],
+            ['id' => 'casa_campo_piscina', 'nombre' => 'Piscina'],
+            ['id' => 'casa_campo_terraza', 'nombre' => 'Terraza'],
+            ['id' => 'casa_campo_bano_servicio', 'nombre' => 'Baño de servicio', 'cantidad' => 1],
+            ['id' => 'casa_campo_cuarto_servicio', 'nombre' => 'Cuartos de servicio', 'cantidad' => 1],
+            'generales_plus' => [
+                ['id' => 'casa_campo_amoblado', 'nombre' => 'Amueblado/a'],
+                ['id' => 'casa_campo_ascensor', 'nombre' => 'Ascensor(es)', 'cantidad' => 1],
+                ['id' => 'casa_campo_guardia', 'nombre' => 'Caseta de guardia'],
+                ['id' => 'casa_campo_electrica', 'nombre' => 'Cerca eléctrica'],
+                ['id' => 'casa_campo_chimenea', 'nombre' => 'Chimenea'],
+                ['id' => 'casa_campo_jardin', 'nombre' => 'Jardín(es)'],
+                ['id' => 'casa_campo_piscina', 'nombre' => 'Piscina'],
+                ['id' => 'casa_campo_terraza', 'nombre' => 'Terraza'],
+                ['id' => 'casa_campo_bano_servicio', 'nombre' => 'Baño de servicio', 'cantidad' => 1],
+                ['id' => 'casa_campo_cuarto_servicio', 'nombre' => 'Cuartos de servicio', 'cantidad' => 1],
+                ['id' => 'casa_campo_jacuzzi', 'nombre' => 'Jacuzzi'],
+                ['id' => 'casa_campo_seguridad', 'nombre' => 'Seguridad'],
+                ['id' => 'casa_campo_casa_cent_comer_cerca', 'nombre' => 'Centros Comerciales Cercanos'],
+                ['id' => 'casa_campo_cerca_cole', 'nombre' => 'Cerca a colegios'],
+                ['id' => 'casa_campo_vista_ciudad', 'nombre' => 'Vista a la Ciudad'],
+                ['id' => 'casa_campo_vista_mar', 'nombre' => 'Vista al Mar'],
+                ['id' => 'casa_campo_niv_constr', 'nombre' => 'Niveles construidos', 'cantidad' => 1],
+                ['id' => 'casa_campo_repos_cocina', 'nombre' => 'Reposteros de cocina'],
+                ['id' => 'casa_campo_m2_frente', 'nombre' => 'Metros cuadrados de frente', 'cantidad' => 1],
+                ['id' => 'casa_campo_m2_fondo', 'nombre' => 'Metros cuadrados de fondo', 'cantidad' => 1],
+                ['id' => 'casa_campo_intercom', 'nombre' => 'Intercomunicador'],
+                ['id' => 'casa_campo_num_pisos', 'nombre' => 'Número de pisos', 'cantidad' => 1],
+                ['id' => 'casa_campo_cerco_vivo', 'nombre' => 'Cerco vivo'],
+                ['id' => 'casa_campo_cerco_mat_noble', 'nombre' => 'Cerco de material noble '],
+                ['id' => 'casa_campo_duplex', 'nombre' => 'Dúplex'],
+                ['id' => 'casa_campo_cerca_parque', 'nombre' => 'Cerca a parque'],
+                ['id' => 'casa_campo_closet', 'nombre' => 'Closet'],
+                ['id' => 'casa_campo_en_condominio', 'nombre' => 'En condominio'],
+                ['id' => 'casa_campo_walk_closet', 'nombre' => 'Walk in closet'],
+                ['id' => 'casa_campo_vista_parque', 'nombre' => 'Vista Parque'],
+                ['id' => 'casa_campo_frente_parque', 'nombre' => 'Frente a Parque'],
+                ['id' => 'casa_campo_cocina', 'nombre' => 'Cocina'],
+                ['id' => 'casa_campo_mascotas', 'nombre' => 'Mascotas'],
+                ['id' => 'casa_campo_acabados_lujo', 'nombre' => 'Acabados de lujo'],
+                ['id' => 'casa_campo_area_bbq', 'nombre' => 'Área BBQ'],
+                ['id' => 'casa_campo_balcon', 'nombre' => 'Balcón(es)'],
+                ['id' => 'casa_campo_acceso_camino_tierra', 'nombre' => 'Acceso por camino a tierra']
+            ]
+        ],
+        'comunes' => [
+            ['id' => 'casa_campo_bodega', 'nombre' => 'Bodega(s)'],
+            ['id' => 'casa_campo_patio', 'nombre' => 'Patio'],
+            ['id' => 'casa_campo_area_comun', 'nombre' => 'Área común'],
+            ['id' => 'casa_campo_sauna', 'nombre' => 'Sauna'],
+            ['id' => 'casa_campo_turco', 'nombre' => 'Turco'],
+            ['id' => 'casa_campo_entretenimiento', 'nombre' => 'Sala de entretenimiento'],
+            ['id' => 'casa_campo_comedor', 'nombre' => 'Comedor Diario'],
+            ['id' => 'casa_campo_desague', 'nombre' => 'Desagüe'],
+            ['id' => 'casa_campo_equipado', 'nombre' => 'Equipado'],
+            ['id' => 'casa_campo_club_house', 'nombre' => 'Club House'],
+            ['id' => 'casa_campo_ingreso_indepen', 'nombre' => 'Ingreso independiente'],
+            ['id' => 'casa_campo_parque_interno', 'nombre' => 'Parque interno'],
+            ['id' => 'casa_campo_sala_estar', 'nombre' => 'Sala de estar']
+        ],
+    ],
+    'terr_lote' => [
+        'servicios' => [
+            ['id' => 'terr_lote_seguridad', 'nombre' => 'Guardianía /Seguridad Privada'],
+            ['id' => 'terr_lote_vigilancia', 'nombre' => 'Video Vigilancia'],
+            ['id' => 'terr_lote_area_lavanderia', 'nombre' => 'Área de Lavandería'],
+            ['id' => 'terr_lote_alarma_security', 'nombre' => 'Sistema de alarma de seguridad'],
+            ['id' => 'terr_lote_serv_basicos', 'nombre' => 'Servicios básicos'],
+            ['id' => 'terr_lote_area_verdes', 'nombre' => 'Áreas verdes'],
+            ['id' => 'terr_lote_canchas', 'nombre' => 'Canchas Deportivas'],
+            ['id' => 'terr_lote_seguridad', 'nombre' => 'Seguridad']
+        ],
 
-    //     'generales' => [
-    //         ['id' => 'amoblado', 'nombre' => 'Amueblado/a'],
-    //         ['id' => 'gimnasio', 'nombre' => 'Gimnasio'],
-    //         'generales_plus' => [
-    //             ['id' => 'amoblado', 'nombre' => 'Amueblado/a'],
-    //             ['id' => 'gimnasio', 'nombre' => 'Gimnasio'],
-    //         ]
-    //     ],
-    //     'comunes' => [
-    //         ['id' => 'bodega', 'nombre' => 'Bodega(s)'],
-    //         ['id' => 'gimnasio', 'nombre' => 'Gimnasio'],
-    //     ],
-    // ],
-    // 'terr_agricola' => [
-    //     'servicios' => [
-    //         ['id' => 'area_lavanderia', 'nombre' => 'Área de Lavandería'],
-    //         ['id' => 'gimnasio', 'nombre' => 'Gimnasio'],
-    //         ['id' => 'linea_blanca', 'nombre' => 'Línea blanca'],
-    //         ['id' => 'acondicionado', 'nombre' => 'Aire acondicionado'],
-    //         ['id' => 'seguridad', 'nombre' => 'Guardianía /Seguridad Privada'],
-    //         ['id' => 'control_accesos', 'nombre' => 'Control de accesos'],
-    //         ['id' => 'vigilancia', 'nombre' => 'Video Vigilancia'],
-    //         ['id' => 'alarma_security', 'nombre' => 'Sistema de alarma de seguridad'],
-    //         'servicios_plus' => [
-    //             ['id' => 'tv_cable', 'nombre' => 'Televisión por cable'],
-    //             ['id' => 'serv_basicos', 'nombre' => 'Servicios básicos'],
-    //             ['id' => 'area_juegos', 'nombre' => 'Área de Juegos Infantiles'],
-    //             ['id' => 'serv_limpieza', 'nombre' => 'Servicio de Limpieza'],
-    //             ['id' => 'parrilla', 'nombre' => 'Parrilla'],
-    //             ['id' => 'area_verdes', 'nombre' => 'Áreas verdes'],
-    //             ['id' => 'canchas', 'nombre' => 'Canchas Deportivas'],
-    //             ['id' => 'kitchenet', 'nombre' => 'Kitchenet'],
-    //             ['id' => 'uso_profesional', 'nombre' => 'Uso Profesional'],
-    //             ['id' => 'uso_comercial', 'nombre' => 'Uso Comercial'],
-    //             ['id' => 'ascensor', 'nombre' => 'Capacidad de personas por ascensor', 'cantidad' => 1],
-    //             ['id' => 'ether_wifi', 'nombre' => 'Internet/Wifi']
-    //         ]
-    //     ],
+        'generales' => [
+            ['id' => 'terr_lote_guardia', 'nombre' => 'Caseta de guardia'],
+            ['id' => 'terr_lote_electrica', 'nombre' => 'Cerca eléctrica'],
+            ['id' => 'terr_lote_casa_cent_comer_cerca', 'nombre' => 'Centros Comerciales Cercanos'],
+            ['id' => 'terr_lote_cerca_cole', 'nombre' => 'Cerca a colegios'],
+            ['id' => 'terr_lote_vista_ciudad', 'nombre' => 'Vista a la Ciudad'],
+            ['id' => 'terr_lote_vista_mar', 'nombre' => 'Vista al Mar'],
+            ['id' => 'terr_lote_m2_frente', 'nombre' => 'Metros cuadrados de frente', 'cantidad' => 1],
+            ['id' => 'terr_lote_m2_fondo', 'nombre' => 'Metros cuadrados de fondo', 'cantidad' => 1],
+            ['id' => 'terr_lote_vista_mar', 'nombre' => 'Zona industrial'],
+            ['id' => 'terr_lote_cerco_vivo', 'nombre' => 'Cerco vivo'],
+            'generales_plus' => [
+                ['id' => 'terr_lote_cerco_noble', 'nombre' => 'Cerco de material noble '],
+                ['id' => 'terr_lote_asfaltada', 'nombre' => 'Av. acceso asfaltada'],
+                ['id' => 'terr_lote_afirmada', 'nombre' => 'Av. acceso afirmada'],
+                ['id' => 'terr_lote_frente_mar', 'nombre' => 'Frente al mar (primera fila)'],
+                ['id' => 'terr_lote_cerca_parque', 'nombre' => 'Cerca a parque'],
+                ['id' => 'terr_lote_condominio', 'nombre' => 'En condominio'],
+                ['id' => 'terr_lote_vista_parque', 'nombre' => 'Vista Parque'],
+                ['id' => 'terr_lote_frente_parque', 'nombre' => 'Frente a Parque'],
+                ['id' => 'terr_lote_pisos_construibles', 'nombre' => 'Pisos construibles', 'cantidad' => 1],
+            ]
+        ]
+    ],
+    'terr_agricola' => [
+        'servicios' => [
+            ['id' => 'terr_agricola_seguridad', 'nombre' => 'Guardianía /Seguridad Privada'],
+            ['id' => 'terr_agricola_vigilancia', 'nombre' => 'Video Vigilancia'],
+            ['id' => 'terr_agricola_alarma_security', 'nombre' => 'Sistema de alarma de seguridad'],
+            ['id' => 'terr_agricola_serv_basicos', 'nombre' => 'Servicios básicos']
+        ],
 
-    //     'generales' => [
-    //         ['id' => 'amoblado', 'nombre' => 'Amueblado/a'],
-    //         ['id' => 'gimnasio', 'nombre' => 'Gimnasio'],
-    //         'generales_plus' => [
-    //             ['id' => 'amoblado', 'nombre' => 'Amueblado/a'],
-    //             ['id' => 'gimnasio', 'nombre' => 'Gimnasio'],
-    //         ]
-    //     ],
-    //     'comunes' => [
-    //         ['id' => 'bodega', 'nombre' => 'Bodega(s)'],
-    //         ['id' => 'gimnasio', 'nombre' => 'Gimnasio'],
-    //     ],
-    // ],
-    // 'oficina' => [
-    //     'servicios' => [
-    //         ['id' => 'area_lavanderia', 'nombre' => 'Área de Lavandería'],
-    //         ['id' => 'gimnasio', 'nombre' => 'Gimnasio'],
-    //         ['id' => 'linea_blanca', 'nombre' => 'Línea blanca'],
-    //         ['id' => 'acondicionado', 'nombre' => 'Aire acondicionado'],
-    //         ['id' => 'seguridad', 'nombre' => 'Guardianía /Seguridad Privada'],
-    //         ['id' => 'control_accesos', 'nombre' => 'Control de accesos'],
-    //         ['id' => 'vigilancia', 'nombre' => 'Video Vigilancia'],
-    //         ['id' => 'alarma_security', 'nombre' => 'Sistema de alarma de seguridad'],
-    //         'servicios_plus' => [
-    //             ['id' => 'tv_cable', 'nombre' => 'Televisión por cable'],
-    //             ['id' => 'serv_basicos', 'nombre' => 'Servicios básicos'],
-    //             ['id' => 'area_juegos', 'nombre' => 'Área de Juegos Infantiles'],
-    //             ['id' => 'serv_limpieza', 'nombre' => 'Servicio de Limpieza'],
-    //             ['id' => 'parrilla', 'nombre' => 'Parrilla'],
-    //             ['id' => 'area_verdes', 'nombre' => 'Áreas verdes'],
-    //             ['id' => 'canchas', 'nombre' => 'Canchas Deportivas'],
-    //             ['id' => 'kitchenet', 'nombre' => 'Kitchenet'],
-    //             ['id' => 'uso_profesional', 'nombre' => 'Uso Profesional'],
-    //             ['id' => 'uso_comercial', 'nombre' => 'Uso Comercial'],
-    //             ['id' => 'ascensor', 'nombre' => 'Capacidad de personas por ascensor', 'cantidad' => 1],
-    //             ['id' => 'ether_wifi', 'nombre' => 'Internet/Wifi']
-    //         ]
-    //     ],
+        'generales' => [
+            ['id' => 'terr_agricola_guardia', 'nombre' => 'Caseta de guardia'],
+            ['id' => 'terr_agricola_electrica', 'nombre' => 'Cerca eléctrica'],
+            ['id' => 'terr_agricola_securidad', 'nombre' => 'Seguridad'],
+            ['id' => 'terr_agricola_cent_comer_cerca', 'nombre' => 'Centros Comerciales Cercanos'],
+            ['id' => 'terr_agricola_cerca_cole', 'nombre' => 'Cerca a colegios'],
+            ['id' => 'terr_agricola_vista_ciudad', 'nombre' => 'Vista a la Ciudad'],
+            'generales_plus' => [
+                ['id' => 'terr_agricola_vista_mar', 'nombre' => 'Vista al Mar'],
+                ['id' => 'terr_agricola_m2_frente', 'nombre' => 'Metros cuadrados de frente', 'cantidad' => 1],
+                ['id' => 'terr_agricola_m2_fondo', 'nombre' => 'Metros cuadrados de fondo', 'cantidad' => 1],
+                ['id' => 'terr_agricola_cerco_vivo', 'nombre' => 'Cerco vivo'],
+                ['id' => 'terr_agricola_cerco_noble', 'nombre' => 'Cerco de material noble '],
+                ['id' => 'terr_agricola_afirmada', 'nombre' => 'Av. acceso afirmada'],
+                ['id' => 'terr_agricola_frente_mar', 'nombre' => 'Frente al mar (primera fila)'],
+                ['id' => 'terr_agricola_cerca_parque', 'nombre' => 'Cerca a parque'],
+                ['id' => 'terr_agricola_vista_parque', 'nombre' => 'Vista Parque'],
+                ['id' => 'terr_agricola_frente_parque', 'nombre' => 'Frente a Parque'],
+                ['id' => 'terr_agricola_pisos_construibles', 'nombre' => 'Pisos construibles', 'cantidad' => 1],
+                ['id' => 'terr_agricola_riego', 'nombre' => 'Tipo de riego'],
+            ]
+        ]
+    ],
+    'oficina' => [
+        'servicios' => [
+            ['id' => 'area_lavanderia', 'nombre' => 'Área de Lavandería'],
+            ['id' => 'gimnasio', 'nombre' => 'Gimnasio'],
+            ['id' => 'linea_blanca', 'nombre' => 'Línea blanca'],
+            ['id' => 'acondicionado', 'nombre' => 'Aire acondicionado'],
+            ['id' => 'seguridad', 'nombre' => 'Guardianía /Seguridad Privada'],
+            ['id' => 'control_accesos', 'nombre' => 'Control de accesos'],
+            ['id' => 'vigilancia', 'nombre' => 'Video Vigilancia'],
+            ['id' => 'alarma_security', 'nombre' => 'Sistema de alarma de seguridad'],
+            'servicios_plus' => [
+                ['id' => 'tv_cable', 'nombre' => 'Televisión por cable'],
+                ['id' => 'serv_basicos', 'nombre' => 'Servicios básicos'],
+                ['id' => 'area_juegos', 'nombre' => 'Área de Juegos Infantiles'],
+                ['id' => 'serv_limpieza', 'nombre' => 'Servicio de Limpieza'],
+                ['id' => 'parrilla', 'nombre' => 'Parrilla'],
+                ['id' => 'area_verdes', 'nombre' => 'Áreas verdes'],
+                ['id' => 'canchas', 'nombre' => 'Canchas Deportivas'],
+                ['id' => 'kitchenet', 'nombre' => 'Kitchenet'],
+                ['id' => 'uso_profesional', 'nombre' => 'Uso Profesional'],
+                ['id' => 'uso_comercial', 'nombre' => 'Uso Comercial'],
+                ['id' => 'ascensor', 'nombre' => 'Capacidad de personas por ascensor', 'cantidad' => 1],
+                ['id' => 'ether_wifi', 'nombre' => 'Internet/Wifi']
+            ]
+        ],
 
-    //     'generales' => [
-    //         ['id' => 'amoblado', 'nombre' => 'Amueblado/a'],
-    //         ['id' => 'gimnasio', 'nombre' => 'Gimnasio'],
-    //         'generales_plus' => [
-    //             ['id' => 'amoblado', 'nombre' => 'Amueblado/a'],
-    //             ['id' => 'gimnasio', 'nombre' => 'Gimnasio'],
-    //         ]
-    //     ],
-    //     'comunes' => [
-    //         ['id' => 'bodega', 'nombre' => 'Bodega(s)'],
-    //         ['id' => 'gimnasio', 'nombre' => 'Gimnasio'],
-    //     ],
-    // ],
+        'generales' => [
+            ['id' => 'amoblado', 'nombre' => 'Amueblado/a'],
+            ['id' => 'gimnasio', 'nombre' => 'Gimnasio'],
+            'generales_plus' => [
+                ['id' => 'amoblado', 'nombre' => 'Amueblado/a'],
+                ['id' => 'gimnasio', 'nombre' => 'Gimnasio'],
+            ]
+        ],
+        'comunes' => [
+            ['id' => 'bodega', 'nombre' => 'Bodega(s)'],
+            ['id' => 'gimnasio', 'nombre' => 'Gimnasio'],
+        ],
+    ],
     // 'hotel' => [
     //     'servicios' => [
     //         ['id' => 'area_lavanderia', 'nombre' => 'Área de Lavandería'],

@@ -74,8 +74,8 @@ $ID = mysqli_fetch_object($ID_prop);
 
 
 
-    <?php include("../sesion.php") ?>
 
+    <?php include("./../sesion.php") ?>
 
     <?php include './../header.php' ?>
 
@@ -83,6 +83,7 @@ $ID = mysqli_fetch_object($ID_prop);
         <div class="distribution">
 
             <?php include './../lateral_bar.php' ?>
+
 
             <div class="body-container">
 
@@ -109,7 +110,10 @@ $ID = mysqli_fetch_object($ID_prop);
                 <div class="row">
                     <!-- PROPIEDAD SIN ANUNCIAR -->
                     <div id="tab-item-1" class="tab-content active">
-                        <form method="POST" id="form_prop" enctype="multipart/form-data">
+                        <form method="POST" id="form_prop">
+
+
+
 
                             <input class="anunciar" type="hidden">
                             <div class="row">

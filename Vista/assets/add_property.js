@@ -572,6 +572,17 @@ $(document).ready(function () {
 
     var formData = new FormData($("#form_prop")[0]);
 
+    var sessionData = new FormData($("#session_start")[0]);
+
+    // Agregar los valores de session
+    // var dni_cli = $("#dni_cli").val();
+    // formData.append("sessionData", sessionData);
+
+    // Iterar sobre los campos de sessionData y agregarlos a formData
+    for (var pair of sessionData.entries()) {
+      formData.append(pair[0], pair[1]);
+    }
+
     // Agregar los valores de los elementos creados dinámicamente
     $("#form_prop")
       .find("[name]")
