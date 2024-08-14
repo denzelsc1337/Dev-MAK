@@ -14,34 +14,33 @@ class propiedades
     {
 
         switch ($data[4]) {
-            case '1':
-                // $query = "SELECT * FROM propiedades WHERE cod_tipo_inmue = '" . $data[4] . "'";
-                $query = "SELECT * FROM propiedades WHERE cod_tipo_inmue = 1";
-                break;
-            case '2':
-                $query = "SELECT * FROM propiedades WHERE cod_tipo_inmue = 2";
+            case 1:
+                $query = "INSERT INTO `propiedades` (`cod_client`, `cod_tipo_inmue`) VALUES (2,1);";
+                break; // Detener el flujo después de ejecutar este caso
+            case 2:
+                $query = "INSERT INTO `propiedades` (`cod_client`, `cod_tipo_inmue`) VALUES (3,2);";
                 break;
             default:
-                $query = "SELECT * FROM propiedades";
+                // Puedes agregar una consulta por defecto aquí si es necesario
+                // $query = "SELECT * FROM propiedades";
                 break;
         }
-        // $query = "INSERT INTO propiedades";
 
         $result = mysqli_query($cadena, $query);
 
-        while ($fila = mysqli_fetch_row($result)) {
-            $this->selectorTypes_prop[] = $fila;
-        }
-
-        return $this->$selectorTypes_prop;
-
-        // if ($result) {
-        //     echo "$result";
-        //     return true;
-        // } else {
-        //     echo "Error al insertar el registro: " . mysqli_error($cadena);
-        //     return true;
+        // while ($fila = mysqli_fetch_row($result)) {
+        //     $this->selectorTypes_prop[] = $fila;
         // }
+
+        // return $this->$selectorTypes_prop;
+
+        if ($result) {
+            print_r($_POST);
+            return true;
+        } else {
+            echo "Error al insertar el registro: " . mysqli_error($cadena);
+            return true;
+        }
     }
 }
 
@@ -64,3 +63,8 @@ class propiedades
  
  
 //  ) VALUES (NULL, '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+
+
+
+
+// INSERT INTO `clientes` (`id_client`, `fecha_reg`, `cod_usu_regis`, `cod_asesor`, `cod_tipo_client`, `tipo_persona`, `cod_tipo_aviso`, `nombres`, `apellidoPatern`, `apellidoMatern`, `dni`, `telefono`, `celular`, `email`, `direccion`, `razonSocial`, `RUC`, `telefono_empr`, `direccion_empr`, `nombContact_1`, `apellido_Patern_Contact_1`, `apellido_Matern_Contact_1`, `celular_Contact_1`, `correo_Contact_1`, `nombContact_2`, `apellido_Patern_Contact_2`, `apellido_Matern_Contact_2`, `celular_Contact_2`, `correo_Contact_2`, `nombContact_3`, `apellido_Patern_Contact_3`, `apellido_Matern_Contact_3`, `celular_Contact_3`, `correo_Contact_3`) VALUES (NULL, '2024-08-14 06:11:15.000000', '2', '', '1', '1', '', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-');

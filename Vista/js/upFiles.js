@@ -419,50 +419,24 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   $(document).ready(function () {
-    $("#saveBtn").click(function (e) {
-      e.preventDefault();
-
-      var formData = new FormData($("#form_prop")[0]);
-
-      // Agregar los valores de los elementos creados dinámicamente
-      $("#form_prop")
-        .find("[name]")
-        .each(function () {
-          var name = $(this).attr("name");
-
-          // Verifica si es un checkbox
-          if ($(this).is(":checkbox")) {
-            if ($(this).is(":checked")) {
-              var value = /* $(this).val() || */ "true"; // Si está marcado, envía su valor o "true" por defecto
-              formData.append(name, value);
-            } else {
-              formData.append(name, "false"); // Si no está marcado, envía "false"
-            }
-          } else {
-            var value = $(this).val();
-            formData.append(name, value);
-          }
-        });
-
-      // formData.append("tipo_prop", $("#tipo_prop").val());
-      // formData.append("arrayFile", JSON.stringify(arrayFile));
-
-      $.ajax({
-        type: "POST",
-        url: "../Controller/Add_propiedades.php",
-        data: formData,
-        processData: false,
-        contentType: false,
-        beforeSend: function () {
-          console.log("Enviando...");
-        },
-        success: function (r) {
-          console.log("Éxito:", r);
-        },
-        error: function (xhr, status, error) {
-          console.log("Error:", error);
-        },
-      });
-    });
+    // $("#saveBtn").click(function (e) {
+    //   e.preventDefault();
+    //   $.ajax({
+    //     type: "POST",
+    //     url: "../Controller/Add_propiedades.php",
+    //     data: formData,
+    //     processData: false,
+    //     contentType: false,
+    //     beforeSend: function () {
+    //       console.log("Enviando...");
+    //     },
+    //     success: function (r) {
+    //       console.log("Éxito:", r);
+    //     },
+    //     error: function (xhr, status, error) {
+    //       console.log("Error:", error);
+    //     },
+    //   });
+    // });
   });
 });

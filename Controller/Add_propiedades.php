@@ -8,10 +8,10 @@ $cnx = new Conexion();
 $cadena = $cnx->abrirConexion();
 
 //Contar los elementos en $_POST
-$num_elements = count($_POST);
+// $num_elements = count($_POST);
 
 //Imprimir la cantidad de elementos recibidos
-echo "Número de elementos recibidos por POST: " . $num_elements . "\n";
+// echo "Número de elementos recibidos por POST: " . $num_elements . "\n";
 
 $data = [];
 
@@ -32,8 +32,8 @@ $r = $oProp->add_Propiedades($data, $cadena);
 
 
 if ($r) {
-
-    echo "wii " . $r;
+    echo $r;
+    // print_r($_POST);
 } else {
     echo "Error al insertar el registro.";
 }
