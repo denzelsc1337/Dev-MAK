@@ -297,7 +297,7 @@ CREATE TABLE IF NOT EXISTS propiedades(
 	m2_frente boolean,
 	m2_fondo boolean,
 	zona_industrial boolean,
-	m_altura boolean,
+	m_altura int,
 	tipo_riego boolean,
 	m2_bodega boolean,
 	m2_oficina boolean,
