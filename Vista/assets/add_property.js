@@ -566,29 +566,98 @@ clearBtns.forEach((element) => {
 // --------------------------------
 // --------------------------------
 
+// $(document).ready(function () {
+//   $("#saveBtn").click(function (e) {
+//     e.preventDefault();
+
+//     var formData = new FormData($("#form_prop")[0]);
+
+//     var sessionData = new FormData($("#session_start")[0]);
+
+//     // Agregar los valores de session
+//     // var dni_cli = $("#dni_cli").val();
+//     // formData.append("sessionData", sessionData);
+
+//     // Iterar sobre los campos de sessionData y agregarlos a formData
+//     for (var pair of sessionData.entries()) {
+//       formData.append(pair[0], pair[1]);
+//     }
+
+//     // Agregar los valores de los elementos creados dinámicamente
+//     $("#form_prop")
+//       .find("[name]")
+//       .each(function () {
+//         var name = $(this).attr("name");
+
+//         // Verifica si es un checkbox
+//         if ($(this).is(":checkbox")) {
+//           if ($(this).is(":checked")) {
+//             var value = /* $(this).val() || */ "true"; // Si está marcado, envía su valor o "true" por defecto
+//             formData.append(name, value);
+//           } else {
+//             formData.append(name, "false"); // Si no está marcado, envía "false"
+//           }
+//         } else {
+//           var value = $(this).val();
+//           formData.append(name, value);
+//         }
+//       });
+
+//     $.ajax({
+//       type: "POST",
+//       url: "../Controller/Add_propiedades.php",
+//       data: formData,
+//       processData: false,
+//       contentType: false,
+//       beforeSend: function () {
+//         console.log("Enviando...");
+//       },
+//       success: function (r) {
+//         console.log("Éxito:", r);
+//       },
+//       error: function (xhr, status, error) {
+//         console.log("Error:", error);
+//       },
+//     });
+//   });
+// });
+
+// --------------------------------
+// --------------------------------
 $(document).ready(function () {
   $("#saveBtn").click(function (e) {
     e.preventDefault();
 
-    var formData = new FormData($("#form_prop")[0]);
+    // Crear una instancia de FormData
+    var formData = new FormData();
 
+    // Recoger los datos de la sesión
     var sessionData = new FormData($("#session_start")[0]);
 
     // Agregar los valores de session
-    // var dni_cli = $("#dni_cli").val();
-    // formData.append("sessionData", sessionData);
-
     // Iterar sobre los campos de sessionData y agregarlos a formData
     for (var pair of sessionData.entries()) {
       formData.append(pair[0], pair[1]);
     }
 
-    // Agregar los valores de los elementos creados dinámicamente
+    // Agregar los valores de los elementos que están en .control-group visibles (que no tienen display: none)
+    // $("#form_prop")
+    //   .find(".control-group:not([style*='display: none']) [name]")
+    //   .each(function () {
+    //     var $this = $(this); // Hace referencia al input actual
+    //     var name = $this.attr("name");
+
+    //     // Verifica si es un checkbox
+    //     if ($this.is(":checkbox")) {
+    //       formData.append(name, $this.is(":checked") ? "true" : "false");
+    //     } else {
+    //       formData.append(name, $this.val());
+    //     }
+    //   });
     $("#form_prop")
-      .find("[name]")
+      .find(".control-group:not([style*='display: none']) [name], .mak-options [name]")
       .each(function () {
         var name = $(this).attr("name");
-
         // Verifica si es un checkbox
         if ($(this).is(":checkbox")) {
           if ($(this).is(":checked")) {
@@ -603,12 +672,13 @@ $(document).ready(function () {
         }
       });
 
+    // Enviar los datos usando AJAX
     $.ajax({
       type: "POST",
       url: "../Controller/Add_propiedades.php",
-      data: formData,
-      processData: false,
-      contentType: false,
+      data: formData, // Enviar el objeto FormData
+      processData: false, // Evitar que jQuery procese los datos (FormData se maneja por sí mismo)
+      contentType: false, // No establecer el contentType, para permitir el envío del FormData
       beforeSend: function () {
         console.log("Enviando...");
       },
@@ -621,6 +691,3 @@ $(document).ready(function () {
     });
   });
 });
-
-// --------------------------------
-// --------------------------------

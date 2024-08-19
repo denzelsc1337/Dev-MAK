@@ -13,66 +13,66 @@ CREATE TABLE IF NOT EXISTS sub_tipo_inmuebles (
   FOREIGN KEY (cod_tipo_inmb) REFERENCES tipo_inmuebles (id_tipo_inmb)
 );
 
-CREATE TABLE IF NOT EXISTS tipo_zonificacion (
-  id_zona 		int primary key auto_increment,
-  tipo_zona 	varchar(255) NOT NULL
-);
+-- CREATE TABLE IF NOT EXISTS tipo_zonificacion (
+--   id_zona 		int primary key auto_increment,
+--   tipo_zona 	varchar(255) NOT NULL
+-- );
 
 CREATE TABLE IF NOT EXISTS tipo_cliente(
 	id_tipo_cliente int auto_increment primary key,
     tipo_cliente varchar(80) not null
 );
  
-CREATE TABLE IF NOT EXISTS tipo_aviso(
-	id_tipo_aviso int primary key auto_increment,
-	tipo_aviso varchar(80) not null
-);
+-- CREATE TABLE IF NOT EXISTS tipo_aviso(
+-- 	id_tipo_aviso int primary key auto_increment,
+-- 	tipo_aviso varchar(80) not null
+-- );
 
-CREATE TABLE IF NOT EXISTS tipo_pared_ext (
-  id_tipo_p 		int primary key auto_increment,
-  tipo_pared_ext 	varchar(255) NOT NULL
-);
+-- CREATE TABLE IF NOT EXISTS tipo_pared_ext (
+--   id_tipo_p 		int primary key auto_increment,
+--   tipo_pared_ext 	varchar(255) NOT NULL
+-- );
 
 
-CREATE TABLE IF NOT EXISTS tipo_acabado (
-  id_acabado 		int null primary key auto_increment,
-  tipo_acabado 		varchar(255) NOT NULL
-);
+-- CREATE TABLE IF NOT EXISTS tipo_acabado (
+--   id_acabado 		int null primary key auto_increment,
+--   tipo_acabado 		varchar(255) NOT NULL
+-- );
 
-CREATE TABLE IF NOT EXISTS tipo_vista (
-  id_vista 			int null primary key auto_increment,
-  tipo_vista 		varchar(255) NOT NULL
-);
+-- CREATE TABLE IF NOT EXISTS tipo_vista (
+--   id_vista 			int null primary key auto_increment,
+--   tipo_vista 		varchar(255) NOT NULL
+-- );
 
-CREATE TABLE IF NOT EXISTS tipo_cochera (
-  id_tipo_cochera 	int primary key auto_increment,
-  tipo_cochera 		varchar(255) NOT NULL
-);
+-- CREATE TABLE IF NOT EXISTS tipo_cochera (
+--   id_tipo_cochera 	int primary key auto_increment,
+--   tipo_cochera 		varchar(255) NOT NULL
+-- );
 
-CREATE TABLE IF NOT EXISTS tipo_energia (
-  id_tipo_energ 	int primary key auto_increment,
-  tipo_ener 		varchar(255) NOT NULL
-);
+-- CREATE TABLE IF NOT EXISTS tipo_energia (
+--   id_tipo_energ 	int primary key auto_increment,
+--   tipo_ener 		varchar(255) NOT NULL
+-- );
 
-CREATE TABLE IF NOT EXISTS tipo_iluminacion (
-  id_tipo_ilum 		int primary key auto_increment,
-  tipo_ilumn	 	varchar(255) NOT NULL
- );
+-- CREATE TABLE IF NOT EXISTS tipo_iluminacion (
+--   id_tipo_ilum 		int primary key auto_increment,
+--   tipo_ilumn	 	varchar(255) NOT NULL
+--  );
 
-CREATE TABLE IF NOT EXISTS tipo_repostero (
-   id_tipo_repo 	int primary key auto_increment,
-   tipo_repo		varchar(255) NOT NULL
-);
+-- CREATE TABLE IF NOT EXISTS tipo_repostero (
+--    id_tipo_repo 	int primary key auto_increment,
+--    tipo_repo		varchar(255) NOT NULL
+-- );
 
-CREATE TABLE IF NOT EXISTS tipo_suelo (
-  id_tipo_suelo int null primary key auto_increment,
-  tipo_suelo 	varchar (255) not null
-);
+-- CREATE TABLE IF NOT EXISTS tipo_suelo (
+--   id_tipo_suelo int null primary key auto_increment,
+--   tipo_suelo 	varchar (255) not null
+-- );
 
-CREATE TABLE IF NOT EXISTS ubicacion (
-	id_ubicacion 	int null primary key auto_increment null,
-	tipo_ubic 		varchar (255) not null
-);
+-- CREATE TABLE IF NOT EXISTS ubicacion (
+-- 	id_ubicacion 	int null primary key auto_increment null,
+-- 	tipo_ubic 		varchar (255) not null
+-- );
 
 CREATE TABLE IF NOT EXISTS tipo_promocion (
   id_promo 			int primary key auto_increment,
@@ -94,6 +94,7 @@ CREATE TABLE IF NOT EXISTS tipo_usuario (
 
 CREATE TABLE IF NOT EXISTS usuarios (
 	id_usu INT auto_increment PRIMARY KEY NOT NULL,
+	tipo_usu_cod INT NOT NULL,
 	nom_usu VARCHAR (30) NOT NULL,
 	ape_usu VARCHAR (30) NOT NULL,
 	dni_usu VARCHAR (8) NOT NULL,
@@ -101,9 +102,9 @@ CREATE TABLE IF NOT EXISTS usuarios (
 	pass_usu VARCHAR (20) NOT NULL,
 	mail_usu VARCHAR (40),
 	tlf_usu  CHAR (9),
-	estado_usu  BOOLEAN,
+	estado_usu  BOOLEAN DEFAULT "1",
 	genero_usu CHAR(2),
-	tipo_usu_cod INT (2) NOT NULL,
+	procedencia VARCHAR(50),
 	FOREIGN KEY (tipo_usu_cod) REFERENCES tipo_usuario (tipo_usu_id)
 );
 
@@ -138,11 +139,11 @@ CREATE TABLE IF NOT EXISTS clientes(
 	fecha_reg datetime not null,
     
 	cod_usu_regis int not null,
-	cod_asesor int not null,
+	-- cod_asesor int not null,
     cod_tipo_client int not null,
     
-	tipo_persona varchar(255) not null,
-	cod_tipo_aviso int not null,
+	-- tipo_persona varchar(255) not null,
+	-- cod_tipo_aviso int not null,
 
 	-- ---------- inicio persona natural-----------------
 	nombres varchar(255) DEFAULT "-",
@@ -181,7 +182,7 @@ CREATE TABLE IF NOT EXISTS clientes(
 	-- fin persona juridica ------------------------
 
 	FOREIGN KEY (cod_usu_regis) REFERENCES usuarios(id_usu),
-	FOREIGN KEY (cod_asesor) REFERENCES usuarios(id_usu),
+	-- FOREIGN KEY (cod_asesor) REFERENCES usuarios(id_usu),
     -- FOREIGN KEY (cod_tipo_aviso) REFERENCES tipo_aviso(id_tipo_aviso),
 	FOREIGN KEY (cod_tipo_client) REFERENCES tipo_cliente(id_tipo_cliente)
 );
@@ -190,29 +191,14 @@ CREATE TABLE IF NOT EXISTS propiedades(
 	id_prop int auto_increment primary key,
 
 	cod_client int,
-	cod_tipo_inmue int,
-	cod_sub_tipo_inmue int,
-
-	-- cod_ubi int,
-	-- cod_vista int,
-	-- cod_acabado int,
-	-- cod_zonificacion int,
-	-- cod_tipo_suelo int,
-	-- cod_tipo_pa_ex int,
-	-- cod_repo_coci int,
-	-- cod_energ int,
-	-- cod_tipo_promo int,
-	-- cod_tipo_cochera int,
-	-- cod_tipo_ilum int,
 
 	cod_usu int,
 	usu_asig int,
 
-
 	ttl_prop varchar(255),
 	desc_ttl_prop varchar(255),
 	modalidad_prop int,
-	cod_tipo_inm int, --
+	cod_tipo_inmue int, --
 
 	precio DECIMAL(10,2),
 	precio_m2 DECIMAL(10,2),
@@ -220,6 +206,8 @@ CREATE TABLE IF NOT EXISTS propiedades(
 	at_pro DECIMAL(10,2),
 	ac_pro DECIMAL(10,2),
 	ao_pro DECIMAL(10,2),
+
+	cod_sub_tipo_inmue int, --
 
 	dorm_tot int,
 	ambientes int,
@@ -283,8 +271,8 @@ CREATE TABLE IF NOT EXISTS propiedades(
 	jardin boolean,
 	piscina boolean,
 	terraza boolean,
-	banho_serv boolean,
-	cuarto_serv boolean,
+	banho_serv int,
+	cuarto_serv int,
 	jacuzzi boolean,
 	seguridad_gene boolean,
 	cent_comer_cercanos boolean,
@@ -378,7 +366,7 @@ CREATE TABLE IF NOT EXISTS propiedades(
 	-- FOREIGN KEY (cod_tipo_promo) REFERENCES  tipo_promocion  (id_promo)  ON DELETE SET NULL,
 	-- FOREIGN KEY (cod_tipo_cochera) REFERENCES  tipo_cochera  (id_tipo_cochera) ON DELETE SET NULL,
 	-- FOREIGN KEY (cod_tipo_ilum)	REFERENCES  tipo_iluminacion  (id_tipo_ilum)ON DELETE SET NULL
-)
+);
 
 -- CREATE TABLE IF NOT EXISTS propiedades(
 -- 	id_prop int auto_increment primary key, 
@@ -549,14 +537,7 @@ CREATE TABLE IF NOT EXISTS valorizacion(
     
     cod_tipo_inmue int, 
     cod_sub_tipo_inmue int,
-    cod_tipo_prom int,
-
-    cod_tipo_pa_ex int,
-    cod_repo_coci int,
-    cod_energ int,
-    cod_tipo_promo int,
-    cod_tipo_cochera int,
-    cod_tipo_ilum int,
+ 	cod_tipo_prom		int,
     
     area_terreno	double,
     area_construida	double,
@@ -653,19 +634,21 @@ CREATE TABLE IF NOT EXISTS valorizacion(
 
 	FOREIGN KEY (cod_usu) REFERENCES usuarios (id_usu) ON DELETE SET NULL,
 
-    -- FOREIGN KEY (cod_tipo_prom) REFERENCES  tipo_promocion  (id_promo) ON DELETE SET NULL,
-    FOREIGN KEY (cod_ubi) REFERENCES  ubicacion  (id_ubicacion) ON DELETE SET NULL,
-    FOREIGN KEY (cod_vista) REFERENCES  tipo_vista  (id_vista) ON DELETE SET NULL,
-    FOREIGN KEY (cod_acabado) REFERENCES  tipo_acabado  (id_acabado) ON DELETE SET NULL,
-    FOREIGN KEY (cod_zonificacion) REFERENCES  tipo_zonificacion (id_zona) ON DELETE SET NULL,
-    FOREIGN KEY (cod_tipo_suelo) REFERENCES  tipo_suelo  (id_tipo_suelo) ON DELETE SET NULL,
+    FOREIGN KEY (cod_tipo_prom) REFERENCES  tipo_promocion  (id_promo) ON DELETE SET NULL
 
-	FOREIGN KEY (cod_tipo_pa_ex) REFERENCES  tipo_pared_ext  (id_tipo_p) ON DELETE SET NULL,
-	FOREIGN KEY (cod_repo_coci)	REFERENCES  tipo_repostero  (id_tipo_repo) ON DELETE SET NULL,
-	FOREIGN KEY (cod_energ)	REFERENCES  tipo_energia  (id_tipo_energ) ON DELETE SET NULL,
-	FOREIGN KEY (cod_tipo_promo) REFERENCES  tipo_promocion  (id_promo)  ON DELETE SET NULL,
-	FOREIGN KEY (cod_tipo_cochera) REFERENCES  tipo_cochera  (id_tipo_cochera) ON DELETE SET NULL,
-	FOREIGN KEY (cod_tipo_ilum)	REFERENCES  tipo_iluminacion  (id_tipo_ilum)ON DELETE SET NULL
+
+    -- FOREIGN KEY (cod_ubi) REFERENCES  ubicacion  (id_ubicacion) ON DELETE SET NULL,
+    -- FOREIGN KEY (cod_vista) REFERENCES  tipo_vista  (id_vista) ON DELETE SET NULL,
+    -- FOREIGN KEY (cod_acabado) REFERENCES  tipo_acabado  (id_acabado) ON DELETE SET NULL,
+    -- FOREIGN KEY (cod_zonificacion) REFERENCES  tipo_zonificacion (id_zona) ON DELETE SET NULL,
+    -- FOREIGN KEY (cod_tipo_suelo) REFERENCES  tipo_suelo  (id_tipo_suelo) ON DELETE SET NULL,
+
+	-- FOREIGN KEY (cod_tipo_pa_ex) REFERENCES  tipo_pared_ext  (id_tipo_p) ON DELETE SET NULL,
+	-- FOREIGN KEY (cod_repo_coci)	REFERENCES  tipo_repostero  (id_tipo_repo) ON DELETE SET NULL,
+	-- FOREIGN KEY (cod_energ)	REFERENCES  tipo_energia  (id_tipo_energ) ON DELETE SET NULL,
+	-- FOREIGN KEY (cod_tipo_promo) REFERENCES  tipo_promocion  (id_promo)  ON DELETE SET NULL,
+	-- FOREIGN KEY (cod_tipo_cochera) REFERENCES  tipo_cochera  (id_tipo_cochera) ON DELETE SET NULL,
+	-- FOREIGN KEY (cod_tipo_ilum)	REFERENCES  tipo_iluminacion  (id_tipo_ilum)ON DELETE SET NULL
 );
 
 -- 502 = Pendiente
@@ -722,6 +705,27 @@ CREATE TABLE IF NOT EXISTS documents_clients(
 
 INSERT INTO `tipo_inmuebles` (`id_tipo_inmb`, `tipo_inmb`) VALUES (NULL, 'DEPARTAMENTO'), (NULL, 'CASA'), (NULL, 'CASA DE PLAYA'), (NULL, 'CASA DE CAMPO'), (NULL, 'TERRENO / LOTE'), (NULL, 'TERRENO AGRICOLA'), (NULL, 'OFICINA'), (NULL, 'HOTEL'), (NULL, 'LOCAL COMERCIAL'), (NULL, 'LOCAL INDUSTRIAL');
 INSERT INTO `sub_tipo_inmuebles` (`id_sub_tipo_inmb`, `sub_tipo_inmb`, `cod_tipo_inmb`) VALUES (NULL, 'FLAT', '1'), (NULL, 'DÚPLEX', '1'), (NULL, 'TRÍPLEX', '1'), (NULL, 'PENT-HOUSE', '1');
+
+
+INSERT INTO `roles_usu` (`id_rol`, `nombre_rol`) VALUES (NULL, 'SUPER ADMINISTRADOR'), (NULL, 'ADMINISTRADOR'), (NULL, 'USUARIO');
+
+INSERT INTO `tipo_usuario` (`tipo_usu_id`, `tipo_usu_nom`, `cod_rol`) VALUES (NULL, 'SUPER ADMIN', '1'), (NULL, 'ADMIN', '2'), (NULL, 'USER', '3');
+
+
+INSERT INTO `tipo_cliente` (`id_tipo_cliente`, `tipo_cliente`) VALUES (NULL, 'NATURAL'), (NULL, 'CON NEGOCIO');
+
+INSERT INTO `tipo_promocion` (`id_promo`, `tipo_promo`) VALUES (NULL, 'VENTA'), (NULL, 'ALQUILER'), (NULL, 'PROYECTO');
+
+
+INSERT INTO `tipo_client_service` (`id_tipo_client_s`, `nombre_tipo_client`) VALUES (NULL, 'CORREDOR'), (NULL, 'PROPIETARIO');
+
+
+INSERT INTO `usuarios` (`id_usu`, `tipo_usu_cod`, `nom_usu`, `ape_usu`, `dni_usu`, `cod_usu`, `pass_usu`, `mail_usu`, `tlf_usu`, `estado_usu`, `genero_usu`, `procedencia`) VALUES (NULL, '1', 'VICTOR', 'ARROYO', '73891830', 'varroyo', '1999', 'victor.arroyo0302@gmail.com', '942394243', '1', 'M', 'mak');
+
+INSERT INTO `clientes` (`id_client`, `fecha_reg`, `cod_usu_regis`, `cod_tipo_client`, `nombres`, `apellidoPatern`, `apellidoMatern`, `dni`, `telefono`, `celular`, `email`, `direccion`, `razonSocial`, `RUC`, `telefono_empr`, `direccion_empr`, `nombContact_1`, `apellido_Patern_Contact_1`, `apellido_Matern_Contact_1`, `celular_Contact_1`, `correo_Contact_1`, `nombContact_2`, `apellido_Patern_Contact_2`, `apellido_Matern_Contact_2`, `celular_Contact_2`, `correo_Contact_2`, `nombContact_3`, `apellido_Patern_Contact_3`, `apellido_Matern_Contact_3`, `celular_Contact_3`, `correo_Contact_3`) VALUES (NULL, '2024-08-19 23:21:25.000000', '1', '2', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-');
+
+INSERT INTO `clientes_servicios` (`id_client`, `dni_client`, `nom_client`, `ape_client`, `telef_client`, `email_client`, `usu_client`, `pass_client`, `tipo_client_service_cod`, `corredor_cod`, `suscripcion_cod`, `tipo_usu_cod`, `rol_usu`) VALUES (NULL, '12345678', 'Cliente', 'CCliente', '987654321', '', 'usuCliente', 'usuCliente', '2', 'no es corredor', NULL, '3', '3');
+
 
 
 insert into sub_tipo_inmuebles values (-1, 'Sin tipo', -1);

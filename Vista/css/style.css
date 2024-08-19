@@ -130,7 +130,7 @@
 
 /* .mak .nav-item:not(.active) .nav-link:hover,*/
 .mak .nav-item.logout-item {
-  cursor: pointer;
+  /* cursor: pointer; */
   margin: 0;
   display: flex;
   justify-content: end;
@@ -140,6 +140,10 @@
   display: flex;
   justify-content: center;
   max-width: 62px;
+}
+
+.mak .nav-item.logout-item .nav-link svg {
+  cursor: pointer;
 }
 
 .mak .navbar-nav.ml-auto {
@@ -701,7 +705,7 @@ body.dark .home .text {
   transition: width 1s ease;
 }
 
-.mak div.mak-options {  
+.mak div.mak-options {
   order: 1;
 }
 
