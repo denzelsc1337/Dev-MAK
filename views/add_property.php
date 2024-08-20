@@ -536,7 +536,7 @@ $ID = mysqli_fetch_object($ID_prop);
                                                     </div>
                                                     <div class="col-md-6 mb-2">
                                                         <span>Urbanización <span class="mak-tertiary">(Opcional)</span></span>
-                                                        <input id="" name="" type="text" class="mak-control w-100" placeholder="Escribe una palabra clave">
+                                                        <input id="urbani_" name="urbani_" type="text" class="mak-control w-100" placeholder="Escribe una palabra clave">
                                                     </div>
                                                     <div class="col-md-7 mb-2">
                                                         <span>Localización en el mapa</span>

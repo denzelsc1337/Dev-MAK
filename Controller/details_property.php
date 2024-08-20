@@ -173,8 +173,8 @@ $data = [
             ['id' => 'casa_playa_vigilancia', 'nombre' => 'Video Vigilancia'],
             ['id' => 'casa_playa_alarma_security', 'nombre' => 'Sistema de alarma de seguridad'],
             ['id' => 'casa_playa_tv_cable', 'nombre' => 'Televisión por cable'],
+            ['id' => 'casa_playa_serv_basicos', 'nombre' => 'Servicios básicos'],
             'servicios_plus' => [
-                ['id' => 'casa_playa_serv_basicos', 'nombre' => 'Servicios básicos'],
                 ['id' => 'casa_playa_area_juegos', 'nombre' => 'Área de Juegos Infantiles'],
                 ['id' => 'casa_playa_serv_limpieza', 'nombre' => 'Servicio de Limpieza'],
                 ['id' => 'casa_playa_parrilla', 'nombre' => 'Parrilla'],
