@@ -655,14 +655,16 @@ $(document).ready(function () {
     //     }
     //   });
     $("#form_prop")
-      .find(".control-group:not([style*='display: none']) [name], .mak-options [name]")
+      .find(
+        ".control-group:not([style*='display: none']) [name], .mak-options [name], input[type='hidden'][name]"
+      )
       .each(function () {
         var name = $(this).attr("name");
         // Verifica si es un checkbox
         if ($(this).is(":checkbox")) {
           if ($(this).is(":checked")) {
-            var value = /* $(this).val() || */ "true"; // Si está marcado, envía su valor o "true" por defecto
-            formData.append(name, value);
+            var value = 1; // Si está marcado, envía su valor o "true" por defecto
+            /*$(this).val()  || "true"; */ formData.append(name, value);
           } else {
             formData.append(name, "false"); // Si no está marcado, envía "false"
           }

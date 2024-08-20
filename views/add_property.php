@@ -1,5 +1,8 @@
 <?php
 include_once('../Config/Conexion.php');
+require_once('../Config/security.php');
+
+require_once('../Controller/controladorListar.php');
 
 $cnx = new conexion();
 $cadena = $cnx->abrirConexion();
@@ -75,7 +78,7 @@ $ID = mysqli_fetch_object($ID_prop);
 
 
 
-    <?php include("./../sesion.php") ?>
+
 
     <?php include './../header.php' ?>
 
@@ -115,6 +118,8 @@ $ID = mysqli_fetch_object($ID_prop);
 
 
 
+                            <input type="hidden" id="id_usu" name="id_usu" value="<?php echo $_SESSION['id_usu']; ?>">
+                            <input type="hidden" id="usu_asig" name="usu_asig" value="<?php echo $_SESSION['id_usu']; ?>">
                             <input class="anunciar" type="hidden">
                             <div class="row">
                                 <div class="col-xl-5 col-lg-5 col-md-5 col-sm-5 col-5">
@@ -131,21 +136,21 @@ $ID = mysqli_fetch_object($ID_prop);
                                                     </div>
                                                 </div>
                                                 <!-- <div class=""> -->
-                                                <div class="">
+                                                <div class="control-group">
                                                     <span>Título</span>
                                                     <div class="textarea-container">
                                                         <textarea id="title_prop" name="title_prop" class="mak-control txt-area" maxlength="80" placeholder="Escribir aquí."></textarea>
                                                         <div id="charCounter" class="char-counter">0/80</div>
                                                     </div>
                                                 </div>
-                                                <div class="">
+                                                <div class="control-group">
                                                     <span>Descripción</span>
                                                     <div class="textarea-container">
                                                         <textarea id="desc_prop" name="desc_prop" class="mak-control txt-area" maxlength="500" rows="15" placeholder="Escribir aquí."></textarea>
                                                         <div id="charCounter" class="char-counter">0/80</div>
                                                     </div>
                                                 </div>
-                                                <div class="">
+                                                <div class="control-group">
                                                     <span>Modalidad</span>
                                                     <ul class="nav nav-tabs">
                                                         <li class="tp-md mak-control btn_button" data-target="1">Venta</li>
@@ -154,7 +159,7 @@ $ID = mysqli_fetch_object($ID_prop);
                                                     </ul>
                                                     <input id="modalidad_prop" name="modalidad_prop" type="hidden">
                                                 </div>
-                                                <div class="mt-2">
+                                                <div class="control-group mt-2">
                                                     <span>Tipo de inmueble</span>
                                                     <?php
                                                     require_once('../Controller/controladorListar.php');

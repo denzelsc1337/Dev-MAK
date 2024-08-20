@@ -39,12 +39,17 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
 
 
 			$_SESSION['id_usu'] = $datos->id_usu;
-			$_SESSION['dni_usu'] = $datos->dni_usu;
+			$_SESSION['tipo_usu_cod'] = $datos->tipo_usu_cod;
 			$_SESSION['nom_usu'] = $datos->nom_usu;
 			$_SESSION['ape_usu'] = $datos->ape_usu;
+			$_SESSION['dni_usu'] = $datos->dni_usu;
+			$_SESSION['cod_usu'] = $datos->cod_usu;
+			$_SESSION['pass_usu'] = $datos->pass_usu;
 			$_SESSION['mail_usu'] = $datos->mail_usu;
 			$_SESSION['tlf_usu'] = $datos->tlf_usu;
-			$_SESSION['tipo_usu_cod'] = $datos->tipo_usu_cod;
+			$_SESSION['estado_usu'] = $datos->estado_usu;
+			$_SESSION['genero_usu'] = $datos->genero_usu;
+			$_SESSION['procedencia'] = $datos->procedencia;
 
 			$_SESSION['autenticado'] = 1;
 
