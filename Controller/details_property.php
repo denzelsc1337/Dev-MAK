@@ -478,8 +478,8 @@ $data = [
             ['id' => 'hotel_serv_basicos', 'nombre' => 'Servicios básicos'],
             ['id' => 'hotel_serv_limpieza', 'nombre' => 'Servicio de Limpieza'],
             ['id' => 'hotel_ascensor', 'nombre' => 'Capacidad de personas por ascensor', 'cantidad' => 1],
-            ['id' => 'hotel_oficina_comedor', 'nombre' => 'Comedor'],
-            ['id' => 'hotel_oficina_ether_wifi', 'nombre' => 'Internet/Wifi'],
+            ['id' => 'hotel_comedor', 'nombre' => 'Comedor'],
+            ['id' => 'hotel_ether_wifi', 'nombre' => 'Internet/Wifi'],
             ['id' => 'hotel_uso_profesional', 'nombre' => 'Uso Profesional']
         ],
         'generales' => [

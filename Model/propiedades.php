@@ -193,6 +193,54 @@ class propiedades
                                                         );";
                 // $query = "INSERT INTO `propiedades` (`cod_tipo_inmue`) VALUES ('" . $data[6] . "');";
                 break;
+            case 8:
+                $query = "INSERT INTO `propiedades` (
+                                        `cod_usu`,`usu_asig`,`ttl_prop`,`desc_ttl_prop`,`modalidad_prop`,`cod_tipo_inmue`,`precio`,`precio_m2`,`at_pro`,`ac_pro`,
+                                        `ao_pro`,`banios`,`cochera`,`cant_pisos`,`ambientes`,`porcen_comision`,`video_yt`,`video_rec`,`departamento`,`provincia`,
+                                        `distrito`,`urbanizacion`,`direccion`,`aire_acond`,`guardia_seguridad_serv`,`ctrl_accs`,`vigilancia`,`alarma`,`servicios_b`,`servicio_limp`,
+                                        `ascensor`,`comedor`,`ether_wifi`,`profesional`,`amueblado`,`caseta_guard`,`cerca_elec`,`terraza`,`jacuzzi`,`cent_comer_cercanos`,
+                                        `cerca_cole`,`vista_ciudad`,`area_cafe`,`patio`,`area_comn`,`sauna`,`sala_entre`,`equipado`,`hall`,`parq_int`,
+                                        `guarderia`,`vista_mar`,`niv_constr`,`m2_frente`,`m2_fondo`,`piso_enctra`,`zona_industrial`,`intercomunicador`,`num_pisos`,`recepcion`,
+                                        `lic_funcion`,`cerco_vivo`,`cerco_mat_noble`,`asfaltado`,`afirmado`,`frente_mar`,`cerca_parq`,`vista_parq`,`frente_parq`,`pisos_constr`,
+                                        `cocina`
+                                        )
+                                        VALUES
+                                        (
+                                        '" . $data[1] . "', '" . $data[2] . "', '" . $data[3] . "', '" . $data[4] . "', '" . $data[5] . "', '" . $data[6] . "', '" . $data[7] . "','" . $data[8] . "', '" . $data[9] . "', '" . $data[10] . "',
+                                        '" . $data[11] . "', '" . $data[12] . "', '" . $data[13] . "', '" . $data[14] . "', '" . $data[15] . "', '" . $data[16] . "', '" . $data[17] . "', '" . $data[18] . "', '" . $data[19] . "','" . $data[20] . "',
+                                        '" . $data[21] . "', '" . $data[22] . "', '" . $data[23] . "', '" . $data[24] . "', '" . $data[25] . "', '" . $data[26] . "', '" . $data[27] . "', '" . $data[28] . "', '" . $data[29] . "', '" . $data[30] . "',
+                                        '" . $data[31] . "', '" . $data[32] . "', '" . $data[33] . "', '" . $data[34] . "', '" . $data[35] . "', '" . $data[36] . "', '" . $data[37] . "', '" . $data[38] . "', '" . $data[39] . "', '" . $data[40] . "',
+                                        '" . $data[41] . "', '" . $data[42] . "', '" . $data[43] . "', '" . $data[44] . "', '" . $data[45] . "', '" . $data[46] . "', '" . $data[47] . "', '" . $data[48] . "', '" . $data[49] . "', '" . $data[50] . "',
+                                        '" . $data[51] . "', '" . $data[52] . "', '" . $data[53] . "', '" . $data[54] . "', '" . $data[55] . "', '" . $data[56] . "', '" . $data[57] . "', '" . $data[58] . "', '" . $data[59] . "', '" . $data[60] . "',
+                                        '" . $data[61] . "', '" . $data[62] . "', '" . $data[63] . "', '" . $data[64] . "', '" . $data[65] . "', '" . $data[66] . "', '" . $data[67] . "', '" . $data[68] . "', '" . $data[69] . "', '" . $data[70] . "',
+                                        '" . $data[71] . "'
+                                                                );";
+                // $query = "INSERT INTO `propiedades` (`cod_tipo_inmue`) VALUES ('" . $data[6] . "');";
+                break;
+            case 9:
+                // $query = "INSERT INTO `propiedades` (
+                //                             `cod_usu`,`usu_asig`,`ttl_prop`,`desc_ttl_prop`,`modalidad_prop`,`cod_tipo_inmue`,`precio`,`precio_m2`,`at_pro`,`ac_pro`,
+                //                             `ao_pro`,`banios`,`cochera`,`cant_pisos`,`ambientes`,`porcen_comision`,`video_yt`,`video_rec`,`departamento`,`provincia`,
+                //                             `distrito`,`urbanizacion`,`direccion`,`aire_acond`,`guardia_seguridad_serv`,`ctrl_accs`,`vigilancia`,`alarma`,`servicios_b`,`servicio_limp`,
+                //                             `ascensor`,`comedor`,`ether_wifi`,`profesional`,`amueblado`,`caseta_guard`,`cerca_elec`,`terraza`,`jacuzzi`,`cent_comer_cercanos`,
+                //                             `cerca_cole`,`vista_ciudad`,`area_cafe`,`patio`,`area_comn`,`sauna`,`sala_entre`,`equipado`,`hall`,`parq_int`,
+                //                             `guarderia`,`vista_mar`,`niv_constr`,`m2_frente`,`m2_fondo`,`piso_enctra`,`zona_industrial`,`intercomunicador`,`num_pisos`,`recepcion`,
+                //                             `lic_funcion`,`cerco_vivo`,`cerco_mat_noble`,`asfaltado`,`afirmado`,`frente_mar`,`cerca_parq`,`vista_parq`,`frente_parq`,`pisos_constr`,
+                //                             `cocina`
+                //                             )
+                //                             VALUES
+                //                             (
+                //                             '" . $data[1] . "', '" . $data[2] . "', '" . $data[3] . "', '" . $data[4] . "', '" . $data[5] . "', '" . $data[6] . "', '" . $data[7] . "','" . $data[8] . "', '" . $data[9] . "', '" . $data[10] . "',
+                //                             '" . $data[11] . "', '" . $data[12] . "', '" . $data[13] . "', '" . $data[14] . "', '" . $data[15] . "', '" . $data[16] . "', '" . $data[17] . "', '" . $data[18] . "', '" . $data[19] . "','" . $data[20] . "',
+                //                             '" . $data[21] . "', '" . $data[22] . "', '" . $data[23] . "', '" . $data[24] . "', '" . $data[25] . "', '" . $data[26] . "', '" . $data[27] . "', '" . $data[28] . "', '" . $data[29] . "', '" . $data[30] . "',
+                //                             '" . $data[31] . "', '" . $data[32] . "', '" . $data[33] . "', '" . $data[34] . "', '" . $data[35] . "', '" . $data[36] . "', '" . $data[37] . "', '" . $data[38] . "', '" . $data[39] . "', '" . $data[40] . "',
+                //                             '" . $data[41] . "', '" . $data[42] . "', '" . $data[43] . "', '" . $data[44] . "', '" . $data[45] . "', '" . $data[46] . "', '" . $data[47] . "', '" . $data[48] . "', '" . $data[49] . "', '" . $data[50] . "',
+                //                             '" . $data[51] . "', '" . $data[52] . "', '" . $data[53] . "', '" . $data[54] . "', '" . $data[55] . "', '" . $data[56] . "', '" . $data[57] . "', '" . $data[58] . "', '" . $data[59] . "', '" . $data[60] . "',
+                //                             '" . $data[61] . "', '" . $data[62] . "', '" . $data[63] . "', '" . $data[64] . "', '" . $data[65] . "', '" . $data[66] . "', '" . $data[67] . "', '" . $data[68] . "', '" . $data[69] . "', '" . $data[70] . "',
+                //                             '" . $data[71] . "'
+                //                                                     );";
+                $query = "INSERT INTO `propiedades` (`cod_tipo_inmue`) VALUES ('" . $data[6] . "');";
+                break;
             default:
                 // Puedes agregar una consulta por defecto aquí si es necesario
                 $query = "SELECT * FROM propiedades LIMIT 1";
