@@ -612,54 +612,6 @@ $ID = mysqli_fetch_object($ID_prop);
                                                 </div>
                                                 <h5>Servicios</h5>
                                                 <div class="caracteristicas servicios">
-
-                                                    <!-- <label class="mak-options cursor m-0 depa" for="aire_acondicionado">
-                                                        <input id="aire_acondicionado" name="aire_acondicionado" type="checkbox" class="mak-control-event">
-                                                        <span>Aire acondicionado</span>
-                                                        <input type="number" min="0" id="cant_aire_acondicionado" name="cant_aire_acondicionado" class="mak-options-brd-bottom p-0">
-                                                    </label>
-
-                                                    <label class="mak-options cursor m-0" for="area_juegos">
-                                                        <input id="area_juegos" name="area_juegos" type="checkbox" class="mak-control-event">
-                                                        <span>Área de juegos infantiles</span>
-                                                        <input type="number" min="0" id="cant_area_juegos" name="cant_area_juegos" class="mak-options-brd-bottom p-0">
-                                                    </label>
-                                                    <label class="mak-options cursor m-0" for="area_lavanderia">
-                                                        <input id="area_lavanderia" name="area_lavanderia" type="checkbox" class="">
-                                                        <span>Área de lavandería</span>
-                                                    </label>
-                                                    <label class="mak-options cursor m-0" for="area_verde">
-                                                        <input id="area_verde" name="area_verde" type="checkbox" class="">
-                                                        <span>Área(s) verde(s)</span>
-                                                    </label>
-                                                    <label class="mak-options cursor m-0" for="altillo">
-                                                        <input id="altillo" name="altillo" type="checkbox" class="">
-                                                        <span>Altillos</span>
-                                                    </label>
-                                                    <label class="mak-options cursor m-0" for="canchas">
-                                                        <input id="canchas" name="canchas" type="checkbox" class="">
-                                                        <span>Canchas deportivas</span>
-                                                    </label>
-                                                    <label class="mak-options cursor m-0" for="cer_leed">
-                                                        <input id="cer_leed" name="cer_leed" type="checkbox" class="">
-                                                        <span>Certificación LEED</span>
-                                                    </label>
-                                                    <label class="mak-options cursor m-0" for="gym">
-                                                        <input id="gym" name="gym" type="checkbox" class="">
-                                                        <span>Gimnasio</span>
-                                                    </label>
-                                                    <label class="mak-options cursor m-0" for="seguridad">
-                                                        <input id="seguridad" name="seguridad" type="checkbox" class="">
-                                                        <span>Guardería/Seguridad privada</span>
-                                                    </label>
-                                                    <label class="mak-options cursor m-0" for="ethernet">
-                                                        <input id="ethernet" name="ethernet" type="checkbox" class="">
-                                                        <span>Internet/Wifi</span>
-                                                    </label>
-                                                    <label class="mak-options cursor m-0" for="video_vigilancia">
-                                                        <input id="video_vigilancia" name="video_vigilancia" type="checkbox" class="">
-                                                        <span>Video vigilencia</span>
-                                                    </label> -->
                                                     <div class="mak-options details brd-out cursor m-0" data-bs-toggle="modal" data-bs-target="#verOptions_01">
                                                         <i class="fa-solid fa-plus"></i>
                                                         <span>Ver más opciones</span>
@@ -667,120 +619,13 @@ $ID = mysqli_fetch_object($ID_prop);
                                                 </div>
                                                 <h5>Carácteristicas Generales</h5>
                                                 <div class="caracteristicas generales">
-                                                    <!-- <label class="mak-options cursor m-0" for="acabados_lujo">
-                                                        <input id="acabados_lujo" name="acabados_lujo" type="checkbox" class="mak-control-event">
-                                                        <span>Acabados de lujo</span>
-                                                    </label>
-                                                    <label class="mak-options cursor m-0" for="amueblado">
-                                                        <input id="amueblado" name="amueblado" type="checkbox" class="mak-control-event">
-                                                        <span>Amueblado</span>
-                                                    </label>
-                                                    <label class="mak-options cursor m-0" for="acceso_asfalto">
-                                                        <input id="acceso_asfalto" name="acceso_asfalto" type="checkbox" class="mak-control-event">
-                                                        <span>Av. acceso asfaltada</span>
-                                                    </label>
-                                                    <label class="mak-options cursor m-0" for="acceso_afirmado">
-                                                        <input id="acceso_afirmado" name="acceso_afirmado" type="checkbox" class="mak-control-event">
-                                                        <span>Av. acceso afirmada</span>
-                                                    </label>
-                                                    <label class="mak-options cursor m-0" for="ascensor">
-                                                        <input id="ascensor" name="ascensor" type="checkbox" class="mak-control-event">
-                                                        <span>Ascensor</span>
-                                                    </label>
-                                                    <label class="mak-options cursor m-0" for="banios_servicio">
-                                                        <input id="banios_servicio" name="banios_servicio" type="checkbox" class="mak-control-event">
-                                                        <span>Baños de servicio</span>
-                                                    </label>
-                                                    <label class="mak-options cursor m-0" for="guardia">
-                                                        <input id="guardia" name="guardia" type="checkbox" class="mak-control-event">
-                                                        <span>Caseta de guardia</span>
-                                                    </label>
-                                                    <label class="mak-options cursor m-0" for="cerca_electrica">
-                                                        <input id="cerca_electrica" name="cerca_electrica" type="checkbox" class="mak-control-event">
-                                                        <span>Cerca electrica</span>
-                                                    </label>
-                                                    <label class="mak-options cursor m-0" for="chimenea">
-                                                        <input id="chimenea" name="chimenea" type="checkbox" class="mak-control-event">
-                                                        <span>Chimenea</span>
-                                                    </label>
-                                                    <label class="mak-options cursor m-0" for="tipo_cochera">
-                                                        <input id="tipo_cochera" name="tipo_cochera" type="checkbox" class="mak-control-event">
-                                                        <span>Tipo cochera</span>
-                                                    </label> -->
                                                     <div class="mak-options details brd-out cursor m-0" data-bs-toggle="modal" data-bs-target="#verOptions_02">
                                                         <i class="fa-solid fa-plus"></i>
                                                         <span>Ver más opciones</span>
                                                     </div>
                                                 </div>
-                                                <!-- <h5>Exteriores</h5>
-                                                <div class="caracteristicas">
-                                                    <label class="mak-options cursor m-0" for="bbq">
-                                                        <input id="bbq" name="bbq" type="checkbox" class="mak-control-event">
-                                                        <span>Área BBQ</span>
-                                                    </label>
-                                                    <label class="mak-options cursor m-0" for="balcon">
-                                                        <input id="balcon" name="balcon" type="checkbox" class="mak-control-event">
-                                                        <span>Balcón(es)</span>
-                                                    </label>
-                                                    <label class="mak-options cursor m-0" for="acceso_tierra">
-                                                        <input id="acceso_tierra" name="acceso_tierra" type="checkbox" class="mak-control-event">
-                                                        <span>Acceso por camino a tierra</span>
-                                                    </label>
-                                                </div> -->
                                                 <h5>Áreas comunes</h5>
                                                 <div class="caracteristicas comunes">
-                                                    <!-- <label class="mak-options cursor m-0" for="bodega">
-                                                        <input id="bodega" name="bodega" type="checkbox" class="mak-control-event">
-                                                        <span>Bodega(s)</span>
-                                                    </label>
-                                                    <label class="mak-options cursor m-0" for="comedor_diario">
-                                                        <input id="comedor_diario" name="comedor_diario" type="checkbox" class="mak-control-event">
-                                                        <span>Comedor diario</span>
-                                                    </label>
-                                                    <label class="mak-options cursor m-0" for="club_house">
-                                                        <input id="club_house" name="club_house" type="checkbox" class="mak-control-event">
-                                                        <span>Club house</span>
-                                                    </label>
-                                                    <label class="mak-options cursor m-0" for="dormitorio_banio">
-                                                        <input id="dormitorio_banio" name="dormitorio_banio" type="checkbox" class="mak-control-event">
-                                                        <span>Dormitorio principal con baño</span>
-                                                    </label>
-                                                    <label class="mak-options cursor m-0" for="desague">
-                                                        <input id="desague" name="desague" type="checkbox" class="mak-control-event">
-                                                        <span>Desagüe</span>
-                                                    </label>
-                                                    <label class="mak-options cursor m-0" for="equipado">
-                                                        <input id="equipado" name="equipado" type="checkbox" class="mak-control-event">
-                                                        <span>Equipado</span>
-                                                    </label>
-                                                    <label class="mak-options cursor m-0" for="ingreso_indepen">
-                                                        <input id="ingreso_indepen" name="ingreso_indepen" type="checkbox" class="mak-control-event">
-                                                        <span>Ingreso independiente</span>
-                                                    </label>
-                                                    <label class="mak-options cursor m-0" for="patio">
-                                                        <input id="patio" name="patio" type="checkbox" class="mak-control-event">
-                                                        <span>Patio</span>
-                                                    </label>
-                                                    <label class="mak-options cursor m-0" for="parque_interno">
-                                                        <input id="parque_interno" name="parque_interno" type="checkbox" class="mak-control-event">
-                                                        <span>Parque interno</span>
-                                                    </label>
-                                                    <label class="mak-options cursor m-0" for="sauna">
-                                                        <input id="sauna" name="sauna" type="checkbox" class="mak-control-event">
-                                                        <span>Sauna</span>
-                                                    </label>
-                                                    <label class="mak-options cursor m-0" for="sala_estar">
-                                                        <input id="sala_estar" name="sala_estar" type="checkbox" class="mak-control-event">
-                                                        <span>Sala de estar</span>
-                                                    </label>
-                                                    <label class="mak-options cursor m-0" for="sala_entreten">
-                                                        <input id="sala_entreten" name="sala_entreten" type="checkbox" class="mak-control-event">
-                                                        <span>Sala de entretenimiento</span>
-                                                    </label>
-                                                    <label class="mak-options cursor m-0" for="solarium">
-                                                        <input id="solarium" name="solarium" type="checkbox" class="mak-control-event">
-                                                        <span>Solarium</span>
-                                                    </label> -->
                                                 </div>
                                             </div>
                                         </div>
@@ -807,46 +652,7 @@ $ID = mysqli_fetch_object($ID_prop);
                                         </div>
                                         <div class="modal-body chks">
                                             <div class="caracteristicas servicios_plus">
-                                                <!-- <label class="mak-options cursor m-0" for="kitchenette">
-                                                    <input id="kitchenette" name="kitchenette" type="checkbox" class="">
-                                                    <span>Kitchenette</span>
-                                                </label>
-                                                <label class="mak-options cursor m-0" for="parrilla">
-                                                    <input id="parrilla" name="parrilla" type="checkbox" class="">
-                                                    <span>Parrilla</span>
-                                                </label>
-                                                <label class="mak-options cursor m-0" for="iluminaria">
-                                                    <input id="iluminaria" name="iluminaria" type="checkbox" class="">
-                                                    <span>Posee iluminarias</span>
-                                                </label>
-                                                <label class="mak-options cursor m-0" for="alarma">
-                                                    <input id="alarma" name="alarma" type="checkbox" class="">
-                                                    <span>Sistema de alarma</span>
-                                                </label>
-                                                <label class="mak-options cursor m-0" for="serv_basicos">
-                                                    <input id="serv_basicos" name="serv_basicos" type="checkbox" class="">
-                                                    <span>Servicios básicos (agua/luz)</span>
-                                                </label>
-                                                <label class="mak-options cursor m-0" for="limpieza">
-                                                    <input id="limpieza" name="limpieza" type="checkbox" class="">
-                                                    <span>Servicio de limpieza</span>
-                                                </label>
-                                                <label class="mak-options cursor m-0" for="telev">
-                                                    <input id="telev" name="telev" type="checkbox" class="">
-                                                    <span>Televisión por cable</span>
-                                                </label>
-                                                <label class="mak-options cursor m-0" for="aire">
-                                                    <input id="aire" name="aire" type="checkbox" class="">
-                                                    <span>Tipo de aire</span>
-                                                </label>
-                                                <label class="mak-options cursor m-0" for="uso_comercial">
-                                                    <input id="uso_comercial" name="uso_comercial" type="checkbox" class="">
-                                                    <span>Uso comercial</span>
-                                                </label>
-                                                <label class="mak-options cursor m-0" for="uso_profesional">
-                                                    <input id="uso_profesional" name="uso_profesional" type="checkbox" class="">
-                                                    <span>Uso profesional</span>
-                                                </label> -->
+
                                             </div>
                                         </div>
                                         <div class="modal-footer">
@@ -870,106 +676,7 @@ $ID = mysqli_fetch_object($ID_prop);
                                         </div>
                                         <div class="modal-body chks">
                                             <div class="caracteristicas generales_plus">
-                                                <label class="mak-options cursor m-0" for="cuartos_servicio">
-                                                    <input id="cuartos_servicio" name="cuartos_servicio" type="checkbox" class="">
-                                                    <span>Cuartos de servicio</span>
-                                                </label>
-                                                <label class="mak-options cursor m-0" for="">
-                                                    <input id="" name="" type="checkbox" class="">
-                                                    <span>Centros comerciales cercanos</span>
-                                                </label>
-                                                <label class="mak-options cursor m-0" for="">
-                                                    <input id="" name="" type="checkbox" class="">
-                                                    <span>Cerca a colegios</span>
-                                                </label>
-                                                <label class="mak-options cursor m-0" for="">
-                                                    <input id="" name="" type="checkbox" class="">
-                                                    <span>Closet</span>
-                                                </label>
-                                                <label class="mak-options cursor m-0" for="">
-                                                    <input id="" name="" type="checkbox" class="">
-                                                    <span>Cocina</span>
-                                                </label>
-                                                <label class="mak-options cursor m-0" for="">
-                                                    <input id="" name="" type="checkbox" class="">
-                                                    <span>Cerca a parque</span>
-                                                </label>
-                                                <label class="mak-options cursor m-0" for="">
-                                                    <input id="" name="" type="checkbox" class="">
-                                                    <span>Cerco vivo</span>
-                                                </label>
-                                                <label class="mak-options cursor m-0" for="">
-                                                    <input id="" name="" type="checkbox" class="">
-                                                    <span>Cerco de material vivo</span>
-                                                </label>
-                                                <label class="mak-options cursor m-0" for="">
-                                                    <input id="" name="" type="checkbox" class="">
-                                                    <span>En condominio</span>
-                                                </label>
-                                                <label class="mak-options cursor m-0" for="">
-                                                    <input id="" name="" type="checkbox" class="">
-                                                    <span>Frente a parque</span>
-                                                </label>
-                                                <label class="mak-options cursor m-0" for="">
-                                                    <input id="" name="" type="checkbox" class="">
-                                                    <span>Frente al mar</span>
-                                                </label>
-                                                <label class="mak-options cursor m-0" for="">
-                                                    <input id="" name="" type="checkbox" class="">
-                                                    <span>Intercomunicador</span>
-                                                </label>
-                                                <label class="mak-options cursor m-0" for="">
-                                                    <input id="" name="" type="checkbox" class="">
-                                                    <span>Jacuzzi</span>
-                                                </label>
-                                                <label class="mak-options cursor m-0" for="">
-                                                    <input id="" name="" type="checkbox" class="">
-                                                    <span>Jardín(es)</span>
-                                                </label>
-                                                <label class="mak-options cursor m-0" for="">
-                                                    <input id="" name="" type="checkbox" class="">
-                                                    <span>Mascota(s)</span>
-                                                </label>
-                                                <label class="mak-options cursor m-0" for="">
-                                                    <input id="" name="" type="checkbox" class="">
-                                                    <span>Niveles construidos</span>
-                                                </label>
-                                                <label class="mak-options cursor m-0" for="">
-                                                    <input id="" name="" type="checkbox" class="">
-                                                    <span>Piscina</span>
-                                                </label>
-                                                <label class="mak-options cursor m-0" for="">
-                                                    <input id="" name="" type="checkbox" class="">
-                                                    <span>Reposteros en cocina</span>
-                                                </label>
-                                                <label class="mak-options cursor m-0" for="">
-                                                    <input id="" name="" type="checkbox" class="">
-                                                    <span>Seguridad</span>
-                                                </label>
-                                                <label class="mak-options cursor m-0" for="">
-                                                    <input id="" name="" type="checkbox" class="">
-                                                    <span>Sistema contra incendios</span>
-                                                </label>
-                                                <label class="mak-options cursor m-0" for="">
-                                                    <input id="" name="" type="checkbox" class="">
-                                                    <span>Terraza</span>
-                                                </label>
-                                                <label class="mak-options cursor m-0" for="">
-                                                    <input id="" name="" type="checkbox" class="">
-                                                    <span>Vista a la ciudad</span>
-                                                </label>
-                                                <label class="mak-options cursor m-0" for="">
-                                                    <input id="" name="" type="checkbox" class="">
-                                                    <span>Vista al mar</span>
-                                                </label>
-                                                <label class="mak-options cursor m-0" for="">
-                                                    <input id="" name="" type="checkbox" class="">
-                                                    <span>Vista a parque</span>
-                                                </label>
-                                                <label class="mak-options cursor m-0" for="">
-                                                    <input id="" name="" type="checkbox" class="">
-                                                    <span>Walk in closet</span>
-                                                </label>
+
                                             </div>
                                         </div>
                                         <div class="modal-footer">

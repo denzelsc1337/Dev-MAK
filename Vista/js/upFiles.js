@@ -63,6 +63,7 @@ document.addEventListener("DOMContentLoaded", function () {
       "image/jpeg",
       "image/jpg",
       "image/png",
+      "application/pdf",
       "application/vnd.openxmlformats-officedocument.wordprocessingml.document", // Tipo MIME para .docx
     ];
     return validExtensions.includes(type);
@@ -314,8 +315,8 @@ document.addEventListener("DOMContentLoaded", function () {
     inputFile.value = ""; // Limpia el valor del input file
   });
 
-  let form = document.querySelector("#form_prop");
-  let formData = new FormData(form);
+  // let form = document.querySelector("#form_prop");
+  // let formData = new FormData(form);
 
   // Función para subir el archivo (añade tu lógica aquí)
   function uploadFile(target, file) {
@@ -418,25 +419,39 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
+  // $("#table-inputFile").value();
+
   $(document).ready(function () {
-    // $("#saveBtn").click(function (e) {
-    //   e.preventDefault();
-    //   $.ajax({
-    //     type: "POST",
-    //     url: "../Controller/Add_propiedades.php",
-    //     data: formData,
-    //     processData: false,
-    //     contentType: false,
-    //     beforeSend: function () {
-    //       console.log("Enviando...");
-    //     },
-    //     success: function (r) {
-    //       console.log("Éxito:", r);
-    //     },
-    //     error: function (xhr, status, error) {
-    //       console.log("Error:", error);
-    //     },
-    //   });
-    // });
+    $("#saveBtn").click(function (e) {
+      e.preventDefault();
+
+      // Crear un objeto FormData
+      var formData = new FormData();
+
+      // Obtener los archivos del input file múltiple
+      var inputFiles = $("#table-inputFile")[0].files;
+
+      // Añadir cada archivo al FormData
+      $.each(inputFiles, function (i, file) {
+        formData.append("files[]", file);
+      });
+
+      $.ajax({
+        type: "POST",
+        url: "../views/add.propertyTable.php",
+        data: arrayFile,
+        processData: false,
+        contentType: false,
+        beforeSend: function () {
+          console.log("Enviando...");
+        },
+        success: function (r) {
+          console.log("Éxito:", r);
+        },
+        error: function (xhr, status, error) {
+          console.log("Error:", error);
+        },
+      });
+    });
   });
 });
