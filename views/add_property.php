@@ -115,11 +115,9 @@ $ID = mysqli_fetch_object($ID_prop);
                     <div id="tab-item-1" class="tab-content active">
                         <form method="POST" id="form_prop">
 
-
-
-
                             <input type="hidden" id="id_usu" name="id_usu" value="<?php echo $_SESSION['id_usu']; ?>">
-                            <input type="hidden" id="usu_asig" name="usu_asig" value="<?php echo $_SESSION['id_usu']; ?>">
+                            <!-- <input type="hidden" id="dni_usu" name="dni_usu" value="<?php echo $_SESSION['dni_usu']; ?>"> -->
+                            <!-- <input type="hidden" id="usu_asig" name="usu_asig" value="<?php echo $_SESSION['id_usu']; ?>"> -->
                             <input class="anunciar" type="hidden">
                             <div class="row">
                                 <div class="col-xl-5 col-lg-5 col-md-5 col-sm-5 col-5">

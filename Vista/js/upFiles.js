@@ -422,36 +422,27 @@ document.addEventListener("DOMContentLoaded", function () {
   // $("#table-inputFile").value();
 
   $(document).ready(function () {
-    $("#saveBtn").click(function (e) {
-      e.preventDefault();
-
-      // Crear un objeto FormData
-      var formData = new FormData();
-
-      // Obtener los archivos del input file múltiple
-      var inputFiles = $("#table-inputFile")[0].files;
-
-      // Añadir cada archivo al FormData
-      $.each(inputFiles, function (i, file) {
-        formData.append("files[]", file);
-      });
-
-      $.ajax({
-        type: "POST",
-        url: "../views/add.propertyTable.php",
-        data: arrayFile,
-        processData: false,
-        contentType: false,
-        beforeSend: function () {
-          console.log("Enviando...");
-        },
-        success: function (r) {
-          console.log("Éxito:", r);
-        },
-        error: function (xhr, status, error) {
-          console.log("Error:", error);
-        },
-      });
-    });
+    // $("#saveBtn").click(function (e) {
+    //   e.preventDefault();
+    //   // Crear un objeto FormData
+    //   var formData = new FormData();
+    //   formData.append("arrayFile", JSON.stringify(arrayFile));
+    //   $.ajax({
+    //     type: "POST",
+    //     url: "../views/add.propertyTable.php",
+    //     data: formData,
+    //     processData: false,
+    //     contentType: false,
+    //     beforeSend: function () {
+    //       console.log("Enviando...");
+    //     },
+    //     success: function (r) {
+    //       console.log("Éxito:", r);
+    //     },
+    //     error: function (xhr, status, error) {
+    //       console.log("Error:", error);
+    //     },
+    //   });
+    // });
   });
 });

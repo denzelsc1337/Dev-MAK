@@ -41,12 +41,23 @@ document.addEventListener("DOMContentLoaded", () => {
         )
         .map((key) => {
           const item = items[key];
-          return `
-      <label class="mak-options cursor m-0" for="${item.id}">
-        <input id="${item.id}" name="${item.id}" type="checkbox" class="mak-control-event">
-        <span>${item.nombre}</span>
-      </label>
-    `;
+
+          if (item.cantidad) {
+            return `
+            <label class="mak-options cursor m-0" for="${item.id}">
+              <input id="${item.id}" name="" type="checkbox" class="mak-control-event">
+              <span>${item.nombre}</span>
+              <input type="number" min="0" id="cant_${item.id}" name="cant_${item.id}" class="mak-options-brd-bottom p-0">
+            </label>
+          `;
+          } else {
+            return `
+            <label class="mak-options cursor m-0" for="${item.id}">
+              <input id="${item.id}" name="${item.id}" type="checkbox" class="mak-control-event">
+              <span>${item.nombre}</span>
+            </label>
+          `;
+          }
         })
         .join("");
 
@@ -189,98 +200,99 @@ document.addEventListener("DOMContentLoaded", () => {
   // ------------------------------------------------------------------------------------------------------
   // ------------------------------------------------------------------------------------------------------
 
-  var arrayData = [];
+// // //   var arrayData = [];
 
-  function initializeCheckboxListeners() {
-    var contentCaract = document.querySelectorAll(
-      ".chks .mak-options:not(.details)"
-    );
+// // //   function initializeCheckboxListeners() {
+// // //     var contentCaract = document.querySelectorAll(
+// // //       ".chks .mak-options:not(.details)"
+// // //     );
 
-    contentCaract.forEach((label) => {
-      console.log(label);
+// // //     contentCaract.forEach((label) => {
+// // //       console.log(label);
 
-      var checkbox = label.querySelector('input[type="checkbox"]');
-      var lastInput = label.querySelector(
-        'input[type="number"]:not(.mak-control-event)'
-      );
+// // //       var checkbox = label.querySelector('input[type="checkbox"]');
+// // //       var lastInput = label.querySelector(
+// // //         'input[type="number"]:not(.mak-control-event)'
+// // //       );
 
-      checkbox.addEventListener("change", (event) => {
-        var estadoChk = event.target.checked;
+// // //       checkbox.addEventListener("change", (event) => {
+// // //         var estadoChk = event.target.checked;
+// // //         console.log(estadoChk);
 
-        if (estadoChk === true) {
-          console.log(checkbox);
-          console.log(lastInput);
+// // //         if (estadoChk === true) {
+// // //           console.log(checkbox);
+// // //           console.log(lastInput);
 
-          // Verifica si el objeto ya existe en el array
-          var chkID = checkbox.id; // Asegúrate de tener el ID del checkbox
-          var existingIndex = arrayData.findIndex((obj) => obj.id === chkID);
-          console.log(existingIndex);
+// // //           // Verifica si el objeto ya existe en el array
+// // //           var chkID = checkbox.id; // Asegúrate de tener el ID del checkbox
+// // //           var existingIndex = arrayData.findIndex((obj) => obj.id === chkID);
+// // //           console.log(existingIndex);
 
-          if (existingIndex === -1) {
-            if (checkbox.classList.contains("mak-control-event")) {
-              // Definir el valor inicial del número
-              let valorInputNumber = lastInput.value;
+// // //           if (existingIndex === -1) {
+// // //             if (checkbox.classList.contains("mak-control-event")) {
+// // //               // Definir el valor inicial del número
+// // //               let valorInputNumber = lastInput.value;
 
-              // Añadir evento change solo una vez
-              lastInput.addEventListener("change", () => {
-                valorInputNumber = lastInput.value;
-                console.log(valorInputNumber);
+// // //               // Añadir evento change solo una vez
+// // //               lastInput.addEventListener("change", () => {
+// // //                 valorInputNumber = lastInput.value;
+// // //                 console.log(valorInputNumber);
 
-                // Actualizar el número en el array cuando cambie el valor del input
-                const indexToUpdate = arrayData.findIndex(
-                  (obj) => obj.id === chkID
-                );
-                console.log(indexToUpdate);
+// // //                 // Actualizar el número en el array cuando cambie el valor del input
+// // //                 const indexToUpdate = arrayData.findIndex(
+// // //                   (obj) => obj.id === chkID
+// // //                 );
+// // //                 console.log(indexToUpdate);
 
-                if (indexToUpdate !== -1) {
-                  arrayData[indexToUpdate].number = valorInputNumber;
-                }
-              });
-              // Añadir el nuevo objeto al array
-              arrayData.push({
-                id: chkID,
-                checked: estadoChk,
-                number: valorInputNumber,
-              });
-            } else {
-              arrayData.push({
-                id: chkID,
-                checked: estadoChk,
-                number: null,
-              });
-            }
-          } else {
-            // Actualiza el objeto existente
-            // arrayData[existingIndex].checked = checkbox.checked;
-            arrayData[existingIndex].number = numberValue;
-          }
-        } else {
-          console.log("falcedad");
-          // Si el checkbox está desmarcado, eliminar el objeto del array
-          var chkID = checkbox.id; // Asegúrate de tener el ID del checkbox
-          var index = arrayData.findIndex((obj) => obj.id === chkID);
-          console.log(index);
-          if (index !== -1) {
-            arrayData.splice(index, 1);
-          }
-        }
+// // //                 if (indexToUpdate !== -1) {
+// // //                   arrayData[indexToUpdate].number = valorInputNumber;
+// // //                 }
+// // //               });
+// // //               // Añadir el nuevo objeto al array
+// // //               arrayData.push({
+// // //                 id: chkID,
+// // //                 checked: estadoChk,
+// // //                 number: valorInputNumber,
+// // //               });
+// // //             } else {
+// // //               arrayData.push({
+// // //                 id: chkID,
+// // //                 checked: estadoChk,
+// // //                 number: null,
+// // //               });
+// // //             }
+// // //           } else {
+// // //             // Actualiza el objeto existente
+// // //             // arrayData[existingIndex].checked = checkbox.checked;
+// // //             arrayData[existingIndex].number = numberValue;
+// // //           }
+// // //         } else {
+// // //           console.log("falcedad");
+// // //           // Si el checkbox está desmarcado, eliminar el objeto del array
+// // //           var chkID = checkbox.id; // Asegúrate de tener el ID del checkbox
+// // //           var index = arrayData.findIndex((obj) => obj.id === chkID);
+// // //           console.log(index);
+// // //           if (index !== -1) {
+// // //             arrayData.splice(index, 1);
+// // //           }
+// // //         }
 
-        // Mostrar el array actualizado en la consola
-        console.log(arrayData);
+// // //         // Mostrar el array actualizado en la consola
+// // //         console.log(arrayData);
 
-        // Agrega o elimina la clase 'checked' del label dependiendo del estado del checkbox
-        label.classList.toggle("checked", estadoChk);
+// // //         // Agrega o elimina la clase 'checked' del label dependiendo del estado del checkbox
+// // //         label.classList.toggle("checked", estadoChk);
 
-        // Si el checkbox se desmarca y hay un último input, limpia su valor
-        if (!checkbox.checked && lastInput) {
-          lastInput.value = "";
-        }
-      });
-    });
-  }
+// // //         // Si el checkbox se desmarca y hay un último input, limpia su valor
+// // //         if (!checkbox.checked && lastInput) {
+// // //           lastInput.value = "";
+// // //         }
+// // //       });
+// // //     });
+// // //   }
 
-  initializeCheckboxListeners();
-});
+// // //   // initializeCheckboxListeners();
+// // // });
 
 // --------------------------------
 // --------------------------------
@@ -437,408 +449,24 @@ $(document).ready(function () {
       });
 
     // Enviar los datos usando AJAX
-    // $.ajax({
-    //   type: "POST",
-    //   url: "../Controller/Add_propiedades.php",
-    //   data: formData, // Enviar el objeto FormData
-    //   processData: false, // Evitar que jQuery procese los datos (FormData se maneja por sí mismo)
-    //   contentType: false, // No establecer el contentType, para permitir el envío del FormData
-    //   beforeSend: function () {
-    //     console.log("Enviando...");
-    //   },
-    //   success: function (r) {
-    //     console.log("Éxito:", r);
-    //   },
-    //   error: function (xhr, status, error) {
-    //     console.log("Error:", error);
-    //   },
-    // });
+    $.ajax({
+      type: "POST",
+      url: "../Controller/Add_propiedades.php",
+      data: formData, // Enviar el objeto FormData
+      processData: false, // Evitar que jQuery procese los datos (FormData se maneja por sí mismo)
+      contentType: false, // No establecer el contentType, para permitir el envío del FormData
+      beforeSend: function () {
+        console.log("Enviando...");
+      },
+      success: function (r) {
+        console.log("Éxito:", r);
+      },
+      error: function (xhr, status, error) {
+        console.log("Error:", error);
+      },
+    });
   });
 });
 
 // -------------------------------------------------------------------------------------------------------------------------------------
 // -------------------------------------------------------------------------------------------------------------------------------------
-
-// document.addEventListener("DOMContentLoaded", () => {
-//   // Selecciona los elementos a ocultar de una vez
-//   const allProperties = $(
-//     ".departamento, .casa, .casa_playa, .casa_campo, .terr_lote, .terr_agricola, .oficina, .hotel, .local_comercial, .local_industrial"
-//   );
-
-//   // Oculta todos los elementos inicialmente
-//   allProperties.hide();
-
-//   // Delegación de eventos para elementos dinámicos
-//   $(document).on("click", ".mak-options", function () {
-//     $(this).toggleClass("checked");
-//   });
-
-//   // Maneja el cambio en el dropdown
-//   $("#tipo_prop").change(function () {
-//     allProperties.hide();
-
-//     var selectedValue = $(this).val(); // Obtiene el valor seleccionado
-//     var item_html = "";
-
-//     var caracteristics_serv = document.querySelector(".servicios");
-//     var caracteristics_serv_plus = document.querySelector(".servicios_plus");
-//     var caracteristics_gene = document.querySelector(".generales");
-//     var caracteristics_gene_plus = document.querySelector(".generales_plus");
-//     var caracteristics_comu = document.querySelector(".comunes");
-//     var caracteristics_comu_plus = document.querySelector(".comunes_plus");
-
-//     // borrar los elementos label creados
-//     const labels = document.querySelectorAll("label.mak-options");
-
-//     labels.forEach((label) => {
-//       label.remove();
-//     });
-//     // borrar los elementos label creados
-
-//     function generateItemHtml(items) {
-//       // console.log(items);
-//       const otherServicesHtml = Object.keys(items)
-//         .filter(
-//           (key) =>
-//             key !== "servicios_plus" &&
-//             key !== "generales_plus" &&
-//             key !== "comunes_plus"
-//         )
-//         .map((key) => {
-//           const item = items[key];
-//           return `
-//           <label class="mak-options cursor m-0" for="${item.id}">
-//             <input id="${item.id}" name="${item.id}" type="checkbox" class="mak-control-event">
-//             <span>${item.nombre}</span>
-//           </label>
-//         `;
-//         })
-//         .join("");
-
-//       return otherServicesHtml;
-//     }
-
-//     function printHTML(data, value) {
-//       // console.log(data);
-//       // console.log(value);
-//       var type = "";
-
-//       switch (value) {
-//         case "1":
-//           type = "departamento";
-//           $(".departamento").show();
-//           break;
-//         case "2":
-//           type = "casa";
-//           $(".casa").show();
-//           break;
-//         case "3":
-//           type = "casa_playa";
-//           $(".casa").show();
-//           break;
-//         case "4":
-//           type = "casa_campo";
-//           $(".casa").show();
-//           break;
-//         case "5":
-//           type = "terr_lote";
-//           $(".terr_lote").show();
-//           break;
-//         case "6":
-//           type = "terr_agricola";
-//           $(".terr_agricola").show();
-//           break;
-//         case "7":
-//           type = "oficina";
-//           $(".oficina").show();
-//           break;
-//         case "8":
-//           type = "hotel";
-//           $(".hotel").show();
-//           break;
-//         case "9":
-//           type = "local_comercial";
-//           $(".local_comercial").show();
-//           break;
-//         case "10":
-//           type = "local_industrial";
-//           $(".local_industrial").show();
-//           break;
-//         default:
-//           console.error("Valor no reconocido:", value);
-//           return; // Salir de la función si el valor no es reconocido
-//       }
-
-//       // Verifica que las propiedades existan antes de usarlas
-
-//       // APARTADO DE SERVICIOS
-//       if (data[type] && data[type].servicios) {
-//         // Imprimir servicios en caracteristics_serv
-//         caracteristics_serv.innerHTML += generateItemHtml(data[type].servicios);
-//       } else {
-//         console.log(`No se encontraron servicios para el tipo: ${type}`);
-//       }
-
-//       // // APARTADO DE SERVICIOS_PLUS
-//       if (
-//         data[type] &&
-//         data[type].servicios &&
-//         data[type].servicios.servicios_plus
-//       ) {
-//         // Imprimir servicios_plus en caracteristics_serv_plus
-//         caracteristics_serv_plus.innerHTML += generateItemHtml(
-//           data[type].servicios.servicios_plus
-//         );
-//       } else {
-//         console.log(`No se encontraron servicios_plus para el tipo: ${type}`);
-//       }
-//       // // APARTADO DE SERVICIOS_PLUS
-//       // APARTADO DE SERVICIOS
-
-//       // APARTADO DE GENERALES
-//       if (data[type] && data[type].generales) {
-//         // Imprimir servicios en caracteristics_serv
-//         caracteristics_gene.innerHTML += generateItemHtml(data[type].generales);
-//       } else {
-//         console.log(`No se encontraron generales para el tipo: ${type}`);
-//       }
-
-//       // // APARTADO DE GENERALES_PLUS
-//       if (
-//         data[type] &&
-//         data[type].generales &&
-//         data[type].generales.generales_plus
-//       ) {
-//         // Imprimir generales_plus en caracteristics_serv_plus
-//         caracteristics_gene_plus.innerHTML += generateItemHtml(
-//           data[type].generales.generales_plus
-//         );
-//       } else {
-//         console.log(`No se encontraron generales_plus para el tipo: ${type}`);
-//       }
-//       // // APARTADO DE GENERALES_PLUS
-//       // APARTADO DE GENERALES
-
-//       // APARTADO DE COMUNES
-//       if (data[type] && data[type].comunes) {
-//         // Imprimir servicios en caracteristics_serv
-//         caracteristics_comu.innerHTML += generateItemHtml(data[type].comunes);
-//       } else {
-//         console.log(`No se encontraron comunes para el tipo: ${type}`);
-//       }
-
-//       // // APARTADO DE COMUNES_PLUS
-//       if (data[type] && data[type].comunes && data[type].comunes.comunes_plus) {
-//         // Imprimir comunes_plus en caracteristics_serv_plus
-//         caracteristics_comu_plus.innerHTML += generateItemHtml(
-//           data[type].comunes.comunes_plus
-//         );
-//       } else {
-//         console.log(`No se encontraron comunes_plus para el tipo: ${type}`);
-//       }
-//       // // APARTADO DE COMUNES_PLUS
-//       // APARTADO DE COMUNES
-//     }
-
-//     $.ajax({
-//       type: "GET",
-//       url: "../Controller/details_property.php",
-//       success: function (response) {
-//         const data = JSON.parse(response);
-
-//         printHTML(data, selectedValue);
-//       },
-//     });
-//   });
-
-//   // Función para inicializar el listener de checkboxes
-
-//   var arrayData = [];
-
-//   function initializeCheckboxListeners() {
-//     $(document).on(
-//       "change",
-//       '.chks .mak-options input[type="checkbox"]',
-//       function () {
-//         const checkbox = $(this);
-//         const label = checkbox.closest(".mak-options");
-
-//         // Verificar que no sea el div con la clase .details
-//         if (label.hasClass("details")) {
-//           return; // Si es el div .details, salir de la función
-//         }
-
-//         const isChecked = checkbox.is(":checked");
-//         const lastInput = label.find(
-//           'input[type="number"]:not(.mak-control-event)'
-//         );
-//         const chkID = checkbox.attr("id");
-
-//         if (isChecked) {
-//           // Verifica si el objeto ya existe en el array
-//           const existingIndex = arrayData.findIndex((obj) => obj.id === chkID);
-
-//           if (existingIndex === -1) {
-//             let valorInputNumber = lastInput.val();
-
-//             // Aseguramos que el listener se registra solo una vez
-//             lastInput.off("change").on("change", function () {
-//               valorInputNumber = $(this).val();
-//               if (existingIndex !== -1) {
-//                 arrayData[existingIndex].number = valorInputNumber;
-//               }
-//             });
-
-//             arrayData.push({
-//               id: chkID,
-//               checked: isChecked,
-//               number: valorInputNumber,
-//             });
-//           } else {
-//             arrayData[existingIndex].checked = isChecked;
-//             arrayData[existingIndex].number = lastInput.val();
-//           }
-//         } else {
-//           // Si se desmarca el checkbox, se actualiza el array y el input correspondiente
-//           arrayData = arrayData.filter((obj) => obj.id !== chkID);
-//           if (lastInput.length > 0) {
-//             lastInput.val("");
-//           }
-//         }
-
-//         // Asegúrate de que solo se aplique la clase "checked" al label del checkbox, no afecta a otros elementos
-//         label.toggleClass("checked", isChecked);
-
-//         // Comprobar que elementos checkbox están marcados y en el array
-//         // console.log(arrayData);
-//       }
-//     );
-//   }
-
-//   initializeCheckboxListeners();
-// });
-
-// // Delegación de eventos para manejar tabs dinámicos
-// $(document).on("click", ".mak-control[data-tab]", function () {
-//   const element = $(this);
-//   const checkbox = element.find(".tab-checkbox");
-
-//   if (checkbox.length) {
-//     const isChecked = checkbox.is(":checked");
-
-//     if (isChecked) {
-//       checkbox.prop("checked", false);
-//       element.removeClass("mak-primary");
-
-//       if (checkbox.val() == "2") {
-//         $(".comision").addClass("hide");
-//       } else if (checkbox.val() == "1") {
-//         $(".anunciar").val("");
-//       }
-//     } else {
-//       checkbox.prop("checked", true);
-//       element.addClass("mak-primary");
-
-//       if (checkbox.val() == "2") {
-//         $(".comision").removeClass("hide");
-//       } else if (checkbox.val() == "1") {
-//         $(".anunciar").val(1);
-//       }
-//     }
-//   }
-// });
-
-// // Delegación de eventos para manejar modalidad
-// $(document).on("click", ".tp-md", function () {
-//   const element = $(this);
-//   $(".tp-md").removeClass("mak-primary");
-//   element.addClass("mak-primary");
-
-//   const data = element.data("target");
-//   $("#modalidad_prop").val(data);
-// });
-
-// $(document).on("input", ".txt-area", function (event) {
-//   const textarea = $(this);
-//   const container = textarea.parent();
-//   const counter = container.find(".char-counter");
-//   const maxLength = textarea.attr("maxlength");
-//   const currentLength = textarea.val().length;
-
-//   counter.text(`${currentLength}/${maxLength}`);
-// });
-
-// // Inicializar contadores de caracteres al cargar la página
-// $(".txt-area").each(function () {
-//   $(this).trigger("input");
-// });
-
-// $(document).on("click", ".clear", function () {
-//   const element = $(this).closest(".card-body");
-
-//   element.find("input, textarea, select").each(function () {
-//     const field = $(this);
-//     if (field.is("input, textarea")) {
-//       field.val("");
-//       if (field.hasClass("txt-area")) {
-//         field.trigger("input"); // Actualiza el contador de caracteres
-//       }
-//     } else if (field.is("select")) {
-//       field.val("-1");
-//     }
-//   });
-
-//   element.find("li, .file-item").each(function () {
-//     const field = $(this);
-//     field.removeClass("mak-primary");
-//     if (field.hasClass("file-item") && !field.hasClass("up-archive")) {
-//       field.remove();
-//     }
-//   });
-// });
-
-// $(document).on("click", "#saveBtn", function (e) {
-//   e.preventDefault();
-
-//   const formData = new FormData();
-
-//   // Agregar datos de la sesión
-//   const sessionData = new FormData($("#session_start")[0]);
-//   for (let [key, value] of sessionData.entries()) {
-//     formData.append(key, value);
-//   }
-
-//   // Agregar los datos del formulario
-//   $("#form_prop")
-//     .find(
-//       ".control-group:not([style*='display: none']) [name], .mak-options [name], input[type='hidden'][name]"
-//     )
-//     .each(function () {
-//       const input = $(this);
-//       const name = input.attr("name");
-
-//       if (input.is(":checkbox")) {
-//         formData.append(name, input.is(":checked") ? "true" : "false");
-//       } else {
-//         formData.append(name, input.val());
-//       }
-//     });
-
-//   // Enviar los datos usando AJAX
-//   $.ajax({
-//     type: "POST",
-//     url: "../Controller/Add_propiedades.php",
-//     data: formData,
-//     processData: false,
-//     contentType: false,
-//     success: function (response) {
-//       console.log("Éxito:", response);
-//     },
-//     error: function (xhr, status, error) {
-//       alert(
-//         "Hubo un error al guardar los datos. Por favor, inténtalo de nuevo."
-//       );
-//       console.log("Error:", error);
-//     },
-//   });
-// });
