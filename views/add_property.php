@@ -7,7 +7,7 @@ require_once('../Controller/controladorListar.php');
 $cnx = new conexion();
 $cadena = $cnx->abrirConexion();
 
-$ID_prop = mysqli_query($cadena, "SELECT COUNT(*) + 1 AS total_props FROM propiedades");
+$ID_prop = mysqli_query($cadena, "SELECT id_prop + 1 AS total_props FROM propiedades ORDER BY id_prop DESC LIMIT 1;");
 
 $ID = mysqli_fetch_object($ID_prop);
 

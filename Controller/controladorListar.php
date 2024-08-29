@@ -30,3 +30,8 @@ $selector_types_prom = $oValor->selector_type_promo();
 require_once('../Model/Legal.php');
 $oLegal = new cLegal();
 $list_solic_legal = $oLegal->listadoSolicDocsLegal();
+
+
+require_once('../Model/propiedades.php');
+$oPropiedades = new propiedades();
+$showLastPropertys = $oPropiedades->showLastPropertys();

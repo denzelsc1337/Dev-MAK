@@ -10,11 +10,16 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
 // Obtener valores de $_POST
+
+$ID_prop = mysqli_query($cadena, "SELECT id_prop + 1 AS total_props FROM propiedades ORDER BY id_prop DESC LIMIT 1;");
+
+$ID = mysqli_fetch_object($ID_prop);
+
 $dni_cli = isset($_POST['dni_cli']) ? $_POST['dni_cli'] : '';
 $tipo_file = isset($_POST['dataTarget']) ? $_POST['dataTarget'] : '';
 
 // Crear la ruta de destino para el archivo
-$ruta = "../DocumentosPropiedad/" . $dni_cli . "/" . $tipo_file . "/";
+$ruta = "../DocumentosPropiedad/" . $ID . "/" . $tipo_file . "/";
 
 // Verificar si el directorio existe, y si no, crearlo
 if (!file_exists($ruta)) {

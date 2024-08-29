@@ -64,9 +64,98 @@ document.addEventListener("DOMContentLoaded", () => {
       return otherServicesHtml;
     }
 
+    function chkChange() {
+      var contentCaract = document.querySelectorAll(
+        ".chks .mak-options:not(.details)"
+      );
+
+      contentCaract.forEach((label) => {
+        console.log(label);
+
+        var checkbox = label.querySelector('input[type="checkbox"]');
+        var lastInput = label.querySelector(
+          'input[type="number"]:not(.mak-control-event)'
+        );
+
+        checkbox.addEventListener("change", (event) => {
+          var estadoChk = event.target.checked;
+          // console.log(estadoChk);
+
+          // // // if (estadoChk === true) {
+          // // //   console.log(checkbox);
+          // // //   console.log(lastInput);
+
+          // // //   // Verifica si el objeto ya existe en el array
+          // // //   var chkID = checkbox.id; // Asegúrate de tener el ID del checkbox
+          // // //   var existingIndex = arrayData.findIndex((obj) => obj.id === chkID);
+          // // //   console.log(existingIndex);
+
+          // // //   if (existingIndex === -1) {
+          // // //     if (checkbox.classList.contains("mak-control-event")) {
+          // // //       // Definir el valor inicial del número
+          // // //       let valorInputNumber = lastInput.value;
+
+          // // //       // Añadir evento change solo una vez
+          // // //       lastInput.addEventListener("change", () => {
+          // // //         valorInputNumber = lastInput.value;
+          // // //         console.log(valorInputNumber);
+
+          // // //         // Actualizar el número en el array cuando cambie el valor del input
+          // // //         const indexToUpdate = arrayData.findIndex(
+          // // //           (obj) => obj.id === chkID
+          // // //         );
+          // // //         console.log(indexToUpdate);
+
+          // // //         if (indexToUpdate !== -1) {
+          // // //           arrayData[indexToUpdate].number = valorInputNumber;
+          // // //         }
+          // // //       });
+          // // //       // Añadir el nuevo objeto al array
+          // // //       arrayData.push({
+          // // //         id: chkID,
+          // // //         checked: estadoChk,
+          // // //         number: valorInputNumber,
+          // // //       });
+          // // //     } else {
+          // // //       arrayData.push({
+          // // //         id: chkID,
+          // // //         checked: estadoChk,
+          // // //         number: null,
+          // // //       });
+          // // //     }
+          // // //   } else {
+          // // //     // Actualiza el objeto existente
+          // // //     // arrayData[existingIndex].checked = checkbox.checked;
+          // // //     arrayData[existingIndex].number = numberValue;
+          // // //   }
+          // // // } else {
+          // // //   console.log("falcedad");
+          // // //   // Si el checkbox está desmarcado, eliminar el objeto del array
+          // // //   var chkID = checkbox.id; // Asegúrate de tener el ID del checkbox
+          // // //   var index = arrayData.findIndex((obj) => obj.id === chkID);
+          // // //   console.log(index);
+          // // //   if (index !== -1) {
+          // // //     arrayData.splice(index, 1);
+          // // //   }
+          // // // }
+
+          // Mostrar el array actualizado en la consola
+          // // // console.log(arrayData);
+
+          // Agrega o elimina la clase 'checked' del label dependiendo del estado del checkbox
+          label.classList.toggle("checked", estadoChk);
+
+          // Si el checkbox se desmarca y hay un último input, limpia su valor
+          // // // if (!checkbox.checked && lastInput) {
+          // // //   lastInput.value = "";
+          // // // }
+        });
+      });
+    }
+
     function printHTML(data, value) {
-      // console.log(data);
-      // console.log(value);
+      console.log(data);
+      console.log(value);
       var type = "";
 
       switch (value) {
@@ -121,6 +210,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (data[type] && data[type].servicios) {
         // Imprimir servicios en caracteristics_serv
         caracteristics_serv.innerHTML += generateItemHtml(data[type].servicios);
+        chkChange();
       } else {
         console.log(`No se encontraron servicios para el tipo: ${type}`);
       }
@@ -135,6 +225,7 @@ document.addEventListener("DOMContentLoaded", () => {
         caracteristics_serv_plus.innerHTML += generateItemHtml(
           data[type].servicios.servicios_plus
         );
+        chkChange();
       } else {
         console.log(`No se encontraron servicios_plus para el tipo: ${type}`);
       }
@@ -145,6 +236,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (data[type] && data[type].generales) {
         // Imprimir servicios en caracteristics_serv
         caracteristics_gene.innerHTML += generateItemHtml(data[type].generales);
+        chkChange();
       } else {
         console.log(`No se encontraron generales para el tipo: ${type}`);
       }
@@ -159,6 +251,7 @@ document.addEventListener("DOMContentLoaded", () => {
         caracteristics_gene_plus.innerHTML += generateItemHtml(
           data[type].generales.generales_plus
         );
+        chkChange();
       } else {
         console.log(`No se encontraron generales_plus para el tipo: ${type}`);
       }
@@ -169,6 +262,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (data[type] && data[type].comunes) {
         // Imprimir servicios en caracteristics_serv
         caracteristics_comu.innerHTML += generateItemHtml(data[type].comunes);
+        chkChange();
       } else {
         console.log(`No se encontraron comunes para el tipo: ${type}`);
       }
@@ -179,6 +273,7 @@ document.addEventListener("DOMContentLoaded", () => {
         caracteristics_comu_plus.innerHTML += generateItemHtml(
           data[type].comunes.comunes_plus
         );
+        chkChange();
       } else {
         console.log(`No se encontraron comunes_plus para el tipo: ${type}`);
       }
@@ -200,99 +295,10 @@ document.addEventListener("DOMContentLoaded", () => {
   // ------------------------------------------------------------------------------------------------------
   // ------------------------------------------------------------------------------------------------------
 
-// // //   var arrayData = [];
+  // // // var arrayData = [];
 
-// // //   function initializeCheckboxListeners() {
-// // //     var contentCaract = document.querySelectorAll(
-// // //       ".chks .mak-options:not(.details)"
-// // //     );
-
-// // //     contentCaract.forEach((label) => {
-// // //       console.log(label);
-
-// // //       var checkbox = label.querySelector('input[type="checkbox"]');
-// // //       var lastInput = label.querySelector(
-// // //         'input[type="number"]:not(.mak-control-event)'
-// // //       );
-
-// // //       checkbox.addEventListener("change", (event) => {
-// // //         var estadoChk = event.target.checked;
-// // //         console.log(estadoChk);
-
-// // //         if (estadoChk === true) {
-// // //           console.log(checkbox);
-// // //           console.log(lastInput);
-
-// // //           // Verifica si el objeto ya existe en el array
-// // //           var chkID = checkbox.id; // Asegúrate de tener el ID del checkbox
-// // //           var existingIndex = arrayData.findIndex((obj) => obj.id === chkID);
-// // //           console.log(existingIndex);
-
-// // //           if (existingIndex === -1) {
-// // //             if (checkbox.classList.contains("mak-control-event")) {
-// // //               // Definir el valor inicial del número
-// // //               let valorInputNumber = lastInput.value;
-
-// // //               // Añadir evento change solo una vez
-// // //               lastInput.addEventListener("change", () => {
-// // //                 valorInputNumber = lastInput.value;
-// // //                 console.log(valorInputNumber);
-
-// // //                 // Actualizar el número en el array cuando cambie el valor del input
-// // //                 const indexToUpdate = arrayData.findIndex(
-// // //                   (obj) => obj.id === chkID
-// // //                 );
-// // //                 console.log(indexToUpdate);
-
-// // //                 if (indexToUpdate !== -1) {
-// // //                   arrayData[indexToUpdate].number = valorInputNumber;
-// // //                 }
-// // //               });
-// // //               // Añadir el nuevo objeto al array
-// // //               arrayData.push({
-// // //                 id: chkID,
-// // //                 checked: estadoChk,
-// // //                 number: valorInputNumber,
-// // //               });
-// // //             } else {
-// // //               arrayData.push({
-// // //                 id: chkID,
-// // //                 checked: estadoChk,
-// // //                 number: null,
-// // //               });
-// // //             }
-// // //           } else {
-// // //             // Actualiza el objeto existente
-// // //             // arrayData[existingIndex].checked = checkbox.checked;
-// // //             arrayData[existingIndex].number = numberValue;
-// // //           }
-// // //         } else {
-// // //           console.log("falcedad");
-// // //           // Si el checkbox está desmarcado, eliminar el objeto del array
-// // //           var chkID = checkbox.id; // Asegúrate de tener el ID del checkbox
-// // //           var index = arrayData.findIndex((obj) => obj.id === chkID);
-// // //           console.log(index);
-// // //           if (index !== -1) {
-// // //             arrayData.splice(index, 1);
-// // //           }
-// // //         }
-
-// // //         // Mostrar el array actualizado en la consola
-// // //         console.log(arrayData);
-
-// // //         // Agrega o elimina la clase 'checked' del label dependiendo del estado del checkbox
-// // //         label.classList.toggle("checked", estadoChk);
-
-// // //         // Si el checkbox se desmarca y hay un último input, limpia su valor
-// // //         if (!checkbox.checked && lastInput) {
-// // //           lastInput.value = "";
-// // //         }
-// // //       });
-// // //     });
-// // //   }
-
-// // //   // initializeCheckboxListeners();
-// // // });
+  // // // // initializeCheckboxListeners();
+});
 
 // --------------------------------
 // --------------------------------

@@ -8,6 +8,8 @@ class propiedades
     function __construct()
     {
         $this->selectorTypes_prop = array();
+        $this->selectorLast_prop = array();
+        $this->selectorAll_prop = array();
     }
 
     public function add_Propiedades($data, $cadena)
@@ -279,6 +281,48 @@ class propiedades
             echo "Error al insertar el registro: " . mysqli_error($cadena);
             return true;
         }
+    }
+
+
+    public function showLastPropertys()
+    {
+        include_once('../config/Conexion.php');
+        $cnx = new conexion();
+        $cadena = $cnx->abrirConexion();
+
+        $query = "SELECT id_prop,  ti.tipo_inmb, p.direccion, p.distrito
+                  FROM propiedades p
+                  INNER JOIN tipo_inmuebles ti ON p.cod_tipo_inmue = ti.id_tipo_inmb
+                  ORDER BY id_prop DESC LIMIT 10;";
+
+        $resultado = mysqli_query($cadena, $query);
+
+        while ($fila = mysqli_fetch_row($resultado)) {
+            $this->selectorLast_prop[] = $fila;
+        }
+        $cnx->cerrarConexion($cadena);
+
+        return $this->selectorLast_prop;
+    }
+    public function showAllPropertys()
+    {
+        include_once('../config/Conexion.php');
+        $cnx = new conexion();
+        $cadena = $cnx->abrirConexion();
+
+        $query = "SELECT id_prop,  ti.tipo_inmb, p.direccion, p.distrito
+                  FROM propiedades p
+                  INNER JOIN tipo_inmuebles ti ON p.cod_tipo_inmue = ti.id_tipo_inmb
+                  ORDER BY id_prop DESC;";
+
+        $resultado = mysqli_query($cadena, $query);
+
+        while ($fila = mysqli_fetch_row($resultado)) {
+            $this->selectorAll_prop[] = $fila;
+        }
+        $cnx->cerrarConexion($cadena);
+
+        return $this->selectorAll_prop;
     }
 }
 
