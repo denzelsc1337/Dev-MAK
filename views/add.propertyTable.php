@@ -1,63 +1,136 @@
 <?php
+// // // // include_once('../Config/Conexion.php');
+// // // // $cnx = new conexion();
+// // // // $cadena = $cnx->abrirConexion();
 
-// if (isset($_POST["saveBtn"])) {
-// var_dump($_FILES);
 
 
-// Mostrar errores en PHP (solo para depuración, no en producción)
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
+// // // // // Obtener valores de $_POST
+var_dump($_POST);
+print_r($_FILES);
+// // // // $archivos_seleccionados = $_FILES["legal_files"];
+// // // // $archivos_cont = count($archivos_seleccionados['name']);
 
-// Obtener valores de $_POST
+// // // // // ID propiedad
+// // // // $ID_prop = mysqli_query($cadena, "SELECT id_prop + 1 AS total_props FROM propiedades ORDER BY id_prop DESC LIMIT 1;");
 
-$ID_prop = mysqli_query($cadena, "SELECT id_prop + 1 AS total_props FROM propiedades ORDER BY id_prop DESC LIMIT 1;");
+// // // // $ID_object  = mysqli_fetch_object($ID_prop);
 
-$ID = mysqli_fetch_object($ID_prop);
+// // // // if ($ID_object) {
+// // // //     $ID = $ID_object->total_props;
+// // // // } else {
+// // // //     die("No se pudo obtener el ID de la propiedad.");
+// // // // }
+// // // // // ID propiedad
 
-$dni_cli = isset($_POST['dni_cli']) ? $_POST['dni_cli'] : '';
-$tipo_file = isset($_POST['dataTarget']) ? $_POST['dataTarget'] : '';
+// // // // // Obtener los datos del arrayFile
+// // // // // Target de los archivos (DNI, HR, PU, ETC)
+// // // // if (isset($_POST['arrayFile'])) {
+// // // //     // Obtener el valor del POST
+// // // //     $jsonString = $_POST['arrayFile'];
 
-// Crear la ruta de destino para el archivo
-$ruta = "../DocumentosPropiedad/" . $ID . "/" . $tipo_file . "/";
+// // // //     // Decodificar el string JSON en un array asociativo
+// // // //     $filesArray = json_decode($jsonString, true);
 
-// Verificar si el directorio existe, y si no, crearlo
-if (!file_exists($ruta)) {
-    if (mkdir($ruta, 0777, true)) {
-        echo "Directorio creado: $ruta\n";
-    } else {
-        die("Error al crear el directorio: $ruta\n");
-    }
-} else {
-    echo "Directorio ya existe: $ruta\n";
-}
+// // // //     // Verificar si la decodificación fue exitosa
+// // // //     if ($filesArray && is_array($filesArray)) {
+// // // //         // Recorrer el array para obtener los atributos
+// // // //         foreach ($filesArray as $file) {
+// // // //             $target = isset($file['attr']) ? $file['attr'] : '';
+// // // //             $name = isset($file['name']) ? $file['name'] : '';
+// // // //             $type = isset($file['type']) ? $file['type'] : '';
+// // // //             $size = isset($file['size']) ? $file['size'] : '';
+// // // //             $lastModified = isset($file['lastModified']) ? $file['lastModified'] : '';
 
-// Verificar si se subió un archivo y obtener sus propiedades
-if (isset($_FILES['table-inputFile'])) {
-    foreach ($_FILES['table-inputFile']['name'] as $key => $file_name) {
-        $tmp_name = $_FILES['table-inputFile']['tmp_name'][$key];
-        $error = $_FILES['table-inputFile']['error'][$key];
-        $file_up_name = time() . "_" . $file_name;
+// // // //             // // Imprimir los atributos
+// // // //             // echo "Attr: $target\n";
+// // // //             // echo "Name: $name\n";
+// // // //             // echo "Type: $type\n";
+// // // //             // echo "Size: $size\n";
+// // // //             // echo "Last Modified: $lastModified\n";
+// // // //         }
+// // // //     } else {
+// // // //         echo "Error: No se pudo decodificar el JSON o no es un array válido.";
+// // // //     }
+// // // // } else {
+// // // //     echo "No se recibió ningún archivo.";
+// // // // }
+// // // // // Target de los archivos (DNI, HR, PU, ETC)
 
-        // Verificar si hubo algún error durante la subida del archivo
-        if ($error !== UPLOAD_ERR_OK) {
-            die("Error en la subida del archivo. Código de error: $error\n");
-        }
 
-        // Definir el directorio destino completo para el archivo
-        $directorio_destino = $ruta . $file_up_name;
+// // // // // Crear la ruta de destino para el archivo
+// // // // $ruta = "../DocumentosPropiedad/" . $ID . "/" . $target . "/";
 
-        // Mover el archivo subido al directorio destino
-        if (move_uploaded_file($tmp_name, $directorio_destino)) {
-            echo "El archivo se subió correctamente a: $directorio_destino\n";
-        } else {
-            $error_message = error_get_last();
-            echo "Hubo un error al subir el archivo. Detalles del error: " . $error_message['message'] . "\n";
-        }
-    }
-} else {
-    echo "No se recibió ningún archivo.\n";
-}
+// // // // // Verificar si el directorio existe, y si no, crearlo
+// // // // if (!file_exists($ruta)) {
+// // // //     if (mkdir($ruta, 0777, true)) {
+// // // //         echo "Directorio creado: $ruta\n";
+// // // //     } else {
+// // // //         die("Error al crear el directorio: $ruta\n");
+// // // //     }
+// // // // } else {
+// // // //     echo "Directorio ya existe: $ruta\n";
+// // // // }
+
+// // // // // Verificar si se subió un archivo y obtener sus propiedades
+
+// // // // // var_dump($_FILES);
+
+
+
+// include_once('../Config/Conexion.php');
+// $cnx = new conexion();
+// $cadena = $cnx->abrirConexion();
+
+// // Obtener el ID de la propiedad (como en tu código anterior)
+// $ID_prop = mysqli_query($cadena, "SELECT id_prop + 1 AS total_props FROM propiedades ORDER BY id_prop DESC LIMIT 1;");
+// $ID_object  = mysqli_fetch_object($ID_prop);
+
+// if ($ID_object) {
+//     $ID = $ID_object->total_props;
+// } else {
+//     die("No se pudo obtener el ID de la propiedad.");
 // }
 
-// print_r($_POST);
+// // Crear la ruta de destino para los archivos
+// $ruta = "../DocumentosPropiedad/" . $ID . "/";
+// if (!file_exists($ruta)) {
+//     if (mkdir($ruta, 0777, true)) {
+//         echo "Directorio creado: $ruta\n";
+//     } else {
+//         die("Error al crear el directorio: $ruta\n");
+//     }
+// } else {
+//     echo "Directorio ya existe: $ruta\n";
+// }
+
+// // Procesar los archivos enviados (suponiendo que 'arrayFile' es el campo POST con los detalles)
+// if (isset($_POST['arrayFile'])) {
+//     $jsonString = $_POST['arrayFile'];
+//     $filesArray = json_decode($jsonString, true);
+//     // var_dump($filesArray);
+
+//     if ($filesArray && is_array($filesArray)) {
+//         foreach ($filesArray as $file) {
+//             // var_dump($file);
+//             if (isset($file['name'])) {
+//                 //     $tmpName = $file['tmp_name'];
+//                 $fileName = basename($file['name']);
+//                 $targetFilePath = $ruta . $fileName;
+
+//                 // Mover el archivo a la carpeta de destino
+//                 if (move_uploaded_file($fileName, $targetFilePath)) {
+//                     echo "Archivo subido exitosamente: $targetFilePath\n";
+//                 } else {
+//                     echo "Error al mover el archivo: $fileName\n";
+//                 }
+//             } else {
+//                 echo "Datos de archivo incompletos en el array.\n";
+//             }
+//         }
+//     } else {
+//         echo "Error: No se pudo decodificar el JSON o no es un array válido.";
+//     }
+// } else {
+//     echo "No se recibió ningún archivo.";
+// }

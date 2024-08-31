@@ -339,7 +339,7 @@ $ID = mysqli_fetch_object($ID_prop);
                                                     <button type="button" id="reset-selected">Reset Selected</button>
                                                 </div>
                                                 <div class="row">
-
+<form id=""></form>
                                                     <table id="upTable" class="table table-borderless">
                                                         <thead>
                                                             <tr>
@@ -354,7 +354,7 @@ $ID = mysqli_fetch_object($ID_prop);
                                                         </thead>
                                                         <tbody class="table-file-archive">
 
-                                                            <input type="file" id="table-inputFile" name="table-inputFile[]" data-target="" multiple hidden>
+                                                            <input type="file" id="table-inputFile" name="table-inputFile[]" data-target="" multiple>
 
                                                             <tr class="tr-list-upfile dni" data-row-target="DNI">
                                                                 <td scope="row">
@@ -589,7 +589,7 @@ $ID = mysqli_fetch_object($ID_prop);
                                                             <i class="fa-solid fa-arrow-up-from-bracket"></i>
                                                             Subir imágenes
                                                         </div>
-                                                        <input id="inputFile" name="inputFile[]" type="file" multiple hidden>
+                                                        <input id="inputFile" name="inputFile[]" type="file" multiple>
                                                     </div>
 
                                                     <div class="drop-archive">
@@ -773,7 +773,8 @@ $ID = mysqli_fetch_object($ID_prop);
     <!-- REQUIRED SCRIPTS -->
     <script src="./../Vista/assets/add_property.js"></script>
     <script src="./../Vista/assets/selection_types.js"></script>
-    <script src="./../Vista/js/upFiles.js"></script>
+    <!-- <script src="./../Vista/js/upFiles.js"></script> -->
+    <script src="./../Vista/js/upload.pictures.js"></script>
 
     <!-- Bootstrap 4 -->
     <script src="../Vista/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>

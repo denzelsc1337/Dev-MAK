@@ -42,8 +42,22 @@
         width: 1px;
     }
 
-    body {
-        min-height: 0;
+    .table {
+        width: 100%;
+        border-collapse: separate;
+        border-spacing: 0 20px;
+        margin-top: 20px;
+        background-color: transparent;
+        /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); */
+        border-radius: 8px;
+        overflow: hidden;
+    }
+
+    .table td {
+        padding: 1.75rem 0.75rem !important;
+        vertical-align: middle !important;
+        margin-bottom: 20px;
+        background-color: var(--white-mak);
     }
 </style>
 
@@ -96,7 +110,7 @@ require_once('../Controller/controladorListar.php');
                     </thead>
                     <tbody>
                         <?php foreach ($showLastPropertys as $slp): ?>
-                            <tr class="mak-bdr property-item">
+                            <tr class="property-item">
                                 <td><?php echo $slp[0] ?></td>
                                 <td>
                                     <span class="badge-tp tc">
@@ -118,7 +132,9 @@ require_once('../Controller/controladorListar.php');
                                 </td>
                                 <td>*</td>
                             </tr>
+
                         <?php endforeach ?>
+                        <br>
                     </tbody>
                 </table>
             </div>

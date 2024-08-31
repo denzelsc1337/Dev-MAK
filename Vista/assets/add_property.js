@@ -419,59 +419,54 @@ clearBtns.forEach((element) => {
 // --------------------------------
 // --------------------------------
 $(document).ready(function () {
-  $("#saveBtn").click(function (e) {
-    e.preventDefault();
-
-    // Crear una instancia de FormData
-    var formData = new FormData();
-
-    // Recoger los datos de la sesión
-    var sessionData = new FormData($("#session_start")[0]);
-
-    // Agregar los valores de session
-    // Iterar sobre los campos de sessionData y agregarlos a formData
-    for (var pair of sessionData.entries()) {
-      formData.append(pair[0], pair[1]);
-    }
-
-    $("#form_prop")
-      .find(
-        ".control-group:not([style*='display: none']) [name], .mak-options [name], input[type='hidden'][name]"
-      )
-      .each(function () {
-        var name = $(this).attr("name");
-        // Verifica si es un checkbox
-        if ($(this).is(":checkbox")) {
-          if ($(this).is(":checked")) {
-            var value = 1; // Si está marcado, envía su valor o "true" por defecto
-            /*$(this).val()  || "true"; */ formData.append(name, value);
-          } else {
-            formData.append(name, "false"); // Si no está marcado, envía "false"
-          }
-        } else {
-          var value = $(this).val();
-          formData.append(name, value);
-        }
-      });
-
-    // Enviar los datos usando AJAX
-    $.ajax({
-      type: "POST",
-      url: "../Controller/Add_propiedades.php",
-      data: formData, // Enviar el objeto FormData
-      processData: false, // Evitar que jQuery procese los datos (FormData se maneja por sí mismo)
-      contentType: false, // No establecer el contentType, para permitir el envío del FormData
-      beforeSend: function () {
-        console.log("Enviando...");
-      },
-      success: function (r) {
-        console.log("Éxito:", r);
-      },
-      error: function (xhr, status, error) {
-        console.log("Error:", error);
-      },
-    });
-  });
+  // $("#saveBtn").click(function (e) {
+  //   e.preventDefault();
+  //   // Crear una instancia de FormData
+  //   var formData = new FormData();
+  //   // Recoger los datos de la sesión
+  //   var sessionData = new FormData($("#session_start")[0]);
+  //   // Agregar los valores de session
+  //   // Iterar sobre los campos de sessionData y agregarlos a formData
+  //   for (var pair of sessionData.entries()) {
+  //     formData.append(pair[0], pair[1]);
+  //   }
+  //   $("#form_prop")
+  //     .find(
+  //       ".control-group:not([style*='display: none']) [name], .mak-options [name], input[type='hidden'][name]"
+  //     )
+  //     .each(function () {
+  //       var name = $(this).attr("name");
+  //       // Verifica si es un checkbox
+  //       if ($(this).is(":checkbox")) {
+  //         if ($(this).is(":checked")) {
+  //           var value = 1; // Si está marcado, envía su valor o "true" por defecto
+  //           /*$(this).val()  || "true"; */ formData.append(name, value);
+  //         } else {
+  //           formData.append(name, "false"); // Si no está marcado, envía "false"
+  //         }
+  //       } else {
+  //         var value = $(this).val();
+  //         formData.append(name, value);
+  //       }
+  //     });
+  //   // Enviar los datos usando AJAX
+  //   $.ajax({
+  //     type: "POST",
+  //     url: "../Controller/Add_propiedades.php",
+  //     data: formData, // Enviar el objeto FormData
+  //     processData: false, // Evitar que jQuery procese los datos (FormData se maneja por sí mismo)
+  //     contentType: false, // No establecer el contentType, para permitir el envío del FormData
+  //     beforeSend: function () {
+  //       console.log("Enviando...");
+  //     },
+  //     success: function (r) {
+  //       console.log("Éxito:", r);
+  //     },
+  //     error: function (xhr, status, error) {
+  //       console.log("Error:", error);
+  //     },
+  //   });
+  // });
 });
 
 // -------------------------------------------------------------------------------------------------------------------------------------

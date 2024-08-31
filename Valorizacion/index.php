@@ -67,7 +67,7 @@ require_once('../Controller/controladorListar.php'); ?>
                 <?php
 
 
-                if ($_SESSION['tipo_usu'] != 1) {
+                if ($_SESSION['tipo_usu_cod'] != 1) {
                     //ocultar el del user y mostrar el del admin
                 ?>
 
@@ -94,7 +94,7 @@ require_once('../Controller/controladorListar.php'); ?>
 
                             </div>
                             <?php
-                            if ($_SESSION['tipo_usu'] == 1) {
+                            if ($_SESSION['tipo_usu_cod'] == 1) {
                             } else { ?>
                                 <div class="card-footer">
                                     <div class="form-flex">
@@ -130,7 +130,7 @@ require_once('../Controller/controladorListar.php'); ?>
                                 <?php
 
 
-                                if ($_SESSION['tipo_usu'] == 1) {
+                                if ($_SESSION['tipo_usu_cod'] == 1) {
                                 ?>
                                     <button type="button" class="btn btn-mak mak-bg dwnld_valo" id="btn_dwnld_valo" name="btn_dwnld_valo" disabled>Descargar Informacion</button>
                                     <input type="date" id="fecha_ini_txt" name="fecha_ini_txt">
@@ -146,14 +146,14 @@ require_once('../Controller/controladorListar.php'); ?>
                                     <?php
 
 
-                                    if ($_SESSION['tipo_usu'] == 1) {
+                                    if ($_SESSION['tipo_usu_cod'] == 1) {
                                         //ocultar el del user y mostrar el del admin
                                     ?>
 
                                         <!-- </div> TABLA ADMIN -->
 
                                         <div class="col-sm-12 p-0">
-                                            <table class="table table_ table-responsive table-borderless mb-3 mr-3" style="width: 100%;">
+                                            <table class="table table_ shadow table-responsive table-borderless mb-3 mr-3" style="width: 100%;">
 
                                                 <thead>
                                                     <tr>
@@ -210,11 +210,11 @@ require_once('../Controller/controladorListar.php'); ?>
                                                             <?php mostrarData($lst_vlzn[3]) ?>
                                                             <?php mostrarData($lst_vlzn[4] . ' (' . $lst_vlzn[5] . ')') ?>
 
-                                                            <?php mostrarData($lst_vlzn[6]) ?>
-                                                            <?php mostrarData($lst_vlzn[63]) ?>
+                                                            <!-- <?php mostrarData($lst_vlzn[6]) ?>
+                                                            <?php mostrarData($lst_vlzn[63]) ?> -->
 
                                                             <td>
-
+                                                                <!-- 
                                                                 <?php if ($lst_vlzn[63] == 400) { ?>
                                                                     <button type="button" class="btn btn-rounded scroll-toggle" data-id_solic_val="<?php echo $lst_vlzn[0] ?>" data-id_cli="<?php echo $lst_vlzn[64] ?>" data-dni_cli="<?php echo $lst_vlzn[1] ?>">
                                                                         <i class="fa-solid fa-pencil"></i>
@@ -224,7 +224,7 @@ require_once('../Controller/controladorListar.php'); ?>
                                                                     <button type="button" class="btn btn-rounded scroll-toggle" data-id_solic_val="<?php echo $lst_vlzn[0] ?>" data-id_cli="<?php echo $lst_vlzn[64] ?>" data-dni_cli="<?php echo $lst_vlzn[1] ?>">
                                                                         <i class="fa-solid fa-eye"></i>
                                                                     </button>
-                                                                <?php } ?>
+                                                                <?php } ?> -->
 
                                                             </td>
                                                         </tr>
@@ -1424,7 +1424,7 @@ require_once('../Controller/controladorListar.php'); ?>
                                     var btn_dlt = $('<button type="button" class="btn btn-danger dlt_file"><i class="fa-solid fa-trash"></i>')
                                         .attr('data-ruta', archivo.url);
 
-                                    var rol = '<?php echo $_SESSION['tipo_usu'] ?>';
+                                    var rol = '<?php echo $_SESSION['tipo_usu_cod'] ?>';
 
                                     var listItem;
 
