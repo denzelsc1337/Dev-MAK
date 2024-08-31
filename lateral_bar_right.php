@@ -54,7 +54,16 @@
                 <span class="badge badge-light">ID 238765</span> -->
                 <div class="saneamiento-content">
                     <div><span>Saneamiento Legal</span></div>
-                    <div><span>ID <?php echo $ID->total_props; ?></span></div>
+                    <div>
+                        <span>ID <?php
+                                    //echo $ID->total_props; 
+                                    if (isset($ID) && $ID !== null) {
+                                        echo $ID->total_props;
+                                    } else {
+                                        echo "1";
+                                    }
+                                    ?></span>
+                    </div>
                 </div>
                 <div class="saneamiento-dates">
                     <i class="fa-regular fa-calendar"></i>

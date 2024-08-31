@@ -228,6 +228,7 @@ CREATE TABLE IF NOT EXISTS propiedades(
 	provincia varchar(255),
 	distrito varchar(255),
 	urbanizacion varchar(255),
+	direccion varchar(255),
 	
 	latitud	varchar(20),
 	longitud varchar(20),

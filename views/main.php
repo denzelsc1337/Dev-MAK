@@ -96,7 +96,7 @@ require_once('../Controller/controladorListar.php');
                     </thead>
                     <tbody>
                         <?php foreach ($showLastPropertys as $slp): ?>
-                            <tr>
+                            <tr class="mak-bdr property-item">
                                 <td><?php echo $slp[0] ?></td>
                                 <td>
                                     <span class="badge-tp tc">

@@ -92,7 +92,14 @@ $ID = mysqli_fetch_object($ID_prop);
 
                 <div class="row">
                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 mb-3">
-                        <span class="mak-control"><b>ID de la propiedad: <?php echo $ID->total_props; ?></b> </span>
+                        <span class="mak-control"><b>ID de la propiedad: <?php //echo $ID->total_props; 
+                                                                            if (isset($ID) && $ID !== null) {
+                                                                                echo $ID->total_props;
+                                                                            } else {
+                                                                                echo "1";
+                                                                            }
+                                                                            ?></b> </span>
+
                     </div>
                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 mb-3">
                         <div class="content-filter justify-between">

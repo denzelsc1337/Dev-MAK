@@ -854,6 +854,32 @@ body.dark .home .text {
   font-size: 12px;
 }
 
+.property-item {
+  padding: 20px 0px;
+}
+
+tr {
+  padding: 40px;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+}
+.table td {
+  padding: 1.75rem 0.75rem !important;
+  margin-bottom: 20px;
+}
+
+.table tr td {
+  background: red;
+}
+
 /* MENU PROPERTY */
 
 /* DRAG & DROP */
