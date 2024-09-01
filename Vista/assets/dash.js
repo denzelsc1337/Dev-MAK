@@ -39,7 +39,9 @@ window.addEventListener(
         });
 
         function handleModalClick() {
-          const inputValue = document.querySelector('input[type="checkbox"]').value;
+          const inputValue = document.querySelector(
+            'input[type="checkbox"]'
+          ).value;
           console.log(inputValue);
           console.log("hola", inputValue.checked);
 
@@ -67,7 +69,7 @@ window.addEventListener(
           // Similar setup for verOptions_02 if needed
         });
       } else {
-        console.error("Mensaje desconocido recibido:", event.data);
+        // console.error("Mensaje desconocido recibido:", event.data);
       }
       // ABRIR MODAL
     } else {

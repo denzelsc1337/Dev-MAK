@@ -328,10 +328,10 @@ document.addEventListener("DOMContentLoaded", function () {
     let row = tableContent.querySelector(
       `.tr-list-upfile[data-row-target="${target}"]`
     );
-    let progressArea = row.querySelector(".progress-area");
-    let fileDetailsTD = row.querySelectorAll("td")[1];
+    // // let progressArea = row.querySelector(".progress-area");
+    // let fileDetailsTD = row.querySelectorAll("td")[1];
     // Ocultar el td y mostrar el área de progreso
-    progressArea.style.display = "block";
+    // // progressArea.style.display = "block";
     // fileDetailsTD.style.display = "none";
 
     xhr.upload.addEventListener("progress", ({ loaded, total }) => {
@@ -358,7 +358,7 @@ document.addEventListener("DOMContentLoaded", function () {
     xhr.addEventListener("load", () => {
       if (xhr.status === 200) {
         // Ocultar área de progreso y mostrar el td
-        progressArea.style.display = "none";
+        // progressArea.style.display = "none";
         // fileDetailsTD.style.display = "none";
 
         // arrayFile.push(file);
