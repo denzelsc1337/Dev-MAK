@@ -339,7 +339,7 @@ $ID = mysqli_fetch_object($ID_prop);
                                                     <button type="button" id="reset-selected">Reset Selected</button>
                                                 </div>
                                                 <div class="row">
-<form id=""></form>
+                                                    <form id=""></form>
                                                     <table id="upTable" class="table table-borderless">
                                                         <thead>
                                                             <tr>
@@ -582,9 +582,7 @@ $ID = mysqli_fetch_object($ID_prop);
                                                 </div>
 
                                                 <div class="file-content">
-
-
-                                                    <div class="up-archive file-item">
+                                                    <div class="up-archive file-item up_pictures">
                                                         <div id="btnFile" class="item-box">
                                                             <i class="fa-solid fa-arrow-up-from-bracket"></i>
                                                             Subir imágenes
@@ -597,6 +595,25 @@ $ID = mysqli_fetch_object($ID_prop);
                                                     </div>
 
                                                 </div>
+
+                                                <!-- <div class="file-content">
+                                                    <div class="up-archive">
+                                                        <input type="file" class="file-selector-input" multiple hidden>
+
+                                                        <div id="btnFile" class="item-box file-selector">
+                                                            <i class="fa-solid fa-arrow-up-from-bracket"></i>
+                                                            Subir imágenes
+                                                        </div>
+                                                    </div>
+                                                    <div class="drop-archive">
+                                                        <div class="drop-here">Soltar aquí</div>
+                                                    </div>
+
+                                                </div> -->
+                                                <!-- <div class="list-section">
+                                                    <div class="list-title">Uploaded Files</div>
+                                                    <div class="list"></div>
+                                                </div> -->
 
                                             </div>
                                         </div>
@@ -775,6 +792,7 @@ $ID = mysqli_fetch_object($ID_prop);
     <script src="./../Vista/assets/selection_types.js"></script>
     <!-- <script src="./../Vista/js/upFiles.js"></script> -->
     <script src="./../Vista/js/upload.pictures.js"></script>
+    <script src="./../Vista/js/upload.files.js"></script>
 
     <!-- Bootstrap 4 -->
     <script src="../Vista/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>

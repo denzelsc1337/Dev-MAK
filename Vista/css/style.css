@@ -925,6 +925,7 @@ tr {
   border-radius: 5px;
   overflow: hidden;
   margin: 0 10px 10px 0;
+  order: -1;
 }
 
 .mak .file-content .file-item img {
@@ -962,7 +963,14 @@ tr {
   left: 0px;
   right: 0px;
 }
+
+.mak .file-content .up-archive.items-picture {
+  display: flex;
+}
+
 .mak .file-content .up-archive.file-item.file-file {
+  display: flex;
+  flex-direction: column;
   position: initial;
   margin: 0 !important;
   order: 2;
@@ -1020,6 +1028,46 @@ tr {
 .mak .table input[type="checkbox"] {
   border-radius: 20px;
 }
+
+/*  */
+.file-content {
+  min-height: 250px;
+  border: 1px dashed #a8b3e3;
+  background-image: linear-gradient(180deg, white, #f1f6ff);
+  margin: 5px 35px 35px 35px;
+  border-radius: 12px;
+  position: relative;
+}
+
+.file-content div.col:first-child {
+  opacity: 1;
+  visibility: visible;
+  transition-duration: 0.2s;
+  transform: scale(1);
+  width: 200px;
+  margin: auto;
+}
+
+.file-content div.col:last-child {
+  font-size: 40px;
+  font-weight: 700;
+  color: #c0cae1;
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  margin: auto;
+  width: 200px;
+  height: 55px;
+  pointer-events: none;
+  opacity: 0;
+  visibility: hidden;
+  transform: scale(0.6);
+  transition-duration: 0.2s;
+}
+/*  */
+
 /* DRAG & DROP */
 
 /* MAK  */
