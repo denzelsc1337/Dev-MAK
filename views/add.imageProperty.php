@@ -3,21 +3,20 @@ include_once('../Config/Conexion.php');
 $cnx = new conexion();
 $cadena = $cnx->abrirConexion();
 
-// var_dump($_FILES);
-
 // ID propiedad
 $ID_prop = mysqli_query($cadena, "SELECT id_prop + 1 AS total_props FROM propiedades ORDER BY id_prop DESC LIMIT 1;");
-$ID_object  = mysqli_fetch_object($ID_prop);
+$ID_object = mysqli_fetch_object($ID_prop);
 if ($ID_object) {
     $ID = $ID_object->total_props;
 } else {
-    die("No se pudo obtener el ID de la propiedad.");
+    $ID = 1;
 }
 // ID propiedad
 
 
 // Crear la ruta de destino para el archivo
-$ruta = "../DocumentosPropiedad/" . $ID . "/Fotos/";
+echo $ruta = "../DocumentosPropiedad/" . $ID . "/Fotos/";
+echo "\n";
 
 
 // Verificar si el directorio existe, y si no, crearlo

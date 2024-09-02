@@ -9,7 +9,7 @@ $ID_object = mysqli_fetch_object($ID_prop);
 if ($ID_object) {
     $ID = $ID_object->total_props;
 } else {
-    die("No se pudo obtener el ID de la propiedad.");
+    $ID = 1;
 }
 
 // Verificar si se recibió el array de archivos
@@ -28,13 +28,18 @@ if (isset($_POST['arrayFile'])) {
                 $lastModified = isset($file['lastModified']) ? $file['lastModified'] : '';
 
                 // Crear la ruta de destino para el archivo
-                $ruta = "../DocumentosPropiedad/" . $ID . "/" . $target . "/";
+                echo $ruta = "../DocumentosPropiedad/" . $ID . "/" . $target . "/";
+                echo "\n";
 
                 // Verificar si el directorio existe, y si no, crearlo
                 if (!file_exists($ruta)) {
-                    if (!mkdir($ruta, 0777, true)) {
+                    if (mkdir($ruta, 0777, true)) {
+                        echo "Directorio creado: $ruta\n";
+                    } else {
                         die("Error al crear el directorio: $ruta\n");
                     }
+                } else {
+                    echo "Directorio ya existe: $ruta\n";
                 }
 
                 // Procesar el archivo correspondiente

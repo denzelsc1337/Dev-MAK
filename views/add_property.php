@@ -339,7 +339,7 @@ $ID = mysqli_fetch_object($ID_prop);
                                                     <button type="button" id="reset-selected">Reset Selected</button>
                                                 </div>
                                                 <div class="row">
-                                                    <form id=""></form>
+
                                                     <table id="upTable" class="table table-borderless">
                                                         <thead>
                                                             <tr>
