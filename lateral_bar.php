@@ -1,58 +1,9 @@
-<!-- <div class="lateral_bar lateral_left mak-bdr">
-    <div class="menu-bar">
-        <div class="menu">
-            <ul class="nav-list"> 
-                <li class="nav-item active">
-                    <a class="nav-link" role="button" onclick='linker("views/main.php")'>
-                        <i class="fas fa-bars"></i>
-                        <span>Página principal</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#" role="button">
-                        <i class="fas fa-bars"></i>
-                        <span>Propiedades</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="./Valorizacion/index.php" role="button">
-                        <i class="fas fa-bars"></i>
-                        <span>Valorización</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="./Legal/index.php" role="button">
-                        <i class="fas fa-bars"></i>
-                        <span>Legal</span>
-                    </a>
-                </li>
-            </ul>
-        </div>
-        <li class="nav-item logout-item">
-            <!-- <a class="nav-link" href="#" role="button" data-widget="pushmenu"> --
-<div class="nav-link" data-widget="pushmenu">
-
-    <i class="fas fa-bars"></i>
-</div>
-<!-- </a> --
-</li>
-</div>
-</div> -->
-
-
-
-
-<!-- <nav class="lateral_bar lateral_left mak-bdr"> -->
 <nav class="sidebar lateral_bar lateral_left mak-bdr">
     <div class="menu-bar">
         <div class="menu">
 
             <ul class="menu-links">
                 <li class="nav-item active">
-                    <!-- <a href="#">
-                        <i class='bx bx-home-alt icon'></i>
-                        <span class="text nav-text">Dashboard</span>
-                    </a> -->
                     <a class="nav-link" role="button" onclick='linker("views/main.php")'>
                         <i class="fas fa-bars"></i>
                         <span>Página principal</span>
@@ -98,6 +49,43 @@
         </div>
 
         <div class="bottom-content">
+            <li class="nav-item">
+                <div>
+                    <?php
+                    // echo __DIR__ . "/Config/logout.php";
+                    // echo "\n";
+                    // echo dirname(__FILE__);
+                    // echo "\n";
+                    // echo $_SERVER['DOCUMENT_ROOT'];
+                    // echo "\n";
+                    // echo $ruta = $_SERVER['PHP_SELF'];
+                    // echo "\n";
+                    // echo $_SERVER['SCRIPT_FILENAME'];
+                    // echo "\n";
+                    // echo getcwd();
+                    // echo "\n";
+                    // echo strlen($_SERVER['PHP_SELF']);
+                    // echo "\n";
+                    // echo substr($ruta, 5, 10);
+                    // echo "\n";
+                    // echo "-> " . substr($_SERVER['PHP_SELF'], 0, 28);
+                    // echo "\n";
+                    // echo "\n";
+
+                    $directorio = substr($_SERVER['PHP_SELF'], 0, 22);
+
+                    if ($directorio > 22) {
+                        $ruta = "../Config/logout.php";
+                    } else {
+                        $ruta = "Config/logout.php";
+                    }
+                    ?>
+                </div>
+                <a href="<?php echo $directorio . $ruta ?>">
+                    <i class="fa-solid fa-power-off"></i>
+                    <span class="text nav-text">Cerrar sesión</span>
+                </a>
+            </li>
             <li class="nav-item logout-item">
                 <!-- <a class="nav-link" href="#" role="button" data-widget="pushmenu"> -->
                 <div class="nav-link" data-widget="pushmenu">

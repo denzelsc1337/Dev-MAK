@@ -459,7 +459,7 @@ $(document).ready(function () {
       },
       success: function (r) {
         // console.log("Éxito:", r);
-        // window.location.reload(true);
+        window.location.reload(true);
       },
       afterSend: function () {},
       error: function (xhr, status, error) {
