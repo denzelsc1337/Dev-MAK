@@ -144,6 +144,11 @@
   justify-content: end;
 }
 
+.logout-item .nav-text {
+  font-size: 10px;
+  padding-inline-end: 0px;
+}
+
 .mak .nav-item.logout-item .nav-link {
   display: flex;
   justify-content: center;
@@ -340,6 +345,7 @@
 }
 
 .sidebar i,
+.sidebar svg,
 .sidebar .bottom-content i {
   min-width: 62px;
   border-radius: 6px;
