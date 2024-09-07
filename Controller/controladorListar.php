@@ -35,3 +35,7 @@ $list_solic_legal = $oLegal->listadoSolicDocsLegal();
 require_once('../Model/propiedades.php');
 $oPropiedades = new propiedades();
 $showLastPropertys = $oPropiedades->showLastPropertys();
+
+require_once('../Model/solicitudes.php');
+$oSolicitudes = new solicitudes();
+$showListSolic = $oSolicitudes->showListSolicitudes();

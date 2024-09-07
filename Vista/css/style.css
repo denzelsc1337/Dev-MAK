@@ -142,11 +142,11 @@
   margin: 0;
   display: flex;
   justify-content: end;
+  position: relative;
 }
 
 .logout-item .nav-text {
   font-size: 10px;
-  padding-inline-end: 0px;
 }
 
 .mak .nav-item.logout-item .nav-link {
@@ -304,6 +304,10 @@
   z-index: 100;
 }
 
+.sidebar.collapsed .text.nav-text {
+  display: none; /* Ocultar texto cuando la barra está colapsada */
+}
+
 .mak.sidebar-collapse .nav-item.logout-item {
   display: flex;
   justify-content: end;
@@ -336,6 +340,7 @@
 .sidebar .nav-item.logout-item .nav-link {
   height: 50px;
   transform: rotate(180deg);
+  background-color: #fff;
 }
 
 .sidebar header .image,
@@ -345,7 +350,6 @@
 }
 
 .sidebar i,
-.sidebar svg,
 .sidebar .bottom-content i {
   min-width: 62px;
   border-radius: 6px;
@@ -363,6 +367,13 @@
   padding-inline-end: 20px;
   opacity: 1;
 }
+
+.sidebar .logout-item span {
+  padding: 0px;
+  position: absolute;
+  left: 0;
+}
+
 .sidebar.close span {
   opacity: 0;
 }

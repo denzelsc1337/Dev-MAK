@@ -79,7 +79,7 @@ require_once('../Controller/controladorListar.php');
 
                 <div class="ml-5">
                     <h1></h1>
-                    <p>!Bienvenido a tu intranet MAK¡</p>
+                    <span>!Bienvenido a tu intranet MAK¡</span>
                 </div>
             </div>
         </div>
@@ -121,12 +121,12 @@ require_once('../Controller/controladorListar.php');
                                 <td><?php echo $slp[3] === "null" ? '' : $slp[3]; ?></td>
 
                                 <td>
-                                    <span class="badge-tp solicitar pointer" id-target="<?php echo $slp[0] ?>">
+                                    <span class="badge-tp solicitar pointer" data-id="<?php echo $slp[0] ?>" data-attr="1">
                                         Solicitar
                                     </span>
                                 </td>
                                 <td>
-                                    <span class="badge-tp solicitar pointer" id-target="<?php echo $slp[0] ?>">
+                                    <span class="badge-tp solicitar pointer" data-id="<?php echo $slp[0] ?>" data-attr="2">
                                         Solicitar
                                     </span>
                                 </td>

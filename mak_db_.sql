@@ -241,7 +241,7 @@ CREATE TABLE IF NOT EXISTS propiedades(
 	guardia_seguridad_serv boolean,
 	ctrl_accs boolean,
 	vigilancia boolean,
-	alarma boolean,
+	alarma boolean, 
 	tv_cable boolean,
 	servicios_b boolean,
 	juegos_infan boolean,
@@ -370,6 +370,49 @@ CREATE TABLE IF NOT EXISTS propiedades(
 	-- FOREIGN KEY (cod_tipo_cochera) REFERENCES  tipo_cochera  (id_tipo_cochera) ON DELETE SET NULL,
 	-- FOREIGN KEY (cod_tipo_ilum)	REFERENCES  tipo_iluminacion  (id_tipo_ilum)ON DELETE SET NULL
 );
+
+
+ CREATE TABLE IF NOT EXISTS solicitudes_propiedades(
+	id_soli_prop  int auto_increment primary key,
+	tipo_solic	int,
+
+	id_prop int,
+
+	distrito varchar(250),
+	direccion varchar(250),
+
+	fecha_reg datetime,
+
+	usuario	int,
+	asignado int,
+
+	tipo_inmb int,
+	sub_tipo_inmb int,
+
+
+	status int DEFAULT "1",,
+
+	estado boolean DEFAULT "1",,
+
+
+	FOREIGN KEY (id_prop) REFERENCES propiedades (id_prop) ON DELETE SET NULL,
+	FOREIGN KEY (usuario) REFERENCES usuarios (id_usu) ON DELETE SET NULL,
+	FOREIGN KEY (asignado) REFERENCES usuarios (id_usu) ON DELETE SET NULL,
+
+	FOREIGN KEY (tipo_inmb) REFERENCES tipo_inmuebles (id_tipo_inmb) ON DELETE SET NULL,
+    FOREIGN KEY (sub_tipo_inmb) REFERENCES  sub_tipo_inmuebles  (id_sub_tipo_inmb) ON DELETE SET NULL
+
+ );
+
+
+
+
+
+
+
+
+
+
 
 -- CREATE TABLE IF NOT EXISTS propiedades(
 -- 	id_prop int auto_increment primary key, 

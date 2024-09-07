@@ -55,6 +55,7 @@
   <nav class="main-header navbar navbar-expand mak-bg">
 
     <ul class="navbar-nav align-content ml-4">
+
       <a href="dashboard.php" class="d-flex align-items-center mak-bg">
         <img src="Vista/images/Logo_mak.png" alt="AdminLTE Logo" class="brand-image">
       </a>
