@@ -141,3 +141,5 @@ require_once('../Controller/controladorListar.php');
         </div>
     </div>
 </div>
+
+<script src="./../Vista/js/solicitudes.js"></script>

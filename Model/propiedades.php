@@ -10,6 +10,7 @@ class propiedades
         $this->selectorTypes_prop = array();
         $this->selectorLast_prop = array();
         $this->selectorAll_prop = array();
+        $this->selector_prop = array();
     }
 
     public function add_Propiedades($data, $cadena)

@@ -4,6 +4,7 @@ require_once('../config/security.php');
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -18,6 +19,7 @@ require_once('../config/security.php');
   <!-- Theme style -->
   <link rel="stylesheet" href="dist/css/adminlte.min.css">
 </head>
+
 <body class="hold-transition sidebar-mini  sidebar-collapse layout-fixed layout-navbar-fixed layout-footer-fixed">
   <div class="wrapper">
 
@@ -849,7 +851,7 @@ require_once('../config/security.php');
           <div class="row mb-2">
             <div class="col-sm-7">
               <ol class="breadcrumb float-sm-right">
-                  <h3 class="mt-4 mb-4">Selecciona un Servicio MAK</h3>
+                <h3 class="mt-4 mb-4">Selecciona un Servicio MAK</h3>
               </ol>
             </div>
           </div>
@@ -858,69 +860,69 @@ require_once('../config/security.php');
 
       <!-- Main content -->
       <section class="content">
-          <div class="row">
-            <div class="col-md-4">
-              <div class="card">
-                <div class="card-header">
-                  <h3 class="card-title">
-                    <i class="fas fa-text-width"></i>
-                    BUSQUEDA
-                  </h3>
-                </div>
-                <!-- /.card-header -->
-                  <div class="card mb-2 bg-gradient-dark">
-                    <img class="card-img-top" src="images/search.jpg" alt="Dist Photo 1">
-                    <div class="card-img-overlay d-flex flex-column justify-content-end">
-                      <a href="../Vista/busqueda.php" class="btn btn-block btn-primary">INICIAR</a>
-                    </div>
-                  </div>
-                <!-- /.card-body -->
+        <div class="row">
+          <div class="col-md-4">
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">
+                  <i class="fas fa-text-width"></i>
+                  BUSQUEDA
+                </h3>
               </div>
-              <!-- /.card -->
-            </div>
-
-            <div class="col-md-4">
-              <div class="card">
-                <div class="card-header">
-                  <h3 class="card-title">
-                    <i class="fas fa-text-width"></i>
-                    VALORIZACION
-                  </h3>
+              <!-- /.card-header -->
+              <div class="card mb-2 bg-gradient-dark">
+                <img class="card-img-top" src="images/search.jpg" alt="Dist Photo 1">
+                <div class="card-img-overlay d-flex flex-column justify-content-end">
+                  <a href="../Vista/busqueda.php" class="btn btn-block btn-primary">INICIAR</a>
                 </div>
-                <!-- /.card-header -->
-                  <div class="card mb-2 bg-gradient-dark">
-                    <img class="card-img-top" src="images/money.jpg" alt="Dist Photo 1">
-                    <div class="card-img-overlay d-flex flex-column justify-content-end">
-                      <a href="../Vista/testeo.php" class="btn btn-block btn-primary">INICIAR</a>
-
-                    </div>
-                  </div>
-                <!-- /.card-body -->
               </div>
-              <!-- /.card -->
+              <!-- /.card-body -->
             </div>
-            <!-- ./col -->
-            <div class="col-md-4">
-              <div class="card">
-                <div class="card-header">
-                  <h3 class="card-title">
-                    <i class="fas fa-text-width"></i>
-                    INFORME LEGAL
-                  </h3>
-                </div>
-                <!-- /.card-header -->
-                  <div class="card mb-2 bg-gradient-dark">
-                    <img class="card-img-top" src="images/finance.jpg" alt="Dist Photo 1">
-                    <div class="card-img-overlay d-flex flex-column justify-content-end">
-                      <a href="#" class="btn btn-block btn-primary">INICIAR</a>
-                    </div>
-                  </div>
-                <!-- /.card-body -->
-              </div>
-              <!-- /.card -->
-            </div>
-            <!-- ./col -->
+            <!-- /.card -->
           </div>
+
+          <div class="col-md-4">
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">
+                  <i class="fas fa-text-width"></i>
+                  VALORIZACION
+                </h3>
+              </div>
+              <!-- /.card-header -->
+              <div class="card mb-2 bg-gradient-dark">
+                <img class="card-img-top" src="images/money.jpg" alt="Dist Photo 1">
+                <div class="card-img-overlay d-flex flex-column justify-content-end">
+                  <a href="../Vista/testeo.php" class="btn btn-block btn-primary">INICIAR</a>
+
+                </div>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          </div>
+          <!-- ./col -->
+          <div class="col-md-4">
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">
+                  <i class="fas fa-text-width"></i>
+                  INFORME LEGAL
+                </h3>
+              </div>
+              <!-- /.card-header -->
+              <div class="card mb-2 bg-gradient-dark">
+                <img class="card-img-top" src="images/finance.jpg" alt="Dist Photo 1">
+                <div class="card-img-overlay d-flex flex-column justify-content-end">
+                  <a href="#" class="btn btn-block btn-primary">INICIAR</a>
+                </div>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          </div>
+          <!-- ./col -->
+        </div>
       </section>
       <!-- /.content -->
     </div>
@@ -941,30 +943,31 @@ require_once('../config/security.php');
       </div>
     </footer>
   </div>
-<!-- ./wrapper -->
+  <!-- ./wrapper -->
 
-<!-- REQUIRED SCRIPTS -->
-<!-- jQuery -->
-<script src="plugins/jquery/jquery.min.js"></script>
-<!-- Bootstrap -->
-<script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-<!-- overlayScrollbars -->
-<script src="plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
-<!-- AdminLTE App -->
-<script src="dist/js/adminlte.js"></script>
+  <!-- REQUIRED SCRIPTS -->
+  <!-- jQuery -->
+  <script src="plugins/jquery/jquery.min.js"></script>
+  <!-- Bootstrap -->
+  <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <!-- overlayScrollbars -->
+  <script src="plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+  <!-- AdminLTE App -->
+  <script src="dist/js/adminlte.js"></script>
 
-<!-- PAGE PLUGINS -->
-<!-- jQuery Mapael -->
-<script src="plugins/jquery-mousewheel/jquery.mousewheel.js"></script>
-<script src="plugins/raphael/raphael.min.js"></script>
-<script src="plugins/jquery-mapael/jquery.mapael.min.js"></script>
-<script src="plugins/jquery-mapael/maps/usa_states.min.js"></script>
-<!-- ChartJS -->
-<script src="plugins/chart.js/Chart.min.js"></script>
+  <!-- PAGE PLUGINS -->
+  <!-- jQuery Mapael -->
+  <script src="plugins/jquery-mousewheel/jquery.mousewheel.js"></script>
+  <script src="plugins/raphael/raphael.min.js"></script>
+  <script src="plugins/jquery-mapael/jquery.mapael.min.js"></script>
+  <script src="plugins/jquery-mapael/maps/usa_states.min.js"></script>
+  <!-- ChartJS -->
+  <script src="plugins/chart.js/Chart.min.js"></script>
 
-<!-- AdminLTE for demo purposes -->
-<script src="dist/js/demo.js"></script>
-<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-<script src="dist/js/pages/dashboard2.js"></script>
+  <!-- AdminLTE for demo purposes -->
+  <script src="dist/js/demo.js"></script>
+  <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+  <script src="dist/js/pages/dashboard2.js"></script>
 </body>
+
 </html>

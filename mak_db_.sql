@@ -390,9 +390,9 @@ CREATE TABLE IF NOT EXISTS propiedades(
 	sub_tipo_inmb int,
 
 
-	status int DEFAULT "1",,
+	status int DEFAULT "1",
 
-	estado boolean DEFAULT "1",,
+	estado boolean DEFAULT "1",
 
 
 	FOREIGN KEY (id_prop) REFERENCES propiedades (id_prop) ON DELETE SET NULL,
