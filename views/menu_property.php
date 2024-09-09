@@ -81,7 +81,6 @@ $ID = mysqli_fetch_object($ID_prop);
                     </div>
                 </div>
 
-                <!-- <div class="row"> -->
                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 mb-3">
                     <div class="row">
                         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12 mb-3">
@@ -111,8 +110,6 @@ $ID = mysqli_fetch_object($ID_prop);
                         </div>
                     </div>
                 </div>
-                <a href="./add_property.php" class="mak-control mak-primary btn_button">Publicar</a>
-                <!-- </div> -->
 
             </div>
 

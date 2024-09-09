@@ -1,12 +1,12 @@
 <?php
 include_once('../Config/Conexion.php');
+require_once('../Config/security.php');
+
+require_once('../Controller/controladorListar.php');
 
 $cnx = new conexion();
 $cadena = $cnx->abrirConexion();
 
-$ID_prop = mysqli_query($cadena, "SELECT COUNT(*) + 1 AS total_props FROM propiedades");
-
-$ID = mysqli_fetch_object($ID_prop);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -50,11 +50,6 @@ $ID = mysqli_fetch_object($ID_prop);
         html::-webkit-scrollbar {
             width: 1px;
         }
-
-        #map {
-            height: 400px;
-            width: 100%;
-        }
     </style>
 </head>
 
@@ -62,29 +57,132 @@ $ID = mysqli_fetch_object($ID_prop);
 
     <?php include './../header.php' ?>
 
-    <section class="section_content">
-        <div class="distribution">
 
-            <?php include './../lateral_bar.php' ?>
+    <?php if ($_SESSION['tipo_usu_cod'] == 1) {  ?>
 
-            <div class="body-container">
-                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 mb-3">
-                    <h1>Solicitudes</h1>
-                </div>
+        <section class="section_content">
+            <div class="distribution">
 
-                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 mb-3">
-                    <div class="mak-bdr mak-pdd">
-                        Que puede ir acá?
+                <?php include './../lateral_bar.php' ?>
+
+                <div class="body-container">
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 mb-3">
+                        <h1>Solicitudes</h1>
                     </div>
+
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 mb-3">
+                        <div class="mak-bdr mak-pdd">
+                            Que puede ir acá?
+                        </div>
+                    </div>
+
                 </div>
+
+                <?php include './../lateral_bar_right.php' ?>
 
             </div>
 
-            <?php include './../lateral_bar_right.php' ?>
+        </section>
 
-        </div>
+    <?php } else if ($_SESSION['tipo_usu_cod'] == 2) { ?>
+        <section class="section_content">
+            <div class="distribution">
 
-    </section>
+                <?php include './../lateral_bar.php' ?>
+
+                <div class="body-container mak">
+
+                    <div class="row">
+
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 mb-3">
+
+                            <div class="d-flex align-center ml-2 mt-3 menu-content">
+                                <div>
+                                    <img src="../Vista/images/Plataforma/PanelPrincipal/Bienvenido.png" alt="" width="180">
+                                </div>
+
+                                <div class="ml-5">
+                                    <h1></h1>
+                                    <span>!Bienvenido a tu intranet MAK¡</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 mb-3">
+                            <div class="card-body">
+                                <div class="card-head justify-between mb-3">
+                                    <div>
+                                        <img src="../Vista/images/home.svg" alt="">
+                                        Solicitudes
+                                    </div>
+                                </div>
+
+                                <table class="table table-borderless txt-center mt-4">
+                                    <thead>
+                                        <tr>
+                                            <th class="placeholder">Solicitud</th>
+                                            <th class="placeholder">Tipo Solicitud</th>
+                                            <th class="placeholder">ID Propiedad</th>
+                                            <th class="placeholder">Dirección</th>
+                                            <th class="placeholder">Distrito</th>
+                                            <th class="placeholder">Tipo Propiedad</th>
+                                            <th class="placeholder">Sub Tipo Propiedad</th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php foreach ($showListSolic as $sas): ?>
+                                            <tr class="property-item">
+                                                <td><?php echo $sas[0] ?></td>
+                                                <td><?php echo ($sas[1] === "1") ? "VALORIZACIÓN" : "LEGAL"; ?></td>
+                                                <td><?php echo $sas[2] ?></td>
+                                                <td><?php echo $sas[3] ?></td>
+                                                <td><?php echo $sas[4] ?></td>
+                                                <td><?php echo $sas[8] ?></td>
+                                                <td><?php echo $sas[9] ?></td>
+
+                                            </tr>
+
+                                        <?php endforeach ?>
+                                        <br>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <?php include './../lateral_bar_right.php' ?>
+
+            </div>
+
+        </section>
+    <?php } else {  ?>
+        <section class="section_content">
+            <div class="distribution">
+
+                <?php include './../lateral_bar.php' ?>
+
+                <div class="body-container">
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 mb-3">
+                        <h1>Solicitudes</h1>
+                    </div>
+
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 mb-3">
+                        <div class="mak-bdr mak-pdd">
+                            Que puede ir acá? 2
+                        </div>
+                    </div>
+
+                </div>
+
+                <?php include './../lateral_bar_right.php' ?>
+
+            </div>
+
+        </section>
+    <?php } ?>
+
 
 </body>
 <!-- jQuery -->

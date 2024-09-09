@@ -336,7 +336,7 @@ $ID = mysqli_fetch_object($ID_prop);
                                                     <div class="mak-control mak-tertiary btn_button clear">
                                                         <i class="fa-solid fa-trash"></i>&nbsp;Limpiar filtro
                                                     </div>
-                                                    <button type="button" id="reset-selected">Reset Selected</button>
+                                                    <!-- <button type="button" id="reset-selected">Reset Selected</button> -->
                                                 </div>
                                                 <div class="row">
 
@@ -354,7 +354,7 @@ $ID = mysqli_fetch_object($ID_prop);
                                                         </thead>
                                                         <tbody class="table-file-archive">
 
-                                                            <input type="file" id="table-inputFile" name="table-inputFile[]" data-target="" multiple>
+                                                            <input type="file" id="table-inputFile" name="table-inputFile[]" data-target="" multiple hidden>
 
                                                             <tr class="tr-list-upfile dni" data-row-target="DNI">
                                                                 <td scope="row">
@@ -480,7 +480,7 @@ $ID = mysqli_fetch_object($ID_prop);
                                                             </tr>
                                                         </tbody>
                                                     </table>
-                                                    <button id="reset-selected">Reset Selected</button>
+                                                    <!-- <button id="reset-selected">Reset Selected</button> -->
 
                                                 </div>
                                             </div>
@@ -587,7 +587,7 @@ $ID = mysqli_fetch_object($ID_prop);
                                                             <i class="fa-solid fa-arrow-up-from-bracket"></i>
                                                             Subir imágenes
                                                         </div>
-                                                        <input id="inputFile" name="inputFile[]" type="file" multiple>
+                                                        <input id="inputFile" name="inputFile[]" type="file" multiple hidden>
                                                     </div>
 
                                                     <div class="drop-archive">

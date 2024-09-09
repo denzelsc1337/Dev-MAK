@@ -13,66 +13,10 @@ CREATE TABLE IF NOT EXISTS sub_tipo_inmuebles (
   FOREIGN KEY (cod_tipo_inmb) REFERENCES tipo_inmuebles (id_tipo_inmb)
 );
 
--- CREATE TABLE IF NOT EXISTS tipo_zonificacion (
---   id_zona 		int primary key auto_increment,
---   tipo_zona 	varchar(255) NOT NULL
--- );
-
 CREATE TABLE IF NOT EXISTS tipo_cliente(
 	id_tipo_cliente int auto_increment primary key,
     tipo_cliente varchar(80) not null
 );
- 
--- CREATE TABLE IF NOT EXISTS tipo_aviso(
--- 	id_tipo_aviso int primary key auto_increment,
--- 	tipo_aviso varchar(80) not null
--- );
-
--- CREATE TABLE IF NOT EXISTS tipo_pared_ext (
---   id_tipo_p 		int primary key auto_increment,
---   tipo_pared_ext 	varchar(255) NOT NULL
--- );
-
-
--- CREATE TABLE IF NOT EXISTS tipo_acabado (
---   id_acabado 		int null primary key auto_increment,
---   tipo_acabado 		varchar(255) NOT NULL
--- );
-
--- CREATE TABLE IF NOT EXISTS tipo_vista (
---   id_vista 			int null primary key auto_increment,
---   tipo_vista 		varchar(255) NOT NULL
--- );
-
--- CREATE TABLE IF NOT EXISTS tipo_cochera (
---   id_tipo_cochera 	int primary key auto_increment,
---   tipo_cochera 		varchar(255) NOT NULL
--- );
-
--- CREATE TABLE IF NOT EXISTS tipo_energia (
---   id_tipo_energ 	int primary key auto_increment,
---   tipo_ener 		varchar(255) NOT NULL
--- );
-
--- CREATE TABLE IF NOT EXISTS tipo_iluminacion (
---   id_tipo_ilum 		int primary key auto_increment,
---   tipo_ilumn	 	varchar(255) NOT NULL
---  );
-
--- CREATE TABLE IF NOT EXISTS tipo_repostero (
---    id_tipo_repo 	int primary key auto_increment,
---    tipo_repo		varchar(255) NOT NULL
--- );
-
--- CREATE TABLE IF NOT EXISTS tipo_suelo (
---   id_tipo_suelo int null primary key auto_increment,
---   tipo_suelo 	varchar (255) not null
--- );
-
--- CREATE TABLE IF NOT EXISTS ubicacion (
--- 	id_ubicacion 	int null primary key auto_increment null,
--- 	tipo_ubic 		varchar (255) not null
--- );
 
 CREATE TABLE IF NOT EXISTS tipo_promocion (
   id_promo 			int primary key auto_increment,
@@ -87,14 +31,13 @@ CREATE TABLE IF NOT EXISTS roles_usu (
 
 CREATE TABLE IF NOT EXISTS tipo_usuario (
 	tipo_usu_id 	int primary key auto_increment,
-	tipo_usu_nom 	varchar (255) not null,
-	cod_rol int NOT NULL,
-	FOREIGN KEY (cod_rol) REFERENCES roles_usu (id_rol)
+	tipo_usu_nom 	varchar (255) not null
 );
 
 CREATE TABLE IF NOT EXISTS usuarios (
 	id_usu INT auto_increment PRIMARY KEY NOT NULL,
 	tipo_usu_cod INT NOT NULL,
+	id_rol_cod INT NOT NULL,
 	nom_usu VARCHAR (30) NOT NULL,
 	ape_usu VARCHAR (30) NOT NULL,
 	dni_usu VARCHAR (8) NOT NULL,
@@ -105,14 +48,14 @@ CREATE TABLE IF NOT EXISTS usuarios (
 	estado_usu  BOOLEAN DEFAULT "1",
 	genero_usu CHAR(2),
 	procedencia VARCHAR(50),
-	FOREIGN KEY (tipo_usu_cod) REFERENCES tipo_usuario (tipo_usu_id)
+	FOREIGN KEY (tipo_usu_cod) REFERENCES tipo_usuario (tipo_usu_id),
+	FOREIGN KEY (id_rol_cod) REFERENCES roles_usu (id_rol)
 );
 
 CREATE TABLE IF NOT EXISTS tipo_client_service (
 	id_tipo_client_s int not null auto_increment primary key, 
     nombre_tipo_client varchar(255)
 );
-
 
 CREATE TABLE IF NOT EXISTS clientes_servicios (
   id_client 				INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -133,18 +76,12 @@ CREATE TABLE IF NOT EXISTS clientes_servicios (
   FOREIGN KEY (rol_usu) REFERENCES roles_usu (id_rol)
 );
 
-
 CREATE TABLE IF NOT EXISTS clientes(
 	id_client INT auto_increment PRIMARY KEY NOT NULL,
 	fecha_reg datetime not null,
     
 	cod_usu_regis int not null,
-	-- cod_asesor int not null,
     cod_tipo_client int not null,
-    
-	-- tipo_persona varchar(255) not null,
-	-- cod_tipo_aviso int not null,
-
 	-- ---------- inicio persona natural-----------------
 	nombres varchar(255) DEFAULT "-",
 	apellidoPatern varchar(255) DEFAULT "-",
@@ -154,8 +91,7 @@ CREATE TABLE IF NOT EXISTS clientes(
 	celular char (9) DEFAULT "-",
 	email varchar(255) DEFAULT "-",
 	direccion varchar(255) DEFAULT "-",
-	-- ------------fin persona natural-----------------
-
+	-- ------------ fin persona natural-----------------
 	-- ------------- inicio persona juridica------------------------
 	razonSocial varchar(255) DEFAULT "-",
 	RUC char (11) DEFAULT "-",
@@ -180,10 +116,7 @@ CREATE TABLE IF NOT EXISTS clientes(
 	celular_Contact_3 char(9) DEFAULT "-",
 	correo_Contact_3 varchar(255) DEFAULT "-",
 	-- fin persona juridica ------------------------
-
 	FOREIGN KEY (cod_usu_regis) REFERENCES usuarios(id_usu),
-	-- FOREIGN KEY (cod_asesor) REFERENCES usuarios(id_usu),
-    -- FOREIGN KEY (cod_tipo_aviso) REFERENCES tipo_aviso(id_tipo_aviso),
 	FOREIGN KEY (cod_tipo_client) REFERENCES tipo_cliente(id_tipo_cliente)
 );
 
@@ -346,8 +279,8 @@ CREATE TABLE IF NOT EXISTS propiedades(
 
 	antiguedad int,
 
-	estado_llamadas int,
-	estado boolean,
+	estado_llamadas int DEFAULT "1",
+	estado boolean DEFAULT "1",
 
 	FOREIGN KEY (cod_client) REFERENCES clientes (id_client) ON DELETE SET NULL,
 	FOREIGN KEY (cod_tipo_inmue) REFERENCES tipo_inmuebles (id_tipo_inmb) ON DELETE SET NULL,
@@ -355,20 +288,6 @@ CREATE TABLE IF NOT EXISTS propiedades(
 
 	FOREIGN KEY (cod_usu) REFERENCES usuarios (id_usu) ON DELETE SET NULL,
 	FOREIGN KEY (usu_asig) REFERENCES usuarios (id_usu) ON DELETE SET NULL
-
-    -- FOREIGN KEY (cod_tipo_prom) REFERENCES  tipo_promocion  (id_promo) ON DELETE SET NULL,
-    -- FOREIGN KEY (cod_ubi) REFERENCES  ubicacion  (id_ubicacion) ON DELETE SET NULL,
-    -- FOREIGN KEY (cod_vista) REFERENCES  tipo_vista  (id_vista) ON DELETE SET NULL,
-    -- FOREIGN KEY (cod_acabado) REFERENCES  tipo_acabado  (id_acabado) ON DELETE SET NULL,
-    -- FOREIGN KEY (cod_zonificacion) REFERENCES  tipo_zonificacion (id_zona) ON DELETE SET NULL,
-    -- FOREIGN KEY (cod_tipo_suelo) REFERENCES  tipo_suelo  (id_tipo_suelo) ON DELETE SET NULL,
-
-	-- FOREIGN KEY (cod_tipo_pa_ex) REFERENCES  tipo_pared_ext  (id_tipo_p) ON DELETE SET NULL,
-	-- FOREIGN KEY (cod_repo_coci)	REFERENCES  tipo_repostero  (id_tipo_repo) ON DELETE SET NULL,
-	-- FOREIGN KEY (cod_energ)	REFERENCES  tipo_energia  (id_tipo_energ) ON DELETE SET NULL,
-	-- FOREIGN KEY (cod_tipo_promo) REFERENCES  tipo_promocion  (id_promo)  ON DELETE SET NULL,
-	-- FOREIGN KEY (cod_tipo_cochera) REFERENCES  tipo_cochera  (id_tipo_cochera) ON DELETE SET NULL,
-	-- FOREIGN KEY (cod_tipo_ilum)	REFERENCES  tipo_iluminacion  (id_tipo_ilum)ON DELETE SET NULL
 );
 
 
@@ -405,173 +324,6 @@ CREATE TABLE IF NOT EXISTS propiedades(
  );
 
 
-
-
-
-
-
-
-
-
-
--- CREATE TABLE IF NOT EXISTS propiedades(
--- 	id_prop int auto_increment primary key, 
---     cod_tipo_prop int, 
-    
---     cod_sub_tipo_inmb int, 
---     cod_sts_cap int, 
-    
---     at_pro DECIMAL(5,2),
---     ac_pro  DECIMAL(5,2),
---     ao_pro  DECIMAL(5,2),
-    
---     cod_tipo_promo int, 
-    
---     prec_vta_prop   DECIMAL(5,2),
---     prec_xm2_vta 	DECIMAL(5,2),
---     prec_alq_prop   DECIMAL(5,2),
---     prec_xm2_alq    DECIMAL(5,2),
---     prec_mant_prop  DECIMAL(5,2),
---     antig_prop 		DATE,
--- 	exclu_pro 		TINYINT(1) ,
--- 	fecha_reg_pro 	DATETIME ,
-
--- 	cod_usu_reg 	INT(11) ,
--- 	cod_zona 		INT(11) ,
-
--- 	frente_prop 	INT(11) ,
--- 	fondo_prop 		INT(11) ,
--- 	izq_prop 		INT(11) ,
--- 	der_prop 		INT(11) ,
-
--- 	cod_acabado 	INT(11) ,
-
--- 	nave_m2_prop 	DECIMAL(5,2) ,
--- 	nave_al_prop 	DECIMAL(5,2) ,
--- 	alma_m2 		DECIMAL(5,2) ,
--- 	ofi_m2 			DECIMAL(5,2) ,
--- 	sala_come 		TINYINT(1) ,
--- 	sala 			TINYINT(1) ,
--- 	come 			TINYINT(1) ,
--- 	come_dia 		TINYINT(1) ,
--- 	sala_estar 		TINYINT(1) ,
--- 	sala_entre 		TINYINT(1) ,
--- 	sala_reu 		TINYINT(1) ,
--- 	sala_confe 		TINYINT(1) ,
--- 	sala_compu 		TINYINT(1) ,
--- 	cocina 				TINYINT(1) ,
--- 	dorm_tot 			INT(11) ,
--- 	cant_dorm_banio	 	INT(11) ,
--- 	cant_dorm_clst 		INT(11) ,
--- 	cant_dorm_wlk_clst 	INT(11) ,
--- 	total_ambts 		INT(11) ,
--- 	total_banios 		INT(11) ,
--- 	banios_compl 		INT(11) ,
--- 	banios_visit 		INT(11) ,
--- 	cuarto_serv 		INT(11) ,
--- 	banio_serv 			INT(11) ,
--- 	area_lavnd 			TINYINT(1) ,
--- 	cnt_cochera 		INT(11) ,
--- 	cod_tipo_cochera 	INT(11) ,
-
--- 	cant_depos 			INT(11) ,
--- 	patio_priv 			TINYINT(1) ,
--- 	jar_priv 			TINYINT(1) ,
--- 	terra_priv 			TINYINT(1) ,
--- 	cant_balcon 		INT(11) ,
--- 	co_work 			TINYINT(1) ,
--- 	vestuarios 			TINYINT(1) ,
--- 	piscina 			TINYINT(1) ,
--- 	piso 			INT(11) ,
--- 	pisos_prop 		INT(11) ,
--- 	pisos_edif 		INT(11) ,
--- 	nro_depas 		INT(11) ,
--- 	nro_lc_comer 	INT(11) ,
--- 	cant_ascensor 	INT(11) ,
--- 	ascnsor_dir 	TINYINT(1) ,
--- 	perm_masco 		TINYINT(1) ,
-
--- 	cod_tipo_ilum 	INT(11) ,
-
--- 	acabado_lujo 	TINYINT(1) ,
-
--- 	cod_tipo_suel 	INT(11) ,
-
--- 	aire_acond 		TINYINT(1) ,
-
--- 	cod_tipo_pa_ex 	INT(11) ,
-
--- 	cant_anden_carga INT(11) ,
-
--- 	cod_repo_coci 	 INT(11) ,
-
--- 	kitchenet 		TINYINT(1) ,
--- 	jacuzzi 		TINYINT(1) ,
--- 	chimenea 		TINYINT(1) ,
--- 	camp_ext	 	TINYINT(1) ,
--- 	horno_emp 		TINYINT(1) ,
--- 	despensa 		TINYINT(1) ,
--- 	seg_priv 		TINYINT(1) ,
--- 	ctrl_accs 		TINYINT(1) ,
--- 	caseta_guard 	TINYINT(1) ,
--- 	vid_vigil 		TINYINT(1) ,
--- 	sist_alarm 		TINYINT(1) ,
--- 	intercom 		TINYINT(1) ,
--- 	sist_incend 	TINYINT(1) ,
--- 	cerco_vivo 		TINYINT(1) ,
--- 	muro_corr 		TINYINT(1) ,
--- 	cerco_elec 		TINYINT(1) ,
--- 	luz 			TINYINT(1) ,
--- 	agua 			TINYINT(1) ,
--- 	desague 		TINYINT(1) ,
--- 	internet 		TINYINT(1) ,
-
--- 	cod_energ 		INT(11) ,
-
--- 	area_comn 		TINYINT(1) ,
--- 	terrz_comn 		TINYINT(1) ,
--- 	coch_vist 		TINYINT(1) ,
--- 	recep 			TINYINT(1) ,
--- 	hall 			TINYINT(1) ,
--- 	ingre_indp 		TINYINT(1) ,
--- 	bbq 			TINYINT(1) ,
--- 	area_verde 		TINYINT(1) ,
--- 	cancha 			TINYINT(1) ,
--- 	parq_int 		TINYINT(1) ,
--- 	pisc_comn 		TINYINT(1) ,
--- 	area_cafe 		TINYINT(1) ,
--- 	vista_int 		TINYINT(1) ,
--- 	vista_ext 		TINYINT(1) ,
--- 	vista_parq 		TINYINT(1) ,
--- 	vista_pano 		TINYINT(1) ,
--- 	vista_mar 		TINYINT(1) ,
--- 	cod_ubic 		INT(11) ,
--- 	cerca_cc 		TINYINT(1) ,
--- 	cerca_cole 		TINYINT(1) ,
--- 	frente_parq 	TINYINT(1) ,
--- 	frente_mar 		TINYINT(1) ,
--- 	cerca_parq_m_2 	TINYINT(1) ,
--- 	av_accs_asfalt 	TINYINT(1) ,
--- 	av_accs_afirm 	TINYINT(1) ,
--- 	lic_funcion 	TINYINT(1) ,
-    
--- -- relaciones
-
---    FOREIGN KEY (cod_tipo_prop) 	REFERENCES  tipo_inmuebles  (id_tipo_inmb) ON DELETE SET NULL,
--- FOREIGN KEY (cod_tipo_pa_ex) 	REFERENCES  tipo_pared_ext  (id_tipo_p) ON DELETE SET NULL,
--- FOREIGN KEY (cod_repo_coci)		REFERENCES  tipo_repostero  (id_tipo_repo) ON DELETE SET NULL,
--- FOREIGN KEY (cod_energ)		 	REFERENCES  tipo_energia  (id_tipo_energ) ON DELETE SET NULL,
---    FOREIGN KEY (cod_ubic) 			REFERENCES  ubicacion  (id_ubicacion) ON DELETE SET NULL,
---    FOREIGN KEY (cod_sub_tipo_inmb)  REFERENCES 	sub_tipo_inmuebles  (id_sub_tipo_inmb),
---    FOREIGN KEY (cod_usu_reg) 		REFERENCES  usuarios  (id_usu),
--- FOREIGN KEY (cod_tipo_promo)	    REFERENCES  tipo_promocion  (id_promo),
---    FOREIGN KEY (cod_zona)			REFERENCES  tipo_zonificacion  (id_zona) ON DELETE SET NULL,
---    FOREIGN KEY (cod_acabado)		REFERENCES  tipo_acabado  (id_acabado)ON DELETE SET NULL,
--- FOREIGN KEY (cod_tipo_cochera)	REFERENCES  tipo_cochera  (id_tipo_cochera) ON DELETE SET NULL,
--- FOREIGN KEY (cod_tipo_ilum)		REFERENCES  tipo_iluminacion  (id_tipo_ilum)ON DELETE SET NULL,
---    FOREIGN KEY (cod_tipo_suel)		REFERENCES  tipo_suelo  (id_tipo_suelo)ON DELETE SET NULL
--- -- fin relaciones 
--- );
 
 
 CREATE TABLE IF NOT EXISTS valorizacion(
@@ -681,39 +433,12 @@ CREATE TABLE IF NOT EXISTS valorizacion(
 	FOREIGN KEY (cod_usu) REFERENCES usuarios (id_usu) ON DELETE SET NULL,
 
     FOREIGN KEY (cod_tipo_prom) REFERENCES  tipo_promocion  (id_promo) ON DELETE SET NULL
-
-
-    -- FOREIGN KEY (cod_ubi) REFERENCES  ubicacion  (id_ubicacion) ON DELETE SET NULL,
-    -- FOREIGN KEY (cod_vista) REFERENCES  tipo_vista  (id_vista) ON DELETE SET NULL,
-    -- FOREIGN KEY (cod_acabado) REFERENCES  tipo_acabado  (id_acabado) ON DELETE SET NULL,
-    -- FOREIGN KEY (cod_zonificacion) REFERENCES  tipo_zonificacion (id_zona) ON DELETE SET NULL,
-    -- FOREIGN KEY (cod_tipo_suelo) REFERENCES  tipo_suelo  (id_tipo_suelo) ON DELETE SET NULL,
-
-	-- FOREIGN KEY (cod_tipo_pa_ex) REFERENCES  tipo_pared_ext  (id_tipo_p) ON DELETE SET NULL,
-	-- FOREIGN KEY (cod_repo_coci)	REFERENCES  tipo_repostero  (id_tipo_repo) ON DELETE SET NULL,
-	-- FOREIGN KEY (cod_energ)	REFERENCES  tipo_energia  (id_tipo_energ) ON DELETE SET NULL,
-	-- FOREIGN KEY (cod_tipo_promo) REFERENCES  tipo_promocion  (id_promo)  ON DELETE SET NULL,
-	-- FOREIGN KEY (cod_tipo_cochera) REFERENCES  tipo_cochera  (id_tipo_cochera) ON DELETE SET NULL,
-	-- FOREIGN KEY (cod_tipo_ilum)	REFERENCES  tipo_iluminacion  (id_tipo_ilum)ON DELETE SET NULL
 );
-
--- 502 = Pendiente
--- 402 = En revision
--- 200 = Finalizado
-
--- CREATE TABLE IF NOT EXISTS tipos_doc_legal(
--- 	id_doc_legal 	int primary key auto_increment,
---     tipo_doc_leg	varchar(255),
---     tiempo_espera	varchar(255),
---     costo_doc		varchar(255),
---     desc_procd		varchar(255)
--- );
 
 CREATE TABLE IF NOT EXISTS tipos_doc_legal(
 	id_tipo_doc 	int primary key auto_increment,
     desc_tipo		varchar(90)
 );
-
 
 CREATE TABLE IF NOT EXISTS docs_legal(
 	id_legal	int primary key auto_increment, 
@@ -755,7 +480,7 @@ INSERT INTO `sub_tipo_inmuebles` (`id_sub_tipo_inmb`, `sub_tipo_inmb`, `cod_tipo
 
 INSERT INTO `roles_usu` (`id_rol`, `nombre_rol`) VALUES (NULL, 'SUPER ADMINISTRADOR'), (NULL, 'ADMINISTRADOR'), (NULL, 'USUARIO');
 
-INSERT INTO `tipo_usuario` (`tipo_usu_id`, `tipo_usu_nom`, `cod_rol`) VALUES (NULL, 'SUPER ADMIN', '1'), (NULL, 'ADMIN', '2'), (NULL, 'USER', '3');
+INSERT INTO `tipo_usuario` (`tipo_usu_id`, `tipo_usu_nom`) VALUES (NULL, 'SUPER ADMIN'), (NULL, 'ADMIN'), (NULL, 'USER');
 
 
 INSERT INTO `tipo_cliente` (`id_tipo_cliente`, `tipo_cliente`) VALUES (NULL, 'NATURAL'), (NULL, 'CON NEGOCIO');
@@ -766,11 +491,25 @@ INSERT INTO `tipo_promocion` (`id_promo`, `tipo_promo`) VALUES (NULL, 'VENTA'), 
 INSERT INTO `tipo_client_service` (`id_tipo_client_s`, `nombre_tipo_client`) VALUES (NULL, 'CORREDOR'), (NULL, 'PROPIETARIO');
 
 
-INSERT INTO `usuarios` (`id_usu`, `tipo_usu_cod`, `nom_usu`, `ape_usu`, `dni_usu`, `cod_usu`, `pass_usu`, `mail_usu`, `tlf_usu`, `estado_usu`, `genero_usu`, `procedencia`) VALUES (NULL, '1', 'VICTOR', 'ARROYO', '73891830', 'varroyo', '1999', 'victor.arroyo0302@gmail.com', '942394243', '1', 'M', 'mak');
+INSERT INTO `usuarios` (`id_usu`, `tipo_usu_cod`, `id_rol_cod`, `nom_usu`, `ape_usu`, `dni_usu`, `cod_usu`, `pass_usu`, `mail_usu`, `tlf_usu`, `estado_usu`, `genero_usu`, `procedencia`) VALUES (NULL, '1', '1', 'VICTOR', 'ARROYO', '73891830', 'varroyo', '1999', 'victor.arroyo0302@gmail.com', '942394243', '1', 'M', 'mak');
+INSERT INTO `usuarios` (`id_usu`, `tipo_usu_cod`, `id_rol_cod`, `nom_usu`, `ape_usu`, `dni_usu`, `cod_usu`, `pass_usu`, `mail_usu`, `tlf_usu`, `estado_usu`, `genero_usu`, `procedencia`) VALUES (NULL, '1', '1', 'VICTOR', 'ARROYO', '73891830', 'varroyo', '1999', 'victor.arroyo0302@gmail.com', '942394243', '1', 'M', 'mak');
 
 INSERT INTO `clientes` (`id_client`, `fecha_reg`, `cod_usu_regis`, `cod_tipo_client`, `nombres`, `apellidoPatern`, `apellidoMatern`, `dni`, `telefono`, `celular`, `email`, `direccion`, `razonSocial`, `RUC`, `telefono_empr`, `direccion_empr`, `nombContact_1`, `apellido_Patern_Contact_1`, `apellido_Matern_Contact_1`, `celular_Contact_1`, `correo_Contact_1`, `nombContact_2`, `apellido_Patern_Contact_2`, `apellido_Matern_Contact_2`, `celular_Contact_2`, `correo_Contact_2`, `nombContact_3`, `apellido_Patern_Contact_3`, `apellido_Matern_Contact_3`, `celular_Contact_3`, `correo_Contact_3`) VALUES (NULL, '2024-08-19 23:21:25.000000', '1', '2', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-');
 
 INSERT INTO `clientes_servicios` (`id_client`, `dni_client`, `nom_client`, `ape_client`, `telef_client`, `email_client`, `usu_client`, `pass_client`, `tipo_client_service_cod`, `corredor_cod`, `suscripcion_cod`, `tipo_usu_cod`, `rol_usu`) VALUES (NULL, '12345678', 'Cliente', 'CCliente', '987654321', '', 'usuCliente', 'usuCliente', '2', 'no es corredor', NULL, '3', '3');
+
+
+
+
+
+
+
+
+
+-- ....................................................................................
+-- ....................................................................................
+
+
 
 
 

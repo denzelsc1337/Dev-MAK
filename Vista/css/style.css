@@ -35,6 +35,16 @@
 .pointer {
   cursor: pointer;
 }
+
+.default {
+  cursor: default;
+  user-select: none;
+}
+
+.opacity {
+  opacity: 0;
+  transition: 1s ease;
+}
 /*  */
 
 .g-10 {
@@ -279,15 +289,21 @@
   padding: 10px 15px;
   border-radius: 4px;
   /* user-select: none; */
+  transition: 1s ease;
 }
 
 .solicitar {
   outline: 2px solid var(--blue-mak);
 }
 
-.tc {
+.proceso {
   background: #f6f5ca;
   color: #8f8f44;
+}
+
+.descarga {
+  background: #b7f3be;
+  color: #539c5b;
 }
 
 /*  */
@@ -372,6 +388,7 @@
   padding: 0px;
   position: absolute;
   left: 0;
+  padding-inline-start: 10px;
 }
 
 .sidebar.close span {
@@ -913,6 +930,24 @@ tr {
   overflow: hidden;
 }
 
+.table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 20px;
+  margin-top: 20px;
+  background-color: transparent;
+  /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); */
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.table td {
+  padding: 1.75rem 0.75rem !important;
+  vertical-align: middle !important;
+  margin-bottom: 20px;
+  background-color: var(--white-mak);
+}
+
 /* .table tr td {
   background: red;
 } */
@@ -930,6 +965,7 @@ tr {
   display: flex;
   flex-wrap: wrap;
   padding: 5px;
+  cursor: pointer;
 }
 
 .mak .file-content .file-item {
@@ -3010,21 +3046,6 @@ form .form-content {
 
 .data-resume p {
   margin: 0;
-}
-
-.blaa {
-  flex: 0 0 33.33%;
-  max-width: 33.33%;
-}
-
-.blaa:first-child {
-  flex: 0 0 25%;
-  max-width: 25%;
-}
-
-.blaa:last-child {
-  flex: 0 0 37%;
-  max-width: 37%;
 }
 
 #verFotos .modal-header {
