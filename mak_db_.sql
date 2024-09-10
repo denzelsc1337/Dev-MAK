@@ -28,6 +28,11 @@ CREATE TABLE IF NOT EXISTS roles_usu (
     nombre_rol varchar(255)
 );
 
+CREATE TABLE IF NOT EXISTS areas (
+	id_area INT auto_increment PRIMARY KEY NOT NULL,
+	desc_area varchar (100),
+	estado int DEFAULT "1"
+);
 
 CREATE TABLE IF NOT EXISTS tipo_usuario (
 	tipo_usu_id 	int primary key auto_increment,
@@ -38,6 +43,7 @@ CREATE TABLE IF NOT EXISTS usuarios (
 	id_usu INT auto_increment PRIMARY KEY NOT NULL,
 	tipo_usu_cod INT NOT NULL,
 	id_rol_cod INT NOT NULL,
+	area_cod INT NOT NULL,
 	nom_usu VARCHAR (30) NOT NULL,
 	ape_usu VARCHAR (30) NOT NULL,
 	dni_usu VARCHAR (8) NOT NULL,
@@ -45,12 +51,15 @@ CREATE TABLE IF NOT EXISTS usuarios (
 	pass_usu VARCHAR (20) NOT NULL,
 	mail_usu VARCHAR (40),
 	tlf_usu  CHAR (9),
-	estado_usu  BOOLEAN DEFAULT "1",
 	genero_usu CHAR(2),
 	procedencia VARCHAR(50),
+	estado_usu  BOOLEAN DEFAULT "1",
 	FOREIGN KEY (tipo_usu_cod) REFERENCES tipo_usuario (tipo_usu_id),
-	FOREIGN KEY (id_rol_cod) REFERENCES roles_usu (id_rol)
+	FOREIGN KEY (id_rol_cod) REFERENCES roles_usu (id_rol),
+	FOREIGN KEY (area_cod) REFERENCES areas (id_area)
 );
+
+
 
 CREATE TABLE IF NOT EXISTS tipo_client_service (
 	id_tipo_client_s int not null auto_increment primary key, 
@@ -466,6 +475,7 @@ CREATE TABLE IF NOT EXISTS documents_clients(
     file_type			varchar(100),
     file_size			int,
     fecha_reg			date,
+    fecha_asig			date,
     tipo_doc			int,
     id_client			int,
     dni_client			int,
@@ -482,6 +492,13 @@ INSERT INTO `roles_usu` (`id_rol`, `nombre_rol`) VALUES (NULL, 'SUPER ADMINISTRA
 
 INSERT INTO `tipo_usuario` (`tipo_usu_id`, `tipo_usu_nom`) VALUES (NULL, 'SUPER ADMIN'), (NULL, 'ADMIN'), (NULL, 'USER');
 
+INSERT INTO `areas` (`id_area`, `desc_area`, `estado`) VALUES (NULL, 'SISTEMAS', '1'), (NULL, 'ADMINISTRACIÓN', '1'), (NULL, 'COMERCIAL', '1'), (NULL, 'INDUSTRIAL', '1'), (NULL, 'LEGAL', '1'), (NULL, 'MARKETING', '1'), (NULL, 'OTROS', '1');
+
+INSERT INTO `usuarios` (`id_usu`, `tipo_usu_cod`, `id_rol_cod`, `area_cod`, `nom_usu`, `ape_usu`, `dni_usu`, `cod_usu`, `pass_usu`, `mail_usu`, `tlf_usu`, `genero_usu`, `procedencia`, `estado_usu`) VALUES (NULL, '1', '1', '1', 'VICTOR', 'ARROYO', '73891830', 'varroyo', '1999', 'victor.arroyo0302@gmail.com', '942394243', 'M', 'mak', '1');
+INSERT INTO `usuarios` (`id_usu`, `tipo_usu_cod`, `id_rol_cod`, `area_cod`, `nom_usu`, `ape_usu`, `dni_usu`, `cod_usu`, `pass_usu`, `mail_usu`, `tlf_usu`, `genero_usu`, `procedencia`, `estado_usu`) VALUES (NULL, '2', '2', '7', 'JEFE', 'DE AREA', '', 'jarea', '1999', '', '', 'M', 'mak', '1');
+INSERT INTO `usuarios` (`id_usu`, `tipo_usu_cod`, `id_rol_cod`, `area_cod`, `nom_usu`, `ape_usu`, `dni_usu`, `cod_usu`, `pass_usu`, `mail_usu`, `tlf_usu`, `genero_usu`, `procedencia`, `estado_usu`) VALUES (NULL, '3', '3', '7', 'ASISTENTE', 'DE AREA', '', 'aarea', '1999', '', '', 'M', 'mak', '1');
+
+
 
 INSERT INTO `tipo_cliente` (`id_tipo_cliente`, `tipo_cliente`) VALUES (NULL, 'NATURAL'), (NULL, 'CON NEGOCIO');
 
@@ -491,8 +508,7 @@ INSERT INTO `tipo_promocion` (`id_promo`, `tipo_promo`) VALUES (NULL, 'VENTA'), 
 INSERT INTO `tipo_client_service` (`id_tipo_client_s`, `nombre_tipo_client`) VALUES (NULL, 'CORREDOR'), (NULL, 'PROPIETARIO');
 
 
-INSERT INTO `usuarios` (`id_usu`, `tipo_usu_cod`, `id_rol_cod`, `nom_usu`, `ape_usu`, `dni_usu`, `cod_usu`, `pass_usu`, `mail_usu`, `tlf_usu`, `estado_usu`, `genero_usu`, `procedencia`) VALUES (NULL, '1', '1', 'VICTOR', 'ARROYO', '73891830', 'varroyo', '1999', 'victor.arroyo0302@gmail.com', '942394243', '1', 'M', 'mak');
-INSERT INTO `usuarios` (`id_usu`, `tipo_usu_cod`, `id_rol_cod`, `nom_usu`, `ape_usu`, `dni_usu`, `cod_usu`, `pass_usu`, `mail_usu`, `tlf_usu`, `estado_usu`, `genero_usu`, `procedencia`) VALUES (NULL, '1', '1', 'VICTOR', 'ARROYO', '73891830', 'varroyo', '1999', 'victor.arroyo0302@gmail.com', '942394243', '1', 'M', 'mak');
+
 
 INSERT INTO `clientes` (`id_client`, `fecha_reg`, `cod_usu_regis`, `cod_tipo_client`, `nombres`, `apellidoPatern`, `apellidoMatern`, `dni`, `telefono`, `celular`, `email`, `direccion`, `razonSocial`, `RUC`, `telefono_empr`, `direccion_empr`, `nombContact_1`, `apellido_Patern_Contact_1`, `apellido_Matern_Contact_1`, `celular_Contact_1`, `correo_Contact_1`, `nombContact_2`, `apellido_Patern_Contact_2`, `apellido_Matern_Contact_2`, `celular_Contact_2`, `correo_Contact_2`, `nombContact_3`, `apellido_Patern_Contact_3`, `apellido_Matern_Contact_3`, `celular_Contact_3`, `correo_Contact_3`) VALUES (NULL, '2024-08-19 23:21:25.000000', '1', '2', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-');
 

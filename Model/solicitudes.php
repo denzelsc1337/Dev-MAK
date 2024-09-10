@@ -13,40 +13,39 @@ class solicitudes
 
     public function add_Solicitudes_Prop($data, $cadena)
     {
-        // $query = "1";
-        // if ($data[2] == 1) {
-        //     $query = "INSERT INTO `solicitudes_propiedades` (
-        //         `tipo_solic`, `id_prop`,`distrito`, `direccion`, `fecha_reg`, `usuario`, `tipo_inmb`, `sub_tipo_inmb`
-        //         )
-        //         VALUES
-        //         (
-        //         '" . $data[1] . "',
-        //         '" . $data[2] . "',
-        //         '" . $data[3] . "',
-        //         '" . $data[4] . "',
-        //         NOW(), 
-        //         '" . $data[5] . "',
-        //         '" . $data[6] . "',
-        //         '" . $data[7] . "'
-        //         );";
-        // } else {
-        //     $query = "INSERT INTO `solicitudes_propiedades` (
-        //         `tipo_solic`, `id_prop`,`distrito`, `direccion`, `fecha_reg`, `usuario`, `tipo_inmb`
-        //         )
-        //         VALUES
-        //         (
-        //         '" . $data[1] . "',
-        //         '" . $data[2] . "',
-        //         '" . $data[3] . "',
-        //         '" . $data[4] . "',
-        //         NOW(), 
-        //         '" . $data[5] . "',
-        //         '" . $data[6] . "'
-        //         );";
-        // }
+        if ($data[2] == 1) {
+            $query = "INSERT INTO `solicitudes_propiedades` (
+                `tipo_solic`, `id_prop`,`distrito`, `direccion`, `fecha_reg`, `usuario`, `tipo_inmb`, `sub_tipo_inmb`
+                )
+                VALUES
+                (
+                '" . $data[1] . "',
+                '" . $data[2] . "',
+                '" . $data[3] . "',
+                '" . $data[4] . "',
+                NOW(), 
+                '" . $data[5] . "',
+                '" . $data[6] . "',
+                '" . $data[7] . "'
+                );";
+        } else {
+            $query = "INSERT INTO `solicitudes_propiedades` (
+                `tipo_solic`, `id_prop`,`distrito`, `direccion`, `fecha_reg`, `usuario`, `tipo_inmb`
+                )
+                VALUES
+                (
+                '" . $data[1] . "',
+                '" . $data[2] . "',
+                '" . $data[3] . "',
+                '" . $data[4] . "',
+                NOW(), 
+                '" . $data[5] . "',
+                '" . $data[6] . "'
+                );";
+        }
 
-        // $result = mysqli_query($cadena, $query);
-        $result = "1";
+        $result = mysqli_query($cadena, $query);
+        // $result = "1";
 
         if ($result) {
             echo $result;
@@ -66,10 +65,38 @@ class solicitudes
 
         $query = "SELECT 
                     id_soli_prop, 
-                    CASE tipo_solic WHEN 1 THEN 'VALORIZACIÓN' WHEN 2 THEN 'LEGAL' ELSE 'OTRO' END AS tipo_solic,
-                    id_prop, distrito, direccion, fecha_reg, usuario, asignado, tipo_inmb, sub_tipo_inmb, status, estado
+                    CASE tipo_solic
+                        WHEN 1 THEN 'VALORIZACIÓN'
+                        WHEN 2 THEN 'LEGAL' 
+                        ELSE 'OTRO' 
+                    END AS tipo_solic,
+                    id_prop, distrito, direccion, fecha_reg, 
+                    u.cod_usu,
+                    asignado,
+                    CASE tipo_inmb 
+                        WHEN 1 THEN 'DEPARTAMENTO'
+                        WHEN 2 THEN 'CASA'
+                        WHEN 3 THEN 'CASA DE PLAYA'
+                        WHEN 4 THEN 'CASA DE CAMPO'
+                        WHEN 5 THEN 'TERRENO / LOTE'
+                        WHEN 6 THEN 'TERRENO AGRICOLA'
+                        WHEN 7 THEN 'OFICINA'
+                        WHEN 8 THEN 'HOTEL'
+                        WHEN 9 THEN 'LOCAL COMERCIAL'
+                        WHEN 10 THEN 'LOCAL INDUSTRIAL'
+                        ELSE 'OTRO'
+                    END AS tipo_inmb,
+                    CASE sub_tipo_inmb 
+                        WHEN 1 THEN 'FLAT'
+                        WHEN 2 THEN 'DÚPLEX'
+                        WHEN 3 THEN 'TRÍPLEX'
+                        WHEN 4 THEN 'PENT-HOUSE'
+                        ELSE 'OTRO'
+                    END AS sub_tipo_inmb,
+                    status, estado
                     FROM 
-                    solicitudes_propiedades;";
+                    solicitudes_propiedades sp
+                    INNER JOIN usuarios u ON sp.usuario = u.id_usu";
 
         $resultado = mysqli_query($cadena, $query);
 

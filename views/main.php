@@ -85,22 +85,60 @@ require_once('../Controller/controladorListar.php');
                             <tr class="property-item">
                                 <td><?php echo $slp[0] ?></td>
                                 <td>
-                                    <span class="badge-tp tc">
+                                    <?php
+                                    switch ($slp[1]) {
+                                        case 'DEPARTAMENTO':
+                                            $class = "dp";
+                                            break;
+                                        case 'CASA':
+                                            $class = "CS";
+                                            break;
+                                        default:
+                                            $class = "";
+                                            break;
+                                    }
+                                    ?>
+                                    <span class="badge-tp <?php echo $class ?>">
                                         <?php echo $slp[1] ?>
                                     </span>
                                 </td>
-                                <td><?php echo $slp[2] ?></td>
-                                <td><?php echo $slp[3] === "null" ? '' : $slp[3]; ?></td>
+
+                                <td><?php echo $slp[2] === "null" || $slp[2] === "" ? '-' : $slp[2]; ?></td>
+                                <td><?php echo $slp[3] === "null" ? '-' : $slp[3]; ?></td>
 
                                 <td>
-                                    <span class="badge-tp solicitar pointer" data-id="<?php echo $slp[0] ?>" data-attr="1">
-                                        Solicitar
-                                    </span>
+                                    <?php if ($slp[5] == 1) { ?>
+
+                                        <span class="badge-tp proceso" data-id="<?php echo $slp[0] ?>" data-attr="1">
+                                            En proceso
+                                        </span>
+                                    <?php } else if ($slp[5] == 2) { ?>
+                                        <span class="badge-tp solicitar pointer" data-id="<?php echo $slp[0] ?>" data-attr="1">
+                                            Descargar
+                                        </span>
+                                    <?php } else { ?>
+                                        <span class="badge-tp solicitar pointer" data-id="<?php echo $slp[0] ?>" data-attr="1">
+                                            Solicitar
+                                        </span>
+                                    <?php } ?>
+
                                 </td>
                                 <td>
-                                    <span class="badge-tp solicitar pointer" data-id="<?php echo $slp[0] ?>" data-attr="2">
-                                        Solicitar
-                                    </span>
+                                    <?php if ($slp[7] == 1) { ?>
+
+                                        <span class="badge-tp proceso" data-id="<?php echo $slp[0] ?>" data-attr="2">
+                                            En proceso
+                                        </span>
+                                    <?php } else if ($slp[7] == 2) { ?>
+                                        <span class="badge-tp solicitar pointer" data-id="<?php echo $slp[0] ?>" data-attr="2">
+                                            Descargar
+                                        </span>
+                                    <?php } else { ?>
+                                        <span class="badge-tp solicitar pointer" data-id="<?php echo $slp[0] ?>" data-attr="2">
+                                            Solicitar
+                                        </span>
+                                    <?php } ?>
+
                                 </td>
                                 <td>*</td>
                             </tr>

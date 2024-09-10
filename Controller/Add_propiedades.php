@@ -23,7 +23,7 @@ foreach ($_POST as $key => $value) {
 }
 
 // Ahora $data contiene todos los elementos de $_POST, y están numerados secuencialmente.
-print_r($data);
+// print_r($data);
 
 // echo "\n";
 // echo "\n";

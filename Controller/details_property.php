@@ -649,7 +649,7 @@ $data = [
             ]
         ],
         'comunes' => [
-            ['id' => 'local_industrial_hotel_area_cafe', 'nombre' => 'Área de Cafetería'],
+            ['id' => 'local_industrial_area_cafe', 'nombre' => 'Área de Cafetería'],
             ['id' => 'local_industrial_bodega', 'nombre' => 'Bodega(s)'],
             ['id' => 'local_industrial_patio', 'nombre' => 'Patio'],
             ['id' => 'local_industrial_area_comun', 'nombre' => 'Área común'],
