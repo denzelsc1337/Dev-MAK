@@ -7,6 +7,7 @@ class solicitudes
 
     function __construct()
     {
+        $this->selectorListSolicitudesAdmin = array();
         $this->selectorListSolicitudes = array();
     }
 
@@ -57,7 +58,7 @@ class solicitudes
     }
 
 
-    public function showListSolicitudes()
+    public function showListSolicitudesAdmin()
     {
         include_once('../config/Conexion.php');
         $cnx = new conexion();
@@ -97,6 +98,61 @@ class solicitudes
                     FROM 
                     solicitudes_propiedades sp
                     INNER JOIN usuarios u ON sp.usuario = u.id_usu
+                    ORDER BY sp.id_soli_prop DESC;";
+
+        $resultado = mysqli_query($cadena, $query);
+
+        while ($fila = mysqli_fetch_row($resultado)) {
+            $this->selectorListSolicitudesAdmin[] = $fila;
+        }
+
+
+        $cnx->cerrarConexion($cadena);
+
+        return $this->selectorListSolicitudesAdmin;
+    }
+
+    public function showListSolicitudes($asignado)
+    {
+        include_once('../config/Conexion.php');
+        $cnx = new conexion();
+        $cadena = $cnx->abrirConexion();
+
+        $query = "SELECT 
+                    id_soli_prop, 
+                    CASE tipo_solic
+                        WHEN 1 THEN 'VALORIZACIÓN'
+                        WHEN 2 THEN 'LEGAL' 
+                        ELSE 'OTRO' 
+                    END AS tipo_solic,
+                    id_prop, distrito, direccion, fecha_reg, 
+                    u.cod_usu,
+                    asignado,
+                    CASE tipo_inmb 
+                        WHEN 1 THEN 'DEPARTAMENTO'
+                        WHEN 2 THEN 'CASA'
+                        WHEN 3 THEN 'CASA DE PLAYA'
+                        WHEN 4 THEN 'CASA DE CAMPO'
+                        WHEN 5 THEN 'TERRENO / LOTE'
+                        WHEN 6 THEN 'TERRENO AGRICOLA'
+                        WHEN 7 THEN 'OFICINA'
+                        WHEN 8 THEN 'HOTEL'
+                        WHEN 9 THEN 'LOCAL COMERCIAL'
+                        WHEN 10 THEN 'LOCAL INDUSTRIAL'
+                        ELSE 'OTRO'
+                    END AS tipo_inmb,
+                    CASE sub_tipo_inmb 
+                        WHEN 1 THEN 'FLAT'
+                        WHEN 2 THEN 'DÚPLEX'
+                        WHEN 3 THEN 'TRÍPLEX'
+                        WHEN 4 THEN 'PENT-HOUSE'
+                        ELSE 'OTRO'
+                    END AS sub_tipo_inmb,
+                    status, estado
+                    FROM 
+                    solicitudes_propiedades sp
+                    INNER JOIN usuarios u ON sp.usuario = u.id_usu
+                    WHERE sp.asignado = $asignado
                     ORDER BY sp.id_soli_prop DESC;";
 
         $resultado = mysqli_query($cadena, $query);

@@ -1,4 +1,6 @@
 <?php
+include_once('../Config/Conexion.php');
+require_once('../Config/security.php');
 
 require_once('../Model/Cliente_Servicios.php');
 $oCli_s = new Cliente_Servicio();
@@ -38,4 +40,4 @@ $showLastPropertys = $oPropiedades->showLastPropertys();
 
 require_once('../Model/solicitudes.php');
 $oSolicitudes = new solicitudes();
-$showListSolic = $oSolicitudes->showListSolicitudes();
+$showListSolicAdmin = $oSolicitudes->showListSolicitudesAdmin();

@@ -115,56 +115,10 @@ $cadena = $cnx->abrirConexion();
                                         Solicitudes 2
                                     </div>
                                 </div>
-
-                                <!-- <table class="table table-borderless txt-center mt-4">
-                                    <thead>
-                                        <tr>
-                                            <th class="placeholder">Solicitud</th>
-                                            <th class="placeholder">Tipo Solicitud</th>
-                                            <th class="placeholder">ID Propiedad</th>
-                                            <th class="placeholder">Dirección</th>
-                                            <th class="placeholder">Distrito</th>
-                                            <th class="placeholder">Distrito</th>
-                                            <th class="placeholder">Distrito</th>
-                                            <th class="placeholder">Distrito</th>
-                                            <th class="placeholder">Tipo Propiedad</th>
-                                            <th class="placeholder">Sub Tipo Propiedad</th>
-                                            <th class="placeholder">Asignado</th>
-                                            <th></th>
-
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <?php foreach ($showListSolic as $sas): ?>
-                                            <tr class="property-item">
-                                                <td><?php echo $sas[0] ?></td>
-                                                <td><?php echo $sas[1] ?></td>
-                                                <td><?php echo $sas[2] ?></td>
-                                                <td><?php echo $sas[3] ?></td>
-                                                <td><?php echo $sas[4] ?></td>
-                                                <td><?php echo $sas[5] ?></td>
-                                                <td><?php echo $sas[6] ?></td>
-                                                <td><?php echo $sas[7] ?></td>
-                                                <td><?php echo $sas[8] ?></td>
-                                                <td><?php echo $sas[9] ?></td>
-                                                <td>
-                                                    <select name="" id=""></select>
-                                                </td>
-                                                <td>*</td>
-                                            </tr>
-
-                                        <?php endforeach ?>
-                                    </tbody>
-                                </table> -->
-
                                 <div class="list-items">
-                                    <!-- Encabezado de la lista -->
-                                    <!-- <li>
-                                        Solicitud - Tipo Solicitud - ID Propiedad - Dirección - Distrito - Tipo Propiedad - Sub Tipo Propiedad - Asignado
-                                    </li> -->
 
                                     <!-- Cuerpo de la lista -->
-                                    <?php foreach ($showListSolic as $sas): ?>
+                                    <?php foreach ($showListSolicAdmin as $sas): ?>
                                         <div class="item-list mak-bdr">
                                             <div class="row">
                                                 <div class="item-list-content">
@@ -256,6 +210,7 @@ $cadena = $cnx->abrirConexion();
                         </div>
 
                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 mb-3">
+                            <?php print_r($_SESSION); ?>
                             <div class="card-body">
                                 <div class="card-head justify-between mb-3">
                                     <div>
@@ -281,18 +236,23 @@ $cadena = $cnx->abrirConexion();
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <?php foreach ($showListSolic as $sas): ?>
+                                        <?php
+
+                                        $showListSolic = $oSolicitudes->showListSolicitudes($_SESSION['id_usu']);
+
+
+                                        foreach ($showListSolic as $sls): ?>
                                             <tr class="property-item">
-                                                <td><?php echo $sas[0] ?></td>
-                                                <td><?php echo $sas[1] ?></td>
-                                                <td><?php echo $sas[2] ?></td>
-                                                <td><?php echo $sas[3] ?></td>
-                                                <td><?php echo $sas[4] ?></td>
-                                                <td><?php echo $sas[5] ?></td>
-                                                <td><?php echo $sas[6] ?></td>
-                                                <td><?php echo $sas[7] ?></td>
-                                                <td><?php echo $sas[8] ?></td>
-                                                <td><?php echo $sas[9] ?></td>
+                                                <td><?php echo $sls[0] ?></td>
+                                                <td><?php echo $sls[1] ?></td>
+                                                <td><?php echo $sls[2] ?></td>
+                                                <td><?php echo $sls[3] ?></td>
+                                                <td><?php echo $sls[4] ?></td>
+                                                <td><?php echo $sls[5] ?></td>
+                                                <td><?php echo $sls[6] ?></td>
+                                                <td><?php echo $sls[7] ?></td>
+                                                <td><?php echo $sls[8] ?></td>
+                                                <td><?php echo $sls[9] ?></td>
 
                                             </tr>
 
