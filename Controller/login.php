@@ -40,6 +40,8 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
 
 			$_SESSION['id_usu'] = $datos->id_usu;
 			$_SESSION['tipo_usu_cod'] = $datos->tipo_usu_cod;
+			$_SESSION['id_rol_cod'] = $datos->id_rol_cod;
+			$_SESSION['area_cod'] = $datos->area_cod;
 			$_SESSION['nom_usu'] = $datos->nom_usu;
 			$_SESSION['ape_usu'] = $datos->ape_usu;
 			$_SESSION['dni_usu'] = $datos->dni_usu;

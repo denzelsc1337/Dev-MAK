@@ -96,7 +96,8 @@ class solicitudes
                     status, estado
                     FROM 
                     solicitudes_propiedades sp
-                    INNER JOIN usuarios u ON sp.usuario = u.id_usu";
+                    INNER JOIN usuarios u ON sp.usuario = u.id_usu
+                    ORDER BY sp.id_soli_prop DESC;";
 
         $resultado = mysqli_query($cadena, $query);
 
@@ -108,5 +109,24 @@ class solicitudes
         $cnx->cerrarConexion($cadena);
 
         return $this->selectorListSolicitudes;
+    }
+
+
+
+    public function updateAsignado($asignado, $id_soli)
+    {
+        include_once('../config/Conexion.php');
+        $cnx = new conexion();
+        $cadena = $cnx->abrirConexion();
+
+        $query = "UPDATE solicitudes_propiedades
+                    SET asignado = $asignado
+                    where id_soli_prop = $id_soli";
+
+        $result = mysqli_query($cadena, $query);
+
+        $cnx->cerrarConexion($cadena);
+
+        return $result;
     }
 }

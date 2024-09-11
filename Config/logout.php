@@ -5,7 +5,7 @@ session_destroy();
 
 <body>
 	<h2>Cerrando Sesion...</h2>
-	<META http-equiv="Refresh" content="0.5 ; URL = ./index.php">
+	<META http-equiv="Refresh" content="2 ; URL = ../index.php">
 </body>
 
 

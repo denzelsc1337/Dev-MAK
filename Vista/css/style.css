@@ -293,8 +293,8 @@
 }
 
 .dp {
-  background: #B2E2F2;
-  color: #367E96;
+  background: #b2e2f2;
+  color: #367e96;
 }
 
 .solicitar {
@@ -659,8 +659,15 @@ body.dark .home .text {
 }
 
 .img_text {
+  display: flex;
+  flex-direction: column;
   margin-left: 15px;
   line-height: 20px;
+  text-transform: capitalize;
+}
+
+.img_text span:first-child {
+  font-weight: 900;
 }
 
 #content {
@@ -953,9 +960,61 @@ tr {
   background-color: var(--white-mak);
 }
 
-/* .table tr td {
-  background: red;
-} */
+.list-items {
+  display: flex;
+  gap: 1rem;
+}
+
+.list-items .item-list {
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+}
+
+.item-list .row {
+  margin-right: 0px;
+  margin-left: 0px;
+}
+
+.list-items .item-list .item-list-content {
+  width: 100%;
+}
+
+.list-items .item-list .item-list-content .d-flex ul {
+  font-size: 13px;
+}
+
+.list-items .item-list .item-list-content .d-flex ul li {
+  height: 23px;
+}
+
+.list-items .item-list .item-list-content .content-head .header,
+.list-items .item-list .item-list-content .content-head .sub-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+}
+
+.list-items .item-list .item-list-content .content-head .sub-header {
+  font-size: 13px;
+}
+
+.list-items .item-list .item-list-content .header .btn-edit,
+.list-items .item-list .item-list-content .header .btn-save {
+  width: 30px;
+  height: 30px;
+  /* background-color: red; */
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.list-items .item-list .item-list-content .btn-edit:hover {
+  background-color: var(--other-mak);
+}
 
 /* MENU PROPERTY */
 

@@ -90,12 +90,11 @@ $cadena = $cnx->abrirConexion();
 
                 <?php include './../lateral_bar.php' ?>
 
+
                 <div class="body-container mak">
 
                     <div class="row">
-
                         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 mb-3">
-
                             <div class="d-flex align-center ml-2 mt-3 menu-content">
                                 <div>
                                     <img src="../Vista/images/Plataforma/PanelPrincipal/Bienvenido.png" alt="" width="180">
@@ -117,7 +116,7 @@ $cadena = $cnx->abrirConexion();
                                     </div>
                                 </div>
 
-                                <table class="table table-borderless txt-center mt-4">
+                                <!-- <table class="table table-borderless txt-center mt-4">
                                     <thead>
                                         <tr>
                                             <th class="placeholder">Solicitud</th>
@@ -156,7 +155,72 @@ $cadena = $cnx->abrirConexion();
 
                                         <?php endforeach ?>
                                     </tbody>
-                                </table>
+                                </table> -->
+
+                                <div class="list-items">
+                                    <!-- Encabezado de la lista -->
+                                    <!-- <li>
+                                        Solicitud - Tipo Solicitud - ID Propiedad - Dirección - Distrito - Tipo Propiedad - Sub Tipo Propiedad - Asignado
+                                    </li> -->
+
+                                    <!-- Cuerpo de la lista -->
+                                    <?php foreach ($showListSolic as $sas): ?>
+                                        <div class="item-list mak-bdr">
+                                            <div class="row">
+                                                <div class="item-list-content">
+                                                    <div class="content-head">
+                                                        <div class="header">
+                                                            <span>ID Propiedad: <b id="id_prop"><?php echo $sas[0]; ?></b></span>
+                                                            <div class="d-flex">
+                                                                <div class="btn-save" hidden>
+                                                                    <i class="fa-solid fa-floppy-disk"></i>
+                                                                </div>
+                                                                <div class="btn-edit">
+                                                                    <i class="fa-solid fa-pencil"></i>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <!-- <div class="sub-header">
+                                                            <span><b>Tipo propiedad:</b> <?php echo $sas[8]; ?></span>
+                                                        </div> -->
+
+                                                    </div>
+                                                    <div class="d-flex">
+                                                        <ul>
+                                                            <li> <span><b>Tipo propiedad:</b> <?php echo $sas[8]; ?></span></li>
+                                                            <li> <span><b>Dirección:</b> <?php echo $sas[3]; ?></span></li>
+                                                            <li> <span><b>Distrito:</b> <?php echo $sas[4]; ?></span></li>
+                                                            <li>
+                                                                <span><b>Asignado:</b></span>
+                                                                <select name="usu_lgl" id="usu_lgl" disabled></select>
+                                                            </li>
+                                                        </ul>
+                                                        <!-- <div>
+                                                            acá los documentos?
+                                                        </div> -->
+                                                    </div>
+                                                </div>
+
+
+                                                <!-- 
+                                                <?php echo $sas[0]; ?>
+                                                <?php echo $sas[1]; ?>
+                                                <?php echo $sas[2]; ?>
+                                                <?php echo $sas[3]; ?>
+                                                <?php echo $sas[4]; ?>
+                                                <?php echo $sas[5]; ?>
+                                                <?php echo $sas[6]; ?>
+                                                <?php echo $sas[7]; ?>
+                                                <?php echo $sas[8]; ?>
+                                                <?php echo $sas[9]; ?>
+                                                <select name="" id=""></select> -->
+                                            </div>
+
+                                        </div>
+                                    <?php endforeach; ?>
+                                </div>
+
+
                             </div>
                         </div>
                     </div>
@@ -251,10 +315,10 @@ $cadena = $cnx->abrirConexion();
 </body>
 <!-- jQuery -->
 <!-- <script src="./../Vista/plugins/jquery/jquery.min.js"></script> -->
-<script src="./../Vista/assets/add_property.js"></script>
+<!-- <script src="./../Vista/assets/add_property.js"></script> -->
 
-<!-- <script src="./../Vista/js/upFiles.js"></script> -->
-<!-- <script src="./../Vista/assets/dash.js"></script> -->
+<script src="./../Vista/js/solicitudes.js"></script>
+<script src="./../Vista/assets/data.js"></script>
 <!-- script modal -->
 <!-- <script src="../Vista/dist/js/adminlte.min.js"></script> -->
 <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script> -->

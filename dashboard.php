@@ -95,7 +95,8 @@
           <div class="img_text">
             <!-- <span>Moisés</span>
             <p>Ackerman</p> -->
-            <span>Moisés <br> Ackerman</span>
+            <span> <?php echo $_SESSION['nom_usu'] ?> </span>
+            <span><?php echo $_SESSION['ape_usu'] ?> </span>
           </div>
         </div>
       </li>

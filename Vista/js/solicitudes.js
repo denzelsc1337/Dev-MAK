@@ -54,4 +54,50 @@ document.addEventListener("DOMContentLoaded", function () {
     // Añadir el listener de clic
     badge.addEventListener("click", handleClick);
   });
+
+  var itemsList = document.querySelectorAll(".item-list");
+
+  itemsList.forEach((btn) => {
+    var buttonsEdit = btn.querySelector(".btn-edit");
+    const input = btn.querySelector("#usu_lgl");
+    const icon = buttonsEdit.querySelector("i");
+    const save = btn.querySelector(".btn-save");
+
+    buttonsEdit.addEventListener("click", () => {
+      if (icon.classList.contains("fa-pencil")) {
+        // Cambia a "X"
+        icon.classList.remove("fa-pencil");
+        icon.classList.add("fa-times");
+        input.removeAttribute("disabled");
+        save.removeAttribute("hidden");
+      } else {
+        // Cambiar a "lápiz"
+        icon.classList.remove("fa-times");
+        icon.classList.add("fa-pencil");
+        input.setAttribute("disabled", "true");
+        save.setAttribute("hidden", "true");
+        input.selectedIndex = 0;
+      }
+    });
+
+    save.addEventListener("click", () => {
+      const idProp = btn.querySelector("#id_prop").textContent.trim();
+      const idUsu = btn.querySelector("#usu_lgl").value;
+
+      $.ajax({
+        url: "./../Controller/solicitudes_propiedades.php",
+        type: "POST",
+        data: {
+          idProp: idProp,
+          usuario: idUsu,
+        },
+        success: function (response) {
+          console.log("Respuesta del servidor:", response);
+        },
+        error: function (xhr, status, error) {
+          console.error("Error en la solicitud:", error);
+        },
+      });
+    });
+  });
 });
