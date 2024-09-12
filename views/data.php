@@ -46,6 +46,7 @@ function showSolic()
                     FROM 
                     solicitudes_propiedades sp
                     INNER JOIN usuarios u ON sp.usuario = u.id_usu
+                    WHERE sp.tipo_solic = 2 -- Solicitud a Legal
                     ORDER BY sp.id_soli_prop DESC;";
     $resultado = mysqli_query($cadena, $query);
 
@@ -75,42 +76,42 @@ function showSolic()
     echo $jsonstring;
 }
 
-// function selectorUsersXArea($user, $area)
-// {
-//     include_once('../Config/Conexion.php');
-//     $cnx = new conexion();
-//     $cadena = $cnx->abrirConexion();
+function selectorUsersXArea($user, $area)
+{
+    include_once('../Config/Conexion.php');
+    $cnx = new conexion();
+    $cadena = $cnx->abrirConexion();
 
-//     // Sanitiza el input para prevenir inyección SQL
-//     $area = mysqli_real_escape_string($cadena, $area);
+    // Sanitiza el input para prevenir inyección SQL
+    $area = mysqli_real_escape_string($cadena, $area);
 
-//     // Corrige la consulta sin exponerla con echo
-//     $query = "SELECT id_usu, CONCAT(nom_usu, ' ', ape_usu) AS nombre_usu 
-//               FROM usuarios 
-//               WHERE area_cod = '$area' AND id_usu != $user";
+    // Corrige la consulta sin exponerla con echo
+    $query = "SELECT id_usu, CONCAT(nom_usu, ' ', ape_usu) AS nombre_usu 
+              FROM usuarios 
+              WHERE area_cod = '$area' AND id_usu != $user";
 
-//     $resultado = mysqli_query($cadena, $query);
+    $resultado = mysqli_query($cadena, $query);
 
-//     // Verifica si la consulta tuvo éxito
-//     if (!$resultado) {
-//         die('Error en la consulta: ' . mysqli_error($cadena));
-//     }
+    // Verifica si la consulta tuvo éxito
+    if (!$resultado) {
+        die('Error en la consulta: ' . mysqli_error($cadena));
+    }
 
-//     $json = array();
+    $json = array();
 
-//     while ($row = mysqli_fetch_array($resultado)) {
-//         $json[] = array(
-//             'id' => $row['id_usu'],
-//             'desc' => $row['nombre_usu']
-//         );
-//     }
+    while ($row = mysqli_fetch_array($resultado)) {
+        $json[] = array(
+            'id_usu' => $row['id_usu'],
+            'nombre_usu' => $row['nombre_usu']
+        );
+    }
 
-//     // Cierra la conexión
-//     // $cnx->cerrarConexion();
+    // Cierra la conexión
+    // $cnx->cerrarConexion();
 
-//     // Convierte el array a JSON
-//     echo json_encode($json);
-// }
+    // Convierte el array a JSON
+    echo json_encode($json);
+}
 
 // // Llama a la función
 // selectorUsersXArea($user, $area);
@@ -126,7 +127,7 @@ if (isset($_GET['accion'])) {
         case 'showSolic':
             showSolic();
             break;
-        case 'otraFuncion':
+        case 'selectorUsersXArea':
             selectorUsersXArea($user, $area);
             break;
         default:

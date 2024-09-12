@@ -98,6 +98,7 @@ class solicitudes
                     FROM 
                     solicitudes_propiedades sp
                     INNER JOIN usuarios u ON sp.usuario = u.id_usu
+                    WHERE sp.tipo_solic = 2 -- Solicitud a Legal
                     ORDER BY sp.id_soli_prop DESC;";
 
         $resultado = mysqli_query($cadena, $query);
