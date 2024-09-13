@@ -5,7 +5,6 @@ require_once('../Controller/controladorListar.php');
 
 $user = $_SESSION['id_usu'];
 $area = $_SESSION['area_cod'];
-$asignado = isset($_POST['asignado']) ? $_POST['asignado'] : null;
 
 function showSolic()
 {
@@ -107,16 +106,9 @@ function selectorUsersXArea($user, $area)
         );
     }
 
-    // Cierra la conexión
-    // $cnx->cerrarConexion();
-
     // Convierte el array a JSON
     echo json_encode($json);
 }
-
-// // Llama a la función
-// selectorUsersXArea($user, $area);
-
 
 function showSolicAsig($user)
 {
@@ -191,6 +183,26 @@ function showSolicAsig($user)
     echo $jsonstring;
 }
 
+
+function documentsRead()
+{
+    // Ruta de la carpeta que deseas leer
+    $folderPath = 'ruta/a/tu/carpeta';
+
+    if (is_dir($folderPath)) {
+        // Abrir la carpeta
+        $files = scandir($folderPath);
+
+        // Filtrar los archivos para excluir '.' y '..'
+        $files = array_diff($files, array('.', '..'));
+
+        // Devolver los archivos como un array JSON
+        echo json_encode(array_values($files));
+    } else {
+        // En caso de que no se encuentre la carpeta, devolver un error
+        echo json_encode(['error' => 'Carpeta no encontrada']);
+    }
+}
 
 
 

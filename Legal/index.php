@@ -227,7 +227,7 @@ $cadena = $cnx->abrirConexion();
 
                                 </div>
 
-                                <!-- <table class="table table-borderless txt-center mt-4">
+                                <table class="table table-borderless txt-center mt-4">
                                     <thead>
                                         <tr>
                                             <th class="placeholder">Solicitud</th>
@@ -246,39 +246,39 @@ $cadena = $cnx->abrirConexion();
                                     <tbody>
                                         <?php
 
-                                        // $showListSolic = $oSolicitudes->showListSolicitudes($_SESSION['id_usu']);
+                                        $showListSolic = $oSolicitudes->showListSolicitudes($_SESSION['id_usu']);
 
 
-                                        // foreach ($showListSolic as $sls): 
+                                        foreach ($showListSolic as $sls):
                                         ?>
-                                        <!-- <tr class="property-item">
-                                                 <td><?php // echo $sls[0] 
-                                                        ?></td>
-                                                 <td><?php // echo $sls[1] 
-                                                        ?></td>
-                                                 <td><?php // echo $sls[2] 
-                                                        ?></td>
-                                                 <td><?php // echo $sls[3] 
-                                                        ?></td>
-                                                 <td><?php // echo $sls[4] 
-                                                        ?></td>
-                                                 <td><?php // echo $sls[5] 
-                                                        ?></td>
-                                                 <td><?php // echo $sls[6] 
-                                                        ?></td>
-                                                 <td><?php // echo $sls[7] 
-                                                        ?></td>
-                                                 <td><?php // echo $sls[8] 
-                                                        ?></td>
-                                                 <td><?php // echo $sls[9] 
-                                                        ?></td>
+                                            <tr class="property-item">
+                                                <td><?php echo $sls[0]
+                                                    ?></td>
+                                                <td><?php echo $sls[1]
+                                                    ?></td>
+                                                <td><?php echo $sls[2]
+                                                    ?></td>
+                                                <td><?php echo $sls[3]
+                                                    ?></td>
+                                                <td><?php echo $sls[4]
+                                                    ?></td>
+                                                <td><?php echo $sls[5]
+                                                    ?></td>
+                                                <td><?php echo $sls[6]
+                                                    ?></td>
+                                                <td><?php echo $sls[7]
+                                                    ?></td>
+                                                <td><?php echo $sls[8]
+                                                    ?></td>
+                                                <td><?php echo $sls[9]
+                                                    ?></td>
 
-                                             </tr> --
+                                            </tr>
 
-                                        <?php // endforeach 
+                                        <?php endforeach
                                         ?>
                                     </tbody>
-                                </table> -->
+                                </table>
                             </div>
                         </div>
                     </div>
@@ -293,25 +293,7 @@ $cadena = $cnx->abrirConexion();
 
 
 </body>
-<!-- jQuery -->
-<!-- <script src="./../Vista/plugins/jquery/jquery.min.js"></script> -->
-<!-- <script src="./../Vista/assets/add_property.js"></script> -->
 
 <script src="./../Vista/js/solicitudes.js"></script>
 <script src="./../Vista/assets/data.js"></script>
-<!-- script modal -->
-<!-- <script src="../Vista/dist/js/adminlte.min.js"></script> -->
-<!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script> -->
-
-
-<script>
-    // function changeIframeSource(link) {
-    //     // Enviar mensaje a la página principal para cambiar el src del iframe
-    //     parent.postMessage(link, '*');
-    // }
-
-    // document.querySelector('.propiedad').addEventListener('click', function() {
-    //     // Enviar mensaje a la página principal para abrir el modal
-    //     parent.postMessage('views/menu_property.php', '*');
-    // });
-</script>
+<script src="./../Vista/assets/dash.js"></script>

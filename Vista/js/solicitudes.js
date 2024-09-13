@@ -105,10 +105,7 @@ document.addEventListener("DOMContentLoaded", function () {
       const response = await $.ajax({
         type: "GET",
         url: "../views/data.php", // Ruta al archivo PHP
-        data: {
-          accion: "showSolicAsig",
-          asignado: usuAsig,
-        }, // Enviar el parámetro 'accion'
+        data: { accion: "showSolicAsig" }, // Enviar el parámetro 'accion'
         dataType: "json", // Indica que esperas recibir JSON
       });
 

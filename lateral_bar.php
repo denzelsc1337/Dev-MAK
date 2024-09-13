@@ -105,3 +105,16 @@
     </div>
 
 </nav>
+<!-- REQUIRED SCRIPTS -->
+<!-- jQuery -->
+<script src="../Vista/plugins/jquery/jquery.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="../Vista/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- AdminLTE App -->
+<script src="./../../Dev-MAK/Vista/dist/js/adminlte.min.js"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="./../Vista/dist/js/demo.js"></script>
+
+<script src="./../Vista/assets/dash.js"></script>
+<!-- script modal -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
