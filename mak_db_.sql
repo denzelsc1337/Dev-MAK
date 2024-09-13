@@ -310,6 +310,7 @@ CREATE TABLE IF NOT EXISTS propiedades(
 	direccion varchar(250),
 
 	fecha_reg datetime,
+	fecha_asig datetime,
 
 	usuario	int,
 	asignado int,

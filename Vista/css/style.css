@@ -960,12 +960,14 @@ tr {
   background-color: var(--white-mak);
 }
 
-.list-items {
+.list-items,
+.list-items-asig {
   display: flex;
   gap: 1rem;
 }
 
-.list-items .item-list {
+.list-items .item-list,
+.list-items-asig .item-list {
   padding: 20px;
   border-radius: 10px;
   margin-bottom: 1rem;
@@ -989,7 +991,9 @@ tr {
 }
 
 .list-items .item-list .item-list-content .content-head .header,
-.list-items .item-list .item-list-content .content-head .sub-header {
+.list-items .item-list .item-list-content .content-head .sub-header,
+.list-items-asig .item-list .item-list-content .content-head .header,
+.list-items-asig .item-list .item-list-content .content-head .sub-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -1001,7 +1005,9 @@ tr {
 }
 
 .list-items .item-list .item-list-content .header .btn-edit,
-.list-items .item-list .item-list-content .header .btn-save {
+.list-items .item-list .item-list-content .header .btn-save,
+.list-items-asig .item-list .item-list-content .header .btn-edit,
+.list-items-asig .item-list .item-list-content .header .btn-save {
   width: 30px;
   height: 30px;
   /* background-color: red; */

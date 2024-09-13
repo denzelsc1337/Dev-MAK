@@ -1,106 +1,3 @@
-// document.addEventListener("DOMContentLoaded", function () {
-//   var badges = document.querySelectorAll(".solicitar");
-
-//   badges.forEach((badge) => {
-//     // Definir la función de clic
-//     const handleClick = () => {
-//       // Obtener los valores de los atributos data-target y data-id
-//       var dataId = badge.getAttribute("data-id");
-//       var dataTarget = badge.getAttribute("data-attr");
-
-//       if (dataTarget !== undefined && dataId !== undefined) {
-//         // Crear una instancia de FormData y añadir los datos
-//         var formData = new FormData();
-//         formData.append("dataId", dataId); // Añadir con nombre y valor
-//         formData.append("dataTarget", dataTarget); // Añadir con nombre y valor
-
-//         // Realizar una solicitud AJAX con jQuery
-//         $.ajax({
-//           url: "./../Controller/add.solicitudes.php", // Archivo PHP al que se enviarán los datos
-//           type: "POST", // Método de envío
-//           data: formData, // Datos a enviar
-//           processData: false, // No procesa los datos (necesario para FormData)
-//           contentType: false, // No establecer contentType, usa FormData
-//           success: function (response) {
-//             console.log("Respuesta del servidor:", response); // Mostrar respuesta del servidor
-//           },
-//           error: function (xhr, status, error) {
-//             console.error("Error en la solicitud:", error); // Mostrar error en caso de fallo
-//           },
-//           complete: function (jqXHR, textStatus) {
-//             if (jqXHR.responseText == "1") {
-//               console.log(badge);
-//               badge.classList.add("opacity");
-
-//               setTimeout(() => {
-//                 badge.className = "";
-//                 badge.classList.add("badge-tp", "proceso");
-//                 badge.setAttribute("disabled", "true");
-//                 badge.textContent = "En proceso";
-
-//                 // Eliminar el listener después de ejecutarlo
-//                 badge.removeEventListener("click", handleClick);
-//               }, 1200);
-//             }
-//           },
-//         });
-//       } else {
-//         console.log(
-//           "Los atributos 'data-target' o 'data-id' no se encuentran."
-//         );
-//       }
-//     };
-
-//     // Añadir el listener de clic
-//     badge.addEventListener("click", handleClick);
-//   });
-
-//   var itemsList = document.querySelectorAll(".item-list");
-
-//   itemsList.forEach((btn) => {
-//     var buttonsEdit = btn.querySelector(".btn-edit");
-//     const input = btn.querySelector("#usu_lgl");
-//     const icon = buttonsEdit.querySelector("i");
-//     const save = btn.querySelector(".btn-save");
-
-//     buttonsEdit.addEventListener("click", () => {
-//       if (icon.classList.contains("fa-pencil")) {
-//         // Cambia a "X"
-//         icon.classList.remove("fa-pencil");
-//         icon.classList.add("fa-times");
-//         input.removeAttribute("disabled");
-//         save.removeAttribute("hidden");
-//       } else {
-//         // Cambiar a "lápiz"
-//         icon.classList.remove("fa-times");
-//         icon.classList.add("fa-pencil");
-//         input.setAttribute("disabled", "true");
-//         save.setAttribute("hidden", "true");
-//         input.selectedIndex = 0;
-//       }
-//     });
-
-//     save.addEventListener("click", () => {
-//       const idProp = btn.querySelector("#id_prop").textContent.trim();
-//       const idUsu = btn.querySelector("#usu_lgl").value;
-
-//       $.ajax({
-//         url: "./../Controller/solicitudes_propiedades.php",
-//         type: "POST",
-//         data: {
-//           idProp: idProp,
-//           usuario: idUsu,
-//         },
-//         success: function (response) {
-//           console.log("Respuesta del servidor:", response);
-//         },
-//         error: function (xhr, status, error) {
-//           console.error("Error en la solicitud:", error);
-//         },
-//       });
-//     });
-//   });
-// });
 document.addEventListener("DOMContentLoaded", function () {
   async function showSolis() {
     try {
@@ -190,6 +87,87 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
+  // ----------------------------------------------------------------
+
+  // Función que verifica si el elemento #asignado está presente antes de realizar la solicitud
+  async function showSolicAsig() {
+    // Asegúrate de que el elemento #asignado existe
+    let usuAsigElement = document.querySelector("#asignado");
+    if (!usuAsigElement) {
+      console.error("El elemento #asignado no está presente en el DOM.");
+      return; // Salir de la función si el elemento no está presente
+    }
+
+    var usuAsig = usuAsigElement.value;
+
+    try {
+      // Realizar la solicitud AJAX para obtener las solicitudes asignadas
+      const response = await $.ajax({
+        type: "GET",
+        url: "../views/data.php", // Ruta al archivo PHP
+        data: {
+          accion: "showSolicAsig",
+          asignado: usuAsig,
+        }, // Enviar el parámetro 'accion'
+        dataType: "json", // Indica que esperas recibir JSON
+      });
+
+      if (response.error) {
+        console.error("Error del servidor:", response.error);
+        return;
+      }
+
+      const items = response;
+      // console.log(items);
+
+      let html = "";
+
+      // Construir HTML dinámico para cada ítem
+      items.forEach((item) => {
+        html += `
+          <div class="item-list mak-bdr">
+              <div class="row">
+                  <div class="item-list-content">
+                      <div class="content-head">
+                          <div class="header">
+                              <span>ID Propiedad: <b>${item.id_prop}</b></span>
+                              <div class="d-flex">
+                                  <div class="btn-save" hidden>
+                                      <i class="fa-solid fa-floppy-disk"></i>
+                                  </div>
+                                  <div class="btn-edit">
+                                      <i class="fa-solid fa-pencil"></i>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="d-flex">
+                          <ul>
+                              <li><span><b>Tipo propiedad:</b> ${item.tipo_inmb}</span></li>
+                              <li><span><b>Dirección:</b> ${item.direccion}</span></li>
+                              <li><span><b>Distrito:</b> ${item.distrito}</span></li>
+                          </ul>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          `;
+      });
+
+      // Insertar el HTML generado en el contenedor
+      $(".list-items-asig").html(html);
+
+      // Asignar eventos a los botones de edición y guardado
+      assignEvents();
+    } catch (error) {
+      console.error("Error en la solicitud:", error);
+    }
+  }
+
+  // En el caso de que el elemento #asignado no esté visible, la función no se ejecutará.
+
+  // ------------------------------------------------------------------
+
   // Asegúrate de que la función que carga los usuarios también sea async
   function loadUserOptions() {
     return new Promise((resolve, reject) => {
@@ -258,7 +236,14 @@ document.addEventListener("DOMContentLoaded", function () {
           usuario: idUsu,
         },
         success: function (response) {
-          console.log("Respuesta del servidor:", response);
+          // console.log("Respuesta del servidor:", response);
+
+          if (response === "Success") {
+            alert("Usuario asignado correctamente");
+
+            // Volver a cargar la lista de solicitudes con la información actualizada
+            showSolis();
+          }
         },
         error: function (xhr, status, error) {
           console.error("Error en la solicitud:", error);
@@ -266,6 +251,7 @@ document.addEventListener("DOMContentLoaded", function () {
         complete: function (jqXHR, textStatus) {
           // Recargar la lista de elementos después de la actualización
           showSolis();
+          showSolicAsig();
         },
       });
     });
@@ -273,4 +259,5 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Ejecuta la función para cargar los datos
   showSolis();
+  showSolicAsig();
 });

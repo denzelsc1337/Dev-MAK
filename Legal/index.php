@@ -57,6 +57,8 @@ $cadena = $cnx->abrirConexion();
 
     <?php include './../header.php' ?>
 
+    <input type="text" id="asignado" name="asignado" value="<?php echo $_SESSION['id_usu']; ?>" hidden>
+
 
     <?php if ($_SESSION['tipo_usu_cod'] == 1) {  ?>
 
@@ -210,7 +212,9 @@ $cadena = $cnx->abrirConexion();
                         </div>
 
                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 mb-3">
-                            <?php print_r($_SESSION); ?>
+                            <?php //print_r($_SESSION); 
+                            ?>
+
                             <div class="card-body">
                                 <div class="card-head justify-between mb-3">
                                     <div>
@@ -219,7 +223,11 @@ $cadena = $cnx->abrirConexion();
                                     </div>
                                 </div>
 
-                                <table class="table table-borderless txt-center mt-4">
+                                <div class="list-items-asig">
+
+                                </div>
+
+                                <!-- <table class="table table-borderless txt-center mt-4">
                                     <thead>
                                         <tr>
                                             <th class="placeholder">Solicitud</th>
@@ -238,27 +246,39 @@ $cadena = $cnx->abrirConexion();
                                     <tbody>
                                         <?php
 
-                                        $showListSolic = $oSolicitudes->showListSolicitudes($_SESSION['id_usu']);
+                                        // $showListSolic = $oSolicitudes->showListSolicitudes($_SESSION['id_usu']);
 
 
-                                        foreach ($showListSolic as $sls): ?>
-                                            <tr class="property-item">
-                                                <td><?php echo $sls[0] ?></td>
-                                                <td><?php echo $sls[1] ?></td>
-                                                <td><?php echo $sls[2] ?></td>
-                                                <td><?php echo $sls[3] ?></td>
-                                                <td><?php echo $sls[4] ?></td>
-                                                <td><?php echo $sls[5] ?></td>
-                                                <td><?php echo $sls[6] ?></td>
-                                                <td><?php echo $sls[7] ?></td>
-                                                <td><?php echo $sls[8] ?></td>
-                                                <td><?php echo $sls[9] ?></td>
+                                        // foreach ($showListSolic as $sls): 
+                                        ?>
+                                        <!-- <tr class="property-item">
+                                                 <td><?php // echo $sls[0] 
+                                                        ?></td>
+                                                 <td><?php // echo $sls[1] 
+                                                        ?></td>
+                                                 <td><?php // echo $sls[2] 
+                                                        ?></td>
+                                                 <td><?php // echo $sls[3] 
+                                                        ?></td>
+                                                 <td><?php // echo $sls[4] 
+                                                        ?></td>
+                                                 <td><?php // echo $sls[5] 
+                                                        ?></td>
+                                                 <td><?php // echo $sls[6] 
+                                                        ?></td>
+                                                 <td><?php // echo $sls[7] 
+                                                        ?></td>
+                                                 <td><?php // echo $sls[8] 
+                                                        ?></td>
+                                                 <td><?php // echo $sls[9] 
+                                                        ?></td>
 
-                                            </tr>
+                                             </tr> --
 
-                                        <?php endforeach ?>
+                                        <?php // endforeach 
+                                        ?>
                                     </tbody>
-                                </table>
+                                </table> -->
                             </div>
                         </div>
                     </div>
