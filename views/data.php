@@ -186,11 +186,15 @@ function showSolicAsig($user)
 
 function documentsRead()
 {
-    // Ruta de la carpeta que deseas leer
-    $folderPath = 'ruta/a/tu/carpeta';
+    // Obtener el parámetro idProp desde la solicitud GET
+    $idProp = $_GET['idProp'];
 
+    // Ruta de la carpeta que deseas leer, utilizando el id de la propiedad
+    $folderPath = "DocumentosPropiedad/" . $idProp;
+
+    // Verificar si la ruta es un directorio válido
     if (is_dir($folderPath)) {
-        // Abrir la carpeta
+        // Leer los archivos en la carpeta
         $files = scandir($folderPath);
 
         // Filtrar los archivos para excluir '.' y '..'
@@ -203,6 +207,7 @@ function documentsRead()
         echo json_encode(['error' => 'Carpeta no encontrada']);
     }
 }
+
 
 
 
@@ -220,6 +225,10 @@ if (isset($_GET['accion'])) {
             break;
         case 'showSolicAsig':
             showSolicAsig($user);
+            documentsRead();
+            break;
+        case 'documentsRead':
+            documentsRead();
             break;
         default:
             echo json_encode(['error' => 'Acción no válida']);
