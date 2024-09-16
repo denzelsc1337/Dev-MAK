@@ -1,4 +1,7 @@
-<?php require_once('config/security.php'); ?>
+<?php
+require_once('config/security.php');
+// include 'Controller/path.php';
+?>
 
 <!DOCTYPE html>
 <html lang="en">
