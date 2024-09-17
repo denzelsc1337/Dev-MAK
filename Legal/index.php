@@ -1,6 +1,8 @@
 <?php
 include_once('../Config/Conexion.php');
 require_once('../Config/security.php');
+include '../Controller/path.php';
+
 
 require_once('../Controller/controladorListar.php');
 
@@ -226,59 +228,6 @@ $cadena = $cnx->abrirConexion();
                                 <div class="list-items-asig">
 
                                 </div>
-
-                                <table class="table table-borderless txt-center mt-4">
-                                    <thead>
-                                        <tr>
-                                            <th class="placeholder">Solicitud</th>
-                                            <th class="placeholder">Tipo Solicitud</th>
-                                            <th class="placeholder">ID Propiedad</th>
-                                            <th class="placeholder">Dirección</th>
-                                            <th class="placeholder">Distrito</th>
-                                            <th class="placeholder">Distrito</th>
-                                            <th class="placeholder">Distrito</th>
-                                            <th class="placeholder">Distrito</th>
-                                            <th class="placeholder">Tipo Propiedad</th>
-                                            <th class="placeholder">Sub Tipo Propiedad</th>
-                                            <th></th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <?php
-
-                                        $showListSolic = $oSolicitudes->showListSolicitudes($_SESSION['id_usu']);
-
-
-                                        foreach ($showListSolic as $sls):
-                                        ?>
-                                            <tr class="property-item">
-                                                <td><?php echo $sls[0]
-                                                    ?></td>
-                                                <td><?php echo $sls[1]
-                                                    ?></td>
-                                                <td><?php echo $sls[2]
-                                                    ?></td>
-                                                <td><?php echo $sls[3]
-                                                    ?></td>
-                                                <td><?php echo $sls[4]
-                                                    ?></td>
-                                                <td><?php echo $sls[5]
-                                                    ?></td>
-                                                <td><?php echo $sls[6]
-                                                    ?></td>
-                                                <td><?php echo $sls[7]
-                                                    ?></td>
-                                                <td><?php echo $sls[8]
-                                                    ?></td>
-                                                <td><?php echo $sls[9]
-                                                    ?></td>
-
-                                            </tr>
-
-                                        <?php endforeach
-                                        ?>
-                                    </tbody>
-                                </table>
                             </div>
                         </div>
                     </div>

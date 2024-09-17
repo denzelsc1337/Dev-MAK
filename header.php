@@ -1,4 +1,3 @@
-<?php include 'Controller/path.php' ?>
 <!-- NAVBAR -->
 <nav class="main-header navbar navbar-expand mak-bg">
 

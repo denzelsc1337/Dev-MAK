@@ -1006,8 +1006,11 @@ tr {
 
 .list-items .item-list .item-list-content .header .btn-edit,
 .list-items .item-list .item-list-content .header .btn-save,
+.list-items .item-list .item-list-content .header .btn-upload,
+.list-items .item-list .item-list-content .header .btn-change,
 .list-items-asig .item-list .item-list-content .header .btn-edit,
-.list-items-asig .item-list .item-list-content .header .btn-save {
+.list-items-asig .item-list .item-list-content .header .btn-upload,
+.list-items-asig .item-list .item-list-content .header .btn-change {
   width: 30px;
   height: 30px;
   /* background-color: red; */

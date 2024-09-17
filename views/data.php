@@ -12,17 +12,17 @@ function showSolic()
     $cnx = new conexion();
     $cadena = $cnx->abrirConexion();
 
-    $query = "SELECT 
-                    id_soli_prop, 
+    $query = "SELECT
+                    id_soli_prop,
                     CASE tipo_solic
                         WHEN 1 THEN 'VALORIZACIÓN'
-                        WHEN 2 THEN 'LEGAL' 
-                        ELSE 'OTRO' 
+                        WHEN 2 THEN 'LEGAL'
+                        ELSE 'OTRO'
                     END AS tipo_solic,
-                    id_prop, distrito, direccion, fecha_reg, 
+                    id_prop, distrito, direccion, fecha_reg,
                     u.cod_usu,
                     asignado,
-                    CASE tipo_inmb 
+                    CASE tipo_inmb
                         WHEN 1 THEN 'DEPARTAMENTO'
                         WHEN 2 THEN 'CASA'
                         WHEN 3 THEN 'CASA DE PLAYA'
@@ -35,7 +35,7 @@ function showSolic()
                         WHEN 10 THEN 'LOCAL INDUSTRIAL'
                         ELSE 'OTRO'
                     END AS tipo_inmb,
-                    CASE sub_tipo_inmb 
+                    CASE sub_tipo_inmb
                         WHEN 1 THEN 'FLAT'
                         WHEN 2 THEN 'DÚPLEX'
                         WHEN 3 THEN 'TRÍPLEX'
@@ -43,7 +43,7 @@ function showSolic()
                         ELSE 'OTRO'
                     END AS sub_tipo_inmb,
                     status, estado
-                    FROM 
+                    FROM
                     solicitudes_propiedades sp
                     INNER JOIN usuarios u ON sp.usuario = u.id_usu
                     WHERE sp.tipo_solic = 2 -- Solicitud a Legal
@@ -86,8 +86,8 @@ function selectorUsersXArea($user, $area)
     $area = mysqli_real_escape_string($cadena, $area);
 
     // Corrige la consulta sin exponerla con echo
-    $query = "SELECT id_usu, CONCAT(nom_usu, ' ', ape_usu) AS nombre_usu 
-              FROM usuarios 
+    $query = "SELECT id_usu, CONCAT(nom_usu, ' ', ape_usu) AS nombre_usu
+              FROM usuarios
               WHERE area_cod = '$area' AND id_usu != $user";
 
     $resultado = mysqli_query($cadena, $query);
@@ -118,17 +118,17 @@ function showSolicAsig($user)
 
     // print_r($_POST);
 
-    $query = "SELECT 
-                    id_soli_prop, 
+    $query = "SELECT
+                    id_soli_prop,
                     CASE tipo_solic
                         WHEN 1 THEN 'VALORIZACIÓN'
-                        WHEN 2 THEN 'LEGAL' 
-                        ELSE 'OTRO' 
+                        WHEN 2 THEN 'LEGAL'
+                        ELSE 'OTRO'
                     END AS tipo_solic,
-                    id_prop, distrito, direccion, fecha_reg, 
+                    id_prop, distrito, direccion, fecha_reg,
                     u.cod_usu,
                     asignado,
-                    CASE tipo_inmb 
+                    CASE tipo_inmb
                         WHEN 1 THEN 'DEPARTAMENTO'
                         WHEN 2 THEN 'CASA'
                         WHEN 3 THEN 'CASA DE PLAYA'
@@ -141,7 +141,7 @@ function showSolicAsig($user)
                         WHEN 10 THEN 'LOCAL INDUSTRIAL'
                         ELSE 'OTRO'
                     END AS tipo_inmb,
-                    CASE sub_tipo_inmb 
+                    CASE sub_tipo_inmb
                         WHEN 1 THEN 'FLAT'
                         WHEN 2 THEN 'DÚPLEX'
                         WHEN 3 THEN 'TRÍPLEX'
@@ -149,7 +149,7 @@ function showSolicAsig($user)
                         ELSE 'OTRO'
                     END AS sub_tipo_inmb,
                     status, estado
-                    FROM 
+                    FROM
                     solicitudes_propiedades sp
                     INNER JOIN usuarios u ON sp.usuario = u.id_usu
                     WHERE sp.tipo_solic = 2 -- Solicitud a Legal
@@ -184,29 +184,62 @@ function showSolicAsig($user)
 }
 
 
+
 function documentsRead()
 {
     // Obtener el parámetro idProp desde la solicitud GET
     $idProp = $_GET['idProp'];
 
-    // Ruta de la carpeta que deseas leer, utilizando el id de la propiedad
-    $folderPath = "DocumentosPropiedad/" . $idProp;
+    // Ruta de la carpeta principal para las propiedades
+    $folderPath = "../DocumentosPropiedad/" . $idProp; // Ruta absoluta de la propiedad
 
     // Verificar si la ruta es un directorio válido
     if (is_dir($folderPath)) {
-        // Leer los archivos en la carpeta
-        $files = scandir($folderPath);
+        // Leer las subcarpetas en la carpeta principal
+        $folders = scandir($folderPath);
 
-        // Filtrar los archivos para excluir '.' y '..'
-        $files = array_diff($files, array('.', '..'));
+        // Filtrar para excluir '.' y '..'
+        $folders = array_diff($folders, array('.', '..'));
 
-        // Devolver los archivos como un array JSON
-        echo json_encode(array_values($files));
+        $folderData = [];
+
+        // Recorrer cada subcarpeta para obtener los archivos dentro de ellas
+        foreach ($folders as $folder) {
+            $subFolderPath = $folderPath . "/" . $folder;
+
+            if (is_dir($subFolderPath)) {
+                $files = scandir($subFolderPath);
+
+                // Filtrar para excluir '.' y '..'
+                $files = array_diff($files, array('.', '..'));
+
+                // Recoger los archivos dentro de la subcarpeta
+                $fileData = [];
+                foreach ($files as $file) {
+                    $fileData[] = [
+                        'nombre_doc' => $file,
+                        'url' => "../DocumentosPropiedad/$idProp/$folder/$file" // URL para cada archivo
+                    ];
+                }
+
+                // Guardar la carpeta y sus archivos
+                $folderData[] = [
+                    'nombre_carpeta' => $folder,
+                    'archivos' => $fileData
+                ];
+            }
+        }
+
+        // Devolver las carpetas y sus archivos como un array JSON
+        echo json_encode($folderData);
     } else {
-        // En caso de que no se encuentre la carpeta, devolver un error
-        echo json_encode(['error' => 'Carpeta no encontrada']);
+        // En caso de que no se encuentre la carpeta principal, devolver un error
+        echo json_encode(['error' => 'Carpeta principal no encontrada para idProp: ' . $idProp]);
     }
 }
+
+
+
 
 
 
@@ -225,7 +258,6 @@ if (isset($_GET['accion'])) {
             break;
         case 'showSolicAsig':
             showSolicAsig($user);
-            documentsRead();
             break;
         case 'documentsRead':
             documentsRead();

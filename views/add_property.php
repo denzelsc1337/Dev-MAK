@@ -1,6 +1,7 @@
 <?php
 include_once('../Config/Conexion.php');
 require_once('../Config/security.php');
+include '../Controller/path.php';
 
 require_once('../Controller/controladorListar.php');
 

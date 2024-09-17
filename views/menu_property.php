@@ -1,5 +1,7 @@
 <?php
+session_start();
 include_once('../Config/Conexion.php');
+include '../Controller/path.php';
 
 $cnx = new conexion();
 $cadena = $cnx->abrirConexion();

@@ -57,36 +57,38 @@
             // http://localhost/Docs/Dev-MAK/dashboard.php
             // echo "\n";
 
-            $fullPath = $_SERVER['PHP_SELF'];
+            // $fullPath = $_SERVER['PHP_SELF'];
 
-            // Obtén el directorio padre de la ruta
-            $parentDir = dirname($fullPath); // Devuelve "C:/xampp/htdocs/Docs/Dev-MAK"
+            // // Obtén el directorio padre de la ruta
+            // $parentDir = dirname($fullPath); // Devuelve "C:/xampp/htdocs/Docs/Dev-MAK"
 
-            // Obtén solo el nombre del directorio "Dev-MAK"
-            $targetDir = basename($parentDir); // Devuelve "Dev-MAK"
+            // // Obtén solo el nombre del directorio "Dev-MAK"
+            // $targetDir = basename($parentDir); // Devuelve "Dev-MAK"
 
-            // echo $targetDir; // Imprime "Dev-MAK"
+            // // echo $targetDir; // Imprime "Dev-MAK"
 
-            $parts = explode("/", $fullPath);
-            // print_r($parts);
+            // $parts = explode("/", $fullPath);
+            // // print_r($parts);
 
-            // Usar array_slice para obtener los elementos a partir del índice 2
-            $subset = array_slice($parts, 3);
-            // Contar los elementos de la porción del array
-            $countPathLesss = count($subset);
-            // echo "\n";
+            // // Usar array_slice para obtener los elementos a partir del índice 2
+            // $subset = array_slice($parts, 3);
+            // // Contar los elementos de la porción del array
+            // $countPathLesss = count($subset);
+            // // echo "\n";
 
-            if ($countPathLesss > 1) {
-                // $ruta = "1";
-                $ruta = "../Config/logout.php";
-            } else {
-                $ruta = "Config/logout.php";
-                // $ruta = "2";
-            }
+            // if ($countPathLesss > 1) {
+            //     // $ruta = "1";
+            //     $ruta = "../Config/logout.php";
+            // } else {
+            //     $ruta = "Config/logout.php";
+            //     // $ruta = "2";
+            // }
             ?>
 
             <li class="nav-item">
-                <a href="<?php echo $ruta ?>">
+                <!-- <a href="<?php // echo $ruta 
+                                ?>"> -->
+                <a href="<?php echo CONFIG_PATH . 'logout.php' ?>">
                     <i class="fa-solid fa-power-off"></i>
                     <span class="text nav-text">Cerrar sesión</span>
                 </a>

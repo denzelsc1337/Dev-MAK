@@ -1,6 +1,6 @@
 <?php
 require_once('config/security.php');
-// include 'Controller/path.php';
+include 'Controller/path.php';
 ?>
 
 <!DOCTYPE html>
@@ -123,9 +123,7 @@ require_once('config/security.php');
 
   </section>
 
-  <!-- </div> -->
 
-  <?php include 'modals.php' ?>
 
 
   <!-- REQUIRED SCRIPTS -->
