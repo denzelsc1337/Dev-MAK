@@ -1,11 +1,8 @@
 <?php
-// $fullPath = realpath($_SERVER['PHP_SELF'] . '/../');
-$fullPath = $_SERVER['PHP_SELF'];
 
-$parentDir = dirname(dirname($fullPath));
-$targetDir = basename($parentDir);
-// define('BASE_PATH', realpath(__DIR__ . '/../'));
-define('BASE_PATH', $parentDir);
+$fullPath = '/Project-DEVs/Dev-MAK';
+
+define('BASE_PATH', $fullPath);
 define('CONFIG_PATH', BASE_PATH . '/Config/');
 define('CONTROL_PATH', BASE_PATH . '/Controller/');
 define('MODEL_PATH', BASE_PATH . '/Model/');

@@ -317,11 +317,15 @@ document.addEventListener("DOMContentLoaded", function () {
         // data
         contentUpload.removeClass("hidden");
         contentData.addClass("hidden");
+        // btnupload
+        btnUpload.removeAttr("hidden");
       } else {
         icon.removeClass("fa-times").addClass("fa-pencil");
         //upload
-        contentData.addClass("hidden");
-        contentUpload.removeClass("hidden");
+        contentData.removeClass("hidden");
+        contentUpload.addClass("hidden");
+        // btnupload
+        btnUpload.attr("hidden", true);
       }
     });
 

@@ -1,6 +1,6 @@
 <?php
 require_once('config/security.php');
-include 'Controller/path.php';
+include './path.php';
 ?>
 
 <!DOCTYPE html>

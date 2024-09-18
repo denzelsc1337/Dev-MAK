@@ -57,7 +57,7 @@
           </div>
         </div>
         <div class="col-md-6 bor-lft-20 mak-txt">
-          <div class="mak row justify-content-center">
+          <div class="row justify-content-center">
             <div class="col-md-9">
               <div class="mt-5 mb-5">
                 <h1>Inicio de Sesión</h1>
