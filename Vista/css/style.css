@@ -971,15 +971,13 @@ tr {
   padding: 20px;
   border-radius: 10px;
   margin-bottom: 1rem;
+  width: 350px;
 }
 
-.item-list .row {
-  margin-right: 0px;
-  margin-left: 0px;
-}
-
-.list-items .item-list .item-list-content {
+.list-items .item-list .item-list-content,
+.list-items-asig .item-list .item-list-content {
   width: 100%;
+  overflow: hidden;
 }
 
 .list-items .item-list .item-list-content .d-flex ul {
@@ -1002,6 +1000,10 @@ tr {
 
 .list-items .item-list .item-list-content .content-head .sub-header {
   font-size: 13px;
+}
+
+.list-items-asig .item-list .item-list-content #content-item .data {
+  width: 100%;
 }
 
 .list-items .item-list .item-list-content .header .btn-edit,

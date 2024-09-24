@@ -13,7 +13,6 @@ $ID_prop = mysqli_query($cadena, "SELECT id_prop + 1 AS total_props FROM propied
 $ID = mysqli_fetch_object($ID_prop);
 
 
-
 ?>
 <!DOCTYPE html>
 <html lang="en">

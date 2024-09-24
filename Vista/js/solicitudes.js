@@ -86,30 +86,28 @@ document.addEventListener("DOMContentLoaded", function () {
 
         html += `
           <div class="item-list mak-bdr">
-            <div class="row">
-              <div class="item-list-content">
-                <div class="content-head">
-                  <div class="header">
-                    <span>ID Propiedad: <b>${item.id_prop}</b></span>
-                    <div class="d-flex">
-                      <div class="btn-save" hidden><i class="fa-solid fa-floppy-disk"></i></div>
-                      <div class="btn-edit"><i class="fa-solid fa-pencil"></i></div>
-                    </div>
+            <div class="item-list-content">
+              <div class="content-head">
+                <div class="header">
+                  <span>ID Propiedad: <b>${item.id_prop}</b></span>
+                  <div class="d-flex">
+                    <div class="btn-save" hidden><i class="fa-solid fa-floppy-disk"></i></div>
+                    <div class="btn-edit"><i class="fa-solid fa-pencil"></i></div>
                   </div>
                 </div>
-                <div class="d-flex">
-                  <ul>
-                    <li><span><b>Tipo propiedad:</b> ${item.tipo_inmb}</span></li>
-                    <li><span><b>Dirección:</b> ${item.direccion}</span></li>
-                    <li><span><b>Distrito:</b> ${item.distrito}</span></li>
-                    <li>
-                      <span><b>Asignado:</b></span>
-                      <select name="usu_lgl" id="usu_lgl-${item.id_soli_prop}" disabled>
-                        ${userOptions}
-                      </select>
-                    </li>
-                  </ul>
-                </div>
+              </div>
+              <div class="d-flex">
+                <ul>
+                  <li><span><b>Tipo propiedad:</b> ${item.tipo_inmb}</span></li>
+                  <li><span><b>Dirección:</b> ${item.direccion}</span></li>
+                  <li><span><b>Distrito:</b> ${item.distrito}</span></li>
+                  <li>
+                    <span><b>Asignado:</b></span>
+                    <select name="usu_lgl" id="usu_lgl-${item.id_soli_prop}" disabled>
+                      ${userOptions}
+                    </select>
+                  </li>
+                </ul>
               </div>
             </div>
           </div>
@@ -187,36 +185,32 @@ document.addEventListener("DOMContentLoaded", function () {
         // Generar el HTML de la propiedad
         html += `
           <div class="item-list mak-bdr">
-            <div class="row">
-              <div class="item-list-content">
-                <div class="content-head">
-                  <div class="header">
-                    <span>ID Propiedad: <b>${item.id_prop}</b></span>
-                    <div class="d-flex">
-                      <div class="btn-upload" hidden><i class="fa-solid fa-floppy-disk"></i></div>
-                      <div class="btn-change"><i class="fa-solid fa-pencil"></i></div>
-                    </div>
+            <div class="item-list-content">
+              <div class="content-head">
+                <div class="header">
+                  <span>ID Propiedad: <b>${item.id_prop}</b></span>
+                  <div class="d-flex">
+                    <div class="btn-upload" hidden><i class="fa-solid fa-floppy-disk"></i></div>
+                    <div class="btn-change"><i class="fa-solid fa-pencil"></i></div>
                   </div>
                 </div>
-                <div id="content-item" class="d-flex">
-                  <div class="data">
-                    <ul>
-                      <li><span><b>Tipo propiedad:</b> ${item.tipo_inmb}</span></li>
-                      <li><span><b>Dirección:</b> ${item.direccion}</span></li>
-                      <li><span><b>Distrito:</b> ${item.distrito}</span></li>
-                    </ul>
-                    <div class="documents">
-                      <span><b>Documentos:</b></span>
-                        ${foldersHtml}
-                    </div>
-                  </div>
-                  <div class="upload hidden">
-                    <input type="file" name="upload_legal_file" id="upload_legal_file">
-                  </div>  
-                </div>
-               
               </div>
-              
+              <div id="content-item" class="d-flex">
+                <div class="data">
+                  <ul>
+                    <li><span><b>Tipo propiedad:</b> ${item.tipo_inmb}</span></li>
+                    <li><span><b>Dirección:</b> ${item.direccion}</span></li>
+                    <li><span><b>Distrito:</b> ${item.distrito}</span></li>
+                  </ul>
+                  <div class="documents">
+                    <span><b>Documentos:</b></span>
+                      ${foldersHtml}
+                  </div>
+                </div>
+                <div class="upload hidden">
+                  <input type="file" name="upload_legal_file" id="upload_legal_file" style="width:100%">
+                </div>  
+              </div>
             </div>
           </div>
         `;
@@ -359,22 +353,52 @@ document.addEventListener("DOMContentLoaded", function () {
         },
       });
     });
+
     $(".btn-upload").on("click", function () {
+      const btnUpload = $(this);
+      const item = btnUpload.closest(".item-list");
+      const idProp = item.find("b:first").text().trim();
+
+      // Asegúrate de que el input de archivo se haya creado dinámicamente
+      const fileInput = document.getElementById("upload_legal_file");
+      if (!fileInput) {
+        console.error("El input de archivo no está disponible");
+        return;
+      }
+
+      const file = fileInput.files[0]; // Obtener el archivo seleccionado
+      // console.log(file);
+
+      // Verificar si se seleccionó un archivo
+      if (!file) {
+        console.error("No se ha seleccionado ningún archivo");
+        return;
+      }
+
+      // Crear un objeto FormData para enviar el archivo
+      const formData = new FormData();
+      formData.append("idProp", idProp); // Añadir el idProp al FormData
+      formData.append("file", file); // Añadir el archivo al FormData
+      formData.append("accion", "subir"); // Acción para el backend
+
+      // Enviar el archivo usando AJAX
       $.ajax({
-        url: "./../Controller/solicitudes_propiedades.php",
+        url: "./../Controller/upload_doc_legal.php",
         type: "POST",
-        data: {
-          idProp: idProp,
-          usuAsignado: idUsu,
-          accion: "subir",
-        },
+        data: formData, // Enviar el FormData
+        contentType: false, // Para que jQuery no establezca un contentType incorrecto
+        processData: false, // Para evitar que jQuery procese el FormData
         success: function (response) {
-          console.log(response);
+          // console.log(response);
         },
         error: function (xhr, status, error) {
           console.error("Error en la solicitud:", error);
         },
-        complete: function () {},
+        complete: function () {
+          // window.location.reload(true);
+          // window.location.reload(true);
+          showSolicAsig();
+        },
       });
     });
   }
