@@ -115,7 +115,7 @@ document.addEventListener("DOMContentLoaded", function () {
       });
 
       $(".list-items").html(html);
-      // assignEvents();
+      assignEvents();
     } catch (error) {
       console.error("Error en la solicitud:", error);
     }
@@ -350,6 +350,7 @@ document.addEventListener("DOMContentLoaded", function () {
           const input = item.find("select[name='usu_lgl']");
           input.prop("disabled", true);
           btnSave.attr("hidden", true);
+          showSolicAsig();
         },
       });
     });

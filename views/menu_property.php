@@ -1,6 +1,6 @@
 <?php
-session_start();
 include_once('../Config/Conexion.php');
+require_once('../Config/security.php');
 include '../path.php';
 
 $cnx = new conexion();

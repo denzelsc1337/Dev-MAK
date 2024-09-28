@@ -214,9 +214,6 @@ $cadena = $cnx->abrirConexion();
                         </div>
 
                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 mb-3">
-                            <?php //print_r($_SESSION); 
-                            ?>
-
                             <div class="card-body">
                                 <div class="card-head justify-between mb-3">
                                     <div>
@@ -224,9 +221,7 @@ $cadena = $cnx->abrirConexion();
                                         Solicitudes 3
                                     </div>
                                 </div>
-
                                 <div class="list-items-asig">
-
                                 </div>
                             </div>
                         </div>

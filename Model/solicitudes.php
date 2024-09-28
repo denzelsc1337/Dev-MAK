@@ -170,7 +170,7 @@ class solicitudes
 
 
 
-    public function updateAsignado($asignado, $id_soli)
+    public function updateAsignado($asignado, $id_prop)
     {
         include_once('../config/Conexion.php');
         $cnx = new conexion();
@@ -178,7 +178,7 @@ class solicitudes
 
         $query = "UPDATE solicitudes_propiedades
                     SET asignado = $asignado
-                    where id_soli_prop = $id_soli";
+                    where id_prop = $id_prop";
 
         $result = mysqli_query($cadena, $query);
 

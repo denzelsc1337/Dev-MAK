@@ -9,7 +9,7 @@ $cadena = $cnx->abrirConexion();
 
 
 $id = $_POST['idProp'];
-$usu = $_POST['usuario'];
+$usu = $_POST['usuAsignado'];
 
 $oSoli = new solicitudes();
 $r = $oSoli->updateAsignado($usu, $id);
