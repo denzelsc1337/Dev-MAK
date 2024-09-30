@@ -586,8 +586,8 @@ $ID = mysqli_fetch_object($ID_prop);
                                                         <div id="btnFile" class="item-box">
                                                             <i class="fa-solid fa-arrow-up-from-bracket"></i>
                                                             Subir imágenes
+                                                            <input id="inputFile" name="inputFile[]" type="file" multiple hidden>
                                                         </div>
-                                                        <input id="inputFile" name="inputFile[]" type="file" multiple hidden>
                                                     </div>
 
                                                     <div class="drop-archive">

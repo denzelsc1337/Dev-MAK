@@ -14,6 +14,14 @@ document.addEventListener("DOMContentLoaded", function () {
     return validExtensions.includes(type);
   }
 
+  function dataContent() {
+    if (dataDrag.length > 0) {
+      inputBox.classList.add("file-file");
+    } else {
+      inputBox.classList.remove("file-file");
+    }
+  }
+
   function removeFile(id) {
     // Elimina el archivo del array `dataDrag` por su ID
     const indexToRemove = dataDrag.findIndex((item) => item.id === id);
@@ -26,6 +34,7 @@ document.addEventListener("DOMContentLoaded", function () {
       fileElement.remove();
     }
     console.log(dataDrag);
+    dataContent();
   }
 
   function uploadFile(file, dragContent) {
@@ -57,6 +66,7 @@ document.addEventListener("DOMContentLoaded", function () {
       });
 
       console.log(dataDrag);
+      dataContent();
     };
     reader.readAsDataURL(file);
   }

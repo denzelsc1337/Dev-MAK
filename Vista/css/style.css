@@ -928,8 +928,12 @@ body.dark .home .text {
   border-right: 1px solid var(--other-mak) !important;
 }
 
-tr {
-  padding: 40px;
+#upTable.table {
+  border-spacing: 0px !important;
+}
+
+#upTable.table td {
+  padding: 0.75rem !important;
 }
 
 .table {
@@ -1032,14 +1036,17 @@ tr {
 /* DRAG & DROP */
 
 .mak .file-content {
-  min-height: 200px;
+  min-height: 260px;
   border: 1px dashed #a8b3e3;
   background-image: linear-gradient(180deg, white, #f1f6ff);
   border-radius: 12px;
   position: relative;
   display: flex;
+  /* align-items: center; */
+  /* justify-content: space-around; */
+  gap: 10px;
   flex-wrap: wrap;
-  padding: 5px;
+  /* padding: 5px; */
   cursor: pointer;
 }
 
@@ -1048,18 +1055,20 @@ tr {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 90px;
-  height: 90px;
+  /* width: 90px; */
+  width: 120px;
+  height: 120px;
+  /* height: 90px; */
   border-radius: 5px;
   overflow: hidden;
-  margin: 0 10px 10px 0;
+  /* margin: 0 10px 10px 0; */
   order: -1;
 }
 
 .mak .file-content .file-item img {
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  object-fit: cover;
 }
 
 .mak .file-content .file-item .item-close {
@@ -1085,11 +1094,11 @@ tr {
   width: 200px;
   height: 50px;
   margin: auto;
-  position: absolute;
+  /* position: absolute;
   top: 0px;
   bottom: 0px;
   left: 0px;
-  right: 0px;
+  right: 0px; */
 }
 
 .mak .file-content .up-archive.items-picture {
@@ -1102,8 +1111,10 @@ tr {
   position: initial;
   margin: 0 !important;
   order: 2;
-  width: 90px;
-  height: 90px;
+  /* width: 90px; */
+  width: 120px;
+  height: 120px;
+  /* height: 90px; */
   border: 1px dashed;
   font-size: 13px;
 }
@@ -1158,14 +1169,6 @@ tr {
 }
 
 /*  */
-.file-content {
-  min-height: 250px;
-  border: 1px dashed #a8b3e3;
-  background-image: linear-gradient(180deg, white, #f1f6ff);
-  margin: 5px 35px 35px 35px;
-  border-radius: 12px;
-  position: relative;
-}
 
 .file-content div.col:first-child {
   opacity: 1;
