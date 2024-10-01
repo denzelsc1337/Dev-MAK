@@ -76,7 +76,7 @@ class cLegal
 
 
 	public function updt_solic_legal_($id_solic_l)
-	{
+	{	
 		include_once('../config/Conexion.php');
 		$cnx = new Conexion();
 		$cadena = $cnx->abrirConexion();
